@@ -24,7 +24,6 @@ import {
   ROUTE_STATIC_NOTFOUND,
   ROUTE_BROWSE_CONSULTATIONS,
   ROUTE_BROWSE_RESULTS,
-  ROUTE_BETA_SEQUENCE,
 } from 'Shared/routes';
 
 export const getLocationContext = (
@@ -98,15 +97,8 @@ export const getLocationContext = (
       route: ROUTE_BROWSE_RESULTS,
       name: `browse-results-page`,
     },
-    { route: ROUTE_BETA_SEQUENCE, name: `sequence-beta ${questionId}` },
     { route: '/', name: `homepage`, exact: true, strict: true },
-    { route: '/:countryLang', name: `homepage`, exact: true, strict: false },
-    {
-      route: '/beta/:country-:language/home',
-      name: `homepage`,
-      exact: true,
-      strict: true,
-    },
+    { route: '/:country', name: `homepage`, exact: true, strict: false },
   ];
 
   const location = locations.find(item => {

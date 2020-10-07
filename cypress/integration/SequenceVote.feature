@@ -60,7 +60,7 @@ Feature: Vote on sequence
     | name          | value                                       |
     | app-name      | main-front                                  |
     | source        | core                                        |
-    | location      | sequence-beta question-0-id                 |
+    | location      | sequence question-0-id                      |
     | language      | fr                                          |
     | country       | FR                                          |
     | question-id   | question-0-id                               |
@@ -70,7 +70,7 @@ Feature: Vote on sequence
     | name          | value                                       |
     | app-name      | main-front                                  |
     | source        | core                                        |
-    | location      | sequence-beta question-0-id                 |
+    | location      | sequence question-0-id                      |
     | language      | fr                                          |
     | country       | FR                                          |
     | question-id   | question-0-id                               |
@@ -82,26 +82,26 @@ Feature: Vote on sequence
     | card-position       | 1                                                                   |
     | country             | FR                                                                  |
     | language            | fr                                                                  |
-    | location            | sequence-beta                                                       |
+    | location            | sequence                                                            |
     | nature              | agree                                                               |
     | proposalId          | proposal-question-0-slug-0-id                                       |
     | questionId          | question-0-id                                                       |
     | questionSlug        | question-0-slug                                                     |
     | referrer            | http://localhost:9009/__/                                           |
-    | url                 | http://localhost:9009/beta/FR/consultation/question-0-slug/selection  |
+    | url                 | http://localhost:9009/FR/consultation/question-0-slug/selection     |
     And event "click-proposal-vote" should be tracked by Make with parameters values:
     | name                | value                                                               |
     | eventType           | trackCustom                                                         |
     | card-position       | 1                                                                   |
     | country             | FR                                                                  |
     | language            | fr                                                                  |
-    | location            | sequence-beta                                                       |
+    | location            | sequence                                                            |
     | nature              | agree                                                               |
     | proposalId          | proposal-question-0-slug-0-id                                       |
     | questionId          | question-0-id                                                       |
     | questionSlug        | question-0-slug                                                     |
     | referrer            | http://localhost:9009/__/                                           |
-    | url                 | http://localhost:9009/beta/FR/consultation/question-0-slug/selection  |
+    | url                 | http://localhost:9009/FR/consultation/question-0-slug/selection     |
     When I click on "next proposal" of the current card
     Then card "2" is visible
     And I vote "neutral" on the current card
@@ -111,10 +111,10 @@ Feature: Vote on sequence
     | card-position       | 2                                                                   |
     | country             | FR                                                                  |
     | language            | fr                                                                  |
-    | location            | sequence-beta                                                       |
+    | location            | sequence                                                            |
     | nature              | neutral                                                             |
     | proposalId          | proposal-question-0-slug-1-id                                       |
     | questionId          | question-0-id                                                       |
     | questionSlug        | question-0-slug                                                     |
     | referrer            | http://localhost:9009/__/                                           |
-    | url                 | http://localhost:9009/beta/FR/consultation/question-0-slug/selection  |
+    | url                 | http://localhost:9009/FR/consultation/question-0-slug/selection     |

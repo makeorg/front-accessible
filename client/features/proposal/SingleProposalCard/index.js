@@ -7,10 +7,6 @@ import { ProposalAuthorElement } from 'Client/ui/Proposal/AuthorElement';
 import { Vote } from 'Client/features/vote';
 import { ContentSeparatorStyle } from 'Client/ui/Elements/Separators';
 import { TallCardStyle } from 'Client/ui/Cards';
-import {
-  SequenceProposalStyle,
-  SequenceCardSeparatorStyle,
-} from 'Client/features/sequence/Deprecated/style';
 import { isInProgress } from 'Shared/helpers/date';
 import { DetailledVoteResults } from 'Client/ui/Proposal/DetailledVoteResults';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
@@ -22,13 +18,15 @@ import {
 import { useSelector } from 'react-redux';
 import {
   InnerProposalStyle,
+  ProposalCardContentStyle,
+  ProposalCardSeparatorStyle,
   ProposalFooterStyle,
   FooterContentSeparatorStyle,
   FooterContentStyle,
   DescriptionStyle,
   ButtonWrapperStyle,
   ButtonStyle,
-} from './Styled';
+} from './style';
 
 type Props = {
   /** Object with all proposal's properties */
@@ -45,13 +43,13 @@ export const SingleProposalCard = ({ proposal }: Props) => {
       <TallCardStyle id="proposal_card">
         <InnerProposalStyle>
           <ProposalAuthorElement proposal={proposal} />
-          <SequenceCardSeparatorStyle />
+          <ProposalCardSeparatorStyle />
           <ScreenReaderItemStyle>
             {i18n.t('proposal_card.content')}
           </ScreenReaderItemStyle>
-          <SequenceProposalStyle lang={proposal.question.language}>
+          <ProposalCardContentStyle lang={proposal.question.language}>
             {proposal.content}
-          </SequenceProposalStyle>
+          </ProposalCardContentStyle>
           {isConsultationOpened ? (
             <Vote
               proposal={proposal}

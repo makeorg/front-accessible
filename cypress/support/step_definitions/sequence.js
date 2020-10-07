@@ -1,7 +1,6 @@
 import { getIdentifierButtonByName } from '../mapping';
 
-const deprecatedSequencePage = '/FR/consultation/:questionSlug/selection';
-const sequencePage = '/beta/FR/consultation/:questionSlug/selection';
+const sequencePage = '/FR/consultation/:questionSlug/selection';
 const voteLabel = {
   "D'accord": "agree",
   "Pas d'accord": "disagree",

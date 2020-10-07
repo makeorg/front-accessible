@@ -5,7 +5,7 @@ import { Sharing } from 'Client/features/sharing';
 import {
   SharingWrapperStyle,
   SharingTitleStyle,
-} from 'Client/features/proposal/SingleProposalCard/Styled';
+} from 'Client/features/proposal/SingleProposalCard/style';
 
 export const SingleProposalSharingComponent = () => (
   <SharingWrapperStyle

@@ -5,7 +5,7 @@ export const pages = {
   'homepage': '/',
   'france homepage': '/FR',
   'british homepage': '/GB',
-  'sequence': '/beta/FR/consultation/:questionSlug/selection',
+  'sequence': '/FR/consultation/:questionSlug/selection',
   'general terms of use': '/FR/conditions-dutilisation',
   'data policy': '/FR/politique-donnees',
   'about': 'https://about.make.org',
