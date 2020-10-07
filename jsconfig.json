@@ -3,9 +3,9 @@
     "baseUrl": "./",
     "paths": {
       "Client/*": ["client/*"],
-      "Shared/*": ["shared/*"]
+      "Shared/*": ["shared/*"],
     }
   },
-  "include": ["server", "client", "shared"],
+  "include": ["server", "client", "shared", "i18n"],
   "exclude": ["node_modules"]
 }

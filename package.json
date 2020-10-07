@@ -63,6 +63,7 @@
 		"winston": "~3.3.3"
 	},
 	"devDependencies": {
+		"@babel/cli": "^7.11.6",
 		"@babel/core": "^7.11.6",
 		"@babel/plugin-proposal-class-properties": "~7.10.4",
 		"@babel/preset-env": "~7.11.5",
@@ -141,7 +142,8 @@
 		"webpack-manifest-plugin": "~2.2.0",
 		"webpack-merge": "~5.1.4",
 		"webpack-node-externals": "~2.5.2",
-		"webpack-pwa-manifest": "~4.2.0"
+		"webpack-pwa-manifest": "~4.2.0",
+		"yargs": "^16.0.3"
 	},
 	"scripts": {
 		"build": "webpack -p --progress --colors --config ./webpack/prod.config.js",
@@ -152,7 +154,7 @@
 		"server:dev:server:start": "env PORT=9009 NODE_ENV=development node bin/start",
 		"server:dev:api-mock:start": "node ./apiMocks/server.js",
 		"version:build": "node server/versionBuild.js",
-		"prepush": "yarn lint && yarn flow && yarn test:unit:all && yarn jscpd",
+		"prepush": "yarn i18n:translation:check && yarn lint && yarn flow && yarn test:unit:all && yarn jscpd",
 		"styleguide": "styleguidist server",
 		"styleguide:build": "styleguidist build",
 		"lint": "eslint client server shared",
@@ -177,6 +179,9 @@
 		"test:lighthouse:consultation": "lighthouse-ci http://localhost:9009/FR/consultation/question-0-slug/consultation --accessibility=100 --report='.' --filename=report-consultation.html --chrome-flags='--headless --no-sandbox'",
 		"test:lighthouse:proposal": "lighthouse-ci http://localhost:9009/FR/consultation/question-0-slug/proposal/proposal-question-0-slug-0-id/proposal-question-0-slug-0-slug --accessibility=100 --report='.' --filename=report-proposal.html --chrome-flags='--headless --no-sandbox'",
 		"svg": "svgr -d ./client/ui/Svg/elements ./client/ui/Svg/svgr --template ./client/ui/Svg/svgrTemplate.js && cp -r ./client/ui/Svg/svgr/* ./client/ui/Svg/source",
-		"jscpd": "jscpd client server shared"
+		"jscpd": "jscpd client server shared",
+		"i18n:translation": "npx babel --config-file ./babel.config.js i18n --out-dir dist/i18n i18n && bin/checkTranslation.js",
+		"i18n:translation:check": "yarn i18n:translation check -d ./server/staticData/i18n -l 'fr'",
+		"i18n:translation:fix": "yarn i18n:translation check -d ./server/staticData/i18n -l 'fr' --fix"
 	}
 }

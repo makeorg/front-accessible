@@ -15,7 +15,7 @@ stages:
   - build
   - deploy
   - merge
-
+  
 lint:
   stage: check
   except: 
@@ -49,6 +49,7 @@ test:
   script:    
     - node -v
     - yarn install
+    - yarn i18n:translation:check
     - yarn test-with-coverage-codacy
 
 jscpd:
