@@ -10,9 +10,31 @@ import {
   ConsultationElementSubtitleStyle,
 } from './style';
 
-export const BrowseConsultationsTitles = () => {
+type Props = {
+  total: number,
+};
+export const BrowseConsultationsTitles = ({ total }: Props) => {
   const location = useLocation();
   const consultationsPage = isBrowseConsultationsPage(location.pathname);
+  const hasConsultations = total > 0;
+  let subtitleText;
+
+  if (consultationsPage) {
+    subtitleText = i18n.t('browse.consultations.subtitle');
+  }
+
+  if (consultationsPage && !hasConsultations) {
+    subtitleText = i18n.t('browse.consultations.empty');
+  }
+
+  if (!consultationsPage && !hasConsultations) {
+    subtitleText = i18n.t('browse.results.empty');
+  }
+
+  if (!consultationsPage) {
+    subtitleText = i18n.t('browse.results.subtitle');
+  }
+
   return (
     <ConsultationsTitleWrapperStyle>
       <ConsultationElementSubtitleStyle>
@@ -25,11 +47,7 @@ export const BrowseConsultationsTitles = () => {
           ? i18n.t('browse.consultations.title')
           : i18n.t('browse.results.title')}
       </HomepageSectionTitleStyle>
-      <ConsultationsSubtitleStyle>
-        {consultationsPage
-          ? i18n.t('browse.consultations.subtitle')
-          : i18n.t('browse.results.subtitle')}
-      </ConsultationsSubtitleStyle>
+      <ConsultationsSubtitleStyle>{subtitleText}</ConsultationsSubtitleStyle>
     </ConsultationsTitleWrapperStyle>
   );
 };

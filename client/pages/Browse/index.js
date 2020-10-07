@@ -83,7 +83,7 @@ const BrowseConsultationsPage = () => {
           <Spinner />
         ) : (
           <>
-            <BrowseConsultationsTitles />
+            <BrowseConsultationsTitles total={questionsTotal} />
             {questions && (
               <BrowseConsultationsList
                 questions={questions}

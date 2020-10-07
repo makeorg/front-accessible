@@ -27,7 +27,7 @@ export const InternationalPlaceholder = () => (
         {i18n.t('homepage.international.title')}
       </HomepageSectionTitleStyle>
       <CurrentQuestionsButtonStyle
-        href={getHomeLink('FR')}
+        to={getHomeLink('FR')}
         data-cy-link="international-placeholder-link"
       >
         {i18n.t('homepage.international.button')}

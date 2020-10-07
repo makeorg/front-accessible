@@ -794,7 +794,8 @@
       "contributors": "participant",
       "contributors_plural": "participants",
       "proposals": "proposition",
-      "proposals_plural": "propositions"
+      "proposals_plural": "propositions",
+      "empty": "Nous sommes désolés, aucune consultation n'est diponible actuellement dans votre pays."
     },
     "results":{
       "label": "Consultations terminées",
@@ -802,7 +803,8 @@
       "subtitle": "A l'issue de nos consultations, découvrez les priorités des citoyens et les actions menées par Make.org dans le cadre de ses Grandes Causes.",
       "see_results": "Voir les résultats",
       "see_topideas": "Voir le top des idées",
-      "coming_results": "Résultats à venir"
+      "coming_results": "Résultats à venir",
+      "empty": "Nous n'avons jamais mené de consultation dans votre pays jusqu'à présent."
     },
     "date": "Consultation du {{startDate}} au {{endDate}}",
     "browse": "Parcourir les consultations",
