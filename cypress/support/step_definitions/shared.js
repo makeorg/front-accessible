@@ -4,6 +4,7 @@ import { getIdentifierButtonByName } from '../mapping';
 export const pages = {
   'homepage': '/',
   'france homepage': '/FR',
+  'british homepage': '/GB',
   'sequence': '/beta/FR/consultation/:questionSlug/selection',
   'general terms of use': '/FR/conditions-dutilisation',
   'data policy': '/FR/politique-donnees',
@@ -37,6 +38,11 @@ given('I go to 404 page', () => {
 given('I go/am to/on {string}', (targetPage) => {
   checkPageExist(targetPage);
   cy.visit(pages[targetPage]);
+});
+
+given('I go/am to/on {string} from Great Britain', (targetPage) => {
+  checkPageExist(targetPage);
+  cy.visit(pages[targetPage], { headers: { 'x-detected-country' : 'GB' } });
 });
 
 given('I am/go on/to {string} page of the question {string}', (targetPage, questionSlug) => {

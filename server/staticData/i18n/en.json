@@ -841,21 +841,11 @@
             "more": "See more",
             "less": "See less"
         },
-        "highlights":{
-            "title": "",
-            "participants":{
-              "figure": "",
-              "subtitle": ""
-            },
-            "proposals":{
-              "figure": "",
-              "subtitle": ""
-            },
-            "partners":{
-              "figure": "",
-              "subtitle": ""  
-            }
-          }
+        "international": {
+            "subtitle": "National consultations",
+            "title": "Make.org is also available in France for national topics",
+            "button": "Discover" 
+        }
     },
     "search": {
         "titles": {

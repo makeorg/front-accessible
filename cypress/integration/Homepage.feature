@@ -4,6 +4,10 @@ Feature: The Home Page
   Scenario: Redirect to france Homepage
     Given I go to "homepage"
     Then I should be redirect to "france homepage"
+
+  Scenario: Redirect to british Homepage
+    Given I go to "homepage" from Great Britain
+    Then I should be redirect to "british homepage"
   
   Scenario: Homepage has a title
     Given I go to "france homepage"
@@ -51,7 +55,7 @@ Feature: The Home Page
       | questionId          |                                                                       |
       | questionSlug        |                                                                       |
       | referrer            | http://localhost:9009/__/                                             |
-      | url                 | http://localhost:9009/FR                                           |
+      | url                 | http://localhost:9009/FR                                              |
     And some make data header should be sent to "postTracking":
       | name                | value                                                                 |
       | app-name            | main-front                                                            |
@@ -59,6 +63,31 @@ Feature: The Home Page
       | location            | homepage                                                              |
       | language            | fr                                                                    |
       | country             | FR                                                                    |
+      | question-id         |                                                                       |
+      | referrer            | http://localhost:9009/__/                                             |
+      | custom-data         |                                                                       |
+
+  Scenario: Track display home page on british version
+    Given I monitor API "postTracking" requests
+    When I go to "british homepage"
+    Then event "display-page-home" should be tracked by Make with parameters values:
+      | name                | value                                                                 |
+      | eventType           | trackCustom                                                           |
+      | country             | GB                                                                    |
+      | language            | en                                                                    |
+      | source              | core                                                                  |
+      | location            | homepage                                                              |
+      | questionId          |                                                                       |
+      | questionSlug        |                                                                       |
+      | referrer            | http://localhost:9009/__/                                             |
+      | url                 | http://localhost:9009/GB                                              |
+    And some make data header should be sent to "postTracking":
+      | name                | value                                                                 |
+      | app-name            | main-front                                                            |
+      | source              | core                                                                  |
+      | location            | homepage                                                              |
+      | language            | en                                                                    |
+      | country             | GB                                                                    |
       | question-id         |                                                                       |
       | referrer            | http://localhost:9009/__/                                             |
       | custom-data         |                                                                       |
@@ -77,7 +106,7 @@ Feature: The Home Page
         | questionId          |                                                                     |
         | questionSlug        |                                                                     |
         | referrer            | http://localhost:9009/__/                                           |
-        | url                 | http://localhost:9009/FR                                         |
+        | url                 | http://localhost:9009/FR                                            |
 
   Scenario: Track discover great causes button in hero section
     Given I go to "france homepage"
@@ -93,7 +122,7 @@ Feature: The Home Page
         | questionId          |                                                                     |
         | questionSlug        |                                                                     |
         | referrer            | http://localhost:9009/__/                                           |
-        | url                 | http://localhost:9009/FR                                         |
+        | url                 | http://localhost:9009/FR                                            |
 
   Scenario: Track click browse consultations in browse section
     Given I go to "france homepage"
@@ -109,7 +138,7 @@ Feature: The Home Page
         | questionId          |                                                                      |
         | questionSlug        |                                                                      |
         | referrer            | http://localhost:9009/__/                                            |
-        | url                 | http://localhost:9009/FR                                          |
+        | url                 | http://localhost:9009/FR                                             |
 
 
   Scenario: Track see blog button click on homepage
@@ -126,4 +155,4 @@ Feature: The Home Page
         | questionId          |                                                                     |
         | questionSlug        |                                                                     |
         | referrer            | http://localhost:9009/__/                                           |
-        | url                 | http://localhost:9009/FR                                         | 
+        | url                 | http://localhost:9009/FR                                            | 
