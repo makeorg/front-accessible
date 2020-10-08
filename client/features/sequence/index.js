@@ -13,6 +13,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { selectAuthentication } from 'Shared/store/selectors/user.selector';
 import {
   resetSequenceIndex,
+  resetFirstProposal,
   setSequenceIndex,
   loadSequenceCards,
 } from 'Shared/store/actions/sequence';
@@ -74,9 +75,14 @@ export const Sequence = ({ question }: Props) => {
     ]).then(proposals => {
       setSequenceProposals(proposals || []);
       dispatch(resetSequenceIndex());
+
       setLoading(false);
     });
   }, [question, firstProposal, isLoggedIn, hasProposed]);
+
+  useEffect(() => {
+    return () => dispatch(resetFirstProposal());
+  }, []);
 
   useEffect(() => {
     if (!cards.length) {
