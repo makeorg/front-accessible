@@ -3,8 +3,13 @@ import fs from 'fs';
 const allKeys = (obj, current = '') => {
   const keys = Object.keys(obj);
   const all = keys.map(value => {
+    if (value.includes('.')) {
+      throw new Error(
+        `Invalid key format. Remove dot character from "${value}"`
+      );
+    }
     if (typeof obj[value] === 'string') {
-      return `${current}.${value}`;
+      return current.length ? `${current}.${value}` : value;
     }
     const newCurrent = current === '' ? value : `${current}.${value}`;
     return allKeys(obj[value], newCurrent);
@@ -13,11 +18,25 @@ const allKeys = (obj, current = '') => {
   return all.flat();
 };
 
+const decomposeKey = key => {
+  const decomposedKeys = [];
+  key.split('.').reduce(accumulator => {
+    decomposedKeys.push(accumulator);
+
+    return accumulator.replace(/\.[^.]+$/, '');
+  }, key);
+
+  return decomposedKeys;
+};
+
 const getExtraKeys = (keysToCheck, referenceKeys) => {
-  const keysToRemove = [];
-  keysToCheck.forEach(key => {
-    if (!referenceKeys.includes(key)) {
-      keysToRemove.push(key);
+  const keysToRemove = new Set();
+  const allReferenceKeys = new Set(referenceKeys.map(decomposeKey).flat());
+  const allKeysToCheck = new Set(keysToCheck.map(decomposeKey).flat());
+
+  allKeysToCheck.forEach(key => {
+    if (!allReferenceKeys.has(key)) {
+      keysToRemove.add(key);
     }
   });
 
@@ -25,10 +44,10 @@ const getExtraKeys = (keysToCheck, referenceKeys) => {
 };
 
 const getMissingKeys = (keysToCheck, referenceKeys) => {
-  const keysToAdd = [];
+  const keysToAdd = new Set();
   referenceKeys.forEach(key => {
     if (!keysToCheck.includes(key)) {
-      keysToAdd.push(key);
+      keysToAdd.add(key);
     }
   });
 
@@ -58,37 +77,76 @@ const loadTranslationObjFromFilenames = (filenames, translationFilesDir) => {
 };
 
 const removeKey = (obj, concatKey) => {
-  const keyList = concatKey.split('.');
-  keyList.reduce((accumulator, currentValue) => {
-    if (typeof accumulator[currentValue] === 'string') {
+  concatKey.split('.').reduce((accumulator, currentValue, index, array) => {
+    if (index === array.length - 1 && accumulator) {
       delete accumulator[currentValue];
+      return null;
+    }
+    if (
+      !accumulator ||
+      typeof accumulator[currentValue] === 'string' ||
+      accumulator[currentValue] === undefined
+    ) {
+      return null;
     }
 
     return accumulator[currentValue];
   }, obj);
 };
 
-const addKey = (obj, referenceObj, concatKey, mainLanguage) => {
-  const keyList = concatKey.split('.');
-  keyList.reduce(
-    (accumulator, currentValue) => {
-      if (!(currentValue in accumulator.obj)) {
-        if (typeof accumulator.referenceObj[currentValue] === 'string') {
-          accumulator.obj[currentValue] = `@@${concatKey}|${mainLanguage}:${
-            accumulator.referenceObj[currentValue]
-          }`;
-        } else {
-          accumulator.obj[currentValue] =
-            accumulator.referenceObj[currentValue];
-        }
-      }
-      return {
-        obj: accumulator.obj[currentValue],
-        referenceObj: accumulator.referenceObj[currentValue],
-      };
-    },
-    { obj, referenceObj }
-  );
+const addKey = (translationObj, referenceObj, concatKey, mainLanguageLabel) => {
+  const replacementValue = initialValue =>
+    `@@${concatKey}|${mainLanguageLabel}:${initialValue}`;
+
+  const reducer = (accumulator, currentValue) => {
+    const { transObj, refObj } = accumulator;
+
+    const sameValueType =
+      typeof refObj[currentValue] === typeof transObj[currentValue];
+    const refObjValueIsString = typeof refObj[currentValue] === 'string';
+    const keyExist = currentValue in transObj;
+
+    if (!keyExist || !sameValueType) {
+      transObj[currentValue] = {};
+    }
+
+    if (!keyExist && refObjValueIsString) {
+      transObj[currentValue] = replacementValue(refObj[currentValue]);
+    }
+
+    return {
+      transObj: transObj[currentValue],
+      refObj: refObj[currentValue],
+    };
+  };
+
+  concatKey.split('.').reduce(reducer, {
+    transObj: translationObj,
+    refObj: { ...referenceObj },
+  });
+};
+
+export const analyseTranslation = (transObj, mainTransObj) => {
+  const referenceKeys = allKeys(mainTransObj.trans);
+  const extraKeys = getExtraKeys(allKeys(transObj.trans), referenceKeys);
+  const missingKeys = getMissingKeys(allKeys(transObj.trans), referenceKeys);
+  const fixedTrans = { ...transObj.trans };
+  extraKeys.forEach(key => {
+    removeKey(fixedTrans, key);
+  });
+  missingKeys.forEach(key => {
+    addKey(fixedTrans, mainTransObj.trans, key, mainTransObj.language);
+  });
+  return {
+    language: transObj.language,
+    extraKeysCount: extraKeys.size,
+    missingKeysCount: missingKeys.size,
+    extraKeys,
+    missingKeys,
+    original: transObj.trans,
+    fixedTrans,
+    filename: transObj.filename,
+  };
 };
 
 export const analyse = async (translationFilesDir, mainLanguage = 'fr') => {
@@ -107,31 +165,11 @@ export const analyse = async (translationFilesDir, mainLanguage = 'fr') => {
     transObj => transObj.language !== mainLanguage
   );
 
-  const referenceKeys = allKeys(mainTransObj.trans);
-
   const failedResults = [];
   allTransObj.forEach(transObj => {
-    const extraKeys = getExtraKeys(allKeys(transObj.trans), referenceKeys);
-    const missingKeys = getMissingKeys(allKeys(transObj.trans), referenceKeys);
-
-    if (extraKeys.length > 0 || missingKeys.length > 0) {
-      const fixedTrans = transObj.trans;
-      extraKeys.forEach(key => {
-        removeKey(fixedTrans, key);
-      });
-      missingKeys.forEach(key => {
-        addKey(fixedTrans, mainTransObj.trans, key, mainLanguage);
-      });
-      failedResults.push({
-        language: transObj.language,
-        extraKeysCount: extraKeys.length,
-        missingKeysCount: missingKeys.length,
-        extraKeys,
-        missingKeys,
-        original: transObj.trans,
-        fixedTrans,
-        filename: transObj.filename,
-      });
+    const result = analyseTranslation(transObj, mainTransObj);
+    if (result.extraKeysCount || result.missingKeysCount) {
+      failedResults.push(result);
     }
   });
 
