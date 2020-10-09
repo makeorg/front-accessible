@@ -5,6 +5,8 @@ import {
   trackClickHomepageParticipate,
   trackClickHomepageDiscover,
 } from 'Shared/services/Tracking';
+import { useSelector } from 'react-redux';
+import { type StateRoot } from 'Shared/store/types';
 import { HeroPictures } from './Pictures';
 import {
   ColumnToRowToColumnStyle,
@@ -21,6 +23,8 @@ import {
 
 export const Hero = () => {
   const isDesktop = useDesktop();
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
+  const isFr = country === 'FR';
 
   return (
     <HeroWrapperStyle as="section" aria-labelledby="hero-title">
@@ -43,15 +47,17 @@ export const Hero = () => {
               {i18n.t('homepage.hero.participate')}
               <WhiteArrowDownIcon aria-hidden />
             </HeroRedButtonStyle>
-            <HeroTransparentButtonStyle
-              as="a"
-              href="#featured_questions"
-              onClick={() => trackClickHomepageDiscover()}
-              data-cy-link="discover-great-causes"
-            >
-              {i18n.t('homepage.hero.discover')}
-              <BlackArrowDownIcon aria-hidden />
-            </HeroTransparentButtonStyle>
+            {isFr && (
+              <HeroTransparentButtonStyle
+                as="a"
+                href="#featured_questions"
+                onClick={() => trackClickHomepageDiscover()}
+                data-cy-link="discover-great-causes"
+              >
+                {i18n.t('homepage.hero.discover')}
+                <BlackArrowDownIcon aria-hidden />
+              </HeroTransparentButtonStyle>
+            )}
           </ColumnToRowToColumnStyle>
         </HeroInnerContentStyle>
         {isDesktop && <HeroPictures />}

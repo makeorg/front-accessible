@@ -970,22 +970,24 @@
     "nav_consultations": "Les consultations en cours",
     "nav_results": "Les résultats des consultations",
     "consultations": {
-      "label": "En ce moment",
-      "title": "Participez aux consultations en cours",
+      "label": "Currently",
+      "title": "Contribute to the current consultations",
       "subtitle": "Votre avis compte ! Votez et proposez des solutions pour créer de l'impact sur divers sujets de société et problématiques actuelles.",
-      "participate": "Participer",
-      "contributors": "participant",
-      "contributors_plural": "participants",
-      "proposals": "proposition",
-      "proposals_plural": "propositions"
+      "participate": "Participate",
+      "contributors": "contributor",
+      "contributors_plural": "contributors",
+      "proposals": "proposal",
+      "proposals_plural": "proposals",
+      "empty": "We are sorry, there is no consultation at the moment in this country."
     },
     "results": {
-      "label": "Consultations terminées",
-      "title": "Découvrez les résultats",
+      "label": "Past consultations",
+      "title": "Find out the results",
       "subtitle": "A l'issue de nos consultations, découvrez les priorités des citoyens et les actions menées par Make.org dans le cadre de ses Grandes Causes.",
       "see_results": "Voir les résultats",
       "see_topideas": "Voir le top des idées",
-      "coming_results": "Résultats à venir"
+      "coming_results": "Résultats à venir",
+      "empty": "We have never run any consultation in this country so far."
     },
     "date": "Consultation du {{startDate}} au {{endDate}}",
     "browse": "Parcourir les consultations",
