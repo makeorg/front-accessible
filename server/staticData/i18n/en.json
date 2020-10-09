@@ -65,12 +65,12 @@
     },
     "browse": {
       "consultations": {
-        "title": "Participez aux consultations avec Make.org - Make.org",
-        "description": "Proposez, votez, agissons : ensemble, trouvons des solutions aux grandes problématiques actuelles. Les plus soutenues seront mises en action par Make.org et ses partenaires."
+        "title": "@@meta.browse.consultations.title|fr:Participez aux consultations avec Make.org - Make.org",
+        "description": "@@meta.browse.consultations.description|fr:Proposez, votez, agissons : ensemble, trouvons des solutions aux grandes problématiques actuelles. Les plus soutenues seront mises en action par Make.org et ses partenaires."
       },
       "results": {
-        "title": "Résultats des consultations avec Make.org - Make.org",
-        "description": "Découvrez les résultats de nos consultations ainsi que les actions mises en place par Make.org et ses partenaires."
+        "title": "@@meta.browse.results.title|fr:Résultats des consultations avec Make.org - Make.org",
+        "description": "@@meta.browse.results.description|fr:Découvrez les résultats de nos consultations ainsi que les actions mises en place par Make.org et ses partenaires."
       }
     }
   },
@@ -211,10 +211,10 @@
     "vote_count_plural": "{{count}} votes",
     "breadcrumbs": "Breadcrumbs",
     "pagination": {
-      "title": "pagination",
-      "next": "Page suivante",
-      "previous": "Page précédente",
-      "index_count": "Page {{index}} sur {{total}}"
+      "title": "@@common.pagination.title|fr:pagination",
+      "next": "@@common.pagination.next|fr:Page suivante",
+      "previous": "@@common.pagination.previous|fr:Page précédente",
+      "index_count": "@@common.pagination.index_count|fr:Page {{index}} sur {{total}}"
     },
     "million": "@@common.million|fr:million",
     "million_plural": "@@common.million_plural|fr:millions",
@@ -284,35 +284,35 @@
     "next-cta": "Not yet, I prefer to keep voting for the moment"
   },
   "proposal_submit": {
+    "success": {
+      "title": "@@proposal_submit.success.title|fr:Merci {{name}} !",
+      "description": "@@proposal_submit.success.description|fr:Votre proposition est maintenant en cours de modération par nos équipes.",
+      "button": "@@proposal_submit.success.button|fr:Continuer à voter"
+    },
     "deprecated": {
-      "bait": "Il faut ",
-      "title": "Soumettez votre proposition en moins de 140 caractères. Saisissez la dans le champ de proposition puis validez en cliquant sur le bouton \"Proposer\"",
-      "counter": "Votre proposition comprend {{current}} caractères sur un total de {{total}} caractères disponibles",
-      "description": "Ne vous inquiétez pas, nous corrigerons vos éventuelles fautes d'orthographe.",
-      "moderation_charter": "Pour en savoir plus sur ",
-      "moderation_charter_label": "notre charte de modération",
-      "success": "Votre proposition a bien été prise en compte, elle va maintenant être relue par notre service modération. Vous recevrez un email lorsqu'elle aura été validée."
+      "bait": "@@proposal_submit.deprecated.bait|fr:Il faut ",
+      "title": "@@proposal_submit.deprecated.title|fr:Soumettez votre proposition en moins de 140 caractères. Saisissez la dans le champ de proposition puis validez en cliquant sur le bouton \"Proposer\"",
+      "counter": "@@proposal_submit.deprecated.counter|fr:Votre proposition comprend {{current}} caractères sur un total de {{total}} caractères disponibles",
+      "description": "@@proposal_submit.deprecated.description|fr:Ne vous inquiétez pas, nous corrigerons vos éventuelles fautes d'orthographe.",
+      "moderation_charter": "@@proposal_submit.deprecated.moderation_charter|fr:Pour en savoir plus sur ",
+      "moderation_charter_label": "@@proposal_submit.deprecated.moderation_charter_label|fr:notre charte de modération",
+      "success": "@@proposal_submit.deprecated.success|fr:Votre proposition a bien été prise en compte, elle va maintenant être relue par notre service modération. Vous recevrez un email lorsqu'elle aura été validée."
     },
     "form": {
-      "bait": "Il faut ",
-      "title": "Soumettez votre proposition en moins de 140 caractères. Saisissez la dans le champ de proposition puis validez en cliquant sur le bouton \"Valider\"",
-      "field": "Champs de proposition",
-      "counter": "Votre proposition comprend {{current}} caractères sur un total de {{total}} caractères disponibles",
-      "panel_trigger": "Je propose une solution",
-      "button_cancel": "Annuler et continuer à voter",
-      "button_submit": "Valider",
-      "moderation_link": "En savoir plus sur notre charte de modération"
+      "bait": "@@proposal_submit.form.bait|fr:Il faut ",
+      "title": "@@proposal_submit.form.title|fr:Soumettez votre proposition en moins de 140 caractères. Saisissez la dans le champ de proposition puis validez en cliquant sur le bouton \"Valider\"",
+      "field": "@@proposal_submit.form.field|fr:Champs de proposition",
+      "counter": "@@proposal_submit.form.counter|fr:Votre proposition comprend {{current}} caractères sur un total de {{total}} caractères disponibles",
+      "panel_trigger": "@@proposal_submit.form.panel_trigger|fr:Je propose une solution",
+      "button_cancel": "@@proposal_submit.form.button_cancel|fr:Annuler et continuer à voter",
+      "button_submit": "@@proposal_submit.form.button_submit|fr:Valider",
+      "moderation_link": "@@proposal_submit.form.moderation_link|fr:En savoir plus sur notre charte de modération"
     },
     "authentication": {
-      "button_back": "Modifier ma propositiion",
-      "title": "Pour valider ma proprosition",
-      "subtitle": "Je m'inscris avec",
-      "button_login": "J’ai déjà un compte, je me connecte"
-    },
-    "success": {
-      "title": "Merci {{name}} !",
-      "description": "Votre proposition est maintenant en cours de modération par nos équipes.",
-      "button": "Continuer à voter"
+      "button_back": "@@proposal_submit.authentication.button_back|fr:Modifier ma propositiion",
+      "title": "@@proposal_submit.authentication.title|fr:Pour valider ma proprosition",
+      "subtitle": "@@proposal_submit.authentication.subtitle|fr:Je m'inscris avec",
+      "button_login": "@@proposal_submit.authentication.button_login|fr:J’ai déjà un compte, je me connecte"
     }
   },
   "vote": {
@@ -419,10 +419,10 @@
     "data": "Data use policy",
     "news": "Newsroom",
     "dotation_funds": "Endowment fund",
+    "country": "@@main-footer.country|fr:Changer de pays",
     "contact": "@@main-footer.contact|fr:Contact",
     "moderation_charter": "@@main-footer.moderation_charter|fr:Charte de modération",
-    "press_details": "@@main-footer.press_details|fr:Revue de presse",
-    "country": "Change country"
+    "press_details": "@@main-footer.press_details|fr:Revue de presse"
   },
   "pannel": {},
   "cookie_alert": {
@@ -722,14 +722,7 @@
     "dynamic_section": "Go to section: \"{{name}}\""
   },
   "modal": {
-    "close": "Close the dialog modal",
-    "department_required": {
-      "introduction": {},
-      "disclaimer": {},
-      "departments": {},
-      "cancel": {},
-      "modification": {}
-    }
+    "close": "Close the dialog modal"
   },
   "actions": {
     "register": {
@@ -833,49 +826,38 @@
       "status": "Consultation label : ",
       "link": "Go to the consultation page: {{name}}"
     },
-    "current_consultations": {},
-    "corporate": {
-      "first-section": {},
-      "second-section": {}
-    },
-    "proposals": {
-      "controversial": {},
-      "popular": {}
-    },
-    "business_consultations": {},
-    "international": {},
-    "title": "@@homepage.title|fr:Page d'accueil",
-    "hero": {
-      "title": "Ensemble, nous avons le pouvoir d'améliorer la société",
-      "description": "Donnez votre avis sur des sujets de société qui vous tiennent à coeur en participant à nos consultations citoyennes. Ensemble, citoyens, associations et entreprises, définissons nos priorités et réalisons des changements concrets.",
-      "participate": "Participez aux consultations",
-      "discover": "Découvrez nos grandes causes"
-    },
     "highlights": {
-      "title": "Make.org en quelques chiffres",
+      "title": "@@homepage.highlights.title|fr:Make.org en quelques chiffres",
       "participants": {
-        "subtitle": "de participant(e)s"
+        "subtitle": "@@homepage.highlights.participants.subtitle|fr:de participant(e)s"
       },
       "proposals": {
-        "subtitle": "propositions déposées"
+        "subtitle": "@@homepage.highlights.proposals.subtitle|fr:propositions déposées"
       },
       "partners": {
-        "subtitle": "associations & entreprises engagées"
+        "subtitle": "@@homepage.highlights.partners.subtitle|fr:associations & entreprises engagées"
       }
     },
+    "title": "@@homepage.title|fr:Page d'accueil",
+    "hero": {
+      "title": "@@homepage.hero.title|fr:Ensemble, nous avons le pouvoir d'améliorer la société",
+      "description": "@@homepage.hero.description|fr:Donnez votre avis sur des sujets de société qui vous tiennent à coeur en participant à nos consultations citoyennes. Ensemble, citoyens, associations et entreprises, définissons nos priorités et réalisons des changements concrets.",
+      "participate": "@@homepage.hero.participate|fr:Participez aux consultations",
+      "discover": "@@homepage.hero.discover|fr:Découvrez nos grandes causes"
+    },
     "featured_questions": {
-      "label": "Grandes causes Make.org",
-      "title": "Make.org passe à l’action sur les grands sujets de société"
+      "label": "@@homepage.featured_questions.label|fr:Grandes causes Make.org",
+      "title": "@@homepage.featured_questions.title|fr:Make.org passe à l’action sur les grands sujets de société"
     },
     "posts": {
-      "link_text": "Lire l'article",
-      "see_all": "Voir toute l'actualité"
+      "link_text": "@@homepage.posts.link_text|fr:Lire l'article",
+      "see_all": "@@homepage.posts.see_all|fr:Voir toute l'actualité"
     },
     "partnership": {
-      "title": "Collaborez avec Make.org",
-      "subtitle": "Devenir partenaire",
-      "description": "Nous travaillons avec des entreprises, associations, institutions pour faire avancer nos projets. <br/>Nous accompagnons également ces organisations pour leur permettre de lancer leurs propres consultations.",
-      "button": "Voir nos offres"
+      "title": "@@homepage.partnership.title|fr:Collaborez avec Make.org",
+      "subtitle": "@@homepage.partnership.subtitle|fr:Devenir partenaire",
+      "description": "@@homepage.partnership.description|fr:Nous travaillons avec des entreprises, associations, institutions pour faire avancer nos projets. <br/>Nous accompagnons également ces organisations pour leur permettre de lancer leurs propres consultations.",
+      "button": "@@homepage.partnership.button|fr:Voir nos offres"
     }
   },
   "search": {
@@ -952,49 +934,49 @@
     "cnil_number": "2005312"
   },
   "sequence_progress": {
-    "previous": "Aller à l'élement précédent",
-    "counter": "Élément {{current}} sur {{total}}"
+    "previous": "@@sequence_progress.previous|fr:Aller à l'élement précédent",
+    "counter": "@@sequence_progress.counter|fr:Élément {{current}} sur {{total}}"
   },
   "legal_consent": {
-    "title": "Autorisation légale",
-    "subtitle": "Nous avons besoin de l’accord de l’un de tes parents",
-    "description": "Nous avons besoin de recueillir deux consentements pour te donner accès à notre plateforme citoyenne. Bientôt tu pourras prendre la parole sur toutes nos consultations !",
-    "minor_consent": "Je consens au traitement de mes données personnelles par Make.org.",
-    "parental_consent": "En tant que titulaire de l'autorité parentale, je consens au traitement des données personnelles de mon enfant par Make.org.",
-    "cancel": "Annuler",
-    "submit": "Valider"
+    "title": "@@legal_consent.title|fr:Autorisation légale",
+    "subtitle": "@@legal_consent.subtitle|fr:Nous avons besoin de l’accord de l’un de tes parents",
+    "description": "@@legal_consent.description|fr:Nous avons besoin de recueillir deux consentements pour te donner accès à notre plateforme citoyenne. Bientôt tu pourras prendre la parole sur toutes nos consultations !",
+    "minor_consent": "@@legal_consent.minor_consent|fr:Je consens au traitement de mes données personnelles par Make.org.",
+    "parental_consent": "@@legal_consent.parental_consent|fr:En tant que titulaire de l'autorité parentale, je consens au traitement des données personnelles de mon enfant par Make.org.",
+    "cancel": "@@legal_consent.cancel|fr:Annuler",
+    "submit": "@@legal_consent.submit|fr:Valider"
   },
   "browse": {
-    "page_title": "Parcourir les consultations",
-    "title": "Participez aux consultations en cours",
-    "initiative": "Grande cause Make.org",
-    "nav_consultations": "Les consultations en cours",
-    "nav_results": "Les résultats des consultations",
+    "page_title": "@@browse.page_title|fr:Parcourir les consultations",
+    "title": "@@browse.title|fr:Participez aux consultations en cours",
+    "initiative": "@@browse.initiative|fr:Grande cause Make.org",
+    "nav_consultations": "@@browse.nav_consultations|fr:Les consultations en cours",
+    "nav_results": "@@browse.nav_results|fr:Les résultats des consultations",
     "consultations": {
-      "label": "Currently",
-      "title": "Contribute to the current consultations",
-      "subtitle": "Votre avis compte ! Votez et proposez des solutions pour créer de l'impact sur divers sujets de société et problématiques actuelles.",
-      "participate": "Participate",
-      "contributors": "contributor",
-      "contributors_plural": "contributors",
-      "proposals": "proposal",
-      "proposals_plural": "proposals",
-      "empty": "We are sorry, there is no consultation at the moment in this country."
+      "label": "@@browse.consultations.label|fr:En ce moment",
+      "title": "@@browse.consultations.title|fr:Participez aux consultations en cours",
+      "subtitle": "@@browse.consultations.subtitle|fr:Votre avis compte ! Votez et proposez des solutions pour créer de l'impact sur divers sujets de société et problématiques actuelles.",
+      "participate": "@@browse.consultations.participate|fr:Participer",
+      "contributors": "@@browse.consultations.contributors|fr:participant",
+      "contributors_plural": "@@browse.consultations.contributors_plural|fr:participants",
+      "proposals": "@@browse.consultations.proposals|fr:proposition",
+      "proposals_plural": "@@browse.consultations.proposals_plural|fr:propositions",
+      "empty": "@@browse.consultations.empty|fr:Nous sommes désolés, aucune consultation n'est diponible actuellement dans votre pays."
     },
     "results": {
-      "label": "Past consultations",
-      "title": "Find out the results",
-      "subtitle": "A l'issue de nos consultations, découvrez les priorités des citoyens et les actions menées par Make.org dans le cadre de ses Grandes Causes.",
-      "see_results": "Voir les résultats",
-      "see_topideas": "Voir le top des idées",
-      "coming_results": "Résultats à venir",
-      "empty": "We have never run any consultation in this country so far."
+      "label": "@@browse.results.label|fr:Consultations terminées",
+      "title": "@@browse.results.title|fr:Découvrez les résultats",
+      "subtitle": "@@browse.results.subtitle|fr:A l'issue de nos consultations, découvrez les priorités des citoyens et les actions menées par Make.org dans le cadre de ses Grandes Causes.",
+      "see_results": "@@browse.results.see_results|fr:Voir les résultats",
+      "see_topideas": "@@browse.results.see_topideas|fr:Voir le top des idées",
+      "coming_results": "@@browse.results.coming_results|fr:Résultats à venir",
+      "empty": "@@browse.results.empty|fr:Nous n'avons jamais mené de consultation dans votre pays jusqu'à présent."
     },
-    "date": "Consultation du {{startDate}} au {{endDate}}",
-    "browse": "Parcourir les consultations",
-    "see_closed_consultations": "Voir les consultations terminées",
-    "text_content_zero": "Aucune consultation en cours, mais restons en contact",
-    "text_content_one": "Inscrivez-vous pour être informé de la prochaine consultation",
-    "subscribe": "S'inscrire"
+    "date": "@@browse.date|fr:Consultation du {{startDate}} au {{endDate}}",
+    "browse": "@@browse.browse|fr:Parcourir les consultations",
+    "see_closed_consultations": "@@browse.see_closed_consultations|fr:Voir les consultations terminées",
+    "text_content_zero": "@@browse.text_content_zero|fr:Aucune consultation en cours, mais restons en contact",
+    "text_content_one": "@@browse.text_content_one|fr:Inscrivez-vous pour être informé de la prochaine consultation",
+    "subscribe": "@@browse.subscribe|fr:S'inscrire"
   }
 }
