@@ -16,7 +16,7 @@ export type StateConfig = $ReadOnly<{
   language: string,
   country: string,
   translations: Object,
-  countriesWihtConsultations: [],
+  countriesWithConsultations: [],
 }>;
 
 // Config Homepage

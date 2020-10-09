@@ -49,7 +49,14 @@ export const HomePage = () => {
       initHomepage();
     }
     trackDisplayHomepage();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    initHomepage();
+    trackDisplayHomepage();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [country, language]);
 
   return (
     <>

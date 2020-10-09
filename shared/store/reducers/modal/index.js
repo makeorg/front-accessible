@@ -1,5 +1,4 @@
 // @flow
-
 import {
   MODAL_SHOW_LOGIN,
   MODAL_SHOW_REGISTER,
@@ -9,6 +8,7 @@ import {
   MODAL_CLOSE_SESSION_EXPIRATION,
   MODAL_SHOW_DEPARTMENT_FORM,
   MODAL_SHOW_PROPOSAL_SUCCESS,
+  MODAL_SHOW_COUNTRIES,
 } from 'Shared/store/actionTypes';
 import {
   MODAL_LOGIN,
@@ -16,6 +16,7 @@ import {
   MODAL_FORGOT_PASSWORD,
   MODAL_DEPARTMENT,
   MODAL_PROPOSAL_SUCCESS,
+  MODAL_COUNTRIES,
 } from 'Shared/constants/modal';
 import { initialState } from 'Shared/store/initialState';
 import { type StateModal } from 'Shared/store/types';
@@ -45,6 +46,12 @@ export function modal(state: StateModal = initialState.modal, action: Object) {
         ...state,
         isOpen: true,
         contentType: MODAL_DEPARTMENT,
+      };
+    case MODAL_SHOW_COUNTRIES:
+      return {
+        ...state,
+        isOpen: true,
+        contentType: MODAL_COUNTRIES,
       };
     case MODAL_SHOW_PROPOSAL_SUCCESS:
       return {

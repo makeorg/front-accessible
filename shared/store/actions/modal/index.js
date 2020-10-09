@@ -39,3 +39,7 @@ export const closeSessionExpirationModal = () => (dispatch: Function) => {
 export const modalShowProposalSuccess = () => (dispatch: Function) => {
   dispatch({ type: actionTypes.MODAL_SHOW_PROPOSAL_SUCCESS });
 };
+
+export const modalShowCountries = () => (dispatch: Function) => {
+  dispatch({ type: actionTypes.MODAL_SHOW_COUNTRIES });
+};

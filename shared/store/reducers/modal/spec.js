@@ -59,6 +59,21 @@ describe('Modal reducer', () => {
     expect(modal(previousState, action)).toEqual(expectedState);
   });
 
+  it('Show countries action reducers', () => {
+    const action = { type: 'MODAL_SHOW_COUNTRIES' };
+    const previousState = {
+      isOpen: false,
+      contentType: '',
+    };
+
+    const expectedState = {
+      isOpen: true,
+      contentType: contentTypes.MODAL_COUNTRIES,
+    };
+
+    expect(modal(previousState, action)).toEqual(expectedState);
+  });
+
   it('Close Login action reducers', () => {
     const action = { type: 'MODAL_CLOSE' };
     const previousState = {

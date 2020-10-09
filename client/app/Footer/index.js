@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { i18n } from 'Shared/i18n';
 import { type StateRoot } from 'Shared/store/types';
 import { trackClickBlog } from 'Shared/services/Tracking';
@@ -24,6 +24,8 @@ import {
   PANEL_ARIA_NEGATIVE_TAB_CLASS,
 } from 'Shared/constants/a11y';
 import { MAIN_FOOTER } from 'Shared/constants/ids';
+import { UnstyledButtonStyle } from 'Client/ui/Elements/Buttons/style';
+import { modalShowCountries } from 'Shared/store/actions/modal';
 import {
   FooterStyle,
   FooterNavStyle,
@@ -35,7 +37,7 @@ import {
   FooterWrapperSecondListStyle,
   FooterWrapperThirdListStyle,
   FooterItemAltLinkStyle,
-  // FooterCountryIconStyle,
+  FooterCountryIconStyle,
   FooterContactIconStyle,
 } from './style';
 
@@ -44,6 +46,7 @@ import {
  */
 export const Footer = () => {
   const isDesktop = useDesktop();
+  const dispatch = useDispatch();
   const { country } = useSelector((state: StateRoot) => state.appConfig);
   const isFR = country === 'FR';
   const isDesktopFR = isDesktop && isFR;
@@ -143,18 +146,16 @@ export const Footer = () => {
             </FooterItemStyle>
           </FooterWrapperSecondListStyle>
           <FooterWrapperThirdListStyle>
-            {/* 
-            Waiting for API endpoo
             <FooterItemStyle className="no-bullet">
               <FooterItemAltLinkStyle
                 className="underline"
-                onClick={scrollToTop}
-                to="#"
+                as={UnstyledButtonStyle}
+                onClick={() => dispatch(modalShowCountries())}
               >
                 <FooterCountryIconStyle />
                 {i18n.t('main-footer.country')}
               </FooterItemAltLinkStyle>
-            </FooterItemStyle> */}
+            </FooterItemStyle>
             <FooterItemStyle>
               <FooterItemAltLinkStyle
                 onClick={scrollToTop}

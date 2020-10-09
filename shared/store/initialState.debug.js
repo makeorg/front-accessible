@@ -7,7 +7,6 @@ export const initialStateDebug = {
     countriesWithConsultations: [
       'AT',
       'BE',
-      'BEL',
       'BG',
       'CY',
       'CZ',
@@ -25,6 +24,7 @@ export const initialStateDebug = {
       'IT',
       'LT',
       'LV',
+      'LU',
       'MT',
       'NL',
       'PL',

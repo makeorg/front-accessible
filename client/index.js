@@ -9,7 +9,6 @@ import { loadableReady } from '@loadable/component';
 import { AppContainer } from 'Client/app';
 import { FacebookTracking } from 'Shared/services/Trackers/FacebookTracking';
 import { env } from 'Shared/env';
-import { TRANSLATION_NAMESPACE } from 'Shared/i18n/constants';
 import { configureStore, authenticationState } from 'Shared/store';
 import { Logger } from 'Shared/services/Logger';
 import { ApiService } from 'Shared/api/ApiService';
@@ -28,6 +27,7 @@ import { TwitterUniversalTag } from 'Shared/services/Trackers/TwitterTracking';
 import { updateTrackingQuestionParam } from 'Shared/store/middleware/tracking';
 import { getRouteNoCookies } from 'Shared/routes';
 import { postPerfomanceTiming } from 'Shared/helpers/tracking';
+import { translationRessources } from 'Shared/constants/languages';
 import { NoCookies } from './pages/Static/NoCookies';
 import { history, initHistory } from './app/History';
 import { ErrorBoundary, ServiceErrorHandler } from './app/Error';
@@ -60,11 +60,7 @@ i18n.init({
   },
   debug: env.isDev(),
   lng: initialState.appConfig.language,
-  resources: {
-    [initialState.appConfig.language]: {
-      [TRANSLATION_NAMESPACE]: initialState.appConfig.translations,
-    },
-  },
+  resources: translationRessources,
 });
 
 FacebookTracking.init();
