@@ -8,7 +8,11 @@ viewsRouter.get('/home-page/FR/fr', (req, res) => {
 });
 
 viewsRouter.get('/home-page/GB/en', (req, res) => {
-  return res.send(fixtures.homeView);
+  return res.send(fixtures.foreignHomeView);
+});
+
+viewsRouter.get('/countries', (req, res) => {
+  return res.send(fixtures.countriesWithConsultations);
 });
 
 module.exports = viewsRouter;

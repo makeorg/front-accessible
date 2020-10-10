@@ -151,6 +151,7 @@ export const Footer = () => {
                 className="underline"
                 as={UnstyledButtonStyle}
                 onClick={() => dispatch(modalShowCountries())}
+                data-cy-button="country-switch-modal"
               >
                 <FooterCountryIconStyle />
                 {i18n.t('main-footer.country')}

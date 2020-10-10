@@ -26,10 +26,12 @@ const day = `0${today.getDate()}`.slice(-2);
 const month = `0${today.getMonth() + 1}`.slice(-2);
 
 const mixPastAndFutureDates = count => {
-  const pastEndDate = `${today.getFullYear() -
-    1}-${month}-${day}T01:00:00.000Z`;
-  const futureEndDate = `${today.getFullYear() +
-    1}-${month}-${day}T01:00:00.000Z`;
+  const pastEndDate = `${
+    today.getFullYear() - 1
+  }-${month}-${day}T01:00:00.000Z`;
+  const futureEndDate = `${
+    today.getFullYear() + 1
+  }-${month}-${day}T01:00:00.000Z`;
 
   if (count % 2 === 0) {
     return pastEndDate;
@@ -285,6 +287,15 @@ const generateHomeView = () => {
 };
 const homeView = generateHomeView();
 
+const generateForeignHomeView = () => {
+  return {
+    ...defaultHomeView.home,
+    currentQuestions: [],
+    featuredQuestions: [],
+  };
+};
+const foreignHomeView = generateForeignHomeView();
+
 const generateTopIdeas = () => {
   return questions.flatMap((question, index1) => {
     return range(0, 10).map(number => ({
@@ -315,6 +326,37 @@ const generateTopIdeas = () => {
 };
 const topIdeas = generateTopIdeas();
 
+const countriesWithConsultations = [
+  { countryCode: 'AT', activeConsultations: false },
+  { countryCode: 'BE', activeConsultations: true },
+  { countryCode: 'BG', activeConsultations: true },
+  { countryCode: 'CY', activeConsultations: true },
+  { countryCode: 'CZ', activeConsultations: true },
+  { countryCode: 'DE', activeConsultations: true },
+  { countryCode: 'DK', activeConsultations: true },
+  { countryCode: 'EE', activeConsultations: true },
+  { countryCode: 'ES', activeConsultations: true },
+  { countryCode: 'FI', activeConsultations: true },
+  { countryCode: 'FR', activeConsultations: true },
+  { countryCode: 'GB', activeConsultations: true },
+  { countryCode: 'GR', activeConsultations: true },
+  { countryCode: 'HR', activeConsultations: true },
+  { countryCode: 'HU', activeConsultations: true },
+  { countryCode: 'IE', activeConsultations: true },
+  { countryCode: 'IT', activeConsultations: false },
+  { countryCode: 'LT', activeConsultations: false },
+  { countryCode: 'LV', activeConsultations: true },
+  { countryCode: 'LU', activeConsultations: true },
+  { countryCode: 'MT', activeConsultations: false },
+  { countryCode: 'NL', activeConsultations: true },
+  { countryCode: 'PL', activeConsultations: true },
+  { countryCode: 'PT', activeConsultations: false },
+  { countryCode: 'RO', activeConsultations: true },
+  { countryCode: 'SE', activeConsultations: true },
+  { countryCode: 'SI', activeConsultations: true },
+  { countryCode: 'SK', activeConsultations: true },
+];
+
 const fixtures = {
   openedHomepageQuestions,
   finishedHomepageQuestions,
@@ -326,6 +368,7 @@ const fixtures = {
   tags,
   vote: defaultVote,
   homeView,
+  foreignHomeView,
   organisations,
   qualifications: {
     agree: defaultAgreeQualifications,
@@ -333,6 +376,7 @@ const fixtures = {
     neutral: defaultNeutralQualifications,
   },
   topIdeas,
+  countriesWithConsultations,
 };
 
 module.exports = { fixtures };

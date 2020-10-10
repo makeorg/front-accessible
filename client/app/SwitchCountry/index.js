@@ -47,7 +47,10 @@ export const SwitchCountry = () => {
   };
 
   return (
-    <nav aria-labelledby="switch_country_title">
+    <nav
+      aria-labelledby="switch_country_title"
+      data-cy-container="country_switch_nav"
+    >
       <SwitchCountryTitleStyle id="switch_country_title">
         {i18n.t('main-footer.country')}
       </SwitchCountryTitleStyle>
@@ -59,6 +62,7 @@ export const SwitchCountry = () => {
               onClick={() => switchCountry(item.isoCode)}
               className={item.isoCode === country && 'selected'}
               aria-current={item.isoCode === country}
+              data-cy-link={`country_switch_${item.isoCode}`}
             >
               {item.name}
               {item.isoCode === country && (
