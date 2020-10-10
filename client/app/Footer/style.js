@@ -14,8 +14,14 @@ import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 export const FooterStyle = styled.footer`
   background-color: ${color.white};
   padding: 0 20px 20px;
+  &.extra-mobile-padding-bottom {
+    padding-bottom: 50px;
+  }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     padding: 0 20px;
+    &.extra-mobile-padding-bottom {
+      padding-bottom: 0;
+    }
   }
 `;
 

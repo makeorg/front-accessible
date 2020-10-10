@@ -26,6 +26,8 @@ import {
 import { MAIN_FOOTER } from 'Shared/constants/ids';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { modalShowCountries } from 'Shared/store/actions/modal';
+import { isSequencePage as getIsSequencePage } from 'Shared/routes';
+import { useLocation } from 'react-router';
 import {
   FooterStyle,
   FooterNavStyle,
@@ -47,49 +49,52 @@ import {
 export const Footer = () => {
   const isDesktop = useDesktop();
   const dispatch = useDispatch();
+  const location = useLocation();
   const { country } = useSelector((state: StateRoot) => state.appConfig);
   const isFR = country === 'FR';
-  const isDesktopFR = isDesktop && isFR;
+  const isSequencePage = getIsSequencePage(location.pathname);
   return (
     <FooterStyle
       id={MAIN_FOOTER}
-      className={`${NAVIGATION_ARIA_NEGATIVE_TAB_CLASS} ${PANEL_ARIA_NEGATIVE_TAB_CLASS}`}
+      className={`${NAVIGATION_ARIA_NEGATIVE_TAB_CLASS} ${PANEL_ARIA_NEGATIVE_TAB_CLASS} ${
+        isSequencePage && 'extra-mobile-padding-bottom'
+      }`}
       data-cy-container="footer"
     >
       <FooterNavStyle aria-label={i18n.t('common.footer_nav')}>
-        <FooterWrapperFirstListStyle>
-          {isDesktopFR && (
-            <>
-              <FooterItemStyle>
-                <FooterItemLinkStyle
-                  as="a"
-                  target="_blank"
-                  href={NEWS_LINK}
-                  onClick={() => trackClickBlog('blog list')}
-                >
-                  {i18n.t('main-footer.news')}
-                  <FooterLinkIconStyle
-                    aria-label={i18n.t('common.open_new_window')}
-                  />
-                </FooterItemLinkStyle>
-              </FooterItemStyle>
-              <FooterItemStyle>
-                <FooterItemLinkStyle
-                  as="a"
-                  target="_blank"
-                  href={JOBS_LINK}
-                  to={JOBS_LINK}
-                >
-                  {i18n.t('main-footer.jobs')}
-                  <FooterLinkIconStyle
-                    aria-label={i18n.t('common.open_new_window')}
-                  />
-                </FooterItemLinkStyle>
-              </FooterItemStyle>
-            </>
-          )}
-          {isFR && (
-            <>
+        {isFR && (
+          <>
+            <FooterWrapperFirstListStyle>
+              {isDesktop && (
+                <>
+                  <FooterItemStyle>
+                    <FooterItemLinkStyle
+                      as="a"
+                      target="_blank"
+                      href={NEWS_LINK}
+                      onClick={() => trackClickBlog('blog list')}
+                    >
+                      {i18n.t('main-footer.news')}
+                      <FooterLinkIconStyle
+                        aria-label={i18n.t('common.open_new_window')}
+                      />
+                    </FooterItemLinkStyle>
+                  </FooterItemStyle>
+                  <FooterItemStyle>
+                    <FooterItemLinkStyle
+                      as="a"
+                      target="_blank"
+                      href={JOBS_LINK}
+                      to={JOBS_LINK}
+                    >
+                      {i18n.t('main-footer.jobs')}
+                      <FooterLinkIconStyle
+                        aria-label={i18n.t('common.open_new_window')}
+                      />
+                    </FooterItemLinkStyle>
+                  </FooterItemStyle>
+                </>
+              )}
               <FooterItemStyle>
                 <FooterItemLinkStyle
                   as="a"
@@ -114,10 +119,10 @@ export const Footer = () => {
                   />
                 </FooterItemLinkStyle>
               </FooterItemStyle>
-            </>
-          )}
-        </FooterWrapperFirstListStyle>
-        <FooterSeparatorStyle />
+            </FooterWrapperFirstListStyle>
+            <FooterSeparatorStyle />
+          </>
+        )}
         <ColumnToRowElementStyle>
           <FooterWrapperSecondListStyle>
             <FooterItemStyle>
