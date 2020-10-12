@@ -37,15 +37,14 @@ import {
   ROUTE_STATIC_GTU_EN,
   ROUTE_STATIC_DATA_EN,
   ROUTE_STATIC_CONTACT_EN,
-  ROUTE_SOON,
   ROUTE_BROWSE_CONSULTATIONS,
   ROUTE_BROWSE_RESULTS,
   BASE_PREVIEW_PATH,
-  ROUTE_COUNTRY_FR,
 } from 'Shared/routes';
 import { TwitterUniversalTag } from 'Shared/services/Trackers/TwitterTracking';
 import { QuestionWrapper } from 'Client/pages/Consultation/QuestionWrapper';
 import { usePageBackgoundColor } from 'Client/hooks/usePageBackgroundColor';
+import { getHomeLink } from 'Shared/helpers/url';
 
 const BrowsePage = loadable(() => import('../pages/Browse/index.js'));
 const ConsultationPage = loadable(() =>
@@ -178,8 +177,7 @@ export const Routes = () => {
       <Route path={ROUTE_STATIC_CONTACT_EN} component={Contact} />
 
       <Route path={ROUTE_STATIC_NOTFOUND} component={NotFoundPage} />
-      {country === 'FR' && <Redirect exact path="/" to={ROUTE_COUNTRY_FR} />}
-      {country !== 'FR' && <Redirect exact path="/" to={ROUTE_SOON} />}
+      <Redirect exact path="/" to={getHomeLink(country)} />
 
       <Route component={NotFoundPage} />
     </Switch>
