@@ -21,15 +21,14 @@ import { HomepageWrapperStyle } from './style';
 export const HomePage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
-  const { country, language } = useSelector(
+  const { country, language, countriesWithConsultations } = useSelector(
     (state: StateRoot) => state.appConfig
   );
   const { homepage } = useSelector((state: StateRoot) => state.views);
-  const hasActiveQuestions =
-    homepage &&
-    homepage.currentQuestions &&
-    homepage.currentQuestions.length > 0;
   const isFR = country === 'FR';
+  const hasConsultations = countriesWithConsultations.find(
+    countryCode => countryCode === country
+  );
 
   const initHomepage = async () => {
     setIsLoading(true);
@@ -72,10 +71,10 @@ export const HomePage = () => {
           <Hero />
           <HomepageWrapperStyle>
             <HighlightsBanner highlights={homepage.highlights} />
-            {!isFR && !hasActiveQuestions ? (
-              <InternationalPlaceholder />
-            ) : (
+            {hasConsultations ? (
               <CurrentQuestions questions={homepage.currentQuestions} />
+            ) : (
+              <InternationalPlaceholder />
             )}
             {isFR && (
               <FeaturedNews
