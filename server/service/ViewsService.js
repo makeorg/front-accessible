@@ -15,7 +15,7 @@ const getHome = async (
   notFound: () => void = () => {},
   unexpectedError: () => void = () => {}
 ) => {
-  const CACHE_KEY = `HOMEPAGE`;
+  const CACHE_KEY = `HOMEPAGE_${country}`;
   const content = cache.get(CACHE_KEY);
   if (content) {
     return content;

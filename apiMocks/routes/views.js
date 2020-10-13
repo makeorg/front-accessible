@@ -7,4 +7,8 @@ viewsRouter.get('/home-page/FR/fr', (req, res) => {
   return res.send(fixtures.homeView);
 });
 
+viewsRouter.get('/home-page/GB/en', (req, res) => {
+  return res.send(fixtures.homeView);
+});
+
 module.exports = viewsRouter;
