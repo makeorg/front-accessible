@@ -858,6 +858,11 @@
       "subtitle": "Become partner",
       "description": "In all our projects, we involve companies, associations and institutions to accelerate collaboration. <br/>We also permit these organisations to create their own consultation.",
       "button": "See the offer"
+    },
+    "international": {
+      "subtitle": "National consultations",
+      "title": "Make.org is also available in France for national topics",
+      "button": "Discover" 
     }
   },
   "search": {

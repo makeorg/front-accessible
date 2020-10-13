@@ -898,6 +898,11 @@
       "subtitle": "Devenir partenaire",
       "description": "Nous travaillons avec des entreprises, associations, institutions pour faire avancer nos projets. <br/>Nous accompagnons également ces organisations pour leur permettre de lancer leurs propres consultations.",
       "button": "Voir nos offres"
+    },
+    "international": {
+      "subtitle": "Consultations nationales",
+      "title": "Make.org est également disponible en France sur les sujets nationaux",
+      "button": "Découvrir" 
     }
   },
   "search": {
