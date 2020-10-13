@@ -1,10 +1,6 @@
 /* @flow */
 
-import {
-  SET_COUNTRY_CODE,
-  SET_LANGUAGE,
-  SET_TRANSLATIONS,
-} from 'Shared/store/actionTypes';
+import { SET_COUNTRY_CONFIGURATION } from 'Shared/store/actionTypes';
 import { appConfig } from './index';
 
 jest.mock('Shared/constants/config', () => ({
@@ -29,9 +25,9 @@ describe('appConfig reducer', () => {
     expect(appConfig(undefined, {})).toEqual(initialState);
   });
 
-  it('action SET_COUNTRY_CODE', () => {
+  it('action SET_COUNTRY_CONFIGURATION', () => {
     const action = {
-      type: SET_COUNTRY_CODE,
+      type: SET_COUNTRY_CONFIGURATION,
       payload: {
         country: 'GB',
       },
@@ -40,40 +36,14 @@ describe('appConfig reducer', () => {
     expect(appConfig(undefined, action)).toEqual({
       ...initialState,
       country: 'GB',
-    });
-  });
-
-  it('action SET_LANGUAGE from configured country', () => {
-    const action = {
-      type: SET_LANGUAGE,
-      payload: {
-        country: 'FR',
-      },
-    };
-
-    expect(appConfig(undefined, action)).toEqual({
-      ...initialState,
-      language: 'fr',
-    });
-  });
-
-  it('action SET_LANGUAGE from unknown country', () => {
-    const action = {
-      type: SET_LANGUAGE,
-      payload: {
-        country: 'GB',
-      },
-    };
-
-    expect(appConfig(undefined, action)).toEqual({
-      ...initialState,
       language: 'en',
+      translations: 'en',
     });
   });
 
-  it('action SET_TRANSLATIONS from configured country', () => {
+  it('action SET_COUNTRY_CONFIGURATION from configured country', () => {
     const action = {
-      type: SET_TRANSLATIONS,
+      type: SET_COUNTRY_CONFIGURATION,
       payload: {
         country: 'FR',
       },
@@ -81,21 +51,9 @@ describe('appConfig reducer', () => {
 
     expect(appConfig(undefined, action)).toEqual({
       ...initialState,
+      country: 'FR',
+      language: 'fr',
       translations: 'fr',
-    });
-  });
-
-  it('action SET_TRANSLATIONS from unknown country', () => {
-    const action = {
-      type: SET_TRANSLATIONS,
-      payload: {
-        country: 'GB',
-      },
-    };
-
-    expect(appConfig(undefined, action)).toEqual({
-      ...initialState,
-      translations: 'en',
     });
   });
 });

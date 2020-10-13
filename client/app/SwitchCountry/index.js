@@ -4,11 +4,7 @@ import { type StateRoot } from 'Shared/store/types';
 import { useDispatch, useSelector } from 'react-redux';
 import { i18n } from 'Shared/i18n';
 import { getHomeLink } from 'Shared/helpers/url';
-import {
-  setCountryCode,
-  setLanguageByCountryCode,
-  setTranslationsByCountryCode,
-} from 'Shared/store/actions/appConfig';
+import { setLanguageByCountryCode } from 'Shared/store/actions/appConfig';
 import {
   compareCountriesByName,
   getLanguageFromCountryCode,
@@ -40,9 +36,7 @@ export const SwitchCountry = () => {
     if (country === countryCode) {
       return () => {};
     }
-    dispatch(setCountryCode(countryCode));
     dispatch(setLanguageByCountryCode(countryCode));
-    dispatch(setTranslationsByCountryCode(countryCode));
     return i18n.changeLanguage(getLanguageFromCountryCode(countryCode));
   };
 
