@@ -1,7 +1,7 @@
 {
   "meta": {
     "home": {
-      "title": "Bring your ideas to life with Make.org",
+      "title": "Make a change in our society with Make.org",
       "description": "Finding solutions is easier when working together. Make.org helps you share ideas with forward-thinking people like you. Discover a democratic place where you can discuss, vote and submit your solutions on the big issues you care about.",
       "picture": "https://assets.make.org/assets/metas/default-meta-en.png"
     },
@@ -76,7 +76,7 @@
   },
   "common": {
     "connexion_extended": "Display the signup popin to the user",
-    "connexion_label": "Log me in",
+    "connexion_label": "Log in",
     "register_label": "Sign up",
     "form": {
       "hide_password": "Hide password",
@@ -393,7 +393,7 @@
     "or": "or",
     "subtitle": "Sign up using this form",
     "login_title": "I already have an account.",
-    "login_link": "Log me in",
+    "login_link": "Log in",
     "gtu_text": "By signing up, you agree to our {{gtu_link}} and consent to receive emails from Make.org (we only send when necessary).",
     "gtu": "terms of service"
   },
@@ -832,7 +832,7 @@
         "subtitle": "participants"
       },
       "proposals": {
-        "subtitle": "solutions"
+        "subtitle": "solutions submitted"
       },
       "partners": {
         "subtitle": "associations & partners"
@@ -840,9 +840,9 @@
     },
     "title": "Homepage",
     "hero": {
-      "title": "Together, we can change the society.",
-      "description": "Express yourslef on society issues you want to defend by voting on consultations. All of us : citizens, associations and companies, let's define our priorities to change the society in concrete terms.",
-      "participate": "Contribute to the current consultations",
+      "title": "Together, we can change society for the better",
+      "description": "Give your opinion on social issues that matter to you by voting on our consultations. Together - citizens, associations, companies - let's set our priorities to make a change through concrete actions!",
+      "participate": "Contribute to the consultations",
       "discover": "Discover our great causes"
     },
     "featured_questions": {
@@ -971,7 +971,7 @@
     "results": {
       "label": "Past consultations",
       "title": "Find out the results",
-      "subtitle": "Discover citizens priorities at the end of a consultation.",
+      "subtitle": "Discover citizens' priorities once the consultation is over.",
       "see_results": "See the results",
       "see_topideas": "See top ideas",
       "coming_results": "Coming results",
@@ -980,7 +980,7 @@
     "date": "Consultation from {{startDate}} to {{endDate}}",
     "browse": "Browse consultations",
     "see_closed_consultations": "See past consultations",
-    "text_content_zero": "There is no consultation, but let's keep in touch",
+    "text_content_zero": "No consultation for now, but let's keep in touch!",
     "text_content_one": "Sign up to be aware of new consultations.",
     "subscribe": "Sign up"
   }
