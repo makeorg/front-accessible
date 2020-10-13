@@ -54,6 +54,9 @@ export const Sequence = ({ question }: Props) => {
   const [sequenceProposals, setSequenceProposals] = useState([]);
   const [currentCard, setCurrentCard] = useState(null);
   const [isLoading, setLoading] = useState(true);
+  const [withProposalButton, setWithProposalButton] = useState(
+    question && question.canPropose
+  );
   const { search } = useLocation();
   const disableIntroCard =
     new URLSearchParams(search.toLowerCase()).get('introcard') === 'false';
@@ -89,6 +92,10 @@ export const Sequence = ({ question }: Props) => {
       return;
     }
     setCurrentCard(cards[currentIndex]);
+    setWithProposalButton(question && question.canPropose);
+    if (isPushProposal) {
+      setWithProposalButton(false);
+    }
   }, [cards, currentIndex]);
 
   useEffect(() => {
@@ -128,12 +135,12 @@ export const Sequence = ({ question }: Props) => {
         <SequenceProgress />
       </SequenceContentStyle>
       <ConsultationPageLinkStyle
-        className={isPushProposal && 'static'}
+        className={!withProposalButton && 'static'}
         to={getConsultationLink(question.country, question.slug)}
       >
         {i18n.t('sequence.more')}
       </ConsultationPageLinkStyle>
-      {!isPushProposal && <ProposalSubmit />}
+      {withProposalButton && <ProposalSubmit />}
     </SequenceContainerStyle>
   );
 };

@@ -2,15 +2,17 @@
 import React, { useEffect } from 'react';
 import { type StateRoot } from 'Shared/store/types';
 import { type QuestionType } from 'Shared/types/question';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
 import { trackDisplaySequence } from 'Shared/services/Tracking';
 import { MetaTags } from 'Client/app/MetaTags';
 import { i18n } from 'Shared/i18n';
 import { Sequence } from 'Client/features/sequence/index';
 import { SequencePlaceholder } from 'Client/features/sequence/Placeholder';
+import { showVoteOnlyBanner } from 'Shared/store/actions/notification';
 
 const SequencePage = () => {
+  const dispatch = useDispatch();
   const question: QuestionType = useSelector((state: StateRoot) =>
     selectCurrentQuestion(state)
   );
@@ -22,6 +24,10 @@ const SequencePage = () => {
 
   if (!question) {
     return <SequencePlaceholder />;
+  }
+
+  if (!question.canPropose) {
+    dispatch(showVoteOnlyBanner());
   }
 
   return (
