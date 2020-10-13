@@ -8,6 +8,7 @@ import {
   TriangleStyle,
   LinkStyle,
   TagsTooltipContainerStyle,
+  TooltipSvgInfos,
 } from './style';
 import { ScreenReaderItemStyle } from '../AccessibilityElements';
 
@@ -22,6 +23,7 @@ export const TagTooltip = () => {
     <TagsTooltipContainerStyle>
       <TriangleStyle />
       <TagsTooltipWrapperStyle>
+        <TooltipSvgInfos />
         <ScreenReaderItemStyle>
           {i18n.t('common.notifications.icons.information')}
         </ScreenReaderItemStyle>
