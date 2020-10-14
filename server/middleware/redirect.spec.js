@@ -64,6 +64,19 @@ describe('Redirect middelware', () => {
   });
 
   describe('redirectCountryLanguageUrl function', () => {
+    it('redirect country lang path to new url pattern with 301 status', () => {
+      const request = httpMocks.createRequest({
+        url: '/GB-en',
+        params: { language: 'en' },
+      });
+      const response = httpMocks.createResponse();
+      jest.spyOn(response, 'redirect');
+
+      redirectCountryLanguageUrl(request, response);
+
+      expect(response.redirect).toHaveBeenCalledWith(301, '/GB');
+    });
+
     it('redirect to new url pattern with 301 status', () => {
       const request = httpMocks.createRequest({
         url: '/FR-fr/foo/bar/baz',

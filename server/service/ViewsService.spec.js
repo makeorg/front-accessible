@@ -30,7 +30,7 @@ describe('Views Service', () => {
 
       const result = await ViewsService.getHome(country, language);
 
-      expect(cache.get).toHaveBeenCalledWith('HOMEPAGE');
+      expect(cache.get).toHaveBeenCalledWith('HOMEPAGE_FR');
 
       expect(result).toBe('fooCache');
     });
@@ -45,7 +45,7 @@ describe('Views Service', () => {
       const result = await ViewsService.getHome(country, language);
 
       expect(cache.put).toHaveBeenCalledWith(
-        'HOMEPAGE',
+        'HOMEPAGE_FR',
         homepageFixture.home,
         300000
       );
