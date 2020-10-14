@@ -89,5 +89,21 @@ describe('Redirect middelware', () => {
 
       expect(response.redirect).toHaveBeenCalledWith(301, '/FR/foo/bar/baz');
     });
+
+    it('redirect to new url pattern + query params with 301 status', () => {
+      const request = httpMocks.createRequest({
+        url: '/FR-fr/foo/bar/baz?qux=quux&quuz=corge',
+        params: { language: 'fr' },
+      });
+      const response = httpMocks.createResponse();
+      jest.spyOn(response, 'redirect');
+
+      redirectCountryLanguageUrl(request, response);
+
+      expect(response.redirect).toHaveBeenCalledWith(
+        301,
+        '/FR/foo/bar/baz?qux=quux&quuz=corge'
+      );
+    });
   });
 });

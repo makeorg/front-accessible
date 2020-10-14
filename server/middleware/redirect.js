@@ -17,7 +17,7 @@ export const redirectToCountry = (req: Request, res: Response) => {
 
 export const redirectCountryLanguageUrl = (req: Request, res: Response) => {
   const { language } = req.params;
-  const oldUrl = req.path;
+  const oldUrl = req.originalUrl;
   const newUrl = oldUrl.replace(`-${language}`, '');
 
   return res.redirect(301, newUrl);
