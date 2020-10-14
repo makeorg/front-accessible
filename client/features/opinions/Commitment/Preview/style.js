@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { SeparatorStyle } from 'Client/ui/Elements/Separators';
 import { intToPx } from 'Shared/helpers/styled';
 import { Elements } from 'Client/app/assets/vars/Elements';
@@ -76,18 +76,12 @@ export const CommitmentPreviewButtonsWrapperStyle = styled(FlexElementStyle)`
 `;
 
 export const CommitmentPreviewCancelStyle = styled(UnstyledButtonStyle)`
-  font-size: 12px;
-  line-height: 18px;
+  font-size: ${intToPx(typography.font.fontsize.X2S.value)};
   color: rgba(255, 255, 255, 0.65);
   text-decoration: underline;
   margin-right: 30px;
   @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
-    font-size: 14px;
-    line-height: 21px;
-  }
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    font-size: 16px;
-    line-height: 24px;
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
   }
 `;
 

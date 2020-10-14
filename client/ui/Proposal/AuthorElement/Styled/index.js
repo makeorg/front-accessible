@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { TextColors } from 'Client/app/assets/vars/Colors';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
@@ -28,7 +28,7 @@ export const AuthorInfosStyle = styled(ParagraphStyle)`
   color: ${color.darkGrey};
   font-style: normal;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 16px;
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
   }
 `;
 
@@ -37,7 +37,7 @@ export const InfosWrapperStyle = styled.span`
 `;
 
 export const ProposalStatusStyle = styled.span`
-  font-size: 12px;
+  font-size: ${intToPx(typography.font.fontsize.X2S.value)};
   color: ${color.white};
   padding: 5px 10px;
   &.status-accepted {
@@ -51,7 +51,7 @@ export const ProposalStatusStyle = styled.span`
     background-color: ${color.greyLighter};
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 14px;
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
   }
 `;
 

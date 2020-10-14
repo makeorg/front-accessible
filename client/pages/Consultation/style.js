@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { intToPx, pxToPercent } from 'Shared/helpers/styled';
 import {
   ColumnElementStyle,
@@ -71,14 +71,14 @@ export const ConsultationPageSidebarStyle = styled(ContentElementStyle)`
 `;
 
 export const TopIdeasPageTitleStyle = styled.h2`
-  font-size: 16px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   line-height: 1.5;
   margin: 10px 0 20px;
   padding: 0 20px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     margin: 0 0 20px;
     padding: 0;
-    font-size: 18px;
+    font-size: ${intToPx(typography.font.fontsize.S.value)};
   }
 `;
 
@@ -146,16 +146,16 @@ export const SequenceFooterTitleStyle = styled.p`
   font-family: ${MakeFonts.TradeGothicBoldCondensed};
   color: ${props => props.theme.fontColor};
   text-transform: uppercase;
-  font-size: 11px;
+  font-size: ${intToPx(typography.font.fontsize.X2S.value)};
   margin-bottom: 5px;
   text-align: center;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 20px;
+    font-size: ${intToPx(typography.font.fontsize.M.value)};
   }
 `;
 
 export const SequenceFooterLinkStyle = styled(Link)`
-  font-size: 10px;
+  font-size: ${intToPx(typography.font.fontsize.X2S.value)};
   color: ${props => props.theme.fontColor};
   outline-color: ${props => props.theme.fontColor};
   &:hover,
@@ -164,6 +164,6 @@ export const SequenceFooterLinkStyle = styled(Link)`
     outline-color: ${props => props.theme.fontColor};
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 14px;
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
   }
 `;

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { intToPx } from 'Shared/helpers/styled';
 import {
   Breakpoints,
@@ -30,19 +30,19 @@ export const NotFoundPageInnerStyle = styled(MiddleColumnStyle)`
 `;
 
 export const NotFoundIntroStyle = styled.p`
-  font-size: 15px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   color: ${color.brandSecondary};
   font-style: italic;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 24px;
+    font-size: ${intToPx(typography.font.fontsize.XL.value)};
   }
 `;
 
 export const NotFoundTitleStyle = styled(SecondLevelTitleStyle)`
-  font-size: 30px;
+  font-size: ${intToPx(typography.font.fontsize.X2L.value)};
   line-height: 1;
   margin: 15px 0 30px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 60px;
+    font-size: ${intToPx(typography.font.fontsize.X5L.value)};
   }
 `;

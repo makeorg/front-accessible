@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
+import { typography } from 'athena-design-tokens';
 
 export const ProfileLinkStyle = styled(Link)`
   font-family: ${MakeFonts.TradeGothicBoldCondensed};
@@ -10,8 +11,7 @@ export const ProfileLinkStyle = styled(Link)`
   text-decoration: none;
   text-transform: uppercase;
   align-items: center;
-  font-size: 15px;
-  line-height: 33px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   flex-shrink: 0;
   > span {
     margin-right: 0;

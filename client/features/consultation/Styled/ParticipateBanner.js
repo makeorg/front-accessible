@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
 import { ShadowColors } from 'Client/app/assets/vars/Colors';
@@ -57,15 +57,14 @@ export const ParticipateIntroductionStyle = styled(ThirdLevelTitleStyle)`
     margin-bottom: 0;
   }
   @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
-    font-size: 20px;
+    font-size: ${intToPx(typography.font.fontsize.M.value)};
   }
 `;
 
 export const ParticipateDescriptionStyle = styled(ParagraphStyle)`
   font-family: ${MakeFonts.CircularStandardBook};
   @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
-    font-size: 18px;
-    line-height: 24px;
+    font-size: ${intToPx(typography.font.fontsize.S.value)};
   }
 `;
 

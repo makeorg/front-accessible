@@ -15,7 +15,7 @@ exports[`SubmitButton must match the snapshot with default Props 1`] = `
   -ms-flex-align: baseline;
   align-items: baseline;
   font-family: 'Trade Gothic Bold Condensed',Arial,sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1;
   border: none;
   border-radius: 20px;
@@ -74,7 +74,7 @@ Snapshot Diff:
 
 @@ -1,8 +1,8 @@
   <button
-    className="sc-11o2adg-2 sc-11o2adg-8 biLEEK dWzwOH"
+    className="sc-11o2adg-2 sc-11o2adg-8 ewutSQ dWzwOH"
 -   disabled={false}
 +   disabled={true}
     form="foo"

@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import TextareaAutosize from 'react-autosize-textarea';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
+import { intToPx } from 'Shared/helpers/styled';
 
 export const BasicTextAreaStyle = styled(TextareaAutosize)`
   width: 100%;
@@ -10,8 +11,7 @@ export const BasicTextAreaStyle = styled(TextareaAutosize)`
   background-color: transparent;
   font-family: ${MakeFonts.CircularStandardBold};
   color: ${color.greyDark};
-  font-size: 16px;
-  line-height: 18px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   padding: 10px 5px;
   resize: none;
 `;
@@ -19,8 +19,8 @@ export const BasicTextAreaStyle = styled(TextareaAutosize)`
 export const TextAreaCounterStyle = styled.div`
   font-family: ${MakeFonts.CircularStandardBook};
   color: ${color.greyDark};
-  font-size: 10px;
-  line-height: 10px;
+  font-size: ${intToPx(typography.font.fontsize.X2S.value)};
+  line-height: 1;
   position: absolute;
   right: 5px;
   bottom: 5px;

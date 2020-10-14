@@ -1,5 +1,5 @@
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { ShadowColors } from 'Client/app/assets/vars/Colors';
 import { Elements } from 'Client/app/assets/vars/Elements';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
@@ -37,7 +37,7 @@ export const ThemeResultsButtonStyle = styled(ProfileHasVotedStyle)`
   @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
     min-width: 38px;
     height: 38px;
-    font-size: 12px;
+    font-size: ${intToPx(typography.font.fontsize.X2S.value)};
     svg {
       width: 18px;
       height: 18px;

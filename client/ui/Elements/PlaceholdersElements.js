@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { intToPx } from 'Shared/helpers/styled';
 import {
@@ -55,13 +55,13 @@ export const FavouritesCardStyle = styled.aside`
 `;
 
 export const FavouritesProposalStyle = styled.p`
-  font-size: 12px;
+  font-size: ${intToPx(typography.font.fontsize.X2S.value)};
   line-height: normal;
   font-family: ${MakeFonts.CircularStandardBold};
   font-weight: bold;
   text-align: center;
   margin-top: 10px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 18px;
+    font-size: ${intToPx(typography.font.fontsize.S.value)};
   }
 `;

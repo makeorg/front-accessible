@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
+import { intToPx } from 'Shared/helpers/styled';
 import { SpaceBetweenRowStyle } from 'Client/ui/Elements/FlexElements';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { SocialNetworksColors } from 'Client/app/assets/vars/Colors';
@@ -12,7 +13,7 @@ export const SharingStyle = styled(SpaceBetweenRowStyle)`
 export const SharingButtonStyle = styled(UnstyledButtonStyle)`
   width: 40px;
   height: 40px;
-  font-size: 18px;
+  font-size: ${intToPx(typography.font.fontsize.S.value)};
   color: ${color.white};
   border-radius: 50%;
   align-items: center;

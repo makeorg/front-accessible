@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
+import { intToPx } from 'Shared/helpers/styled';
 import { ParagraphStyle } from '../../ParagraphElements';
 
 const FormStyle = `
@@ -25,8 +26,7 @@ export const FormCenterAlignStyle = styled.form`
 `;
 
 export const FormRequirementsStyle = styled.p`
-  font-size: 12px;
-  line-height: 1.5;
+  font-size: ${intToPx(typography.font.fontsize.X2S.value)};
   margin: 2.5px 0 15px;
   color: ${color.greyDark};
 `;
@@ -66,7 +66,7 @@ export const FieldWrapperStyle = styled.div`
     line-height: 20px;
     padding-bottom: 3px;
     & + label {
-      font-size: 10px;
+      font-size: ${intToPx(typography.font.fontsize.X2S.value)};
       line-height: 20px;
     }
   }
@@ -75,7 +75,7 @@ export const FieldWrapperStyle = styled.div`
     padding-bottom: 15px;
   }
   > input:required + label {
-    font-size: 14px;
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
     line-height: 38px;
   }
 `;
@@ -102,7 +102,7 @@ export const ConditionParagraphStyle = styled(InlineParagraphStyle)`
 export const FloatingLabelStyle = styled.label`
   font-family: ${MakeFonts.CircularStandardBook};
   color: ${color.greyDark};
-  font-size: 14px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   line-height: 38px;
   font-weight: normal;
   position: absolute;

@@ -1,13 +1,12 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { FlexElementStyle } from 'Client/ui/Elements/FlexElements';
 
 export const DisclaimerSubtitleStyle = styled.h4`
-  font-size: 12px;
-  line-height: 18px;
+  font-size: ${intToPx(typography.font.fontsize.X2S.value)};
   color: ${color.black};
   font-family: ${MakeFonts.CircularStandardBold};
   text-transform: none;
@@ -16,12 +15,7 @@ export const DisclaimerSubtitleStyle = styled.h4`
     margin-top: 20px;
   }
   @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
-    font-size: 14px;
-    line-height: 21px;
-  }
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    font-size: 16px;
-    line-height: 24px;
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
   }
 `;
 

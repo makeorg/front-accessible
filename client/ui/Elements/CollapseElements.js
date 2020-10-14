@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
 import { ShadowColors } from 'Client/app/assets/vars/Colors';
@@ -36,7 +36,7 @@ export const CollapseTriggerStyle = styled(UnstyledButtonStyle)`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  font-size: 12px;
+  font-size: ${intToPx(typography.font.fontsize.X2S.value)};
   line-height: 15px;
   text-align: left;
   &:disabled {
@@ -44,15 +44,15 @@ export const CollapseTriggerStyle = styled(UnstyledButtonStyle)`
     cursor: text;
   }
   @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
-    font-size: 14px;
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
     line-height: 19px;
   }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    font-size: 16px;
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
     line-height: 32px;
   }
   @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
-    font-size: 18px;
+    font-size: ${intToPx(typography.font.fontsize.S.value)};
     line-height: 25px;
   }
 `;

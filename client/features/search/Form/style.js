@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/Buttons/style';
@@ -17,7 +17,7 @@ export const SearchFormTriggerStyle = styled(UnstyledButtonStyle)`
 `;
 
 export const SearchFormCancelTriggerStyle = styled(UnstyledButtonStyle)`
-  font-size: 14px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   color: ${color.greyDark};
   text-decoration: underline;
   margin-left: 25px;
@@ -75,17 +75,17 @@ export const SearchInputStyle = styled.input`
   background-color: transparent;
   width: 100%;
   color: ${color.greyDark};
-  font-size: 16px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   line-height: 1;
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    font-size: 16px;
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
   }
 `;
 
 export const SearchLabelStyle = styled.label`
   font-family: ${MakeFonts.CircularStandardBook};
   color: ${color.greyDark};
-  font-size: 16px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   line-height: 1;
   font-weight: normal;
   position: absolute;
@@ -100,7 +100,7 @@ export const SearchLabelStyle = styled.label`
     opacity: 0;
   }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    font-size: 14px;
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
     line-height: 39px;
   }
 `;

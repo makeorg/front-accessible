@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { LinkAsRedButton } from 'Client/ui/Elements/LinkElements';
 import { SpaceBetweenColumnToRowStyle } from 'Client/ui/Elements/FlexElements';
 import { intToPx } from 'Shared/helpers/styled';
@@ -17,8 +17,7 @@ export const ResultsDownloadItemStyle = styled(SpaceBetweenColumnToRowStyle)`
   }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     align-content: center;
-    font-size: 16px;
-    line-height: 24px;
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
   }
 `;
 

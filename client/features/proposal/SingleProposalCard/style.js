@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { intToPx } from 'Shared/helpers/styled';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import {
@@ -79,23 +79,23 @@ export const SharingWrapperStyle = styled(MiddleColumnToRowStyle)`
 `;
 
 export const SharingTitleStyle = styled.h2`
-  font-size: 13px;
+  font-size: ${intToPx(typography.font.fontsize.X2S.value)};
   color: ${color.greyDark};
   margin: 0 0 10px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 18px;
+    font-size: ${intToPx(typography.font.fontsize.S.value)};
     margin: 0 20px;
   }
 `;
 
 export const ProposalCardContentStyle = styled.blockquote`
   max-width: 100%;
-  font-size: 12px;
+  font-size: ${intToPx(typography.font.fontsize.X2S.value)};
   line-height: normal;
   font-family: ${MakeFonts.CircularStandardBold};
   text-align: center;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 22px;
+    font-size: ${intToPx(typography.font.fontsize.L.value)};
   }
 `;
 

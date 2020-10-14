@@ -1,7 +1,7 @@
 /* @flow */
 import styled from 'styled-components';
 import { intToPx } from 'Shared/helpers/styled';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { MiddleRowStyle } from './FlexElements';
 
@@ -35,7 +35,7 @@ export const SeparatorWrapperStyle = styled(MiddleRowStyle)`
 
 export const TextSeparatorStyle = styled(MiddleRowStyle)`
   width: 60px;
-  font-size: 14px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
 `;
 
 export const ContentSeparatorStyle = styled(SeparatorStyle)`

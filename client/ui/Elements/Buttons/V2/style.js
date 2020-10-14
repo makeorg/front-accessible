@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Link } from 'react-router-dom';
 import { intToPx } from 'Shared/helpers/styled';
@@ -13,9 +13,9 @@ export const BasicButtonStyle = `
   align-items: baseline;
   font-family: ${MakeFonts.TradeGothicBoldCondensed};
   text-transform: uppercase;
-  border-radius: 17.5px;
+  border-radius: 20px;
   border: none;
-  font-size: 16px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   padding: 10px 25px 7px 25px;
   text-decoration: none;
 `;
@@ -74,11 +74,10 @@ export const ExternalLinkIconStyle = styled(SvgExternalLinkPlain)`
 `;
 
 const ButtonNoBackgroundStyle = `
-  font-size: 14px;
-  line-height: 1.5;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   text-decoration: underline;
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    font-size: 16px;
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
   }
 `;
 

@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import {
   SvgThumbsUp,
   SvgEnvelope,
@@ -52,18 +52,18 @@ export const BasicButtonStyle = styled.button`
   justify-content: center;
   align-items: baseline;
   font-family: ${MakeFonts.TradeGothicBoldCondensed};
-  font-size: 14px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   line-height: 1;
   border: none;
   border-radius: 20px;
   text-transform: uppercase;
   padding: 12px 25px 8px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 16px;
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
     padding: 13px 25px 10px;
   }
   @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
-    font-size: 18px;
+    font-size: ${intToPx(typography.font.fontsize.S.value)};
   }
 `;
 
@@ -152,7 +152,7 @@ export const CloseButtonStyle = styled(UnstyledButtonStyle)`
   right: ${intToPx(DefaultPadding.Mobile)};
   fill: ${color.brandSecondary};
   z-index: 1;
-  font-size: 16px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   .tofill {
     fill: ${color.greyDark};
   }
@@ -164,13 +164,9 @@ export const CloseButtonStyle = styled(UnstyledButtonStyle)`
 
 export const NavButtonStyle = styled(UnstyledButtonStyle)`
   font-family: ${MakeFonts.TradeGothicBoldCondensed};
-  font-size: 14px;
-  line-height: 20px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   color: ${color.brandSecondary};
   text-transform: uppercase;
-  @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
-    font-size: 16px;
-  }
 `;
 
 export const QualifyButtonStyle = styled.button`
@@ -179,7 +175,7 @@ export const QualifyButtonStyle = styled.button`
   justify-content: space-between;
   width: 100%;
   border-width: 2px;
-  font-size: 11.2px;
+  font-size: ${intToPx(typography.font.fontsize.X2S.value)};
   line-height: 20px;
   border-style: solid;
   padding: 0 10px;
@@ -191,12 +187,8 @@ export const QualifyButtonStyle = styled.button`
     color: ${color.white};
     background-color: ${props => props.color};
   }
-  @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
-    font-size: 12.6px;
-    line-height: 23px;
-  }
   @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
-    font-size: 14px;
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
     line-height: 26px;
   }
 `;

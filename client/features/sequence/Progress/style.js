@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { SvgPreviousArrowLeft } from 'Client/ui/Svg/elements';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
@@ -8,9 +8,9 @@ import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 export const ProgressPreviousButtonStyle = styled(UnstyledButtonStyle)`
   flex: 0;
   padding: 5px 15px;
-  border-radius: 17.5px;
+  border-radius: 20px;
   background-color: ${color.white};
-  border-radius: 17.5px;
+  border-radius: 20px;
   &:disabled .tofill {
     fill: ${color.grey};
   }
@@ -24,7 +24,7 @@ export const ProgressCounterStyle = styled.span`
   align-self: center;
   flex: 0;
   color: ${color.greyDark};
-  font-size: 14px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   padding: 0 5px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     padding: 0 25px;

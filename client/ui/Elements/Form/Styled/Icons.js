@@ -1,11 +1,12 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
+import { intToPx } from 'Shared/helpers/styled';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/Buttons/style';
 
 export const InputIconStyle = styled.span`
   display: flex;
   color: ${color.brandSecondary};
-  font-size: 18px;
+  font-size: ${intToPx(typography.font.fontsize.S.value)};
   margin-right: 5px;
   svg {
     fill: ${color.brandSecondary};

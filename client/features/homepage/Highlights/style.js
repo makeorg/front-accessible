@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import {
   SpaceBetweenRowStyle,
@@ -47,7 +47,7 @@ export const HighlightFigureContainerStyle = styled(ColumnElementStyle)`
 `;
 
 const IconStyle = `
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   .tofill {
     fill: #253186
   }
@@ -68,18 +68,18 @@ export const HeartIconStyle = styled(SvgHandHeart)`
 
 export const FiguresStyle = styled.span`
   font-family: ${MakeFonts.CircularStandardBold};
-  font-size: 22px;
+  font-size: ${intToPx(typography.font.fontsize.L.value)};
   color: ${color.black};
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    font-size: 26px;
+    font-size: ${intToPx(typography.font.fontsize.XL.value)};
   }
 `;
 
 export const SubtitleFiguresStyle = styled.span`
   font-family: ${MakeFonts.CircularStandardBook};
-  font-size: 14px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   color: ${color.greyDark};
-  padding: 7px 15px 30px 0px;
+  padding-bottom: 30px;
 `;
 
 export const FigureSeparationLineStyle = styled.hr`

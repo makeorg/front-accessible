@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { ShadowColors } from 'Client/app/assets/vars/Colors';
 import {
   DefaultPadding,
@@ -39,7 +39,7 @@ export const ProfileHasVotedStyle = styled.div`
   align-items: center;
   padding: 5px;
   margin-right: 5px;
-  font-size: 18px;
+  font-size: ${intToPx(typography.font.fontsize.S.value)};
   border-width: 2px;
   border-style: solid;
   border-radius: 50%;

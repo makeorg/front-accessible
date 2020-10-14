@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { ShadowColors } from 'Client/app/assets/vars/Colors';
 import { intToPx, pxToPercent } from 'Shared/helpers/styled';
 import {
@@ -156,7 +156,7 @@ export const ProfileNavigationStyle = styled(ColumnElementStyle)`
 
 export const ProfileTitleStyle = styled.p`
   font-family: ${MakeFonts.TradeGothicBoldCondensed};
-  font-size: 16px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   text-transform: uppercase;
   margin-bottom: 10px;
   text-align: center;
@@ -164,7 +164,7 @@ export const ProfileTitleStyle = styled.p`
     margin-bottom: 0;
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 18px;
+    font-size: ${intToPx(typography.font.fontsize.S.value)};
   }
 `;
 

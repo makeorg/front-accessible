@@ -17,7 +17,7 @@ exports[`Pagination snapshot by default 1`] = `
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
-  font-size: 14px;
+  font-size: 16px;
   font-family: 'Circular Standard Book',Arial,sans-serif;
   color: rgba(0,0,0,0.65);
   padding: 0px 30px;

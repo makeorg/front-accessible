@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
@@ -43,25 +43,19 @@ export const VoteDataListStyle = styled(ColumnElementStyle)`
 `;
 
 export const VoteDataItemStyle = styled.span`
-  font-size: 12px;
-  line-height: 18px;
+  font-size: ${intToPx(typography.font.fontsize.X2S.value)};
   color: ${color.greyDark};
-  @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
-    font-size: 14px;
-    line-height: 21px;
-  }
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    font-size: 16px;
-    line-height: 22px;
-  }
   margin: 3px 0;
+  @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
+  }
 `;
 
 export const VoteDataBoldItemStyle = styled(VoteDataItemStyle)`
-  font-size: 14px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   font-family: ${MakeFonts.CircularStandardBold};
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 16px;
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
   }
 `;
 

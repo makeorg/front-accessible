@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { intToPx } from 'Shared/helpers/styled';
 import { Elements } from 'Client/app/assets/vars/Elements';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
@@ -38,7 +38,7 @@ export const ScoringTextStyle = styled.span`
 `;
 
 export const ScoringPercentageStyle = styled.span`
-  font-size: 18px;
+  font-size: ${intToPx(typography.font.fontsize.S.value)};
   font-family: ${MakeFonts.CircularStandardBold};
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     margin-bottom: 5px;
@@ -46,7 +46,7 @@ export const ScoringPercentageStyle = styled.span`
 `;
 
 export const ScoringPercentageTextStyle = styled.span`
-  font-size: 14px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   margin-left: 5px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     margin-left: 0;

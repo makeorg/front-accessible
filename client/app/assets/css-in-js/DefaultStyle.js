@@ -1,6 +1,6 @@
 // @flow
 import { createGlobalStyle } from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import {
   NAVIGATION_ARIA_CLASS,
   NAVIGATION_ELEMENT_ARIA_CLASS,
@@ -26,6 +26,7 @@ export const DefaultStylesheet = createGlobalStyle`
   body {
     font-family: ${MakeFonts.CircularStandardBook};
     color: ${color.black};
+    line-height: ${typography.font.lineheight.value};
     &.locked {
       overflow-y: hidden;
     }

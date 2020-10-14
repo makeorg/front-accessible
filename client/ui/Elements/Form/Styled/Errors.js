@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { intToPx } from 'Shared/helpers/styled';
 import { Elements } from 'Client/app/assets/vars/Elements';
@@ -11,8 +11,7 @@ export const FormErrorsContainerStyle = styled.div`
   margin-bottom: 10px;
   border-radius: ${intToPx(Elements.BorderRadius)};
   background-color: ${color.greyLighter};
-  font-size: 12px;
-  line-height: 1.5;
+  font-size: ${intToPx(typography.font.fontsize.X2S.value)};
 `;
 
 export const FormErrorsIntroStyle = styled.p`

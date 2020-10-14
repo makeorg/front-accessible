@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
@@ -15,8 +15,7 @@ export const KeyFiguresListItemStyle = styled.li`
   flex-flow: column;
   flex: 1;
   padding-left: 15px;
-  font-size: 12px;
-  line-height: 18px;
+  font-size: ${intToPx(typography.font.fontsize.X2S.value)};
   color: ${color.greyDark};
   border-left: 1px solid ${color.greyLighter};
   &:first-child {
@@ -24,18 +23,12 @@ export const KeyFiguresListItemStyle = styled.li`
     border-left: none;
   }
   @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
-    font-size: 14px;
-    line-height: 21px;
-  }
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    font-size: 16px;
-    line-height: 22px;
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
   }
 `;
 
 export const KeyFiguresCountStyle = styled.span`
   font-family: ${MakeFonts.TradeGothicBoldCondensed};
   color: ${props => props.fontColor};
-  font-size: 22px;
-  line-height: 1;
+  font-size: ${intToPx(typography.font.fontsize.L.value)};
 `;

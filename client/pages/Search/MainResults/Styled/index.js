@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
+import { typography } from 'athena-design-tokens';
 
 export const MainResultsSectionStyle = styled.section`
   display: flex;
@@ -24,8 +25,7 @@ export const MainResultsContainerStyle = styled.div`
 
 export const NoResultsStyle = styled.p`
   font-family: ${MakeFonts.CircularStandardBold};
-  font-size: 14px;
-  line-height: 21px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   @media (max-width: ${intToPx(Breakpoints.Tablet)}) {
     margin: 0 20px;
   }

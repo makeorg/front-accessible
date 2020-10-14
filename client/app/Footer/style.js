@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { Link } from 'react-router-dom';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { intToPx } from 'Shared/helpers/styled';
@@ -66,8 +66,7 @@ export const FooterItemLinkStyle = styled(Link)`
   align-items: center;
   font-family: ${MakeFonts.CircularStandardBook};
   text-decoration: none;
-  font-size: 14px;
-  line-height: 24px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   color: ${color.greyDark};
 `;
 

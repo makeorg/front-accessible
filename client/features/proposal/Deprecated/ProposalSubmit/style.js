@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { pxToRem, intToPx } from 'Shared/helpers/styled';
 import TextareaAutosize from 'react-autosize-textarea';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
@@ -65,13 +65,13 @@ export const ProposalButtonWrapperStyle = styled(FlexElementStyle)`
 `;
 
 export const ProposalLabelStyle = styled.label`
-  font-size: 16px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   line-height: 38px;
   margin-right: 2.5px;
   margin-left: 8px;
   white-space: nowrap;
   @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
-    font-size: 18px;
+    font-size: ${intToPx(typography.font.fontsize.S.value)};
     line-height: 48px;
   }
 `;
@@ -79,7 +79,7 @@ export const ProposalLabelStyle = styled.label`
 export const ProposalTextareaStyle = styled(TextareaAutosize)`
   width: 100%;
   font-family: ${MakeFonts.CircularStandardBold};
-  font-size: 16px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   line-height: 18px;
   padding: 10px 5px;
   border: none;
@@ -87,7 +87,7 @@ export const ProposalTextareaStyle = styled(TextareaAutosize)`
   margin-right: 15px;
   background-color: transparent;
   @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
-    font-size: 18px;
+    font-size: ${intToPx(typography.font.fontsize.S.value)};
     line-height: 28px;
   }
 `;
@@ -95,25 +95,25 @@ export const ProposalTextareaStyle = styled(TextareaAutosize)`
 export const ProposalCharLimitStyle = styled(MiddleRowStyle)`
   font-family: ${MakeFonts.CircularStandardBook};
   color: ${color.greyDark};
-  font-size: 12px;
+  font-size: ${intToPx(typography.font.fontsize.X2S.value)};
   line-height: 30px;
   padding: 0 2.5px;
   @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
-    font-size: 16px;
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
     line-height: 30px;
     padding: 0 10px;
   }
 `;
 
 export const ProposalButtonStyle = styled(ActiveButtonStyle)`
-  font-size: 14px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   padding: 6px 12px 2px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 16px;
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
     padding: 11px 12px 8px;
   }
   @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
-    font-size: 16px;
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
   }
 `;
 
