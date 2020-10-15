@@ -29,6 +29,7 @@ module.exports = {
         alias: {
           Client: './client',
           Shared: './shared',
+          Server: './server',
         },
       },
     ],

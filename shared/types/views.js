@@ -7,7 +7,6 @@ import {
 import { type OrganisationType } from 'Shared/types/organisation';
 
 // Home view
-
 export type FeaturedConsultationType = {
   questionSlug: string | null,
   title: string,
@@ -74,4 +73,9 @@ export type SliderParamsType = {
   responsive?: SliderParamsType[],
   interactiveChildren?: InteractiveChildrenType,
   counterName?: string,
+};
+
+export type CountryWithConsulationsType = {
+  countryCode: string,
+  activeConsultations: boolean,
 };

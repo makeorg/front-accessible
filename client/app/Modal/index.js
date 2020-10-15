@@ -9,6 +9,7 @@ import {
   MODAL_REGISTER,
   MODAL_FORGOT_PASSWORD,
   MODAL_PROPOSAL_SUCCESS,
+  MODAL_COUNTRIES,
 } from 'Shared/constants/modal';
 import { type StateRoot } from 'Shared/store/types';
 import { Login } from 'Client/features/auth/Login';
@@ -17,6 +18,7 @@ import { PasswordForgot } from 'Client/features/auth/PasswordForgot';
 import { trackClickCloseModal } from 'Shared/services/Tracking';
 import { ProposalSuccess } from 'Client/features/proposal/Submit/Success';
 import { ModalComponent } from './ModalComponent';
+import { SwitchCountry } from '../SwitchCountry';
 
 ReactModal.setAppElement('#app');
 
@@ -25,6 +27,7 @@ const modalContents = {
   [MODAL_REGISTER]: <Register />,
   [MODAL_FORGOT_PASSWORD]: <PasswordForgot />,
   [MODAL_PROPOSAL_SUCCESS]: <ProposalSuccess />,
+  [MODAL_COUNTRIES]: <SwitchCountry />,
 };
 
 export const Modal = () => {

@@ -3,6 +3,7 @@
 exports[`initialState snapshot 1`] = `
 Object {
   "appConfig": Object {
+    "countriesWithConsultations": Array [],
     "country": "",
     "language": "",
     "queryParams": Object {},

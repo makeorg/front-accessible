@@ -23,6 +23,7 @@ import { TWTTR_SCRIPT } from 'Shared/services/Trackers/twttr';
 import configuration from './configuration';
 import { BUILD_DIR } from './paths';
 import { logInfo } from './ssr/helpers/ssr.helper';
+import { ViewsService } from './service/ViewsService';
 
 const parser = require('ua-parser-js');
 
@@ -66,11 +67,15 @@ const renderHtml = (reactApp, reduxStore, metaTags, res) => {
 };
 
 // @todo test this function!!
-export const reactRender = (req, res, routeState = {}) => {
+export const reactRender = async (req, res, routeState = {}) => {
   const { country, language } = req.params;
   const ua = parser(req.headers['user-agent']);
 
   const { secureExpired, ...queryParams } = req.query;
+  const countriesWithConsultations = await ViewsService.getCountries(
+    country,
+    language
+  );
 
   const state = {
     ...createInitialState(),
@@ -81,6 +86,7 @@ export const reactRender = (req, res, routeState = {}) => {
       country,
       translations: i18n.getResourceBundle(language, TRANSLATION_NAMESPACE),
       queryParams,
+      countriesWithConsultations,
     },
   };
 

@@ -276,3 +276,9 @@ export const isHomepageWithLocale = (
   pathname: string,
   includingPreview: ?boolean = true
 ) => matchRoute(pathname, ROUTE_COUNTRY, true, false, false, includingPreview);
+
+export const isSequencePage = (
+  pathname: string,
+  includingPreview: ?boolean = true
+) =>
+  matchRoute(pathname, ROUTE_SEQUENCE, false, false, false, includingPreview);

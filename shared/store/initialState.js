@@ -8,6 +8,7 @@ export const initialState: StateRoot = {
     country: '',
     translations: {},
     queryParams: {},
+    countriesWithConsultations: [],
   },
   views: {},
   proposal: {

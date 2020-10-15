@@ -3,7 +3,6 @@ import { i18n } from 'Shared/i18n';
 import {
   countryLanguageMiddleware,
   getCountryFromRequest,
-  getLanguageFromCountry,
 } from './countryLanguage';
 
 jest.mock('Shared/i18n');
@@ -57,14 +56,6 @@ describe('Country Language middelware', () => {
       const country = getCountryFromRequest(request, response, () => {});
 
       expect(country).toBe('FR');
-    });
-  });
-
-  describe('getLanguageFromCountry function', () => {
-    it('language is set by params', () => {
-      const language = getLanguageFromCountry('FR');
-
-      expect(language).toBe('fr');
     });
   });
 

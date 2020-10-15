@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { i18n } from 'Shared/i18n';
 import { type StateRoot } from 'Shared/store/types';
 import { trackClickBlog } from 'Shared/services/Tracking';
@@ -24,6 +24,10 @@ import {
   PANEL_ARIA_NEGATIVE_TAB_CLASS,
 } from 'Shared/constants/a11y';
 import { MAIN_FOOTER } from 'Shared/constants/ids';
+import { UnstyledButtonStyle } from 'Client/ui/Elements/Buttons/style';
+import { modalShowCountries } from 'Shared/store/actions/modal';
+import { isSequencePage as getIsSequencePage } from 'Shared/routes';
+import { useLocation } from 'react-router';
 import {
   FooterStyle,
   FooterNavStyle,
@@ -35,7 +39,7 @@ import {
   FooterWrapperSecondListStyle,
   FooterWrapperThirdListStyle,
   FooterItemAltLinkStyle,
-  // FooterCountryIconStyle,
+  FooterCountryIconStyle,
   FooterContactIconStyle,
 } from './style';
 
@@ -44,49 +48,53 @@ import {
  */
 export const Footer = () => {
   const isDesktop = useDesktop();
+  const dispatch = useDispatch();
+  const location = useLocation();
   const { country } = useSelector((state: StateRoot) => state.appConfig);
   const isFR = country === 'FR';
-  const isDesktopFR = isDesktop && isFR;
+  const isSequencePage = getIsSequencePage(location.pathname);
   return (
     <FooterStyle
       id={MAIN_FOOTER}
-      className={`${NAVIGATION_ARIA_NEGATIVE_TAB_CLASS} ${PANEL_ARIA_NEGATIVE_TAB_CLASS}`}
+      className={`${NAVIGATION_ARIA_NEGATIVE_TAB_CLASS} ${PANEL_ARIA_NEGATIVE_TAB_CLASS} ${
+        isSequencePage && 'extra-mobile-padding-bottom'
+      }`}
       data-cy-container="footer"
     >
       <FooterNavStyle aria-label={i18n.t('common.footer_nav')}>
-        <FooterWrapperFirstListStyle>
-          {isDesktopFR && (
-            <>
-              <FooterItemStyle>
-                <FooterItemLinkStyle
-                  as="a"
-                  target="_blank"
-                  href={NEWS_LINK}
-                  onClick={() => trackClickBlog('blog list')}
-                >
-                  {i18n.t('main-footer.news')}
-                  <FooterLinkIconStyle
-                    aria-label={i18n.t('common.open_new_window')}
-                  />
-                </FooterItemLinkStyle>
-              </FooterItemStyle>
-              <FooterItemStyle>
-                <FooterItemLinkStyle
-                  as="a"
-                  target="_blank"
-                  href={JOBS_LINK}
-                  to={JOBS_LINK}
-                >
-                  {i18n.t('main-footer.jobs')}
-                  <FooterLinkIconStyle
-                    aria-label={i18n.t('common.open_new_window')}
-                  />
-                </FooterItemLinkStyle>
-              </FooterItemStyle>
-            </>
-          )}
-          {isFR && (
-            <>
+        {isFR && (
+          <>
+            <FooterWrapperFirstListStyle>
+              {isDesktop && (
+                <>
+                  <FooterItemStyle>
+                    <FooterItemLinkStyle
+                      as="a"
+                      target="_blank"
+                      href={NEWS_LINK}
+                      onClick={() => trackClickBlog('blog list')}
+                    >
+                      {i18n.t('main-footer.news')}
+                      <FooterLinkIconStyle
+                        aria-label={i18n.t('common.open_new_window')}
+                      />
+                    </FooterItemLinkStyle>
+                  </FooterItemStyle>
+                  <FooterItemStyle>
+                    <FooterItemLinkStyle
+                      as="a"
+                      target="_blank"
+                      href={JOBS_LINK}
+                      to={JOBS_LINK}
+                    >
+                      {i18n.t('main-footer.jobs')}
+                      <FooterLinkIconStyle
+                        aria-label={i18n.t('common.open_new_window')}
+                      />
+                    </FooterItemLinkStyle>
+                  </FooterItemStyle>
+                </>
+              )}
               <FooterItemStyle>
                 <FooterItemLinkStyle
                   as="a"
@@ -111,10 +119,10 @@ export const Footer = () => {
                   />
                 </FooterItemLinkStyle>
               </FooterItemStyle>
-            </>
-          )}
-        </FooterWrapperFirstListStyle>
-        <FooterSeparatorStyle />
+            </FooterWrapperFirstListStyle>
+            <FooterSeparatorStyle />
+          </>
+        )}
         <ColumnToRowElementStyle>
           <FooterWrapperSecondListStyle>
             <FooterItemStyle>
@@ -143,18 +151,17 @@ export const Footer = () => {
             </FooterItemStyle>
           </FooterWrapperSecondListStyle>
           <FooterWrapperThirdListStyle>
-            {/* 
-            Waiting for API endpoo
             <FooterItemStyle className="no-bullet">
               <FooterItemAltLinkStyle
                 className="underline"
-                onClick={scrollToTop}
-                to="#"
+                as={UnstyledButtonStyle}
+                onClick={() => dispatch(modalShowCountries())}
+                data-cy-button="country-switch-modal"
               >
                 <FooterCountryIconStyle />
                 {i18n.t('main-footer.country')}
               </FooterItemAltLinkStyle>
-            </FooterItemStyle> */}
+            </FooterItemStyle>
             <FooterItemStyle>
               <FooterItemAltLinkStyle
                 onClick={scrollToTop}

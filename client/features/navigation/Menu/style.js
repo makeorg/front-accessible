@@ -40,7 +40,7 @@ export const MenuPanelStyle = styled.div`
   z-index: 10;
   width: 100vw;
   height: 100vh;
-  background-color: ${color.greyLighter};
+  background-color: ${color.white};
   box-shadow: 0px 0px 20px ${ShadowColors.BlackZeroEightOpacity};
   transition: 0.5s ease-in left;
   &.expanded {

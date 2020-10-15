@@ -42,6 +42,16 @@ Feature: The Home Page
     And I see "Nous travaillons avec des entreprises, associations, institutions pour faire avancer nos projets. Nous accompagnons également ces organisations pour leur permettre de lancer leurs propres consultations." in "partnership_description" container
     And I see a link "Voir nos offres" to "https://about.make.org/collaborez-avec-make-org" in "partnership" container
 
+  Scenario: Country switching redirect to Homepage
+    Given I go to the sequence page of the question "question-0-slug"
+    Then I see "Changer de pays" in "footer" container
+    When I click on "country-switch-modal" button
+    Then I see "Changer de pays" in "country_switch_nav" container
+    And I see a "country_switch_GB" link
+    When I click on "country_switch_GB" link
+    Then I should be redirect to "british homepage"
+    Then I see "Change country" in "country_switch_nav" container
+
   Scenario: Track display home page
     Given I monitor API "postTracking" requests
     When I go to "france homepage"

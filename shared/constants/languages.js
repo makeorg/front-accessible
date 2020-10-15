@@ -1,18 +1,26 @@
+import english from 'Server/staticData/i18n/en.json';
+import french from 'Server/staticData/i18n/fr.json';
+
+export const translationRessources = {
+  en: { translation: english },
+  fr: { translation: french },
+};
+
 export const countriesConfiguration = [
   {
-    country: 'FR',
+    countryCode: 'FR',
     language: 'fr',
   },
   {
-    country: 'BE',
+    countryCode: 'BE',
     language: 'fr',
   },
   {
-    country: 'LU',
+    countryCode: 'LU',
     language: 'fr',
   },
   {
-    country: 'CH',
+    countryCode: 'CH',
     language: 'fr',
   },
 ];

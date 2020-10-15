@@ -188,6 +188,14 @@ then('I see a button {string} in {string} container with label {string}', (butto
     .and('be.visible');
 });
 
+// I see link
+then('I see (a )(the ){string} link', (link) => {
+  cy.get(`a[data-cy-link=${link}]`)
+    .scrollIntoView()
+    .should('exist')
+    .and('be.visible');
+});
+
 // disabled button
 then('the {string} button is disabled', (buttonName) => {
   cy.get(`[data-cy-button=${getIdentifierButtonByName(buttonName)}]`).first().should('have.attr', 'disabled');

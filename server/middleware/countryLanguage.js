@@ -1,8 +1,8 @@
 // @flow
 import { type Request, type Response, type NextFunction } from 'express';
 import { i18n } from 'Shared/i18n';
-import { DEFAULT_COUNTRY, DEFAULT_LANGUAGE } from 'Shared/constants/config';
-import { countriesConfiguration } from 'Shared/constants/languages';
+import { DEFAULT_COUNTRY } from 'Shared/constants/config';
+import { getLanguageFromCountryCode } from 'Shared/helpers/countries';
 
 export const getCountryFromRequest = (req: Request) => {
   const xDetectedCountry = req.headers['x-detected-country'];
@@ -21,17 +21,6 @@ export const getCountryFromRequest = (req: Request) => {
   return DEFAULT_COUNTRY;
 };
 
-export const getLanguageFromCountry = (country: string) => {
-  const countryConfiguration = countriesConfiguration.find(
-    countryConf => countryConf.country === country
-  );
-  const language = countryConfiguration
-    ? countryConfiguration.language
-    : DEFAULT_LANGUAGE;
-
-  return language;
-};
-
 export const countryLanguageMiddleware = (
   req: Request,
   res: Response,
@@ -42,7 +31,7 @@ export const countryLanguageMiddleware = (
   const formattedCountry = country.toUpperCase();
 
   // Get language associated to the country
-  const language = getLanguageFromCountry(country);
+  const language = getLanguageFromCountryCode(country);
   const formattedLanguage = language.toLowerCase();
 
   req.params.country = formattedCountry;
