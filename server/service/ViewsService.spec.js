@@ -15,7 +15,6 @@ jest.mock('../logger', () => ({
 }));
 
 const country = 'FR';
-const language = 'fr';
 
 describe('Views Service', () => {
   afterEach(() => {
@@ -28,7 +27,7 @@ describe('Views Service', () => {
 
       cache.get.mockReturnValueOnce('fooCache');
 
-      const result = await ViewsService.getHome(country, language);
+      const result = await ViewsService.getHome(country);
 
       expect(cache.get).toHaveBeenCalledWith('HOMEPAGE_FR');
 
@@ -42,7 +41,7 @@ describe('Views Service', () => {
         data: homepageFixture.home,
       });
 
-      const result = await ViewsService.getHome(country, language);
+      const result = await ViewsService.getHome(country);
 
       expect(cache.put).toHaveBeenCalledWith(
         'HOMEPAGE_FR',

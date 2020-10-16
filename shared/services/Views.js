@@ -3,12 +3,9 @@ import { type HomeViewType, type SearchViewsType } from 'Shared/types/views';
 import { ViewsApiService } from 'Shared/api/ViewsApiService';
 import { defaultUnexpectedError } from './DefaultErrorHandler';
 
-const getHome = async (
-  country: string,
-  language: string
-): Promise<?HomeViewType> => {
+const getHome = async (country: string): Promise<?HomeViewType> => {
   try {
-    const viewsResponse = await ViewsApiService.getHome(country, language);
+    const viewsResponse = await ViewsApiService.getHome(country);
 
     const { data } = viewsResponse;
     const result = {
