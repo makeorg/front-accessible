@@ -9,6 +9,7 @@ import {
   compareCountriesByName,
   getLanguageFromCountryCode,
 } from 'Shared/helpers/countries';
+import { modalClose } from 'Shared/store/actions/modal';
 import {
   CountryLinkStyle,
   CountryListStyle,
@@ -37,7 +38,8 @@ export const SwitchCountry = () => {
       return () => {};
     }
     dispatch(setLanguageByCountryCode(countryCode));
-    return i18n.changeLanguage(getLanguageFromCountryCode(countryCode));
+    i18n.changeLanguage(getLanguageFromCountryCode(countryCode));
+    return dispatch(modalClose());
   };
 
   return (

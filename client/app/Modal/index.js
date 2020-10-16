@@ -1,5 +1,4 @@
 // @flow
-
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import ReactModal from 'react-modal';
@@ -17,7 +16,9 @@ import { Register } from 'Client/features/auth/Register';
 import { PasswordForgot } from 'Client/features/auth/PasswordForgot';
 import { trackClickCloseModal } from 'Shared/services/Tracking';
 import { ProposalSuccess } from 'Client/features/proposal/Submit/Success';
-import { ModalComponent } from './ModalComponent';
+import { i18n } from 'Shared/i18n';
+import { CloseButtonStyle } from 'Client/ui/Elements/Buttons/style';
+import { SvgClose } from 'Client/ui/Svg/elements';
 import { SwitchCountry } from '../SwitchCountry';
 
 ReactModal.setAppElement('#app');
@@ -32,11 +33,8 @@ const modalContents = {
 
 export const Modal = () => {
   const dispatch = useDispatch();
-  const isModalOpen: boolean = useSelector(
-    (state: StateRoot) => state.modal.isOpen
-  );
-  const contentType: string = useSelector(
-    (state: StateRoot) => state.modal.contentType
+  const { isOpen, contentType, focusAfterClose } = useSelector(
+    (state: StateRoot) => state.modal
   );
 
   const handleCloseWithTracking = () => {
@@ -44,14 +42,23 @@ export const Modal = () => {
     trackClickCloseModal(contentType);
   };
 
-  if (isModalOpen) {
+  if (isOpen) {
     return (
-      <ModalComponent
-        isModalOpen={isModalOpen}
-        handleClose={handleCloseWithTracking}
+      <ReactModal
+        isOpen={isOpen}
+        overlayClassName="modal-overlay"
+        className="modal-dialog"
+        shouldReturnFocusAfterClose={focusAfterClose}
       >
+        <CloseButtonStyle
+          aria-label={i18n.t('modal.close')}
+          aria-expanded="false"
+          onClick={handleCloseWithTracking}
+        >
+          <SvgClose aria-hidden />
+        </CloseButtonStyle>
         {modalContents[contentType]}
-      </ModalComponent>
+      </ReactModal>
     );
   }
 

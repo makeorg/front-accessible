@@ -9,6 +9,7 @@ describe('Modal reducer', () => {
       isOpen: false,
       contentType: '',
       showExpirationSession: false,
+      focusAfterClose: true,
     };
 
     expect(modal(undefined, {})).toEqual(expectedState);
@@ -60,15 +61,20 @@ describe('Modal reducer', () => {
   });
 
   it('Show countries action reducers', () => {
-    const action = { type: 'MODAL_SHOW_COUNTRIES' };
+    const action = {
+      type: 'MODAL_SHOW_COUNTRIES',
+      payload: { focusAfterClose: false },
+    };
     const previousState = {
       isOpen: false,
       contentType: '',
+      focusAfterClose: true,
     };
 
     const expectedState = {
       isOpen: true,
       contentType: contentTypes.MODAL_COUNTRIES,
+      focusAfterClose: false,
     };
 
     expect(modal(previousState, action)).toEqual(expectedState);
@@ -78,10 +84,12 @@ describe('Modal reducer', () => {
     const action = { type: 'MODAL_CLOSE' };
     const previousState = {
       isOpen: true,
+      focusAfterClose: false,
     };
 
     const expectedState = {
       isOpen: false,
+      focusAfterClose: true,
     };
 
     expect(modal(previousState, action)).toEqual(expectedState);

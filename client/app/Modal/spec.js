@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
+import ReactModal from 'react-modal';
 import { shallow } from 'enzyme';
-import { ModalComponent } from './ModalComponent';
 
 describe('ModalComponent', () => {
   const props = {
@@ -19,11 +19,11 @@ describe('ModalComponent', () => {
     const { isModalOpen, handleClose, children } = childrenProps;
 
     const wrapper = shallow(
-      <ModalComponent isModalOpen={isModalOpen} handleClose={handleClose}>
+      <ReactModal isModalOpen={isModalOpen} handleClose={handleClose}>
         {children}
-      </ModalComponent>
+      </ReactModal>
     );
 
-    expect(wrapper.text()).toBe('<Modal />');
+    expect(wrapper.text()).toBe('<ModalPortal />');
   });
 });

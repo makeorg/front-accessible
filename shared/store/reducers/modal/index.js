@@ -52,6 +52,7 @@ export function modal(state: StateModal = initialState.modal, action: Object) {
         ...state,
         isOpen: true,
         contentType: MODAL_COUNTRIES,
+        focusAfterClose: action.payload.focusAfterClose,
       };
     case MODAL_SHOW_PROPOSAL_SUCCESS:
       return {
@@ -63,6 +64,7 @@ export function modal(state: StateModal = initialState.modal, action: Object) {
       return {
         ...state,
         isOpen: false,
+        focusAfterClose: true,
       };
     case MODAL_SHOW_SESSION_EXPIRATION:
       return {
