@@ -3,11 +3,11 @@ const { fixtures } = require('../fixtures/generator');
 
 const viewsRouter = jsonServer.create();
 
-viewsRouter.get('/home-page/FR/fr', (req, res) => {
+viewsRouter.get('/home-page/FR', (req, res) => {
   return res.send(fixtures.homeView);
 });
 
-viewsRouter.get('/home-page/GB/en', (req, res) => {
+viewsRouter.get('/home-page/GB', (req, res) => {
   return res.send(fixtures.foreignHomeView);
 });
 

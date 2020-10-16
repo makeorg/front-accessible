@@ -21,7 +21,7 @@ const getHome = async (
   }
 
   try {
-    const viewsResponse = await ViewsApiService.getHome(country, language, {
+    const viewsResponse = await ViewsApiService.getHome(country, {
       'x-make-country': country,
       'x-make-language': language,
     });

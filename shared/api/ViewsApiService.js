@@ -3,7 +3,7 @@ import { type ApiServiceHeadersType } from 'Shared/types/api';
 import { ApiService } from './ApiService';
 
 // @todo remove it when ready on API side
-const HOMEPAGE_PATH = '/views/home-page/:country/:language';
+const HOMEPAGE_PATH = '/views/home-page/:country';
 const SEARCH_VIEWS_PATH =
   '/views/search?content=:content&proposalLimit=:proposalLimit&questionLimit=:questionLimit&organisationLimit=:organisationLimit&country=:country';
 const COUNTRIES_PATH = '/views/countries';
@@ -20,21 +20,12 @@ export class ViewsApiService {
 
   static getHome = async (
     country: string,
-    // @todo remove it when ready on API side
-    language: string,
     headers?: ApiServiceHeadersType = {}
   ): Promise<Object> => {
-    return ApiService.callApi(
-      HOMEPAGE_PATH.replace(':country', country).replace(
-        ':language',
-        // @todo remove it when ready on API side
-        language
-      ),
-      {
-        method: 'GET',
-        headers,
-      }
-    );
+    return ApiService.callApi(HOMEPAGE_PATH.replace(':country', country), {
+      method: 'GET',
+      headers,
+    });
   };
 
   static searchViews = async (

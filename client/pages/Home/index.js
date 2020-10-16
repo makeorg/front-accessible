@@ -32,11 +32,7 @@ export const HomePage = () => {
 
   const initHomepage = async () => {
     setIsLoading(true);
-    const homepageResponse: ?HomeViewType = await ViewsService.getHome(
-      country,
-      // @todo remove it when ready on API side
-      language
-    );
+    const homepageResponse: ?HomeViewType = await ViewsService.getHome(country);
     if (homepageResponse) {
       dispatch(loadHomepage(homepageResponse));
     }
