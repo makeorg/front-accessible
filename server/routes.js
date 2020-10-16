@@ -113,7 +113,6 @@ export const initRoutes = app => {
     })
   );
 
-  app.get('/soon', (req, res) => res.sendFile('soon.html', { root: HTML_DIR }));
   app.use('/doc', express.static(DOC_DIR));
 
   // API Routes

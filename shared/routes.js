@@ -31,7 +31,6 @@ export const ROUTE_ORGANISATION_PROFILE = `${ROUTE_PROFILE}/organisation/:organi
 export const ROUTE_ORGANISATION_PROPOSALS = `${ROUTE_ORGANISATION_PROFILE}/proposals`;
 export const ROUTE_ORGANISATION_VOTES = `${ROUTE_ORGANISATION_PROFILE}/votes`;
 export const ROUTE_STATIC_NOTFOUND = `${ROUTE_COUNTRY}/not-found`;
-export const ROUTE_SOON = '/soon';
 export const ROUTE_STATIC_NOCOOKIES = `${ROUTE_COUNTRY_FR}/no-cookies`;
 
 export const ROUTE_STATIC_LEGAL = `${ROUTE_COUNTRY}/mentions-legales`;
