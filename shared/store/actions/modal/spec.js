@@ -62,10 +62,11 @@ describe('Modal Actions', () => {
     const expectedActions = [
       {
         type: actionTypes.MODAL_SHOW_COUNTRIES,
+        payload: { focusAfterClose: true },
       },
     ];
 
-    store.dispatch(actions.modalShowCountries());
+    store.dispatch(actions.modalShowCountries(true));
 
     expect(store.getActions()).toEqual(expectedActions);
   });

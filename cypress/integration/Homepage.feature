@@ -50,7 +50,7 @@ Feature: The Home Page
     And I see a "country_switch_GB" link
     When I click on "country_switch_GB" link
     Then I should be redirect to "british homepage"
-    Then I see "Change country" in "country_switch_nav" container
+    Then I see "Change country" in "footer" container
 
   Scenario: Track display home page
     Given I monitor API "postTracking" requests

@@ -13,6 +13,7 @@ Object {
   "currentQuestion": "",
   "modal": Object {
     "contentType": "",
+    "focusAfterClose": true,
     "isOpen": false,
     "showExpirationSession": false,
   },

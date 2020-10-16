@@ -94,6 +94,7 @@ export type StateModal = $ReadOnly<{
   isOpen: boolean,
   showExpirationSession: boolean,
   contentType: string,
+  focusAfterClose: boolean,
 }>;
 
 export type StateActor = $ReadOnly<{

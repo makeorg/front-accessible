@@ -155,7 +155,7 @@ export const Footer = () => {
               <FooterItemAltLinkStyle
                 className="underline"
                 as={UnstyledButtonStyle}
-                onClick={() => dispatch(modalShowCountries())}
+                onClick={() => dispatch(modalShowCountries(false))}
                 data-cy-button="country-switch-modal"
               >
                 <FooterCountryIconStyle />
