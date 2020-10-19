@@ -1,7 +1,7 @@
 /* @flow */
 import { Logger } from 'Shared/services/Logger';
-import * as trackingConstants from 'Shared/constants/tracking';
 import { env } from 'Shared/env';
+import trackingConfiguration from 'Shared/services/trackingConfiguration';
 import { twttr } from './twttr';
 import { TwitterTracking } from './TwitterTracking';
 
@@ -31,7 +31,7 @@ describe('Twitter Tracking Service', () => {
     env.isDev.mockReturnValue(false);
     twttr.initialized.mockReturnValue(true);
 
-    TwitterTracking.track(trackingConstants.DISPLAY_SEQUENCE);
+    TwitterTracking.track(trackingConfiguration.DISPLAY_SEQUENCE.key);
     expect(twttr.track).toHaveBeenCalledWith('o2q9e');
   });
 
@@ -39,7 +39,7 @@ describe('Twitter Tracking Service', () => {
     env.isDev.mockReturnValue(true);
     twttr.initialized.mockReturnValue(true);
 
-    TwitterTracking.track(trackingConstants.DISPLAY_SEQUENCE);
+    TwitterTracking.track(trackingConfiguration.DISPLAY_SEQUENCE.key);
     expect(twttr.track).not.toHaveBeenCalled();
     expect(Logger.logInfo).toHaveBeenCalledWith(
       'Tracking Twitter: event o2q9e'
@@ -50,7 +50,7 @@ describe('Twitter Tracking Service', () => {
     env.isDev.mockReturnValue(false);
     twttr.initialized.mockReturnValue(false);
 
-    TwitterTracking.track(trackingConstants.DISPLAY_SEQUENCE);
+    TwitterTracking.track(trackingConfiguration.DISPLAY_SEQUENCE.key);
     expect(twttr.track).not.toHaveBeenCalled();
     expect(Logger.logWarning).toHaveBeenCalledWith(
       'Twitter Tracking not initialized'

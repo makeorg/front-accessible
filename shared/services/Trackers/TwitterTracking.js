@@ -1,24 +1,24 @@
-// @flow
+/* @flow */
 import { Logger } from 'Shared/services/Logger';
-import * as trackingConstants from 'Shared/constants/tracking';
+import trackingConfiguration from 'Shared/services/trackingConfiguration.yaml';
 import { env } from 'Shared/env';
 import { twttr } from './twttr';
 
 const TWITTER_UNIVERSAL_MAKE_TAG = 'o2q8v';
 const twitterEventMapping = {
-  [trackingConstants.CLICK_PROPOSAL_SUBMIT]: 'o2q9h',
-  [trackingConstants.CLICK_PROPOSAL_UNVOTE]: 'o2q9n',
-  [trackingConstants.CLICK_PROPOSAL_VOTE]: 'o2q9d',
-  [trackingConstants.CLICK_SEQUENCE_FIRST_VOTE]: 'o2q9f',
-  [trackingConstants.CLICK_START_SEQUENCE]: 'o2q9t', // = click-sequence-launch on twitter
-  [trackingConstants.CLICK_SEQUENCE_OPEN]: 'o2q9j',
-  [trackingConstants.DISPLAY_PAGE_OPERATION]: 'o2q9i',
-  [trackingConstants.DISPLAY_PROPOSAL_SUBMIT_VALIDATION]: 'o2q9g',
-  [trackingConstants.DISPLAY_SEQUENCE]: 'o2q9e',
-  [trackingConstants.DISPLAY_INTRO_CARD]: 'o2q9l', // = display-sequence-intro-card on twitter
-  [trackingConstants.CLICK_PROPOSAL_QUALIFY]: 'o2q9o',
-  [trackingConstants.CLICK_PROPOSAL_UNQUALIFY]: 'o2q9p',
-  [trackingConstants.CLICK_PROPOSAL_VIEW_MORE]: 'o2q9q', // = click-proposal-viewmore on twitter
+  [trackingConfiguration.CLICK_PROPOSAL_SUBMIT.key]: 'o2q9h',
+  [trackingConfiguration.CLICK_PROPOSAL_UNVOTE.key]: 'o2q9n',
+  [trackingConfiguration.CLICK_PROPOSAL_VOTE.key]: 'o2q9d',
+  [trackingConfiguration.CLICK_SEQUENCE_FIRST_VOTE.key]: 'o2q9f',
+  [trackingConfiguration.CLICK_START_SEQUENCE.key]: 'o2q9t', // = click-sequence-launch on twitter
+  [trackingConfiguration.CLICK_SEQUENCE_OPEN.key]: 'o2q9j',
+  [trackingConfiguration.DISPLAY_PAGE_OPERATION.key]: 'o2q9i',
+  [trackingConfiguration.DISPLAY_PROPOSAL_SUBMIT_VALIDATION.key]: 'o2q9g',
+  [trackingConfiguration.DISPLAY_SEQUENCE.key]: 'o2q9e',
+  [trackingConfiguration.DISPLAY_INTRO_CARD.key]: 'o2q9l', // = display-sequence-intro-card on twitter
+  [trackingConfiguration.CLICK_PROPOSAL_QUALIFY.key]: 'o2q9o',
+  [trackingConfiguration.CLICK_PROPOSAL_UNQUALIFY.key]: 'o2q9p',
+  [trackingConfiguration.CLICK_PROPOSAL_VIEW_MORE.key]: 'o2q9q', // = click-proposal-viewmore on twitter
 };
 
 const isInitialized = (): boolean => {

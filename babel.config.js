@@ -14,6 +14,7 @@ module.exports = {
     '@babel/preset-flow',
   ],
   plugins: [
+    'convert-to-json',
     '@loadable/babel-plugin',
     '@babel/plugin-proposal-class-properties',
     [

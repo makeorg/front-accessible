@@ -20,7 +20,7 @@ lint:
   stage: check
   except: 
     - production
-  image: node:12.16-alpine
+  image: node:12.19-alpine
   before_script:
     - export YARN_VERSION="1.22.4"
   script:
@@ -31,7 +31,7 @@ flow-static:
   stage: check
   except: 
     - production
-  image: node:12.16-alpine
+  image: node:12.19-alpine
   before_script:
     - export YARN_VERSION="1.22.4"
   script:
@@ -43,20 +43,21 @@ flow-static:
 
 test:
   stage: check
-  image: node:12.16-alpine
+  image: node:12.19-alpine
   before_script:
     - export YARN_VERSION="1.22.4"
   script:    
     - node -v
     - yarn install
     - yarn i18n:translation:check
+    - yarn documentation:check
     - yarn test-with-coverage-codacy
 
 jscpd:
   stage: check
   except: 
     - production
-  image: node:12.16-alpine
+  image: node:12.19-alpine
   before_script:
     - export YARN_VERSION="1.22.4"
   script:
@@ -73,7 +74,7 @@ e2e-test:
   needs: []
   except: 
     - production
-  image: cypress/base:12.16.1
+  image: cypress/base:12.18.3
   script:
     - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - 
     - echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list 
@@ -96,7 +97,7 @@ lighthouse:
   image: markhobson/node-chrome:latest
   script:
     - npm install -g n
-    - n stable
+    - n 12.19
     - npm i -g lighthouse@~6.1.0 lighthouse-ci@1.10.0 yarn
     - yarn install
     - yarn build
