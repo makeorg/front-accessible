@@ -15,7 +15,6 @@ export const homepageTypeFixture = {
         'https://assets.preprod.makeorg.tech/assets/content/operations/environnement/a084deb8-c314-4735-a1d1-038f92d91af8.png',
       descriptionImage:
         'https://assets.preprod.makeorg.tech/assets/content/operations/environnement/0865fee3-e88a-450e-9bf6-2c228689be9c.jpg',
-      country: 'FR',
       countries: ['FR'],
       language: 'fr',
       startDate: '2019-10-16T22:00:00Z',
@@ -51,7 +50,6 @@ export const homepageTypeFixture = {
         'https://assets.preprod.makeorg.tech/assets/content/operations/environnement/a084deb8-c314-4735-a1d1-038f92d91af8.png',
       descriptionImage:
         'https://assets.preprod.makeorg.tech/assets/content/operations/environnement/0865fee3-e88a-450e-9bf6-2c228689be9c.jpg',
-      country: 'FR',
       countries: ['FR'],
       language: 'fr',
       startDate: '2019-10-16T22:00:00Z',
@@ -86,7 +84,6 @@ export const homepageTypeFixture = {
         'https://assets.preprod.makeorg.tech/assets/content/operations/region-bretagne/cff488a7-a58f-40b5-8224-661b4242e32d.jpg',
       descriptionImage:
         'https://assets.preprod.makeorg.tech/assets/content/operations/region-bretagne/df9e0bb6-018d-4609-8bf6-f47550808ff3.jpg',
-      country: 'FR',
       countries: ['FR'],
       language: 'fr',
       startDate: '2019-10-12T22:00:00Z',
@@ -120,7 +117,6 @@ export const homepageTypeFixture = {
         'https://assets.preprod.makeorg.tech/assets/content/operations/culture/e2a2f76c-ec0f-4a7c-80d5-a60eb52acf95.svg',
       descriptionImage:
         'https://assets.preprod.makeorg.tech/assets/content/operations/culture/4b1a8c7e-7cfb-40f3-96fa-ac7e6290a264.JPG',
-      country: 'FR',
       countries: ['FR'],
       language: 'fr',
       startDate: '2018-06-27T00:00:00Z',
@@ -151,7 +147,6 @@ export const homepageTypeFixture = {
         'https://assets.preprod.makeorg.tech/assets/avatars/1ebacbca-8c19-4cbd-a809-6c322ed93c38/4c0a6dfb-a509-4173-9a70-aee59b8bf5c6.jpg',
       descriptionImage:
         'https://assets.preprod.makeorg.tech/assets/content/operations/chance-aux-jeunes/4784f632-33a0-4c9e-82c3-fb8b73b2db8d.png',
-      country: 'FR',
       countries: ['FR'],
       language: 'fr',
       startDate: '2018-08-29T18:00:00Z',
@@ -180,7 +175,6 @@ export const homepageTypeFixture = {
       operationTitle: 'Handicap',
       consultationImage: null,
       descriptionImage: null,
-      country: 'FR',
       countries: ['FR'],
       language: 'fr',
       startDate: '2019-04-06T00:00:00Z',
@@ -211,7 +205,6 @@ export const homepageTypeFixture = {
         'https://assets.preprod.makeorg.tech/assets/content/operations/aines/f699ef46-c3f5-4a1b-ab0c-9ec49d127a11.png',
       descriptionImage:
         'https://assets.preprod.makeorg.tech/assets/content/operations/aines/cc73df1a-efd6-472c-a192-bf458fb618dc.jpg',
-      country: 'FR',
       countries: ['FR'],
       language: 'fr',
       startDate: '2019-01-23T00:00:00Z',
@@ -243,7 +236,6 @@ export const homepageTypeFixture = {
       operationTitle: 'Stop aux violences faites aux femmes',
       consultationImage: null,
       descriptionImage: null,
-      country: 'FR',
       countries: ['FR'],
       language: 'fr',
       startDate: '2018-03-08T00:00:00Z',
@@ -272,7 +264,6 @@ export const homepageTypeFixture = {
       operationTitle: 'test',
       consultationImage: null,
       descriptionImage: null,
-      country: 'FR',
       countries: ['FR'],
       language: 'fr',
       startDate: '2019-05-15T00:00:00Z',

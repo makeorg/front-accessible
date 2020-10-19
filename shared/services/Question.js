@@ -19,7 +19,7 @@ const getQuestions = async (
   skip: ?number = undefined
 ): Promise<?{ total: number, results: HomeQuestionType[] }> => {
   try {
-    const response = await QuestionApiService.getQuestions(
+    const { data } = await QuestionApiService.getQuestions(
       country,
       // @todo remove it when ready on API side
       language,
@@ -28,16 +28,9 @@ const getQuestions = async (
       limit,
       skip
     );
-    const { data } = response;
 
     // @toDo: hack countries
-    return {
-      ...data,
-      results: data.results.map(question => ({
-        ...question,
-        country: question.countries[0],
-      })),
-    };
+    return data;
   } catch (apiServiceError) {
     defaultUnexpectedError(apiServiceError);
 
@@ -50,22 +43,10 @@ const getDetail = async (
   notFound: () => void = () => {}
 ): Promise<?QuestionType> => {
   try {
-    const response = await QuestionApiService.getDetail(questionSlugOrId);
-
-    const { data } = response;
+    const { data } = await QuestionApiService.getDetail(questionSlugOrId);
 
     // @toDo: hack countries
-    return {
-      ...data,
-      country: data.countries[0],
-      operation: {
-        ...data.operation,
-        questions: data.operation.questions.map(question => ({
-          ...question,
-          country: question.countries[0],
-        })),
-      },
-    };
+    return data;
   } catch (apiServiceError) {
     if (apiServiceError.status === 404) {
       notFound();
@@ -85,22 +66,13 @@ const searchQuestions = async (
   content: string
 ): Promise<?{ total: number, results: QuestionType[] }> => {
   try {
-    const response = await QuestionApiService.searchQuestions(
+    const { data } = await QuestionApiService.searchQuestions(
       country,
       language,
       content
     );
 
-    const { data } = response;
-
-    // @toDo: hack countries
-    return {
-      ...data,
-      results: data.results.map(question => ({
-        ...question,
-        country: question.countries[0],
-      })),
-    };
+    return data;
   } catch (apiServiceError) {
     defaultUnexpectedError(apiServiceError);
 

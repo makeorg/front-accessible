@@ -51,10 +51,7 @@ describe('Account activation route', () => {
       },
       questions: {
         [fooQuestion.slug]: {
-          question: {
-            ...fooQuestion,
-            country: fooQuestion.countries[0],
-          },
+          question: fooQuestion,
         },
       },
       currentQuestion: fooQuestion.slug,
@@ -100,10 +97,7 @@ describe('Account activation route', () => {
       },
       questions: {
         [fooQuestion.slug]: {
-          question: {
-            ...fooQuestion,
-            country: fooQuestion.countries[0],
-          },
+          question: fooQuestion,
         },
       },
       currentQuestion: fooQuestion.slug,
@@ -144,10 +138,7 @@ describe('Account activation route', () => {
       },
       questions: {
         [fooQuestion.slug]: {
-          question: {
-            ...fooQuestion,
-            country: fooQuestion.countries[0],
-          },
+          question: fooQuestion,
         },
       },
       currentQuestion: fooQuestion.slug,

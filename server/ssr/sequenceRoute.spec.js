@@ -54,7 +54,7 @@ describe('Sequence page route', () => {
       expect(reactRender).toHaveBeenCalledWith(request, response, {
         questions: {
           bar: {
-            question: { ...fooQuestion, country: 'FR' },
+            question: { ...fooQuestion, countries: ['FR'] },
           },
         },
         currentQuestion: 'bar',

@@ -1,6 +1,7 @@
 // @flow
 import React, { useState } from 'react';
 import { i18n } from 'Shared/i18n';
+import { type StateRoot } from 'Shared/store/types';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import {
   SvgAngleArrowRight,
@@ -46,9 +47,13 @@ export const TopIdeaCard = ({
   topIdea,
   withDetails = false,
 }: Props) => {
-  const currentQuestion: string = useSelector(state => state.currentQuestion);
-  const questionState = useSelector(state => state.questions[currentQuestion]);
-  const { question } = questionState;
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
+  const currentQuestion: string = useSelector(
+    (state: StateRoot) => state.currentQuestion
+  );
+  const { question } = useSelector(
+    (state: StateRoot) => state.questions[currentQuestion]
+  );
   const [isOpened, setIsOpened] = useState<boolean>(false);
   const hasAvatars = topIdea.avatars && topIdea.avatars.length > 0;
 
@@ -58,11 +63,7 @@ export const TopIdeaCard = ({
         <span>{topIdea.label}</span>
         {withDetails && (
           <TopIdeaLinkStyle
-            to={getTopIdeaDetailsLink(
-              question.country,
-              question.slug,
-              topIdea.id
-            )}
+            to={getTopIdeaDetailsLink(country, question.slug, topIdea.id)}
             onClick={scrollToTop}
           >
             {i18n.t('idea_card.link')}
@@ -84,11 +85,7 @@ export const TopIdeaCard = ({
         </ScreenReaderItemStyle>
         <TopIdeaContentStyle
           id={`idea_content_${position}`}
-          to={getTopIdeaDetailsLink(
-            question.country,
-            question.slug,
-            topIdea.id
-          )}
+          to={getTopIdeaDetailsLink(country, question.slug, topIdea.id)}
           onClick={scrollToTop}
           lang={question.language}
         >
@@ -100,11 +97,7 @@ export const TopIdeaCard = ({
           <SvgChat aria-hidden />
           <PositionContentStyle>
             <RedLinkRouterStyle
-              to={getTopIdeaDetailsLink(
-                question.country,
-                question.slug,
-                topIdea.id
-              )}
+              to={getTopIdeaDetailsLink(country, question.slug, topIdea.id)}
               onClick={scrollToTop}
               lang={question.language}
             >

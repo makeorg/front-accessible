@@ -43,14 +43,17 @@ export type Props = {
  */
 export const Sequence = ({ question }: Props) => {
   const dispatch = useDispatch();
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
   const { firstProposal, votedProposalIds, currentIndex, cards } = useSelector(
     (state: StateRoot) => ({
       ...state.sequence,
       currentIndex: state.sequence.currentIndex || 0,
     })
   );
-  const { hasProposed } = useSelector(state => state.proposal);
-  const { isLoggedIn } = useSelector(state => selectAuthentication(state));
+  const { hasProposed } = useSelector((state: StateRoot) => state.proposal);
+  const { isLoggedIn } = useSelector((state: StateRoot) =>
+    selectAuthentication(state)
+  );
   const [sequenceProposals, setSequenceProposals] = useState([]);
   const [currentCard, setCurrentCard] = useState(null);
   const [isLoading, setLoading] = useState(true);
@@ -136,7 +139,7 @@ export const Sequence = ({ question }: Props) => {
       </SequenceContentStyle>
       <ConsultationPageLinkStyle
         className={!withProposalButton && 'static'}
-        to={getConsultationLink(question.country, question.slug)}
+        to={getConsultationLink(country, question.slug)}
       >
         {i18n.t('sequence.more')}
       </ConsultationPageLinkStyle>

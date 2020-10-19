@@ -87,10 +87,7 @@ const searchProposals = async (
 
     const updateCountry = proposal => ({
       ...proposal,
-      question: {
-        ...proposal.question,
-        country: proposal.question.countries[0],
-      },
+      question: proposal.question,
     });
 
     return {

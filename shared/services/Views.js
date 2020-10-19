@@ -5,22 +5,9 @@ import { defaultUnexpectedError } from './DefaultErrorHandler';
 
 const getHome = async (country: string): Promise<?HomeViewType> => {
   try {
-    const viewsResponse = await ViewsApiService.getHome(country);
+    const { data } = await ViewsApiService.getHome(country);
 
-    const { data } = viewsResponse;
-    const result = {
-      ...data,
-      currentQuestions: data.currentQuestions.map(question => ({
-        ...question,
-        country: question.countries[0],
-      })),
-      featuredQuestions: data.featuredQuestions.map(question => ({
-        ...question,
-        country: question.countries[0],
-      })),
-    };
-
-    return result;
+    return data;
   } catch (apiServiceError) {
     defaultUnexpectedError(apiServiceError);
 

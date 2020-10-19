@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router';
+import { type StateRoot } from 'Shared/store/types';
 import { type QuestionType } from 'Shared/types/question';
 import { i18n } from 'Shared/i18n';
 import { DateHelper } from 'Shared/helpers/date';
@@ -23,14 +24,16 @@ import {
   isTopIdeaDetailsPage as getIsTopIdeaDetailsPage,
   isTopIdeasPage as getIsTopIdeasPage,
 } from 'Shared/routes';
+import { useSelector } from 'react-redux';
 
 type Props = {
   question: QuestionType,
 };
 export const NavigationWithTabs = ({ question }: Props) => {
-  const consultationLink = getConsultationLink(question.country, question.slug);
-  const actionsLink = getActionLink(question.country, question.slug);
-  const resultsLink = getResultsLink(question.country, question.slug);
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
+  const consultationLink = getConsultationLink(country, question.slug);
+  const actionsLink = getActionLink(country, question.slug);
+  const resultsLink = getResultsLink(country, question.slug);
 
   const location = useLocation();
 
