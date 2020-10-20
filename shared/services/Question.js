@@ -11,8 +11,6 @@ import { defaultUnexpectedError } from './DefaultErrorHandler';
 
 const getQuestions = async (
   country: string,
-  // @todo remove it when ready on API side
-  language: string,
   status: ?string = undefined,
   sortAlgorithm: ?string = undefined,
   limit: ?number = undefined,
@@ -21,15 +19,12 @@ const getQuestions = async (
   try {
     const { data } = await QuestionApiService.getQuestions(
       country,
-      // @todo remove it when ready on API side
-      language,
       status,
       sortAlgorithm,
       limit,
       skip
     );
 
-    // @toDo: hack countries
     return data;
   } catch (apiServiceError) {
     defaultUnexpectedError(apiServiceError);
@@ -45,7 +40,6 @@ const getDetail = async (
   try {
     const { data } = await QuestionApiService.getDetail(questionSlugOrId);
 
-    // @toDo: hack countries
     return data;
   } catch (apiServiceError) {
     if (apiServiceError.status === 404) {

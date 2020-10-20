@@ -1,6 +1,5 @@
 // @flow
 import React, { useEffect, useState } from 'react';
-import { type StateRoot } from 'Shared/store/types';
 import { type HomeQuestionType } from 'Shared/types/question';
 import { QuestionService } from 'Shared/services/Question';
 import { Pagination } from 'Client/ui/Elements/Pagination';
@@ -17,14 +16,11 @@ import {
   trackDisplayBrowseResults,
 } from 'Shared/services/Tracking';
 import { SpaceBetweenColumnStyle } from 'Client/ui/Elements/FlexElements';
-import { useSelector } from 'react-redux';
 
 const BrowseConsultationsPage = () => {
   const location = useLocation();
   const params = useParams();
   const { country, pageId } = params;
-  // @todo remove it when ready on API side
-  const { language } = useSelector((state: StateRoot) => state.appConfig);
   const consultationsPage = isBrowseConsultationsPage(location.pathname);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [questions, setQuestions] = useState<?(HomeQuestionType[])>(null);
@@ -40,8 +36,6 @@ const BrowseConsultationsPage = () => {
     setIsLoading(true);
     const response = await QuestionService.getQuestions(
       country,
-      // @todo remove it when ready on API side
-      language,
       CONSULTATIONS_STATUS,
       SORT_ALGORITHM,
       CONSULTATIONS_LIMIT,
