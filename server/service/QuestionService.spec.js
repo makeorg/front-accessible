@@ -49,7 +49,6 @@ describe('Question Service', () => {
         {
           questionId: 'QuestionFoo',
           countries: ['FR'],
-          country: 'FR',
           operation: { questions: [] },
         },
         300000
@@ -57,7 +56,6 @@ describe('Question Service', () => {
 
       expect(result).toMatchObject({
         countries: ['FR'],
-        country: 'FR',
         operation: { questions: [] },
         questionId: 'QuestionFoo',
       });

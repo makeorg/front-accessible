@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import { type StateRoot } from 'Shared/store/types';
 import { type QuestionType } from 'Shared/types/question';
 import { getSequenceLink } from 'Shared/helpers/url';
 import { i18n } from 'Shared/i18n';
@@ -13,14 +14,16 @@ import {
   ParticipateIntroductionStyle,
 } from 'Client/features/consultation/Styled/ParticipateBanner';
 import { useMobile } from 'Client/hooks/useMedia';
+import { useSelector } from 'react-redux';
 
 type Props = {
   question: QuestionType,
 };
 
 export const ParticipateBanner = ({ question }: Props) => {
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
   const isMobile = useMobile();
-  const sequenceLink = getSequenceLink(question.country, question.slug);
+  const sequenceLink = getSequenceLink(country, question.slug);
 
   return (
     <ParticipateWrapperStyle aria-labelledby="participate_aside_title">

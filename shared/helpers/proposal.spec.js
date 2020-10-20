@@ -141,9 +141,7 @@ describe('Proposal Helper', () => {
         ['foo', 'bar']
       );
       expect(repsonse).toEqual({
-        results: [
-          { proposalId: 'foo', question: { countries: ['FR'], country: 'FR' } },
-        ],
+        results: [{ proposalId: 'foo', question: { countries: ['FR'] } }],
       });
     });
 

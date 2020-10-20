@@ -1,6 +1,6 @@
 import React from 'react';
+import { type StateRoot } from 'Shared/store/types';
 import { type TopIdeaCommentsType } from 'Shared/types/topIdea';
-import { type QuestionType } from 'Shared/types/question';
 import { ProposalCardStyle } from 'Client/ui/Elements/ProposalCardElements';
 import { Link } from 'react-router-dom';
 import { opinionsVoteStaticParams } from 'Shared/constants/opinions';
@@ -22,6 +22,7 @@ import { CertifiedIconStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
 import { useMobile } from 'Client/hooks/useMedia';
 import { trackClickPublicProfile } from 'Shared/services/Tracking';
 import { TYPE_PERSONALITY } from 'Shared/constants/user';
+import { useSelector } from 'react-redux';
 import {
   CommitmentPreviewOpinionsParagraphStyle,
   CommitmentPreviewSeparatorStyle,
@@ -32,7 +33,6 @@ import {
 import { OpinionCommentAuthorStyle } from '../style';
 
 type Props = {
-  question: QuestionType,
   comment: TopIdeaCommentsType,
 };
 
@@ -41,7 +41,8 @@ const handleClickProfile = () => {
   trackClickPublicProfile(TYPE_PERSONALITY);
 };
 
-export const OpinionComment = ({ question, comment }: Props) => {
+export const OpinionComment = ({ comment }: Props) => {
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
   const isMobile = useMobile();
   const {
     politicalParty,
@@ -54,7 +55,7 @@ export const OpinionComment = ({ question, comment }: Props) => {
     <ProposalCardStyle>
       <FlexElementStyle>
         <Link
-          to={getPersonalityProfileLink(question.country, personalityId)}
+          to={getPersonalityProfileLink(country, personalityId)}
           onClick={handleClickProfile}
         >
           <Avatar
@@ -69,7 +70,7 @@ export const OpinionComment = ({ question, comment }: Props) => {
           <ColumnElementStyle>
             <OpinionCommentAuthorStyle>
               <CandidateLinkStyle
-                to={getPersonalityProfileLink(question.country, personalityId)}
+                to={getPersonalityProfileLink(country, personalityId)}
                 onClick={handleClickProfile}
               >
                 {displayName}
@@ -81,7 +82,7 @@ export const OpinionComment = ({ question, comment }: Props) => {
         ) : (
           <MiddleRowStyle>
             <CandidateLinkStyle
-              to={getPersonalityProfileLink(question.country, personalityId)}
+              to={getPersonalityProfileLink(country, personalityId)}
               onClick={handleClickProfile}
             >
               {displayName}

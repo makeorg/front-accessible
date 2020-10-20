@@ -37,6 +37,7 @@ import {
 } from './style';
 
 const TopIdeaDetailsPage = () => {
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
   const question: QuestionType = useSelector((state: StateRoot) =>
     selectCurrentQuestion(state)
   );
@@ -55,7 +56,7 @@ const TopIdeaDetailsPage = () => {
   const parentPages: BreadcrumbsPagesType = [
     {
       name: i18n.t('idea_card.title'),
-      link: getTopIdeasLink(question.country, question.slug),
+      link: getTopIdeasLink(country, question.slug),
     },
   ];
   const currentPage = {
@@ -67,7 +68,7 @@ const TopIdeaDetailsPage = () => {
     const result = await TopIdeaService.getTopIdea(
       question.questionId,
       topIdeaId,
-      () => redirectToNotFoundPage(question.country)
+      () => redirectToNotFoundPage(country)
     );
     if (result) {
       const { questionTopIdea } = result;
@@ -113,10 +114,7 @@ const TopIdeaDetailsPage = () => {
           </ColumnElementStyle>
           {topIdea && (
             <>
-              <TopIdeaDetailsComments
-                comments={topIdea && topIdea.comments}
-                question={question}
-              />
+              <TopIdeaDetailsComments comments={topIdea && topIdea.comments} />
               <TopIdeaDetailsProposals topIdea={topIdea} question={question} />
             </>
           )}

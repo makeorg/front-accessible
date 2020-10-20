@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { type StateRoot } from 'Shared/store/types';
 import { i18n } from 'Shared/i18n';
 import { type QuestionType, type PartnerType } from 'Shared/types/question';
 import { FourthLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
@@ -15,16 +16,16 @@ import { isInProgress } from 'Shared/helpers/date';
 import { ParticipateButtonStyle } from 'Client/features/consultation/Styled/Partners';
 import { SidebarNewWindowLink } from 'Client/features/consultation/Sidebar/Link';
 import { ACTION_PARTNER } from 'Shared/constants/partner';
+import { useSelector } from 'react-redux';
 import { PartnersList } from './List';
 
 type Props = {
   question: QuestionType,
 };
 
-export const Partners = (props: Props) => {
-  const { question } = props;
-
-  const sequenceLink = getSequenceLink(question.country, question.slug);
+export const Partners = ({ question }: Props) => {
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
+  const sequenceLink = getSequenceLink(country, question.slug);
 
   const partners: PartnerType[] = question.partners
     ? question.partners.filter(

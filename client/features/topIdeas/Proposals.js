@@ -1,5 +1,6 @@
 // @flow
 import React, { useEffect, useState } from 'react';
+import { type StateRoot } from 'Shared/store/types';
 import { type QuestionType } from 'Shared/types/question';
 import { type ProposalType } from 'Shared/types/proposal';
 import { type TopIdeaType } from 'Shared/types/topIdea';
@@ -19,6 +20,7 @@ import {
   TopComponentContextValue,
 } from 'Client/context/TopComponentContext';
 import { TopIdeaDetailsPageTitleStyle } from 'Client/pages/Consultation/style';
+import { useSelector } from 'react-redux';
 
 type Props = {
   topIdea: TopIdeaType,
@@ -27,6 +29,7 @@ type Props = {
 
 export const TopIdeaDetailsProposals = ({ topIdea, question }: Props) => {
   const topComponentContext: TopComponentContextValueType = TopComponentContextValue.getTopideaProposalList();
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
   const [proposals, setProposals] = useState<ProposalType[]>([]);
   const [hasMore, setHasMore] = useState<boolean>(false);
   const [seed, setSeed] = useState(undefined);
@@ -39,7 +42,7 @@ export const TopIdeaDetailsProposals = ({ topIdea, question }: Props) => {
 
   const initProposals = async () => {
     const result = await searchProposals(
-      question.country,
+      country,
       undefined,
       page,
       undefined,
@@ -63,7 +66,7 @@ export const TopIdeaDetailsProposals = ({ topIdea, question }: Props) => {
   const loadProposals = async () => {
     setIsPendingForMore(true);
     const result = await searchProposals(
-      question.country,
+      country,
       undefined,
       page,
       undefined,

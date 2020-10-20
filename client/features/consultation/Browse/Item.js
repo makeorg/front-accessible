@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import { type StateRoot } from 'Shared/store/types';
 import { type HomeQuestionType } from 'Shared/types/question';
 import { DateHelper } from 'Shared/helpers/date';
 import {
@@ -21,6 +22,7 @@ import {
   useScreenMobileContainerWidth,
 } from 'Client/hooks/useMedia';
 import { formatMillionToText } from 'Shared/helpers/numberFormatter';
+import { useSelector } from 'react-redux';
 import { ConsultationLink } from './Link';
 
 type Props = {
@@ -29,6 +31,7 @@ type Props = {
 };
 
 export const ConsultationItem = ({ question, resultsContext }: Props) => {
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
   const {
     descriptionImage,
     featured,
@@ -37,7 +40,6 @@ export const ConsultationItem = ({ question, resultsContext }: Props) => {
     resultsLink,
     participantsCount,
     proposalsCount,
-    country,
     language,
     actions,
   } = question;

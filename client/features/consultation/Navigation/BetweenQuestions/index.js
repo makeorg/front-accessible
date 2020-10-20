@@ -25,6 +25,7 @@ type Props = {
 export const NavigationBetweenQuestions = ({ question }: Props) => {
   const isMobile = useMobile();
   const dispatch = useDispatch();
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
   const questions = useSelector((state: StateRoot) => state.questions);
   const hasSiblingQuestions = question.operation.questions.length > 0;
   const isNavigationBetweenQuestionActive: boolean = checkIsFeatureActivated(
@@ -77,14 +78,8 @@ export const NavigationBetweenQuestions = ({ question }: Props) => {
               <ConsultationNavLinkStyle
                 to={
                   siblingQuestion.displayResults
-                    ? getResultsLink(
-                        siblingQuestion.country,
-                        siblingQuestion.questionSlug
-                      )
-                    : getConsultationLink(
-                        siblingQuestion.country,
-                        siblingQuestion.questionSlug
-                      )
+                    ? getResultsLink(country, siblingQuestion.questionSlug)
+                    : getConsultationLink(country, siblingQuestion.questionSlug)
                 }
                 aria-current={
                   siblingQuestion.questionId === question.questionId

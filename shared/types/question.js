@@ -205,7 +205,7 @@ export type HomeQuestionType = {
   operationTitle: string,
   consultationImage: string,
   descriptionImage: string,
-  country: string,
+  countries: string[],
   language: string,
   startDate: ?string,
   endDate: ?string,

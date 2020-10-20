@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import { type StateRoot } from 'Shared/store/types';
 import { type HomeQuestionType } from 'Shared/types/question';
 import { Link } from 'react-router-dom';
 import { NewWindowIconStyle } from 'Client/ui/Elements/LinkElements';
@@ -14,6 +15,7 @@ import {
   trackClickResults,
   trackClickParticipate,
 } from 'Shared/services/Tracking';
+import { useSelector } from 'react-redux';
 import { ConsultationRedLinkElementStyle } from './style';
 
 type Props = {
@@ -21,7 +23,8 @@ type Props = {
   label: string,
 };
 export const ConsultationLink = ({ question, label }: Props) => {
-  const { country, questionSlug, resultsLink, aboutUrl } = question;
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
+  const { questionSlug, resultsLink, aboutUrl } = question;
   const consultationPath = getConsultationLink(country, questionSlug);
 
   const openedConsultation = isInProgress(question);

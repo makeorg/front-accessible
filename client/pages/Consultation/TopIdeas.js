@@ -33,6 +33,7 @@ import {
 } from './style';
 
 const TopIdeasPage = () => {
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
   const question: QuestionType = useSelector((state: StateRoot) =>
     selectCurrentQuestion(state)
   );
@@ -46,7 +47,7 @@ const TopIdeasPage = () => {
   );
   const initTopIdeas = async () => {
     const results = await TopIdeaService.getTopIdeas(question.questionId, () =>
-      redirectToNotFoundPage(question.country)
+      redirectToNotFoundPage(country)
     );
     setTopIdeas(results || topIdeas);
   };

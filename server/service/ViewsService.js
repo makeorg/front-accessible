@@ -21,28 +21,14 @@ const getHome = async (
   }
 
   try {
-    const viewsResponse = await ViewsApiService.getHome(country, {
+    const { data } = await ViewsApiService.getHome(country, {
       'x-make-country': country,
       'x-make-language': language,
     });
 
-    const { data } = viewsResponse;
+    cache.put(CACHE_KEY, data, 300000);
 
-    const dataWithCountry = {
-      ...data,
-      currentQuestions: data.currentQuestions.map(question => ({
-        ...question,
-        country: question.countries[0],
-      })),
-      featuredQuestions: data.featuredQuestions.map(question => ({
-        ...question,
-        country: question.countries[0],
-      })),
-    };
-
-    cache.put(CACHE_KEY, dataWithCountry, 300000);
-
-    return dataWithCountry;
+    return data;
   } catch (apiServiceError) {
     if (apiServiceError.status === 404) {
       notFound();

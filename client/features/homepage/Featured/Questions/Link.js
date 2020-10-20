@@ -1,11 +1,13 @@
 // @flow
 import React from 'react';
+import { type StateRoot } from 'Shared/store/types';
 import { type HomeQuestionType } from 'Shared/types/question';
 import { isInProgress } from 'Shared/helpers/date';
 import { Link } from 'react-router-dom';
 import { scrollToTop } from 'Shared/helpers/styled';
 import { SvgExternalLink } from 'Client/ui/Svg/elements';
 import { getConsultationLink } from 'Shared/helpers/url';
+import { useSelector } from 'react-redux';
 import { FeaturedLinkStyle, FeaturedLinkIconStyle } from './style';
 
 type Props = {
@@ -13,11 +15,12 @@ type Props = {
 };
 
 export const FeaturedLink = ({ question }: Props) => {
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
   if (isInProgress(question)) {
     return (
       <FeaturedLinkStyle
         as={Link}
-        to={getConsultationLink(question.country, question.questionSlug)}
+        to={getConsultationLink(country, question.questionSlug)}
         onClick={scrollToTop}
       >
         {question.operationTitle}

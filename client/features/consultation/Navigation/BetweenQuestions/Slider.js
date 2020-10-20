@@ -1,6 +1,7 @@
 // @flow
 import React, { useEffect, useRef } from 'react';
 import Glider from 'glider-js';
+import { type StateRoot } from 'Shared/store/types';
 import { type SliderParamsType } from 'Shared/types/views';
 import { i18n } from 'Shared/i18n';
 import { getConsultationLink, getResultsLink } from 'Shared/helpers/url';
@@ -13,6 +14,7 @@ import {
   ConsultationNavLinkStyle,
   ConsultationNavListStyle,
 } from 'Client/features/consultation/Styled/Navigation';
+import { useSelector } from 'react-redux';
 
 type Props = {
   question: QuestionType,
@@ -27,6 +29,7 @@ const ConsultationNavSliderParams: SliderParamsType = {
 };
 
 export const SliderNavigationBetweenQuestions = ({ question }: Props) => {
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
   const hasSiblingQuestions = question.operation.questions.length > 0;
   const sliderRef = useRef();
   useSlider(sliderRef, ConsultationNavSliderParams, hasSiblingQuestions);
@@ -62,12 +65,9 @@ export const SliderNavigationBetweenQuestions = ({ question }: Props) => {
                 <ConsultationNavLinkStyle
                   to={
                     siblingQuestion.displayResults
-                      ? getResultsLink(
-                          siblingQuestion.country,
-                          siblingQuestion.questionSlug
-                        )
+                      ? getResultsLink(country, siblingQuestion.questionSlug)
                       : getConsultationLink(
-                          siblingQuestion.country,
+                          country,
                           siblingQuestion.questionSlug
                         )
                   }
