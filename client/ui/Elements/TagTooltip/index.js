@@ -5,14 +5,19 @@ import { SvgClose } from 'Client/ui/Svg/elements';
 import {
   TagsTooltipWrapperStyle,
   TagsTooltipCrossStyle,
-  TriangleStyle,
+  TriangleUpStyle,
+  TriangleDownStyle,
   LinkStyle,
   TagsTooltipContainerStyle,
   TooltipSvgInfos,
 } from './style';
 import { ScreenReaderItemStyle } from '../AccessibilityElements';
 
-export const TagTooltip = () => {
+type Props = {
+  /** isFirstSequenceVote for specific design on sequence firstProposal */
+  isFirstSequenceVote?: boolean,
+};
+export const TagTooltip = ({ isFirstSequenceVote }: Props) => {
   const [isClosed, setIsClosed] = useState(false);
 
   if (isClosed) {
@@ -20,27 +25,34 @@ export const TagTooltip = () => {
   }
 
   return (
-    <TagsTooltipContainerStyle>
-      <TriangleStyle />
-      <TagsTooltipWrapperStyle>
-        <TooltipSvgInfos />
-        <ScreenReaderItemStyle>
-          {i18n.t('common.notifications.icons.information')}
-        </ScreenReaderItemStyle>
-        {i18n.t('common.notifications.tags_filter')}
-        <ScreenReaderItemStyle>
-          {i18n.t('consultation.tags.description')}
-        </ScreenReaderItemStyle>
-        <LinkStyle onClick={() => setIsClosed(true)}>
-          {i18n.t('common.notifications.thank_you')}
-        </LinkStyle>
+    <TagsTooltipContainerStyle isFirstSequenceVote={isFirstSequenceVote}>
+      {!isFirstSequenceVote && <TriangleUpStyle />}
+      <TagsTooltipWrapperStyle isFirstSequenceVote={isFirstSequenceVote}>
         <TagsTooltipCrossStyle
           aria-label={i18n.t('common.notifications.icons.close')}
           onClick={() => setIsClosed(true)}
         >
           <SvgClose aria-hidden />
         </TagsTooltipCrossStyle>
+        <TooltipSvgInfos aria-hidden />
+        <ScreenReaderItemStyle>
+          {i18n.t('common.notifications.icons.information')}
+        </ScreenReaderItemStyle>
+        {isFirstSequenceVote
+          ? i18n.t('common.notifications.vote_on_proposal')
+          : i18n.t('common.notifications.tags_filter')}
+        {!isFirstSequenceVote && (
+          <>
+            <ScreenReaderItemStyle>
+              {i18n.t('consultation.tags.description')}
+            </ScreenReaderItemStyle>
+            <LinkStyle onClick={() => setIsClosed(true)}>
+              {i18n.t('common.notifications.thank_you')}
+            </LinkStyle>
+          </>
+        )}
       </TagsTooltipWrapperStyle>
+      {isFirstSequenceVote && <TriangleDownStyle />}
     </TagsTooltipContainerStyle>
   );
 };

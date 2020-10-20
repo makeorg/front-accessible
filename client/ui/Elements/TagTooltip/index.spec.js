@@ -5,9 +5,11 @@ import { TagTooltip } from './index';
 jest.mock('./style', () => ({
   TagsTooltipWrapperStyle: 'TagsTooltipWrapperStyle',
   TagsTooltipCrossStyle: 'TagsTooltipCrossStyle',
-  TriangleStyle: 'TriangleStyle',
+  TriangleUpStyle: 'TriangleUpStyle',
+  TriangleDownStyle: 'TriangleDownStyle',
   LinkStyle: 'LinkStyle',
   TagsTooltipContainerStyle: 'TagsTooltipContainerStyle',
+  TooltipSvgInfos: 'TooltipSvgInfos',
 }));
 
 jest.mock('Client/ui/Svg/elements', () => ({

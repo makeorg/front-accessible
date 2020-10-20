@@ -7,49 +7,56 @@ import { SvgInfos } from 'Client/ui/Svg/elements';
 import { UnstyledButtonStyle } from '../Buttons/style';
 
 export const TagsTooltipContainerStyle = styled.div`
-  order: 1;
+  order: ${props => (props.isFirstSequenceVote ? '' : '1')};
 `;
 
 export const TagsTooltipWrapperStyle = styled.div`
   position: relative;
-  font-family: ${MakeFonts.CircularStandardBold};
-  text-transform: uppercase;
+  font-family: ${MakeFonts.CircularStandardBook};
   background-color: ${color.infos};
   color: ${color.white};
-  padding: 15px 20px;
+  padding: 6px 37px 6px 10px;
   border-radius: 2px;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.5;
-  letter-spacing: 0.5px;
-  margin: 0 0 20px 0;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 16px;
-    line-height: normal;
-    letter-spacing: normal;
-  }
+  letter-spacing: 0.14px;
+  margin-bottom: ${props => (props.isFirstSequenceVote ? '' : '20px')};
 `;
 
 export const TooltipSvgInfos = styled(SvgInfos)`
-  width: 14px;
-  height: 14px;
-  margin: 5px 9px 0px 0px;
+  width: 12px;
+  height: 12px;
+  margin: 0px 7px 0px;
 `;
 
 export const TagsTooltipCrossStyle = styled(UnstyledButtonStyle)`
   position: absolute;
-  top: 5px;
+  top: 50%;
+  transform: translateY(-50%);
   right: 10px;
+  &:before {
+    content: '';
+    position: absolute;
+    right: 16px;
+    width: 1px;
+    height: 16px;
+    border: 1px solid ${color.greyDark};
+  }
+
   svg {
+    width: 9px;
+    height: 9px;
+  }
+  .tofill {
     fill: ${color.white};
-    width: 10px;
   }
 `;
 
-export const TriangleStyle = styled.div`
+export const TriangleUpStyle = styled.div`
   width: 0;
   height: 0;
   border-style: solid;
-  border-width: 0 10px 10px 10px;
+  border-width: 0 6px 9px 6px;
   border-color: transparent transparent ${color.infos} transparent;
   margin-left: 73%;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
@@ -57,13 +64,21 @@ export const TriangleStyle = styled.div`
   }
 `;
 
+export const TriangleDownStyle = styled.div`
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 9px 6px 0 6px;
+  border-color: ${color.infos} transparent transparent transparent;
+  margin: auto;
+`;
+
 export const LinkStyle = styled(UnstyledButtonStyle)`
   display: inline;
   color: ${color.white};
   text-decoration: underline;
   margin-left: 5px;
-  font-family: ${MakeFonts.CircularStandardBold};
-  text-transform: uppercase;
+  font-family: ${MakeFonts.CircularStandardBook};
   &:hover,
   &:focus {
     color: ${color.white};

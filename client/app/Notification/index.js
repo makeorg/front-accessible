@@ -5,7 +5,7 @@ import { i18n } from 'Shared/i18n';
 import { type StateRoot } from 'Shared/store/types';
 import { SvgDisconnect } from 'Client/ui/Svg/elements';
 import { clearNotification } from 'Shared/store/actions/notification';
-import { notifcationContent } from 'Shared/constants/notification';
+import { notificationContent } from 'Shared/constants/notification';
 import {
   NotificationWrapperStyle,
   NotificationContentStyle,
@@ -32,7 +32,7 @@ export const Notification = () => {
     <NotificationWrapperStyle ref={notificationRef} role="banner" tabIndex={0}>
       <NotificationContentStyle as="div" className={level}>
         <NotificationIcon />
-        {notifcationContent[contentType](replacements)}
+        {notificationContent[contentType](replacements)}
       </NotificationContentStyle>
       <NotificationCloseButtonStyle
         aria-label={i18n.t('common.notifications.icons.close')}

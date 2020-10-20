@@ -196,7 +196,8 @@
       "vote_only": {
         "message": "Citizens have submitted many solutions since the beginning of this consultation. We need your votes to make a difference between them. In the meantime we can't accept new solutions.",
         "button": "ok"
-      }
+      },
+      "vote_on_proposal" : "Vote on this solution"
     },
     "footer_nav": "Footer navigation",
     "sidebar_area": "Content sidebar",

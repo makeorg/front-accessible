@@ -33,7 +33,7 @@ export const VOTE_ONLY_MESSAGE: string = 'VOTE_ONLY_MESSAGE';
 const createNotification = component => replacements =>
   React.createElement(component, { replacements });
 
-export const notifcationContent = {
+export const notificationContent = {
   [ACTIVATION_SUCCESS_MESSAGE]: createNotification(
     AccountActivationSuccessMessage
   ),
