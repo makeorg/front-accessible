@@ -1,11 +1,9 @@
 /* @flow */
-
 import * as actionTypes from 'Shared/store/actionTypes';
 import { type Dispatch } from 'redux';
 import { type StateRoot } from 'Shared/store/types';
 import { type ProposalType } from 'Shared/types/proposal';
 import { type QuestionType } from 'Shared/types/question';
-import { SequenceService } from 'Shared/services/Sequence';
 import { type SequenceCardType } from 'Shared/types/card';
 import { type QualificationType } from 'Shared/types/qualification';
 import { TopComponentContextValue } from 'Client/context/TopComponentContext';
@@ -39,22 +37,6 @@ export const loadSequenceProposals = (proposals: ProposalType[]) => ({
 
 export const unloadSequenceProposals = () => (dispatch: Dispatch) =>
   dispatch({ type: actionTypes.SEQUENCE_UNLOAD_PROPOSALS });
-
-// toDo: deprecated remove when deprecated sequence removed
-export const fetchSequenceProposals = (
-  questionId: string,
-  includedProposalIds?: string[] = []
-) => async (dispatch: any => void) => {
-  const proposals = await SequenceService.startSequence(
-    questionId,
-    includedProposalIds
-  );
-  if (!proposals) {
-    return null;
-  }
-
-  return dispatch(loadSequenceProposals(proposals));
-};
 
 export const resetSequenceIndex = () => (dispatch: Dispatch) =>
   dispatch({ type: actionTypes.SEQUENCE_RESET_INDEX });

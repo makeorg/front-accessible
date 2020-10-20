@@ -17,8 +17,6 @@ const PATH_QUESTION_TOP_IDEA_DETAILS =
 export class QuestionApiService {
   static getQuestions(
     country: string,
-    // @todo remove it when ready on API side
-    language: string,
     status: ?string, // Upcoming, Open, Finished
     sortAlgorithm: ?string, // Chronological, Featured
     limit: ?number,
@@ -30,8 +28,6 @@ export class QuestionApiService {
       headers,
       params: {
         country,
-        // @todo remove it when ready on API side
-        language,
         status,
         sortAlgorithm,
         limit,
