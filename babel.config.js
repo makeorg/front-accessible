@@ -15,6 +15,7 @@ module.exports = {
   ],
   plugins: [
     'convert-to-json',
+    '@babel/plugin-proposal-optional-chaining',
     '@loadable/babel-plugin',
     '@babel/plugin-proposal-class-properties',
     [

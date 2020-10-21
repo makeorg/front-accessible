@@ -26,12 +26,24 @@ const ResultPage = () => {
   const question: QuestionType = useSelector((state: StateRoot) =>
     selectCurrentQuestion(state)
   );
+  const metas = (
+    <MetaTags
+      title={i18n.t('meta.results.title', {
+        question: question.wording.question,
+      })}
+      description={question.wording.metas.description}
+      picture={question.wording.metas.picture}
+    />
+  );
   const isMobile = useMobile();
   const questionIsGreatCause = isGreatCause(question.operationKind);
   const [alternativeContent, setAlternativeContent] = useState(
-    <MiddlePageWrapperStyle>
-      <Spinner />
-    </MiddlePageWrapperStyle>
+    <>
+      {metas}
+      <MiddlePageWrapperStyle>
+        <Spinner />
+      </MiddlePageWrapperStyle>
+    </>
   );
   const [questionResults, setResults] = useState<?QuestionResultsType>(null);
 
@@ -55,13 +67,7 @@ const ResultPage = () => {
 
   return (
     <ThemeProvider theme={question.theme}>
-      <MetaTags
-        title={i18n.t('meta.results.title', {
-          question: question.wording.question,
-        })}
-        description={question.wording.metas.description}
-        picture={question.wording.metas.picture}
-      />
+      {metas}
       <ResultsSkipLinks questionResults={questionResults} />
       <ConsultationHeader question={question} />
       <ConsultationPageWrapperStyle isGreatCause={questionIsGreatCause}>
