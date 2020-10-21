@@ -18,8 +18,8 @@
 	"main": "index.js",
 	"license": "GPL-3.0-or-later",
 	"engines": {
-		"node": ">=11",
-		"yarn": ">=1.13"
+		"node": ">=12.18 <12.20",
+		"yarn": "~1.22"
 	},
 	"dependencies": {
 		"@loadable/component": "~5.13.2",
@@ -81,6 +81,7 @@
 		"babel-eslint": "~10.1.0",
 		"babel-jest": "~26.3.0",
 		"babel-loader": "~8.1.0",
+		"babel-plugin-convert-to-json": "^0.1.0",
 		"babel-plugin-module-resolver": "~4.0.0",
 		"babel-plugin-styled-components": "~1.11.1",
 		"babel-plugin-transform-assets": "~1.0.2",
@@ -114,6 +115,7 @@
 		"install": "~0.13.0",
 		"jest": "~26.4.2",
 		"jest-styled-components": "~7.0.3",
+		"js-yaml": "^3.14.0",
 		"jscpd": "^3.3.19",
 		"jsdom": "~16.4.0",
 		"json-server": "^0.16.1",
@@ -143,6 +145,7 @@
 		"webpack-merge": "~5.1.4",
 		"webpack-node-externals": "~2.5.2",
 		"webpack-pwa-manifest": "~4.2.0",
+		"yaml-jest": "^1.0.5",
 		"yargs": "^16.0.3"
 	},
 	"scripts": {
@@ -154,7 +157,7 @@
 		"server:dev:server:start": "env PORT=9009 NODE_ENV=development node bin/start",
 		"server:dev:api-mock:start": "node ./apiMocks/server.js",
 		"version:build": "node server/versionBuild.js",
-		"prepush": "yarn i18n:translation:check && yarn lint && yarn flow && yarn test:unit:all && yarn jscpd",
+		"prepush": "yarn documentation:check && yarn i18n:translation:check && yarn lint && yarn flow && yarn test:unit:all && yarn jscpd",
 		"styleguide": "styleguidist server",
 		"styleguide:build": "styleguidist build",
 		"lint": "eslint client server shared",
@@ -182,6 +185,8 @@
 		"jscpd": "jscpd client server shared",
 		"i18n:translation": "npx babel --config-file ./babel.config.js i18n --out-dir dist/i18n i18n && bin/checkTranslation.js",
 		"i18n:translation:check": "yarn i18n:translation check -d ./server/staticData/i18n -l 'fr'",
-		"i18n:translation:fix": "yarn i18n:translation check -d ./server/staticData/i18n -l 'fr' --fix"
+		"i18n:translation:fix": "yarn i18n:translation check -d ./server/staticData/i18n -l 'fr' --fix",
+		"documentation:check": "bin/checkDocumentation.js check",
+		"documentation:update": "bin/checkDocumentation.js check --fix"
 	}
 }

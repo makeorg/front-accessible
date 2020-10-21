@@ -20,7 +20,7 @@ import {
   cookieIsEnabled,
   thirdCookieEnabled,
 } from 'Client/helper/cookieDetect';
-import { track } from 'Shared/services/Tracking';
+import { track } from 'Shared/services/TrackingService';
 import * as customDataHelper from 'Client/helper/customData';
 import { updateRequestContextCustomData } from 'Shared/store/middleware/requestContext';
 import { TwitterUniversalTag } from 'Shared/services/Trackers/TwitterTracking';

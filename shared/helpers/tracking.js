@@ -1,7 +1,9 @@
 // @flow
 import { type PerformanceTimingType } from 'Shared/types/tracking';
 import { APP_NAME } from 'Shared/constants/config';
-import { trackPerformance } from 'Shared/services/Tracking';
+import { TrackingService } from 'Shared/services/TrackingService';
+
+const { trackPerformance } = TrackingService;
 
 export const postPerfomanceTiming = async (
   performanceTiming: PerformanceTimingType,
