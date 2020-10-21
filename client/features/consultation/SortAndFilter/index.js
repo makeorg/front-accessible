@@ -1,5 +1,5 @@
 // @flow
-import React, { useMemo } from 'react';
+import React, { useMemo, useEffect } from 'react';
 import { type TagType } from 'Shared/types/tag';
 import { i18n } from 'Shared/i18n';
 import { useMobile } from 'Client/hooks/useMedia';
@@ -7,11 +7,18 @@ import { SelectPanel } from 'Client/ui/Elements/SelectPanel';
 import { TagList } from 'Client/ui/Elements/TagList';
 import { SortedList } from 'Client/ui/Elements/SortedList';
 import { PROPOSALS_FEED_ALGORITHMS } from 'Shared/api/ProposalApiService';
-import { TagTooltip } from 'Client/ui/Elements/TagTooltip';
-import { ColumnElementStyle } from 'Client/ui/Elements/FlexElements';
+import { Tip } from 'Client/ui/Elements/Notifications/Tip';
 import { TAGS_LIST, SORT_LIST, TAGS_SECTION } from 'Shared/constants/ids';
+import { useDispatch } from 'react-redux';
+import {
+  clearNotificationTip,
+  displayNotificationTip,
+} from 'Shared/store/actions/notifications';
+import { TAGS_TIP } from 'Shared/constants/notifications';
+import { TagsTip } from 'Client/app/Notifications/Tip/Tags';
 import {
   TagSectionTitle,
+  FiltersWrapperStyle,
   FiltersContainerStyle,
   SeparatorStyle,
   ResetStyle,
@@ -40,18 +47,25 @@ export const SortAndFilter = ({
   );
 
   const isMobile = useMobile();
+  const dispatch = useDispatch();
 
   const hasTags = !!(tags.length > 0);
   const selectedTags = tags.filter(tag => tag.isSelected);
   const selectedTagsCount = selectedTags.length;
+
+  useEffect(() => {
+    dispatch(displayNotificationTip(TAGS_TIP, <TagsTip />, undefined, true));
+    return () => dispatch(clearNotificationTip());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
       <TagSectionTitle as="h3" id={TAGS_SECTION}>
         {i18n.t('common.vote_on_proposals')}
       </TagSectionTitle>
-      <ColumnElementStyle>
-        {hasTags && !isMobile && <TagTooltip />}
+      <FiltersWrapperStyle>
+        {hasTags && !isMobile && <Tip />}
         <FiltersContainerStyle>
           {!isMobile && <TextStyle>{i18n.t('consultation.sortby')}</TextStyle>}
           <SelectContainerStyle>
@@ -94,7 +108,7 @@ export const SortAndFilter = ({
             )}
           </SelectContainerStyle>
         </FiltersContainerStyle>
-      </ColumnElementStyle>
+      </FiltersWrapperStyle>
     </>
   );
 };

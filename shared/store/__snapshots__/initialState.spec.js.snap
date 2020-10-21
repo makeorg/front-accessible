@@ -17,8 +17,10 @@ Object {
     "isOpen": false,
     "showExpirationSession": false,
   },
-  "notification": Object {
-    "contentType": undefined,
+  "notifications": Object {
+    "banner": Object {},
+    "dismissed": Array [],
+    "tip": Object {},
   },
   "panel": Object {
     "isExpanded": false,

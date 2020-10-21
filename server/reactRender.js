@@ -15,11 +15,12 @@ import { configureStore } from 'Shared/store';
 import { AppContainer } from 'Client/app';
 import { createInitialState, initialState } from 'Shared/store/initialState';
 import {
-  SECURE_EXPIRED_MESSAGE,
   NOTIFICATION_LEVEL_INFORMATION,
-} from 'Shared/constants/notification';
+  SECURE_EXPIRED_MESSAGE,
+} from 'Shared/constants/notifications';
 import { env } from 'Shared/env';
 import { TWTTR_SCRIPT } from 'Shared/services/Trackers/twttr';
+import { SecureExpiredMessage } from 'Client/app/Notifications/Banner/SecureExpired';
 import configuration from './configuration';
 import { BUILD_DIR } from './paths';
 import { logInfo } from './ssr/helpers/ssr.helper';
@@ -91,9 +92,10 @@ export const reactRender = async (req, res, routeState = {}) => {
   };
 
   if (secureExpired) {
-    state.notification = {
+    state.notification.banner = {
+      id: SECURE_EXPIRED_MESSAGE,
+      content: <SecureExpiredMessage />,
       level: NOTIFICATION_LEVEL_INFORMATION,
-      contentType: SECURE_EXPIRED_MESSAGE,
     };
   }
   const store = configureStore(state);

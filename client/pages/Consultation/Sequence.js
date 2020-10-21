@@ -9,7 +9,12 @@ import { MetaTags } from 'Client/app/MetaTags';
 import { i18n } from 'Shared/i18n';
 import { Sequence } from 'Client/features/sequence/index';
 import { SequencePlaceholder } from 'Client/features/sequence/Placeholder';
-import { showVoteOnlyBanner } from 'Shared/store/actions/notification';
+import { displayNotificationBanner } from 'Shared/store/actions/notifications';
+import { VoteOnlyMessage } from 'Client/app/Notifications/Banner/VoteOnly';
+import {
+  NOTIFICATION_LEVEL_INFORMATION,
+  VOTE_ONLY_MESSAGE,
+} from 'Shared/constants/notifications';
 
 const SequencePage = () => {
   const dispatch = useDispatch();
@@ -22,12 +27,21 @@ const SequencePage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  useEffect(() => {
+    if (!question.canPropose) {
+      dispatch(
+        displayNotificationBanner(
+          `${VOTE_ONLY_MESSAGE}_${question.questionId}`,
+          <VoteOnlyMessage />,
+          NOTIFICATION_LEVEL_INFORMATION,
+          true
+        )
+      );
+    }
+  }, [question, dispatch]);
+
   if (!question) {
     return <SequencePlaceholder />;
-  }
-
-  if (!question.canPropose) {
-    dispatch(showVoteOnlyBanner());
   }
 
   return (

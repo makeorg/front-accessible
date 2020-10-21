@@ -1,11 +1,14 @@
+import React from 'react';
 import { createInitialState } from 'Shared/store/initialState';
 import {
-  ACTIVATION_SUCCESS_MESSAGE,
-  ACTIVATION_FAILURE_MESSAGE,
   NOTIFICATION_LEVEL_SUCCESS,
   NOTIFICATION_LEVEL_ERROR,
-} from 'Shared/constants/notification';
+  ACTIVATION_SUCCESS_MESSAGE,
+  ACTIVATION_FAILURE_MESSAGE,
+} from 'Shared/constants/notifications';
 import { updateTrackingQuestionParam } from 'Shared/store/middleware/tracking';
+import { AccountActivationSuccessMessage } from 'Client/app/Notifications/Banner/AccountActivationSuccess';
+import { AccountActivationFailureMessage } from 'Client/app/Notifications/Banner/AccountActivationFailure';
 import { UserService } from '../service/UserService';
 import { reactRender } from '../reactRender';
 import { QuestionService } from '../service/QuestionService';
@@ -17,12 +20,14 @@ export const accountActivationRoute = async (req, res) => {
   // empty question when register on home page
   const questionId = req.query.question || '';
   const notificationError = {
+    id: ACTIVATION_FAILURE_MESSAGE,
     level: NOTIFICATION_LEVEL_ERROR,
-    contentType: ACTIVATION_FAILURE_MESSAGE,
+    content: <AccountActivationFailureMessage />,
   };
   const notificationSuccess = {
+    id: ACTIVATION_SUCCESS_MESSAGE,
     level: NOTIFICATION_LEVEL_SUCCESS,
-    contentType: ACTIVATION_SUCCESS_MESSAGE,
+    content: <AccountActivationSuccessMessage />,
   };
 
   if (questionId !== '') {
@@ -70,10 +75,10 @@ export const accountActivationRoute = async (req, res) => {
   }
 
   const success = () => {
-    routeState.notification = notificationSuccess;
+    routeState.notifications.banner = notificationSuccess;
   };
   const failure = () => {
-    routeState.notification = notificationError;
+    routeState.notifications.banner = notificationError;
   };
   await UserService.verifyUser(
     userId,

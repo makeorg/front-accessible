@@ -1,9 +1,11 @@
+import React from 'react';
 import {
-  PASSWORD_RECOVERY_FAILURE_MESSAGE,
   NOTIFICATION_LEVEL_ERROR,
-} from 'Shared/constants/notification';
+  PASSWORD_RECOVERY_FAILURE_MESSAGE,
+} from 'Shared/constants/notifications';
 import { createInitialState } from 'Shared/store/initialState';
 import { updateTrackingQuestionParam } from 'Shared/store/middleware/tracking';
+import { PasswordRecoveryFailureMessage } from 'Client/features/auth/PasswordRecovery/Failure';
 import { UserService } from '../service/UserService';
 import { reactRender } from '../reactRender';
 import { QuestionService } from '../service/QuestionService';
@@ -59,9 +61,10 @@ export const passwordRecoveryRoute = async (req, res) => {
     routeState.user.passwordRecovery.resetToken = resetToken;
   };
   const failure = () => {
-    routeState.notification = {
+    routeState.notifications.banner = {
+      id: PASSWORD_RECOVERY_FAILURE_MESSAGE,
       level: NOTIFICATION_LEVEL_ERROR,
-      contentType: PASSWORD_RECOVERY_FAILURE_MESSAGE,
+      content: <PasswordRecoveryFailureMessage />,
     };
   };
   await UserService.resetPasswordTokenCheck(

@@ -27,7 +27,14 @@ import {
   unvote as actionUnvote,
 } from 'Shared/store/actions/sequence';
 import { type StateRoot } from 'Shared/store/types';
-import { TagTooltip } from 'Client/ui/Elements/TagTooltip';
+import { Tip } from 'Client/ui/Elements/Notifications/Tip';
+import {
+  clearNotificationTip,
+  dismissNotification,
+  displayNotificationTip,
+} from 'Shared/store/actions/notifications';
+import { FirstVoteTip } from 'Client/app/Notifications/Tip/FirstVote';
+import { FIRST_VOTE_TIP } from 'Shared/constants/notifications';
 import { Qualification } from '../qualification';
 import { VoteResult } from './Result';
 import {
@@ -143,6 +150,8 @@ export const Vote = ({
     await trackVote(proposalId, voteKey, index, contextType);
     if (isFirstSequenceVote) {
       trackFirstVote(proposalId, voteKey, index);
+      dispatch(dismissNotification(FIRST_VOTE_TIP));
+      dispatch(clearNotificationTip());
     }
     stopPending();
   };
@@ -160,6 +169,21 @@ export const Vote = ({
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    if (isFirstSequenceVote) {
+      dispatch(
+        displayNotificationTip(
+          FIRST_VOTE_TIP,
+          <FirstVoteTip />,
+          undefined,
+          true
+        )
+      );
+    }
+
+    return () => dispatch(clearNotificationTip());
+  }, [dispatch, isFirstSequenceVote]);
 
   if (userVote && votedKey) {
     return (
@@ -185,9 +209,7 @@ export const Vote = ({
 
   return (
     <>
-      {isFirstSequenceVote && (
-        <TagTooltip isFirstSequenceVote={isFirstSequenceVote} />
-      )}
+      {isFirstSequenceVote && <Tip isFirstSequenceVote={isFirstSequenceVote} />}
       <VoteContainerStyle isSequence={isSequence}>
         <ScreenReaderItemStyle as="p">
           {i18n.t('vote.intro_title')}

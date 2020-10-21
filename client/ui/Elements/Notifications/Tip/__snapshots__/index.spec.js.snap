@@ -1,20 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TagTooltip must match the snapshot with default Props 1`] = `
-<TagsTooltipContainerStyle>
-  <TriangleUpStyle />
-  <TagsTooltipWrapperStyle>
-    <TagsTooltipCrossStyle
-      aria-label="common.notifications.icons.close"
-      onClick={[Function]}
-    >
-      <SvgClose
-        aria-hidden={true}
-      />
-    </TagsTooltipCrossStyle>
-    <TooltipSvgInfos
-      aria-hidden={true}
-    />
+<TipContainerStyle>
+  <TriangleStyle />
+  <TipWrapperStyle>
     <ScreenReaderItemStyle>
       common.notifications.icons.information
     </ScreenReaderItemStyle>
@@ -27,6 +16,14 @@ exports[`TagTooltip must match the snapshot with default Props 1`] = `
     >
       common.notifications.thank_you
     </LinkStyle>
-  </TagsTooltipWrapperStyle>
-</TagsTooltipContainerStyle>
+    <TipCrossStyle
+      aria-label="common.notifications.icons.close"
+      onClick={[Function]}
+    >
+      <SvgClose
+        aria-hidden={true}
+      />
+    </TipCrossStyle>
+  </TipWrapperStyle>
+</TipContainerStyle>
 `;

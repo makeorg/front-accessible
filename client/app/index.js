@@ -9,7 +9,7 @@ import {
 } from 'Client/app/Styled/MainElements';
 import { NAVIGATION_ARIA_CLASS, PANEL_ARIA_CLASS } from 'Shared/constants/a11y';
 import { MAIN_CONTENT } from 'Shared/constants/ids';
-import { Notification } from './Notification';
+import { NotificationBanner } from 'Client/ui/Elements/Notifications/Banner';
 import { CookieBanner } from './CookieBanner';
 import { Header } from './Header';
 import { Footer } from './Footer';
@@ -45,7 +45,7 @@ export const AppContainer = () => {
                 data-cy-container="main"
                 className={`${NAVIGATION_ARIA_CLASS} ${PANEL_ARIA_CLASS}`}
               >
-                <Notification />
+                <NotificationBanner />
                 <Routes />
               </AppMainContentStyle>
               <Modal />

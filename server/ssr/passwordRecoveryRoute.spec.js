@@ -1,9 +1,14 @@
+import React from 'react';
 import httpMocks from 'node-mocks-http';
 import { QuestionApiService } from 'Shared/api/QuestionApiService';
 import { UserApiService } from 'Shared/api/UserApiService';
 import { HTTP_NO_CONTENT, HTTP_NOT_FOUND } from 'Shared/constants/httpStatus';
 import { createInitialState } from 'Shared/store/initialState';
-import { NOTIFICATION_LEVEL_ERROR } from 'Shared/constants/notification';
+import {
+  NOTIFICATION_LEVEL_ERROR,
+  PASSWORD_RECOVERY_FAILURE_MESSAGE,
+} from 'Shared/constants/notifications';
+import { PasswordRecoveryFailureMessage } from 'Client/features/auth/PasswordRecovery/Failure';
 import { reactRender } from '../reactRender';
 import { passwordRecoveryRoute } from './passwordRecoveryRoute';
 
@@ -55,9 +60,14 @@ describe('Account activation route', () => {
         },
       },
       currentQuestion: fooQuestion.slug,
-      notification: {
-        contentType: 'PASSWORD_RECOVERY_FAILURE_MESSAGE',
-        level: 'error',
+      notifications: {
+        banner: {
+          id: PASSWORD_RECOVERY_FAILURE_MESSAGE,
+          level: NOTIFICATION_LEVEL_ERROR,
+          content: <PasswordRecoveryFailureMessage />,
+        },
+        tip: {},
+        dismissed: [],
       },
     };
 
@@ -132,9 +142,14 @@ describe('Account activation route', () => {
           userId: requestParams.userId,
         },
       },
-      notification: {
-        level: NOTIFICATION_LEVEL_ERROR,
-        contentType: 'PASSWORD_RECOVERY_FAILURE_MESSAGE',
+      notifications: {
+        banner: {
+          id: PASSWORD_RECOVERY_FAILURE_MESSAGE,
+          level: NOTIFICATION_LEVEL_ERROR,
+          content: <PasswordRecoveryFailureMessage />,
+        },
+        tip: {},
+        dismissed: [],
       },
       questions: {
         [fooQuestion.slug]: {

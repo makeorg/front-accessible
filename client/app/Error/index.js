@@ -1,9 +1,16 @@
 // @flow
 import * as React from 'react';
 import { Logger } from 'Shared/services/Logger';
-import { showUnexpectedError } from 'Shared/store/actions/notification';
+import { displayNotificationBanner } from 'Shared/store/actions/notifications';
 import { setUnexpectedError } from 'Shared/services/DefaultErrorHandler';
 import { useDispatch } from 'react-redux';
+import {
+  NETWORK_ERROR_MESSAGE,
+  NOTIFICATION_LEVEL_ALERT,
+  UNEXPECTED_ERROR_MESSAGE,
+} from 'Shared/constants/notifications';
+import { UnexpectedErrorMessage } from '../Notifications/Banner/UnexpectedError';
+import { NetworkErrorMessage } from '../Notifications/Banner/NetworkError';
 
 type Props = {
   children: React.Node,
@@ -58,7 +65,28 @@ export const ServiceErrorHandler = (props: Object) => {
     } catch (e) {
       Logger.logError(e);
     }
-    dispatch(showUnexpectedError());
+    if (
+      typeof window !== 'undefined' &&
+      window &&
+      window.navigator &&
+      window.navigator.onLine === false
+    ) {
+      dispatch(
+        displayNotificationBanner(
+          NETWORK_ERROR_MESSAGE,
+          <NetworkErrorMessage />,
+          NOTIFICATION_LEVEL_ALERT
+        )
+      );
+    } else {
+      dispatch(
+        displayNotificationBanner(
+          UNEXPECTED_ERROR_MESSAGE,
+          <UnexpectedErrorMessage />,
+          NOTIFICATION_LEVEL_ALERT
+        )
+      );
+    }
   });
 
   return props.children;

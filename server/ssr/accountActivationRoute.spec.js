@@ -1,3 +1,4 @@
+import React from 'react';
 import httpMocks from 'node-mocks-http';
 import { QuestionApiService } from 'Shared/api/QuestionApiService';
 import { UserApiService } from 'Shared/api/UserApiService';
@@ -6,7 +7,11 @@ import { createInitialState } from 'Shared/store/initialState';
 import {
   NOTIFICATION_LEVEL_SUCCESS,
   NOTIFICATION_LEVEL_ERROR,
-} from 'Shared/constants/notification';
+  ACTIVATION_SUCCESS_MESSAGE,
+  ACTIVATION_FAILURE_MESSAGE,
+} from 'Shared/constants/notifications';
+import { AccountActivationFailureMessage } from 'Client/app/Notifications/Banner/AccountActivationFailure';
+import { AccountActivationSuccessMessage } from 'Client/app/Notifications/Banner/AccountActivationSuccess';
 import { reactRender } from '../reactRender';
 import { accountActivationRoute } from './accountActivationRoute';
 
@@ -50,9 +55,14 @@ describe('Account activation route', () => {
         },
       },
       currentQuestion: fooQuestion.slug,
-      notification: {
-        contentType: 'ACTIVATION_SUCCESS_MESSAGE',
-        level: 'success',
+      notifications: {
+        banner: {
+          id: ACTIVATION_SUCCESS_MESSAGE,
+          level: NOTIFICATION_LEVEL_SUCCESS,
+          content: <AccountActivationSuccessMessage />,
+        },
+        tip: {},
+        dismissed: [],
       },
     };
 
@@ -82,9 +92,14 @@ describe('Account activation route', () => {
     const response = httpMocks.createResponse();
     const routeState = {
       ...initialState,
-      notification: {
-        level: NOTIFICATION_LEVEL_SUCCESS,
-        contentType: 'ACTIVATION_SUCCESS_MESSAGE',
+      notifications: {
+        banner: {
+          id: ACTIVATION_SUCCESS_MESSAGE,
+          level: NOTIFICATION_LEVEL_SUCCESS,
+          content: <AccountActivationSuccessMessage />,
+        },
+        tip: {},
+        dismissed: [],
       },
       questions: {
         [fooQuestion.slug]: {
@@ -117,9 +132,14 @@ describe('Account activation route', () => {
     const response = httpMocks.createResponse();
     const routeState = {
       ...initialState,
-      notification: {
-        level: NOTIFICATION_LEVEL_ERROR,
-        contentType: 'ACTIVATION_FAILURE_MESSAGE',
+      notifications: {
+        banner: {
+          id: ACTIVATION_FAILURE_MESSAGE,
+          level: NOTIFICATION_LEVEL_ERROR,
+          content: <AccountActivationFailureMessage />,
+        },
+        tip: {},
+        dismissed: [],
       },
       questions: {
         [fooQuestion.slug]: {

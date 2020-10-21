@@ -1,15 +1,13 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { TagTooltip } from './index';
+import { Tip } from './index';
 
 jest.mock('./style', () => ({
-  TagsTooltipWrapperStyle: 'TagsTooltipWrapperStyle',
-  TagsTooltipCrossStyle: 'TagsTooltipCrossStyle',
-  TriangleUpStyle: 'TriangleUpStyle',
-  TriangleDownStyle: 'TriangleDownStyle',
+  TipWrapperStyle: 'TipWrapperStyle',
+  TipCrossStyle: 'TipCrossStyle',
+  TriangleStyle: 'TriangleStyle',
   LinkStyle: 'LinkStyle',
-  TagsTooltipContainerStyle: 'TagsTooltipContainerStyle',
-  TooltipSvgInfos: 'TooltipSvgInfos',
+  TipContainerStyle: 'TipContainerStyle',
 }));
 
 jest.mock('Client/ui/Svg/elements', () => ({
@@ -22,7 +20,7 @@ jest.mock('../AccessibilityElements', () => ({
 
 describe('TagTooltip', () => {
   it('must match the snapshot with default Props', () => {
-    const component = renderer.create(<TagTooltip />).toJSON();
+    const component = renderer.create(<Tip />).toJSON();
     expect(component).toMatchSnapshot();
   });
 });

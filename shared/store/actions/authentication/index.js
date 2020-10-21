@@ -1,5 +1,5 @@
 /* @flow */
-
+import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { type Dispatch } from 'redux';
 import { type ErrorObjectType } from 'Shared/types/api';
@@ -18,11 +18,23 @@ import { type UserType, type UserProfileType } from 'Shared/types/user';
 import { type OrganisationProfileType } from 'Shared/types/organisation';
 import { type PersonalityProfileType } from 'Shared/types/personality';
 import {
-  showLoginSuccess,
-  showLogoutSuccess,
-  showAccountDeletionSuccess,
-  showRegisterSuccess,
-} from '../notification';
+  ACCOUNT_DELETION_SUCCESS_MESSAGE,
+  LOGIN_SUCCESS_MESSAGE,
+  LOGOUT_SUCCESS_MESSAGE,
+  NOTIFICATION_LEVEL_ALERT,
+  NOTIFICATION_LEVEL_ERROR,
+  NOTIFICATION_LEVEL_SUCCESS,
+  REGISTER_SUCCESS_MESSAGE,
+  REGISTER_SUCCESS_VALIDATE_MESSAGE,
+  UNEXPECTED_ERROR_MESSAGE,
+} from 'Shared/constants/notifications';
+import { LoginSuccessMessage } from 'Client/app/Notifications/Banner/LoginSuccess';
+import { AccountDeletionSuccessMessage } from 'Client/app/Notifications/Banner/AccountDeletionSuccess';
+import { LogoutSuccessMessage } from 'Client/app/Notifications/Banner/LogoutSuccess';
+import { RegisterSuccessMessage } from 'Client/app/Notifications/Banner/RegisterSuccess';
+import { RegisterSuccessValidateMessage } from 'Client/app/Notifications/Banner/RegisterSuccessValidate';
+import { UnexpectedErrorMessage } from 'Client/app/Notifications/Banner/UnexpectedError';
+import { displayNotificationBanner } from '../notifications';
 
 export const loginRequest = () => ({ type: actionTypes.LOGIN_REQUEST });
 export const loginFailure = (error: ErrorObjectType) => ({
@@ -61,6 +73,16 @@ export const getUser = (afterRegistration?: boolean) => async (
 ) => {
   const { isOpen: isModalOpen } = getState().modal;
   const user = await UserService.current();
+  if (!user) {
+    return dispatch(
+      displayNotificationBanner(
+        UNEXPECTED_ERROR_MESSAGE,
+        <UnexpectedErrorMessage />,
+        NOTIFICATION_LEVEL_ERROR
+      )
+    );
+  }
+
   const profile:
     | UserProfileType
     | OrganisationProfileType
@@ -73,8 +95,24 @@ export const getUser = (afterRegistration?: boolean) => async (
   if (isModalOpen) {
     dispatch(modalClose());
   }
+  if (afterRegistration && user.emailVerified) {
+    return dispatch(
+      displayNotificationBanner(
+        REGISTER_SUCCESS_MESSAGE,
+        <RegisterSuccessMessage />,
+        NOTIFICATION_LEVEL_SUCCESS
+      )
+    );
+  }
+
   if (afterRegistration) {
-    return dispatch(showRegisterSuccess(user));
+    return dispatch(
+      displayNotificationBanner(
+        REGISTER_SUCCESS_VALIDATE_MESSAGE,
+        <RegisterSuccessValidateMessage email={user.email} />,
+        NOTIFICATION_LEVEL_ALERT
+      )
+    );
   }
 
   return null;
@@ -88,7 +126,13 @@ export const login = (email: string, password: string) => (
     dispatch(loginSuccess());
     trackLoginEmailSuccess();
     dispatch(getUser());
-    dispatch(showLoginSuccess());
+    dispatch(
+      displayNotificationBanner(
+        LOGIN_SUCCESS_MESSAGE,
+        <LoginSuccessMessage />,
+        NOTIFICATION_LEVEL_SUCCESS
+      )
+    );
   };
   const errors = (): void => {
     dispatch(
@@ -126,7 +170,13 @@ export const loginSocial = (provider: string, socialToken: string) => (
   const success = () => {
     dispatch(loginSocialSuccess());
     dispatch(getUser());
-    dispatch(showLoginSuccess());
+    dispatch(
+      displayNotificationBanner(
+        LOGIN_SUCCESS_MESSAGE,
+        <LoginSuccessMessage />,
+        NOTIFICATION_LEVEL_SUCCESS
+      )
+    );
   };
   const failure = () => {
     dispatch(loginSocialFailure());
@@ -151,9 +201,21 @@ export const logout = (afterAccountDeletion?: boolean) => (
   const success = () => {
     dispatch(logoutSuccess());
     if (afterAccountDeletion) {
-      return dispatch(showAccountDeletionSuccess());
+      return dispatch(
+        displayNotificationBanner(
+          ACCOUNT_DELETION_SUCCESS_MESSAGE,
+          <AccountDeletionSuccessMessage />,
+          NOTIFICATION_LEVEL_SUCCESS
+        )
+      );
     }
-    return dispatch(showLogoutSuccess());
+    return dispatch(
+      displayNotificationBanner(
+        LOGOUT_SUCCESS_MESSAGE,
+        <LogoutSuccessMessage />,
+        NOTIFICATION_LEVEL_SUCCESS
+      )
+    );
   };
 
   return UserService.logout(success);

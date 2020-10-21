@@ -1,48 +1,51 @@
 // @flow
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { SvgCheck, SvgInfos, SvgAlert } from 'Client/ui/Svg/elements';
 import {
   NOTIFICATION_LEVEL_SUCCESS,
   NOTIFICATION_LEVEL_INFORMATION,
   NOTIFICATION_LEVEL_ERROR,
   NOTIFICATION_LEVEL_ALERT,
-} from 'Shared/constants/notification';
+} from 'Shared/constants/notifications';
 import { i18n } from 'Shared/i18n';
-import { type StateRoot } from 'Shared/store/types';
-import { SvgCheckStyle, SvgIconStyle } from './style';
+import {
+  NotificationAlertStyle,
+  NotificationSuccessStyle,
+  NotificationInfosStyle,
+} from './style';
 
-export const NotificationIcon = () => {
-  /** Level of the Notification */
-  const { level } = useSelector((state: StateRoot) => state.notification);
+type Props = {
+  level: string,
+  context?: string,
+};
 
+export const NotificationIcon = ({ level, context = 'banner' }: Props) => {
   switch (level) {
     case NOTIFICATION_LEVEL_INFORMATION:
       return (
-        <SvgInfos
+        <NotificationInfosStyle
           aria-label={i18n.t('common.notifications.icons.information')}
-          style={SvgIconStyle}
+          className={context}
         />
       );
     case NOTIFICATION_LEVEL_SUCCESS:
       return (
-        <SvgCheck
+        <NotificationSuccessStyle
           aria-label={i18n.t('common.notifications.icons.success')}
-          style={SvgCheckStyle}
+          className={context}
         />
       );
     case NOTIFICATION_LEVEL_ERROR:
       return (
-        <SvgAlert
+        <NotificationAlertStyle
           aria-label={i18n.t('common.notifications.icons.error')}
-          style={SvgIconStyle}
+          className={context}
         />
       );
     case NOTIFICATION_LEVEL_ALERT:
       return (
-        <SvgAlert
+        <NotificationAlertStyle
           aria-label={i18n.t('common.notifications.icons.alert')}
-          style={SvgIconStyle}
+          className={context}
         />
       );
 
