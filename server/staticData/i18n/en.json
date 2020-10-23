@@ -84,6 +84,9 @@
     },
     "password-recovery": {
       "title": "Create a new password - Make.org"
+    },
+    "a11y": {
+      "title": "Accessibilty statement - Make.org"
     }
   },
   "common": {
@@ -435,7 +438,8 @@
     "country": "Change country",
     "contact": "Contact",
     "moderation_charter": "Moderation charter",
-    "press_details": "Press"
+    "press_details": "Press",
+    "a11y": "Accessibilty statement"
   },
   "pannel": {},
   "cookie_alert": {

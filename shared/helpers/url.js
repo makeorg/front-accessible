@@ -2,7 +2,7 @@
 import 'url-search-params-polyfill';
 import { generatePath } from 'react-router';
 import queryString from 'query-string';
-import { FRONT_URL, DEFAULT_COUNTRY } from 'Shared/constants/config';
+import { FRONT_URL } from 'Shared/constants/config';
 import { ABOUT_MAKE_LINK } from 'Shared/constants/url';
 import {
   ROUTE_CONSULTATION,
@@ -19,6 +19,7 @@ import {
   ROUTE_TOP_IDEAS,
   ROUTE_TOP_IDEA_DETAILS,
   ROUTE_STATIC_NOTFOUND,
+  ROUTE_STATIC_A11Y,
   ROUTE_STATIC_GTU_EN,
   ROUTE_STATIC_LEGAL_EN,
   ROUTE_STATIC_DATA_EN,
@@ -28,6 +29,8 @@ import {
   BASE_PREVIEW_PATH,
   ROUTE_CONSULTATION_STEP,
   ROUTE_COUNTRY,
+  ROUTE_PASSWORD_RECOVERY,
+  ROUTE_ACCOUNT_ACTIVATION,
 } from 'Shared/routes';
 
 export const getParamsQuery = (searchParams: string) => {
@@ -90,7 +93,7 @@ export const getBrowseConsultationsLink = (
   pageId?: number = 1
 ) => {
   return generatePath(ROUTE_BROWSE_CONSULTATIONS, {
-    country: country || DEFAULT_COUNTRY,
+    country,
     pageId,
   });
 };
@@ -105,7 +108,7 @@ export const getBrowseConsultationsLink = (
  */
 export const getBrowseResultsLink = (country: string, pageId?: number = 1) => {
   return generatePath(ROUTE_BROWSE_RESULTS, {
-    country: country || DEFAULT_COUNTRY,
+    country,
     pageId,
   });
 };
@@ -278,7 +281,7 @@ export const getContactPageLink = (country: string) => {
       ? ROUTE_STATIC_CONTACT
       : ROUTE_STATIC_CONTACT_EN,
     {
-      country: country || DEFAULT_COUNTRY,
+      country,
     }
   );
 };
@@ -293,7 +296,7 @@ export const getDataPageLink = (country: string) => {
   return generatePath(
     country === 'FR' || !country ? ROUTE_STATIC_DATA : ROUTE_STATIC_DATA_EN,
     {
-      country: country || DEFAULT_COUNTRY,
+      country,
     }
   );
 };
@@ -308,7 +311,7 @@ export const getGTUPageLink = (country: string) => {
   return generatePath(
     country === 'FR' || !country ? ROUTE_STATIC_GTU : ROUTE_STATIC_GTU_EN,
     {
-      country: country || DEFAULT_COUNTRY,
+      country,
     }
   );
 };
@@ -323,9 +326,21 @@ export const getLegalPageLink = (country: string) => {
   return generatePath(
     country === 'FR' || !country ? ROUTE_STATIC_LEGAL : ROUTE_STATIC_LEGAL_EN,
     {
-      country: country || DEFAULT_COUNTRY,
+      country,
     }
   );
+};
+
+/**
+ * Get the A11y page link
+ *
+ * @param  {string} country
+ * @return {string}
+ */
+export const getA11YPageLink = (country: string) => {
+  return generatePath(ROUTE_STATIC_A11Y, {
+    country,
+  });
 };
 
 /**
@@ -336,7 +351,7 @@ export const getLegalPageLink = (country: string) => {
  */
 export const getHomeLink = (country: string) => {
   return generatePath(ROUTE_COUNTRY, {
-    country: country || DEFAULT_COUNTRY,
+    country,
   });
 };
 /**
@@ -348,7 +363,7 @@ export const getHomeLink = (country: string) => {
 
 export const redirectToNotFoundPage = (country: string) => {
   window.location = generatePath(ROUTE_STATIC_NOTFOUND, {
-    country: country || DEFAULT_COUNTRY,
+    country,
   });
 };
 
@@ -365,4 +380,46 @@ export const isPreviewPath = (path: string): boolean =>
 
 export const getWebflowDynamicLink = (language: string, route: string) => {
   return `${ABOUT_MAKE_LINK}${language}${route}`;
+};
+
+/**
+ * Get the password recovery link
+ *
+ * @param  {string} country
+ * @param  {number} userId
+ * @param  {number} resetToken
+ *
+ * @return {string}
+ */
+export const getPasswordRecoveryLink = (
+  country: string,
+  userId: string,
+  resetToken: string
+) => {
+  return generatePath(ROUTE_PASSWORD_RECOVERY, {
+    country,
+    userId,
+    resetToken,
+  });
+};
+
+/**
+ * Get the account activation link
+ *
+ * @param  {string} country
+ * @param  {number} userId
+ * @param  {number} verificationToken
+ *
+ * @return {string}
+ */
+export const getAccountActivationLink = (
+  country: string,
+  userId: string,
+  verificationToken: string
+) => {
+  return generatePath(ROUTE_ACCOUNT_ACTIVATION, {
+    country,
+    userId,
+    verificationToken,
+  });
 };

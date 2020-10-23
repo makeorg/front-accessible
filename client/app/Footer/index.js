@@ -17,6 +17,7 @@ import {
   getGTUPageLink,
   getDataPageLink,
   getContactPageLink,
+  getA11YPageLink,
 } from 'Shared/helpers/url';
 import { scrollToTop } from 'Shared/helpers/styled';
 import {
@@ -153,6 +154,16 @@ export const Footer = () => {
                 {i18n.t('main-footer.data')}
               </FooterItemLinkStyle>
             </FooterItemStyle>
+            {isFR && (
+              <FooterItemStyle>
+                <FooterItemLinkStyle
+                  onClick={scrollToTop}
+                  to={getA11YPageLink(country)}
+                >
+                  {i18n.t('main-footer.a11y')}
+                </FooterItemLinkStyle>
+              </FooterItemStyle>
+            )}
           </FooterWrapperSecondListStyle>
           <FooterWrapperThirdListStyle>
             <FooterItemStyle className="no-bullet">

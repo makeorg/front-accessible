@@ -15,6 +15,7 @@ import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { SmallSeparatorStyle } from 'Client/ui/Elements/Separators';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { RedLinkHTMLElementStyle } from 'Client/ui/Elements/LinkElements';
+import { SvgExternalLink } from 'Client/ui/Svg/elements';
 
 export const StaticPageWrapperStyle = styled.div`
   width: 100%;
@@ -180,7 +181,7 @@ export const StaticSecondaryOrderedListItemStyle = styled.li`
 `;
 
 export const StaticSquareListStyle = styled.ul`
-  margin: 10px 0 0;
+  margin: 10px 0;
 `;
 
 export const StaticSquareListItemStyle = styled.li`
@@ -256,4 +257,11 @@ export const NoCookiesAltParagraphStyle = styled.p`
 
 export const NoCookiesLinkStyle = styled(RedLinkHTMLElementStyle)`
   margin-top: 10px;
+`;
+
+export const StaticExternalLinkIconStyle = styled(SvgExternalLink)`
+  width: 14px;
+  height: 14px;
+  margin-left: 5px;
+  fill: ${color.brandSecondary};
 `;

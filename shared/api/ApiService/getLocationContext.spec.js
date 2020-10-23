@@ -219,6 +219,7 @@ describe('getLocationContext', () => {
       'ROUTE_STATIC_GTU',
       'ROUTE_STATIC_DATA',
       'ROUTE_STATIC_CONTACT',
+      'ROUTE_STATIC_A11Y',
       'ROUTE_STATIC_LEGAL_EN',
       'ROUTE_STATIC_GTU_EN',
       'ROUTE_STATIC_DATA_EN',

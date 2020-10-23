@@ -37,6 +37,7 @@ export const ROUTE_STATIC_LEGAL = `${ROUTE_COUNTRY}/mentions-legales`;
 export const ROUTE_STATIC_GTU = `${ROUTE_COUNTRY}/conditions-dutilisation`;
 export const ROUTE_STATIC_DATA = `${ROUTE_COUNTRY}/politique-donnees`;
 export const ROUTE_STATIC_CONTACT = `${ROUTE_COUNTRY}/contact`;
+export const ROUTE_STATIC_A11Y = `${ROUTE_COUNTRY}/declaration-accessibilite`;
 
 // routes for en language
 export const ROUTE_STATIC_LEGAL_EN = `${ROUTE_COUNTRY}/legal-mentions`;

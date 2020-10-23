@@ -81,6 +81,9 @@
     },
     "password-recovery": {
       "title": "Je crée un nouveau mot de passe - Make.org"
+    },
+    "a11y": {
+      "title": "Déclaration d'accessibilté - Make.org"
     }
   },
   "common": {
@@ -468,7 +471,8 @@
     "news": "Notre actualité",
     "dotation_funds": "Fonds de dotation Make.org",
     "moderation_charter": "Charte de modération",
-    "press_details": "Revue de presse"
+    "press_details": "Revue de presse",
+    "a11y": "Déclaration d'accessibilité"
   },
   "cookie_alert": {
     "text": "En poursuivant votre navigation vous consentez à nos {{gtu_link}}, à notre {{policy_link}}, ainsi qu'à l'utilisation de cookies sur notre site dans un but d'améliorer notre service.",

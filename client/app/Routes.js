@@ -40,6 +40,7 @@ import {
   ROUTE_BROWSE_CONSULTATIONS,
   ROUTE_BROWSE_RESULTS,
   BASE_PREVIEW_PATH,
+  ROUTE_STATIC_A11Y,
 } from 'Shared/routes';
 import { TwitterUniversalTag } from 'Shared/services/Trackers/TwitterTracking';
 import { QuestionWrapper } from 'Client/pages/Consultation/QuestionWrapper';
@@ -88,6 +89,7 @@ const LegalPage = loadable(() => import('../pages/Static/Legal'));
 const TermsOfUse = loadable(() => import('../pages/Static/TermsOfUse'));
 const Data = loadable(() => import('../pages/Static/Data'));
 const Contact = loadable(() => import('../pages/Static/Contact'));
+const Accessibility = loadable(() => import('../pages/Static/Accessibility'));
 
 export const Routes = () => {
   const location = useLocation();
@@ -169,6 +171,7 @@ export const Routes = () => {
       <Route path={ROUTE_STATIC_DATA} component={Data} />
       <Route path={ROUTE_STATIC_CONTACT} component={Contact} />
       <Route path={ROUTE_STATIC_NOTFOUND} component={NotFoundPage} />
+      <Route path={ROUTE_STATIC_A11Y} component={Accessibility} />
 
       {/* Routes used for en language */}
       <Route path={ROUTE_STATIC_LEGAL_EN} component={LegalPage} />

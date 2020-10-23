@@ -34,6 +34,7 @@ import {
   ROUTE_BROWSE_RESULTS,
   BASE_PREVIEW_PATH,
   ROUTE_COUNTRY_LANG,
+  ROUTE_STATIC_A11Y,
 } from 'Shared/routes';
 import { countryLanguageMiddleware } from './middleware/countryLanguage';
 import { metricsMiddleware } from './middleware/metrics';
@@ -167,6 +168,7 @@ export const initRoutes = app => {
   app.get(ROUTE_STATIC_CONTACT, frontMiddlewares, defaultRoute);
   app.get(ROUTE_STATIC_DATA, frontMiddlewares, defaultRoute);
   app.get(ROUTE_STATIC_GTU, frontMiddlewares, defaultRoute);
+  app.get(ROUTE_STATIC_A11Y, frontMiddlewares, defaultRoute);
 
   // routes for en language
   app.get(ROUTE_STATIC_LEGAL_EN, frontMiddlewares, defaultRoute);
