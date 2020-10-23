@@ -158,7 +158,7 @@ export const Footer = () => {
                 onClick={() => dispatch(modalShowCountries(false))}
                 data-cy-button="country-switch-modal"
               >
-                <FooterCountryIconStyle />
+                <FooterCountryIconStyle aria-hidden />
                 {i18n.t('main-footer.country')}
               </FooterItemAltLinkStyle>
             </FooterItemStyle>

@@ -69,6 +69,15 @@
         "title": "Résultats des consultations avec Make.org - Make.org",
         "description" : "Découvrez les résultats de nos consultations ainsi que les actions mises en place par Make.org et ses partenaires."
       }
+    },
+    "legal": {
+      "title": "Mentions légales - Make.org"
+    },
+    "contact": {
+      "title": "Contactez-nous - Make.org"
+    },
+    "no_cookies": {
+      "title": "Ooops ! Vos cookies sont désactivés - Make.org"
     }
   },
   "common": {

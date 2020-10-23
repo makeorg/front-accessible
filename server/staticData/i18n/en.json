@@ -72,6 +72,15 @@
         "title": "Find out the results on Make.org - Make.org",
         "description": "Find out the results of all our past consultations."
       }
+    },
+    "legal": {
+      "title": "Legal mentions - Make.org"
+    },
+    "contact": {
+      "title": "Contact us - Make.org"
+    },
+    "no_cookies": {
+      "title": "Looks like your cookies are deactivated - Make.org"
     }
   },
   "common": {
@@ -862,7 +871,7 @@
     "international": {
       "subtitle": "National consultations",
       "title": "Make.org is also available in France for national topics",
-      "button": "Discover" 
+      "button": "Discover"
     }
   },
   "search": {

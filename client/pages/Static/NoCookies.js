@@ -23,7 +23,7 @@ export const NoCookies = () => (
     <ModernNormalizeStylesheet />
     <DefaultStylesheet />
     <HeadProvider>
-      <MetaTags />
+      <MetaTags title="meta.no_cookies.title" />
     </HeadProvider>
     <CenterColumnStyle>
       <NoCookiesTitleStyle>
