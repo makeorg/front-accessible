@@ -38,6 +38,10 @@ export const HomePage = () => {
     }
     setIsLoading(false);
   };
+  const { featuredQuestions, posts } = homepage;
+  const hasFeaturedQuestions =
+    featuredQuestions && featuredQuestions.length > 0;
+  const hasPosts = posts && posts.length > 0;
 
   useEffect(() => {
     if (!homepage) {
@@ -72,11 +76,8 @@ export const HomePage = () => {
             ) : (
               <InternationalPlaceholder />
             )}
-            {isFR && (
-              <FeaturedNews
-                questions={homepage.featuredQuestions}
-                posts={homepage.posts}
-              />
+            {hasFeaturedQuestions && hasPosts && (
+              <FeaturedNews questions={featuredQuestions} posts={posts} />
             )}
           </HomepageWrapperStyle>
           {isFR && <PartnershipBanner />}
