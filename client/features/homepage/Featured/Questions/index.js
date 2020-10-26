@@ -2,7 +2,7 @@
 import React from 'react';
 import { type HomeQuestionType } from 'Shared/types/question';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
-import { orderByEndDate } from 'Shared/helpers/date';
+import { orderByEndDate, isInProgress } from 'Shared/helpers/date';
 import { FeaturedListItemStyle } from './style';
 import { FeaturedLink } from './Link';
 
@@ -11,7 +11,9 @@ type Props = {
 };
 
 export const FeaturedQuestions = ({ questions }: Props) => {
-  const sortedQuestions = questions.sort(orderByEndDate);
+  const sortedQuestions = questions
+    .filter(question => isInProgress(question) || question.aboutUrl)
+    .sort(orderByEndDate);
   return (
     <nav data-cy-container="featured_questions_navigation">
       <UnstyledListStyle>

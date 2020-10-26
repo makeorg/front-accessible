@@ -56,6 +56,7 @@ export const DesktopMenu = () => {
             href={isFR ? WHOAREWE_FR_LINK : WHOAREWE_EN_LINK}
           >
             {i18n.t('main-footer.whoarewe')}
+            <> </>
             <MenuNewWindowIconStyle
               aria-label={i18n.t('common.open_new_window')}
             />
@@ -71,6 +72,7 @@ export const DesktopMenu = () => {
               href={PARTNERSHIP_LINK}
             >
               {i18n.t('homepage.partnership.subtitle')}
+              <> </>
               <MenuNewWindowIconStyle
                 aria-label={i18n.t('common.open_new_window')}
               />

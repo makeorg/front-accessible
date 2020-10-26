@@ -74,18 +74,19 @@ export const SearchForm = ({ isExpanded, handleFocus }: Props) => {
       className={isExpanded && 'expanded'}
       onSubmit={throttle(handleSubmit)}
     >
-      <ScreenReaderItemStyle>
+      <ScreenReaderItemStyle as="div">
         {i18n.t('search.form.introduction', {
           context: searchTerm ? 'searched' : '',
         })}
       </ScreenReaderItemStyle>
-      <SearchInputWrapperStyle>
+      <SearchInputWrapperStyle as="span">
         <SearchLabelStyle
           className={searchTerm.length > 0 ? 'hide' : ''}
           htmlFor="search_input"
         >
           {i18n.t('search.form.placeholder')}
         </SearchLabelStyle>
+        <> </>
         <SearchInputStyle
           type="text"
           name="search"
@@ -98,6 +99,7 @@ export const SearchForm = ({ isExpanded, handleFocus }: Props) => {
           data-cy-field="search"
         />
       </SearchInputWrapperStyle>
+      <> </>
       {hasSubmit ? (
         <SearchButtonStyle
           aria-label={i18n.t('search.form.flush')}

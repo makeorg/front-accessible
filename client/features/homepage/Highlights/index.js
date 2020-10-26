@@ -44,9 +44,11 @@ export const HighlightsBanner = ({ highlights }: Props) => {
       <HighlightsBannerFiguresContainerStyle as="ul">
         <HighlightFigureContainerStyle as="li">
           <PeopleIconStyle aria-hidden />
+          <> </>
           <FiguresStyle>
             {formatMillionToText(participantsCount, country, language)}
           </FiguresStyle>
+          <> </>
           <SubtitleFiguresStyle>
             {i18n.t('homepage.highlights.participants.subtitle')}
           </SubtitleFiguresStyle>
@@ -54,9 +56,11 @@ export const HighlightsBanner = ({ highlights }: Props) => {
         </HighlightFigureContainerStyle>
         <HighlightFigureContainerStyle as="li">
           <LigthIconStyle aria-hidden />
+          <> </>
           <FiguresStyle>
             {formatMillionToText(proposalsCount, country, language)}
           </FiguresStyle>
+          <> </>
           <SubtitleFiguresStyle>
             {i18n.t('homepage.highlights.proposals.subtitle')}
           </SubtitleFiguresStyle>
@@ -64,9 +68,11 @@ export const HighlightsBanner = ({ highlights }: Props) => {
         </HighlightFigureContainerStyle>
         <HighlightFigureContainerStyle as="li">
           <HeartIconStyle aria-hidden />
+          <> </>
           <FiguresStyle>
             {formatMillionToText(partnersCount, country, language)}
           </FiguresStyle>
+          <> </>
           <SubtitleFiguresStyle>
             {i18n.t('homepage.highlights.partners.subtitle')}
           </SubtitleFiguresStyle>

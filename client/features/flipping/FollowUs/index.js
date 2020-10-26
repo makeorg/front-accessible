@@ -119,6 +119,7 @@ export const FollowUs = ({ question }: Props) => {
         onClick={() => trackClickBlog('blog list')}
       >
         {i18n.t('consultation.followus.discover')}
+        <> </>
         <NewWindowIconStyle aria-label={i18n.t('common.open_new_window')} />
       </RedLinkHTMLElementStyle>
     </TileWithTitle>

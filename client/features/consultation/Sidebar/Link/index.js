@@ -22,6 +22,7 @@ export const SidebarNewWindowLink = ({
     onClick={tracking}
   >
     {linkText}
+    <> </>
     <NewWindowIconStyle aria-label={i18n.t('common.open_new_window')} />
   </NewWindowLinkStyle>
 );

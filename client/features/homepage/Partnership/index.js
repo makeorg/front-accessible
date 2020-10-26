@@ -42,6 +42,7 @@ export const PartnershipBanner = () => (
         rel="noreferrer noopener"
       >
         {i18n.t('homepage.partnership.button')}
+        <> </>
         <ExternalLinkIconStyle aria-label={i18n.t('common.open_new_window')} />
       </PartnershipRedButton>
     </PartnershipInnerStyle>

@@ -96,7 +96,9 @@ export const ConsultationItem = ({ question, resultsContext }: Props) => {
         {hasContributors && (
           <ConsultationItemStyle>
             <ConsultationPeopleIconStyle aria-hidden />
+            <> </>
             {formatMillionToText(participantsCount, country, language)}
+            <> </>
             {` ${i18n.t('browse.consultations.contributors', {
               count: participantsCount,
             })}`}
@@ -105,7 +107,9 @@ export const ConsultationItem = ({ question, resultsContext }: Props) => {
         {hasProposals && (
           <ConsultationItemStyle>
             <ConsultationLightIconStyle aria-hidden />
+            <> </>
             {formatMillionToText(proposalsCount, country, language)}
+            <> </>
             {` ${i18n.t('browse.consultations.proposals', {
               count: proposalsCount,
             })}`}
@@ -114,11 +118,13 @@ export const ConsultationItem = ({ question, resultsContext }: Props) => {
         {actions && (
           <ConsultationItemStyle className="red">
             <ConsultationActionIconStyle aria-hidden />
+            <> </>
             {actions}
           </ConsultationItemStyle>
         )}
         <ConsultationItemStyle>
           <ClockIconStyle aria-hidden />
+          <> </>
           {i18n.t('browse.date', {
             startDate: DateHelper.creationDateFormat(startDate),
             endDate: DateHelper.creationDateFormat(endDate),

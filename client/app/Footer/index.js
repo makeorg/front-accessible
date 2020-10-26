@@ -75,6 +75,7 @@ export const Footer = () => {
                       onClick={() => trackClickBlog('blog list')}
                     >
                       {i18n.t('main-footer.news')}
+                      <> </>
                       <FooterLinkIconStyle
                         aria-label={i18n.t('common.open_new_window')}
                       />
@@ -88,6 +89,7 @@ export const Footer = () => {
                       to={JOBS_LINK}
                     >
                       {i18n.t('main-footer.jobs')}
+                      <> </>
                       <FooterLinkIconStyle
                         aria-label={i18n.t('common.open_new_window')}
                       />
@@ -102,6 +104,7 @@ export const Footer = () => {
                   href={PRESS_DETAILS_LINK}
                 >
                   {i18n.t('main-footer.press_details')}
+                  <> </>
                   <FooterLinkIconStyle
                     aria-label={i18n.t('common.open_new_window')}
                   />
@@ -114,6 +117,7 @@ export const Footer = () => {
                   href={DOTATION_FUNDS_LINK}
                 >
                   {i18n.t('main-footer.dotation_funds')}
+                  <> </>
                   <FooterLinkIconStyle
                     aria-label={i18n.t('common.open_new_window')}
                   />
@@ -159,6 +163,7 @@ export const Footer = () => {
                 data-cy-button="country-switch-modal"
               >
                 <FooterCountryIconStyle aria-hidden />
+                <> </>
                 {i18n.t('main-footer.country')}
               </FooterItemAltLinkStyle>
             </FooterItemStyle>
@@ -168,6 +173,7 @@ export const Footer = () => {
                 to={getContactPageLink(country)}
               >
                 <FooterContactIconStyle aria-hidden />
+                <> </>
                 {i18n.t('main-footer.contact')}
               </FooterItemAltLinkStyle>
             </FooterItemStyle>

@@ -155,6 +155,7 @@ export const ProposalForm = ({
         onClick={trackClickModerationLink}
       >
         {i18n.t('proposal_submit.form.moderation_link')}
+        <> </>
         <ProposalExternalLinkIconStyle
           aria-label={i18n.t('common.open_new_window')}
         />

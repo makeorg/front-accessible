@@ -53,7 +53,7 @@ export const MenuPanel = ({ isExpanded, toggleExpansion }: Props) => {
 
   return (
     <MenuPanelStyle
-      aria-hidden={!isExpanded && true}
+      aria-hidden={!isExpanded}
       className={isExpanded && 'expanded'}
       data-cy-container="mobile-header-menu"
     >
@@ -100,6 +100,7 @@ export const MenuPanel = ({ isExpanded, toggleExpansion }: Props) => {
                 href={isFR ? WHOAREWE_FR_LINK : WHOAREWE_EN_LINK}
               >
                 {i18n.t('main-footer.whoarewe')}
+                <> </>
                 <MenuNewWindowIconStyle
                   aria-label={i18n.t('common.open_new_window')}
                 />
@@ -114,6 +115,7 @@ export const MenuPanel = ({ isExpanded, toggleExpansion }: Props) => {
                     href={PARTNERSHIP_LINK}
                   >
                     {i18n.t('homepage.partnership.subtitle')}
+                    <> </>
                     <MenuNewWindowIconStyle
                       aria-label={i18n.t('common.open_new_window')}
                     />
@@ -126,6 +128,7 @@ export const MenuPanel = ({ isExpanded, toggleExpansion }: Props) => {
                     href={NEWS_LINK}
                   >
                     {i18n.t('main-footer.news')}
+                    <> </>
                     <MenuNewWindowIconStyle
                       aria-label={i18n.t('common.open_new_window')}
                     />
@@ -138,6 +141,7 @@ export const MenuPanel = ({ isExpanded, toggleExpansion }: Props) => {
                     href={JOBS_LINK}
                   >
                     {i18n.t('main-footer.jobs')}
+                    <> </>
                     <MenuNewWindowIconStyle
                       aria-label={i18n.t('common.open_new_window')}
                     />
