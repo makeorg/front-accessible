@@ -34,23 +34,22 @@ export const ProposalCard = ({ proposalCard }: Props) => {
       ? state.sequence.cards[index].state.votes
       : []
   );
-  const proposalCards = allCards.filter(
-    card => card.type === CARD_TYPE_PROPOSAL
-  );
-  const lastProposal = proposalCards.pop();
-
   const [isVoted, setIsVoted] = useState(
     votes.some(vote => vote.hasVoted === true)
   );
   const [isLastProposalCard, setIsLastProposalCard] = useState(
-    proposalCard.index === lastProposal.index
+    proposalCard.index ===
+      allCards.filter(card => card.type === CARD_TYPE_PROPOSAL).pop().index
   );
 
   useEffect(() => {
     setProposal(proposalCard.configuration.proposal);
     setIndex(proposalCard.index);
-    setIsLastProposalCard(proposalCard.index === lastProposal.index);
-  }, [proposalCard, lastProposal.index]);
+    setIsLastProposalCard(
+      proposalCard.index ===
+        allCards.filter(card => card.type === CARD_TYPE_PROPOSAL).pop().index
+    );
+  }, [proposalCard, allCards]);
 
   useEffect(() => {
     setIsVoted(votes.some(vote => vote.hasVoted === true));
