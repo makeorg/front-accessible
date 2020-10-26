@@ -12,9 +12,12 @@ import {
 } from 'Client/features/auth/PasswordRecovery/style';
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
 import { selectPasswordRecovery } from 'Shared/store/selectors/user.selector';
+import { ROUTE_PASSWORD_RECOVERY } from 'Shared/routes';
+import { i18n } from 'Shared/i18n';
+import { MetaTags } from 'Client/app/MetaTags';
 
 const PasswordRecoveryPage = () => {
-  const { country, language } = useParams();
+  const { country } = useParams();
 
   const passwordRecovery = useSelector((state: StateRoot) =>
     selectPasswordRecovery(state)
@@ -27,25 +30,22 @@ const PasswordRecoveryPage = () => {
   const { validToken } = passwordRecovery;
 
   if (!validToken) {
-    const countryLanguage = `${country}-${language}`;
     const redirectPath = !question
-      ? `/${countryLanguage}`
-      : `/${countryLanguage}/consultation/${question.slug}/consultation`;
+      ? `/${country}`
+      : `/${country}/consultation/${question.slug}/consultation`;
 
-    return (
-      <Redirect
-        path="/:country-:language/password-recovery/:userId/:resetToken"
-        to={redirectPath}
-      />
-    );
+    return <Redirect path={ROUTE_PASSWORD_RECOVERY} to={redirectPath} />;
   }
 
   return (
-    <PasswordRecoveryWrapperStyle>
-      <PasswordRecoveryContentStyle>
-        <PasswordRecovery />
-      </PasswordRecoveryContentStyle>
-    </PasswordRecoveryWrapperStyle>
+    <>
+      <MetaTags title={i18n.t('meta.password-recovery.title')} />
+      <PasswordRecoveryWrapperStyle>
+        <PasswordRecoveryContentStyle>
+          <PasswordRecovery />
+        </PasswordRecoveryContentStyle>
+      </PasswordRecoveryWrapperStyle>
+    </>
   );
 };
 
