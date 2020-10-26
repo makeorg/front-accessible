@@ -169,6 +169,7 @@ export type QuestionType = {
   partners: PartnerType[],
   theme: QuestionThemeType,
   consultationImage?: string,
+  consultationImageAlt?: string,
   descriptionImage?: string,
   displayResults: boolean,
   operation: {

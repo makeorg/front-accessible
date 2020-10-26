@@ -28,7 +28,7 @@ export const IntroBanner = ({ question }: Props) => {
         <h2>
           <Image
             src={question.consultationImage}
-            alt={question.wording.question}
+            alt={question.consultationImageAlt}
             height={88}
           />
         </h2>
