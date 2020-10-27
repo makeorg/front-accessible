@@ -68,6 +68,7 @@ export const ConsultationLink = ({ question, label }: Props) => {
         data-cy-link={`item-link-${question.questionId}`}
       >
         {label}
+        <> </>
         <NewWindowIconStyle aria-label={i18n.t('common.open_new_window')} />
       </ConsultationRedLinkElementStyle>
     );

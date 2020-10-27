@@ -45,6 +45,7 @@ export const DeprecatedProposalSubmitDescription = ({
           onClick={trackModerationLink}
         >
           {i18n.t('proposal_submit.deprecated.moderation_charter_label')}
+          <> </>
           <SvgExternalLink
             aria-label={i18n.t('common.open_new_window')}
             style={{ marginLeft: '5px', fill: color.brandSecondary }}

@@ -64,6 +64,7 @@ export const FeaturedPosts = ({ posts }: Props) => {
           data-cy-link="see-blog"
         >
           {i18n.t('homepage.posts.see_all')}
+          <> </>
           <ExternalLinkIconStyle
             aria-label={i18n.t('common.open_new_window')}
           />

@@ -8,6 +8,7 @@ import { scrollToTop } from 'Shared/helpers/styled';
 import { SvgExternalLink } from 'Client/ui/Svg/elements';
 import { getConsultationLink } from 'Shared/helpers/url';
 import { useSelector } from 'react-redux';
+import { i18n } from 'Shared/i18n';
 import { FeaturedLinkStyle, FeaturedLinkIconStyle } from './style';
 
 type Props = {
@@ -36,7 +37,11 @@ export const FeaturedLink = ({ question }: Props) => {
       rel="noreferrer noopener"
     >
       {question.operationTitle}
-      <FeaturedLinkIconStyle as={SvgExternalLink} aria-hidden />
+      <> </>
+      <FeaturedLinkIconStyle
+        as={SvgExternalLink}
+        aria-label={i18n.t('common.open_new_window')}
+      />
     </FeaturedLinkStyle>
   );
 };

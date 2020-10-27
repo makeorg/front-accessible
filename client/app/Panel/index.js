@@ -63,20 +63,24 @@ export const Panel = () => {
 
   return (
     <PanelWrapperStyle ref={panelRef} aria-hidden="true">
-      <PanelOverlayStyle
-        onClick={handleCloseAndRemove}
-        className={isExpanded && 'expanded'}
-        aria-label={i18n.t('common.close_panel')}
-        data-cy-button="close-panel-overlay"
-      />
-      <PanelCloseButtonStyle
-        onClick={handleCloseAndRemove}
-        className={isExpanded && 'expanded'}
-        aria-label={i18n.t('common.close_panel')}
-        data-cy-button="close-panel"
-      >
-        <PanelCloseIconStyle aria-hidden />
-      </PanelCloseButtonStyle>
+      {isExpanded && (
+        <>
+          <PanelOverlayStyle
+            onClick={handleCloseAndRemove}
+            className={isExpanded && 'expanded'}
+            aria-label={i18n.t('common.close_panel')}
+            data-cy-button="close-panel-overlay"
+          />
+          <PanelCloseButtonStyle
+            onClick={handleCloseAndRemove}
+            className={isExpanded && 'expanded'}
+            aria-label={i18n.t('common.close_panel')}
+            data-cy-button="close-panel"
+          >
+            <PanelCloseIconStyle aria-hidden />
+          </PanelCloseButtonStyle>
+        </>
+      )}
       <PanelInnerStyle className={isExpanded && 'expanded'}>
         {panelContent}
       </PanelInnerStyle>
