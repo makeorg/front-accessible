@@ -124,6 +124,7 @@ export const Image = ({
 
   const { src1x, src2x, src3x, srcSetValue, placeHolder } = useMemo(
     () => getSrcValues(source === IMAGE_SOURCE_INTERNAL, url, width, height),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [url, width, height]
   );
 
@@ -132,6 +133,7 @@ export const Image = ({
 
   const imageToLoad = useMemo(
     () => selectImageToLoad(ratio, src1x, src2x, src3x),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [ratio, src1x]
   );
 

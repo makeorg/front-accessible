@@ -80,6 +80,7 @@ const TopIdeaDetailsPage = () => {
     initTopIdea().then(() => {
       trackDisplayTopIdeas('top-idea-details');
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [question, topIdeaId]);
 
   return (

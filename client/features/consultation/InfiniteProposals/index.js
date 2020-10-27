@@ -124,6 +124,7 @@ export const InfiniteProposals = ({ question, tags, sortTypeKey }: Props) => {
 
   useLayoutEffect(() => {
     initProposal();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [flatTags, sortTypeKey, question, user]);
 
   return (

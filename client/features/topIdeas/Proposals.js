@@ -90,6 +90,7 @@ export const TopIdeaDetailsProposals = ({ topIdea, question }: Props) => {
 
   useEffect(() => {
     initProposals();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [question]);
 
   return (

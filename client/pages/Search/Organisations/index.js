@@ -69,6 +69,7 @@ export const SearchOrganisations = ({ history, location }: Props) => {
   };
   useEffect(() => {
     initOrganisations();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [term]);
 
   useEffect(() => {

@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactModal from 'react-modal';
 import { useSelector, useDispatch } from 'react-redux';
 import { i18n } from 'Shared/i18n';
@@ -9,7 +9,6 @@ import { CloseButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { SvgClose } from 'Client/ui/Svg/elements';
 import { ThirdLevelTitleCircularStyle } from 'Client/ui/Elements/TitleElements';
 import SessionExpiredPicture from 'Client/app/assets/images/session-expired.png';
-import { useEffect } from 'react';
 import { trackDisplaySessionExpired } from 'Shared/services/Tracking';
 import {
   ExpirationSessionModalContentStyle,

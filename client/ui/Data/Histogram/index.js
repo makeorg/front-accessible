@@ -58,6 +58,7 @@ export const Histogram = ({
       valuesArray.push(forcedHigherValue);
     }
     setMaxValue(Math.max(...valuesArray));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
   useEffect(() => {
@@ -71,6 +72,7 @@ export const Histogram = ({
 
     const itemGapValue = getHistogramBarMargin(itemWidth, data.length);
     setItemGap(itemGapValue);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [listRef.current]);
 
   return (

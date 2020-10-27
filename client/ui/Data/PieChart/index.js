@@ -26,6 +26,7 @@ export const PieChart = ({ unit, name, legend, data }: Props) => {
     if (canvasRef) {
       buildPieChart(canvasRef, data, isMobile);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [canvasRef.current]);
 
   return (

@@ -53,6 +53,7 @@ export const SearchConsultations = ({ location, history }: Props) => {
 
   useEffect(() => {
     initQuestions();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [term]);
 
   useEffect(() => {

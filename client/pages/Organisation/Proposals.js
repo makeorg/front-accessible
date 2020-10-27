@@ -76,6 +76,7 @@ const OrganisationProposalsPage = ({ organisation }: Props) => {
 
   useEffect(() => {
     initProposal();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [organisation]);
 
   const proposalsLength = proposals.length;

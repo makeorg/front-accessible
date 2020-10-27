@@ -39,6 +39,7 @@ export const ConsultationContent = ({ question }: Props) => {
   useEffect(() => {
     dispatch(fetchPopularTags(question.questionId, question.slug));
     trackDisplayConsultation('consultation');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [question]);
 
   useEffect(() => {

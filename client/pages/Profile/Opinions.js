@@ -46,6 +46,7 @@ const ProfilePage = ({ match }: Props) => {
 
   useEffect(() => {
     fetchPersonality();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
   if (!user) {
