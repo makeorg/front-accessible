@@ -27,6 +27,7 @@ import {
   unvote as actionUnvote,
 } from 'Shared/store/actions/sequence';
 import { type StateRoot } from 'Shared/store/types';
+import { TagTooltip } from 'Client/ui/Elements/TagTooltip';
 import { Qualification } from '../qualification';
 import { VoteResult } from './Result';
 import {
@@ -183,28 +184,36 @@ export const Vote = ({
   }
 
   return (
-    <VoteContainerStyle isSequence={isSequence}>
-      <ScreenReaderItemStyle as="p">
-        {i18n.t('vote.intro_title')}
-      </ScreenReaderItemStyle>
-      <VoteWrapperStyle>
-        {voteStaticParamsKeys.map((voteKey: string) => (
-          <VoteButtonWrapperStyle as="li" key={getVoteKey(voteKey, proposalId)}>
-            <VoteButton
-              voteKey={voteKey}
-              buttonClass={getVoteButtonClass(
-                voteKey,
-                animateVoteKey,
-                pendingVoteKey,
-                false
-              )}
-              displayPending={getSameKey(pendingVoteKey, voteKey)}
-              handleVote={() => handleVote(voteKey)}
-              animateVote={getSameKey(animateVoteKey, voteKey)}
-            />
-          </VoteButtonWrapperStyle>
-        ))}
-      </VoteWrapperStyle>
-    </VoteContainerStyle>
+    <>
+      {isFirstSequenceVote && (
+        <TagTooltip isFirstSequenceVote={isFirstSequenceVote} />
+      )}
+      <VoteContainerStyle isSequence={isSequence}>
+        <ScreenReaderItemStyle as="p">
+          {i18n.t('vote.intro_title')}
+        </ScreenReaderItemStyle>
+        <VoteWrapperStyle>
+          {voteStaticParamsKeys.map((voteKey: string) => (
+            <VoteButtonWrapperStyle
+              as="li"
+              key={getVoteKey(voteKey, proposalId)}
+            >
+              <VoteButton
+                voteKey={voteKey}
+                buttonClass={getVoteButtonClass(
+                  voteKey,
+                  animateVoteKey,
+                  pendingVoteKey,
+                  false
+                )}
+                displayPending={getSameKey(pendingVoteKey, voteKey)}
+                handleVote={() => handleVote(voteKey)}
+                animateVote={getSameKey(animateVoteKey, voteKey)}
+              />
+            </VoteButtonWrapperStyle>
+          ))}
+        </VoteWrapperStyle>
+      </VoteContainerStyle>
+    </>
   );
 };

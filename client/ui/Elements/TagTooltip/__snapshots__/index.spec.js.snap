@@ -2,8 +2,19 @@
 
 exports[`TagTooltip must match the snapshot with default Props 1`] = `
 <TagsTooltipContainerStyle>
-  <TriangleStyle />
+  <TriangleUpStyle />
   <TagsTooltipWrapperStyle>
+    <TagsTooltipCrossStyle
+      aria-label="common.notifications.icons.close"
+      onClick={[Function]}
+    >
+      <SvgClose
+        aria-hidden={true}
+      />
+    </TagsTooltipCrossStyle>
+    <TooltipSvgInfos
+      aria-hidden={true}
+    />
     <ScreenReaderItemStyle>
       common.notifications.icons.information
     </ScreenReaderItemStyle>
@@ -16,14 +27,6 @@ exports[`TagTooltip must match the snapshot with default Props 1`] = `
     >
       common.notifications.thank_you
     </LinkStyle>
-    <TagsTooltipCrossStyle
-      aria-label="common.notifications.icons.close"
-      onClick={[Function]}
-    >
-      <SvgClose
-        aria-hidden={true}
-      />
-    </TagsTooltipCrossStyle>
   </TagsTooltipWrapperStyle>
 </TagsTooltipContainerStyle>
 `;

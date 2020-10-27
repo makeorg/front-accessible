@@ -43,7 +43,7 @@ Feature: The Home Page
     And I see a link "Voir nos offres" to "https://about.make.org/collaborez-avec-make-org" in "partnership" container
 
   Scenario: Country switching redirect to Homepage
-    Given I go to the sequence page of the question "question-0-slug"
+    Given I go to "france homepage"    
     Then I see "Changer de pays" in "footer" container
     When I click on "country-switch-modal" button
     Then I see "Changer de pays" in "country_switch_nav" container

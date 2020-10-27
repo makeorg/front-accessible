@@ -174,7 +174,8 @@
       "vote_only": {
           "message": "Nous avons recueilli de nombreuses propositions citoyennes depuis le début de la consultation et avons besoin de vos votes pour les départager. En attendant, nous ne pouvons pas accepter de nouvelles propositions.",
           "button": "j'ai compris"
-      }
+      },
+      "vote_on_proposal" : "Votez sur cette proposition"
     },
     "from": "sur",
     "email": "Email",
