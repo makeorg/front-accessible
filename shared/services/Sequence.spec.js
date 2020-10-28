@@ -76,5 +76,26 @@ describe('Question Service', () => {
         { id: 'foo', votes: [{ hasVoted: false }] },
       ]);
     });
+
+    it('includes proposals when required even if they are already voted', async () => {
+      const includedProposalIds = ['voted'];
+      QuestionApiService.startSequence.mockResolvedValue({
+        data: {
+          id: 'foo',
+          proposals,
+        },
+      });
+
+      const result = await SequenceService.startSequence(
+        'foo',
+        includedProposalIds
+      );
+      expect(result).toEqual([
+        { id: 'voted', votes: [{ hasVoted: true }] },
+        { id: 'baz', votes: [{ hasVoted: false }] },
+        { id: 'bar', votes: [{ hasVoted: false }] },
+        { id: 'foo', votes: [{ hasVoted: false }] },
+      ]);
+    });
   });
 });
