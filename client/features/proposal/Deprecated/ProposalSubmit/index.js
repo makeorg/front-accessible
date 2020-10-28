@@ -116,6 +116,7 @@ export const DeprecatedProposalSubmit = ({
   /** Handle Propose API Call when user log  */
   useEffect(() => {
     handleProposeAPICall();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoggedIn]);
 
   const isDescriptionShown = canBeOpen && isTyping && !isSubmitted;

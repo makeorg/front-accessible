@@ -90,6 +90,7 @@ export const Opinions = ({ personality, privateProfile = false }: Props) => {
 
   useEffect(() => {
     fetchPersonnalityOpinions();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [personality]);
 
   return (

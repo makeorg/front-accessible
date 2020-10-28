@@ -59,6 +59,7 @@ const ResultPage = () => {
 
   useEffect(() => {
     initResults();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (!questionResults) {

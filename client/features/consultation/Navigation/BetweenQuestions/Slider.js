@@ -41,6 +41,7 @@ export const SliderNavigationBetweenQuestions = ({ question }: Props) => {
       return index;
     });
     glider.scrollItem(value);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

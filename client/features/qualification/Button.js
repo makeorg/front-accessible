@@ -1,5 +1,5 @@
 // @flow
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { QualificationService } from 'Shared/services/Qualification';
 import { trackQualify, trackUnqualify } from 'Shared/services/Tracking';
 import { voteStaticParams } from 'Shared/constants/vote';
@@ -13,7 +13,6 @@ import {
   qualify as actionQualify,
   unqualify as actionUnqualify,
 } from 'Shared/store/actions/sequence';
-import { useEffect } from 'react';
 import { CounterStyle } from './style';
 
 type Props = {

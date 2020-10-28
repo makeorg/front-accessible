@@ -51,6 +51,7 @@ export const NavigationBetweenQuestions = ({ question }: Props) => {
         }
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [question]);
 
   if (!isNavigationBetweenQuestionActive || !hasSiblingQuestions) {

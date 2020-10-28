@@ -60,6 +60,7 @@ const ProfileFavouritesPage = ({ user }: Props) => {
 
   useEffect(() => {
     initProposal();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
   const proposalsLength = proposals.length;

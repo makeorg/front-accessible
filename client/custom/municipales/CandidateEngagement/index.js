@@ -56,6 +56,7 @@ export const CandidateEngagement = ({ question }: Props) => {
 
   useEffect(() => {
     dispatch(fechQuestionPersonalities(question.questionId, question.slug));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [question]);
 
   if (!personalities) {
