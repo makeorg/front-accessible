@@ -45,9 +45,9 @@ export const MobileMenu = () => {
         disabled={isExpanded}
         data-cy-button="mobile-header-menu"
       >
-        <MenuBarStyle className="first" />
-        <MenuBarStyle className="second" />
-        <MenuBarStyle />
+        <MenuBarStyle className="first" as="span" />
+        <MenuBarStyle className="second" as="span" />
+        <MenuBarStyle as="span" />
       </MenuOpenTriggerStyle>
       <MenuPanel isExpanded={isExpanded} toggleExpansion={toggleExpansion} />
     </>

@@ -27,11 +27,13 @@ export const IntroBanner = ({ question }: Props) => {
           <GreatCauseIntroLabelStyle>
             {i18n.t('consultation.header.label')}
           </GreatCauseIntroLabelStyle>
-          <Image
-            src={question.consultationImage}
-            alt={question.consultationImageAlt}
-            height={88}
-          />
+          <span lang={question.language}>
+            <Image
+              src={question.consultationImage}
+              alt={question.consultationImageAlt || question.wording.question}
+              height={88}
+            />
+          </span>
         </IntroBannerTitleStyle>
       ) : (
         <GreatCauseIntroBannerTitleStyle>

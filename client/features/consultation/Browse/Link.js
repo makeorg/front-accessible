@@ -61,7 +61,7 @@ export const ConsultationLink = ({ question, label }: Props) => {
       <ConsultationRedLinkElementStyle
         as="a"
         // $FlowFixMe : flow cannot understrand desctructuring externalResultLink
-        href={externalResultLink ? resultsLink.value : aboutUrl}
+        href={externalResultLink ? resultsLink.value : aboutUrl || '#'}
         target="_blank"
         rel="noreferrer noopener"
         onClick={handleClick}

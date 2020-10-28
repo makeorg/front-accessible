@@ -55,7 +55,7 @@ export const ProposalCardTagged = ({ proposal, position, size }: Props) => {
             {i18n.t('proposal_card.content')}
           </ScreenReaderItemStyle>
           <ProposalStyle
-            id={`proposal_content_${position}`}
+            id={`card_tagged_proposal_content_${position}`}
             to={proposalLink}
             lang={proposal.question.language}
           >

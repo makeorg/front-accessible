@@ -87,7 +87,7 @@ export const ProfileVoteCard = ({
               {i18n.t('proposal_card.content')}
             </ScreenReaderItemStyle>
             <ProposalStyle
-              id={`proposal_content_${position}`}
+              id={`vote_card_proposal_content_${position}`}
               to={getProposalLink(
                 country,
                 proposal.question.slug,

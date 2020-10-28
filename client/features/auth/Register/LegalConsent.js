@@ -49,7 +49,7 @@ export const LegalConsent = ({
       onSubmit={handleSubmit}
       className={!needLegalConsent && 'hidden'}
     >
-      <SecondLevelTitleStyle id="register_title">
+      <SecondLevelTitleStyle id="legal_consent_title">
         {i18n.t('legal_consent.title')}
       </SecondLevelTitleStyle>
       <LegalIconStyle aria-hidden />

@@ -87,7 +87,6 @@ export const Footer = () => {
                       as="a"
                       target="_blank"
                       href={JOBS_LINK}
-                      to={JOBS_LINK}
                     >
                       {i18n.t('main-footer.jobs')}
                       <> </>

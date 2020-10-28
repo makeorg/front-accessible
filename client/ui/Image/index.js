@@ -159,15 +159,15 @@ export const Image = ({
         key={key}
         className={className}
         loading={loading}
-        width={width ? `${width}px` : null}
-        height={height ? `${height}px` : null}
+        width={width ? `${width}` : null}
+        height={height ? `${height}` : null}
       />
       <noscript>
         <img
           src={imageToLoad}
           alt={altCurrent}
-          width={width ? `${width}px` : null}
-          height={height ? `${height}px` : null}
+          width={width ? `${width}` : null}
+          height={height ? `${height}` : null}
         />
       </noscript>
     </>

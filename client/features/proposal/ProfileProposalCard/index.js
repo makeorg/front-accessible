@@ -44,7 +44,7 @@ export const ProfileProposalCard = ({ proposal, position, size }: Props) => {
         {i18n.t('proposal_card.content')}
       </ScreenReaderItemStyle>
       <ProposalStyle
-        id={`proposal_content_${position}`}
+        id={`proposal_card__proposal_content_${position}`}
         to={
           isProposalAccepted
             ? getProposalLink(

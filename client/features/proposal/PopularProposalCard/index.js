@@ -50,7 +50,7 @@ export const PopularProposalCard = ({
           {i18n.t('proposal_card.content')}
         </ScreenReaderItemStyle>
         <ProposalStyle
-          id={`proposal_content_${position}`}
+          id={`popular_proposal_content_${position}`}
           to={getProposalLink(
             country,
             proposal.slug,
