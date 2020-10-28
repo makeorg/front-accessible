@@ -4,19 +4,18 @@ import { type StateRoot } from 'Shared/store/types';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { i18n } from 'Shared/i18n';
 import { useSelector } from 'react-redux';
-import { getBrowseConsultationsLink } from 'Shared/helpers/url';
-import { scrollToTop, unlockBody } from 'Shared/helpers/styled';
 import {
-  WHOAREWE_FR_LINK,
-  WHOAREWE_EN_LINK,
-  PARTNERSHIP_LINK,
-} from 'Shared/constants/url';
+  getBrowseConsultationsLink,
+  getWebflowDynamicLink,
+} from 'Shared/helpers/url';
+import { scrollToTop, unlockBody } from 'Shared/helpers/styled';
 import { removeAriaHiddenByClass } from 'Shared/helpers/a11y';
 import {
   NAVIGATION_ELEMENT_ARIA_CLASS,
   NAVIGATION_ARIA_CLASS,
   SEARCH_DESKTOP_EXPANDED,
 } from 'Shared/constants/a11y';
+import { ROUTE_PARTNERSHIP, ROUTE_WHOAREWE } from 'Shared/routes';
 import {
   DesktopMenuNavStyle,
   DesktopMenuItemStyle,
@@ -26,7 +25,9 @@ import {
 } from './style';
 
 export const DesktopMenu = () => {
-  const { country } = useSelector((state: StateRoot) => state.appConfig);
+  const { country, language } = useSelector(
+    (state: StateRoot) => state.appConfig
+  );
   const browseConsultationsLink = getBrowseConsultationsLink(country);
   const isFR = country === 'FR';
 
@@ -53,7 +54,7 @@ export const DesktopMenu = () => {
           <DesktopMenuExternalLinkStyle
             target="_blank"
             rel="noreferrer noopener"
-            href={isFR ? WHOAREWE_FR_LINK : WHOAREWE_EN_LINK}
+            href={getWebflowDynamicLink(language, ROUTE_WHOAREWE)}
           >
             {i18n.t('main-footer.whoarewe')}
             <> </>
@@ -69,7 +70,7 @@ export const DesktopMenu = () => {
             <DesktopMenuExternalLinkStyle
               target="_blank"
               rel="noreferrer noopener"
-              href={PARTNERSHIP_LINK}
+              href={getWebflowDynamicLink(language, ROUTE_PARTNERSHIP)}
             >
               {i18n.t('homepage.partnership.subtitle')}
               <> </>

@@ -225,6 +225,8 @@ describe('getLocationContext', () => {
       'ROUTE_STATIC_CONTACT_EN',
       'ROUTE_STATIC_NOCOOKIES',
       'ROUTE_CONSULTATION_STEP',
+      'ROUTE_WHOAREWE',
+      'ROUTE_PARTNERSHIP',
     ];
 
     // .map(route => route.replace(/:/g, ''));

@@ -44,6 +44,10 @@ export const ROUTE_STATIC_GTU_EN = `${ROUTE_COUNTRY}/terms-of-use`;
 export const ROUTE_STATIC_DATA_EN = `${ROUTE_COUNTRY}/data-terms`;
 export const ROUTE_STATIC_CONTACT_EN = `${ROUTE_COUNTRY}/contact`;
 
+// webflow routes
+export const ROUTE_WHOAREWE = `/about-us`;
+export const ROUTE_PARTNERSHIP = `/collaborate`;
+
 // preview
 export const BASE_PREVIEW_PATH: string = '/preview';
 const BASE_PREVIEW_PATH_REG = /^\/preview/;
