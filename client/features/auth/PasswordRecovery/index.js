@@ -35,7 +35,7 @@ export const PasswordRecovery = () => {
           </SecondLevelTitleStyle>
           <SmallSeparatorWithMarginStyle />
           <>
-            <PasswordRecoveryTitleStyle>
+            <PasswordRecoveryTitleStyle as="h3">
               {i18n.t('reset_password.info')}
             </PasswordRecoveryTitleStyle>
             <PasswordRecoveryForm />

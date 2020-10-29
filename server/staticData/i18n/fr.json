@@ -579,6 +579,7 @@
     }
   },
   "organisation": {
+    "title": "Découvrez le profil de {{name}}",
     "tabs": {
       "proposals": "Propositions",
       "votes": "Prises de position"
@@ -593,6 +594,7 @@
     }
   },
   "personality": {
+    "title": "Découvrez le profil de {{name}}",
     "tabs": {
       "top_ideas": "Prises de position sur le top idées"
     },

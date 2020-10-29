@@ -22,7 +22,7 @@ export const SearchRegister = () => {
 
   return (
     <SearchSidebarTileStyle image={RegisterBackground}>
-      <FourthLevelTitleStyle>
+      <FourthLevelTitleStyle as="h3">
         {i18n.t('search.sidebar.register.title')}
       </FourthLevelTitleStyle>
       <SeachRegisterButtonStyle onClick={() => dispatch(modalShowRegister())}>

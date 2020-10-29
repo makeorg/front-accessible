@@ -72,7 +72,7 @@ const ProfilePage = ({ match, location }: Props) => {
     <>
       <UserProfileSkipLinks />
       <MetaTags />
-      <ProfileHeaderStyle aria-hidden />
+      <ProfileHeaderStyle />
       <ProfilePageContentWrapperStyle>
         <ProfilePageSidebarWrapperStyle id="sidebar_content">
           <ProfilePageSidebarStyle>

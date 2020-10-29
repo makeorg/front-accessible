@@ -548,6 +548,7 @@
     }
   },
   "organisation": {
+    "title": "Discover {{name}}'s profile",
     "tabs": {
       "proposals": "Solutions",
       "votes": "Opinions"
@@ -786,6 +787,7 @@
     "comments": "They gave their opinion"
   },
   "personality": {
+    "title": "Discover {{name}}'s profile",
     "tabs": {
       "top_ideas": "Opinions given on the top ideas"
     },

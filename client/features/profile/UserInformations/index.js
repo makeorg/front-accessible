@@ -61,6 +61,9 @@ export const UserInformations = ({ user, navigationBar }: Props) => {
   return (
     <>
       <ProfileAvatarLayoutStyle>
+        <ScreenReaderItemStyle as="h2">
+          {i18n.t('profile.common.infos')}
+        </ScreenReaderItemStyle>
         <ProfileAvatarStyle avatarSize={isMobile ? 120 : 160}>
           <Avatar avatarSize={isMobile ? 120 : 160} avatarUrl={avatarUrl} />
         </ProfileAvatarStyle>
@@ -76,9 +79,6 @@ export const UserInformations = ({ user, navigationBar }: Props) => {
           </ProfileContentWrapperStyle>
         )}
         <ProfileContentWrapperStyle>
-          <ScreenReaderItemStyle as="h2">
-            {i18n.t('profile.common.infos')}
-          </ScreenReaderItemStyle>
           {!isOrganisation && (
             <>
               <ProfileTitleStyle>

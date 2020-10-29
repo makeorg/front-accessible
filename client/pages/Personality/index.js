@@ -75,10 +75,15 @@ const PersonalityPage = ({ match }: Props) => {
           organisation: `${personality.firstName} ${personality.lastName}`,
         })}
       />
-      <ProfileHeaderStyle aria-hidden />
+      <ProfileHeaderStyle />
       <ProfilePageContentWrapperStyle>
         <ProfilePageSidebarWrapperStyle>
           <ProfilePageSidebarStyle>
+            <ScreenReaderItemStyle as="h2">
+              {i18n.t('personality.title', {
+                name: `${personality.firstName} ${personality.lastName}`,
+              })}
+            </ScreenReaderItemStyle>
             <ProfileAvatarLayoutStyle>
               <ProfileAvatarStyle avatarSize={80}>
                 <Avatar

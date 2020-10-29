@@ -27,11 +27,10 @@ import { SvgLink, SvgLike, SvgMapMarker } from '../Svg/elements';
 const DesktopOffset = intToPx(TabsOffsetDesktop);
 const DesktopMarginWithOffset = DefaultPadding.Desktop - TabsOffsetDesktop;
 
-export const ProfileHeaderStyle = styled.header`
+export const ProfileHeaderStyle = styled.div`
   height: 100px;
   width: 100%;
   background-color: ${color.brandPrimary};
-  margin-top: -5px;
 `;
 
 export const ProfilePageContentWrapperStyle = styled.div`

@@ -109,10 +109,15 @@ const OrganisationPage = (props: Props) => {
     <>
       <OrganisationProfileSkipLinks />
       <MetaTags />
-      <ProfileHeaderStyle aria-hidden />
+      <ProfileHeaderStyle />
       <ProfilePageContentWrapperStyle>
         <ProfilePageSidebarWrapperStyle>
           <ProfilePageSidebarStyle>
+            <ScreenReaderItemStyle as="h2">
+              {i18n.t('organisation.title', {
+                name: formatOrganisationName(organisation.organisationName),
+              })}
+            </ScreenReaderItemStyle>
             <ProfileAvatarLayoutStyle>
               <ProfileAvatarStyle avatarSize={80}>
                 <Avatar
@@ -127,7 +132,6 @@ const OrganisationPage = (props: Props) => {
                   {i18n.t('profile.common.labels.organisation')}
                 </ScreenReaderItemStyle>
                 {formatOrganisationName(organisation.organisationName)}
-
                 <CertifiedIconStyle aria-hidden />
               </ProfileTitleStyle>
             </ProfileContentWrapperStyle>

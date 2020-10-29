@@ -30,6 +30,13 @@ export const GreatCauseIntroBannerTitleStyle = styled(SecondLevelTitleStyle)`
   }
 `;
 
+export const IntroBannerTitleStyle = styled.h2`
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const DefaultBannerMainContainer = styled.div`
   width: 100%;
   max-width: ${intToPx(Layouts.ContainerWidth)};

@@ -5,6 +5,7 @@ import { type QuestionType } from 'Shared/types/question';
 import { i18n } from 'Shared/i18n';
 import { DateHelper } from 'Shared/helpers/date';
 import {
+  IntroBannerTitleStyle,
   GreatCauseIntroLabelStyle,
   GreatCauseIntroBannerTitleStyle,
   IntroWrapperStyle,
@@ -21,20 +22,23 @@ type Props = {
 export const IntroBanner = ({ question }: Props) => {
   return isGreatCause(question.operationKind) ? (
     <IntroWrapperStyle as="header" id="intro">
-      <GreatCauseIntroLabelStyle>
-        {i18n.t('consultation.header.label')}
-      </GreatCauseIntroLabelStyle>
       {question.consultationImage ? (
-        <h2>
+        <IntroBannerTitleStyle>
+          <GreatCauseIntroLabelStyle>
+            {i18n.t('consultation.header.label')}
+          </GreatCauseIntroLabelStyle>
           <Image
             src={question.consultationImage}
             alt={question.consultationImageAlt}
             height={88}
           />
-        </h2>
+        </IntroBannerTitleStyle>
       ) : (
-        <GreatCauseIntroBannerTitleStyle lang={question.language}>
-          {question.wording.question}
+        <GreatCauseIntroBannerTitleStyle>
+          <GreatCauseIntroLabelStyle>
+            {i18n.t('consultation.header.label')}
+          </GreatCauseIntroLabelStyle>
+          <span lang={question.language}>{question.wording.question}</span>
         </GreatCauseIntroBannerTitleStyle>
       )}
     </IntroWrapperStyle>
