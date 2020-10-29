@@ -49,33 +49,53 @@ const startSequence = async (
   );
 
   // remove duplicates and voted
-  const reducer = (accumulator: ProposalType[], proposal: ProposalType) => {
+  type Accumulator = {
+    unique: ProposalType[],
+    duplicates: ProposalType[],
+    voted: ProposalType[],
+  };
+  const reducer = (accumulator: Accumulator, proposal: ProposalType) => {
     if (
-      accumulator.find(item => item.id === proposal.id) === undefined &&
-      (proposal.votes.every(vote => vote.hasVoted === false) ||
-        includedProposalIds.includes(proposal.id))
+      accumulator.unique.find(item => item.id === proposal.id) !== undefined
     ) {
-      accumulator.push(proposal);
+      accumulator.duplicates.push(proposal);
+    } else if (
+      proposal.votes.some(vote => vote.hasVoted === true) &&
+      !includedProposalIds.includes(proposal.id)
+    ) {
+      accumulator.voted.push(proposal);
+    } else {
+      accumulator.unique.push(proposal);
     }
 
     return accumulator;
   };
 
   // toDo: remove reducer when API deduplicate proposals and return only unvoted proposals
-  const uniqueUnvotedProposals: ProposalType[] = orderedProposals.reduce(
-    reducer,
-    []
-  );
-  if (orderedProposals.length !== uniqueUnvotedProposals) {
+  const { unique, duplicates, voted } = orderedProposals.reduce(reducer, {
+    unique: [],
+    duplicates: [],
+    voted: [],
+  });
+  if (duplicates.length > 0) {
     Logger.logWarning(
-      'start sequence return duplicates or voted proposals: fix that on API'
+      `start sequence return duplicate proposals for questionId=${questionId} : ${JSON.stringify(
+        duplicates
+      )}`
     );
   }
-  if (uniqueUnvotedProposals.length === 0) {
+  if (voted.length > 0) {
+    Logger.logWarning(
+      `start sequence return voted proposals for questionId=${questionId} : ${JSON.stringify(
+        voted
+      )}`
+    );
+  }
+  if (unique.length === 0) {
     Logger.logError(`Empty sequence - questionId: ${questionId}`);
   }
 
-  return uniqueUnvotedProposals;
+  return unique;
 };
 
 export const SequenceService = {
