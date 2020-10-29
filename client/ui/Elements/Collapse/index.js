@@ -59,7 +59,7 @@ export const Collapse = ({
       >
         {title}
         <CollapseIconStyle aria-hidden iscollapsed={isCollapsed}>
-          <SvgAngleArrowRight />
+          <SvgAngleArrowRight focusable="false" />
         </CollapseIconStyle>
       </CollapseTriggerStyle>
       {!withTileStyle && <CollapseSeparatorStyle />}

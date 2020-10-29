@@ -50,7 +50,7 @@ const UnvoteButtonItem = ({
       {displayPending ? (
         <LoadingDots />
       ) : (
-        <VoteIconStyle className={buttonClass} aria-hidden />
+        <VoteIconStyle className={buttonClass} aria-hidden focusable="false" />
       )}
     </VoteButtonStyle>
   );

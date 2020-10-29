@@ -52,7 +52,11 @@ export const TopIdeas = ({ topIdeas, question }: Props) => {
                 </ThemeItemProposalStyle>
                 <ThemeResultsWrapperStyle>
                   <ThemeResultsButtonStyle className="agree voted">
-                    <VoteIconStyle className="agree" aria-hidden />
+                    <VoteIconStyle
+                      className="agree"
+                      aria-hidden
+                      focusable="false"
+                    />
                   </ThemeResultsButtonStyle>
                   <ThemeResultsDetailsStyle>
                     <ThemeAgreeResultsStyle

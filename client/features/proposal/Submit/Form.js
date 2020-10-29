@@ -156,9 +156,10 @@ export const ProposalForm = ({
       >
         {i18n.t('proposal_submit.form.moderation_link')}
         <> </>
-        <ProposalExternalLinkIconStyle
-          aria-label={i18n.t('common.open_new_window')}
-        />
+        <ProposalExternalLinkIconStyle aria-hidden focusable="false" />
+        <ScreenReaderItemStyle>
+          {i18n.t('common.open_new_window')}
+        </ScreenReaderItemStyle>
       </ProposalExternalLinkStyle>
     </ProposalStepWrapperStyle>
   );

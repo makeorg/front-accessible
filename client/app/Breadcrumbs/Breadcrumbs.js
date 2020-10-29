@@ -31,11 +31,11 @@ export const Breadcrumbs = ({ parentPages, currentPage }: Props) => {
     <nav aria-label={i18n.t('common.breadcrumbs')}>
       <BrowseBreadcrumbWrapperStyle as="ol">
         <BrowseBannerBreadcrumbListStyle>
-          <BrowseHomeIconStyle aria-hidden />
+          <BrowseHomeIconStyle aria-hidden focusable="false" />
           <BrowseBreadcrumbsLinkStyle to={getHomeLink(country)}>
             {i18n.t('homepage.title')}
           </BrowseBreadcrumbsLinkStyle>
-          <BrowseArrowIconStyle aria-hidden />
+          <BrowseArrowIconStyle aria-hidden focusable="false" />
         </BrowseBannerBreadcrumbListStyle>
         {parentPages &&
           parentPages.map(parentPage => (
@@ -43,7 +43,7 @@ export const Breadcrumbs = ({ parentPages, currentPage }: Props) => {
               <BrowseBreadcrumbsLinkStyle to={parentPage.link}>
                 {parentPage.name}
               </BrowseBreadcrumbsLinkStyle>
-              <BrowseArrowIconStyle aria-hidden />
+              <BrowseArrowIconStyle aria-hidden focusable="false" />
             </BrowseBannerBreadcrumbListStyle>
           ))}
         <BrowseBannerBreadcrumbListStyle className="selected">

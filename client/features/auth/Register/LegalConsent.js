@@ -52,7 +52,7 @@ export const LegalConsent = ({
       <SecondLevelTitleStyle id="legal_consent_title">
         {i18n.t('legal_consent.title')}
       </SecondLevelTitleStyle>
-      <LegalIconStyle aria-hidden />
+      <LegalIconStyle aria-hidden focusable="false" />
       <FourthLevelTitleStyle as="h3">
         {i18n.t('legal_consent.subtitle')}
       </FourthLevelTitleStyle>

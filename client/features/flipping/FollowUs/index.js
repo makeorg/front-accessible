@@ -26,6 +26,7 @@ import {
 import { ABOUT_MAKE_LINK } from 'Shared/constants/url';
 import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
 import { CONSULTATION_FOLLOW_US_ACTIVE } from 'Shared/constants/featureFlipping';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import {
   FollowUsStyle,
   FollowUsIconsStyle,
@@ -52,7 +53,7 @@ export const FollowUs = ({ question }: Props) => {
 
   return (
     <TileWithTitle
-      icon={<SvgMegaphone style={FollowUsIconsStyle} />}
+      icon={<SvgMegaphone style={FollowUsIconsStyle} focusable="false" />}
       title={i18n.t('consultation.followus.title')}
     >
       <ParagraphStyle>
@@ -64,12 +65,14 @@ export const FollowUs = ({ question }: Props) => {
             data-network-name="facebook"
             target="_blank"
             rel="noreferrer noopener"
-            aria-label={i18n.t('consultation.followus.facebook')}
             as="a"
             href={facebookMakeUrl}
             onClick={trackClickFollowUs}
           >
-            <SvgFacebookLogoF />
+            <SvgFacebookLogoF aria-hidden focusable="false" />
+            <ScreenReaderItemStyle>
+              {i18n.t('consultation.followus.facebook')}
+            </ScreenReaderItemStyle>
           </FacebookButtonStyle>
         </FollowUsListItemStyle>
         <FollowUsListItemStyle>
@@ -77,12 +80,14 @@ export const FollowUs = ({ question }: Props) => {
             data-network-name="twitter"
             target="_blank"
             rel="noreferrer noopener"
-            aria-label={i18n.t('consultation.followus.twitter')}
             as="a"
             href={twitterMakeUrl}
             onClick={trackClickFollowUs}
           >
-            <SvgTwitterLogo />
+            <SvgTwitterLogo aria-hidden focusable="false" />
+            <ScreenReaderItemStyle>
+              {i18n.t('consultation.followus.twitter')}
+            </ScreenReaderItemStyle>
           </TwitterButtonStyle>
         </FollowUsListItemStyle>
         <FollowUsListItemStyle>
@@ -90,12 +95,14 @@ export const FollowUs = ({ question }: Props) => {
             data-network-name="instagram"
             target="_blank"
             rel="noreferrer noopener"
-            aria-label={i18n.t('consultation.followus.instagram')}
             as="a"
             href={instagramMakeUrl}
             onClick={trackClickFollowUs}
           >
-            <SvgInstagramLogo />
+            <SvgInstagramLogo aria-hidden focusable="false" />
+            <ScreenReaderItemStyle>
+              {i18n.t('consultation.followus.instagram')}
+            </ScreenReaderItemStyle>
           </InstagramButtonStyle>
         </FollowUsListItemStyle>
         <FollowUsListItemStyle>
@@ -103,12 +110,14 @@ export const FollowUs = ({ question }: Props) => {
             data-network-name="linkedin"
             target="_blank"
             rel="noreferrer noopener"
-            aria-label={i18n.t('consultation.followus.linkedin')}
             as="a"
             href={linkedinMakeUrl}
             onClick={trackClickFollowUs}
           >
-            <SvgLinkedinLogoIn />
+            <SvgLinkedinLogoIn aria-hidden focusable="false" />
+            <ScreenReaderItemStyle>
+              {i18n.t('consultation.followus.linkedin')}
+            </ScreenReaderItemStyle>
           </LinkedInButtonStyle>
         </FollowUsListItemStyle>
       </FollowUsStyle>
@@ -120,7 +129,10 @@ export const FollowUs = ({ question }: Props) => {
       >
         {i18n.t('consultation.followus.discover')}
         <> </>
-        <NewWindowIconStyle aria-label={i18n.t('common.open_new_window')} />
+        <NewWindowIconStyle aria-hidden focusable="false" />
+        <ScreenReaderItemStyle>
+          {i18n.t('common.open_new_window')}
+        </ScreenReaderItemStyle>
       </RedLinkHTMLElementStyle>
     </TileWithTitle>
   );

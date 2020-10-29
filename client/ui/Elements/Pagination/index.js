@@ -50,7 +50,7 @@ export const Pagination = ({ itemsPerPage, itemsTotal }: Props) => {
         disabled={intPageId === 1}
         data-cy-button="pagination-previous"
       >
-        <PreviousArrowStyle aria-hidden />
+        <PreviousArrowStyle aria-hidden focusable="false" />
       </PaginationButtonStyle>
       <PaginationTextStyle>
         {i18n.t('common.pagination.index_count', {
@@ -65,7 +65,7 @@ export const Pagination = ({ itemsPerPage, itemsTotal }: Props) => {
         disabled={intPageId === pagesTotal}
         data-cy-button="pagination-next"
       >
-        <NextArrowStyle aria-hidden />
+        <NextArrowStyle aria-hidden focusable="false" />
       </PaginationButtonStyle>
     </PaginationNavStyle>
   );

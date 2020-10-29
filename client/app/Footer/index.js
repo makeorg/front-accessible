@@ -29,6 +29,7 @@ import { UnstyledButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { modalShowCountries } from 'Shared/store/actions/modal';
 import { isSequencePage as getIsSequencePage } from 'Shared/routes';
 import { useLocation } from 'react-router';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import {
   FooterStyle,
   FooterNavStyle,
@@ -54,6 +55,15 @@ export const Footer = () => {
   const { country } = useSelector((state: StateRoot) => state.appConfig);
   const isFR = country === 'FR';
   const isSequencePage = getIsSequencePage(location.pathname);
+
+  const externalLinkIcon = (
+    <>
+      <FooterLinkIconStyle aria-hidden focusable="false" />
+      <ScreenReaderItemStyle>
+        {i18n.t('common.open_new_window')}
+      </ScreenReaderItemStyle>
+    </>
+  );
   return (
     <FooterStyle
       id={MAIN_FOOTER}
@@ -77,9 +87,7 @@ export const Footer = () => {
                     >
                       {i18n.t('main-footer.news')}
                       <> </>
-                      <FooterLinkIconStyle
-                        aria-label={i18n.t('common.open_new_window')}
-                      />
+                      {externalLinkIcon}
                     </FooterItemLinkStyle>
                   </FooterItemStyle>
                   <FooterItemStyle>
@@ -90,9 +98,7 @@ export const Footer = () => {
                     >
                       {i18n.t('main-footer.jobs')}
                       <> </>
-                      <FooterLinkIconStyle
-                        aria-label={i18n.t('common.open_new_window')}
-                      />
+                      {externalLinkIcon}
                     </FooterItemLinkStyle>
                   </FooterItemStyle>
                 </>
@@ -105,9 +111,7 @@ export const Footer = () => {
                 >
                   {i18n.t('main-footer.press_details')}
                   <> </>
-                  <FooterLinkIconStyle
-                    aria-label={i18n.t('common.open_new_window')}
-                  />
+                  {externalLinkIcon}
                 </FooterItemLinkStyle>
               </FooterItemStyle>
               <FooterItemStyle>
@@ -118,9 +122,7 @@ export const Footer = () => {
                 >
                   {i18n.t('main-footer.dotation_funds')}
                   <> </>
-                  <FooterLinkIconStyle
-                    aria-label={i18n.t('common.open_new_window')}
-                  />
+                  {externalLinkIcon}
                 </FooterItemLinkStyle>
               </FooterItemStyle>
             </FooterWrapperFirstListStyle>
@@ -171,8 +173,9 @@ export const Footer = () => {
                 as={UnstyledButtonStyle}
                 onClick={() => dispatch(modalShowCountries(false))}
                 data-cy-button="country-switch-modal"
+                type="button"
               >
-                <FooterCountryIconStyle aria-hidden />
+                <FooterCountryIconStyle aria-hidden focusable="false" />
                 <> </>
                 {i18n.t('main-footer.country')}
               </FooterItemAltLinkStyle>
@@ -182,7 +185,7 @@ export const Footer = () => {
                 onClick={scrollToTop}
                 to={getContactPageLink(country)}
               >
-                <FooterContactIconStyle aria-hidden />
+                <FooterContactIconStyle aria-hidden focusable="false" />
                 <> </>
                 {i18n.t('main-footer.contact')}
               </FooterItemAltLinkStyle>

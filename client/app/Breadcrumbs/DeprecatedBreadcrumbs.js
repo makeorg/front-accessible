@@ -27,7 +27,7 @@ export const Breadcrumbs = ({ parentPages, currentPage }: Props) => (
           <BreadcrumbsLinkStyleDeprecated to={parentPage.link}>
             {parentPage.name}
           </BreadcrumbsLinkStyleDeprecated>
-          <SeparatorIconStyleDeprecated aria-hidden />
+          <SeparatorIconStyleDeprecated aria-hidden focusable="false" />
         </BreadcrumbsListItemStyleDeprecated>
       ))}
       <BreadcrumbsListItemStyleDeprecated className="selected">

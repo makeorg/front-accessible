@@ -93,7 +93,9 @@ export const TagList = ({
                     {`(${tag.proposalCount})`}
                   </ProposalCountStyle>
                 </TagLabelStyle>
-                {tag.isSelected && <TagIconStyle aria-hidden />}
+                {tag.isSelected && (
+                  <TagIconStyle aria-hidden focusable="false" />
+                )}
               </TagButtonElementStyle>
             </li>
           ))}

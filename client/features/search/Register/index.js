@@ -26,7 +26,7 @@ export const SearchRegister = () => {
         {i18n.t('search.sidebar.register.title')}
       </FourthLevelTitleStyle>
       <SeachRegisterButtonStyle onClick={() => dispatch(modalShowRegister())}>
-        <ThumbsUpIconStyle aria-hidden />
+        <ThumbsUpIconStyle aria-hidden focusable="false" />
         {i18n.t('common.register_label')}
       </SeachRegisterButtonStyle>
     </SearchSidebarTileStyle>

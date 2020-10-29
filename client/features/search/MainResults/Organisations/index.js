@@ -55,7 +55,7 @@ export const MainResultsOrganisations = ({ organisations }: Props) => {
                       {i18n.t('profile.common.labels.organisation')}
                     </ScreenReaderItemStyle>
                     {formatOrganisationName(organisation.organisationName)}
-                    <CertifiedIconStyle aria-hidden />
+                    <CertifiedIconStyle aria-hidden focusable="false" />
                   </ProfileTitleStyle>
                 </ProfileContentWrapperStyle>
               </ProfileAvatarLayoutStyle>

@@ -9,6 +9,7 @@ import { SvgExternalLink } from 'Client/ui/Svg/elements';
 import { getConsultationLink } from 'Shared/helpers/url';
 import { useSelector } from 'react-redux';
 import { i18n } from 'Shared/i18n';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { FeaturedLinkStyle, FeaturedLinkIconStyle } from './style';
 
 type Props = {
@@ -25,7 +26,7 @@ export const FeaturedLink = ({ question }: Props) => {
         onClick={scrollToTop}
       >
         {question.operationTitle}
-        <FeaturedLinkIconStyle aria-hidden />
+        <FeaturedLinkIconStyle aria-hidden focusable="false" />
       </FeaturedLinkStyle>
     );
   }
@@ -40,8 +41,12 @@ export const FeaturedLink = ({ question }: Props) => {
       <> </>
       <FeaturedLinkIconStyle
         as={SvgExternalLink}
-        aria-label={i18n.t('common.open_new_window')}
+        aria-hidden
+        focusable="false"
       />
+      <ScreenReaderItemStyle>
+        {i18n.t('common.open_new_window')}
+      </ScreenReaderItemStyle>
     </FeaturedLinkStyle>
   );
 };

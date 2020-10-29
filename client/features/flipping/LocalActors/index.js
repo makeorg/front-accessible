@@ -90,7 +90,7 @@ export const LocalActors = ({ questionId, slug }: Props) => {
                   >
                     {formatOrganisationName(actor.organisationName)}
                   </RedLinkRouterStyle>
-                  <CertifiedIconStyle aria-hidden />
+                  <CertifiedIconStyle aria-hidden focusable="false" />
                 </div>
                 <LocalActorCountStyle>
                   {i18n.t('consultation.local_actors.proposals', {

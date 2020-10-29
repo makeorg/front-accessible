@@ -68,7 +68,7 @@ export const SequenceProposalAuthor = ({ proposal }: Props) => {
               >
                 {formatOrganisationName(author.organisationName)}
               </RedLinkRouterStyle>
-              <CertifiedIconStyle aria-hidden />
+              <CertifiedIconStyle aria-hidden focusable="false" />
             </>
           )}
           {isPersonality && (
@@ -79,7 +79,7 @@ export const SequenceProposalAuthor = ({ proposal }: Props) => {
               >
                 {formatAuthorName(author.firstName)}
               </RedLinkRouterStyle>
-              <CertifiedIconStyle aria-hidden />
+              <CertifiedIconStyle aria-hidden focusable="false" />
             </>
           )}
           {isBasicUser && formatAuthorName(author.firstName)}

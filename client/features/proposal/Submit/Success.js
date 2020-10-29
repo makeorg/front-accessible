@@ -26,7 +26,7 @@ export const ProposalSuccess = () => {
 
   return (
     <ProposalSuccessWrapperStyle as="section">
-      <ProposalSuccessIconStyle aria-hidden />
+      <ProposalSuccessIconStyle aria-hidden focusable="false" />
       <ProposalSuccessTitleStyle>
         {i18n.t('proposal_submit.success.title', {
           name: user ? user.displayName : '',

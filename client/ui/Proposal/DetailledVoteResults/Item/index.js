@@ -38,7 +38,7 @@ export const DetailledResultItem = (props: Props) => {
           {' : '}
         </ScreenReaderItemStyle>
         <VoteButtonStyle className={`${voteKey} voted`} as="span">
-          <VoteIconStyle className={voteKey} aria-hidden />
+          <VoteIconStyle className={voteKey} aria-hidden focusable="false" />
         </VoteButtonStyle>
         <VoteDataListStyle as="span">
           <VoteDataBoldItemStyle>

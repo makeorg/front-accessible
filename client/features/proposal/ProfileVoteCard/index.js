@@ -72,7 +72,7 @@ export const ProfileVoteCard = ({
           >
             {formatOrganisationName(organisation.organisationName)}
           </RedLinkRouterStyle>
-          <CertifiedIconStyle aria-hidden />
+          <CertifiedIconStyle aria-hidden focusable="false" />
           &nbsp;
           {i18n.t(`profile.organisation.proposal_${voteKey}`)}
         </div>

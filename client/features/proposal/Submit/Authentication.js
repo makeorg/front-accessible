@@ -68,7 +68,7 @@ export const ProposalAuthentication = ({
       <ColumnElementStyle>
         <ProposalBackButtonStyle onClick={handleStepBack}>
           <ProposalBackIconWrapperStyle>
-            <ProposalBackIconStyle aria-hidden />
+            <ProposalBackIconStyle aria-hidden focusable="false" />
           </ProposalBackIconWrapperStyle>
           {i18n.t('proposal_submit.authentication.button_back')}
         </ProposalBackButtonStyle>

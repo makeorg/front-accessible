@@ -25,6 +25,7 @@ export const NotificationIcon = ({ level, context = 'banner' }: Props) => {
         <NotificationInfosStyle
           aria-label={i18n.t('common.notifications.icons.information')}
           className={context}
+          focusable="false"
         />
       );
     case NOTIFICATION_LEVEL_SUCCESS:
@@ -32,6 +33,7 @@ export const NotificationIcon = ({ level, context = 'banner' }: Props) => {
         <NotificationSuccessStyle
           aria-label={i18n.t('common.notifications.icons.success')}
           className={context}
+          focusable="false"
         />
       );
     case NOTIFICATION_LEVEL_ERROR:
@@ -39,6 +41,7 @@ export const NotificationIcon = ({ level, context = 'banner' }: Props) => {
         <NotificationAlertStyle
           aria-label={i18n.t('common.notifications.icons.error')}
           className={context}
+          focusable="false"
         />
       );
     case NOTIFICATION_LEVEL_ALERT:
@@ -46,6 +49,7 @@ export const NotificationIcon = ({ level, context = 'banner' }: Props) => {
         <NotificationAlertStyle
           aria-label={i18n.t('common.notifications.icons.alert')}
           className={context}
+          focusable="false"
         />
       );
 

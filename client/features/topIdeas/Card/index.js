@@ -94,7 +94,7 @@ export const TopIdeaCard = ({
       </TopIdeaCardContentStyle>
       {topIdea.commentsCount > 0 && (
         <PositionStyle>
-          <SvgChat aria-hidden />
+          <SvgChat aria-hidden focusable="false" />
           <PositionContentStyle>
             <RedLinkRouterStyle
               to={getTopIdeaDetailsLink(country, question.slug, topIdea.id)}
@@ -122,7 +122,11 @@ export const TopIdeaCard = ({
               <ScreenReaderItemStyle>
                 {i18n.t('idea_card.collapse')}
               </ScreenReaderItemStyle>
-              <SvgAngleArrowTop aria-hidden style={TopIdeaCollapseIconStyle} />
+              <SvgAngleArrowTop
+                aria-hidden
+                style={TopIdeaCollapseIconStyle}
+                focusable="false"
+              />
             </>
           ) : (
             <>
@@ -133,6 +137,7 @@ export const TopIdeaCard = ({
               <SvgAngleArrowBottom
                 aria-hidden
                 style={TopIdeaCollapseIconStyle}
+                focusable="false"
               />
             </>
           )}
@@ -143,17 +148,17 @@ export const TopIdeaCard = ({
         >
           <ScoringContainerStyle>
             <TopIdeaScore
-              icon={<SvgIdeaStyle aria-hidden />}
+              icon={<SvgIdeaStyle aria-hidden focusable="false" />}
               percentage={topIdea.scores.totalProposalsRatio}
               text={i18n.t('idea_card.vote_proposals')}
             />
             <TopIdeaScore
-              icon={<SvgThumbsUpStyle aria-hidden />}
+              icon={<SvgThumbsUpStyle aria-hidden focusable="false" />}
               percentage={topIdea.scores.agreementRatio}
               text={i18n.t('idea_card.vote_positives')}
             />
             <TopIdeaScore
-              icon={<SvgLikeStyle aria-hidden />}
+              icon={<SvgLikeStyle aria-hidden focusable="false" />}
               percentage={topIdea.scores.likeItRatio}
               text={i18n.t('idea_card.vote_heart')}
             />

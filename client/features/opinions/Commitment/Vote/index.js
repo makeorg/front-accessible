@@ -32,7 +32,7 @@ export const CommitmentVote = ({ vote }: Props) => (
             data-cy-vote-key={voteKey}
             onClick={() => vote(voteKey)}
           >
-            <VoteIconStyle className={voteKey} aria-hidden />
+            <VoteIconStyle className={voteKey} aria-hidden focusable="false" />
           </VoteButtonStyle>
         </li>
       ))}

@@ -17,6 +17,7 @@ import { SvgUser } from 'Client/ui/Svg/elements';
 import { i18n } from 'Shared/i18n';
 import { modalShowLogin } from 'Shared/store/actions/modal';
 import { SEARCH_ELEMENT_ARIA_CLASS } from 'Shared/constants/a11y';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { ProfileLinkStyle } from './style';
 
 export const HeaderAuthentication = () => {
@@ -51,9 +52,15 @@ export const HeaderAuthentication = () => {
       as={UnstyledButtonStyle}
       onClick={() => dispatch(modalShowLogin())}
       data-cy-button="login"
+      type="button"
     >
       {!isDesktop ? (
-        <SvgUser aria-label={i18n.t('common.connexion_label')} />
+        <>
+          <SvgUser focusable="false" aria-hidden />
+          <ScreenReaderItemStyle>
+            {i18n.t('common.connexion_label')}
+          </ScreenReaderItemStyle>
+        </>
       ) : (
         i18n.t('common.connexion_label')
       )}

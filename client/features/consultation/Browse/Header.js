@@ -34,7 +34,7 @@ export const BrowseConsultationsHeader = () => {
 
   return (
     <BrowseHeaderStyle as="header" aria-labelledby="browse_page_title">
-      <BrowseHeaderInnerStyle as="div">
+      <BrowseHeaderInnerStyle>
         <Breadcrumbs currentPage={currentPage} />
         <BrowseHeaderTitleStyle id="browse_page_title">
           {i18n.t('browse.page_title')}

@@ -27,7 +27,7 @@ export const ConsultationProposal = ({ question }: Props) => {
         id="proposal_aside_title"
         className={!questionIsGreatCause && 'not-great-cause-proposal'}
       >
-        <ProposalTitleIconStyle aria-hidden />
+        <ProposalTitleIconStyle aria-hidden focusable="false" />
         {i18n.t('consultation.proposal.title')}
       </FourthLevelTitleStyle>
       {questionIsGreatCause && (

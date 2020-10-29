@@ -16,6 +16,7 @@ import {
   trackClickParticipate,
 } from 'Shared/services/Tracking';
 import { useSelector } from 'react-redux';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { ConsultationRedLinkElementStyle } from './style';
 
 type Props = {
@@ -69,7 +70,10 @@ export const ConsultationLink = ({ question, label }: Props) => {
       >
         {label}
         <> </>
-        <NewWindowIconStyle aria-label={i18n.t('common.open_new_window')} />
+        <NewWindowIconStyle aria-hidden focusable="false" />
+        <ScreenReaderItemStyle>
+          {i18n.t('common.open_new_window')}
+        </ScreenReaderItemStyle>
       </ConsultationRedLinkElementStyle>
     );
   }

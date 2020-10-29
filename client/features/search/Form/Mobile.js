@@ -44,7 +44,7 @@ export const MobileSearchInput = () => {
         disabled={isExpanded}
         data-cy-button="mobile-search"
       >
-        <SvgSearch aria-hidden />
+        <SvgSearch aria-hidden focusable="false" />
       </SearchFormTriggerStyle>
       <SearchFormWrapperStyle
         aria-hidden={!isExpanded && true}

@@ -52,7 +52,7 @@ export const Header = () => {
               onClick={trackClickMakeLogo}
               data-cy-link="home"
             >
-              <HeaderLogoStyle focusable="false" aria-hidden="true" />
+              <HeaderLogoStyle focusable="false" aria-hidden />
               <ScreenReaderItemStyle>
                 {i18n.t('header.logo_alt')}
               </ScreenReaderItemStyle>

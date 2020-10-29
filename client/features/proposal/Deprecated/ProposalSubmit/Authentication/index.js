@@ -71,6 +71,7 @@ export const DeprecatedProposalSubmitAuthentication = () => {
         <RedButtonStyle
           onClick={() => dispatch(modalShowLogin())}
           id="authentication-login-button"
+          type="button"
         >
           {i18n.t('login.button_connect')}
         </RedButtonStyle>

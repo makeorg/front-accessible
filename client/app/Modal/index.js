@@ -54,8 +54,9 @@ export const Modal = () => {
           aria-label={i18n.t('modal.close')}
           aria-expanded="false"
           onClick={handleCloseWithTracking}
+          type="button"
         >
-          <SvgClose aria-hidden />
+          <SvgClose aria-hidden focusable="false" />
         </CloseButtonStyle>
         {modalContents[contentType]}
       </ReactModal>

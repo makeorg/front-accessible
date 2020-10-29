@@ -6,6 +6,7 @@ import { GOOGLE_PROVIDER_ENUM } from 'Shared/api/UserApiService';
 import { GOOGLE_LOGIN_ID } from 'Shared/constants/config';
 import { loginSocial } from 'Shared/store/actions/authentication';
 import { SvgGoogleLogoG } from 'Client/ui/Svg/elements';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { GoogleButtonStyle } from './style';
 
 /**
@@ -27,8 +28,9 @@ export const GoogleAuthentication = () => {
       onSuccess={handleGoogleLoginCallback}
       onFailure={handleGoogleLoginCallback}
       render={renderProps => (
-        <GoogleButtonStyle onClick={renderProps.onClick}>
-          <SvgGoogleLogoG aria-label="Google" />
+        <GoogleButtonStyle onClick={renderProps.onClick} type="button">
+          <SvgGoogleLogoG aria-hidden focusable="false" />
+          <ScreenReaderItemStyle>Google</ScreenReaderItemStyle>
         </GoogleButtonStyle>
       )}
     />

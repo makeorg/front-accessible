@@ -45,7 +45,7 @@ export const Hero = () => {
               data-cy-link="participate-consultations"
             >
               {i18n.t('homepage.hero.participate')}
-              <WhiteArrowDownIcon aria-hidden />
+              <WhiteArrowDownIcon aria-hidden focusable="false" />
             </HeroRedButtonStyle>
             {isFr && (
               <HeroTransparentButtonStyle
@@ -55,7 +55,7 @@ export const Hero = () => {
                 data-cy-link="discover-great-causes"
               >
                 {i18n.t('homepage.hero.discover')}
-                <BlackArrowDownIcon aria-hidden />
+                <BlackArrowDownIcon aria-hidden focusable="false" />
               </HeroTransparentButtonStyle>
             )}
           </ColumnToRowToColumnStyle>

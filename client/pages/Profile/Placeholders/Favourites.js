@@ -49,7 +49,7 @@ export const ProfileFavouritesPlaceholder = () => {
               color={color.agree}
               disabled
             >
-              <SvgThumbsUp aria-hidden />
+              <SvgThumbsUp aria-hidden focusable="false" />
             </VoteButtonStyle>
             <VoteResultGraphStyle>
               <VoteResultItemStyle>

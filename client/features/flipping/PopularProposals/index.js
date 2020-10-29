@@ -115,7 +115,7 @@ export const PopularProposals = ({ question, position, size }: Props) => {
           aria-controls="popular_proposals_slider_list"
           onClick={() => trackLoadMoreProposals(COMPONENT_PARAM_TOP_PROPOSALS)}
         >
-          <SvgArrowLeft aria-hidden />
+          <SvgArrowLeft aria-hidden focusable="false" />
         </PopularProposalsArrowsStyle>
         <PopularProposalsArrowsStyle
           className={`${sliderName} glider-next`}
@@ -123,7 +123,7 @@ export const PopularProposals = ({ question, position, size }: Props) => {
           aria-controls="popular_proposals_slider_list"
           onClick={() => trackLoadMoreProposals(COMPONENT_PARAM_TOP_PROPOSALS)}
         >
-          <SvgArrowRight aria-hidden />
+          <SvgArrowRight aria-hidden focusable="false" />
         </PopularProposalsArrowsStyle>
       </FlexElementStyle>
       <PopularProposalsSliderListWrapperStyle

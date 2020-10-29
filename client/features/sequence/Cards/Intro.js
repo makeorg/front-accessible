@@ -51,7 +51,7 @@ export const IntroCard = ({ configuration }: Props) => {
         data-cy-button="start-sequence"
         onClick={handleStartSequence}
       >
-        <PlayIconStyle aria-hidden />
+        <PlayIconStyle aria-hidden focusable="false" />
         {i18n.t('intro_card.button')}
       </SequenceIntroButtonStyle>
     </>

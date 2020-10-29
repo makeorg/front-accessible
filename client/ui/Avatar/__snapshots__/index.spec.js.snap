@@ -5,11 +5,12 @@ Snapshot Diff:
 - First value
 + Second value
 
-  <span
+@@ -2,9 +2,9 @@
     className="sc-1nws3fm-0 lfHKcg"
   >
     <SvgEmptyAvatar
       aria-hidden={true}
+      focusable="false"
 -     height={30}
 -     width={30}
 +     height={200}
@@ -33,6 +34,7 @@ exports[`Avatar snapshot by default 1`] = `
 >
   <SvgEmptyAvatar
     aria-hidden={true}
+    focusable="false"
     height={30}
     width={30}
   />

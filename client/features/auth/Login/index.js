@@ -62,13 +62,13 @@ export const Login = () => {
       <LoginForm />
       <ExtraParagraphStyle>
         {i18n.t('login.forgot_password_title')}
-        <RedLinkButtonStyle onClick={handleForgotPasswordModal}>
+        <RedLinkButtonStyle onClick={handleForgotPasswordModal} type="button">
           {i18n.t('login.forgot_password_link')}
         </RedLinkButtonStyle>
       </ExtraParagraphStyle>
       <ExtraAltParagraphStyle>
         {i18n.t('login.registration_title')}
-        <RedLinkButtonStyle onClick={handleRegisterModal}>
+        <RedLinkButtonStyle onClick={handleRegisterModal} type="button">
           {i18n.t('login.registration_link')}
         </RedLinkButtonStyle>
       </ExtraAltParagraphStyle>

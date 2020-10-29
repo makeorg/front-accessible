@@ -9,6 +9,3 @@ Feature: Accessibility
   When I click on "mobile-header-close-menu" button
   And I click on "mobile-search" button
   Then html page should be valid
-  When I click on "mobile-header-close-menu" button
-  And I click on "login" button
-  Then html page should be valid

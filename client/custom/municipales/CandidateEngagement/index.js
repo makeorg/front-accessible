@@ -234,7 +234,7 @@ export const CandidateItem = ({ personality }: CandidateProps) => {
           >
             {personalityFullName}
           </CandidateLinkStyle>
-          <CertifiedIconStyle aria-hidden />
+          <CertifiedIconStyle aria-hidden focusable="false" />
         </MiddleRowStyle>
         <PoliticalPartyStyle>{personality.politicalParty}</PoliticalPartyStyle>
       </CandidateInformationsStyle>

@@ -75,7 +75,7 @@ export const OpinionComment = ({ comment }: Props) => {
               >
                 {displayName}
               </CandidateLinkStyle>
-              <CertifiedIconStyle aria-hidden />
+              <CertifiedIconStyle aria-hidden focusable="false" />
             </OpinionCommentAuthorStyle>
             <PoliticalPartyStyle>{politicalParty}</PoliticalPartyStyle>
           </ColumnElementStyle>
@@ -87,7 +87,7 @@ export const OpinionComment = ({ comment }: Props) => {
             >
               {displayName}
             </CandidateLinkStyle>
-            <CertifiedIconStyle aria-hidden />
+            <CertifiedIconStyle aria-hidden focusable="false" />
             {politicalParty && (
               <PoliticalPartyStyle>
                 &nbsp;&bull;&nbsp;
@@ -103,7 +103,7 @@ export const OpinionComment = ({ comment }: Props) => {
           transform={opinionsVoteStaticParams[comment.vote].transform}
           color={opinionsVoteStaticParams[comment.vote].color}
         >
-          <SvgThumbsUp aria-hidden />
+          <SvgThumbsUp aria-hidden focusable="false" />
         </CommitmentPreviewOpinionsIconWrapperStyle>
         <CommitmentPreviewOpinionsParagraphStyle
           color={opinionsVoteStaticParams[comment.vote].color}

@@ -13,7 +13,7 @@ export const SupportContent = () => {
   return (
     <SupportWrapperStyle>
       <ThirdLevelTitleStyle>
-        <ClappingIconStyle aria-hidden />
+        <ClappingIconStyle aria-hidden focusable="false" />
         {i18n.t('actions.support.title')}
       </ThirdLevelTitleStyle>
       <SupportSeparatorStyle />

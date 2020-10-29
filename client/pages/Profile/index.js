@@ -100,7 +100,7 @@ const ProfilePage = ({ match, location }: Props) => {
                   className="inline"
                 >
                   {i18n.t('profile.tabs.favourites')}
-                  <ProfileTabIconStyle aria-hidden />
+                  <ProfileTabIconStyle aria-hidden focusable="false" />
                 </Link>
               </TabStyle>
             </TabListStyle>
