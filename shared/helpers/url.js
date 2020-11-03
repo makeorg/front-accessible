@@ -3,6 +3,7 @@ import 'url-search-params-polyfill';
 import { generatePath } from 'react-router';
 import queryString from 'query-string';
 import { FRONT_URL, DEFAULT_COUNTRY } from 'Shared/constants/config';
+import { ABOUT_MAKE_LINK } from 'Shared/constants/url';
 import {
   ROUTE_CONSULTATION,
   ROUTE_ACTION,
@@ -353,3 +354,15 @@ export const redirectToNotFoundPage = (country: string) => {
 
 export const isPreviewPath = (path: string): boolean =>
   path.includes(BASE_PREVIEW_PATH, 0);
+
+/**
+ * Get webflow dynamic page link
+ *
+ * @param  {string} language
+ * @param  {string} route
+ * @return {string}
+ */
+
+export const getWebflowDynamicLink = (language: string, route: string) => {
+  return `${ABOUT_MAKE_LINK}${language}${route}`;
+};

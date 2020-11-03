@@ -40,7 +40,7 @@ Feature: The Home Page
     Then I see "Devenir partenaire" in "partnership_subtitle" container
     And I see "Collaborez avec Make.org" in "partnership_title" container
     And I see "Nous travaillons avec des entreprises, associations, institutions pour faire avancer nos projets. Nous accompagnons également ces organisations pour leur permettre de lancer leurs propres consultations." in "partnership_description" container
-    And I see a link "Voir nos offres" to "https://about.make.org/collaborez-avec-make-org" in "partnership" container
+    And I see a link "Voir nos offres" to "https://about.make.org/fr/collaborate" in "partnership" container
 
   Scenario: Country switching redirect to Homepage
     Given I go to "france homepage"    

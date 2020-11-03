@@ -8,17 +8,19 @@ import { useSelector } from 'react-redux';
 import {
   getBrowseConsultationsLink,
   getBrowseResultsLink,
+  getWebflowDynamicLink,
 } from 'Shared/helpers/url';
 import { useLocation } from 'react-router';
-import { isBrowseConsultationsPage, isBrowseResultsPage } from 'Shared/routes';
-import { scrollToTop } from 'Shared/helpers/styled';
 import {
-  WHOAREWE_FR_LINK,
-  WHOAREWE_EN_LINK,
-  JOBS_LINK,
-  NEWS_LINK,
-  PARTNERSHIP_LINK,
-} from 'Shared/constants/url';
+  isBrowseConsultationsPage,
+  isBrowseResultsPage,
+  ROUTE_WHOAREWE,
+  ROUTE_PARTNERSHIP,
+} from 'Shared/routes';
+import { scrollToTop } from 'Shared/helpers/styled';
+
+import { JOBS_LINK, NEWS_LINK } from 'Shared/constants/url';
+
 import {
   MenuPanelStyle,
   MenuCloseTriggerStyle,
@@ -37,7 +39,9 @@ type Props = {
 };
 export const MenuPanel = ({ isExpanded, toggleExpansion }: Props) => {
   const location = useLocation();
-  const { country } = useSelector((state: StateRoot) => state.appConfig);
+  const { country, language } = useSelector(
+    (state: StateRoot) => state.appConfig
+  );
   const browseConsultationsLink = getBrowseConsultationsLink(country);
   const browseResultsLink = getBrowseResultsLink(country);
   const onBrowseConsultationsPage = isBrowseConsultationsPage(
@@ -97,7 +101,7 @@ export const MenuPanel = ({ isExpanded, toggleExpansion }: Props) => {
               <MenuExternalLinkStyle
                 target="_blank"
                 rel="noreferrer noopener"
-                href={isFR ? WHOAREWE_FR_LINK : WHOAREWE_EN_LINK}
+                href={getWebflowDynamicLink(language, ROUTE_WHOAREWE)}
               >
                 {i18n.t('main-footer.whoarewe')}
                 <> </>
@@ -112,7 +116,7 @@ export const MenuPanel = ({ isExpanded, toggleExpansion }: Props) => {
                   <MenuExternalLinkStyle
                     target="_blank"
                     rel="noreferrer noopener"
-                    href={PARTNERSHIP_LINK}
+                    href={getWebflowDynamicLink(language, ROUTE_PARTNERSHIP)}
                   >
                     {i18n.t('homepage.partnership.subtitle')}
                     <> </>
