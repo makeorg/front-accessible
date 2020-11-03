@@ -1,10 +1,20 @@
 /* @flow */
-
+import React from 'react';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as actionTypes from 'Shared/store/actionTypes';
 import { UserApiService } from 'Shared/api/UserApiService';
 import * as Tracking from 'Shared/services/Tracking';
+import {
+  LOGIN_SUCCESS_MESSAGE,
+  LOGOUT_SUCCESS_MESSAGE,
+  NOTIFICATION_LEVEL_ALERT,
+  NOTIFICATION_LEVEL_SUCCESS,
+  REGISTER_SUCCESS_VALIDATE_MESSAGE,
+} from 'Shared/constants/notifications';
+import { RegisterSuccessValidateMessage } from 'Client/app/Notifications/Banner/RegisterSuccessValidate';
+import { LogoutSuccessMessage } from 'Client/app/Notifications/Banner/LogoutSuccess';
+import { LoginSuccessMessage } from 'Client/app/Notifications/Banner/LoginSuccess';
 import * as actions from './index';
 // mocks
 jest.mock('Shared/api/UserApiService');
@@ -68,7 +78,14 @@ describe('Authentication Actions', () => {
       const expectedActions = [
         { type: actionTypes.LOGIN_REQUEST },
         { type: actionTypes.LOGIN_SUCCESS },
-        { type: actionTypes.NOTIFICATION_LOGIN_SUCCESS },
+        {
+          type: actionTypes.DISPLAY_NOTIFICATION_BANNER,
+          payload: {
+            id: LOGIN_SUCCESS_MESSAGE,
+            content: <LoginSuccessMessage />,
+            level: NOTIFICATION_LEVEL_SUCCESS,
+          },
+        },
         { type: actionTypes.GET_INFO, user: userWithProfile },
       ];
 
@@ -143,7 +160,7 @@ describe('Authentication Actions', () => {
       const loginStore = mockStore({
         proposal: { canSubmit: false },
         authentication: { isLoggedIn: false },
-        notification: { level: undefined, contentType: undefined },
+        notifications: { level: undefined, content: undefined },
         modal: { isOpen: true },
       });
       const user = { firstname: 'baz' };
@@ -166,7 +183,6 @@ describe('Authentication Actions', () => {
       const expectedActions = [
         { type: actionTypes.LOGIN_SOCIAL_REQUEST, provider },
         { type: actionTypes.LOGIN_SOCIAL_SUCCESS },
-        { type: actionTypes.NOTIFICATION_LOGIN_SUCCESS },
         { type: actionTypes.GET_INFO, user },
         { type: actionTypes.MODAL_CLOSE },
       ];
@@ -232,29 +248,19 @@ describe('Authentication Actions', () => {
 
       const expectedActions = [
         { type: actionTypes.LOGOUT },
-        { type: actionTypes.NOTIFICATION_LOGOUT_SUCCESS },
+        {
+          type: actionTypes.DISPLAY_NOTIFICATION_BANNER,
+          payload: {
+            id: LOGOUT_SUCCESS_MESSAGE,
+            content: <LogoutSuccessMessage />,
+            level: NOTIFICATION_LEVEL_SUCCESS,
+          },
+        },
       ];
 
       UserApiService.logout.mockResolvedValue();
 
       return newStore.dispatch(actions.logout()).then(() => {
-        expect(newStore.getActions()).toEqual(expectedActions);
-      });
-    });
-
-    it('creates an action to logout a user after account deletion', () => {
-      const newStore = mockStore({
-        user: { authentication: {} },
-      });
-
-      const expectedActions = [
-        { type: actionTypes.LOGOUT },
-        { type: actionTypes.NOTIFICATION_ACCOUNT_DELETION_SUCCESS },
-      ];
-
-      UserApiService.logout.mockResolvedValue();
-
-      return newStore.dispatch(actions.logout(true)).then(() => {
         expect(newStore.getActions()).toEqual(expectedActions);
       });
     });
@@ -325,7 +331,14 @@ describe('Authentication Actions', () => {
       const expectedActions = [
         { type: actionTypes.GET_INFO, user: userWithProfile },
         { type: actionTypes.MODAL_CLOSE },
-        { type: actionTypes.NOTIFICATION_REGISTER_SUCCESS, user },
+        {
+          type: actionTypes.DISPLAY_NOTIFICATION_BANNER,
+          payload: {
+            id: REGISTER_SUCCESS_VALIDATE_MESSAGE,
+            content: <RegisterSuccessValidateMessage />,
+            level: NOTIFICATION_LEVEL_ALERT,
+          },
+        },
       ];
 
       return newStore.dispatch(actions.getUser(true)).then(() => {

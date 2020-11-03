@@ -3,14 +3,9 @@ import { color } from 'athena-design-tokens';
 import { intToPx } from 'Shared/helpers/styled';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
-import { SvgInfos } from 'Client/ui/Svg/elements';
-import { UnstyledButtonStyle } from '../Buttons/style';
+import { UnstyledButtonStyle } from '../../Buttons/style';
 
-export const TagsTooltipContainerStyle = styled.div`
-  order: ${props => (props.isFirstSequenceVote ? '' : '1')};
-`;
-
-export const TagsTooltipWrapperStyle = styled.div`
+export const TipWrapperStyle = styled.div`
   position: relative;
   font-family: ${MakeFonts.CircularStandardBook};
   background-color: ${color.infos};
@@ -20,16 +15,9 @@ export const TagsTooltipWrapperStyle = styled.div`
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.14px;
-  margin-bottom: ${props => (props.isFirstSequenceVote ? '' : '20px')};
 `;
 
-export const TooltipSvgInfos = styled(SvgInfos)`
-  width: 12px;
-  height: 12px;
-  margin: 0px 7px 0px;
-`;
-
-export const TagsTooltipCrossStyle = styled(UnstyledButtonStyle)`
+export const TipCrossStyle = styled(UnstyledButtonStyle)`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -42,7 +30,6 @@ export const TagsTooltipCrossStyle = styled(UnstyledButtonStyle)`
     height: 16px;
     border: 1px solid ${color.greyDark};
   }
-
   svg {
     width: 9px;
     height: 9px;
@@ -70,10 +57,9 @@ export const TriangleDownStyle = styled.div`
   border-style: solid;
   border-width: 9px 6px 0 6px;
   border-color: ${color.infos} transparent transparent transparent;
-  margin: auto;
 `;
 
-export const LinkStyle = styled(UnstyledButtonStyle)`
+export const TipLinkStyle = styled(UnstyledButtonStyle)`
   display: inline;
   color: ${color.white};
   text-decoration: underline;

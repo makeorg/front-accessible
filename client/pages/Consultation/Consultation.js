@@ -15,9 +15,15 @@ import { LocalActorsTile } from 'Client/features/flipping/LocalActors/Tille';
 import { ConsultationHeader } from 'Client/features/consultation/Header/index';
 import { useMobile } from 'Client/hooks/useMedia';
 import { useDispatch, useSelector } from 'react-redux';
-import { showVoteOnlyBanner } from 'Shared/store/actions/notification';
+import { displayNotificationBanner } from 'Shared/store/actions/notifications';
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
 import { ThemeProvider } from 'styled-components';
+import { VoteOnlyMessage } from 'Client/app/Notifications/Banner/VoteOnly';
+import {
+  NOTIFICATION_LEVEL_INFORMATION,
+  VOTE_ONLY_MESSAGE,
+} from 'Shared/constants/notifications';
+import { useEffect } from 'react';
 import { ConsultationPageWrapperStyle } from './style';
 
 const ConsultationPage = () => {
@@ -33,9 +39,18 @@ const ConsultationPage = () => {
     question.activeFeatures
   );
 
-  if (!question.canPropose) {
-    dispatch(showVoteOnlyBanner());
-  }
+  useEffect(() => {
+    if (!question.canPropose) {
+      dispatch(
+        displayNotificationBanner(
+          `${VOTE_ONLY_MESSAGE}_${question.questionId}`,
+          <VoteOnlyMessage />,
+          NOTIFICATION_LEVEL_INFORMATION,
+          true
+        )
+      );
+    }
+  }, [question, dispatch]);
 
   return (
     <ThemeProvider theme={question.theme}>

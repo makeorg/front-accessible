@@ -7,6 +7,7 @@ import {
 import { intToPx } from 'Shared/helpers/styled';
 import { FourthLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { SvgThumbsUp } from 'Client/ui/Svg/elements';
+import { ColumnElementStyle } from 'Client/ui/Elements/FlexElements';
 
 export const TagSectionTitle = styled(FourthLevelTitleStyle)`
   padding: 0 ${intToPx(DefaultPadding.Mobile)};
@@ -25,12 +26,16 @@ export const TagIconStyle = styled(SvgThumbsUp)`
   }
 `;
 
+export const FiltersWrapperStyle = styled(ColumnElementStyle)`
+  margin-bottom: 20px;
+`;
+
 export const FiltersContainerStyle = styled.div`
   display: flex;
   flex-direction: column;
   align-items: normal;
   padding: 10px 0;
-
+  order: -1;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     flex-direction: row;
     align-items: center;

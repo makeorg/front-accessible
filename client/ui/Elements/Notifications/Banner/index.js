@@ -4,40 +4,54 @@ import { useSelector, useDispatch } from 'react-redux';
 import { i18n } from 'Shared/i18n';
 import { type StateRoot } from 'Shared/store/types';
 import { SvgDisconnect } from 'Client/ui/Svg/elements';
-import { clearNotification } from 'Shared/store/actions/notification';
-import { notificationContent } from 'Shared/constants/notification';
+import {
+  clearNotificationBanner,
+  dismissNotification,
+} from 'Shared/store/actions/notifications';
 import {
   NotificationWrapperStyle,
   NotificationContentStyle,
   NotificationCloseButtonStyle,
 } from './style';
-import { NotificationIcon } from './Icon';
+import { NotificationIcon } from '../Icon';
 
-export const Notification = () => {
+export const NotificationBanner = () => {
   const notificationRef = useRef(null);
   const dispatch = useDispatch();
-  const { level, contentType, replacements } = useSelector(
-    (state: StateRoot) => state.notification
+  const { id, content, level, toDismiss } = useSelector(
+    (state: StateRoot) => state.notifications.banner
   );
+  const { dismissed } = useSelector((state: StateRoot) => state.notifications);
+  const isDismissed = dismissed.find(notificationId => notificationId === id);
+
+  const closeNotificationBanner = () => {
+    if (toDismiss) {
+      dispatch(dismissNotification(id));
+      return dispatch(clearNotificationBanner());
+    }
+
+    return dispatch(clearNotificationBanner());
+  };
 
   useEffect(() => {
     if (notificationRef.current) {
       notificationRef.current.focus();
     }
-  }, [contentType]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [!content]);
 
-  if (!contentType) return null;
+  if (!content || isDismissed) return null;
 
   return (
     <NotificationWrapperStyle ref={notificationRef} role="banner" tabIndex={0}>
       <NotificationContentStyle as="div" className={level}>
-        <NotificationIcon />
-        {notificationContent[contentType](replacements)}
+        <NotificationIcon level={level} />
+        {content}
       </NotificationContentStyle>
       <NotificationCloseButtonStyle
         aria-label={i18n.t('common.notifications.icons.close')}
         aria-expanded="false"
-        onClick={() => dispatch(clearNotification())}
+        onClick={closeNotificationBanner}
       >
         <SvgDisconnect aria-hidden />
       </NotificationCloseButtonStyle>

@@ -8,7 +8,7 @@ import { proposal } from './proposal';
 import { modal } from './modal';
 import { currentQuestion } from './currentQuestion';
 import { sequence } from './sequence';
-import { notification } from './notification';
+import { notifications } from './notifications';
 import { user } from './user';
 import { questions } from './questions';
 import { customData } from './customData';
@@ -24,7 +24,7 @@ export const rootReducer: StateRoot = combineReducers({
   sequence,
   questions,
   currentQuestion,
-  notification,
+  notifications,
   user,
   customData, // sync with HTML5 Storage API
   partners,

@@ -41,7 +41,9 @@ export type StateSequence = $ReadOnly<{
 
 // Notification State
 export type StateNotification = $ReadOnly<{
-  contentType?: string,
+  banner: { id?: string, content?: any, level?: string },
+  tip: { id?: string, content?: any, level?: string },
+  dismissed: string[],
 }>;
 
 // Authentication State
@@ -138,7 +140,7 @@ export type StateRoot = {
   proposal: StateProposal,
   sequence: StateSequence,
   currentQuestion: ?string,
-  notification: StateNotification,
+  notifications: StateNotification,
   user: StateUser,
   questions: StateQuestions,
   modal: StateModal,

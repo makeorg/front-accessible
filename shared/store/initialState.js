@@ -28,8 +28,10 @@ export const initialState: StateRoot = {
   },
   questions: {},
   currentQuestion: '',
-  notification: {
-    contentType: undefined,
+  notifications: {
+    banner: {},
+    tip: {},
+    dismissed: [],
   },
   user: {
     authentication: {
