@@ -369,8 +369,12 @@ export const trackClickSearchReturn = () => {
 };
 
 /** proposal card */
-export const trackClickProposalProfile = () => {
-  TrackingService.sendAllTrackers(trackingEvent.CLICK_PUBLIC_PROFILE());
+export const trackClickProposalProfile = (userType: string) => {
+  TrackingService.sendAllTrackers(
+    trackingEvent.CLICK_PUBLIC_PROFILE({
+      type: userType,
+    })
+  );
 };
 
 /** Follow Us component */
