@@ -6,6 +6,7 @@ import { getOrganisationProfileLink } from 'Shared/helpers/url';
 import { RedLinkRouterStyle } from 'Client/ui/Elements/LinkElements';
 import { trackClickProposalProfile } from 'Shared/services/Tracking';
 import { formatOrganisationName } from 'Shared/helpers/stringFormatter';
+import { TYPE_ORGANISATION } from 'Shared/constants/user';
 import { OrganisationsVoteWrapperStyle } from './style';
 
 type Props = {
@@ -33,7 +34,7 @@ export const OrganisationsVote = (props: Props) => {
               country,
               organisation.organisationSlug
             )}
-            onClick={trackClickProposalProfile}
+            onClick={() => trackClickProposalProfile(TYPE_ORGANISATION)}
           >
             {formatOrganisationName(organisation.organisationName)}
           </RedLinkRouterStyle>
