@@ -43,7 +43,13 @@ export const NavigationWithTabs = ({ question }: Props) => {
   const isTopIdeasPage = getIsTopIdeasPage(location.pathname);
   const isTopIdeaDetailsPage = getIsTopIdeaDetailsPage(location.pathname);
 
-  if (isTopIdeasPage || isTopIdeaDetailsPage) {
+  // todo remove after consultation page refactoring
+  const currentQuestion = useSelector(
+    (state: StateRoot) => state.currentQuestion
+  );
+  const isHandicapSlug = currentQuestion === 'handicap';
+
+  if (isTopIdeasPage || isTopIdeaDetailsPage || isHandicapSlug) {
     return null;
   }
 

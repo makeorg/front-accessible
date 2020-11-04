@@ -21,9 +21,10 @@ import { HomepageWrapperStyle } from './style';
 export const HomePage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
-  const { country, language, countriesWithConsultations } = useSelector(
+  const { country, countriesWithConsultations } = useSelector(
     (state: StateRoot) => state.appConfig
   );
+  const [currentCountry, setCurrentCountry] = useState(country);
   const { homepage } = useSelector((state: StateRoot) => state.views);
   const isFR = country === 'FR';
   const hasConsultations = countriesWithConsultations.find(
@@ -45,18 +46,13 @@ export const HomePage = () => {
   const hasPosts = homepage && homepage.posts && homepage.posts.length > 0;
 
   useEffect(() => {
-    if (!homepage) {
+    if (!homepage || country !== currentCountry) {
       initHomepage();
+      setCurrentCountry(country);
     }
     trackDisplayHomepage();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  useEffect(() => {
-    initHomepage();
-    trackDisplayHomepage();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [country, language]);
+  }, [country]);
 
   return (
     <>
