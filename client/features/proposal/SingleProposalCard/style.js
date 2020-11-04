@@ -35,7 +35,7 @@ export const DescriptionStyle = styled(ParagraphStyle)`
   > a {
     font-family: ${MakeFonts.CircularStandardBold};
     color: ${props => props.theme.color};
-    text-decoration: none;
+    text-decoration: underline;
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     text-align: right;

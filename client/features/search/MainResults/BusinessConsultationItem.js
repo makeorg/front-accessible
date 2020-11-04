@@ -1,7 +1,6 @@
 // @flow
 import React from 'react';
 import { color } from 'athena-design-tokens';
-import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { type StateRoot } from 'Shared/store/types';
 import { type QuestionType } from 'Shared/types/question';
@@ -13,11 +12,12 @@ import { i18n } from 'Shared/i18n';
 import {
   SearchResultsConsultationListStyle,
   BusinessConsultationsItemStyle,
-  BusinessConsultationsItemLinkStyle,
+  BusinessConsultationsItemWrapperStyle,
   BusinessConsultationsItemBorderStyle,
   BusinessConsultationStyle,
   BusinessConsultationsItemStatusStyle,
   BusinessConsultationsItemArrowStyle,
+  BusinessConsultationsItemLinkStyle,
 } from '../Styled';
 
 type Props = {
@@ -29,16 +29,7 @@ const businessConsultation = (question, country) => (
     key={question.slug}
     backgroundColor={color.white}
   >
-    <BusinessConsultationsItemLinkStyle
-      to={
-        isInProgress(question)
-          ? getConsultationLink(country, question.slug)
-          : undefined
-      }
-      as={isInProgress(question) ? Link : 'a'}
-      href={isInProgress(question) ? undefined : question.aboutUrl || '#'}
-      onClick={() => trackClickHomepageConsultations()}
-    >
+    <BusinessConsultationsItemWrapperStyle>
       <BusinessConsultationsItemBorderStyle
         colorStart={question.theme.gradientStart}
         colorEnd={question.theme.gradientEnd}
@@ -52,10 +43,21 @@ const businessConsultation = (question, country) => (
             ? i18n.t('search.main_results.open_consultation')
             : i18n.t('search.main_results.finished_consultation')}
         </BusinessConsultationsItemStatusStyle>
-        {question.question}
+        <BusinessConsultationsItemLinkStyle
+          to={
+            isInProgress(question)
+              ? getConsultationLink(country, question.slug)
+              : undefined
+          }
+          as={!isInProgress(question) && 'a'}
+          href={isInProgress(question) ? undefined : question.aboutUrl || '#'}
+          onClick={() => trackClickHomepageConsultations()}
+        >
+          {question.question}
+        </BusinessConsultationsItemLinkStyle>
       </BusinessConsultationStyle>
       <BusinessConsultationsItemArrowStyle aria-hidden />
-    </BusinessConsultationsItemLinkStyle>
+    </BusinessConsultationsItemWrapperStyle>
   </BusinessConsultationsItemStyle>
 );
 export const BusinessConsultationsList = ({ questions }: Props) => {

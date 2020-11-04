@@ -9,7 +9,6 @@ jest.mock('./style', () => ({
   TipCrossStyle: 'TipCrossStyle',
   TriangleUpStyle: 'TriangleUpStyle',
   TriangleDownStyle: 'TriangleDownStyle',
-  LinkStyle: 'LinkStyle',
 }));
 
 jest.mock('Client/ui/Svg/elements', () => ({

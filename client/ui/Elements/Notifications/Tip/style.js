@@ -29,6 +29,7 @@ export const TipCrossStyle = styled(UnstyledButtonStyle)`
     width: 1px;
     height: 16px;
     border: 1px solid ${color.greyDark};
+    background-color: ${color.greyDark};
   }
   svg {
     width: 9px;

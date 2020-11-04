@@ -15,6 +15,7 @@ import {
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { SvgAngleArrowRight } from 'Client/ui/Svg/elements';
+import { Link } from 'react-router-dom';
 
 export const SearchSidebarTileStyle = styled.div`
   width: 100%;
@@ -73,7 +74,7 @@ export const BusinessConsultationsItemStyle = styled.li`
   margin: 0 0 ${intToPx(DefaultPadding.Mobile)};
 `;
 
-export const BusinessConsultationsItemLinkStyle = styled(ParagraphStyle)`
+export const BusinessConsultationsItemWrapperStyle = styled(ParagraphStyle)`
   display: flex;
   text-decoration: none;
   font-family: ${MakeFonts.CircularStandardBold};
@@ -95,6 +96,15 @@ export const BusinessConsultationsItemStatusStyle = styled.p`
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 14px;
     line-height: 21px;
+  }
+`;
+
+export const BusinessConsultationsItemLinkStyle = styled(Link)`
+  font-family: ${MakeFonts.CircularStandardBold};
+  color: ${color.greyDark};
+  &:hover,
+  &:focus {
+    color: ${color.greyDark};
   }
 `;
 

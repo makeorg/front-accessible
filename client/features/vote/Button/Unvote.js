@@ -81,7 +81,7 @@ export const UnvoteButton = ({
 }: Props) => {
   if (withTooltip) {
     return (
-      <Tooltip content={i18n.t(`unvote.title`)} direction="bottom">
+      <Tooltip content={i18n.t(`unvote.title`)} direction="left">
         <UnvoteButtonItem
           voteKey={voteKey}
           buttonClass={buttonClass}

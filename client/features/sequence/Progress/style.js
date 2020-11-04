@@ -37,7 +37,7 @@ export const ProgressBarWrapperStyle = styled.div`
   border-radius: 12.5px;
   overflow: hidden;
   background-color: ${color.white};
-  border: 1px solid ${color.greyLighter};
+  border: 1px solid ${color.grey};
 `;
 
 export const ProgressBarStyle = styled.div`
