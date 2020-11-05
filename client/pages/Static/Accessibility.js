@@ -52,7 +52,10 @@ import {
 
 export const Accessibility = () => (
   <>
-    <MetaTags title={i18n.t('meta.a11y.title')} />
+    <MetaTags
+      title={i18n.t('meta.a11y.title')}
+      description={i18n.t('meta.a11y.description')}
+    />
     <StaticPageWrapperStyle>
       <StaticSecondLevelTitleStyle>
         Déclaration d’Accessibilté
@@ -266,13 +269,13 @@ export const Accessibility = () => (
           </StaticFourthLevelTitleStyle>
           <StaticSquareListStyle>
             <StaticSquareListItemStyle>
-              {"Page d'acceuil France : "}
+              {"Page d'accueil France : "}
               <RedLinkHTMLElementStyle href={getHomeLink('FR')}>
                 {FRONT_URL + getHomeLink('FR')}
               </RedLinkHTMLElementStyle>
             </StaticSquareListItemStyle>
             <StaticSquareListItemStyle>
-              {"Page d'acceuil Grande Bretagne : "}
+              {"Page d'accueil Grande Bretagne : "}
               <RedLinkHTMLElementStyle href={getHomeLink('GB')}>
                 {FRONT_URL + getHomeLink('GB')}
               </RedLinkHTMLElementStyle>
