@@ -43,7 +43,9 @@ export const NavigationBetweenQuestions = ({ question }: Props) => {
         // If not, they fetch/store it
         if (!isRelQuestionInState) {
           const siblingQuestionDetails = await QuestionService.getDetail(
-            relativeQuestion.questionSlug
+            relativeQuestion.questionSlug,
+            () => {},
+            country
           );
           if (siblingQuestionDetails) {
             dispatch(loadQuestion(siblingQuestionDetails));

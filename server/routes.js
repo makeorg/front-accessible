@@ -176,9 +176,14 @@ export const initRoutes = app => {
   app.get(ROUTE_STATIC_DATA_EN, frontMiddlewares, defaultRoute);
   app.get(ROUTE_STATIC_GTU_EN, frontMiddlewares, defaultRoute);
 
-  app.get('*', (req, res, next) => {
+  // not found
+  app.get(`${ROUTE_COUNTRY}/*`, frontMiddlewares, (req, res) => {
     res.status(404);
-    countryLanguageMiddleware(req, res, next);
+
+    return defaultRoute(req, res);
+  });
+  app.get('*', frontMiddlewares, (req, res) => {
+    res.status(404);
 
     return defaultRoute(req, res);
   });

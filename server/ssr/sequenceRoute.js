@@ -4,6 +4,7 @@ import { type Request, type Response } from 'express';
 import { type QuestionType } from 'Shared/types/question';
 import { isInProgress } from 'Shared/helpers/date';
 import { updateTrackingQuestionParam } from 'Shared/store/middleware/tracking';
+import { getLanguageFromCountryCode } from 'Shared/helpers/countries';
 import { transformExtraSlidesConfigFromQuery } from './helpers/query.helper';
 import { reactRender } from '../reactRender';
 import { QuestionService } from '../service/QuestionService';
@@ -11,7 +12,8 @@ import { QuestionService } from '../service/QuestionService';
 export const sequenceRoute = async (req: Request, res: Response) => {
   const routeState = createInitialState();
 
-  const { questionSlug, country, language } = req.params;
+  const { questionSlug, country } = req.params;
+  const language = getLanguageFromCountryCode(country);
   const question: QuestionType = await QuestionService.getQuestion(
     questionSlug,
     country,

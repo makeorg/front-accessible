@@ -35,10 +35,16 @@ const getQuestions = async (
 
 const getDetail = async (
   questionSlugOrId: string,
-  notFound: () => void = () => {}
+  notFound: () => void = () => {},
+  country?: string
 ): Promise<?QuestionType> => {
   try {
     const { data } = await QuestionApiService.getDetail(questionSlugOrId);
+    if (country !== undefined && !data?.countries?.includes(country)) {
+      notFound();
+
+      return null;
+    }
 
     return data;
   } catch (apiServiceError) {

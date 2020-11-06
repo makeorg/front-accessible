@@ -14,10 +14,19 @@ const getQuestion = async (
   notFound: () => void = () => {},
   unexpectedError: () => void = () => {}
 ) => {
+  const handleData = data => {
+    if (!data.countries?.includes(country)) {
+      notFound();
+      return null;
+    }
+
+    return data;
+  };
+
   const CACHE_KEY = `QUESTION_${questionIdOrSlug}`;
   const content = cache.get(CACHE_KEY);
   if (content) {
-    return content;
+    return handleData(content);
   }
 
   try {
@@ -29,7 +38,7 @@ const getQuestion = async (
 
     cache.put(CACHE_KEY, data, 300000);
 
-    return data;
+    return handleData(data);
   } catch (apiServiceError) {
     if (apiServiceError.status === 404) {
       notFound();

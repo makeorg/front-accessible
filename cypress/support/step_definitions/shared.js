@@ -36,7 +36,6 @@ given('I go to 404 page', () => {
   cy.visit('/fakeurl', {failOnStatusCode: false});
 });
 
-
 given('I go/am to/on {string}', (targetPage) => {
   checkPageExist(targetPage);
   cy.visit(pages[targetPage]);

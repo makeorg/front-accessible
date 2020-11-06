@@ -19,6 +19,7 @@ export const getCountryFromRequest = (req: Request) => {
   if (xDetectedCountry) {
     return xDetectedCountry;
   }
+
   return DEFAULT_COUNTRY;
 };
 
