@@ -71,7 +71,6 @@ export const SearchMainResults = ({ location }: Props) => {
       <MetaTags
         title={i18n.t('meta.search.main_results', {
           term,
-          count: responseCount,
         })}
       />
       <SearchPageTitleStyle>

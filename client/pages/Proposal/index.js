@@ -57,6 +57,7 @@ const ProposalPage = () => {
             <MetaTags
               title={i18n.t('meta.proposal.title', {
                 proposal: proposal.content,
+                question: question.question,
               })}
               description={i18n.t('meta.proposal.description')}
               picture={question.wording.metas.picture}

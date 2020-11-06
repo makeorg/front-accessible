@@ -31,7 +31,7 @@ const ResultPage = () => {
       title={i18n.t('meta.results.title', {
         question: question.wording.question,
       })}
-      description={question.wording.metas.description}
+      description={i18n.t('meta.results.description')}
       picture={question.wording.metas.picture}
     />
   );

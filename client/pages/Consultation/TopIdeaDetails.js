@@ -88,6 +88,7 @@ const TopIdeaDetailsPage = () => {
       <MetaTags
         title={i18n.t('meta.top-idea-details.title', {
           idea: topIdea ? topIdea.name : '',
+          question: question.question,
         })}
         description={i18n.t('meta.top-idea-details.description', {
           idea: topIdea ? topIdea.name : '',

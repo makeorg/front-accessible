@@ -81,7 +81,6 @@ export const SearchOrganisations = ({ history, location }: Props) => {
       <MetaTags
         title={i18n.t('meta.search.organisations', {
           term,
-          count,
         })}
       />
 
