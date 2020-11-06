@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import {
   SvgClock,
   SvgPeople,
@@ -33,11 +33,11 @@ export const BrowseHeaderInnerStyle = styled.div`
 
 export const BrowseHeaderTitleStyle = styled.h2`
   font-family: ${MakeFonts.CircularStandardBold};
-  font-size: 36px;
+  font-size: ${intToPx(typography.font.fontsize.X3L.value)};
   margin-bottom: 24px;
   text-transform: none;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 56px;
+    font-size: ${intToPx(typography.font.fontsize.X4L.value)};
     margin-bottom: 33px;
   }
 `;
@@ -58,8 +58,7 @@ export const BrowseNavItemStyle = styled.li`
 
 export const BrowseNavLinkStyle = styled(Link)`
   font-family: ${MakeFonts.CircularStandardBold};
-  font-size: 13px;
-  line-height: 1.25;
+  font-size: ${intToPx(typography.font.fontsize.X2S.value)};
   text-decoration: none;
   padding-bottom: 8px;
   color: ${color.greyDark};
@@ -75,8 +74,7 @@ export const BrowseNavLinkStyle = styled(Link)`
     border-bottom: 2px solid ${color.brandSecondary};
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 16px;
-    line-height: 1.25;
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
     padding-bottom: 14px;
   }
 `;
@@ -90,14 +88,14 @@ export const ConsultationsTitleWrapperStyle = styled(ColumnElementStyle)`
 
 export const ConsultationsSubtitleStyle = styled.p`
   font-family: ${MakeFonts.CircularStandardBook};
-  font-size: 14px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   width: 100%;
   color: ${color.greyDark};
 `;
 
 const linkStyle = linkColor => `
   color: ${linkColor};
-  font-size: 16px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   &:hover,
   &:focus {
     color: ${linkColor};
@@ -139,7 +137,7 @@ export const ConsultationElementPictureStyle = styled(Image)`
 `;
 
 export const ConsultationElementSubtitleStyle = styled.span`
-  font-size: 15px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   text-transform: uppercase;
   color: ${color.greyDark};
   font-family: ${MakeFonts.TradeGothicBoldCondensed};
@@ -148,10 +146,9 @@ export const ConsultationElementSubtitleStyle = styled.span`
 
 export const ConsultationElementTitleStyle = styled.h3`
   text-transform: none;
-  font-size: 18px;
+  font-size: ${intToPx(typography.font.fontsize.S.value)};
   color: ${color.black};
   font-family: ${MakeFonts.CircularStandardBold};
-  line-height: 1.44;
   margin-bottom: 20px;
 `;
 
@@ -195,8 +192,7 @@ export const ConsultationActionIconStyle = styled(SvgFist)`
 `;
 
 export const ConsultationElementParagraphStyle = styled.p`
-  font-size: 14px;
-  line-height: 22px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   font-family: ${MakeFonts.CircularStandardBook};
   color: ${color.greyDark};
   margin-bottom: 20px;

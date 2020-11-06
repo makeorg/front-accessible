@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { pxToRem, intToPx } from 'Shared/helpers/styled';
 import {
   FlexElementStyle,
@@ -51,7 +51,7 @@ export const ColumnToRowToColumnStyle = styled(ColumnToRowElementStyle)`
 
 export const HeroTitleStyle = styled.h2`
   font-family: ${MakeFonts.CircularStandardBold};
-  font-size: 36px;
+  font-size: ${intToPx(typography.font.fontsize.X3L.value)};
   color: ${color.black};
   margin-bottom: 30px;
   text-transform: none;
@@ -59,14 +59,13 @@ export const HeroTitleStyle = styled.h2`
     max-width: 520px;
   }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    font-size: 42px;
+    font-size: ${intToPx(typography.font.fontsize.X4L.value)};
   }
 `;
 
 export const HeroDescriptionStyle = styled.p`
   display: flex;
-  font-size: 14px;
-  line-height: 22px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   font-family: ${MakeFonts.CircularStandardBook};
   color: ${color.greyDark};
   margin-bottom: 40px;

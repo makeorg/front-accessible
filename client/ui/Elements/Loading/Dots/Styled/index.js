@@ -1,6 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
+import { typography } from 'athena-design-tokens';
 
 const PendingAnimation = keyframes`
 0%, 50% {
@@ -27,8 +28,8 @@ export const DotStyle = styled.span`
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
   padding: 0 2px;
-  font-size: 16px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 22px;
+    font-size: ${intToPx(typography.font.fontsize.L.value)};
   }
 `;

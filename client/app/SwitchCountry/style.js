@@ -1,4 +1,4 @@
-import { color } from 'athena-design-tokens/dist/color';
+import { color, typography } from 'athena-design-tokens';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { SvgCheck } from 'Client/ui/Svg/elements';
 import { Link } from 'react-router-dom';
@@ -10,11 +10,10 @@ import { MakeFonts } from '../assets/vars/Fonts';
 export const SwitchCountryTitleStyle = styled.h2`
   font-family: ${MakeFonts.CircularStandardBold};
   text-transform: none;
-  font-size: 16px;
-  line-height: 1.5;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   margin-bottom: 20px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 18px;
+    font-size: ${intToPx(typography.font.fontsize.S.value)};
     margin-bottom: 30px;
   }
 `;
@@ -37,8 +36,7 @@ export const CountryLinkStyle = styled(Link)`
   justify-content: space-between;
   align-items: center;
   padding: 15px;
-  font-size: 15px;
-  line-height: 20px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   text-decoration: none;
   background-color: ${color.greyLighter};
   border-radius: 8px;

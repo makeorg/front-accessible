@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { intToPx } from 'Shared/helpers/styled';
@@ -87,11 +87,8 @@ export const HistogramBarStyle = styled.div`
 `;
 
 export const HistogramCommonLabelStyle = styled.p`
-  font-size: 10px;
+  font-size: ${intToPx(typography.font.fontsize.X2S.value)};
   font-family: ${MakeFonts.CircularStandardBook};
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 12px;
-  }
 `;
 
 export const HistogramLegendLabelStyle = styled(HistogramCommonLabelStyle)`

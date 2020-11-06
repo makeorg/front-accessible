@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { ShadowColors } from 'Client/app/assets/vars/Colors';
 import { intToPx } from 'Shared/helpers/styled';
 import { Elements } from 'Client/app/assets/vars/Elements';
@@ -89,13 +89,11 @@ export const BusinessConsultationStyle = styled.div`
 export const BusinessConsultationsItemStatusStyle = styled.p`
   font-family: ${MakeFonts.TradeGothicBoldCondensed};
   color: ${color.greyDark};
-  font-size: 12px;
-  line-height: 16px;
+  font-size: ${intToPx(typography.font.fontsize.X2S.value)};
   text-transform: uppercase;
   margin-bottom: 4px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 14px;
-    line-height: 21px;
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
   }
 `;
 

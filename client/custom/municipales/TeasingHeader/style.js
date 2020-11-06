@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
-import { intToPx, pxToRem } from 'Shared/helpers/styled';
+import { color, typography } from 'athena-design-tokens';
+import { intToPx } from 'Shared/helpers/styled';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Breakpoints, Layouts } from 'Client/app/assets/vars/Breakpoints';
 
@@ -45,10 +45,9 @@ export const TeasingHeaderCenterStyle = styled.div`
 
 export const TeasingHeaderTextStyle = styled.p`
   font-family: ${MakeFonts.TradeGothicBoldCondensed};
-  font-size: 18px;
+  font-size: ${intToPx(typography.font.fontsize.S.value)};
   text-transform: uppercase;
   color: ${color.black};
-  line-height: ${pxToRem('21px')};
 `;
 
 export const TeasingHeaderSubTextStyle = styled.p`

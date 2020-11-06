@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import {
   RedButtonStyle,
   GreyNoBackgroundButtonStyle,
@@ -33,7 +33,7 @@ export const PanelTriggerStyle = styled(RedButtonStyle)`
     position: sticky;
     width: auto;
     align-self: flex-end;
-    border-radius: 17.5px;
+    border-radius: 20px;
     bottom: 20px;
     margin: 40px 0;
   }
@@ -58,7 +58,7 @@ export const ProposalStepWrapperStyle = styled(SpaceBetweenColumnStyle)`
 
 export const ProposalStepTitleStyle = styled.h2`
   font-family: ${MakeFonts.CircularStandardBold};
-  font-size: 17px;
+  font-size: ${intToPx(typography.font.fontsize.S.value)};
   line-height: 1.5;
   text-transform: none;
   &.center {
@@ -68,7 +68,7 @@ export const ProposalStepTitleStyle = styled.h2`
     margin-bottom: 25px;
   }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    font-size: 26px;
+    font-size: ${intToPx(typography.font.fontsize.XL.value)};
     &.with-margin-bottom {
       margin-bottom: 35px;
     }
@@ -76,10 +76,10 @@ export const ProposalStepTitleStyle = styled.h2`
 `;
 
 export const ProposalAltStepTitleStyle = styled(ProposalStepTitleStyle)`
-  font-size: 14px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   letter-spacing: 0.12px;
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    font-size: 18px;
+    font-size: ${intToPx(typography.font.fontsize.S.value)};
   }
 `;
 
@@ -92,7 +92,7 @@ export const ProposalFieldWrapperStyle = styled.div`
 
 export const ProposalTextareaStyle = styled(TextareaAutosize)`
   width: 100%;
-  font-size: 16px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   line-height: 1.5;
   padding: 20px 17px 30px;
   border: none;
@@ -100,7 +100,7 @@ export const ProposalTextareaStyle = styled(TextareaAutosize)`
   max-height: 141px;
   background-color: ${color.greyLighter};
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    font-size: 20px;
+    font-size: ${intToPx(typography.font.fontsize.M.value)};
   }
 `;
 
@@ -108,8 +108,7 @@ export const ProposalCharCountStyle = styled.span`
   position: absolute;
   bottom: 10px;
   right: 20px;
-  font-size: 12px;
-  line-height: 1.5;
+  font-size: ${intToPx(typography.font.fontsize.X2S.value)};
   color: ${color.greyDark};
 `;
 
@@ -117,10 +116,9 @@ export const ProposalExternalLinkStyle = styled.a`
   display: inline-flex;
   align-items: baseline;
   align-self: flex-start;
-  font-size: 14px;
-  line-height: 1.5;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    font-size: 16px;
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
   }
 `;
 
@@ -143,7 +141,7 @@ export const ProposalBackButtonStyle = styled(GreyNoBackgroundButtonStyle)`
 export const ProposalBackIconWrapperStyle = styled.span`
   display: inline-flex;
   padding: 3px 15px;
-  border-radius: 17.5px;
+  border-radius: 20px;
   background-color: ${color.greyLighter};
   margin-right: 15px;
 `;
@@ -161,15 +159,11 @@ export const ProposalAuthWrapperStyle = styled(ColumnElementStyle)`
 `;
 
 export const ProposalAuthDisclaimerStyle = styled.p`
-  font-size: 14px;
-  line-height: 1.5;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   color: ${color.greyDark};
   text-align: center;
   &.with-margin-top {
     margin-top: 20px;
-  }
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    font-size: 16px;
   }
 `;
 
@@ -198,14 +192,13 @@ export const ProposalSuccessIconStyle = styled(SvgCheckedLightBulb)`
 
 export const ProposalSuccessTitleStyle = styled.h2`
   font-family: ${MakeFonts.CircularStandardBold};
-  font-size: 22px;
+  font-size: ${intToPx(typography.font.fontsize.L.value)};
   line-height: 1.5;
   text-transform: none;
 `;
 
 export const ProposalSuccessParagraphStyle = styled.p`
-  font-size: 16px;
-  line-height: 1.5;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   text-align: center;
   margin: 5px auto 15px;
 `;

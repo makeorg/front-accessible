@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import {
   Breakpoints,
   DefaultPadding,
@@ -44,7 +44,7 @@ export const FiltersContainerStyle = styled.div`
 
 export const ResetStyle = styled.span`
   cursor: pointer;
-  font-size: 12px;
+  font-size: ${intToPx(typography.font.fontsize.X2S.value)};
   text-decoration: underline;
   margin-left: 10px;
 `;
@@ -60,7 +60,7 @@ export const SeparatorStyle = styled.div`
 
 export const TextStyle = styled.div`
   display: flex;
-  font-size: 12px;
+  font-size: ${intToPx(typography.font.fontsize.X2S.value)};
   padding: 0 10px 10px 20px;
 
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {

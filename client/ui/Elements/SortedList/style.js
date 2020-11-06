@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { Elements } from 'Client/app/assets/vars/Elements';
 import { intToPx } from 'Shared/helpers/styled';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
@@ -25,15 +25,15 @@ export const SortedListElementStyle = styled.li`
   background-color: ${color.white};
   border-radius: 3px;
   padding: 7px 15px;
-  font-size: 12px;
+  font-size: ${intToPx(typography.font.fontsize.X2S.value)};
   &.selected {
     font-family: ${MakeFonts.CircularStandardBold};
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 14px;
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
   }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    font-size: 16px;
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
   }
 `;
 
@@ -47,15 +47,15 @@ export const SortedButtonStyle = styled(UnstyledButtonStyle)`
   background-color: ${color.greyLighter};
   border-radius: 3px;
   padding: 7px 15px;
-  font-size: 12px;
+  font-size: ${intToPx(typography.font.fontsize.X2S.value)};
   &.selected {
     font-family: ${MakeFonts.CircularStandardBold};
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 14px;
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
   }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    font-size: 16px;
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
   }
 `;
 

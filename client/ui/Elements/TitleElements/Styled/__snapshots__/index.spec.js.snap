@@ -3,31 +3,21 @@
 exports[`TitleElements FourthLevelTitleStyle snapshot by default 1`] = `
 .c0 {
   font-size: 12px;
-  line-height: 15px;
 }
 
 .c0.not-great-cause-proposal {
   margin: 0 0 15px;
 }
 
-@media (min-width:360px) {
-  .c0 {
-    font-size: 14px;
-    line-height: 19px;
-  }
-}
-
 @media (min-width:969px) {
   .c0 {
     font-size: 16px;
-    line-height: 32px;
   }
 }
 
 @media (min-width:1140px) {
   .c0 {
     font-size: 18px;
-    line-height: 25px;
   }
 }
 
@@ -41,14 +31,6 @@ exports[`TitleElements FourthLevelTitleStyle snapshot by default 1`] = `
 exports[`TitleElements SecondLevelTitleStyle snapshot by default 1`] = `
 .c0 {
   font-size: 20px;
-  line-height: 24px;
-}
-
-@media (min-width:360px) {
-  .c0 {
-    font-size: 24px;
-    line-height: 32px;
-  }
 }
 
 @media (min-width:767px) {
@@ -58,12 +40,6 @@ exports[`TitleElements SecondLevelTitleStyle snapshot by default 1`] = `
 }
 
 @media (min-width:969px) {
-  .c0 {
-    font-size: 28px;
-  }
-}
-
-@media (min-width:1140px) {
   .c0 {
     font-size: 30px;
   }
@@ -78,28 +54,18 @@ exports[`TitleElements SecondLevelTitleStyle snapshot by default 1`] = `
 
 exports[`TitleElements ThirdLevelTitleStyle snapshot by default 1`] = `
 .c0 {
-  font-size: 14px;
-  line-height: 19px;
-}
-
-@media (min-width:767px) {
-  .c0 {
-    font-size: 16px;
-    line-height: 22px;
-  }
+  font-size: 16px;
 }
 
 @media (min-width:767px) {
   .c0 {
     font-size: 18px;
-    line-height: 25px;
   }
 }
 
 @media (min-width:969px) {
   .c0 {
     font-size: 20px;
-    line-height: 30px;
   }
 }
 

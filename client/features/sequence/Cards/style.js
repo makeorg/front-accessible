@@ -3,7 +3,7 @@ import { RedButtonStyle } from 'Client/ui/Elements/Buttons/V2/style';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { ShadowColors } from 'Client/app/assets/vars/Colors';
 import { GreyButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import {
@@ -48,35 +48,35 @@ const SequenceTitleStyle = styled.div`
 `;
 
 export const SequenceMainTitleStyle = styled(SequenceTitleStyle)`
-  font-size: 14px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   letter-spacing: 0.12px;
   margin-bottom: 20px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 20px;
+    font-size: ${intToPx(typography.font.fontsize.M.value)};
   }
 `;
 
 export const SequenceAltTitleStyle = styled(SequenceTitleStyle)`
-  font-size: 14px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   margin-bottom: 15px;
   line-height: 1.5;
   letter-spacing: 0.12px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 18px;
+    font-size: ${intToPx(typography.font.fontsize.S.value)};
     margin-bottom: 30px;
   }
 `;
 
 export const SequenceIntroParagraphStyle = styled.div`
   width: 100%;
-  font-size: 14px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   line-height: 1.5;
   text-align: center;
   &.with-margin-bottom {
     margin-bottom: 15px;
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 20px;
+    font-size: ${intToPx(typography.font.fontsize.M.value)};
     &.with-margin-bottom {
       margin-bottom: 30px;
     }
@@ -84,14 +84,14 @@ export const SequenceIntroParagraphStyle = styled.div`
 `;
 
 export const SequenceProposalStyle = styled.blockquote`
-  font-size: 14px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   font-family: ${MakeFonts.CircularStandardBook};
   text-align: center;
   line-height: 1.64;
   letter-spacing: 0.11px;
   min-height: 82px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 20px;
+    font-size: ${intToPx(typography.font.fontsize.M.value)};
     line-height: 1.5;
     letter-spacing: 0.12px;
     min-height: 60px;
@@ -137,7 +137,7 @@ export const SequenceFinalMoreWrapperStyle = styled(CenterColumnStyle)`
 
 export const SequenceParagraphStyle = styled(CenterColumnStyle)`
   width: 100%;
-  font-size: 14px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   line-height: 1.57;
   letter-spacing: 0.12px;
   text-align: center;

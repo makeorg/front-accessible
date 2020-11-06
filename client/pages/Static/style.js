@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { intToPx } from 'Shared/helpers/styled';
 import {
   DefaultPadding,
@@ -49,27 +49,27 @@ export const StaticTitleExtra = styled.span`
   display: block;
   font-family: ${MakeFonts.PlayfairDisplayRegularItalic};
   text-transform: none;
-  font-size: 12px;
+  font-size: ${intToPx(typography.font.fontsize.X2S.value)};
   line-height: 2;
   color: ${color.greyDark};
   @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
-    font-size: 14px;
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
   }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    font-size: 16px;
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
   }
 `;
 
 export const StaticParagraphStyle = styled.p`
   margin: 0 0 15px;
-  font-size: 12px;
+  font-size: ${intToPx(typography.font.fontsize.X2S.value)};
   line-height: 2;
   color: ${color.greyDark};
   @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
-    font-size: 14px;
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
   }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    font-size: 16px;
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
   }
 `;
 
@@ -98,31 +98,22 @@ export const StaticPrimaryOrderedListItemStyle = styled.li`
   &:before {
     content: counter(articles) '.';
     font-family: ${MakeFonts.TradeGothicBoldCondensed};
-    font-size: 14px;
-    line-height: 19px;
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
     margin-right: 10px;
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     &:before {
-      font-size: 16px;
-      line-height: 22px;
-    }
-  }
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    &:before {
-      font-size: 18px;
-      line-height: 25px;
+      font-size: ${intToPx(typography.font.fontsize.S.value)};
     }
   }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     &:before {
-      font-size: 20px;
-      line-height: 30px;
+      font-size: ${intToPx(typography.font.fontsize.M.value)};
     }
   }
   @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
     &:before {
-      font-size: 22px;
+      font-size: ${intToPx(typography.font.fontsize.L.value)};
     }
   }
 `;
@@ -137,7 +128,7 @@ export const StaticSecondaryOrderedListItemStyle = styled.li`
   counter-increment: reset-articles;
   &:before {
     font-family: ${MakeFonts.CircularStandardBold};
-    font-size: 12px;
+    font-size: ${intToPx(typography.font.fontsize.X2S.value)};
     line-height: 15px;
     margin-right: 10px;
   }
@@ -161,20 +152,19 @@ export const StaticSecondaryOrderedListItemStyle = styled.li`
   }
   @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
     &:before {
-      font-size: 14px;
-      line-height: 19px;
+      font-size: ${intToPx(typography.font.fontsize.XS.value)};
     }
   }
 
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     &:before {
-      font-size: 16px;
+      font-size: ${intToPx(typography.font.fontsize.XS.value)};
       line-height: 32px;
     }
   }
   @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
     &:before {
-      font-size: 18px;
+      font-size: ${intToPx(typography.font.fontsize.S.value)};
       line-height: 25px;
     }
   }
@@ -186,14 +176,14 @@ export const StaticSquareListStyle = styled.ul`
 
 export const StaticSquareListItemStyle = styled.li`
   list-style-type: square;
-  font-size: 12px;
+  font-size: ${intToPx(typography.font.fontsize.X2S.value)};
   line-height: 2;
   color: ${color.greyDark};
   @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
-    font-size: 14px;
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
   }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    font-size: 16px;
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
   }
 `;
 
@@ -239,7 +229,7 @@ export const NoCookiesParagraphStyle = styled(ParagraphStyle)`
 `;
 
 export const NoCookiesAltParagraphStyle = styled.p`
-  font-size: 10px;
+  font-size: ${intToPx(typography.font.fontsize.X2S.value)};
   line-height: 1.5;
   color: rgb(0, 0, 0, 0, 065);
   a,
@@ -248,10 +238,10 @@ export const NoCookiesAltParagraphStyle = styled.p`
     color: ${color.brandSecondary};
   }
   @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
-    font-size: 12px;
+    font-size: ${intToPx(typography.font.fontsize.X2S.value)};
   }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    font-size: 14px;
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
   }
 `;
 

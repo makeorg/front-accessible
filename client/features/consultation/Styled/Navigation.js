@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { intToPx } from 'Shared/helpers/styled';
 import { Layouts, Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { Link } from 'react-router-dom';
@@ -32,8 +32,7 @@ export const ConsultationNavItemStyle = styled.li`
 export const ConsultationNavLinkStyle = styled(Link)`
   font-family: ${MakeFonts.CircularStandardBold};
   width: 100%;
-  font-size: 14px;
-  line-height: 1.5;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   text-align: center;
   text-decoration: none;
   color: ${color.black};

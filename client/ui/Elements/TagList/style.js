@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { Elements } from 'Client/app/assets/vars/Elements';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
@@ -55,7 +55,7 @@ export const TagIconStyle = styled(SvgClose)`
 
 export const ProposalCountStyle = styled.span`
   margin-left: 5px;
-  font-size: 14px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   color: ${props => (props.isSelected ? color.white : color.greyDark)};
 `;
 
@@ -66,7 +66,7 @@ export const TagListHeaderStyle = styled.div`
   background-color: ${color.infos};
   color: ${color.white};
   padding: 11px 15px 8px 15px;
-  font-size: 12px;
+  font-size: ${intToPx(typography.font.fontsize.X2S.value)};
 `;
 
 export const TagElementUnderlinedStyle = styled(UnstyledButtonStyle)`

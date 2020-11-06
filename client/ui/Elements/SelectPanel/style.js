@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { Elements } from 'Client/app/assets/vars/Elements';
@@ -21,7 +21,7 @@ export const SelectPanelWrapperStyle = styled.div`
 `;
 
 export const SelectButtonStyle = styled(UnstyledButtonStyle)`
-  font-size: 14px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   background-color: ${props =>
     props.isHighlighted ? color.brandSecondary : color.white};
   color: ${props => (props.isHighlighted ? color.white : color.greyDark)};

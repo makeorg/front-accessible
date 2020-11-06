@@ -1,13 +1,14 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { RedButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
+import { intToPx } from 'Shared/helpers/styled';
 
 export const LocalActorItemStyle = styled.li`
   display: flex;
   align-items: center;
   color: ${color.greyDark};
-  font-size: 12px;
+  font-size: ${intToPx(typography.font.fontsize.X2S.value)};
   padding: 20px 0;
   border-bottom: 1px solid ${color.greyLighter};
 

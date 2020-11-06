@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { ShadowColors } from 'Client/app/assets/vars/Colors';
 import { Elements } from 'Client/app/assets/vars/Elements';
 import { intToPx } from 'Shared/helpers/styled';
@@ -22,7 +22,7 @@ export const ResultsSliderArrowsStyle = styled(UnstyledButtonStyle)`
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  font-size: 15px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   transform: translateY(-50%);
   z-index: 2;
   background-color: ${color.black};

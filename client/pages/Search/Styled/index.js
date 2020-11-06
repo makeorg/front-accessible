@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { ColumnElementStyle } from 'Client/ui/Elements/FlexElements';
 import { Breakpoints, Layouts } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
@@ -74,7 +74,7 @@ export const SearchBackStyle = styled(UnstyledButtonStyle)`
   margin-bottom: 10px;
   margin-left: 0;
   color: ${color.brandSecondary};
-  font-size: 12px;
+  font-size: ${intToPx(typography.font.fontsize.X2S.value)};
   padding: 0;
   text-decoration: underline;
   &:hover,
@@ -82,10 +82,10 @@ export const SearchBackStyle = styled(UnstyledButtonStyle)`
     color: ${color.brandSecondary};
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 14px;
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
   }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    font-size: 16px;
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
   }
 `;
 

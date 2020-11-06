@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { ShadowColors } from 'Client/app/assets/vars/Colors';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { SpaceBetweenColumnStyle } from 'Client/ui/Elements/FlexElements';
@@ -11,6 +11,7 @@ import {
   ADD_SEARCH_DESKTOP_ANIMATION,
   REMOVE_SEARCH_DESKTOP_ANIMATION,
 } from 'Shared/constants/a11y';
+import { intToPx } from 'Shared/helpers/styled';
 
 export const MenuOpenTriggerStyle = styled(UnstyledButtonStyle)`
   display: flex;
@@ -89,7 +90,7 @@ export const MenuItemTitleStyle = styled.span`
 `;
 
 export const MenuInternalLinkStyle = styled(Link)`
-  font-size: 15px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   line-height: 67px;
   text-decoration: none;
   padding: 0 30px;
@@ -101,7 +102,7 @@ export const MenuInternalLinkStyle = styled(Link)`
 export const MenuExternalLinkStyle = styled.a`
   display: inline-flex;
   align-items: center;
-  font-size: 14px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   line-height: 67px;
   padding: 0 30px;
 `;
@@ -150,7 +151,7 @@ const DesktopLinkStyle = `
   text-transform: uppercase;
   text-decoration: none;
   align-items: center;
-  font-size: 15px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   line-height: 40px;
   padding: 0 30px;
 `;

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { SvgPreviousArrow, SvgNextArrow } from 'Client/ui/Svg/elements';
 import { intToPx } from 'Shared/helpers/styled';
@@ -13,7 +13,7 @@ export const PaginationNavStyle = styled.nav`
 
 export const PaginationTextStyle = styled.span`
   align-self: center;
-  font-size: 14px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   font-family: ${MakeFonts.CircularStandardBook};
   color: ${color.greyDark};
   padding: 0px 30px;

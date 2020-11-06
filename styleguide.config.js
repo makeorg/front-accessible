@@ -60,7 +60,6 @@ module.exports = {
     'client/ui/Cards/index.js',
     'client/ui/Data/PieChart/Build/index.js',
     'client/ui/Elements/Buttons/style.js',
-    'client/ui/ProgressCircle/index.js',
     'client/ui/Proposal/DetailledVoteResults/Item/index.js',
     'client/ui/Elements/Form/PasswordInput/Button/index.js',
   ],

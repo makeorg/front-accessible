@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 import { intToPx } from 'Shared/helpers/styled';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import {
   Breakpoints,
   Layouts,
   DefaultPadding,
 } from 'Client/app/assets/vars/Breakpoints';
-import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { BasicButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import {
   CenterRowStyle,
@@ -42,7 +41,8 @@ export const CookieIconStyle = styled(SvgInfos)`
   margin-right: 10px;
 `;
 
-export const CookieParagraphStyle = styled(ParagraphStyle)`
+export const CookieParagraphStyle = styled.p`
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   color: ${color.white};
   flex: 1 1 auto;
   a,

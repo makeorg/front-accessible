@@ -1,8 +1,9 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { SpaceBetweenRowStyle } from 'Client/ui/Elements/FlexElements';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { SocialNetworksColors } from 'Client/app/assets/vars/Colors';
+import { intToPx } from 'Shared/helpers/styled';
 
 export const FollowUsStyle = styled(SpaceBetweenRowStyle)`
   width: 100%;
@@ -23,7 +24,7 @@ export const FollowUsListItemStyle = styled.li`
 export const FollowUsButtonStyle = styled(UnstyledButtonStyle)`
   width: 40px;
   height: 40px;
-  font-size: 18px;
+  font-size: ${intToPx(typography.font.fontsize.S.value)};
   color: ${color.white};
   border-radius: 50%;
   align-items: center;

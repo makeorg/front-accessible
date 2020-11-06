@@ -1,12 +1,12 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
+import { intToPx } from 'Shared/helpers/styled';
 
 export const FormSuccessMessageStyle = styled.p`
   display: flex;
   align-content: center;
   margin-top: 10px;
-  font-size: 12px;
-  line-height: 18px;
+  font-size: ${intToPx(typography.font.fontsize.X2S.value)};
 `;
 
 export const FormSuccessSvgStyle = {

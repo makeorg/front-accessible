@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { pxToRem, intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import {
@@ -35,14 +35,14 @@ export const HomepageSectionStyle = styled(ColumnElementStyle)`
 
 export const HomepageSectionTitleStyle = styled.h2`
   font-family: ${MakeFonts.CircularStandardBold};
-  font-size: 30px;
+  font-size: ${intToPx(typography.font.fontsize.X2L.value)};
   color: ${color.black};
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   text-transform: none;
   &.with-container {
     ${ContainerWithPadding};
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 42px;
+    font-size: ${intToPx(typography.font.fontsize.X4L.value)};
   }
 `;

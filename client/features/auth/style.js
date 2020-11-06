@@ -5,7 +5,7 @@ import { SmallSeparatorStyle } from 'Client/ui/Elements/Separators';
 import { FormCenterAlignStyle } from 'Client/ui/Elements/Form/Styled/Content';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/Buttons/style';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { RedButtonStyle } from 'Client/ui/Elements/Buttons/V2/style';
 import { SpaceBetweenRowStyle } from 'Client/ui/Elements/FlexElements';
 import { intToPx } from 'Shared/helpers/styled';
@@ -64,7 +64,7 @@ export const LegalButtonGroupStyle = styled(SpaceBetweenRowStyle)`
 `;
 
 export const LegalCancelStyle = styled(UnstyledButtonStyle)`
-  font-size: 16px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   color: ${color.greyDark};
   text-decoration: underline;
 `;

@@ -5,6 +5,7 @@ import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { intToPx } from 'Shared/helpers/styled';
 import { CardStyle } from 'Client/ui/Cards';
 import { Elements } from 'Client/app/assets/vars/Elements';
+import { typography } from 'athena-design-tokens';
 import { ColumnElementStyle } from './FlexElements';
 
 export const ProposalInnerStyle = styled(ColumnElementStyle)`
@@ -13,8 +14,7 @@ export const ProposalInnerStyle = styled(ColumnElementStyle)`
 `;
 export const ProposalStyle = styled(Link)`
   width: 100%;
-  font-size: 12px;
-  line-height: 1.5;
+  font-size: ${intToPx(typography.font.fontsize.X2S.value)};
   font-family: ${MakeFonts.CircularStandardBold};
   align-self: flex-start;
   flex: 1 1 auto;
@@ -22,10 +22,10 @@ export const ProposalStyle = styled(Link)`
   text-decoration: none;
   justify-self: flex-start;
   @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
-    font-size: 16px;
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
   }
   @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
-    font-size: 18px;
+    font-size: ${intToPx(typography.font.fontsize.S.value)};
   }
 `;
 

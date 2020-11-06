@@ -1,4 +1,4 @@
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { ColumnElementStyle } from 'Client/ui/Elements/FlexElements';
 import { ContainerWithPadding } from 'Client/app/Styled/MainElements';
 import styled from 'styled-components';
@@ -23,7 +23,7 @@ export const PartnershipInnerStyle = styled.div`
 `;
 
 export const PartnershipSubtitleStyle = styled.span`
-  font-size: 15px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   text-transform: uppercase;
   color: ${color.white};
   opacity: 0.65;
@@ -33,21 +33,19 @@ export const PartnershipSubtitleStyle = styled.span`
 
 export const PartnershipTitleStyle = styled.h2`
   font-family: ${MakeFonts.CircularStandardBold};
-  font-size: 30px;
-  line-height: 1.5;
+  font-size: ${intToPx(typography.font.fontsize.X2L.value)};
   letter-spacing: 0.5px;
   color: ${color.white};
   margin-bottom: 15px;
   text-transform: none;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 42px;
+    font-size: ${intToPx(typography.font.fontsize.X4L.value)};
     margin-bottom: 10px;
   }
 `;
 
 export const PartnershipParagraphStyle = styled.p`
-  font-size: 14px;
-  line-height: 22px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   letter-spacing: 0.12px;
   font-family: ${MakeFonts.CircularStandardBook};
   color: ${color.white};
@@ -55,5 +53,5 @@ export const PartnershipParagraphStyle = styled.p`
 `;
 
 export const PartnershipRedButton = styled(LinkAsRedButton)`
-  font-size: 16px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
 `;

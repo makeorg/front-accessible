@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { Link } from 'react-router-dom';
 import { intToPx } from 'Shared/helpers/styled';
 import {
@@ -33,8 +33,7 @@ export const BrowseBreadcrumbsLinkStyle = styled(Link)`
   font-family: ${MakeFonts.CircularStandardBook};
   color: ${color.black};
   text-decoration: underline;
-  font-size: 12px;
-  line-height: 20px;
+  font-size: ${intToPx(typography.font.fontsize.X2S.value)};
   &:hover,
   &:focus {
     color: ${color.black};
@@ -76,15 +75,14 @@ export const BreadcrumbsLinkStyleDeprecated = styled(Link)`
   color: ${color.brandSecondary};
   text-decoration: none;
   text-transform: uppercase;
-  font-size: 16px;
-  line-height: 1.25;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   border-bottom: 2px solid ${color.brandSecondary};
   &:hover,
   &:focus {
     color: ${color.brandSecondary};
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 18px;
+    font-size: ${intToPx(typography.font.fontsize.S.value)};
   }
 `;
 

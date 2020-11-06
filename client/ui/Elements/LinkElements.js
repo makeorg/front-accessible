@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { Link } from 'react-router-dom';
 import {
   RedButtonStyle,
@@ -11,19 +11,13 @@ import { SvgExternalLink } from '../Svg/elements';
 
 const linkStyle = linkColor => `
   color: ${linkColor};
-  font-size: 12px;
-  line-height: 18px;
+  font-size: ${intToPx(typography.font.fontsize.X2S.value)};
   &:hover,
   &:focus {
     color: ${linkColor};
   }
   @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
-    font-size: 14px;
-    line-height: 21px;
-  }
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    font-size: 16px;
-    line-height: 24px;
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
   }
 `;
 

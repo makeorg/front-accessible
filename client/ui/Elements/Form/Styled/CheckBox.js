@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
@@ -15,11 +15,9 @@ export const CheckboxLabelStyle = styled.label`
   display: inline-flex;
   color: ${color.greyDark};
   font-family: ${MakeFonts.CircularStandardBook};
-  font-size: 12px;
-  line-height: 16px;
+  font-size: ${intToPx(typography.font.fontsize.X2S.value)};
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 14px;
-    line-height: 18px;
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
   }
 `;
 
@@ -38,6 +36,6 @@ export const FakeCheckboxInputStyle = styled.div`
     bottom: 5%;
     left: 25%;
     z-index: 1;
-    font-size: 14px;
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
   }
 `;

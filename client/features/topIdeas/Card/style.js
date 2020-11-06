@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { PopularProposalHeader } from 'Client/features/proposal/PopularProposalCard/style';
 import { RedLinkRouterStyle } from 'Client/ui/Elements/LinkElements';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
@@ -37,24 +37,20 @@ export const TopIdeaLinkStyle = styled(RedLinkRouterStyle)`
 
 export const TopIdeaContentStyle = styled(Link)`
   width: 100%;
-  font-size: 14px;
-  line-height: 19px;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   font-family: ${MakeFonts.CircularStandardBold};
   align-self: flex-start;
   flex: 1 1 auto;
   margin-top: 15px;
   text-decoration: none;
   @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
-    font-size: 16px;
-    line-height: 22px;
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 18px;
-    line-height: 25px;
+    font-size: ${intToPx(typography.font.fontsize.S.value)};
   }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    font-size: 20px;
-    line-height: 30px;
+    font-size: ${intToPx(typography.font.fontsize.M.value)};
   }
 `;
 
@@ -107,16 +103,10 @@ export const TopIdeaCollapseTriggerStyle = styled(UnstyledButtonStyle)`
   display: flex;
   align-items: center;
   order: 1;
-  font-size: 12px;
-  line-height: 18px;
+  font-size: ${intToPx(typography.font.fontsize.X2S.value)};
   color: ${color.greyDark};
   @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
-    font-size: 14px;
-    line-height: 21px;
-  }
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    font-size: 16px;
-    line-height: 24px;
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
   }
   .tofill {
     fill: ${color.brandSecondary};

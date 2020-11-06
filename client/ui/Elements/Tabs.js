@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import {
   Layouts,
   DefaultPadding,
@@ -74,7 +74,7 @@ const TabStyle = styled.li`
     text-transform: uppercase;
     font-family: ${MakeFonts.TradeGothicBoldCondensed};
     width: 100%;
-    font-size: 14px;
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
     padding: ${props => (props.isSelected ? '7px 5px' : '5px')};
     text-decoration: none;
     text-align: center;
@@ -85,7 +85,7 @@ const TabStyle = styled.li`
     }
     @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
       flex-flow: row;
-      font-size: 18px;
+      font-size: ${intToPx(typography.font.fontsize.S.value)};
       padding: ${props => (props.isSelected ? '15px' : '10px 15px')};
     }
   }

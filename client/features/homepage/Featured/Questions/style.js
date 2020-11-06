@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
 import { SvgAngleArrowRight } from 'Client/ui/Svg/elements';
@@ -12,7 +12,7 @@ export const FeaturedListItemStyle = styled.li`
 export const FeaturedLinkStyle = styled.a`
   display: flex;
   align-items: center;
-  font-size: 12px;
+  font-size: ${intToPx(typography.font.fontsize.X2S.value)};
   color: ${color.black};
   text-decoration: none;
   background-color: transparent;
@@ -20,7 +20,7 @@ export const FeaturedLinkStyle = styled.a`
   padding: 10px 15px;
   border-radius: 20px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 14px;
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
   }
 `;
 
