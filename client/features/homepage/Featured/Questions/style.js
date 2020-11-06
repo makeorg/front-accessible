@@ -17,7 +17,7 @@ export const FeaturedLinkStyle = styled.a`
   text-decoration: none;
   background-color: transparent;
   border: 1px solid ${color.black};
-  padding: 10px 15px;
+  padding: 8px 15px;
   border-radius: 20px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: ${intToPx(typography.font.fontsize.XS.value)};

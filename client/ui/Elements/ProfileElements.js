@@ -12,7 +12,6 @@ import {
   MiddleRowStyle,
   ColumnElementStyle,
 } from 'Client/ui/Elements/FlexElements';
-import { TabsOffsetDesktop } from 'Shared/constants/tabs';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { SeparatorStyle } from 'Client/ui/Elements/Separators';
 import {
@@ -24,6 +23,7 @@ import { Elements } from 'Client/app/assets/vars/Elements';
 import { RedLinkHTMLElementStyle } from './LinkElements';
 import { SvgLink, SvgLike, SvgMapMarker } from '../Svg/elements';
 
+const TabsOffsetDesktop = 62;
 const DesktopOffset = intToPx(TabsOffsetDesktop);
 const DesktopMarginWithOffset = DefaultPadding.Desktop - TabsOffsetDesktop;
 
