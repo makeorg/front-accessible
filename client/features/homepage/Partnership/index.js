@@ -5,6 +5,7 @@ import { getWebflowDynamicLink } from 'Shared/helpers/url';
 import { i18n } from 'Shared/i18n';
 import { useSelector } from 'react-redux';
 import { ROUTE_PARTNERSHIP } from 'Shared/routes';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import {
   PartnershipInnerStyle,
   PartnershipParagraphStyle,
@@ -48,9 +49,10 @@ export const PartnershipBanner = () => {
         >
           {i18n.t('homepage.partnership.button')}
           <> </>
-          <ExternalLinkIconStyle
-            aria-label={i18n.t('common.open_new_window')}
-          />
+          <ExternalLinkIconStyle aria-hidden focusable="false" />
+          <ScreenReaderItemStyle>
+            {i18n.t('common.open_new_window')}
+          </ScreenReaderItemStyle>
         </PartnershipRedButton>
       </PartnershipInnerStyle>
     </PartnershipSectionStyle>

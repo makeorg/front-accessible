@@ -47,6 +47,7 @@ export const CookieBanner = () => {
       <CookieContentStyle>
         <CookieIconStyle
           aria-label={i18n.t('common.notifications.icons.information')}
+          focusable="false"
         />
         <CookieContentInnerStyle>
           <CookieParagraphStyle
@@ -64,6 +65,7 @@ export const CookieBanner = () => {
           <CookieButtonStyle
             onClick={handleClose}
             data-cy-button="cookie-accept"
+            type="button"
           >
             OK
           </CookieButtonStyle>

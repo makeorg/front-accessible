@@ -57,6 +57,7 @@ exports[`SelectPanel must match the snapshot with default Props 1`] = `
     <ArrowStyle>
       <SvgAngleArrowBottom
         aria-hidden={true}
+        focusable="false"
       />
     </ArrowStyle>
   </SelectButtonStyle>

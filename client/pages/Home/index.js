@@ -39,11 +39,10 @@ export const HomePage = () => {
     }
     setIsLoading(false);
   };
-  const hasFeaturedQuestions =
-    homepage &&
-    homepage.featuredQuestions &&
-    homepage.featuredQuestions.length > 0;
-  const hasPosts = homepage && homepage.posts && homepage.posts.length > 0;
+
+  const { featuredQuestions, posts } = homepage || {};
+  const hasFeaturedQuestions = featuredQuestions?.length > 0;
+  const hasPosts = posts?.length > 0;
 
   useEffect(() => {
     if (!homepage || country !== currentCountry) {

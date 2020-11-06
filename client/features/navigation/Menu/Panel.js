@@ -18,9 +18,8 @@ import {
   ROUTE_PARTNERSHIP,
 } from 'Shared/routes';
 import { scrollToTop } from 'Shared/helpers/styled';
-
 import { JOBS_LINK, NEWS_LINK } from 'Shared/constants/url';
-
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import {
   MenuPanelStyle,
   MenuCloseTriggerStyle,
@@ -62,12 +61,15 @@ export const MenuPanel = ({ isExpanded, toggleExpansion }: Props) => {
       data-cy-container="mobile-header-menu"
     >
       <MenuCloseTriggerStyle
-        aria-label={i18n.t('header.close_menu')}
         onClick={toggleExpansion}
         disabled={!isExpanded}
         data-cy-button="mobile-header-close-menu"
+        type="button"
       >
-        <SvgClose aria-hidden />
+        <SvgClose aria-hidden focusable="false" />
+        <ScreenReaderItemStyle>
+          {i18n.t('header.close_menu')}
+        </ScreenReaderItemStyle>
       </MenuCloseTriggerStyle>
       <MenuInnerStyle>
         <MenuNavStyle aria-label={i18n.t('header.main_navigation')}>
@@ -105,9 +107,10 @@ export const MenuPanel = ({ isExpanded, toggleExpansion }: Props) => {
               >
                 {i18n.t('main-footer.whoarewe')}
                 <> </>
-                <MenuNewWindowIconStyle
-                  aria-label={i18n.t('common.open_new_window')}
-                />
+                <MenuNewWindowIconStyle aria-hidden focusable="false" />
+                <ScreenReaderItemStyle>
+                  {i18n.t('common.open_new_window')}
+                </ScreenReaderItemStyle>
               </MenuExternalLinkStyle>
             </MenuItemStyle>
             {isFR && (
@@ -120,9 +123,10 @@ export const MenuPanel = ({ isExpanded, toggleExpansion }: Props) => {
                   >
                     {i18n.t('homepage.partnership.subtitle')}
                     <> </>
-                    <MenuNewWindowIconStyle
-                      aria-label={i18n.t('common.open_new_window')}
-                    />
+                    <MenuNewWindowIconStyle aria-hidden focusable="false" />
+                    <ScreenReaderItemStyle>
+                      {i18n.t('common.open_new_window')}
+                    </ScreenReaderItemStyle>
                   </MenuExternalLinkStyle>
                 </MenuItemStyle>
                 <MenuItemStyle>
@@ -133,9 +137,10 @@ export const MenuPanel = ({ isExpanded, toggleExpansion }: Props) => {
                   >
                     {i18n.t('main-footer.news')}
                     <> </>
-                    <MenuNewWindowIconStyle
-                      aria-label={i18n.t('common.open_new_window')}
-                    />
+                    <MenuNewWindowIconStyle aria-hidden focusable="false" />
+                    <ScreenReaderItemStyle>
+                      {i18n.t('common.open_new_window')}
+                    </ScreenReaderItemStyle>
                   </MenuExternalLinkStyle>
                 </MenuItemStyle>
                 <MenuItemStyle>
@@ -146,16 +151,17 @@ export const MenuPanel = ({ isExpanded, toggleExpansion }: Props) => {
                   >
                     {i18n.t('main-footer.jobs')}
                     <> </>
-                    <MenuNewWindowIconStyle
-                      aria-label={i18n.t('common.open_new_window')}
-                    />
+                    <MenuNewWindowIconStyle aria-hidden focusable="false" />
+                    <ScreenReaderItemStyle>
+                      {i18n.t('common.open_new_window')}
+                    </ScreenReaderItemStyle>
                   </MenuExternalLinkStyle>
                 </MenuItemStyle>
               </>
             )}
           </UnstyledListStyle>
         </MenuNavStyle>
-        <SvgLogoBlack aria-hidden />
+        <SvgLogoBlack aria-hidden focusable="false" />
       </MenuInnerStyle>
     </MenuPanelStyle>
   );

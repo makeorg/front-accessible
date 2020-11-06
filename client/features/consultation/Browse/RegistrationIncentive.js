@@ -27,7 +27,7 @@ export const RegistrationIncentive = ({ length }: Props) => {
   return (
     <NoConsultationWrapperStyle>
       <NoConsultationImageStyle>
-        <SvgMail aria-hidden />
+        <SvgMail aria-hidden focusable="false" />
       </NoConsultationImageStyle>
       <ConsultationElementTitleStyle>
         {length === 0

@@ -43,7 +43,7 @@ export const HighlightsBanner = ({ highlights }: Props) => {
       </HomepageSectionTitleStyle>
       <HighlightsBannerFiguresContainerStyle as="ul">
         <HighlightFigureContainerStyle as="li">
-          <PeopleIconStyle aria-hidden />
+          <PeopleIconStyle aria-hidden focusable="false" />
           <> </>
           <FiguresStyle>
             {formatMillionToText(participantsCount, country, language)}
@@ -55,7 +55,7 @@ export const HighlightsBanner = ({ highlights }: Props) => {
           <FigureSeparationLineStyle />
         </HighlightFigureContainerStyle>
         <HighlightFigureContainerStyle as="li">
-          <LigthIconStyle aria-hidden />
+          <LigthIconStyle aria-hidden focusable="false" />
           <> </>
           <FiguresStyle>
             {formatMillionToText(proposalsCount, country, language)}
@@ -67,7 +67,7 @@ export const HighlightsBanner = ({ highlights }: Props) => {
           <FigureSeparationLineStyle />
         </HighlightFigureContainerStyle>
         <HighlightFigureContainerStyle as="li">
-          <HeartIconStyle aria-hidden />
+          <HeartIconStyle aria-hidden focusable="false" />
           <> </>
           <FiguresStyle>
             {formatMillionToText(partnersCount, country, language)}

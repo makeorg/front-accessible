@@ -77,6 +77,7 @@ exports[`Pagination snapshot by default 1`] = `
     <svg
       aria-hidden={true}
       className="c2"
+      focusable="false"
       height={16}
       viewBox="0 0 9 16"
       width={9}
@@ -103,6 +104,7 @@ exports[`Pagination snapshot by default 1`] = `
     <svg
       aria-hidden={true}
       className="c4"
+      focusable="false"
       height={16}
       viewBox="0 0 9 16"
       width={9}

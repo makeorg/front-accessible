@@ -10,6 +10,7 @@ import { SvgClose } from 'Client/ui/Svg/elements';
 import { ThirdLevelTitleCircularStyle } from 'Client/ui/Elements/TitleElements';
 import SessionExpiredPicture from 'Client/app/assets/images/session-expired.png';
 import { trackDisplaySessionExpired } from 'Shared/services/Tracking';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import {
   ExpirationSessionModalContentStyle,
   ReloadButtonStyle,
@@ -45,12 +46,9 @@ export const ExpirationSessionModal = () => {
       style={{ maxWidth: '350px' }}
       shouldCloseOnOverlayClick
     >
-      <CloseButtonStyle
-        aria-label={i18n.t('modal.close')}
-        aria-expanded="false"
-        onClick={handleClose}
-      >
-        <SvgClose aria-hidden />
+      <CloseButtonStyle aria-expanded="false" onClick={handleClose}>
+        <SvgClose aria-hidden focusable="false" />
+        <ScreenReaderItemStyle>{i18n.t('modal.close')}</ScreenReaderItemStyle>
       </CloseButtonStyle>
       <ExpirationSessionModalContentStyle>
         <SessionExpiredPictureStyle src={SessionExpiredPicture} alt="" />

@@ -20,7 +20,7 @@ export const EditProfileLink = ({ link }: { link: string }) => {
 export const GoToProfileLink = ({ link }: { link: string }) => {
   return (
     <LinkAsGreyButton to={link} as={Link}>
-      <AngleArrowLeftIconStyle aria-hidden />
+      <AngleArrowLeftIconStyle aria-hidden focusable="false" />
       {i18n.t('profile.informations_update.link_to_profile')}
     </LinkAsGreyButton>
   );

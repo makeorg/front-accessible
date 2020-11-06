@@ -39,7 +39,12 @@ export const Avatar = ({
           avatarSize={avatarSize}
         />
       ) : (
-        <SvgEmptyAvatar aria-hidden width={avatarSize} height={avatarSize} />
+        <SvgEmptyAvatar
+          aria-hidden
+          width={avatarSize}
+          height={avatarSize}
+          focusable="false"
+        />
       )}
     </AvatarStyle>
   );

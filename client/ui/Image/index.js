@@ -152,24 +152,28 @@ export const Image = ({
 
   return (
     <>
-      <img
-        src={srcCurrent}
-        srcSet={srcSetCurrent}
-        alt={altCurrent}
-        key={key}
-        className={className}
-        loading={loading}
-        width={width ? `${width}px` : null}
-        height={height ? `${height}px` : null}
-      />
-      <noscript>
+      {srcCurrent && (
         <img
-          src={imageToLoad}
+          src={srcCurrent}
+          srcSet={srcSetCurrent}
           alt={altCurrent}
-          width={width ? `${width}px` : null}
-          height={height ? `${height}px` : null}
+          key={key}
+          className={className}
+          loading={loading}
+          width={width ? `${width}` : null}
+          height={height ? `${height}` : null}
         />
-      </noscript>
+      )}
+      {imageToLoad && (
+        <noscript>
+          <img
+            src={imageToLoad}
+            alt={altCurrent}
+            width={width ? `${width}` : null}
+            height={height ? `${height}` : null}
+          />
+        </noscript>
+      )}
     </>
   );
 };

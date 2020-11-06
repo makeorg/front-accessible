@@ -95,7 +95,7 @@ export const ProposalAuthorElement = ({
               >
                 {formatOrganisationName(author.organisationName)}
               </RedLinkRouterStyle>
-              <CertifiedIconStyle aria-hidden />
+              <CertifiedIconStyle aria-hidden focusable="false" />
             </>
           )}
           {isPersonality && (
@@ -106,7 +106,7 @@ export const ProposalAuthorElement = ({
               >
                 {formatAuthorName(author.firstName)}
               </RedLinkRouterStyle>
-              <CertifiedIconStyle aria-hidden />
+              <CertifiedIconStyle aria-hidden focusable="false" />
             </>
           )}
           {isBasicUser && formatAuthorName(author.firstName)}

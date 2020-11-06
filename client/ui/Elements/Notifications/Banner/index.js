@@ -8,6 +8,7 @@ import {
   clearNotificationBanner,
   dismissNotification,
 } from 'Shared/store/actions/notifications';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import {
   NotificationWrapperStyle,
   NotificationContentStyle,
@@ -49,11 +50,13 @@ export const NotificationBanner = () => {
         {content}
       </NotificationContentStyle>
       <NotificationCloseButtonStyle
-        aria-label={i18n.t('common.notifications.icons.close')}
         aria-expanded="false"
         onClick={closeNotificationBanner}
       >
-        <SvgDisconnect aria-hidden />
+        <SvgDisconnect aria-hidden focusable="false" />
+        <ScreenReaderItemStyle>
+          {i18n.t('common.notifications.icons.close')}
+        </ScreenReaderItemStyle>
       </NotificationCloseButtonStyle>
     </NotificationWrapperStyle>
   );

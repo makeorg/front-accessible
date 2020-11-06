@@ -104,7 +104,7 @@ const PersonalityPage = ({ match }: Props) => {
                 </ScreenReaderItemStyle>
                 {personality.lastName}
                 &nbsp;
-                <CertifiedIconStyle aria-hidden />
+                <CertifiedIconStyle aria-hidden focusable="false" />
               </ProfileTitleStyle>
             </ProfileContentWrapperStyle>
             {personality.profile.politicalParty && (
@@ -130,7 +130,7 @@ const PersonalityPage = ({ match }: Props) => {
                 <ScreenReaderItemStyle>
                   {i18n.t('profile.common.labels.website')}
                 </ScreenReaderItemStyle>
-                <ProfileLinkIconStyle aria-hidden />
+                <ProfileLinkIconStyle aria-hidden focusable="false" />
                 <ProfileWebsiteLinkStyle
                   as="a"
                   target="_blank"

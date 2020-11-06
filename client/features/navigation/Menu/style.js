@@ -19,7 +19,7 @@ export const MenuOpenTriggerStyle = styled(UnstyledButtonStyle)`
   margin-right: 20px;
 `;
 
-export const MenuBarStyle = styled.div`
+export const MenuBarStyle = styled.span`
   width: 16px;
   height: 3px;
   border-radius: 1.5px;

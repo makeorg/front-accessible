@@ -17,7 +17,7 @@ export const OrganisationVotesPlaceholder = (props: Props) => {
   return (
     <CenterColumnStyle>
       <ThumbsUpWrapperStyle>
-        <SvgThumbsUp aria-hidden style={ThumbsUpStyle} />
+        <SvgThumbsUp aria-hidden style={ThumbsUpStyle} focusable="false" />
       </ThumbsUpWrapperStyle>
       <PlaceholderParagraphStyle>
         {i18n.t('organisation.votes.text', {

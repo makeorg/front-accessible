@@ -56,7 +56,8 @@ const businessConsultation = (question, country) => (
           {question.question}
         </BusinessConsultationsItemLinkStyle>
       </BusinessConsultationStyle>
-      <BusinessConsultationsItemArrowStyle aria-hidden />
+
+      <BusinessConsultationsItemArrowStyle aria-hidden focusable="false" />
     </BusinessConsultationsItemWrapperStyle>
   </BusinessConsultationsItemStyle>
 );

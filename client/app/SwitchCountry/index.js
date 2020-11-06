@@ -62,7 +62,7 @@ export const SwitchCountry = () => {
             >
               {item.name}
               {item.isoCode === country && (
-                <SelectedCountryIconStyle aria-hidden />
+                <SelectedCountryIconStyle aria-hidden focusable="false" />
               )}
             </CountryLinkStyle>
           </li>

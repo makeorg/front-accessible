@@ -107,7 +107,7 @@ export const SearchForm = ({ isExpanded, handleFocus }: Props) => {
           onClick={handleFlush}
           data-cy-button="search-clear"
         >
-          <SvgDisconnect aria-hidden />
+          <SvgDisconnect aria-hidden focusable="false" />
         </SearchButtonStyle>
       ) : (
         <SearchButtonStyle
@@ -115,7 +115,10 @@ export const SearchForm = ({ isExpanded, handleFocus }: Props) => {
           disabled={!canSubmit}
           data-cy-button="search-submit"
         >
-          <SvgSearch aria-label={i18n.t('search.form.submit')} />
+          <SvgSearch aria-hidden focusable="false" />
+          <ScreenReaderItemStyle>
+            {i18n.t('search.form.submit')}
+          </ScreenReaderItemStyle>
         </SearchButtonStyle>
       )}
     </SearchFormStyle>

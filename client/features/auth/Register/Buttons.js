@@ -21,7 +21,7 @@ export const AuthenticationRegisterButtons = () => {
         onClick={() => dispatch(modalShowRegister())}
         id="authentication-register-button"
       >
-        <AuthenticationEmailIconStyle aria-hidden />
+        <AuthenticationEmailIconStyle aria-hidden focusable="false" />
         {i18n.t('common.email')}
       </EmailButtonStyle>
     </AuthenticationButtonWrapperStyle>

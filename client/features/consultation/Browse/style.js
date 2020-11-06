@@ -23,7 +23,7 @@ export const BrowseHeaderStyle = styled.header`
   background-color: ${color.greyLighter};
 `;
 
-export const BrowseHeaderInnerStyle = styled.header`
+export const BrowseHeaderInnerStyle = styled.div`
   ${ContainerWithPadding};
   padding-top: 30px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {

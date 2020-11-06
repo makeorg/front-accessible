@@ -132,7 +132,7 @@ const OrganisationPage = (props: Props) => {
                   {i18n.t('profile.common.labels.organisation')}
                 </ScreenReaderItemStyle>
                 {formatOrganisationName(organisation.organisationName)}
-                <CertifiedIconStyle aria-hidden />
+                <CertifiedIconStyle aria-hidden focusable="false" />
               </ProfileTitleStyle>
             </ProfileContentWrapperStyle>
             {organisation.description && (
@@ -148,7 +148,7 @@ const OrganisationPage = (props: Props) => {
                 <ScreenReaderItemStyle>
                   {i18n.t('profile.common.labels.website')}
                 </ScreenReaderItemStyle>
-                <ProfileLinkIconStyle aria-hidden />
+                <ProfileLinkIconStyle aria-hidden focusable="false" />
                 <ProfileWebsiteLinkStyle
                   as="a"
                   target="_blank"

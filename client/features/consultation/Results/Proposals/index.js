@@ -63,7 +63,7 @@ export const ProposalsResults = ({
                   }
                 )}
               </ResultsLikeItStyle>
-              <ResultsProposalIconStyle aria-hidden />
+              <ResultsProposalIconStyle aria-hidden focusable="false" />
               <ResultsNoWayStyle>
                 {i18n.t(
                   'consultation.results.proposals.controversials_no_way',

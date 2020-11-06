@@ -41,7 +41,7 @@ const RenderOpinions = ({ opinions, personality }: OpinionsProps) => {
     return (
       <CenterColumnStyle>
         <ThumbsUpWrapperStyle>
-          <SvgThumbsUp style={ThumbsUpStyle} />
+          <SvgThumbsUp style={ThumbsUpStyle} focusable="false" />
         </ThumbsUpWrapperStyle>
         <PlaceholderParagraphStyle>
           {i18n.t('personality.opinions.placeholder_text', {
@@ -118,7 +118,14 @@ export const Opinions = ({ personality, privateProfile = false }: Props) => {
           </ScreenReaderItemStyle>
           <TileWithTitle
             title={i18n.t('personality.disclaimer.title')}
-            icon={<SvgInfos aria-hidden style={{ marginRight: '10px' }} />}
+            icon={
+              // eslint-disable-next-line react/jsx-wrap-multilines
+              <SvgInfos
+                aria-hidden
+                style={{ marginRight: '10px' }}
+                focusable="false"
+              />
+            }
           >
             <DisclaimerSubtitleStyle>
               {i18n.t('personality.disclaimer.subtitle_first')}

@@ -14,14 +14,28 @@ import {
 } from 'Client/ui/Elements/Buttons/style';
 
 /** Form Icons */
-export const EmailFieldIcon = <EmailIconStyle aria-hidden />;
-export const PasswordFieldIcon = <LockIconStyle aria-hidden />;
-export const AgeFieldIcon = <ChildIconStyle aria-hidden />;
-export const NameFiledIcon = <UserIconStyle aria-hidden />;
-export const PostalCodeFieldIcon = <MapMarkerIconStyle aria-hidden />;
-export const WebsiteLinkFieldIcon = <LinkIconStyle aria-hidden />;
-export const JobFieldIcon = <SuitcaseIconStyle aria-hidden />;
-export const DescriptionFieldIcon = <PencilIconStyle aria-hidden />;
-export const SubmitThumbsUpIcon = <ThumbsUpIconStyle aria-hidden />;
-export const SubmitPaperPlaneIcon = <PaperPlaneIconStyle aria-hidden />;
-export const SubmitSaveIcon = <SaveFileIconStyle aria-hidden />;
+export const EmailFieldIcon = <EmailIconStyle aria-hidden focusable="false" />;
+export const PasswordFieldIcon = (
+  <LockIconStyle aria-hidden focusable="false" />
+);
+export const AgeFieldIcon = <ChildIconStyle aria-hidden focusable="false" />;
+export const NameFiledIcon = <UserIconStyle aria-hidden focusable="false" />;
+export const PostalCodeFieldIcon = (
+  <MapMarkerIconStyle aria-hidden focusable="false" />
+);
+export const WebsiteLinkFieldIcon = (
+  <LinkIconStyle aria-hidden focusable="false" />
+);
+export const JobFieldIcon = <SuitcaseIconStyle aria-hidden focusable="false" />;
+export const DescriptionFieldIcon = (
+  <PencilIconStyle aria-hidden focusable="false" />
+);
+export const SubmitThumbsUpIcon = (
+  <ThumbsUpIconStyle aria-hidden focusable="false" />
+);
+export const SubmitPaperPlaneIcon = (
+  <PaperPlaneIconStyle aria-hidden focusable="false" />
+);
+export const SubmitSaveIcon = (
+  <SaveFileIconStyle aria-hidden focusable="false" />
+);

@@ -11,6 +11,7 @@ import {
 } from 'Shared/constants/url';
 import { trackDisplayModerationText } from 'Shared/services/Tracking';
 import { SvgExternalLink } from 'Client/ui/Svg/elements';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { DescriptionWrapperStyle } from '../style';
 
 type Props = {
@@ -47,9 +48,13 @@ export const DeprecatedProposalSubmitDescription = ({
           {i18n.t('proposal_submit.deprecated.moderation_charter_label')}
           <> </>
           <SvgExternalLink
-            aria-label={i18n.t('common.open_new_window')}
+            aria-hidden
+            focusable="false"
             style={{ marginLeft: '5px', fill: color.brandSecondary }}
           />
+          <ScreenReaderItemStyle>
+            {i18n.t('common.open_new_window')}
+          </ScreenReaderItemStyle>
         </a>
       </CenterParagraphStyle>
     </DescriptionWrapperStyle>

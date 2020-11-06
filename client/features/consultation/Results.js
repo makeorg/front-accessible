@@ -76,7 +76,9 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
         />
         <TileWithTitle
           title={i18n.t('consultation.results.context')}
-          icon={<SvgInfos aria-hidden style={ResultsIconsStyle} />}
+          icon={
+            <SvgInfos aria-hidden style={ResultsIconsStyle} focusable="false" />
+          }
           id={RESULTS_CONTEXT}
         >
           <ResultsContext
@@ -86,7 +88,14 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
         </TileWithTitle>
         <TileWithTitle
           title={i18n.t('consultation.results.key_figures.title')}
-          icon={<SvgCalculator aria-hidden style={ResultsIconsStyle} />}
+          icon={
+            // eslint-disable-next-line react/jsx-wrap-multilines
+            <SvgCalculator
+              aria-hidden
+              style={ResultsIconsStyle}
+              focusable="false"
+            />
+          }
           id={RESULTS_KEY_FIGURES}
         >
           <KeyFigures
@@ -98,14 +107,23 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
           title={i18n.t('consultation.results.top_ideas.title', {
             count: questionResults.top_ideas.length,
           })}
-          icon={<SvgLightBulb aria-hidden style={ResultsIconsStyle} />}
+          icon={
+            // eslint-disable-next-line react/jsx-wrap-multilines
+            <SvgLightBulb
+              aria-hidden
+              style={ResultsIconsStyle}
+              focusable="false"
+            />
+          }
           id={RESULTS_TOP_IDEAS}
         >
           <TopIdeas topIdeas={questionResults.top_ideas} question={question} />
         </TileWithTitle>
         <TileWithTitle
           title={i18n.t('consultation.results.cartography.title')}
-          icon={<SvgMap aria-hidden style={ResultsIconsStyle} />}
+          icon={
+            <SvgMap aria-hidden style={ResultsIconsStyle} focusable="false" />
+          }
           id={RESULTS_CARTOGRAPHY}
         >
           <ResultsSlider
@@ -115,7 +133,7 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
         </TileWithTitle>
         <TileWithTitle
           title={i18n.t('consultation.results.proposals.controversials')}
-          icon={<ResultsLightningIconStyle aria-hidden />}
+          icon={<ResultsLightningIconStyle aria-hidden focusable="false" />}
           id={RESULTS_CONTROVERSIALS}
         >
           <ProposalsResults
@@ -125,7 +143,7 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
         </TileWithTitle>
         <TileWithTitle
           title={i18n.t('consultation.results.proposals.rejected')}
-          icon={<ResultsThumbIconStyle aria-hidden />}
+          icon={<ResultsThumbIconStyle aria-hidden focusable="false" />}
           id={RESULTS_REJECTED}
         >
           <ProposalsResults

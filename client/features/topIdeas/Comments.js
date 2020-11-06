@@ -22,7 +22,7 @@ export const TopIdeaDetailsComments = ({ comments }: Props) => {
   return (
     <div id="comments_list">
       <TopIdeaDetailsPageTitleStyle>
-        <TopIdeaDetailsIconStyle aria-hidden />
+        <TopIdeaDetailsIconStyle aria-hidden focusable="false" />
         {i18n.t('idea_details.comments')}
       </TopIdeaDetailsPageTitleStyle>
       <section>

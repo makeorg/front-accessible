@@ -24,7 +24,9 @@ Snapshot Diff:
 -       iscollapsed={false}
 +       iscollapsed={true}
       >
-        <SvgAngleArrowRight />
+        <SvgAngleArrowRight
+          focusable="false"
+        />
       </CollapseIconStyle>
     </CollapseTriggerStyle>
     <CollapseSeparatorStyle />
@@ -53,10 +55,10 @@ Snapshot Diff:
   >
     <CollapseTriggerStyle
       aria-expanded={false}
-@@ -14,13 +14,13 @@
-        iscollapsed={true}
-      >
-        <SvgAngleArrowRight />
+@@ -16,13 +16,13 @@
+        <SvgAngleArrowRight
+          focusable="false"
+        />
       </CollapseIconStyle>
     </CollapseTriggerStyle>
 +   <CollapseSeparatorStyle />
@@ -86,7 +88,9 @@ exports[`Collapse must match the snapshot with default Props 1`] = `
       aria-hidden={true}
       iscollapsed={true}
     >
-      <SvgAngleArrowRight />
+      <SvgAngleArrowRight
+        focusable="false"
+      />
     </CollapseIconStyle>
   </CollapseTriggerStyle>
   <CollapseSeparatorStyle />

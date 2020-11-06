@@ -16,6 +16,7 @@ import {
   SEARCH_DESKTOP_EXPANDED,
 } from 'Shared/constants/a11y';
 import { ROUTE_PARTNERSHIP, ROUTE_WHOAREWE } from 'Shared/routes';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import {
   DesktopMenuNavStyle,
   DesktopMenuItemStyle,
@@ -36,6 +37,15 @@ export const DesktopMenu = () => {
     removeAriaHiddenByClass(NAVIGATION_ELEMENT_ARIA_CLASS);
     unlockBody();
   }, []);
+
+  const externalLinkIcon = (
+    <>
+      <MenuNewWindowIconStyle aria-hidden focusable="false" />
+      <ScreenReaderItemStyle>
+        {i18n.t('common.open_new_window')}
+      </ScreenReaderItemStyle>
+    </>
+  );
 
   return (
     <DesktopMenuNavStyle aria-label={i18n.t('header.main_navigation')}>
@@ -58,9 +68,7 @@ export const DesktopMenu = () => {
           >
             {i18n.t('main-footer.whoarewe')}
             <> </>
-            <MenuNewWindowIconStyle
-              aria-label={i18n.t('common.open_new_window')}
-            />
+            {externalLinkIcon}
           </DesktopMenuExternalLinkStyle>
         </DesktopMenuItemStyle>
         {isFR && (
@@ -74,9 +82,7 @@ export const DesktopMenu = () => {
             >
               {i18n.t('homepage.partnership.subtitle')}
               <> </>
-              <MenuNewWindowIconStyle
-                aria-label={i18n.t('common.open_new_window')}
-              />
+              {externalLinkIcon}
             </DesktopMenuExternalLinkStyle>
           </DesktopMenuItemStyle>
         )}

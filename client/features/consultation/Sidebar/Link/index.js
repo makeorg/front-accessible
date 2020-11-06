@@ -2,6 +2,7 @@
 import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { NewWindowIconStyle } from 'Client/ui/Elements/LinkElements';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { NewWindowLinkStyle } from './style';
 
 type Props = {
@@ -23,6 +24,9 @@ export const SidebarNewWindowLink = ({
   >
     {linkText}
     <> </>
-    <NewWindowIconStyle aria-label={i18n.t('common.open_new_window')} />
+    <NewWindowIconStyle aria-hidden focusable="false" />
+    <ScreenReaderItemStyle>
+      {i18n.t('common.open_new_window')}
+    </ScreenReaderItemStyle>
   </NewWindowLinkStyle>
 );

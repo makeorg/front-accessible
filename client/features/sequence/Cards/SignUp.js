@@ -62,7 +62,7 @@ export const SignUpCard = ({ configuration }: Props) => {
         }}
         data-cy-button="skip-sign-up"
       >
-        <ForwardIconStyle aria-hidden />
+        <ForwardIconStyle aria-hidden focusable="false" />
         {configuration.nextCtaText
           ? configuration.nextCtaText
           : i18n.t('sign_up_card.next-cta')}

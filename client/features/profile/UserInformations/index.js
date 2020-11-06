@@ -74,7 +74,7 @@ export const UserInformations = ({ user, navigationBar }: Props) => {
                 {i18n.t('profile.common.labels.organisation')}
               </ScreenReaderItemStyle>
               {formatOrganisationName(displayName)}
-              <CertifiedIconStyle aria-hidden />
+              <CertifiedIconStyle aria-hidden focusable="false" />
             </ProfileTitleStyle>
           </ProfileContentWrapperStyle>
         )}
@@ -93,7 +93,7 @@ export const UserInformations = ({ user, navigationBar }: Props) => {
                       {i18n.t('profile.common.labels.lastname')}
                     </ScreenReaderItemStyle>
                     {formatUserName(lastName)}
-                    <CertifiedIconStyle aria-hidden />
+                    <CertifiedIconStyle aria-hidden focusable="false" />
                   </>
                 )}
               </ProfileTitleStyle>
@@ -118,7 +118,7 @@ export const UserInformations = ({ user, navigationBar }: Props) => {
               <ScreenReaderItemStyle>
                 {i18n.t('profile.common.labels.postal_code')}
               </ScreenReaderItemStyle>
-              <ProfileMapIconStyle aria-hidden />
+              <ProfileMapIconStyle aria-hidden focusable="false" />
               {postalCode}
             </ProfileContentStyle>
           )}
@@ -155,7 +155,7 @@ export const UserInformations = ({ user, navigationBar }: Props) => {
           <ScreenReaderItemStyle>
             {i18n.t('profile.common.labels.website')}
           </ScreenReaderItemStyle>
-          <ProfileLinkIconStyle aria-hidden />
+          <ProfileLinkIconStyle aria-hidden focusable="false" />
           <ProfileWebsiteLinkStyle
             as="a"
             target="_blank"
@@ -169,7 +169,7 @@ export const UserInformations = ({ user, navigationBar }: Props) => {
       <ProfileNavigationStyle>
         {navigationBar}
         <ProfileInformationButtonStyle onClick={() => dispatch(logout())}>
-          <SignOutIconStyle aria-hidden />
+          <SignOutIconStyle aria-hidden focusable="false" />
           {i18n.t('profile.common.log_out')}
         </ProfileInformationButtonStyle>
       </ProfileNavigationStyle>

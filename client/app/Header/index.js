@@ -17,6 +17,7 @@ import { MAIN_HEADER } from 'Shared/constants/ids';
 import { getHomeLink } from 'Shared/helpers/url';
 import { useSelector } from 'react-redux';
 import { type StateRoot } from 'Shared/store/types';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import {
   HeaderStyle,
   HeaderInnerStyle,
@@ -51,10 +52,10 @@ export const Header = () => {
               onClick={trackClickMakeLogo}
               data-cy-link="home"
             >
-              <HeaderLogoStyle
-                aria-label={i18n.t('header.logo_alt')}
-                alt={i18n.t('header.logo_alt')}
-              />
+              <HeaderLogoStyle focusable="false" aria-hidden />
+              <ScreenReaderItemStyle>
+                {i18n.t('header.logo_alt')}
+              </ScreenReaderItemStyle>
             </HeaderLogoLinkStyle>
           </h1>
           {isDesktop && <DesktopMenu />}

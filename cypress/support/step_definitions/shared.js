@@ -22,12 +22,14 @@ export const container = {
   'footer': 'footer'
 }
 
+
 // helpers
 const checkPageExist = (page) => {
   if (!pages[page]) {
     throw Error(`You should define "${page}" path`);
   }
 };
+
 
 // navigation
 given('I go to 404 page', () => {
@@ -68,6 +70,11 @@ When('I click on {string} button', buttonName => {
      .click({force:true}) 
 });
 
+
+// accessibility
+then('html page should be valid', (targetPage) => {
+  cy.htmlvalidate();
+});
 
 // I see page
 then('I see the {string} page', (targetPage) => {

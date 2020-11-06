@@ -102,7 +102,7 @@ export const PopularProposals = ({ question, position, size }: Props) => {
         {i18n.t('consultation.popular_proposals.title', {
           count: proposals.length,
         })}
-        <PopularProposalsSliderSeparatorStyle />
+        <PopularProposalsSliderSeparatorStyle as="span" />
       </PopularProposalsSliderTitleStyle>
       <ScreenReaderItemStyle>
         {i18n.t('common.slider.introduction')}
@@ -112,24 +112,23 @@ export const PopularProposals = ({ question, position, size }: Props) => {
         <PopularProposalsArrowsStyle
           className={`${sliderName} glider-prev`}
           aria-label={i18n.t('common.slider.previous')}
-          aria-controls="glide_translator"
-          direction="left"
+          aria-controls="popular_proposals_slider_list"
           onClick={() => trackLoadMoreProposals(COMPONENT_PARAM_TOP_PROPOSALS)}
         >
-          <SvgArrowLeft aria-hidden />
+          <SvgArrowLeft aria-hidden focusable="false" />
         </PopularProposalsArrowsStyle>
         <PopularProposalsArrowsStyle
           className={`${sliderName} glider-next`}
           aria-label={i18n.t('common.slider.next')}
-          aria-controls="glide_translator"
-          direction="right"
+          aria-controls="popular_proposals_slider_list"
           onClick={() => trackLoadMoreProposals(COMPONENT_PARAM_TOP_PROPOSALS)}
         >
-          <SvgArrowRight aria-hidden />
+          <SvgArrowRight aria-hidden focusable="false" />
         </PopularProposalsArrowsStyle>
       </FlexElementStyle>
       <PopularProposalsSliderListWrapperStyle
         className={`${sliderName} glider`}
+        id="popular_proposals_slider_list"
         ref={sliderRef}
       >
         <PopularProposalsSliderListStyle

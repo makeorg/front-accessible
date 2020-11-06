@@ -14,7 +14,7 @@ export const ProposalSubmit = () => {
       onClick={() => dispatch(setPanelContent(<ProposalJourney />))}
       data-cy-button="proposal-panel"
     >
-      <TriggerIconStyle aria-hidden />
+      <TriggerIconStyle aria-hidden focusable="false" />
       {i18n.t('proposal_submit.form.panel_trigger')}
     </PanelTriggerStyle>
   );

@@ -72,7 +72,7 @@ export const ProfileVoteCard = ({
           >
             {formatOrganisationName(organisation.organisationName)}
           </RedLinkRouterStyle>
-          <CertifiedIconStyle aria-hidden />
+          <CertifiedIconStyle aria-hidden focusable="false" />
           &nbsp;
           {i18n.t(`profile.organisation.proposal_${voteKey}`)}
         </div>
@@ -87,7 +87,7 @@ export const ProfileVoteCard = ({
               {i18n.t('proposal_card.content')}
             </ScreenReaderItemStyle>
             <ProposalStyle
-              id={`proposal_content_${position}`}
+              id={`vote_card_proposal_content_${position}`}
               to={getProposalLink(
                 country,
                 proposal.question.slug,

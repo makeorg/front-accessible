@@ -6,6 +6,7 @@ import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props
 import { loginSocial } from 'Shared/store/actions/authentication';
 import { FACEBOOK_PROVIDER_ENUM } from 'Shared/api/UserApiService';
 import { SvgFacebookLogoF } from 'Client/ui/Svg/elements';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { FacebookButtonStyle } from './style';
 
 /**
@@ -41,8 +42,9 @@ export const FacebookAuthentication = () => {
         language={language}
         disableMobileRedirect
         render={renderProps => (
-          <FacebookButtonStyle onClick={renderProps.onClick}>
-            <SvgFacebookLogoF aria-label="Facebook" />
+          <FacebookButtonStyle onClick={renderProps.onClick} type="button">
+            <SvgFacebookLogoF aria-hidden focusable="false" />
+            <ScreenReaderItemStyle>Facebook</ScreenReaderItemStyle>
           </FacebookButtonStyle>
         )}
       />

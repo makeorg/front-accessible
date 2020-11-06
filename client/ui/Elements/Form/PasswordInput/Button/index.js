@@ -29,9 +29,9 @@ export const PasswordButton = (props: Props) => {
       }
     >
       {isPasswordDisplayed ? (
-        <SvgEyeSlash aria-hidden />
+        <SvgEyeSlash aria-hidden focusable="false" />
       ) : (
-        <SvgEye aria-hidden />
+        <SvgEye aria-hidden focusable="false" />
       )}
     </UnstyledButtonStyle>
   );

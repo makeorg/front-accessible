@@ -38,7 +38,7 @@ export const PushProposalCard = () => {
         <SequencePushProposalButtonStyle
           onClick={() => dispatch(setPanelContent(<ProposalJourney />))}
         >
-          <PencilIconStyle aria-hidden />
+          <PencilIconStyle aria-hidden focusable="false" />
           {i18n.t('common.propose')}
         </SequencePushProposalButtonStyle>
         <SequencePushProposalNextButtonStyle
@@ -48,7 +48,7 @@ export const PushProposalCard = () => {
           }}
           data-cy-button="push-proposal-next"
         >
-          <ForwardIconStyle aria-hidden />
+          <ForwardIconStyle aria-hidden focusable="false" />
           {i18n.t('push_proposal_card.next-cta')}
         </SequencePushProposalNextButtonStyle>
       </MiddleColumnToRowStyle>

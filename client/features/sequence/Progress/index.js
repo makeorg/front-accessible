@@ -42,7 +42,7 @@ export const SequenceProgress = () => {
           aria-label={i18n.t('sequence_progress.previous')}
           data-cy-button="progress-previous"
         >
-          <ProgressIconStyle aria-hidden />
+          <ProgressIconStyle aria-hidden focusable="false" />
         </ProgressPreviousButtonStyle>
         <ScreenReaderItemStyle aria-live="polite">
           {i18n.t('sequence_progress.counter', {
