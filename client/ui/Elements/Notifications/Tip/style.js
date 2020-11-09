@@ -10,6 +10,7 @@ export const TipWrapperStyle = styled.div`
   font-family: ${MakeFonts.CircularStandardBook};
   background-color: ${color.infos};
   color: ${color.white};
+  margin-top: ${props => (props.isFirstSequenceVote ? '20px' : '0px')};
   padding: 6px 37px 6px 10px;
   border-radius: 2px;
   font-size: 16px;

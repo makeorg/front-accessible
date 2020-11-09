@@ -3,7 +3,9 @@
 exports[`TagTooltip must match the snapshot with default Props 1`] = `
 Array [
   <TriangleUpStyle />,
-  <TipWrapperStyle>
+  <TipWrapperStyle
+    isFirstSequenceVote={false}
+  >
     <TipCrossStyle
       aria-label="common.notifications.icons.close"
       onClick={[Function]}
