@@ -3,6 +3,7 @@ import { type Request, type Response, type NextFunction } from 'express';
 import { i18n } from 'Shared/i18n';
 import { DEFAULT_COUNTRY } from 'Shared/constants/config';
 import { getLanguageFromCountryCode } from 'Shared/helpers/countries';
+import { DateHelper } from 'Shared/helpers/date';
 
 export const getCountryFromRequest = (req: Request) => {
   const xDetectedCountry = req.headers['x-detected-country'];
@@ -38,5 +39,6 @@ export const countryLanguageMiddleware = (
   req.params.language = formattedLanguage;
   i18n.cloneInstance();
   i18n.changeLanguage(formattedLanguage);
+  DateHelper.language = formattedLanguage;
   return next();
 };

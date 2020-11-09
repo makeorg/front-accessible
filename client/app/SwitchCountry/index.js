@@ -10,6 +10,7 @@ import {
   getLanguageFromCountryCode,
 } from 'Shared/helpers/countries';
 import { modalClose } from 'Shared/store/actions/modal';
+import { DateHelper } from 'Shared/helpers/date';
 import {
   CountryLinkStyle,
   CountryListStyle,
@@ -37,8 +38,11 @@ export const SwitchCountry = () => {
     if (country === countryCode) {
       return () => {};
     }
+    const language = getLanguageFromCountryCode(countryCode);
     dispatch(setLanguageByCountryCode(countryCode));
-    i18n.changeLanguage(getLanguageFromCountryCode(countryCode));
+    i18n.changeLanguage(language);
+    DateHelper.language = language;
+
     return dispatch(modalClose());
   };
 
