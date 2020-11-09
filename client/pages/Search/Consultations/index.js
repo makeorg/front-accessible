@@ -64,7 +64,6 @@ export const SearchConsultations = ({ location, history }: Props) => {
       <MetaTags
         title={i18n.t('meta.search.consultations', {
           term,
-          count,
         })}
       />
       <SearchBackButton term={term} history={history} />

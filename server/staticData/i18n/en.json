@@ -1,66 +1,62 @@
 {
   "meta": {
     "home": {
-      "title": "Make a change in our society with Make.org",
+      "title": "Make a change in our society with Make.org -",
       "description": "Finding solutions is easier when working together. Make.org helps you share ideas with forward-thinking people like you. Discover a democratic place where you can discuss, vote and submit your solutions on the big issues you care about.",
       "picture": "https://assets.make.org/assets/metas/default-meta-en.png"
     },
     "organisation": {
       "proposals": {
-        "title": "{{organisation}} - Solutions"
+        "title": "{{organisation}} - Solutions - Make.org"
       },
       "position": {},
       "positions": {
-        "title": "{{organisation}} - Opinions"
+        "title": "{{organisation}} - Opinions - Make.org"
       }
     },
     "profile": {
       "proposals": {
-        "title": "Profile - My solutions"
+        "title": "Profile - My solutions - Make.org"
       },
       "favourites": {},
       "edit": {
-        "title": "Edit my profile"
+        "title": "Edit my profile - Make.org"
       },
       "favorites": {
-        "title": "Profil - My favourites"
+        "title": "Profil - My favourites - Make.org"
       }
     },
-    "proposals": {},
     "consultation": {
-      "title": "Consultation '{{question}}'"
+      "title": "Consultation '{{question}}' - Make.org"
     },
     "actions": {
-      "title": "Actions '{{question}}'"
+      "title": "Actions '{{question}}' - Make.org"
     },
     "results": {
-      "title": "Results of the consultation '{{question}}"
+      "title": "Results of the consultation '{{question}}' - Make.org",
+      "description": "Discover the results of citizen consultation, classified by most popular, controversial and rejected solutions."
     },
     "sequence": {
-      "title": "Participate in the consultation '{{question}}'"
+      "title": "Participate in the consultation '{{question}}' - Make.org"
     },
     "top-ideas": {
-      "title": "Top ideas on the consultation '{{question}}'",
+      "title": "Top ideas on the consultation '{{question}}' - Make.org",
       "description": "Learn more about the top ideas on the consultation'{{question}}'",
       "picture": "https://assets.make.org/assets/metas/meta-top-ideas.jpg"
     },
     "top-idea-details": {
-      "title": "Details of the idea {{idea}}",
+      "title": "Details of the idea '{{idea}}' from the consultation '{{question}}' - Make.org",
       "description": "Learn more about the solutions related to this idea.",
       "picture": "https://assets.make.org/assets/metas/meta-top-ideas.jpg"
     },
     "search": {
-      "main_results": "Search - {{count}} result for '{{term}}'",
-      "main_results_plural": "Search - {{count}} results for '{{term}}'",
-      "proposals": "Search - {{count}} solution for '{{term}}'",
-      "proposals_plural": "Search - {{count}} solutions for '{{term}}'",
-      "consultations": "Search - {{count}} consultation for '{{term}}'",
-      "consultations_plural": "Search - {{count}} consultations for '{{term}}'",
-      "organisations": "Search - {{count}} organization for '{{term}}'",
-      "organisations_plural": "Search - {{count}} organizations for '{{term}}'"
+      "main_results": "Search - Results for '{{term}}' - Make.org",
+      "proposals": "Search - Solutions' results for '{{term}}' - Make.org",
+      "consultations": "Search - Consultations' results for '{{term}}' - Make.org",
+      "organisations": "Search - Organizations' results for '{{term}}' - Make.org"
     },
     "proposal": {
-      "title": "Solution '{{proposal}}'",
+      "title": "Solution '{{proposal}}' from the consultation '{{question}}' - Make.org",
       "description": "Vote for the solution I've submitted on Make.org to turn my idea into action."
     },
     "browse": {
@@ -88,6 +84,10 @@
     "a11y": {
       "title": "Accessibilty statement - Make.org",
       "description": "Discover Make.org's engagements for digital accessibilty."
+    },
+    "not_found": {
+      "title": "Page not found - Error 404 - Make.org",
+      "description": "The requested page doesn't exist anymore."
     }
   },
   "common": {

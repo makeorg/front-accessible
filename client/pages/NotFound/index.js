@@ -12,7 +12,10 @@ import {
 
 export const NotFoundPage = () => (
   <NotFoundPageContentStyle>
-    <MetaTags title={i18n.t('not_found.title')} />
+    <MetaTags
+      title={i18n.t('meta.not_found.title')}
+      description={i18n.t('meta.not_found.description')}
+    />
     <NotFoundPageInnerStyle>
       <NotFoundIntroStyle>{i18n.t('not_found.intro')}</NotFoundIntroStyle>
       <NotFoundTitleStyle>{i18n.t('not_found.title')}</NotFoundTitleStyle>
