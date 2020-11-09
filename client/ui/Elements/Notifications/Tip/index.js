@@ -42,7 +42,7 @@ export const Tip = ({ isFirstSequenceVote = false }: Props) => {
   return (
     <>
       {!isFirstSequenceVote && <TriangleUpStyle />}
-      <TipWrapperStyle>
+      <TipWrapperStyle isFirstSequenceVote={isFirstSequenceVote}>
         <TipCrossStyle
           aria-label={i18n.t('common.notifications.icons.close')}
           onClick={closeNotificationTip}

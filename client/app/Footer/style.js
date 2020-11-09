@@ -96,6 +96,7 @@ export const FooterLinkIconStyle = styled(SvgExternalLink)`
 export const FooterSeparatorStyle = styled.hr`
   margin: 0px;
   border-top: 1px solid ${color.greyLighter};
+  background-color: ${color.greyLighter};
 `;
 
 export const FooterWrapperThirdListStyle = styled(UnstyledListStyle)`
