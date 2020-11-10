@@ -20,6 +20,10 @@ import {
 } from './style';
 
 const acceptCookieName: string = 'make-cookie';
+// set cookie duration to a year
+const today = new Date();
+const nextYear = new Date();
+nextYear.setFullYear(today.getFullYear() + 1);
 
 export const CookieBanner = () => {
   const { country } = useSelector((state: StateRoot) => state.appConfig);
@@ -29,7 +33,10 @@ export const CookieBanner = () => {
   );
 
   const handleClose = () => {
-    setCookies(acceptCookieName, true, { path: '/' });
+    setCookies(acceptCookieName, true, {
+      path: '/',
+      expires: nextYear,
+    });
     setAccepted(true);
   };
 
