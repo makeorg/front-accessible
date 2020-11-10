@@ -21,14 +21,38 @@ describe('Question Service', () => {
   describe('getQuestion', () => {
     it('return content from cache', async () => {
       jest.spyOn(cache, 'get');
+      QuestionApiService.getDetail.mockReturnValue({
+        data: { countries: ['FR'] },
+      });
 
-      cache.get.mockReturnValueOnce('fooCache');
+      cache.get.mockReturnValueOnce({
+        countries: ['FR'],
+        questionId: 'fooCache',
+      });
 
       const result = await QuestionService.getQuestion('foo', 'FR');
 
       expect(cache.get).toHaveBeenCalledWith('QUESTION_foo');
 
-      expect(result).toBe('fooCache');
+      expect(result.questionId).toBe('fooCache');
+    });
+
+    it('return null from cache when country not match', async () => {
+      jest.spyOn(cache, 'get');
+      QuestionApiService.getDetail.mockReturnValue({
+        data: { countries: ['FR'] },
+      });
+
+      cache.get.mockReturnValueOnce({
+        countries: ['BE'],
+        questionId: 'fooCache',
+      });
+
+      const result = await QuestionService.getQuestion('foo', 'FR');
+
+      expect(cache.get).toHaveBeenCalledWith('QUESTION_foo');
+
+      expect(result).toBe(null);
     });
 
     it('return content from Api and put it in cache', async () => {

@@ -156,7 +156,7 @@ export type QuestionType = {
   wording: QuestionWordingType,
   question: string,
   slug: string,
-  country: string,
+  countries: string[],
   language: string,
   allowedSources: string[],
   startDate: ?string | null,

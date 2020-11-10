@@ -21,6 +21,7 @@ type Props = {
 export const QuestionWrapper = ({ children, withRedirect }: Props) => {
   const params = useParams();
   const dispatch = useDispatch();
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
   const currentQuestion: QuestionType = useSelector((state: StateRoot) =>
     selectCurrentQuestion(state)
   );
@@ -35,8 +36,10 @@ export const QuestionWrapper = ({ children, withRedirect }: Props) => {
   );
 
   const updateQuestion = () => {
-    QuestionService.getDetail(questionSlug, () =>
-      setAlternativeContent(<NotFoundPage />)
+    QuestionService.getDetail(
+      questionSlug,
+      () => setAlternativeContent(<NotFoundPage />),
+      country
     ).then(questionDetail => {
       if (questionDetail) {
         dispatch(loadQuestion(questionDetail));
