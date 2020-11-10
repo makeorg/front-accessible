@@ -34,6 +34,7 @@ export const ConsultationItem = ({ question, resultsContext }: Props) => {
   const { country } = useSelector((state: StateRoot) => state.appConfig);
   const {
     descriptionImage,
+    descriptionImageAlt,
     featured,
     startDate,
     endDate,
@@ -80,7 +81,7 @@ export const ConsultationItem = ({ question, resultsContext }: Props) => {
     <ConsultationArticleStyle>
       <ConsultationElementPictureStyle
         src={descriptionImage}
-        alt=""
+        alt={descriptionImageAlt || ''}
         width={imageWidth}
         height={imageHeight}
       />
