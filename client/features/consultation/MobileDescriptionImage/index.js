@@ -17,7 +17,7 @@ export const MobileDescriptionImage = ({ question }: Props) => {
       {isMobile && question.descriptionImage && (
         <MobileDescriptionImageStyle
           src={question.descriptionImage}
-          alt=""
+          alt={question.descriptionImageAlt || ''}
           width={screenWidth}
         />
       )}

@@ -36,7 +36,7 @@ export const PresentationTile = ({ question }: Props) => {
       {!isMobile && question.descriptionImage && (
         <DescriptionImageStyle
           src={question.descriptionImage}
-          alt=""
+          alt={question.descriptionImageAlt || ''}
           height={descriptionImageHeight}
           width={descriptionImagewidth}
         />
