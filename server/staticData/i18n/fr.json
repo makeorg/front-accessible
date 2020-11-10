@@ -29,17 +29,17 @@
       "description": "Soutenez ma proposition en votant et trouvons ensemble des solutions aux grandes problématiques actuelles. Les plus soutenues seront mises en action par Make.org et ses partenaires."
     },
     "consultation": {
-      "title": "Consultation '{{question}} - Make.org'"
+      "title": "Consultation '{{question}}' - Make.org"
     },
     "actions": {
-      "title": "Actions '{{question}} - Make.org'"
+      "title": "Actions '{{question}}' - Make.org"
     },
     "results": {
-      "title": "Résultats de la consultation '{{question}} - Make.org'",
+      "title": "Résultats de la consultation '{{question}}' - Make.org",
       "description": "Découvrez les résultats de la consultation citoyenne classés en différents thèmes plébiscités, propositions les plus controversées et propositions les plus repoussées."
     },
     "sequence": {
-      "title": "Participez à la consultation '{{question}} - Make.org'"
+      "title": "Participez à la consultation '{{question}}' - Make.org"
     },
     "top-ideas": {
       "title": "Le top des idées de la consultation '{{question}}' - Make.org",
@@ -52,10 +52,10 @@
       "picture": "https://assets.make.org/assets/metas/meta-top-ideas.jpg"
     },
     "search": {
-      "main_results": "Recherche - Résultats pour « {{term}} - Make.org »",
-      "proposals": "Recherche - Résultats des propositions pour « {{term}} - Make.org »",
-      "consultations": "Recherche - Résultats des consultations pour « {{term}} - Make.org »",
-      "organisations": "Recherche - Résultats des organisations pour « {{term}} - Make.org »"
+      "main_results": "Recherche - Résultats pour « {{term}} » - Make.org",
+      "proposals": "Recherche - Résultats des propositions pour « {{term}} » - Make.org",
+      "consultations": "Recherche - Résultats des consultations pour « {{term}} » - Make.org",
+      "organisations": "Recherche - Résultats des organisations pour « {{term}} » - Make.org"
     },
     "browse": {
       "consultations": {

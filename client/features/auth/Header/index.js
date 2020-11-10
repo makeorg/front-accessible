@@ -26,6 +26,7 @@ export const HeaderAuthentication = () => {
   const { user } = useSelector((state: StateRoot) =>
     selectAuthentication(state)
   );
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
 
   if (user) {
     const isOrganisation = user.userType === TYPE_ORGANISATION;
@@ -36,7 +37,7 @@ export const HeaderAuthentication = () => {
     return (
       <ProfileLinkStyle
         className={SEARCH_ELEMENT_ARIA_CLASS}
-        to={getRouteProfile(user.country)}
+        to={getRouteProfile(country)}
         onClick={trackClickProfile}
         aria-label={i18n.t('common.header_authentication_nav')}
       >
