@@ -139,11 +139,13 @@ export const Image = ({
 
   useEffect(() => {
     const img = new window.Image();
-    img.src = imageToLoad;
-    img.onload = () => {
-      setSrcCurrent(src1x);
-      setSrcSetCurrent(srcSet || srcSetValue);
-    };
+    if (imageToLoad) {
+      img.src = imageToLoad;
+      img.onload = () => {
+        setSrcCurrent(src1x);
+        setSrcSetCurrent(srcSet || srcSetValue);
+      };
+    }
 
     return () => {
       img.src = '';

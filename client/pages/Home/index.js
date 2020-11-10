@@ -24,7 +24,6 @@ export const HomePage = () => {
   const { country, countriesWithConsultations } = useSelector(
     (state: StateRoot) => state.appConfig
   );
-  const [currentCountry, setCurrentCountry] = useState(country);
   const { homepage } = useSelector((state: StateRoot) => state.views);
   const isFR = country === 'FR';
   const hasConsultations = countriesWithConsultations.find(
@@ -34,8 +33,8 @@ export const HomePage = () => {
   const initHomepage = async () => {
     setIsLoading(true);
     const homepageResponse: ?HomeViewType = await ViewsService.getHome(country);
-    if (homepageResponse) {
-      dispatch(loadHomepage(homepageResponse));
+    if (homepageResponse && country) {
+      dispatch(loadHomepage(homepageResponse, country));
     }
     setIsLoading(false);
   };
@@ -45,11 +44,11 @@ export const HomePage = () => {
   const hasPosts = posts?.length > 0;
 
   useEffect(() => {
-    if (!homepage || country !== currentCountry) {
-      initHomepage();
-      setCurrentCountry(country);
-    }
     trackDisplayHomepage();
+    if (!homepage || homepage.country !== country) {
+      initHomepage();
+    }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [country]);
 

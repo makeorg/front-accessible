@@ -8,7 +8,10 @@ export function views(state: StateViews = initialState.views, action: Object) {
     case LOAD_HOMEPAGE:
       return {
         ...state,
-        homepage: action.payload.homepage,
+        homepage: {
+          ...action.payload.homepage,
+          country: action.payload.country,
+        },
       };
     default:
       return state;

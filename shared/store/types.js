@@ -22,6 +22,7 @@ export type StateConfig = $ReadOnly<{
 // Config Homepage
 export type StateViews = $ReadOnly<{
   homepage?: HomeViewType,
+  country?: string,
 }>;
 
 // Proposal State
