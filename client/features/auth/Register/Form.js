@@ -48,12 +48,20 @@ export const RegisterForm = ({
   disableSubmit,
 }: Props) => {
   const { country } = useSelector((state: StateRoot) => state.appConfig);
+  const currentQuestion = useSelector(
+    (state: StateRoot) => state.currentQuestion
+  );
 
   const emailError = getFieldError('email', errors);
   const passwordError = getFieldError('password', errors);
   const firstnameError = getFieldError('firstname', errors);
   const ageError = getFieldError('age', errors);
   const postalcodeError = getFieldError('postalcode', errors);
+  // @todo remove after territoires consultation is over
+  const isPostalCodeRequired = currentQuestion === 'territoires';
+  const postalCodeLabel = i18n.t('common.form.label.postalcode', {
+    context: !isPostalCodeRequired && 'optional',
+  });
 
   return (
     <FormCenterAlignStyle
@@ -109,10 +117,11 @@ export const RegisterForm = ({
         icon={PostalCodeFieldIcon}
         value={user.profile.postalcode}
         error={postalcodeError}
-        label={i18n.t('common.form.label.postalcode', { context: 'optional' })}
+        label={postalCodeLabel}
         handleChange={handleChange}
         maxLength={5}
         pattern="^[0-9]{5}"
+        required={isPostalCodeRequired}
       />
       <UntypedInput
         type="text"
