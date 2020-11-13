@@ -28,6 +28,7 @@ import { updateTrackingQuestionParam } from 'Shared/store/middleware/tracking';
 import { getRouteNoCookies } from 'Shared/routes';
 import { postPerfomanceTiming } from 'Shared/helpers/tracking';
 import { translationRessources } from 'Shared/constants/languages';
+import { SnapchatTracking } from 'Shared/services/Trackers/SnapchatTracking';
 import { NoCookies } from './pages/Static/NoCookies';
 import { history, initHistory } from './app/History';
 import { ErrorBoundary, ServiceErrorHandler } from './app/Error';
@@ -65,6 +66,7 @@ i18n.init({
 
 FacebookTracking.init();
 TwitterUniversalTag.init();
+SnapchatTracking.init();
 
 ApiService.strategy = apiClient;
 

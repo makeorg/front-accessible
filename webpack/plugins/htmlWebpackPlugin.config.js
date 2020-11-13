@@ -12,7 +12,7 @@ module.exports = function createHtmlWebpackPlugin(options) {
     },
     chunks: options.ssr ? [] : undefined, // do not inject scripts in ssr because it's managed by loadable in server/reactRender.js -> extractor.getScriptTags
     minify: {
-      removeComments: true,
+      removeComments: false,
       collapseWhitespace: true,
       removeRedundantAttributes: true,
       useShortDoctype: true,
