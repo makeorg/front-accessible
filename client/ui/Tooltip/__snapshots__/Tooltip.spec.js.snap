@@ -3,6 +3,7 @@
 exports[`TooltipWithTrigger must match the snapshot with default Props 1`] = `
 Array [
   .c0 {
+  min-width: 70px;
   position: absolute;
   padding: 0.3125rem 0.625rem;
   background-color: rgba(51,67,91,1);
