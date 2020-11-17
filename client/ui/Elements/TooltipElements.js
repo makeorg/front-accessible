@@ -3,6 +3,7 @@ import { color } from 'athena-design-tokens';
 import { pxToRem } from 'Shared/helpers/styled';
 
 export const TooltipStyle = styled.div`
+  min-width: 70px;
   position: absolute;
   padding: ${pxToRem('5px')} ${pxToRem('10px')};
   z-index: ${props => props.zIndex};
