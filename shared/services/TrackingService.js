@@ -7,6 +7,7 @@ import { FacebookTracking } from './Trackers/FacebookTracking';
 import { TwitterTracking } from './Trackers/TwitterTracking';
 import { trackingParamsService } from './TrackingParamsService';
 import { defaultUnexpectedError } from './DefaultErrorHandler';
+import { SnapchatTracking } from './Trackers/SnapchatTracking';
 
 type TrackingConfigurationParamType = {
   key: string,
@@ -120,12 +121,17 @@ const trackTwitterPixel = (eventName: string) => {
   TwitterTracking.track(eventName);
 };
 
+const trackSnapchatPixel = (eventName: string) => {
+  SnapchatTracking.track(eventName);
+};
+
 export const TrackingService = {
   trackPerformance,
   trackingEvent,
   track,
   trackFacebookPixel,
   trackTwitterPixel,
+  trackSnapchatPixel,
   sendAllTrackers: ({
     eventName,
     parameters,
@@ -136,5 +142,6 @@ export const TrackingService = {
     TrackingService.track(eventName, parameters);
     TrackingService.trackFacebookPixel(eventName, parameters);
     TrackingService.trackTwitterPixel(eventName);
+    TrackingService.trackSnapchatPixel(eventName);
   },
 };
