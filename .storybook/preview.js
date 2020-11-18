@@ -5,13 +5,7 @@ import { ModernNormalizeStylesheet } from '../client/app/assets/css-in-js/Modern
 import { FontFacesStylesheet } from '../client/app/assets/css-in-js/FontFaces';
 import { DefaultStylesheet } from '../client/app/assets/css-in-js/DefaultStyle';
 import { UIThemeStylesheet } from '../client/app/assets/css-in-js/UITheme';
-import results from '../test/.jest-test-results.json';
-
-addDecorator(
-  withTests({
-    results,
-  })
-);
+import { DocStylesheet } from '../client/app/assets/css-in-js/Doc';
 
 
 export const decorators = [
@@ -21,6 +15,7 @@ export const decorators = [
       <FontFacesStylesheet />
       <DefaultStylesheet />
       <UIThemeStylesheet />
+      <DocStylesheet />
       <Story />
     </>
   ),
