@@ -5,10 +5,8 @@ import { snap } from './snap';
 
 const makePixelId: string = '8ae09c4d-02f5-435a-bbb2-d785a56c9ae4';
 const SnapchatEventMapping = {
-  [trackingConfiguration.DISPLAY_SEQUENCE.key]: 'DISPLAY_SEQUENCE',
-  [trackingConfiguration.CLICK_START_SEQUENCE.key]: 'CLICK_START_SEQUENCE',
-  [trackingConfiguration.CLICK_SEQUENCE_FIRST_VOTE.key]:
-    'CLICK_SEQUENCE_FIRST_VOTE',
+  [trackingConfiguration.DISPLAY_SEQUENCE.key]: 'PAGE_VIEW',
+  [trackingConfiguration.CLICK_SEQUENCE_FIRST_VOTE.key]: 'CUSTOM_EVENT_1',
 };
 
 let initialized: boolean = false;

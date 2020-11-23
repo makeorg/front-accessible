@@ -40,10 +40,17 @@ describe('Snapchat Tracking Service', () => {
     expect(snap.track).not.toHaveBeenCalled();
   });
 
-  it('track Snapchat event on prod env', () => {
+  it('track Snapchat DISPLAY_SEQUENCE event on prod env', () => {
     env.isDev.mockReturnValue(false);
 
     SnapchatTracking.track(trackingConfiguration.DISPLAY_SEQUENCE.key);
-    expect(snap.track).toHaveBeenCalledWith('track', 'DISPLAY_SEQUENCE');
+    expect(snap.track).toHaveBeenCalledWith('track', 'PAGE_VIEW');
+  });
+
+  it('track Snapchat CLICK_SEQUENCE_FIRST_VOTE event on prod env', () => {
+    env.isDev.mockReturnValue(false);
+
+    SnapchatTracking.track(trackingConfiguration.CLICK_SEQUENCE_FIRST_VOTE.key);
+    expect(snap.track).toHaveBeenCalledWith('track', 'CUSTOM_EVENT_1');
   });
 });
