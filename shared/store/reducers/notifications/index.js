@@ -9,9 +9,8 @@ import {
 import { NOTIFICATION_LEVEL_INFORMATION } from 'Shared/constants/notifications';
 
 type Notification = {
-  id?: String,
+  contentId?: String,
   level?: string,
-  content?: any,
   toDimiss?: boolean,
 };
 
@@ -35,7 +34,7 @@ export function notifications(
     case DISMISS_NOTIFICATION:
       return {
         ...state,
-        dismissed: [...state.dismissed, action.payload.id],
+        dismissed: [...state.dismissed, action.payload.contentId],
       };
     case CLOSE_NOTIFICATION_BANNER:
       return {
@@ -46,11 +45,11 @@ export function notifications(
       return {
         ...state,
         banner: {
-          id: action.payload.id,
+          contentId: action.payload.contentId,
+          params: action.payload.params || {},
           level: action.payload.level
             ? action.payload.level
             : NOTIFICATION_LEVEL_INFORMATION,
-          content: action.payload.content,
           toDismiss: action.payload.toDismiss
             ? action.payload.toDismiss
             : false,
@@ -65,11 +64,10 @@ export function notifications(
       return {
         ...state,
         tip: {
-          id: action.payload.id,
+          contentId: action.payload.contentId,
           level: action.payload.level
             ? action.payload.level
             : NOTIFICATION_LEVEL_INFORMATION,
-          content: action.payload.content,
           toDismiss: action.payload.toDismiss
             ? action.payload.toDismiss
             : false,

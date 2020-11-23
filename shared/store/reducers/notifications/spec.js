@@ -1,14 +1,10 @@
 /* @flow */
-import React from 'react';
-import { LoginSuccessMessage } from 'Client/app/Notifications/Banner/LoginSuccess';
-import { FirstVoteTip } from 'Client/app/Notifications/Tip/FirstVote';
-import { TagsTip } from 'Client/app/Notifications/Tip/Tags';
 import {
   LOGIN_SUCCESS_MESSAGE,
   NOTIFICATION_LEVEL_SUCCESS,
   NOTIFICATION_LEVEL_INFORMATION,
-  FIRST_VOTE_TIP,
-  TAGS_TIP,
+  FIRST_VOTE_TIP_MESSAGE,
+  TAGS_TIP_MESSAGE,
 } from 'Shared/constants/notifications';
 import { notifications } from './index';
 
@@ -23,9 +19,8 @@ describe('Notification reducer', () => {
     const action = { type: 'CLOSE_NOTIFICATION_BANNER' };
     const previousState = {
       banner: {
-        id: LOGIN_SUCCESS_MESSAGE,
+        contentId: LOGIN_SUCCESS_MESSAGE,
         level: NOTIFICATION_LEVEL_SUCCESS,
-        content: <LoginSuccessMessage />,
       },
     };
 
@@ -38,9 +33,8 @@ describe('Notification reducer', () => {
     const action = { type: 'CLOSE_NOTIFICATION_TIP' };
     const previousState = {
       tip: {
-        id: FIRST_VOTE_TIP,
+        contentId: FIRST_VOTE_TIP_MESSAGE,
         level: NOTIFICATION_LEVEL_INFORMATION,
-        content: <FirstVoteTip />,
       },
     };
 
@@ -52,14 +46,14 @@ describe('Notification reducer', () => {
   it('Dismisses Notification', () => {
     const action = {
       type: 'DISMISS_NOTIFICATION',
-      payload: { id: FIRST_VOTE_TIP },
+      payload: { contentId: FIRST_VOTE_TIP_MESSAGE },
     };
     const previousState = {
       dismissed: [],
     };
 
     const expectedState = {
-      dismissed: [FIRST_VOTE_TIP],
+      dismissed: [FIRST_VOTE_TIP_MESSAGE],
     };
 
     expect(notifications(previousState, action)).toEqual(expectedState);
@@ -69,9 +63,8 @@ describe('Notification reducer', () => {
     const action = {
       type: 'DISPLAY_NOTIFICATION_BANNER',
       payload: {
-        id: LOGIN_SUCCESS_MESSAGE,
+        contentId: LOGIN_SUCCESS_MESSAGE,
         level: NOTIFICATION_LEVEL_SUCCESS,
-        content: <LoginSuccessMessage />,
         toDismiss: true,
       },
     };
@@ -82,9 +75,9 @@ describe('Notification reducer', () => {
 
     const expectedState = {
       banner: {
-        id: LOGIN_SUCCESS_MESSAGE,
+        contentId: LOGIN_SUCCESS_MESSAGE,
         level: NOTIFICATION_LEVEL_SUCCESS,
-        content: <LoginSuccessMessage />,
+        params: {},
         toDismiss: true,
       },
     };
@@ -95,9 +88,8 @@ describe('Notification reducer', () => {
     const action = {
       type: 'DISPLAY_NOTIFICATION_TIP',
       payload: {
-        id: TAGS_TIP,
+        contentId: TAGS_TIP_MESSAGE,
         level: NOTIFICATION_LEVEL_INFORMATION,
-        content: <TagsTip />,
         toDismiss: true,
       },
     };
@@ -108,9 +100,8 @@ describe('Notification reducer', () => {
 
     const expectedState = {
       tip: {
-        id: TAGS_TIP,
+        contentId: TAGS_TIP_MESSAGE,
         level: NOTIFICATION_LEVEL_INFORMATION,
-        content: <TagsTip />,
         toDismiss: true,
       },
     };

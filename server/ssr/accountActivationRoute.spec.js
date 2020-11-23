@@ -1,4 +1,3 @@
-import React from 'react';
 import httpMocks from 'node-mocks-http';
 import { QuestionApiService } from 'Shared/api/QuestionApiService';
 import { UserApiService } from 'Shared/api/UserApiService';
@@ -10,8 +9,6 @@ import {
   ACTIVATION_SUCCESS_MESSAGE,
   ACTIVATION_FAILURE_MESSAGE,
 } from 'Shared/constants/notifications';
-import { AccountActivationFailureMessage } from 'Client/app/Notifications/Banner/AccountActivationFailure';
-import { AccountActivationSuccessMessage } from 'Client/app/Notifications/Banner/AccountActivationSuccess';
 import { reactRender } from '../reactRender';
 import { accountActivationRoute } from './accountActivationRoute';
 
@@ -57,9 +54,8 @@ describe('Account activation route', () => {
       currentQuestion: fooQuestion.slug,
       notifications: {
         banner: {
-          id: ACTIVATION_SUCCESS_MESSAGE,
+          contentId: ACTIVATION_SUCCESS_MESSAGE,
           level: NOTIFICATION_LEVEL_SUCCESS,
-          content: <AccountActivationSuccessMessage />,
         },
         tip: {},
         dismissed: [],
@@ -94,9 +90,8 @@ describe('Account activation route', () => {
       ...initialState,
       notifications: {
         banner: {
-          id: ACTIVATION_SUCCESS_MESSAGE,
+          contentId: ACTIVATION_SUCCESS_MESSAGE,
           level: NOTIFICATION_LEVEL_SUCCESS,
-          content: <AccountActivationSuccessMessage />,
         },
         tip: {},
         dismissed: [],
@@ -134,9 +129,8 @@ describe('Account activation route', () => {
       ...initialState,
       notifications: {
         banner: {
-          id: ACTIVATION_FAILURE_MESSAGE,
+          contentId: ACTIVATION_FAILURE_MESSAGE,
           level: NOTIFICATION_LEVEL_ERROR,
-          content: <AccountActivationFailureMessage />,
         },
         tip: {},
         dismissed: [],

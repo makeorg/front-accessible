@@ -7,6 +7,7 @@ import {
   clearNotificationTip,
   dismissNotification,
 } from 'Shared/store/actions/notifications';
+import { NotificationMessage } from 'Client/app/Notifications/Message';
 import {
   TipWrapperStyle,
   TipCrossStyle,
@@ -22,22 +23,24 @@ type Props = {
 
 export const Tip = ({ isFirstSequenceVote = false }: Props) => {
   const dispatch = useDispatch();
-  const { id, level, content, toDismiss } = useSelector(
+  const { contentId, level, toDismiss } = useSelector(
     (state: StateRoot) => state.notifications.tip
   );
   const { dismissed } = useSelector((state: StateRoot) => state.notifications);
-  const isDismissed = dismissed.find(notificationId => notificationId === id);
+  const isDismissed = dismissed.find(
+    notificationId => notificationId === contentId
+  );
 
   const closeNotificationTip = () => {
     if (toDismiss) {
-      dispatch(dismissNotification(id));
+      dispatch(dismissNotification(contentId));
       return dispatch(clearNotificationTip());
     }
 
     return dispatch(clearNotificationTip());
   };
 
-  if (!content || isDismissed) return null;
+  if (!contentId || isDismissed) return null;
 
   return (
     <>
@@ -50,7 +53,7 @@ export const Tip = ({ isFirstSequenceVote = false }: Props) => {
           <SvgClose aria-hidden />
         </TipCrossStyle>
         <NotificationIcon level={level} context="tip" />
-        {content}
+        <NotificationMessage name={contentId} />
       </TipWrapperStyle>
       {isFirstSequenceVote && <TriangleDownStyle />}
     </>

@@ -1,7 +1,6 @@
 import React from 'react';
 import * as redux from 'react-redux';
 import renderer from 'react-test-renderer';
-import { FirstVoteTip } from 'Client/app/Notifications/Tip/FirstVote';
 import { Tip } from './index';
 
 jest.mock('./style', () => ({
@@ -28,8 +27,7 @@ describe('TagTooltip', () => {
     selector({
       notifications: {
         tip: {
-          id: 'FIRST_VOTE_TIP',
-          content: <FirstVoteTip />,
+          contentId: 'FIRST_VOTE_TIP_MESSAGE',
           level: 'information',
           toDismiss: true,
         },

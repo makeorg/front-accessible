@@ -20,7 +20,6 @@ import {
 } from 'Shared/constants/notifications';
 import { env } from 'Shared/env';
 import { TWTTR_SCRIPT } from 'Shared/services/Trackers/twttr';
-import { SecureExpiredMessage } from 'Client/app/Notifications/Banner/SecureExpired';
 import configuration from './configuration';
 import { BUILD_DIR } from './paths';
 import { logInfo } from './ssr/helpers/ssr.helper';
@@ -92,9 +91,8 @@ export const reactRender = async (req, res, routeState = {}) => {
   };
 
   if (secureExpired) {
-    state.notification.banner = {
-      id: SECURE_EXPIRED_MESSAGE,
-      content: <SecureExpiredMessage />,
+    state.notifications.banner = {
+      contentId: SECURE_EXPIRED_MESSAGE,
       level: NOTIFICATION_LEVEL_INFORMATION,
     };
   }

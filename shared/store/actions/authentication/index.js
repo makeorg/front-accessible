@@ -1,5 +1,4 @@
 /* @flow */
-import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { type Dispatch } from 'redux';
 import { type ErrorObjectType } from 'Shared/types/api';
@@ -28,12 +27,6 @@ import {
   REGISTER_SUCCESS_VALIDATE_MESSAGE,
   UNEXPECTED_ERROR_MESSAGE,
 } from 'Shared/constants/notifications';
-import { LoginSuccessMessage } from 'Client/app/Notifications/Banner/LoginSuccess';
-import { AccountDeletionSuccessMessage } from 'Client/app/Notifications/Banner/AccountDeletionSuccess';
-import { LogoutSuccessMessage } from 'Client/app/Notifications/Banner/LogoutSuccess';
-import { RegisterSuccessMessage } from 'Client/app/Notifications/Banner/RegisterSuccess';
-import { RegisterSuccessValidateMessage } from 'Client/app/Notifications/Banner/RegisterSuccessValidate';
-import { UnexpectedErrorMessage } from 'Client/app/Notifications/Banner/UnexpectedError';
 import { displayNotificationBanner } from '../notifications';
 
 export const loginRequest = () => ({ type: actionTypes.LOGIN_REQUEST });
@@ -77,7 +70,6 @@ export const getUser = (afterRegistration?: boolean) => async (
     return dispatch(
       displayNotificationBanner(
         UNEXPECTED_ERROR_MESSAGE,
-        <UnexpectedErrorMessage />,
         NOTIFICATION_LEVEL_ERROR
       )
     );
@@ -99,7 +91,6 @@ export const getUser = (afterRegistration?: boolean) => async (
     return dispatch(
       displayNotificationBanner(
         REGISTER_SUCCESS_MESSAGE,
-        <RegisterSuccessMessage />,
         NOTIFICATION_LEVEL_SUCCESS
       )
     );
@@ -109,8 +100,8 @@ export const getUser = (afterRegistration?: boolean) => async (
     return dispatch(
       displayNotificationBanner(
         REGISTER_SUCCESS_VALIDATE_MESSAGE,
-        <RegisterSuccessValidateMessage email={user.email} />,
-        NOTIFICATION_LEVEL_ALERT
+        NOTIFICATION_LEVEL_ALERT,
+        { email: user.email }
       )
     );
   }
@@ -129,7 +120,6 @@ export const login = (email: string, password: string) => (
     dispatch(
       displayNotificationBanner(
         LOGIN_SUCCESS_MESSAGE,
-        <LoginSuccessMessage />,
         NOTIFICATION_LEVEL_SUCCESS
       )
     );
@@ -173,7 +163,6 @@ export const loginSocial = (provider: string, socialToken: string) => (
     dispatch(
       displayNotificationBanner(
         LOGIN_SUCCESS_MESSAGE,
-        <LoginSuccessMessage />,
         NOTIFICATION_LEVEL_SUCCESS
       )
     );
@@ -204,7 +193,6 @@ export const logout = (afterAccountDeletion?: boolean) => (
       return dispatch(
         displayNotificationBanner(
           ACCOUNT_DELETION_SUCCESS_MESSAGE,
-          <AccountDeletionSuccessMessage />,
           NOTIFICATION_LEVEL_SUCCESS
         )
       );
@@ -212,7 +200,6 @@ export const logout = (afterAccountDeletion?: boolean) => (
     return dispatch(
       displayNotificationBanner(
         LOGOUT_SUCCESS_MESSAGE,
-        <LogoutSuccessMessage />,
         NOTIFICATION_LEVEL_SUCCESS
       )
     );

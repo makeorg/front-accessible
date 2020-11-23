@@ -10,19 +10,19 @@ export const clearNotificationBanner = () => ({
   type: CLOSE_NOTIFICATION_BANNER,
 });
 
-export const dismissNotification = (id: string) => ({
+export const dismissNotification = (contentId: string) => ({
   type: DISMISS_NOTIFICATION,
-  payload: { id },
+  payload: { contentId },
 });
 
 export const displayNotificationBanner = (
-  id: string,
-  content: any,
+  contentId: string,
   level?: string,
+  params?: Object,
   toDismiss?: boolean
 ) => ({
   type: DISPLAY_NOTIFICATION_BANNER,
-  payload: { id, content, level, toDismiss },
+  payload: { contentId, level, toDismiss, params },
 });
 
 export const clearNotificationTip = () => ({
@@ -30,11 +30,10 @@ export const clearNotificationTip = () => ({
 });
 
 export const displayNotificationTip = (
-  id: string,
-  content: any,
+  contentId: string,
   level?: string,
   toDismiss?: boolean
 ) => ({
   type: DISPLAY_NOTIFICATION_TIP,
-  payload: { id, content, level, toDismiss },
+  payload: { contentId, level, toDismiss },
 });

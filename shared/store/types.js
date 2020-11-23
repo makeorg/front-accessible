@@ -42,7 +42,7 @@ export type StateSequence = $ReadOnly<{
 
 // Notification State
 export type StateNotification = $ReadOnly<{
-  banner: { id?: string, content?: any, level?: string },
+  banner: { contentId?: any, level?: string, params?: Object },
   tip: { id?: string, content?: any, level?: string },
   dismissed: string[],
 }>;
