@@ -38,7 +38,7 @@ export const Register = () => {
     password: '',
     profile: {
       firstname: '',
-      age: undefined,
+      age: '',
       postalcode: '',
       profession: '',
       legalMinorConsent: false,
