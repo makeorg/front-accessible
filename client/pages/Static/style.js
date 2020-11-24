@@ -15,7 +15,8 @@ import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { SmallSeparatorStyle } from 'Client/ui/Elements/Separators';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { RedLinkHTMLElementStyle } from 'Client/ui/Elements/LinkElements';
-import { SvgExternalLink } from 'Client/ui/Svg/elements';
+import { SvgExternalLink, SvgBigCheck } from 'Client/ui/Svg/elements';
+import { StartColumnStyle } from 'Client/ui/Elements/FlexElements';
 
 export const StaticPageWrapperStyle = styled.div`
   width: 100%;
@@ -26,6 +27,42 @@ export const StaticPageWrapperStyle = styled.div`
   }
   max-width: ${intToPx(Layouts.ContainerWithPadding)};
   margin: 30px auto;
+`;
+
+export const FocusBlockWrapperStyle = styled(StartColumnStyle)`
+  margin: 30px 0 15px;
+  flex-direction: column;
+  background-color: ${color.white};
+  padding: 20px 20px 0px;
+  border-radius: 8px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    padding: 30px 40px 0px 30px;
+  }
+`;
+
+export const FocusBlockTitleStyle = styled.h1`
+  font-family: ${MakeFonts.CircularStandardBold};
+  font-size: ${intToPx(typography.font.fontsize.XL.value)};
+  margin-bottom: 10px;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+`;
+
+export const FocusBlockParagraphStyle = styled.p`
+  color: ${color.greyDark};
+  font-size: ${intToPx(typography.font.fontsize.S.value)};
+  margin-bottom: 20px;
+  line-height: 1.5;
+  letter-spacing: 0.12px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    margin-bottom: 40px;
+  }
+`;
+
+export const FocusBlockCheckIconStyle = styled(SvgBigCheck)`
+  width: 20px;
+  height: 20px;
+  margin-bottom: 15px;
 `;
 
 export const StaticSecondLevelTitleStyle = styled(SecondLevelTitleStyle)`
@@ -55,9 +92,6 @@ export const StaticTitleExtra = styled.span`
   @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
     font-size: ${intToPx(typography.font.fontsize.XS.value)};
   }
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    font-size: ${intToPx(typography.font.fontsize.XS.value)};
-  }
 `;
 
 export const StaticParagraphStyle = styled.p`
@@ -66,9 +100,6 @@ export const StaticParagraphStyle = styled.p`
   line-height: 2;
   color: ${color.greyDark};
   @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
-    font-size: ${intToPx(typography.font.fontsize.XS.value)};
-  }
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     font-size: ${intToPx(typography.font.fontsize.XS.value)};
   }
 `;
@@ -172,6 +203,7 @@ export const StaticSecondaryOrderedListItemStyle = styled.li`
 
 export const StaticSquareListStyle = styled.ul`
   margin: 10px 0;
+  word-break: break-word;
 `;
 
 export const StaticSquareListItemStyle = styled.li`
@@ -180,9 +212,6 @@ export const StaticSquareListItemStyle = styled.li`
   line-height: 2;
   color: ${color.greyDark};
   @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
-    font-size: ${intToPx(typography.font.fontsize.XS.value)};
-  }
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     font-size: ${intToPx(typography.font.fontsize.XS.value)};
   }
 `;
