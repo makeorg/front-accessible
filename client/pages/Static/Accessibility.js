@@ -48,6 +48,10 @@ import {
   StaticSquareListItemStyle,
   StaticSquareListStyle,
   StaticExternalLinkIconStyle,
+  FocusBlockWrapperStyle,
+  FocusBlockTitleStyle,
+  FocusBlockParagraphStyle,
+  FocusBlockCheckIconStyle,
 } from './style';
 
 export const Accessibility = () => (
@@ -71,6 +75,23 @@ export const Accessibility = () => (
         </RedLinkHTMLElementStyle>
         .
       </StaticParagraphStyle>
+      <FocusBlockWrapperStyle as="section">
+        <FocusBlockCheckIconStyle aria-hidden focusable="false" />
+        <FocusBlockTitleStyle>
+          74% des critères RGAA 4.0 sont respectés
+        </FocusBlockTitleStyle>
+        <FocusBlockParagraphStyle>
+          Make.org s&apos;engage à améliorer l&apos;accessibilité et
+          l&apos;inclusion dans le numérique. Le RGAA (référentiel général
+          d’amélioration de l’accessibilité) est un document d&apos;autorité,
+          énonçant des normes d&apos;accessibilité auxquelles nos équipes de
+          conception et techniques cherchent à se rapprocher au maximum.
+        </FocusBlockParagraphStyle>
+        <FocusBlockParagraphStyle>
+          De façon transparente, cette page a pour but d&apos;indiquer
+          l&apos;état actuel de l&apos;accessibilité de Make.org.
+        </FocusBlockParagraphStyle>
+      </FocusBlockWrapperStyle>
       <StaticPrimaryOrderedListStyle>
         <StaticPrimaryOrderedListItemStyle>
           <StaticThirdLevelTitleStyle>
