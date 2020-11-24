@@ -2,9 +2,10 @@
  * This script utility is needed to create version file.
  */
 const fs = require('fs');
-
+const path = require('path');
 const childProcess = require('child_process'); // eslint-disable-line security/detect-child-process
-const { BUILD_DIR } = require('./paths');
+
+const BUILD_DIR = path.resolve(process.cwd(), 'dist');
 
 const lastCommit = childProcess
   .execSync('git rev-parse HEAD')

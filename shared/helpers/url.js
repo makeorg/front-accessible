@@ -2,7 +2,6 @@
 import 'url-search-params-polyfill';
 import { generatePath } from 'react-router';
 import queryString from 'query-string';
-import { FRONT_URL } from 'Shared/constants/config';
 import { ABOUT_MAKE_LINK } from 'Shared/constants/url';
 import {
   ROUTE_CONSULTATION,
@@ -32,6 +31,7 @@ import {
   ROUTE_PASSWORD_RECOVERY,
   ROUTE_ACCOUNT_ACTIVATION,
 } from 'Shared/routes';
+import { env } from 'Shared/env';
 
 export const getParamsQuery = (searchParams: string) => {
   const params = new URLSearchParams(searchParams);
@@ -40,7 +40,7 @@ export const getParamsQuery = (searchParams: string) => {
 };
 
 export const getRelativeCurrentUrl = (pathName: string) =>
-  `${FRONT_URL}${pathName}`;
+  `${env.frontUrl()}${pathName}`;
 
 export const getPartnerAnchor = (aboutUrl: string) => `${aboutUrl}#partenaires`;
 

@@ -4,11 +4,10 @@
  * Module dependencies.
  */
 
-const debug = require('debug')('front-accessible:server');
 const http = require('http');
 const https = require('https');
 const fs = require('fs');
-const app = require('../server/start');
+const { app } = require('../dist/server.js');
 
 /**
  * Normalize a port into a number, string, or false.
@@ -38,9 +37,8 @@ app.set('port', port);
 /**
  * Create HTTP server.
  */
-
 const server =
-  port === 443
+  process.env.HTTPS === 'true'
     ? https.createServer(
         {
           key: fs.readFileSync('certs/server.key'),
@@ -81,7 +79,7 @@ function onError(error) {
 function onListening() {
   const addr = server.address();
   const bind = typeof addr === 'string' ? `pipe ${addr}` : `port ${addr.port}`;
-  debug(`Listening on ${bind}`);
+  console.log('Listening on', bind);
 }
 
 /**

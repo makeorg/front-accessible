@@ -1,10 +1,8 @@
-module.exports = {
-  proxyTargetApiUrl:
-    process.env.PROXY_TARGET_API_URL ||
-    process.env.API_URL ||
-    'http://localhost:9000',
-  apiUrl: process.env.API_URL || 'http://localhost:9000',
-  frontUrl: process.env.FRONT_URL || 'https://www.preprod.makeorg.tech',
-  port: process.env.PORT || 9009,
-  host: process.env.HOST || 'localhost',
-};
+import { env } from 'Shared/env';
+
+export const proxyTargetApiUrl =
+  env.proxyTargetApiUrl() || env.apiUrl() || 'http://localhost:9000';
+export const apiUrl = env.apiUrl() || 'http://localhost:9000';
+export const frontUrl = env.frontUrl() || 'https://www.preprod.makeorg.tech';
+export const port = env.port() || 9009;
+export const host = env.host() || 'localhost';

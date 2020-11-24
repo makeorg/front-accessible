@@ -108,6 +108,7 @@ class ApiServiceSharedClass {
     if (paramsQuery) {
       headers = { ...headers, 'x-get-parameters': paramsQuery };
     }
+
     const apiUrl = `${API_URL}${url}`;
 
     return axios(apiUrl, {

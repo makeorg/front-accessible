@@ -20,32 +20,36 @@ import { proxyTargetApiUrl, frontUrl } from './configuration';
 serverInitI18n();
 ApiService.strategy = new ApiServiceServer();
 // App
-const app = express();
+const getApp = () => {
+  const app = express();
 
-const { hostname } = new URL(frontUrl);
-const apiProxy = createProxyMiddleware({
-  target: proxyTargetApiUrl,
-  pathRewrite: { '^/api-local': '' },
-  changeOrigin: true,
-  cookieDomainRewrite: {
-    '*': hostname,
-  },
-  logLevel: 'error',
-  secure: false,
-});
+  const { hostname } = new URL(frontUrl);
+  const apiProxy = createProxyMiddleware({
+    target: proxyTargetApiUrl,
+    pathRewrite: { '^/api-local': '' },
+    changeOrigin: true,
+    cookieDomainRewrite: {
+      '*': hostname,
+    },
+    logLevel: 'error',
+    secure: false,
+  });
 
-app.use('/api-local', apiProxy);
-app.use(nonceUuidMiddleware);
-app.use(compression());
-app.use(bodyParser.json());
-app.use(favicon(FAVICON_PATH));
-app.use(cookiesMiddleware());
-app.use(headersResponseMiddleware);
+  app.use('/api-local', apiProxy);
+  app.use(nonceUuidMiddleware);
+  app.use(compression());
+  app.use(bodyParser.json());
+  app.use(favicon(FAVICON_PATH));
+  app.use(cookiesMiddleware());
+  app.use(headersResponseMiddleware);
 
-// apply csp everywhere except on styleguide /doc
-app.use(/^(?!.*doc).*$/, cspMiddleware);
+  // apply csp everywhere except on styleguide /doc
+  app.use(/^(?!.*doc).*$/, cspMiddleware);
 
-if (env.isDev()) app.use(cors());
-initRoutes(app);
+  if (env.isDev()) app.use(cors());
+  initRoutes(app);
 
-module.exports = app;
+  return app;
+};
+
+export const app = getApp();

@@ -13,14 +13,15 @@ import deepFreeze from 'deep-freeze';
 import { TRANSLATION_NAMESPACE } from 'Shared/i18n/constants';
 import { configureStore } from 'Shared/store';
 import { AppContainer } from 'Client/app';
-import { createInitialState, initialState } from 'Shared/store/initialState';
+import { initialState } from 'Shared/store/initialState';
 import {
   NOTIFICATION_LEVEL_INFORMATION,
   SECURE_EXPIRED_MESSAGE,
 } from 'Shared/constants/notifications';
 import { env } from 'Shared/env';
+import { env as processEnv } from 'Shared/process';
 import { TWTTR_SCRIPT } from 'Shared/services/Trackers/twttr';
-import configuration from './configuration';
+import { SecureExpiredMessage } from 'Client/app/Notifications/Banner/SecureExpired';
 import { BUILD_DIR } from './paths';
 import { logInfo } from './ssr/helpers/ssr.helper';
 import { ViewsService } from './service/ViewsService';
@@ -39,7 +40,7 @@ const renderHtml = (reactApp, reduxStore, metaTags, res) => {
   }
 
   const extractor = new ChunkExtractor({ statsFile });
-  const { apiUrl, frontUrl } = configuration;
+
   const sheet = new ServerStyleSheet();
 
   const jsx = extractor.collectChunks(reactApp);
@@ -48,17 +49,22 @@ const renderHtml = (reactApp, reduxStore, metaTags, res) => {
   const styles = sheet.getStyleTags();
   const reduxState = reduxStore.getState();
   const scriptTags = extractor.getScriptTags();
+  const linkTags = extractor.getLinkTags();
   const nonceId = res.locals.nonce;
 
   return htmlContent
     .replace(/<div id="app"><\/div>/, `<div id="app">${body}</div>`)
-    .replace('<head>', `<head>${ReactDOMServer.renderToString(metaTags)}`)
+    .replace(
+      '<head>',
+      `<head>${ReactDOMServer.renderToString(metaTags)}${linkTags}`
+    )
     .replace('</head>', `${styles}</head>`)
     .replace('"__REDUX__"', JSON.stringify(reduxState))
     .replace(new RegExp('__LANG__', 'gi'), reduxState.appConfig.language)
-    .replace(new RegExp('__API_URL__', 'gi'), apiUrl)
-    .replace(new RegExp('__FRONT_URL__', 'gi'), frontUrl)
+    .replace(new RegExp('__API_URL__', 'gi'), env.apiUrl())
+    .replace(new RegExp('__FRONT_URL__', 'gi'), env.frontUrl())
     .replace(new RegExp('___NONCE_ID___', 'gi'), nonceId)
+    .replace(new RegExp('___ENV___', 'gi'), processEnv.NODE_ENV || 'production')
     .replace('</body>', `${scriptTags}</body>`)
     .replace(
       '</body>',
@@ -77,8 +83,16 @@ export const reactRender = async (req, res, routeState = {}) => {
     language
   );
 
+  const notificationBanner = secureExpired
+    ? {
+        id: SECURE_EXPIRED_MESSAGE,
+        content: <SecureExpiredMessage />,
+        level: NOTIFICATION_LEVEL_INFORMATION,
+      }
+    : {};
+
   const state = {
-    ...createInitialState(),
+    ...initialState,
     ...routeState,
     appConfig: {
       source: 'core',
@@ -87,15 +101,13 @@ export const reactRender = async (req, res, routeState = {}) => {
       translations: i18n.getResourceBundle(language, TRANSLATION_NAMESPACE),
       queryParams,
       countriesWithConsultations,
+      notifications: {
+        ...initialState.notifications,
+        banner: notificationBanner,
+      },
     },
   };
 
-  if (secureExpired) {
-    state.notifications.banner = {
-      contentId: SECURE_EXPIRED_MESSAGE,
-      level: NOTIFICATION_LEVEL_INFORMATION,
-    };
-  }
   const store = configureStore(state);
   const context = {};
   const headTags = [];

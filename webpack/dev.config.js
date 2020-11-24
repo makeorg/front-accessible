@@ -1,7 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
 const { merge } = require('webpack-merge');
-const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 const createHtmlWebpackPlugin = require('./plugins/htmlWebpackPlugin.config.js');
 const baseConfig = require('./base.config.js');
 
@@ -16,23 +15,28 @@ module.exports = merge(baseConfig, {
     createHtmlWebpackPlugin({ ssr: false }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('development'),
-        API_URL: JSON.stringify('https://api.preprod.makeorg.tech'),
-      },
-    }),
-    new MomentLocalesPlugin({
-      localesToKeep: ['fr', 'en'],
+      'process.env.NODE_ENV': JSON.stringify('development'),
+      'process.env.HTTPS': JSON.stringify(process.env.HTTPS || 'true'),
+      'process.env.HOST': JSON.stringify(
+        process.env.HOST || 'local.makeorg.tech'
+      ),
+      'process.env.PORT': JSON.stringify(process.env.PORT || '3000'),
+      'process.env.API_URL': JSON.stringify(
+        process.env.API_URL || 'https://api.preprod.makeorg.tech'
+      ),
+      'process.env.FRONT_URL': JSON.stringify(
+        process.env.FRONT_URL || 'https://local.makeorg.tech:3000'
+      ),
     }),
   ],
   devServer: {
-    port: 3000,
+    port: process.env.PORT || '3000',
     contentBase: './dist',
     hot: true,
-    host: process.env.HOST || '0.0.0.0',
+    host: process.env.HOST || 'local.makeorg.tech',
     historyApiFallback: true,
     disableHostCheck: true,
-    https: true,
+    https: process.env.HTTPS ? process.env.HTTPS === 'true' : true,
   },
   devtool: 'inline-source-map',
 });

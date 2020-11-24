@@ -64,5 +64,4 @@ export const initialState: StateRoot = {
   },
 };
 
-export const createInitialState = (): StateRoot =>
-  JSON.parse(JSON.stringify(initialState));
+export const createInitialState = (): StateRoot => ({ ...initialState });

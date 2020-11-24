@@ -2,7 +2,6 @@
 import React from 'react';
 import { RedLinkHTMLElementStyle } from 'Client/ui/Elements/LinkElements';
 import { i18n } from 'Shared/i18n';
-import { FRONT_URL } from 'Shared/constants/config';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import {
   getA11YPageLink,
@@ -37,6 +36,7 @@ import {
   getRouteSearchProposals,
 } from 'Shared/routes';
 import { MetaTags } from 'Client/app/MetaTags';
+import { env } from 'Shared/env';
 import {
   StaticPageWrapperStyle,
   StaticSecondLevelTitleStyle,
@@ -70,8 +70,8 @@ export const Accessibility = () => (
       </StaticParagraphStyle>
       <StaticParagraphStyle>
         {'Cette déclaration d’accessibilité s’applique à '}
-        <RedLinkHTMLElementStyle href={FRONT_URL}>
-          {FRONT_URL}
+        <RedLinkHTMLElementStyle href={env.frontUrl()}>
+          {env.frontUrl()}
         </RedLinkHTMLElementStyle>
         .
       </StaticParagraphStyle>
@@ -292,54 +292,55 @@ export const Accessibility = () => (
             <StaticSquareListItemStyle>
               {"Page d'accueil France : "}
               <RedLinkHTMLElementStyle href={getHomeLink('FR')}>
-                {FRONT_URL + getHomeLink('FR')}
+                {env.frontUrl() + getHomeLink('FR')}
               </RedLinkHTMLElementStyle>
             </StaticSquareListItemStyle>
             <StaticSquareListItemStyle>
               {"Page d'accueil Grande Bretagne : "}
               <RedLinkHTMLElementStyle href={getHomeLink('GB')}>
-                {FRONT_URL + getHomeLink('GB')}
+                {env.frontUrl() + getHomeLink('GB')}
               </RedLinkHTMLElementStyle>
             </StaticSquareListItemStyle>
             <StaticSquareListItemStyle>
               {'Page parcourir les consultations : '}
               <RedLinkHTMLElementStyle href={getBrowseConsultationsLink('FR')}>
-                {FRONT_URL + getBrowseConsultationsLink('FR')}
+                {env.frontUrl() + getBrowseConsultationsLink('FR')}
               </RedLinkHTMLElementStyle>
             </StaticSquareListItemStyle>
             <StaticSquareListItemStyle>
               {'Page parcourir les résultats : '}
               <RedLinkHTMLElementStyle href={getBrowseResultsLink('FR')}>
-                {FRONT_URL + getBrowseResultsLink('FR')}
+                {env.frontUrl() + getBrowseResultsLink('FR')}
               </RedLinkHTMLElementStyle>
             </StaticSquareListItemStyle>
             <StaticSquareListItemStyle>
               {'Page consultation : '}
-              {FRONT_URL + getConsultationLink('FR', 'dynamicslug')}
+              {env.frontUrl() + getConsultationLink('FR', 'dynamicslug')}
             </StaticSquareListItemStyle>
             <StaticSquareListItemStyle>
               {'Page actions : '}
-              {FRONT_URL + getActionLink('FR', 'dynamicslug')}
+              {env.frontUrl() + getActionLink('FR', 'dynamicslug')}
             </StaticSquareListItemStyle>
             <StaticSquareListItemStyle>
               {'Page de propositions en séquence : '}
-              {FRONT_URL + getSequenceLink('FR', 'dynamicslug')}
+              {env.frontUrl() + getSequenceLink('FR', 'dynamicslug')}
             </StaticSquareListItemStyle>
             <StaticSquareListItemStyle>
               {"Page de résultat d'une consultation : "}
-              {FRONT_URL + getResultsLink('FR', 'dynamicslug')}
+              {env.frontUrl() + getResultsLink('FR', 'dynamicslug')}
             </StaticSquareListItemStyle>
             <StaticSquareListItemStyle>
               {"Page du top des idées d'une consultation : "}
-              {FRONT_URL + getTopIdeasLink('FR', 'dynamicslug')}
+              {env.frontUrl() + getTopIdeasLink('FR', 'dynamicslug')}
             </StaticSquareListItemStyle>
             <StaticSquareListItemStyle>
               {"Page de détails d'une top idée d'une consultation : "}
-              {FRONT_URL + getTopIdeaDetailsLink('FR', 'dynamicslug', 'ideaId')}
+              {env.frontUrl() +
+                getTopIdeaDetailsLink('FR', 'dynamicslug', 'ideaId')}
             </StaticSquareListItemStyle>
             <StaticSquareListItemStyle>
               {'Page de proposition : '}
-              {FRONT_URL +
+              {env.frontUrl() +
                 getProposalLink(
                   'FR',
                   'dynamicslug',
@@ -349,53 +350,53 @@ export const Accessibility = () => (
             </StaticSquareListItemStyle>
             <StaticSquareListItemStyle>
               {'Page de réinitialisation du mot de passe : '}
-              {FRONT_URL +
+              {env.frontUrl() +
                 getPasswordRecoveryLink('FR', 'userId', 'resetToken')}
             </StaticSquareListItemStyle>
             <StaticSquareListItemStyle>
               {'Page de profil utilisateur : '}
-              {FRONT_URL + getRouteProfile('FR')}
+              {env.frontUrl() + getRouteProfile('FR')}
             </StaticSquareListItemStyle>
             <StaticSquareListItemStyle>
               {"Page d'édition du profil utilisateur : "}
-              {FRONT_URL + getRouteProfileEdit('FR')}
+              {env.frontUrl() + getRouteProfileEdit('FR')}
             </StaticSquareListItemStyle>
             <StaticSquareListItemStyle>
               {"Page de la liste des propositions de l'utilisateur : "}
-              {FRONT_URL + getRouteProfileProposals('FR')}
+              {env.frontUrl() + getRouteProfileProposals('FR')}
             </StaticSquareListItemStyle>
             <StaticSquareListItemStyle>
               {
                 "Page de la liste des propositions favorites de l'utilisateur : "
               }
-              {FRONT_URL + getRouteProfileFavourites('FR')}
+              {env.frontUrl() + getRouteProfileFavourites('FR')}
             </StaticSquareListItemStyle>
             <StaticSquareListItemStyle>
               {"Page des opinions d'une personnalité : "}
-              {FRONT_URL + getRouteProfileOpinions('FR')}
+              {env.frontUrl() + getRouteProfileOpinions('FR')}
             </StaticSquareListItemStyle>
             <StaticSquareListItemStyle>
               {"Page des opinions d'une personnalité : "}
-              {FRONT_URL + getRouteProfileOpinions('FR')}
+              {env.frontUrl() + getRouteProfileOpinions('FR')}
             </StaticSquareListItemStyle>
             <StaticSquareListItemStyle>
               {"Page de profil public d'une personnalité : "}
-              {FRONT_URL + getPersonalityProfileLink('FR', 'userId')}
+              {env.frontUrl() + getPersonalityProfileLink('FR', 'userId')}
             </StaticSquareListItemStyle>
             <StaticSquareListItemStyle>
               {"Page de propositions d'un profil public d'organisation : "}
-              {FRONT_URL + getRouteOrganisationProposals('FR', 'userId')}
+              {env.frontUrl() + getRouteOrganisationProposals('FR', 'userId')}
             </StaticSquareListItemStyle>
             <StaticSquareListItemStyle>
               {"Page de votes d'un profil public d'organisation : "}
-              {FRONT_URL + getRouteOrganisationVotes('FR', 'userId')}
+              {env.frontUrl() + getRouteOrganisationVotes('FR', 'userId')}
             </StaticSquareListItemStyle>
             <StaticSquareListItemStyle>
               {'Page de résultats de recherche : '}
               <RedLinkHTMLElementStyle
                 href={getRouteSearch('FR', 'accessibilité')}
               >
-                {FRONT_URL + getRouteSearch('FR', 'accessibilité')}
+                {env.frontUrl() + getRouteSearch('FR', 'accessibilité')}
               </RedLinkHTMLElementStyle>
             </StaticSquareListItemStyle>
             <StaticSquareListItemStyle>
@@ -403,7 +404,8 @@ export const Accessibility = () => (
               <RedLinkHTMLElementStyle
                 href={getRouteSearchProposals('FR', 'accessibilité')}
               >
-                {FRONT_URL + getRouteSearchProposals('FR', 'accessibilité')}
+                {env.frontUrl() +
+                  getRouteSearchProposals('FR', 'accessibilité')}
               </RedLinkHTMLElementStyle>
             </StaticSquareListItemStyle>
             <StaticSquareListItemStyle>
@@ -411,7 +413,8 @@ export const Accessibility = () => (
               <RedLinkHTMLElementStyle
                 href={getRouteSearchOrganisations('FR', 'association')}
               >
-                {FRONT_URL + getRouteSearchOrganisations('FR', 'association')}
+                {env.frontUrl() +
+                  getRouteSearchOrganisations('FR', 'association')}
               </RedLinkHTMLElementStyle>
             </StaticSquareListItemStyle>
             <StaticSquareListItemStyle>
@@ -419,37 +422,37 @@ export const Accessibility = () => (
               <RedLinkHTMLElementStyle
                 href={getRouteSearchConsultations('FR', 'comment')}
               >
-                {FRONT_URL + getRouteSearchConsultations('FR', 'comment')}
+                {env.frontUrl() + getRouteSearchConsultations('FR', 'comment')}
               </RedLinkHTMLElementStyle>
             </StaticSquareListItemStyle>
             <StaticSquareListItemStyle>
               {'Page de mentions légales : '}
               <RedLinkHTMLElementStyle href={getLegalPageLink('FR')}>
-                {FRONT_URL + getLegalPageLink('FR')}
+                {env.frontUrl() + getLegalPageLink('FR')}
               </RedLinkHTMLElementStyle>
             </StaticSquareListItemStyle>
             <StaticSquareListItemStyle>
               {"Page de conditions d'utilisation : "}
               <RedLinkHTMLElementStyle href={getGTUPageLink('FR')}>
-                {FRONT_URL + getGTUPageLink('FR')}
+                {env.frontUrl() + getGTUPageLink('FR')}
               </RedLinkHTMLElementStyle>
             </StaticSquareListItemStyle>
             <StaticSquareListItemStyle>
               {'Page de politique de données : '}
               <RedLinkHTMLElementStyle href={getDataPageLink('FR')}>
-                {FRONT_URL + getDataPageLink('FR')}
+                {env.frontUrl() + getDataPageLink('FR')}
               </RedLinkHTMLElementStyle>
             </StaticSquareListItemStyle>
             <StaticSquareListItemStyle>
               {"Page de déclaration d'accessibilité : "}
               <RedLinkHTMLElementStyle href={getA11YPageLink('FR')}>
-                {FRONT_URL + getA11YPageLink('FR')}
+                {env.frontUrl() + getA11YPageLink('FR')}
               </RedLinkHTMLElementStyle>
             </StaticSquareListItemStyle>
             <StaticSquareListItemStyle>
               {'Page de contact : '}
               <RedLinkHTMLElementStyle href={getContactPageLink('FR')}>
-                {FRONT_URL + getContactPageLink('FR')}
+                {env.frontUrl() + getContactPageLink('FR')}
               </RedLinkHTMLElementStyle>
             </StaticSquareListItemStyle>
           </StaticSquareListStyle>

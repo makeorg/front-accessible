@@ -36,15 +36,19 @@ const startSequence = async (
       const indexOfFirst = includedProposalIds.indexOf(firstProposal.id);
       const indexOfSecond = includedProposalIds.indexOf(secondProposal.id);
 
-      if (indexOfFirst === -1) {
-        return 1;
+      if (indexOfFirst !== -1 && indexOfSecond !== -1) {
+        return indexOfFirst > indexOfSecond ? 1 : -1;
       }
 
-      if (indexOfSecond === -1) {
+      if (indexOfFirst !== -1) {
         return -1;
       }
 
-      return indexOfFirst - indexOfSecond;
+      if (indexOfSecond !== -1) {
+        return 1;
+      }
+
+      return 0;
     }
   );
 

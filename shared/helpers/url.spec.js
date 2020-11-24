@@ -1,5 +1,5 @@
 /* @flow */
-import { FRONT_URL } from 'Shared/constants/config';
+import { env } from 'Shared/env';
 import * as urlHelper from './url';
 
 const pathName = '/fooPath';
@@ -13,7 +13,7 @@ describe('Url Helper', () => {
   it('return relative current url', () => {
     const link = urlHelper.getRelativeCurrentUrl(pathName);
 
-    expect(link).toEqual(FRONT_URL + pathName);
+    expect(link).toEqual(env.frontUrl() + pathName);
   });
 
   it('return about link with #partenaires anchor', () => {

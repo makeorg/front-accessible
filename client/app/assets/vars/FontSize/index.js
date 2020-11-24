@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 import athena from 'athena-design-tokens';
 import { RedLinkHTMLElementStyle } from 'Client/ui/Elements/LinkElements';
-import { FRONT_URL } from 'Shared/constants/config';
 import { ExternalLinkIconStyle } from 'Client/ui/Elements/Buttons/V2/style';
+import { env } from 'Shared/env';
 
 const FontGroupName = athena.typography.font.fontsize;
 const fonts = [];
@@ -19,8 +19,8 @@ export const FontSize = () => {
         <caption>
           Font size for the UI of
           <> </>
-          <RedLinkHTMLElementStyle href={FRONT_URL}>
-            {FRONT_URL}
+          <RedLinkHTMLElementStyle href={env.frontUrl()}>
+            {env.frontUrl()}
           </RedLinkHTMLElementStyle>
           <> </>
           from design tokens
