@@ -10,7 +10,6 @@ import { i18n } from 'Shared/i18n';
 import { Sequence } from 'Client/features/sequence/index';
 import { SequencePlaceholder } from 'Client/features/sequence/Placeholder';
 import { displayNotificationBanner } from 'Shared/store/actions/notifications';
-import { VoteOnlyMessage } from 'Client/app/Notifications/Banner/VoteOnly';
 import {
   NOTIFICATION_LEVEL_INFORMATION,
   VOTE_ONLY_MESSAGE,
@@ -31,9 +30,9 @@ const SequencePage = () => {
     if (!question.canPropose) {
       dispatch(
         displayNotificationBanner(
-          `${VOTE_ONLY_MESSAGE}_${question.questionId}`,
-          <VoteOnlyMessage />,
+          VOTE_ONLY_MESSAGE,
           NOTIFICATION_LEVEL_INFORMATION,
+          { questionId: question.questionId },
           true
         )
       );

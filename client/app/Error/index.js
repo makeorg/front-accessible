@@ -9,8 +9,6 @@ import {
   NOTIFICATION_LEVEL_ALERT,
   UNEXPECTED_ERROR_MESSAGE,
 } from 'Shared/constants/notifications';
-import { UnexpectedErrorMessage } from '../Notifications/Banner/UnexpectedError';
-import { NetworkErrorMessage } from '../Notifications/Banner/NetworkError';
 
 type Props = {
   children: React.Node,
@@ -74,7 +72,6 @@ export const ServiceErrorHandler = (props: Object) => {
       dispatch(
         displayNotificationBanner(
           NETWORK_ERROR_MESSAGE,
-          <NetworkErrorMessage />,
           NOTIFICATION_LEVEL_ALERT
         )
       );
@@ -82,7 +79,6 @@ export const ServiceErrorHandler = (props: Object) => {
       dispatch(
         displayNotificationBanner(
           UNEXPECTED_ERROR_MESSAGE,
-          <UnexpectedErrorMessage />,
           NOTIFICATION_LEVEL_ALERT
         )
       );

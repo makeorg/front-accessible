@@ -14,8 +14,7 @@ import {
   clearNotificationTip,
   displayNotificationTip,
 } from 'Shared/store/actions/notifications';
-import { TAGS_TIP } from 'Shared/constants/notifications';
-import { TagsTip } from 'Client/app/Notifications/Tip/Tags';
+import { TAGS_TIP_MESSAGE } from 'Shared/constants/notifications';
 import {
   TagSectionTitle,
   FiltersWrapperStyle,
@@ -54,7 +53,7 @@ export const SortAndFilter = ({
   const selectedTagsCount = selectedTags.length;
 
   useEffect(() => {
-    dispatch(displayNotificationTip(TAGS_TIP, <TagsTip />, undefined, true));
+    dispatch(displayNotificationTip(TAGS_TIP_MESSAGE, undefined, true));
     return () => dispatch(clearNotificationTip());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

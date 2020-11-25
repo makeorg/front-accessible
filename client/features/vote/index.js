@@ -33,8 +33,7 @@ import {
   dismissNotification,
   displayNotificationTip,
 } from 'Shared/store/actions/notifications';
-import { FirstVoteTip } from 'Client/app/Notifications/Tip/FirstVote';
-import { FIRST_VOTE_TIP } from 'Shared/constants/notifications';
+import { FIRST_VOTE_TIP_MESSAGE } from 'Shared/constants/notifications';
 import { Qualification } from '../qualification';
 import { VoteResult } from './Result';
 import {
@@ -150,7 +149,7 @@ export const Vote = ({
     await trackVote(proposalId, voteKey, index, contextType);
     if (isFirstSequenceVote) {
       trackFirstVote(proposalId, voteKey, index);
-      dispatch(dismissNotification(FIRST_VOTE_TIP));
+      dispatch(dismissNotification(FIRST_VOTE_TIP_MESSAGE));
       dispatch(clearNotificationTip());
     }
     stopPending();
@@ -172,14 +171,7 @@ export const Vote = ({
 
   useEffect(() => {
     if (isFirstSequenceVote) {
-      dispatch(
-        displayNotificationTip(
-          FIRST_VOTE_TIP,
-          <FirstVoteTip />,
-          undefined,
-          true
-        )
-      );
+      dispatch(displayNotificationTip(FIRST_VOTE_TIP_MESSAGE, undefined, true));
     }
 
     return () => dispatch(clearNotificationTip());

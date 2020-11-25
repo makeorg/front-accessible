@@ -1,15 +1,12 @@
-import React from 'react';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as actionTypes from 'Shared/store/actionTypes';
-import { LoginSuccessMessage } from 'Client/app/Notifications/Banner/LoginSuccess';
-import { TagsTip } from 'Client/app/Notifications/Tip/Tags';
 import {
   LOGIN_SUCCESS_MESSAGE,
   NOTIFICATION_LEVEL_SUCCESS,
   NOTIFICATION_LEVEL_INFORMATION,
-  FIRST_VOTE_TIP,
-  TAGS_TIP,
+  FIRST_VOTE_TIP_MESSAGE,
+  TAGS_TIP_MESSAGE,
 } from 'Shared/constants/notifications';
 import * as actions from './index';
 
@@ -42,26 +39,25 @@ describe('Notification Actions', () => {
     const expectedActions = [
       {
         type: actionTypes.DISMISS_NOTIFICATION,
-        payload: { id: FIRST_VOTE_TIP },
+        payload: { contentId: FIRST_VOTE_TIP_MESSAGE },
       },
     ];
 
-    store.dispatch(actions.dismissNotification(FIRST_VOTE_TIP));
+    store.dispatch(actions.dismissNotification(FIRST_VOTE_TIP_MESSAGE));
 
     expect(store.getActions()).toEqual(expectedActions);
   });
 
   it('Creates DISPLAY_NOTIFICATION_BANNER when calling action', () => {
-    const tagContent = <LoginSuccessMessage />;
     const tagToDismiss = true;
 
     const expectedActions = [
       {
         type: actionTypes.DISPLAY_NOTIFICATION_BANNER,
         payload: {
-          id: LOGIN_SUCCESS_MESSAGE,
-          content: tagContent,
+          contentId: LOGIN_SUCCESS_MESSAGE,
           level: NOTIFICATION_LEVEL_SUCCESS,
+          params: { questionId: 'QUESTION_ID' },
           toDismiss: tagToDismiss,
         },
       },
@@ -70,8 +66,8 @@ describe('Notification Actions', () => {
     store.dispatch(
       actions.displayNotificationBanner(
         LOGIN_SUCCESS_MESSAGE,
-        tagContent,
         NOTIFICATION_LEVEL_SUCCESS,
+        { questionId: 'QUESTION_ID' },
         tagToDismiss
       )
     );
@@ -80,15 +76,13 @@ describe('Notification Actions', () => {
   });
 
   it('Creates DISPLAY_NOTIFICATION_TIP when calling action', () => {
-    const tagContent = <TagsTip />;
     const tagToDismiss = true;
 
     const expectedActions = [
       {
         type: actionTypes.DISPLAY_NOTIFICATION_TIP,
         payload: {
-          id: TAGS_TIP,
-          content: tagContent,
+          contentId: TAGS_TIP_MESSAGE,
           level: NOTIFICATION_LEVEL_INFORMATION,
           toDismiss: tagToDismiss,
         },
@@ -97,8 +91,7 @@ describe('Notification Actions', () => {
 
     store.dispatch(
       actions.displayNotificationTip(
-        TAGS_TIP,
-        tagContent,
+        TAGS_TIP_MESSAGE,
         NOTIFICATION_LEVEL_INFORMATION,
         tagToDismiss
       )

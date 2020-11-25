@@ -1,5 +1,4 @@
 /* @flow */
-import React from 'react';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as actionTypes from 'Shared/store/actionTypes';
@@ -12,10 +11,8 @@ import {
   NOTIFICATION_LEVEL_SUCCESS,
   REGISTER_SUCCESS_VALIDATE_MESSAGE,
 } from 'Shared/constants/notifications';
-import { RegisterSuccessValidateMessage } from 'Client/app/Notifications/Banner/RegisterSuccessValidate';
-import { LogoutSuccessMessage } from 'Client/app/Notifications/Banner/LogoutSuccess';
-import { LoginSuccessMessage } from 'Client/app/Notifications/Banner/LoginSuccess';
 import * as actions from './index';
+
 // mocks
 jest.mock('Shared/api/UserApiService');
 
@@ -81,9 +78,7 @@ describe('Authentication Actions', () => {
         {
           type: actionTypes.DISPLAY_NOTIFICATION_BANNER,
           payload: {
-            id: LOGIN_SUCCESS_MESSAGE,
-            content: <LoginSuccessMessage />,
-            level: NOTIFICATION_LEVEL_SUCCESS,
+            contentId: LOGIN_SUCCESS_MESSAGE,
           },
         },
         { type: actionTypes.GET_INFO, user: userWithProfile },
@@ -160,7 +155,7 @@ describe('Authentication Actions', () => {
       const loginStore = mockStore({
         proposal: { canSubmit: false },
         authentication: { isLoggedIn: false },
-        notifications: { level: undefined, content: undefined },
+        notifications: { level: undefined, contentId: undefined },
         modal: { isOpen: true },
       });
       const user = { firstname: 'baz' };
@@ -251,8 +246,7 @@ describe('Authentication Actions', () => {
         {
           type: actionTypes.DISPLAY_NOTIFICATION_BANNER,
           payload: {
-            id: LOGOUT_SUCCESS_MESSAGE,
-            content: <LogoutSuccessMessage />,
+            contentId: LOGOUT_SUCCESS_MESSAGE,
             level: NOTIFICATION_LEVEL_SUCCESS,
           },
         },
@@ -317,7 +311,7 @@ describe('Authentication Actions', () => {
     });
 
     it('creates an action to getUser after registration', () => {
-      const user = { firstname: 'baz' };
+      const user = { firstname: 'baz', email: 'baz@exemple.com' };
       const profile = { avatarUrl: 'https://example.com' };
       const userWithProfile = { ...user, profile };
       const newStore = mockStore({
@@ -334,9 +328,9 @@ describe('Authentication Actions', () => {
         {
           type: actionTypes.DISPLAY_NOTIFICATION_BANNER,
           payload: {
-            id: REGISTER_SUCCESS_VALIDATE_MESSAGE,
-            content: <RegisterSuccessValidateMessage />,
+            contentId: REGISTER_SUCCESS_VALIDATE_MESSAGE,
             level: NOTIFICATION_LEVEL_ALERT,
+            params: { email: 'baz@exemple.com' },
           },
         },
       ];

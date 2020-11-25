@@ -1,4 +1,3 @@
-import React from 'react';
 import httpMocks from 'node-mocks-http';
 import { QuestionApiService } from 'Shared/api/QuestionApiService';
 import { UserApiService } from 'Shared/api/UserApiService';
@@ -8,7 +7,6 @@ import {
   NOTIFICATION_LEVEL_ERROR,
   PASSWORD_RECOVERY_FAILURE_MESSAGE,
 } from 'Shared/constants/notifications';
-import { PasswordRecoveryFailureMessage } from 'Client/features/auth/PasswordRecovery/Failure';
 import { reactRender } from '../reactRender';
 import { passwordRecoveryRoute } from './passwordRecoveryRoute';
 
@@ -62,9 +60,8 @@ describe('Account activation route', () => {
       currentQuestion: fooQuestion.slug,
       notifications: {
         banner: {
-          id: PASSWORD_RECOVERY_FAILURE_MESSAGE,
+          contentId: PASSWORD_RECOVERY_FAILURE_MESSAGE,
           level: NOTIFICATION_LEVEL_ERROR,
-          content: <PasswordRecoveryFailureMessage />,
         },
         tip: {},
         dismissed: [],
@@ -144,9 +141,8 @@ describe('Account activation route', () => {
       },
       notifications: {
         banner: {
-          id: PASSWORD_RECOVERY_FAILURE_MESSAGE,
+          contentId: PASSWORD_RECOVERY_FAILURE_MESSAGE,
           level: NOTIFICATION_LEVEL_ERROR,
-          content: <PasswordRecoveryFailureMessage />,
         },
         tip: {},
         dismissed: [],

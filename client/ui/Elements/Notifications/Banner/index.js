@@ -9,6 +9,7 @@ import {
   dismissNotification,
 } from 'Shared/store/actions/notifications';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
+import { NotificationMessage } from 'Client/app/Notifications/Message';
 import {
   NotificationWrapperStyle,
   NotificationContentStyle,
@@ -19,15 +20,18 @@ import { NotificationIcon } from '../Icon';
 export const NotificationBanner = () => {
   const notificationRef = useRef(null);
   const dispatch = useDispatch();
-  const { id, content, level, toDismiss } = useSelector(
+  const { contentId, level, toDismiss, params } = useSelector(
     (state: StateRoot) => state.notifications.banner
   );
   const { dismissed } = useSelector((state: StateRoot) => state.notifications);
-  const isDismissed = dismissed.find(notificationId => notificationId === id);
+  const uniqueIdentifier = JSON.stringify({ contentId, params });
+  const isDismissed = dismissed.find(
+    notificationId => notificationId === uniqueIdentifier
+  );
 
   const closeNotificationBanner = () => {
     if (toDismiss) {
-      dispatch(dismissNotification(id));
+      dispatch(dismissNotification(uniqueIdentifier));
       return dispatch(clearNotificationBanner());
     }
 
@@ -39,15 +43,19 @@ export const NotificationBanner = () => {
       notificationRef.current.focus();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [!content]);
+  }, [!contentId]);
 
-  if (!content || isDismissed) return null;
+  if (!contentId || isDismissed) return null;
 
   return (
     <NotificationWrapperStyle ref={notificationRef} role="banner" tabIndex={0}>
       <NotificationContentStyle as="div" className={level}>
         <NotificationIcon level={level} />
-        {content}
+        <NotificationMessage
+          name={contentId}
+          params={params}
+          close={closeNotificationBanner}
+        />
       </NotificationContentStyle>
       <NotificationCloseButtonStyle
         aria-expanded="false"

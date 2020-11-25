@@ -1,4 +1,3 @@
-import React from 'react';
 import { createInitialState } from 'Shared/store/initialState';
 import {
   NOTIFICATION_LEVEL_SUCCESS,
@@ -7,8 +6,6 @@ import {
   ACTIVATION_FAILURE_MESSAGE,
 } from 'Shared/constants/notifications';
 import { updateTrackingQuestionParam } from 'Shared/store/middleware/tracking';
-import { AccountActivationSuccessMessage } from 'Client/app/Notifications/Banner/AccountActivationSuccess';
-import { AccountActivationFailureMessage } from 'Client/app/Notifications/Banner/AccountActivationFailure';
 import { UserService } from '../service/UserService';
 import { reactRender } from '../reactRender';
 import { QuestionService } from '../service/QuestionService';
@@ -20,14 +17,12 @@ export const accountActivationRoute = async (req, res) => {
   // empty question when register on home page
   const questionId = req.query.question || '';
   const notificationError = {
-    id: ACTIVATION_FAILURE_MESSAGE,
+    contentId: ACTIVATION_FAILURE_MESSAGE,
     level: NOTIFICATION_LEVEL_ERROR,
-    content: <AccountActivationFailureMessage />,
   };
   const notificationSuccess = {
-    id: ACTIVATION_SUCCESS_MESSAGE,
+    contentId: ACTIVATION_SUCCESS_MESSAGE,
     level: NOTIFICATION_LEVEL_SUCCESS,
-    content: <AccountActivationSuccessMessage />,
   };
 
   if (questionId !== '') {

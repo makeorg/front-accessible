@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { useEffect } from 'react';
 import { type StateRoot } from 'Shared/store/types';
 import { type QuestionType } from 'Shared/types/question';
 import { ConsultationContent } from 'Client/features/consultation/Consultation';
@@ -18,12 +18,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { displayNotificationBanner } from 'Shared/store/actions/notifications';
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
 import { ThemeProvider } from 'styled-components';
-import { VoteOnlyMessage } from 'Client/app/Notifications/Banner/VoteOnly';
 import {
   NOTIFICATION_LEVEL_INFORMATION,
   VOTE_ONLY_MESSAGE,
 } from 'Shared/constants/notifications';
-import { useEffect } from 'react';
 import { ConsultationPageWrapperStyle } from './style';
 
 const ConsultationPage = () => {
@@ -43,9 +41,9 @@ const ConsultationPage = () => {
     if (!question.canPropose) {
       dispatch(
         displayNotificationBanner(
-          `${VOTE_ONLY_MESSAGE}_${question.questionId}`,
-          <VoteOnlyMessage />,
+          VOTE_ONLY_MESSAGE,
           NOTIFICATION_LEVEL_INFORMATION,
+          { questionId: question.questionId },
           true
         )
       );
