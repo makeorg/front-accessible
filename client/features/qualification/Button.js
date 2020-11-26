@@ -9,10 +9,7 @@ import { i18n } from 'Shared/i18n';
 import { TopComponentContext } from 'Client/context/TopComponentContext';
 import { QualifyButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { useDispatch } from 'react-redux';
-import {
-  qualify as actionQualify,
-  unqualify as actionUnqualify,
-} from 'Shared/store/actions/sequence';
+import { qualify as actionQualify } from 'Shared/store/actions/sequence';
 import { CounterStyle } from './style';
 
 type Props = {
@@ -82,7 +79,7 @@ export const QualificationButton = ({
     if (qualificationResult) {
       setIsQualified(false);
       dispatch(
-        actionUnqualify(proposalId, votedKey, qualificationResult, context)
+        actionQualify(proposalId, votedKey, qualificationResult, context)
       );
       trackUnqualify(proposalId, qualificationKey, votedKey, index, context);
     }

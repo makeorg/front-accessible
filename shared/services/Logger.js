@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { env } from 'Shared/env';
+import { env as processEnv } from 'Shared/process';
 import { NODE_API_BASE } from 'Shared/api/ApiService/configuration';
 import { ApiServiceError } from 'Shared/api/ApiService/ApiServiceError';
 import { v4 as uuidv4 } from 'uuid';
@@ -103,7 +104,7 @@ class LoggerSingleton {
       method: 'POST',
       url: `${NODE_API_BASE}/api/logger`,
       proxy: {
-        port: process.env.PORT,
+        port: processEnv.PORT,
       },
       data: {
         level: level || 'error',

@@ -51,7 +51,7 @@ window.onerror = (message, source, lineNumber, columnNumber, error) => {
 let initialState = window.INITIAL_STATE;
 delete window.INITIAL_STATE;
 
-if (env.isNone() || env.isDev()) {
+if (env.isDev()) {
   initialState = require('Shared/store/initialState.debug').initialStateDebug;
 }
 

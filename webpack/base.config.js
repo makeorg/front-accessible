@@ -2,6 +2,7 @@ const path = require('path');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const LoadablePlugin = require('@loadable/webpack-plugin');
+const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 
 module.exports = {
   entry: [
@@ -32,6 +33,9 @@ module.exports = {
     }),
     new ManifestPlugin(),
     new LoadablePlugin(),
+    new MomentLocalesPlugin({
+      localesToKeep: ['fr', 'en'],
+    }),
   ],
   module: {
     rules: [

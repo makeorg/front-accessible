@@ -1,4 +1,5 @@
 import csp from 'helmet-csp';
+import { apiUrl, frontUrl } from 'Server/configuration';
 
 export const cspMiddleware = csp({
   // Specify directives as normal.
@@ -21,7 +22,8 @@ export const cspMiddleware = csp({
     imgSrc: ['*', 'data:'],
     connectSrc: [
       "'self'",
-      'http://localhost:9000',
+      apiUrl,
+      frontUrl,
       'https://*.makeorg.tech',
       'https://*.make.org',
       'https://*.placebymake.org',
@@ -42,7 +44,4 @@ export const cspMiddleware = csp({
     mediaSrc: ["'none'"],
     frameAncestors: ["'none'"],
   },
-
-  // Set to true if you want to disable CSP on Android where it can be buggy.
-  disableAndroid: true,
 });

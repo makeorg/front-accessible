@@ -22,7 +22,7 @@ lint:
     - production
   image: node:12.19-alpine
   before_script:
-    - export YARN_VERSION="1.22.4"
+    - export YARN_VERSION="1.22.5"
   script:
     - yarn install
     - yarn lint
@@ -33,7 +33,7 @@ flow-static:
     - production
   image: node:12.19-alpine
   before_script:
-    - export YARN_VERSION="1.22.4"
+    - export YARN_VERSION="1.22.5"
   script:
     - wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub && \
     - wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.25-r0/glibc-2.25-r0.apk && \
@@ -45,7 +45,7 @@ test:
   stage: check
   image: node:12.19-alpine
   before_script:
-    - export YARN_VERSION="1.22.4"
+    - export YARN_VERSION="1.22.5"
   script:    
     - node -v
     - yarn install
@@ -59,7 +59,7 @@ jscpd:
     - production
   image: node:12.19-alpine
   before_script:
-    - export YARN_VERSION="1.22.4"
+    - export YARN_VERSION="1.22.5"
   script:
     - yarn install
     - yarn jscpd

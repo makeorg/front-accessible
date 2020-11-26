@@ -44,6 +44,7 @@ export const SecureExpiration = ({ children }: Props) => {
       }
     }, timeBeforeExpire);
     return () => clearTimeout(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cookieDataRef.current]);
 
   return children;

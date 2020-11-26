@@ -162,29 +162,3 @@ export const qualify = (
     })
   );
 };
-
-export const unqualify = (
-  proposalId: string,
-  votedKey: string,
-  qualification: QualificationType,
-  context: string
-) => (dispatch: Dispatch, getState: () => StateRoot) => {
-  if (context !== TopComponentContextValue.getSequenceProposal()) {
-    return;
-  }
-  const { cards, currentIndex } = getState().sequence;
-  const proposalSequenceCard = cards[currentIndex];
-  const { votes } = proposalSequenceCard.state || { votes: [] };
-  const newVotes = getVotesUpdatedWithQualifification(
-    votes,
-    votedKey,
-    qualification
-  );
-
-  dispatch(
-    updateSequenceCardState(proposalSequenceCard.index, {
-      ...proposalSequenceCard.state,
-      votes: newVotes,
-    })
-  );
-};

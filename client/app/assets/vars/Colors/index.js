@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import athena from 'athena-design-tokens';
 import styled from 'styled-components';
-import { FRONT_URL } from 'Shared/constants/config';
+import { env } from 'Shared/env';
 import { RedLinkHTMLElementStyle } from 'Client/ui/Elements/LinkElements';
 import { ExternalLinkIconStyle } from 'Client/ui/Elements/Buttons/V2/style';
 
@@ -27,8 +27,8 @@ export const Colors = () => {
         <caption>
           Color values used for the UI of
           <> </>
-          <RedLinkHTMLElementStyle href={FRONT_URL}>
-            {FRONT_URL}
+          <RedLinkHTMLElementStyle href={env.frontUrl()}>
+            {env.frontUrl()}
           </RedLinkHTMLElementStyle>
           <> </>
           from the design tokens
