@@ -40,7 +40,7 @@ export const FocusBlockWrapperStyle = styled(StartColumnStyle)`
   }
 `;
 
-export const FocusBlockTitleStyle = styled.h1`
+export const FocusBlockTitleStyle = styled.strong`
   font-family: ${MakeFonts.CircularStandardBold};
   font-size: ${intToPx(typography.font.fontsize.XL.value)};
   margin-bottom: 10px;
