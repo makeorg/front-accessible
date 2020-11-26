@@ -24,6 +24,7 @@ COPY --from=BUILD_IMAGE /usr/app/node_modules ./node_modules
 COPY --from=BUILD_IMAGE /usr/app/ecosystem.config.js ./ecosystem.config.js
 COPY --from=BUILD_IMAGE /usr/app/bin ./bin
 COPY --from=BUILD_IMAGE /usr/app/certs ./certs
+COPY --from=BUILD_IMAGE /usr/app/server/staticData ./server/staticData
 
 
 EXPOSE 8000
