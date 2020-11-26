@@ -1,6 +1,6 @@
 FROM keymetrics/pm2:12-alpine AS BUILD_IMAGE
 
-RUN apk --no-cache add curl git
+RUN apk --no-cache add git
 
 WORKDIR /usr/app/
 COPY . .
@@ -17,6 +17,8 @@ FROM keymetrics/pm2:12-alpine
 
 ENV PORT 8000
 ENV API_URL https://api.preprod.makeorg.tech
+
+RUN apk --no-cache add curl
 
 WORKDIR /usr/app/
 COPY --from=BUILD_IMAGE /usr/app/dist ./dist
