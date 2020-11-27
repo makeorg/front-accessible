@@ -3,7 +3,7 @@ Feature: Browse page
 
   Scenario: Browse consultations page has canonical url
   Given I go to "browse consultations"
-  Then I see the canonical url "https://make.org/FR/browse/consultations/page/1" of the page 
+  Then I see the canonical url "http://localhost:9009/FR/browse/consultations/page/1" of the page
 
   Scenario: Track display browse consultations page
       Given I monitor API "postTracking" requests
@@ -38,7 +38,7 @@ Feature: Browse page
 
   Scenario: Browse results page has canonical url
   Given I go to "browse results"
-  Then I see the canonical url "https://make.org/FR/browse/results/page/1" of the page 
+  Then I see the canonical url "http://localhost:9009/FR/browse/results/page/1" of the page
 
   Scenario: Track display browse results page
       Given I monitor API "postTracking" requests

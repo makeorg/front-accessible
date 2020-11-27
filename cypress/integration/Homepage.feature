@@ -15,7 +15,7 @@ Feature: The Home Page
 
   Scenario: Homepage has canonical url
     Given I go to "france homepage"
-    Then I see the canonical url "https://make.org/FR" of the page 
+    Then I see the canonical url "http://localhost:9009/FR" of the page
 
   Scenario: Homepage has hero section
     Given I go to "france homepage"
