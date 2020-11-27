@@ -98,10 +98,7 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
           }
           id={RESULTS_KEY_FIGURES}
         >
-          <KeyFigures
-            results={questionResults.key_figures}
-            themeColor={question.theme.color}
-          />
+          <KeyFigures results={questionResults.key_figures} />
         </TileWithTitle>
         <TileWithTitle
           title={i18n.t('consultation.results.top_ideas.title', {

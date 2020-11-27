@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { color, typography } from 'athena-design-tokens';
 import { PopularProposalHeader } from 'Client/features/proposal/PopularProposalCard/style';
-import { RedLinkRouterStyle } from 'Client/ui/Elements/LinkElements';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
@@ -24,14 +23,22 @@ export const TopIdeaCardHeaderStyle = styled(PopularProposalHeader)`
   align-items: center;
   font-family: ${MakeFonts.CircularStandardBold};
   background-color: ${color.grey};
-  margin: -20px -20px 20px -20px;
 `;
 
-export const TopIdeaLinkStyle = styled(RedLinkRouterStyle)`
+export const TopIdeaLinkStyle = styled(Link)`
   display: flex;
   align-items: center;
+  color: ${color.black};
+  font-size: ${intToPx(typography.font.fontsize.X2S.value)};
+  &:hover,
+  &:focus {
+    color: ${color.black};
+  }
   svg {
-    fill: ${color.brandSecondary};
+    fill: ${color.black};
+  }
+  @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
   }
 `;
 

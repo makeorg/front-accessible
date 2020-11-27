@@ -15,7 +15,7 @@ export const PieChartTitleStyle = styled(FourthLevelTitleStyle)`
   width: 100%;
   text-align: center;
   font-family: ${MakeFonts.CircularStandardBold};
-  color: ${props => props.theme.color};
+  color: ${color.black};
   text-transform: none;
 `;
 

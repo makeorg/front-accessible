@@ -13,29 +13,28 @@ type Props = {
     proposals: number,
     votes: number,
   },
-  themeColor: string,
 };
 
-export const KeyFigures = ({ results, themeColor }: Props) => {
+export const KeyFigures = ({ results }: Props) => {
   const language = useSelector(state => state.appConfig.language);
   const country = useSelector(state => state.appConfig.country);
 
   return (
     <KeyFiguresListStyle>
       <KeyFiguresListItemStyle>
-        <KeyFiguresCountStyle fontColor={themeColor}>
+        <KeyFiguresCountStyle>
           {results.participants.toLocaleString(`${language}-${country}`)}
         </KeyFiguresCountStyle>
         {i18n.t('consultation.results.key_figures.participants')}
       </KeyFiguresListItemStyle>
       <KeyFiguresListItemStyle>
-        <KeyFiguresCountStyle fontColor={themeColor}>
+        <KeyFiguresCountStyle>
           {results.proposals.toLocaleString(`${language}-${country}`)}
         </KeyFiguresCountStyle>
         {i18n.t('consultation.results.key_figures.proposals')}
       </KeyFiguresListItemStyle>
       <KeyFiguresListItemStyle>
-        <KeyFiguresCountStyle fontColor={themeColor}>
+        <KeyFiguresCountStyle>
           {results.votes.toLocaleString(`${language}-${country}`)}
         </KeyFiguresCountStyle>
         {i18n.t('consultation.results.key_figures.votes')}

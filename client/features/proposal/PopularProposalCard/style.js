@@ -18,8 +18,9 @@ export const PopularProposalHeader = styled.div`
   font-family: ${MakeFonts.CircularStandardBook};
   color: ${color.black};
   background-color: ${color.greyLighter};
-  margin: -20px -20px 10px -20px;
-  padding: 11px 20px;
+  margin-bottom: 20px;
+  padding: 5px 10px;
+  border-radius: ${intToPx(Elements.BorderRadius)};
 `;
 
 export const PopularProposalTagStyle = styled.div`

@@ -25,7 +25,7 @@
 		"@loadable/component": "~5.13.2",
 		"@loadable/server": "~5.13.2",
 		"adblockdetect": "^0.0.2",
-		"athena-design-tokens": "^0.1.6",
+		"athena-design-tokens": "^0.1.7",
 		"axios": "~0.20.0",
 		"axios-retry": "~3.1.9",
 		"body-parser": "~1.19.0",

@@ -10,13 +10,13 @@ Array [
     Colors
   </h1>,
   .c0 {
-  color: rgba(222,26,66,1);
+  color: rgba(213,21,60,1);
   font-size: 12px;
 }
 
 .c0:hover,
 .c0:focus {
-  color: rgba(222,26,66,1);
+  color: rgba(213,21,60,1);
 }
 
 .c1 {
@@ -38,7 +38,7 @@ Array [
   height: 25px;
   border: 1px solid;
   margin: 5px;
-  background-color: rgba(222,26,66,1);
+  background-color: rgba(213,21,60,1);
 }
 
 .c4 {
@@ -204,7 +204,7 @@ Array [
           />
         </td>
         <td>
-          rgba(222,26,66,1)
+          rgba(213,21,60,1)
         </td>
       </tr>
     </tbody>

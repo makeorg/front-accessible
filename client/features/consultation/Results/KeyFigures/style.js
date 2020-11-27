@@ -29,6 +29,6 @@ export const KeyFiguresListItemStyle = styled.li`
 
 export const KeyFiguresCountStyle = styled.span`
   font-family: ${MakeFonts.TradeGothicBoldCondensed};
-  color: ${props => props.fontColor};
+  color: ${color.black};
   font-size: ${intToPx(typography.font.fontsize.L.value)};
 `;
