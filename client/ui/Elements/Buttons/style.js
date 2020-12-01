@@ -88,7 +88,7 @@ export const GreyButtonStyle = styled(BasicButtonStyle)`
   color: ${color.greyDark};
   background-color: ${color.grey};
   svg {
-    fill: ${color.brandSecondary};
+    fill: ${color.greyDark};
   }
   &:hover,
   &:focus {

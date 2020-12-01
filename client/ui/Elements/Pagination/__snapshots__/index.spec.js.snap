@@ -30,7 +30,7 @@ exports[`Pagination snapshot by default 1`] = `
 }
 
 .c1 .tofill {
-  fill: rgba(222,26,66,1);
+  fill: rgba(213,21,60,1);
 }
 
 .c1:disabled .tofill {
