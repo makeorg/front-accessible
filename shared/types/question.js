@@ -150,6 +150,20 @@ export type PartnerType = {
   weight: number,
 };
 
+export type QuestionHighlightsType = {
+  votesTarget: number,
+  votesCount: number,
+  participantCount: number,
+};
+
+export type QuestionTimelineType = {
+  startDate: ?string,
+  endDate: ?string,
+  resultDate: ?string,
+  workshopDate: ?string,
+  actionDate: ?string,
+};
+
 export type QuestionType = {
   questionId: string,
   operationId: string,
@@ -177,6 +191,11 @@ export type QuestionType = {
     questions: SimpleOperationDataType[],
   },
   activeFeatures: string[],
+  featured: boolean,
+  highlights: QuestionHighlightsType,
+  timeline: QuestionTimelineType,
+  controversyCount: number,
+  topProposalCount: number,
 };
 
 export type QuestionPartnerType = $ReadOnly<{
