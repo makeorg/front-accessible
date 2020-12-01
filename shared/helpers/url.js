@@ -5,6 +5,7 @@ import queryString from 'query-string';
 import { ABOUT_MAKE_LINK } from 'Shared/constants/url';
 import {
   ROUTE_CONSULTATION,
+  ROUTE_PARTICIPATE,
   ROUTE_ACTION,
   ROUTE_SEQUENCE,
   ROUTE_PROPOSAL,
@@ -123,6 +124,21 @@ export const getBrowseResultsLink = (country: string, pageId?: number = 1) => {
  */
 export const getConsultationLink = (country: string, questionSlug: string) => {
   return generatePath(ROUTE_CONSULTATION, {
+    country,
+    questionSlug,
+  });
+};
+
+/**
+ * Get the participate link
+ *
+ * @param  {string} country
+ * @param  {string} questionSlug
+ *
+ * @return {string}
+ */
+export const getParticipateLink = (country: string, questionSlug: string) => {
+  return generatePath(ROUTE_PARTICIPATE, {
     country,
     questionSlug,
   });

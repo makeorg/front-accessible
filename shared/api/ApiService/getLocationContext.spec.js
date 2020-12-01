@@ -11,6 +11,13 @@ describe('getLocationContext', () => {
       expectedTracking: `page-operation`,
     },
     {
+      name: 'ROUTE_PARTICIPATE',
+      path: '/FR/consultation/foo/participate',
+      params: { questionId: 'question-id' },
+      expected: `page-participate question-id`,
+      expectedTracking: `page-participate`,
+    },
+    {
       name: 'ROUTE_ACTION uppercase',
       path: '/FR/consultation/handicap/ACTIONS',
       params: { questionId: 'question-id' },

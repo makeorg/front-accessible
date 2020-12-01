@@ -9,6 +9,7 @@ import {
   ROUTE_SEARCH_ORGANISATIONS,
   ROUTE_SEARCH_CONSULTATIONS,
   ROUTE_CONSULTATION,
+  ROUTE_PARTICIPATE,
   ROUTE_ACTION,
   ROUTE_SEQUENCE,
   ROUTE_ACCOUNT_ACTIVATION,
@@ -50,6 +51,9 @@ import { getHomeLink } from 'Shared/helpers/url';
 const BrowsePage = loadable(() => import('../pages/Browse/index.js'));
 const ConsultationPage = loadable(() =>
   import('../pages/Consultation/Consultation.js')
+);
+const ParticipatePage = loadable(() =>
+  import('../pages/Consultation/Participate.js')
 );
 const ActionsPage = loadable(() => import('../pages/Consultation/Actions.js'));
 export const ResultsPage = loadable(() =>
@@ -111,6 +115,12 @@ export const Routes = () => {
           <ConsultationPage />
         </QuestionWrapper>
       </Route>
+      <Route path={ROUTE_PARTICIPATE}>
+        <QuestionWrapper withRedirect>
+          <ParticipatePage />
+        </QuestionWrapper>
+      </Route>
+
       <Route path={ROUTE_ACTION}>
         <QuestionWrapper>
           <ActionsPage />
