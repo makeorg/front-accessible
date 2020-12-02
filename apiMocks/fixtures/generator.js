@@ -253,6 +253,12 @@ const tags = generateTags(4);
 
 const generateHomeView = () => {
   const startDate = `${today.getFullYear() - 2}-${month}-${day}T01:00:00.000Z`;
+  const futureEndDate = `${
+    today.getFullYear() + 1
+  }-${month}-${day}T01:00:00.000Z`;
+  const pastEndDate = `${
+    today.getFullYear() - 1
+  }-${month}-${day}T01:00:00.000Z`;
   return {
     ...defaultHomeView.home,
     currentQuestions: range(0, 4).map(number => ({
@@ -267,7 +273,21 @@ const generateHomeView = () => {
       proposalsCount: `${12 + number}`,
       aboutUrl: questions[number].aboutUrl,
       startDate,
-      endDate: mixPastAndFutureDates(number),
+      endDate: futureEndDate,
+    })),
+    pastQuestions: range(5, 9).map(number => ({
+      ...defaultHomeView.home.currentQuestions[0],
+      questionId: questions[number].questionId,
+      questionSlug: questions[number].slug,
+      question: questions[number].question,
+      shortTitle: `${questions[number].shortTitle}_${number}`,
+      operationTitle: `${questions[number].operationTitle}_${number}`,
+      consultationImage: questions[number].wording.metas.picture,
+      participantsCount: `${12 + number}`,
+      proposalsCount: `${12 + number}`,
+      aboutUrl: questions[number].aboutUrl,
+      startDate,
+      endDate: pastEndDate,
     })),
     featuredQuestions: range(5, 8).map(number => ({
       ...defaultHomeView.home.currentQuestions[0],
@@ -291,6 +311,7 @@ const generateForeignHomeView = () => {
   return {
     ...defaultHomeView.home,
     currentQuestions: [],
+    pastQuestions: [],
     featuredQuestions: [],
   };
 };

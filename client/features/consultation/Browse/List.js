@@ -8,14 +8,16 @@ import { ConsultationsListStyle, ConsultationsListItemStyle } from './style';
 
 type Props = {
   questions: HomeQuestionType[] | [],
-  resultsContext?: boolean,
   total: number,
+  resultsContext?: boolean,
+  noRegister?: boolean,
 };
 
 export const BrowseConsultationsList = ({
   questions,
-  resultsContext = false,
   total,
+  resultsContext = false,
+  noRegister = false,
 }: Props) => {
   const hasQuestions = total > 0;
   const hasOneQuestion = total === 1;
@@ -52,7 +54,7 @@ export const BrowseConsultationsList = ({
           />
         </ConsultationsListItemStyle>
       ))}
-      {hasOneQuestion && (
+      {hasOneQuestion && !noRegister && (
         <ConsultationsListItemStyle itemsPerRow={ITEMS_PER_ROW}>
           <RegistrationIncentive length={total} />
         </ConsultationsListItemStyle>

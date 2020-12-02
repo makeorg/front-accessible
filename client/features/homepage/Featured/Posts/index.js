@@ -16,7 +16,7 @@ import { ABOUT_MAKE_LINK } from 'Shared/constants/url';
 import { HomepagePageInnerStyle } from 'Client/pages/Home/style';
 import { ExternalLinkIconStyle } from 'Client/ui/Elements/Buttons/V2/style';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
-import { CurrentQuestionsButtonStyle } from '../../CurrentQuestions/style';
+import { HomepageQuestionsButtonStyle } from '../../Questions/style';
 
 type Props = {
   posts: HomePostType[],
@@ -56,7 +56,7 @@ export const FeaturedPosts = ({ posts }: Props) => {
         ))}
       </ConsultationsListStyle>
       <HomepagePageInnerStyle>
-        <CurrentQuestionsButtonStyle
+        <HomepageQuestionsButtonStyle
           as="a"
           href={ABOUT_MAKE_LINK}
           target="_blank"
@@ -70,7 +70,7 @@ export const FeaturedPosts = ({ posts }: Props) => {
           <ScreenReaderItemStyle>
             {i18n.t('common.open_new_window')}
           </ScreenReaderItemStyle>
-        </CurrentQuestionsButtonStyle>
+        </HomepageQuestionsButtonStyle>
       </HomepagePageInnerStyle>
     </>
   );
