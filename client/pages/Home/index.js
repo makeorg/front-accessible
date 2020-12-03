@@ -8,7 +8,7 @@ import { type StateRoot } from 'Shared/store/types';
 import { loadHomepage } from 'Shared/store/reducers/views/actions';
 import { ViewsService } from 'Shared/services/Views';
 import { HighlightsBanner } from 'Client/features/homepage/Highlights';
-import { CurrentQuestions } from 'Client/features/homepage/CurrentQuestions';
+import { HomepageQuestions } from 'Client/features/homepage/Questions';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { MiddlePageWrapperStyle } from 'Client/app/Styled/MainElements';
 import { FeaturedNews } from 'Client/features/homepage/Featured';
@@ -21,14 +21,11 @@ import { HomepageWrapperStyle } from './style';
 export const HomePage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
-  const { country, countriesWithConsultations } = useSelector(
-    (state: StateRoot) => state.appConfig
-  );
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
   const { homepage } = useSelector((state: StateRoot) => state.views);
   const isFR = country === 'FR';
-  const hasConsultations = countriesWithConsultations.find(
-    countryCode => countryCode === country
-  );
+  const hasConsultations =
+    homepage?.currentQuestions.length > 0 || homepage?.pastQuestions.length > 0;
 
   const initHomepage = async () => {
     setIsLoading(true);
@@ -67,7 +64,10 @@ export const HomePage = () => {
           <HomepageWrapperStyle>
             <HighlightsBanner highlights={homepage.highlights} />
             {hasConsultations ? (
-              <CurrentQuestions questions={homepage.currentQuestions} />
+              <HomepageQuestions
+                currentQuestions={homepage.currentQuestions}
+                pastQuestions={homepage.pastQuestions}
+              />
             ) : (
               <InternationalPlaceholder />
             )}

@@ -8,7 +8,7 @@ import {
 import React from 'react';
 import { getHomeLink } from 'Shared/helpers/url';
 import { i18n } from 'Shared/i18n';
-import { CurrentQuestionsButtonStyle } from '../CurrentQuestions/style';
+import { HomepageQuestionsButtonStyle } from '../Questions/style';
 
 export const InternationalPlaceholder = () => (
   <HomepageSectionStyle
@@ -26,12 +26,12 @@ export const InternationalPlaceholder = () => (
       >
         {i18n.t('homepage.international.title')}
       </HomepageSectionTitleStyle>
-      <CurrentQuestionsButtonStyle
+      <HomepageQuestionsButtonStyle
         to={getHomeLink('FR')}
         data-cy-link="international-placeholder-link"
       >
         {i18n.t('homepage.international.button')}
-      </CurrentQuestionsButtonStyle>
+      </HomepageQuestionsButtonStyle>
     </HomepagePageInnerStyle>
   </HomepageSectionStyle>
 );

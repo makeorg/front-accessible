@@ -19,28 +19,32 @@ import {
   trackClickBrowseResults,
 } from 'Shared/services/Tracking';
 import { BrowseConsultationsList } from 'Client/features/consultation/Browse/List';
-
-import { CurrentQuestionsButtonStyle } from './style';
+import { ConsultationElementTitleStyle } from 'Client/features/consultation/Browse/style';
+import { HomepageQuestionsButtonStyle } from './style';
+import { FeaturedSeparatorStyle } from '../Featured/Posts/style';
 
 type Props = {
-  questions: HomeQuestionType[] | [],
+  currentQuestions: HomeQuestionType[] | [],
+  pastQuestions: HomeQuestionType[] | [],
 };
 
-export const CurrentQuestions = ({ questions }: Props) => {
+export const HomepageQuestions = ({
+  currentQuestions,
+  pastQuestions,
+}: Props) => {
   const { country } = useSelector((state: StateRoot) => state.appConfig);
-  const numberOfQuestions = questions.length;
-  const hasQuestions = numberOfQuestions > 0;
+  const hasCurrentQuestions = currentQuestions.length > 0;
 
   let buttonLink = getBrowseResultsLink(country);
   let buttonText = i18n.t('browse.see_closed_consultations');
 
-  if (hasQuestions) {
+  if (hasCurrentQuestions) {
     buttonLink = getBrowseConsultationsLink(country);
     buttonText = i18n.t('browse.browse');
   }
 
   const handleClick = () => {
-    if (!hasQuestions) {
+    if (!hasCurrentQuestions) {
       trackClickBrowseResults();
     } else {
       trackClickBrowseConsultations();
@@ -61,15 +65,39 @@ export const CurrentQuestions = ({ questions }: Props) => {
       >
         {i18n.t('browse.title')}
       </HomepageSectionTitleStyle>
-      <BrowseConsultationsList questions={questions} total={questions.length} />
+      {hasCurrentQuestions ? (
+        <BrowseConsultationsList
+          questions={currentQuestions}
+          total={currentQuestions.length}
+        />
+      ) : (
+        <>
+          <BrowseConsultationsList
+            questions={currentQuestions}
+            total={currentQuestions.length}
+          />
+          <HomepagePageInnerStyle>
+            <FeaturedSeparatorStyle />
+            <ConsultationElementTitleStyle>
+              {i18n.t('browse.past_questions')}
+            </ConsultationElementTitleStyle>
+          </HomepagePageInnerStyle>
+          <BrowseConsultationsList
+            questions={pastQuestions}
+            total={pastQuestions.length}
+            resultsContext
+            noRegister
+          />
+        </>
+      )}
       <HomepagePageInnerStyle>
-        <CurrentQuestionsButtonStyle
+        <HomepageQuestionsButtonStyle
           to={buttonLink}
           onClick={handleClick}
           data-cy-link="current-questions-link"
         >
           {buttonText}
-        </CurrentQuestionsButtonStyle>
+        </HomepageQuestionsButtonStyle>
       </HomepagePageInnerStyle>
     </HomepageSectionStyle>
   );

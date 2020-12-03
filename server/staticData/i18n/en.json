@@ -1002,7 +1002,8 @@
     "see_closed_consultations": "See past consultations",
     "text_content_zero": "No consultation for now, but let's keep in touch!",
     "text_content_one": "Sign up to be aware of new consultations.",
-    "subscribe": "Sign up"
+    "subscribe": "Sign up",
+    "past_questions": "You can also have a look at the results of our past consultations"
   },
   "countries": {
     "AT": "Austria",

@@ -37,6 +37,7 @@ export type HomePostType = {
 export type HomeViewType = {
   highlights: HomeHighlightsType,
   currentQuestions: HomeQuestionType[],
+  pastQuestions: HomeQuestionType[],
   featuredQuestions: HomeQuestionType[],
   posts: HomePostType[],
 };

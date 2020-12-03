@@ -833,7 +833,8 @@
     "see_closed_consultations": "Voir les consultations terminées",
     "text_content_zero": "Aucune consultation en cours, mais restons en contact",
     "text_content_one": "Inscrivez-vous pour être informé de la prochaine consultation",
-    "subscribe": "S'inscrire"
+    "subscribe": "S'inscrire",
+    "past_questions": "Vous pouvez aussi consulter les résultats des consultations précédentes"
   },
   "sharing": {
     "facebook": "Partager sur Facebook",
