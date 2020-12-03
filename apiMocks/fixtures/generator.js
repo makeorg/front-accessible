@@ -40,6 +40,22 @@ const mixPastAndFutureDates = count => {
   return futureEndDate;
 };
 
+const setOperationKind = count => {
+  if (count % 2 === 0) {
+    return 'GREAT_CAUSE';
+  }
+
+  return 'BUSINESS_CONSULTATION';
+};
+
+const setFeaturedConsultation = count => {
+  if (setOperationKind(count) === 'BUSINESS_CONSULTATION') {
+    return false;
+  }
+
+  return true;
+};
+
 const generateResultsLink = count => {
   if (count === 0) {
     return {
@@ -131,12 +147,31 @@ const generateOpenedQuestions = count => {
       question: `question-${number} ${defaultQuestion.wording.question}`,
       description: `question-${number} ${defaultQuestion.wording.description}`,
     },
+    operationKind: setOperationKind(number),
+    featured: setFeaturedConsultation(number),
+    timeline: {
+      startDate,
+      endDate,
+      resultDate: null,
+      workshopDate: null,
+      actionDate: null,
+    },
+    highlights: {
+      votesTarget: 150000,
+      votesCount: 100000,
+      participantCount: 50000,
+    },
+    controversyCount: 15,
+    topProposalCount: 15,
   }));
 };
 
 const generateClosedQuestions = count => {
   const startDate = `${today.getFullYear() - 2}-${month}-${day}T01:00:00.000Z`;
   const endDate = `${today.getFullYear() - 1}-${month}-${day}T01:00:00.000Z`;
+  const resultDate = `${today.getFullYear() - 1}-${
+    month + 2
+  }-${day}T01:00:00.000Z`;
 
   return range(10, count + 10).map(number => ({
     ...defaultQuestion,
@@ -151,11 +186,32 @@ const generateClosedQuestions = count => {
       question: `question-${number} ${defaultQuestion.wording.question}`,
       description: `question-${number} ${defaultQuestion.wording.description}`,
     },
+    operationKind: setOperationKind(number),
+    featured: setFeaturedConsultation(number),
+    timeline: {
+      startDate,
+      endDate,
+      resultDate,
+      workshopDate: null,
+      actionDate: null,
+    },
+    highlights: {
+      votesTarget: 150000,
+      votesCount: 100000,
+      participantCount: 50000,
+    },
+    controversyCount: 15,
+    topProposalCount: 15,
   }));
 };
 
 const generateQuestionsWithResults = count => {
   const startDate = `${today.getFullYear() - 2}-${month}-${day}T01:00:00.000Z`;
+  const resultDate = `${today.getFullYear()}-${month}-${day}T01:00:00.000Z`;
+  const workshopDate = `${today.getFullYear()}-${
+    month + 2
+  }-${day}T01:00:00.000Z`;
+  const actionDate = `${today.getFullYear()}-${month + 3}-${day}T01:00:00.000Z`;
 
   return range(20, count + 20).map(number => ({
     ...defaultQuestion,
@@ -171,6 +227,22 @@ const generateQuestionsWithResults = count => {
       question: `question-${number} ${defaultQuestion.wording.question}`,
       description: `question-${number} ${defaultQuestion.wording.description}`,
     },
+    operationKind: setOperationKind(number),
+    featured: setFeaturedConsultation(number),
+    timeline: {
+      startDate,
+      endDate: mixPastAndFutureDates(number),
+      resultDate,
+      workshopDate,
+      actionDate,
+    },
+    highlights: {
+      votesTarget: 150000,
+      votesCount: 100000,
+      participantCount: 50000,
+    },
+    controversyCount: 15,
+    topProposalCount: 15,
   }));
 };
 
