@@ -13,7 +13,7 @@ import {
 } from './style';
 import { Progress } from './Progress';
 
-export const Highlights = () => {
+export const ParticipateHighlights = () => {
   const isDesktop = useDesktop();
   const question: QuestionType = useSelector((state: StateRoot) =>
     selectCurrentQuestion(state)

@@ -650,7 +650,8 @@
   },
   "consultation": {
     "header": {
-      "label": "Grande Cause Make.org"
+      "label_great_cause": "Grande Cause Make.org",
+      "label_consultation": "Consultation citoyenne"
     },
     "highlights": {
       "date": "Date de lancement",
@@ -707,7 +708,7 @@
       "commitment_text": "Ils soutiennent la consultation et le plan d'actions citoyen qui suivra.",
       "commitment_link": "Voir tous les  partenaires",
       "founder": "Partenaire Fondateur",
-      "init": "Cette consultation a été initiée par :",
+      "init": "Consultation initiée par :",
       "initWith": "Cette consultation a été initiée avec :",
       "with": "En partenariat avec :",
       "by": "Initiée par : ",
@@ -820,6 +821,7 @@
     "nav_consultations": "Les consultations en cours",
     "nav_results": "Les résultats des consultations",
     "consultations": {
+      "all": "Toutes les consultations",
       "label": "En ce moment",
       "title": "Participez aux consultations en cours",
       "subtitle": "Votre avis compte ! Votez et proposez des solutions pour créer de l'impact sur divers sujets de société et problématiques actuelles.",

@@ -25,7 +25,7 @@ export const IntroBanner = ({ question }: Props) =>
       {question.consultationImage ? (
         <IntroBannerTitleStyle>
           <GreatCauseIntroLabelStyle>
-            {i18n.t('consultation.header.label')}
+            {i18n.t('consultation.header.label_great_cause')}
           </GreatCauseIntroLabelStyle>
           <span lang={question.language}>
             <Image
@@ -38,7 +38,7 @@ export const IntroBanner = ({ question }: Props) =>
       ) : (
         <GreatCauseIntroBannerTitleStyle>
           <GreatCauseIntroLabelStyle>
-            {i18n.t('consultation.header.label')}
+            {i18n.t('consultation.header.label_great_cause')}
           </GreatCauseIntroLabelStyle>
           <span lang={question.language}>{question.wording.question}</span>
         </GreatCauseIntroBannerTitleStyle>

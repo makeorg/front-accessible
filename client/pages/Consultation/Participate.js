@@ -2,11 +2,8 @@
 import React, { useEffect } from 'react';
 import { type StateRoot } from 'Shared/store/types';
 import { type QuestionType } from 'Shared/types/question';
-import { ConsultationSkipLinks } from 'Client/app/SkipLinks/Consultation';
-import { isGreatCause } from 'Shared/helpers/question';
 import { i18n } from 'Shared/i18n';
 import { MetaTags } from 'Client/app/MetaTags';
-import { ConsultationHeader } from 'Client/features/consultation/Header/index';
 import { useDispatch, useSelector } from 'react-redux';
 import { displayNotificationBanner } from 'Shared/store/actions/notifications';
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
@@ -15,14 +12,14 @@ import {
   NOTIFICATION_LEVEL_INFORMATION,
   VOTE_ONLY_MESSAGE,
 } from 'Shared/constants/notifications';
-import { Highlights } from 'Client/features/consultation/Highlights';
+import { ParticipateHeader } from 'Client/features/consultation/Header';
+import { ParticipateHighlights } from 'Client/features/consultation/Highlights';
 
 const ParticipatePage = () => {
   const question: QuestionType = useSelector((state: StateRoot) =>
     selectCurrentQuestion(state)
   );
   const dispatch = useDispatch();
-  const questionIsGreatCause = isGreatCause(question.operationKind);
 
   useEffect(() => {
     if (!question.canPropose) {
@@ -47,12 +44,8 @@ const ParticipatePage = () => {
         description={question.wording.metas.description}
         picture={question.wording.metas.picture}
       />
-      <ConsultationSkipLinks
-        canPropose={question.canPropose}
-        isGreatCause={questionIsGreatCause}
-      />
-      <ConsultationHeader question={question} />
-      <Highlights />
+      <ParticipateHeader question={question} />
+      <ParticipateHighlights />
     </ThemeProvider>
   );
 };

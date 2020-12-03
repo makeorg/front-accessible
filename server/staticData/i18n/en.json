@@ -569,7 +569,8 @@
   },
   "consultation": {
     "header": {
-      "label": "great cause Make.org"
+      "label_great_cause": "great cause Make.org",
+      "label_consultation": "citizen consultation"
     },
     "tabs": {
       "consultation": " Consultation ",
@@ -595,7 +596,7 @@
       "commitment_text": "They support the consultation and the action plan that will follow.",
       "commitment_link": "See all partners",
       "founder": "Founder Partner",
-      "init": "This consultation was initiated by:",
+      "init": "Consultation initiated by :",
       "initWith": "This consultation was initiated with:",
       "with": "In partnership with:",
       "by": "Initiated by:",
@@ -989,6 +990,7 @@
     "nav_consultations": "Current consultations",
     "nav_results": "Results of the consultations",
     "consultations": {
+      "all": "All consultations",
       "label": "Currently",
       "title": "Participate to the current consultations",
       "subtitle": "Each vote is important ! Vote and write solutons to resolve problems of our society.",
