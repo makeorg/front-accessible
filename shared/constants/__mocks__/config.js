@@ -1,5 +1,5 @@
 module.exports = {
-  DEFAULT_LANGUAGE: 'fr',
+  DEFAULT_LANGUAGE: 'en',
   DEFAULT_COUNTRY: 'FR',
   GOOGLE_LOGIN_ID: 'google-id',
   APP_NAME: 'main-front',

@@ -21,6 +21,7 @@ import { ErrorBoundary, ServiceErrorHandler } from './Error';
 import { MainSkipLinks } from './SkipLinks/Main';
 import { Panel } from './Panel';
 import { CanonicalUrl } from './CanonicalUrl';
+import { Hreflang } from './Hreflang';
 /**
  * Handles App Business Logic
  */
@@ -33,6 +34,7 @@ export const AppContainer = () => {
             {/** page_wrapper id is used to set page background color in usePageBackgroundColor hook */}
             <AppWrapperStyle id="page_wrapper">
               <CanonicalUrl />
+              <Hreflang />
               <ModernNormalizeStylesheet />
               <FontFacesStylesheet />
               <DefaultStylesheet />

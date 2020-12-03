@@ -1,6 +1,8 @@
+// @flow
 import React from 'react';
 import { Link } from 'react-head';
 import { useLocation } from 'react-router';
+import { env } from 'Shared/env';
 
 export const CanonicalUrl = () => {
   const { pathname, search } = useLocation();
@@ -18,7 +20,7 @@ export const CanonicalUrl = () => {
   return (
     <Link
       rel="canonical"
-      href={`https://make.org${pathname}${canonicalSearch}`}
+      href={`${env.frontUrl()}${pathname}${canonicalSearch}`}
       data-cy="canonical_url"
     />
   );
