@@ -69,3 +69,4 @@ export { SvgCheckedLightBulb } from './CheckedLightBulb';
 export { SvgPreviousArrowLeft } from './PreviousArrowLeft';
 export { SvgWorldMap } from './WorldMap';
 export { SvgBigCheck } from './BigCheck';
+export { SvgArrowBottom } from './ArrowBottom';

@@ -24,9 +24,7 @@ type Props = {
   highlights: HomeHighlightsType,
 };
 export const HighlightsBanner = ({ highlights }: Props) => {
-  const { country, language } = useSelector(
-    (state: StateRoot) => state.appConfig
-  );
+  const { language } = useSelector((state: StateRoot) => state.appConfig);
   const { participantsCount, proposalsCount, partnersCount } = highlights;
   return (
     <HomepageSectionStyle
@@ -46,7 +44,7 @@ export const HighlightsBanner = ({ highlights }: Props) => {
           <PeopleIconStyle aria-hidden focusable="false" />
           <> </>
           <FiguresStyle>
-            {formatMillionToText(participantsCount, country, language)}
+            {formatMillionToText(participantsCount, language)}
           </FiguresStyle>
           <> </>
           <SubtitleFiguresStyle>
@@ -58,7 +56,7 @@ export const HighlightsBanner = ({ highlights }: Props) => {
           <LigthIconStyle aria-hidden focusable="false" />
           <> </>
           <FiguresStyle>
-            {formatMillionToText(proposalsCount, country, language)}
+            {formatMillionToText(proposalsCount, language)}
           </FiguresStyle>
           <> </>
           <SubtitleFiguresStyle>
@@ -70,7 +68,7 @@ export const HighlightsBanner = ({ highlights }: Props) => {
           <HeartIconStyle aria-hidden focusable="false" />
           <> </>
           <FiguresStyle>
-            {formatMillionToText(partnersCount, country, language)}
+            {formatMillionToText(partnersCount, language)}
           </FiguresStyle>
           <> </>
           <SubtitleFiguresStyle>

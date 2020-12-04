@@ -90,6 +90,58 @@ export class DateHelperSingleton {
 
     return moment(objectDate).format('LL');
   }
+
+  localizedllDate(date: ?string | null) {
+    if (!date) {
+      return null;
+    }
+
+    const objectDate = new Date(date);
+    if (Number.isNaN(objectDate.getMonth())) {
+      return null;
+    }
+
+    moment.locale(this._language);
+
+    return moment(objectDate).format('ll');
+  }
+
+  localizedLDate(date: ?string | null) {
+    if (!date) {
+      return null;
+    }
+
+    const objectDate = new Date(date);
+    if (Number.isNaN(objectDate.getMonth())) {
+      return null;
+    }
+
+    moment.locale(this._language);
+
+    return moment(objectDate).format('L');
+  }
+
+  getRemainingDays(endDate: ?string | null) {
+    if (!endDate) {
+      return null;
+    }
+
+    const objectNowDate = new Date();
+    const objectEndDate = new Date(endDate);
+    if (
+      Number.isNaN(objectEndDate.getMonth()) ||
+      Number.isNaN(objectNowDate.getMonth())
+    ) {
+      return null;
+    }
+
+    moment.locale(this._language);
+
+    const momentNowDate = moment(objectNowDate);
+    const momentEndDate = moment(objectEndDate);
+
+    return momentEndDate.diff(momentNowDate, 'days');
+  }
 }
 
 export const getDate = (dateString: ?string) => {
