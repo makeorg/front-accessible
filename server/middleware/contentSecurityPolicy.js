@@ -5,13 +5,14 @@ export const cspMiddleware = csp({
   // Specify directives as normal.
   directives: {
     baseUri: ["'self'"],
-    defaultSrc: ["'self'"],
+    defaultSrc: ["'none'"],
+    fontSrc: ["'self'"],
     scriptSrc: [
       "'self'",
       'https://connect.facebook.net',
       'https://staticxx.facebook.com',
-      'http://platform.twitter.com',
-      'http://static.ads-twitter.com',
+      'https://platform.twitter.com',
+      'https://static.ads-twitter.com',
       'https://apis.google.com',
       'https://analytics.twitter.com',
       'https://analytics.twitter.com',
@@ -19,7 +20,17 @@ export const cspMiddleware = csp({
       (req, res) => `'nonce-${res.locals.nonce}'`,
     ],
     styleSrc: ["'self'", "'unsafe-inline'"],
-    imgSrc: ['*', 'data:'],
+    imgSrc: [
+      "'self'",
+      'https://t.co',
+      'https://*.makeorg.tech',
+      'https://*.make.org',
+      'https://*.placebymake.org',
+      'https://*.webflow.com',
+      'https://*.facebook.com',
+      'https://*.facebook.net',
+      'data:',
+    ],
     connectSrc: [
       "'self'",
       apiUrl,
