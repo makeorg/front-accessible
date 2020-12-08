@@ -1,5 +1,5 @@
 export const TWTTR_SCRIPT =
-  '<script src="//platform.twitter.com/oct.js" type="text/javascript"></script>';
+  '<script src="https://platform.twitter.com/oct.js" type="text/javascript"></script>';
 export const twttr = {
   initialized() {
     return window && window.twttr !== undefined;
