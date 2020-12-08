@@ -1,3 +1,5 @@
+import { env } from 'Shared/env';
+
 const fs = require('fs');
 const { VERSION_PATH } = require('./paths');
 
@@ -30,4 +32,14 @@ export function renderVersion(req, res) {
 export function renderRobot(req, res) {
   res.type('text/plain');
   res.send('User-agent: *\nDisallow: /beta/*\nDisallow: /preview/*');
+}
+
+/**
+ * security.txt
+ * */
+export function renderSecurityTxt(req, res) {
+  res.type('text/plain');
+  res.send(
+    `Contact: ${env.frontUrl()}/FR/contact\nPreferred-Languages: fr, en\nCanonical: ${env.frontUrl()}/.well-known/security.txt`
+  );
 }

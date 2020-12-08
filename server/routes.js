@@ -133,6 +133,8 @@ export const initRoutes = app => {
   // Front Routes
   app.get('/', redirectToCountry);
   app.get('/robots.txt', technicalPages.renderRobot);
+  app.get('/.well-known/security.txt', technicalPages.renderSecurityTxt);
+  app.get('/security.txt', technicalPages.renderSecurityTxt);
   app.get('/version', technicalPages.renderVersion);
   app.get(`${ROUTE_COUNTRY_LANG}`, redirectCountryLanguageUrl);
   app.get(`${ROUTE_COUNTRY_LANG}/*`, redirectCountryLanguageUrl);
