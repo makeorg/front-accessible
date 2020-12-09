@@ -311,12 +311,12 @@
       "title": "Write a solution using 140 characters max, then click on the \"Submit\" button",
       "counter": "Your solution contains {{current}} characters over {{total}}",
       "description": "No worries, we will verify the correct spelling of your solution.",
-      "moderation_charter": "Learn more about",
-      "moderation_charter_label": "Our moderation charter",
+      "moderation_charter": "Learn more about ",
+      "moderation_charter_label": "our moderation charter",
       "success": "We received your solution, we will inform you by e-mail when it will be validated by our moderation team."
     },
     "form": {
-      "bait": "We whould",
+      "bait": "We should",
       "title": "Write a solution using 140 characters max, then click on the \"Submit\" button",
       "field": "Proposal field",
       "counter": "Your solution contains {{current}} characters over {{total}}",
