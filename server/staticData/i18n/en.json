@@ -307,7 +307,7 @@
       "button": "Keep voting"
     },
     "deprecated": {
-      "bait": "We should",
+      "bait": "We should ",
       "title": "Write a solution using 140 characters max, then click on the \"Submit\" button",
       "counter": "Your solution contains {{current}} characters over {{total}}",
       "description": "No worries, we will verify the correct spelling of your solution.",
@@ -316,7 +316,7 @@
       "success": "We received your solution, we will inform you by e-mail when it will be validated by our moderation team."
     },
     "form": {
-      "bait": "We should",
+      "bait": "We should ",
       "title": "Write a solution using 140 characters max, then click on the \"Submit\" button",
       "field": "Proposal field",
       "counter": "Your solution contains {{current}} characters over {{total}}",

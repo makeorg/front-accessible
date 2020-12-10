@@ -34,7 +34,9 @@ export const Hreflang = () => {
     <>
       {countryLanguageList.map(countryLanguage => (
         <Link
-          key={countryLanguage.language}
+          key={`${
+            countryLanguage.language
+          }-${countryLanguage.country.toLowerCase()}`}
           rel="alternate"
           hrefLang={`${
             countryLanguage.language
