@@ -91,6 +91,59 @@ describe('Date Helper', () => {
     });
   });
 
+  describe('localizedllDate', () => {
+    it('localizedllDate with valid date', () => {
+      DateHelper.language = 'fr';
+      expect(DateHelper.localizedllDate('2018-10-25T12:45:25.752Z')).toBe(
+        '25 oct. 2018'
+      );
+    });
+
+    it('localizedllDate with valid date and en locale', () => {
+      DateHelper.language = 'en';
+      expect(DateHelper.localizedllDate('2018-10-24T12:45:25.752Z')).toBe(
+        'Oct 24, 2018'
+      );
+    });
+
+    it('localizedllDate with invalid date', () => {
+      expect(DateHelper.localizedllDate('foo')).toBeNull();
+    });
+  });
+  describe('localizedLDate', () => {
+    it('localizedllDate with valid date', () => {
+      DateHelper.language = 'fr';
+      expect(DateHelper.localizedLDate('2018-10-25T12:45:25.752Z')).toBe(
+        '25/10/2018'
+      );
+    });
+
+    it('localizedLDate with valid date and en locale', () => {
+      DateHelper.language = 'en';
+      expect(DateHelper.localizedLDate('2018-10-24T12:45:25.752Z')).toBe(
+        '10/24/2018'
+      );
+    });
+
+    it('localizedLDate with invalid date', () => {
+      expect(DateHelper.localizedLDate('foo')).toBeNull();
+    });
+  });
+
+  describe('getRemainingDays', () => {
+    it('getRemainingDays with valid date', () => {
+      jest
+        .spyOn(global, 'Date')
+        .mockImplementationOnce(() => new Date('2019-10-15T12:45:25.752Z'));
+
+      expect(DateHelper.getRemainingDays('2019-10-25T12:45:25.752Z')).toBe(10);
+    });
+
+    it('getRemainingDays with invalid date', () => {
+      expect(DateHelper.getRemainingDays('foo')).toBeNull();
+    });
+  });
+
   describe('isInProgress', () => {
     const startDate = '1980-01-01';
     let endDate = '2075-01-01';

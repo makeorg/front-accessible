@@ -1,19 +1,11 @@
 // @flow
 import { i18n } from 'Shared/i18n';
 
-export const formatNumberByLocalisation = (
-  count: number,
-  country: string,
-  language: string
-) => {
-  return count.toLocaleString(`${language}-${country}`);
+export const formatCountWithLanguage = (count: number, language: string) => {
+  return count.toLocaleString(language);
 };
 
-export const formatMillionToText = (
-  count: number,
-  country: string,
-  language: string
-) => {
+export const formatMillionToText = (count: number, language: string) => {
   let number = count;
   const oneMillion = 10 ** 6;
 
@@ -25,5 +17,5 @@ export const formatMillionToText = (
     })}`;
   }
 
-  return number.toLocaleString(`${language}-${country}`);
+  return number.toLocaleString(language);
 };

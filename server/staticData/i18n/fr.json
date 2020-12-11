@@ -652,6 +652,17 @@
     "header": {
       "label": "Grande Cause Make.org"
     },
+    "highlights": {
+      "date": "Date de lancement",
+      "remaining": "Jour restant",
+      "remaining_plural": "Jours restants",
+      "participant": "Participant",
+      "participant_plural": "Participants",
+      "progress_title": "Notre objectif de votes",
+      "progress_target": "<strong>{{votesCount}}</strong> sur {{votesTarget}} votes ({{percent}}%)",
+      "progress_description": "Plus les propositions recevront de votes, plus celles-ci auront le potentiel de déboucher sur des actions concrètes.",
+      "progress_btn": "Participer"
+    },
     "navigation": {
       "introduction": "Retrouvez les autres thématiques abordées dans le cadre de la consultation : {{name}}"
     },

@@ -153,7 +153,7 @@ export type PartnerType = {
 export type QuestionHighlightsType = {
   votesTarget: number,
   votesCount: number,
-  participantCount: number,
+  participantsCount: number,
 };
 
 export type QuestionTimelineType = {

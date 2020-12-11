@@ -1,6 +1,5 @@
 // @flow
 import React from 'react';
-import { type StateRoot } from 'Shared/store/types';
 import { type HomeQuestionType } from 'Shared/types/question';
 import { DateHelper } from 'Shared/helpers/date';
 import {
@@ -22,7 +21,6 @@ import {
   useScreenMobileContainerWidth,
 } from 'Client/hooks/useMedia';
 import { formatMillionToText } from 'Shared/helpers/numberFormatter';
-import { useSelector } from 'react-redux';
 import { ConsultationLink } from './Link';
 
 type Props = {
@@ -31,7 +29,6 @@ type Props = {
 };
 
 export const ConsultationItem = ({ question, resultsContext }: Props) => {
-  const { country } = useSelector((state: StateRoot) => state.appConfig);
   const {
     descriptionImage,
     descriptionImageAlt,
@@ -98,7 +95,7 @@ export const ConsultationItem = ({ question, resultsContext }: Props) => {
           <ConsultationItemStyle>
             <ConsultationPeopleIconStyle aria-hidden focusable="false" />
             <> </>
-            {formatMillionToText(participantsCount, country, language)}
+            {formatMillionToText(participantsCount, language)}
             <> </>
             {` ${i18n.t('browse.consultations.contributors', {
               count: participantsCount,
@@ -109,7 +106,7 @@ export const ConsultationItem = ({ question, resultsContext }: Props) => {
           <ConsultationItemStyle>
             <ConsultationLightIconStyle aria-hidden focusable="false" />
             <> </>
-            {formatMillionToText(proposalsCount, country, language)}
+            {formatMillionToText(proposalsCount, language)}
             <> </>
             {` ${i18n.t('browse.consultations.proposals', {
               count: proposalsCount,

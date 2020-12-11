@@ -15,6 +15,7 @@ import {
   NOTIFICATION_LEVEL_INFORMATION,
   VOTE_ONLY_MESSAGE,
 } from 'Shared/constants/notifications';
+import { Highlights } from 'Client/features/consultation/Highlights';
 
 const ParticipatePage = () => {
   const question: QuestionType = useSelector((state: StateRoot) =>
@@ -51,6 +52,7 @@ const ParticipatePage = () => {
         isGreatCause={questionIsGreatCause}
       />
       <ConsultationHeader question={question} />
+      <Highlights />
     </ThemeProvider>
   );
 };

@@ -54,3 +54,15 @@ export const getVotesPercent = (votes: VoteType[], votesCount: number) => {
         : 0,
   };
 };
+
+/**
+ * calculate the vote ratio betweem votesCount and votesTarget
+ *
+ * @param {number} votesCount
+ * @param {number} votesTarget
+ */
+export const getVotesRatio = (votesCount: number, votesTarget: number) => {
+  const percent = (votesCount * 100) / votesTarget;
+
+  return percent.toFixed(1);
+};

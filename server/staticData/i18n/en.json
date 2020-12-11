@@ -204,7 +204,7 @@
         "message": "Citizens have submitted many solutions since the beginning of this consultation. We need your votes to make a difference between them. In the meantime we can't accept new solutions.",
         "button": "ok"
       },
-      "vote_on_proposal" : "Vote on this solution"
+      "vote_on_proposal": "Vote on this solution"
     },
     "footer_nav": "Footer navigation",
     "sidebar_area": "Content sidebar",
@@ -719,6 +719,17 @@
     },
     "popular_proposals": {
       "title": "The {{ count }} most popular solutions by topic"
+    },
+    "highlights": {
+      "date": "@@consultation.highlights.date|fr:Date de lancement",
+      "remaining": "@@consultation.highlights.remaining|fr:Jour restant",
+      "remaining_plural": "@@consultation.highlights.remaining_plural|fr:Jours restants",
+      "participant": "@@consultation.highlights.participant|fr:Participant",
+      "participant_plural": "@@consultation.highlights.participant_plural|fr:Participants",
+      "progress_title": "@@consultation.highlights.progress_title|fr:Notre objectif de votes",
+      "progress_target": "@@consultation.highlights.progress_target|fr:<strong>{{votesCount}}</strong> sur {{votesTarget}} votes ({{percent}}%)",
+      "progress_description": "@@consultation.highlights.progress_description|fr:Plus les propositions recevront de votes, plus celles-ci auront le potentiel de déboucher sur des actions concrètes.",
+      "progress_btn": "@@consultation.highlights.progress_btn|fr:Participer"
     }
   },
   "sharing": {

@@ -49,4 +49,11 @@ describe('VoteResult Helper', () => {
       expect(votesPercent[VOTE_NEUTRAL_KEY]).toBe(40);
     });
   });
+
+  describe('test getVotesRatio', () => {
+    it('return the ratio with one decimal', () => {
+      const percent = VoteResultHelper.getVotesRatio(155, 1000);
+      expect(percent).toBe('15.5');
+    });
+  });
 });
