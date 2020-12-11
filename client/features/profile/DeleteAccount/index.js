@@ -75,7 +75,9 @@ export const DeleteAccount = ({ user }: Props) => {
   ) => {
     event.preventDefault();
 
-    const success = () => dispatch(logout(true));
+    const success = () => {
+      dispatch(logout(true));
+    };
     const invalidPassword = () => {
       setCanSubmit(false);
       setErrors([invalidPasswordError]);

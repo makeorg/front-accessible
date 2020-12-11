@@ -92,13 +92,16 @@ export const Register = () => {
   };
 
   const logAndLoadUser = async (email, password) => {
-    const success = () => dispatch(getUser(true));
+    const success = () => {
+      dispatch(getUser(true));
+    };
     const handleErrors = () => {};
     const unexpectedError = () => {
       dispatch(modalClose());
       // @toDo: notify user
       Logger.logError(`Login fail for ${email}`);
     };
+
     await UserService.login(
       email,
       password,
