@@ -21,9 +21,7 @@ export const buildPieChart = (
   const ctx = canvas.getContext('2d');
   canvas.width = isMobile ? 300 : 500;
   canvas.height = isMobile ? 300 : 400;
-  const total = data.reduce((ttl, item) => {
-    return ttl + item.percent;
-  }, 0);
+  const total = data.reduce((ttl, item) => ttl + item.percent, 0);
   let startAngle = 4.725;
   const radius = isMobile ? 75 : 100;
   const cx = canvas.width / 2;

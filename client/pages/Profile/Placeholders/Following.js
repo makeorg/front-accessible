@@ -6,19 +6,17 @@ import {
   PlaceholderParagraphStyle,
 } from 'Client/ui/Elements/PlaceholdersElements';
 
-export const ProfileFollowingPlaceholder = () => {
-  return (
-    <>
-      <SvgLike style={SvgLikeStyle} />
-      <PlaceholderParagraphStyle>
-        {i18n.t('profile.following.description.introduction')}
-      </PlaceholderParagraphStyle>
-      <PlaceholderParagraphStyle>
-        {i18n.t('profile.following.description.explanation_step_one')}
-      </PlaceholderParagraphStyle>
-      <PlaceholderParagraphStyle>
-        {i18n.t('profile.following.description.explanation_step_two')}
-      </PlaceholderParagraphStyle>
-    </>
-  );
-};
+export const ProfileFollowingPlaceholder = () => (
+  <>
+    <SvgLike style={SvgLikeStyle} />
+    <PlaceholderParagraphStyle>
+      {i18n.t('profile.following.description.introduction')}
+    </PlaceholderParagraphStyle>
+    <PlaceholderParagraphStyle>
+      {i18n.t('profile.following.description.explanation_step_one')}
+    </PlaceholderParagraphStyle>
+    <PlaceholderParagraphStyle>
+      {i18n.t('profile.following.description.explanation_step_two')}
+    </PlaceholderParagraphStyle>
+  </>
+);

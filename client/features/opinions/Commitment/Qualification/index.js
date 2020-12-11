@@ -32,43 +32,41 @@ export const CommitmentQualification = ({
   qualifications,
   qualificationValue,
   handleQualification,
-}: Props) => {
-  return (
-    <VoteContainerStyle className="opinions">
-      <VoteWrapperStyle>
-        <ScreenReaderItemStyle as="p">
-          {i18n.t(`personality.opinions.vote.${voteValue}`)}
-        </ScreenReaderItemStyle>
-        <VoteButtonStyle
-          aria-label={i18n.t(`personality.opinions.vote.${voteValue}`)}
-          className={`${voteValue} voted`}
-          data-cy-button="vote"
-          data-cy-vote-key={voteValue}
-          onClick={unvote}
-        >
-          <VoteIconStyle className={voteValue} aria-hidden focusable="false" />
-        </VoteButtonStyle>
-        <ScreenReaderItemStyle as="p">
-          {i18n.t('qualification.title')}
-        </ScreenReaderItemStyle>
-        <OpinionQualificationListStyle as={UnstyledListStyle}>
-          {qualifications.map(qualification => (
-            <OpinionQualificationListItemStyle key={qualification}>
-              <QualifyButtonStyle
-                className={
-                  qualification === qualificationValue ? 'qualified' : ''
-                }
-                color={opinionsVoteStaticParams[voteValue].color}
-                onClick={() => handleQualification(qualification)}
-                data-cy-button="qualification"
-                data-cy-qualification-key={qualification}
-              >
-                {i18n.t(`personality.opinions.qualification.${qualification}`)}
-              </QualifyButtonStyle>
-            </OpinionQualificationListItemStyle>
-          ))}
-        </OpinionQualificationListStyle>
-      </VoteWrapperStyle>
-    </VoteContainerStyle>
-  );
-};
+}: Props) => (
+  <VoteContainerStyle className="opinions">
+    <VoteWrapperStyle>
+      <ScreenReaderItemStyle as="p">
+        {i18n.t(`personality.opinions.vote.${voteValue}`)}
+      </ScreenReaderItemStyle>
+      <VoteButtonStyle
+        aria-label={i18n.t(`personality.opinions.vote.${voteValue}`)}
+        className={`${voteValue} voted`}
+        data-cy-button="vote"
+        data-cy-vote-key={voteValue}
+        onClick={unvote}
+      >
+        <VoteIconStyle className={voteValue} aria-hidden focusable="false" />
+      </VoteButtonStyle>
+      <ScreenReaderItemStyle as="p">
+        {i18n.t('qualification.title')}
+      </ScreenReaderItemStyle>
+      <OpinionQualificationListStyle as={UnstyledListStyle}>
+        {qualifications.map(qualification => (
+          <OpinionQualificationListItemStyle key={qualification}>
+            <QualifyButtonStyle
+              className={
+                qualification === qualificationValue ? 'qualified' : ''
+              }
+              color={opinionsVoteStaticParams[voteValue].color}
+              onClick={() => handleQualification(qualification)}
+              data-cy-button="qualification"
+              data-cy-qualification-key={qualification}
+            >
+              {i18n.t(`personality.opinions.qualification.${qualification}`)}
+            </QualifyButtonStyle>
+          </OpinionQualificationListItemStyle>
+        ))}
+      </OpinionQualificationListStyle>
+    </VoteWrapperStyle>
+  </VoteContainerStyle>
+);

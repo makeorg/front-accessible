@@ -3,9 +3,7 @@ import { QuestionApiService } from 'Shared/api/QuestionApiService';
 import { type TopIdeaType, type TopIdeaDetailType } from 'Shared/types/topIdea';
 import { defaultUnexpectedError } from './DefaultErrorHandler';
 
-const orderByWeight = (topIdea1, topIdea2) => {
-  return topIdea2.weight - topIdea1.weight;
-};
+const orderByWeight = (topIdea1, topIdea2) => topIdea2.weight - topIdea1.weight;
 
 const getTopIdeas = async (
   questionId: string,

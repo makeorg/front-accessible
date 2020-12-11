@@ -19,17 +19,13 @@ export const capitalize = (
   );
 };
 
-export const formatUserName = (name: string, locales?: string[]): string => {
-  return capitalize(name, true, locales);
-};
+export const formatUserName = (name: string, locales?: string[]): string =>
+  capitalize(name, true, locales);
 
 export const formatOrganisationName = (
   name: string,
   locales?: string[]
-): string => {
-  return capitalize(name, false, locales);
-};
+): string => capitalize(name, false, locales);
 
-export const formatAuthorName = (name: string, locales?: string[]): string => {
-  return capitalize(name, true, locales);
-};
+export const formatAuthorName = (name: string, locales?: string[]): string =>
+  capitalize(name, true, locales);

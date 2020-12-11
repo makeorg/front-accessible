@@ -11,19 +11,17 @@ type Props = {
   voteColor: string,
 };
 
-export const QualificationResults = ({ qualification, voteColor }: Props) => {
-  return (
-    <SpaceBetweenRowStyle as="li">
-      <QualificationLabelStyle color={voteColor}>
-        {i18n.t(`qualification.${qualification.qualificationKey}`)}
-      </QualificationLabelStyle>
-      <ScreenReaderItemStyle> : </ScreenReaderItemStyle>
-      <QualificationContentStyle>
-        {` ${qualification.count} `}
-      </QualificationContentStyle>
-      <ScreenReaderItemStyle>
-        {i18n.t('qualification.times')}
-      </ScreenReaderItemStyle>
-    </SpaceBetweenRowStyle>
-  );
-};
+export const QualificationResults = ({ qualification, voteColor }: Props) => (
+  <SpaceBetweenRowStyle as="li">
+    <QualificationLabelStyle color={voteColor}>
+      {i18n.t(`qualification.${qualification.qualificationKey}`)}
+    </QualificationLabelStyle>
+    <ScreenReaderItemStyle> : </ScreenReaderItemStyle>
+    <QualificationContentStyle>
+      {` ${qualification.count} `}
+    </QualificationContentStyle>
+    <ScreenReaderItemStyle>
+      {i18n.t('qualification.times')}
+    </ScreenReaderItemStyle>
+  </SpaceBetweenRowStyle>
+);

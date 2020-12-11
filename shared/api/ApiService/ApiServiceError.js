@@ -16,8 +16,8 @@ export class ApiServiceError extends Error {
 
   method: ?string;
 
-  clone = (message: string) => {
-    return new ApiServiceError(
+  clone = (message: string) =>
+    new ApiServiceError(
       message,
       this.status,
       this.data,
@@ -26,7 +26,6 @@ export class ApiServiceError extends Error {
       this.logId,
       this.logged
     );
-  };
 
   constructor(
     message: string,

@@ -25,9 +25,9 @@ export const modalShowForgotPassword = () => (dispatch: Function) => {
   trackDisplayForgotPasswordForm();
 };
 
-export const modalShowDepartmentForm = () => {
-  return { type: actionTypes.MODAL_SHOW_DEPARTMENT_FORM };
-};
+export const modalShowDepartmentForm = () => ({
+  type: actionTypes.MODAL_SHOW_DEPARTMENT_FORM,
+});
 
 export const showSessionExpirationModal = () => (dispatch: Function) => {
   dispatch({ type: actionTypes.MODAL_SHOW_SESSION_EXPIRATION });
@@ -40,9 +40,7 @@ export const modalShowProposalSuccess = () => (dispatch: Function) => {
   dispatch({ type: actionTypes.MODAL_SHOW_PROPOSAL_SUCCESS });
 };
 
-export const modalShowCountries = (focusAfterClose: boolean) => {
-  return {
-    type: actionTypes.MODAL_SHOW_COUNTRIES,
-    payload: { focusAfterClose },
-  };
-};
+export const modalShowCountries = (focusAfterClose: boolean) => ({
+  type: actionTypes.MODAL_SHOW_COUNTRIES,
+  payload: { focusAfterClose },
+});

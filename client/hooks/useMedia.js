@@ -36,19 +36,16 @@ export const useMedia = (query: string) => {
   return value;
 };
 
-export const useDesktop = () => {
-  return useMedia(`(min-width: ${intToPx(Breakpoints.Desktop)})`);
-};
+export const useDesktop = () =>
+  useMedia(`(min-width: ${intToPx(Breakpoints.Desktop)})`);
 
-export const useTablet = () => {
-  return useMedia(`(min-width: ${intToPx(Breakpoints.Tablet)})`);
-};
+export const useTablet = () =>
+  useMedia(`(min-width: ${intToPx(Breakpoints.Tablet)})`);
 
-export const useMobile = () => {
-  return useMedia(
+export const useMobile = () =>
+  useMedia(
     `only screen and (max-device-width: ${intToPx(Breakpoints.Tablet)})`
   );
-};
 
 export const useScreenWidth = () => {
   const hasWindowObject = typeof window === 'object';
@@ -61,14 +58,15 @@ export const useScreenWidth = () => {
     window.addEventListener('resize', resize);
   }
 
-  useEffect(() => {
-    return () => {
+  useEffect(
+    () => () => {
       if (hasWindowObject) {
         window.removeEventListener('resize', resize);
       }
-    };
+    },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    []
+  );
 
   return value;
 };

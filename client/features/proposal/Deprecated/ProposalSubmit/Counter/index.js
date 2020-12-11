@@ -11,18 +11,16 @@ type Props = {
 /**
  * Render the Proposal Field
  */
-export const CharsCounter = ({ currentLength }: Props) => {
-  return (
-    <>
-      <ProposalCharLimitStyle aria-hidden>
-        {`${currentLength}/140`}
-      </ProposalCharLimitStyle>
-      <ScreenReaderItemStyle>
-        {i18n.t('proposal_submit.deprecated.counter', {
-          current: currentLength,
-          total: 140,
-        })}
-      </ScreenReaderItemStyle>
-    </>
-  );
-};
+export const CharsCounter = ({ currentLength }: Props) => (
+  <>
+    <ProposalCharLimitStyle aria-hidden>
+      {`${currentLength}/140`}
+    </ProposalCharLimitStyle>
+    <ScreenReaderItemStyle>
+      {i18n.t('proposal_submit.deprecated.counter', {
+        current: currentLength,
+        total: 140,
+      })}
+    </ScreenReaderItemStyle>
+  </>
+);

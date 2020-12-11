@@ -13,9 +13,7 @@ export const pxToPercent = (childValue: number, parentValue: number) => {
   return `${percentValue}%`;
 };
 
-export const intToPx = (value: number) => {
-  return `${value}px`;
-};
+export const intToPx = (value: number) => `${value}px`;
 
 export const getBarHeight = (value: number) => {
   const barHeight = (value * 30) / 100;
@@ -31,9 +29,7 @@ export const scrollToTop = () => {
   return window.scrollTo(0, app.getBoundingClientRect().top);
 };
 
-export const getFullWidthDividedByItems = (count: number) => {
-  return `${100 / count}%`;
-};
+export const getFullWidthDividedByItems = (count: number) => `${100 / count}%`;
 
 export const lockBody = () => {
   const body = document.querySelector('body');

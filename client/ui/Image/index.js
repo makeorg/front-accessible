@@ -28,13 +28,10 @@ type Props = {
   loading?: string,
 };
 
-const isInternalSourceUrl = url => {
-  return (
-    url &&
-    url.toLowerCase().includes('assets') &&
-    url.toLowerCase().includes('make')
-  );
-};
+const isInternalSourceUrl = url =>
+  url &&
+  url.toLowerCase().includes('assets') &&
+  url.toLowerCase().includes('make');
 
 const isImageSupportedByImageFlow = url =>
   /\.(jpg|jpeg|gif|png)($|\?)/.test(url.toLowerCase());

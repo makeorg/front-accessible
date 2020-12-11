@@ -28,79 +28,73 @@ import {
   VoteButtonStyle,
 } from 'Client/ui/Elements/Buttons/style';
 
-export const ProfileFavouritesPlaceholder = () => {
-  return (
-    <CenterColumnStyle>
-      <SvgLike style={SvgLikeStyle} />
-      <PlaceholderParagraphStyle>
-        {i18n.t('profile.favourites.description.introduction')}
-      </PlaceholderParagraphStyle>
-      <PlaceholderParagraphStyle>
-        {i18n.t('profile.favourites.description.explanation')}
-      </PlaceholderParagraphStyle>
-      <FavouritesCardStyle aria-hidden>
-        <FavouritesProposalStyle as="p">
-          {i18n.t('profile.favourites.card_title')}
-        </FavouritesProposalStyle>
-        <VoteContainerStyle className="placeholder">
-          <VoteResultContainerStyle>
-            <VoteButtonStyle
-              className="agree voted"
-              color={color.agree}
-              disabled
-            >
-              <SvgThumbsUp aria-hidden focusable="false" />
-            </VoteButtonStyle>
-            <VoteResultGraphStyle>
-              <VoteResultItemStyle>
-                <Tooltip
-                  content={<ResultTooltip votePercent={100} voteKey="agree" />}
-                  direction="bottom"
-                >
-                  <VoteResultBarStyle color={color.agree} percent={100} />
-                </Tooltip>
-              </VoteResultItemStyle>
-              <VoteResultItemStyle>
-                <Tooltip
-                  content={<ResultTooltip votePercent={0} voteKey="disagree" />}
-                  direction="bottom"
-                >
-                  <VoteResultBarStyle color={color.disagree} percent={0} />
-                </Tooltip>
-              </VoteResultItemStyle>
-              <VoteResultItemStyle>
-                <Tooltip
-                  content={<ResultTooltip votePercent={0} voteKey="neutral" />}
-                  direction="bottom"
-                >
-                  <VoteResultBarStyle color={color.neutral} percent={0} />
-                </Tooltip>
-              </VoteResultItemStyle>
-            </VoteResultGraphStyle>
-            <VoteResultTotalLabelStyle>
-              {i18n.t('vote.label', { count: 4242 })}
-            </VoteResultTotalLabelStyle>
-          </VoteResultContainerStyle>
-          <SpaceBetweenColumnStyle>
-            <QualifyButtonStyle
-              className="qualified"
-              color={color.agree}
-              disabled
-            >
-              <span>{i18n.t('qualification.likeIt')}</span>
-              <CounterStyle>+1</CounterStyle>
-            </QualifyButtonStyle>
-            <QualifyButtonStyle color={color.agree} disabled>
-              <span>{i18n.t('qualification.doable')}</span>
-              <CounterStyle>+1</CounterStyle>
-            </QualifyButtonStyle>
-            <QualifyButtonStyle color={color.agree} disabled>
-              <span>{i18n.t('qualification.platitudeAgree')}</span>
-              <CounterStyle>+1</CounterStyle>
-            </QualifyButtonStyle>
-          </SpaceBetweenColumnStyle>
-        </VoteContainerStyle>
-      </FavouritesCardStyle>
-    </CenterColumnStyle>
-  );
-};
+export const ProfileFavouritesPlaceholder = () => (
+  <CenterColumnStyle>
+    <SvgLike style={SvgLikeStyle} />
+    <PlaceholderParagraphStyle>
+      {i18n.t('profile.favourites.description.introduction')}
+    </PlaceholderParagraphStyle>
+    <PlaceholderParagraphStyle>
+      {i18n.t('profile.favourites.description.explanation')}
+    </PlaceholderParagraphStyle>
+    <FavouritesCardStyle aria-hidden>
+      <FavouritesProposalStyle as="p">
+        {i18n.t('profile.favourites.card_title')}
+      </FavouritesProposalStyle>
+      <VoteContainerStyle className="placeholder">
+        <VoteResultContainerStyle>
+          <VoteButtonStyle className="agree voted" color={color.agree} disabled>
+            <SvgThumbsUp aria-hidden focusable="false" />
+          </VoteButtonStyle>
+          <VoteResultGraphStyle>
+            <VoteResultItemStyle>
+              <Tooltip
+                content={<ResultTooltip votePercent={100} voteKey="agree" />}
+                direction="bottom"
+              >
+                <VoteResultBarStyle color={color.agree} percent={100} />
+              </Tooltip>
+            </VoteResultItemStyle>
+            <VoteResultItemStyle>
+              <Tooltip
+                content={<ResultTooltip votePercent={0} voteKey="disagree" />}
+                direction="bottom"
+              >
+                <VoteResultBarStyle color={color.disagree} percent={0} />
+              </Tooltip>
+            </VoteResultItemStyle>
+            <VoteResultItemStyle>
+              <Tooltip
+                content={<ResultTooltip votePercent={0} voteKey="neutral" />}
+                direction="bottom"
+              >
+                <VoteResultBarStyle color={color.neutral} percent={0} />
+              </Tooltip>
+            </VoteResultItemStyle>
+          </VoteResultGraphStyle>
+          <VoteResultTotalLabelStyle>
+            {i18n.t('vote.label', { count: 4242 })}
+          </VoteResultTotalLabelStyle>
+        </VoteResultContainerStyle>
+        <SpaceBetweenColumnStyle>
+          <QualifyButtonStyle
+            className="qualified"
+            color={color.agree}
+            disabled
+          >
+            <span>{i18n.t('qualification.likeIt')}</span>
+            <CounterStyle>+1</CounterStyle>
+          </QualifyButtonStyle>
+          <QualifyButtonStyle color={color.agree} disabled>
+            <span>{i18n.t('qualification.doable')}</span>
+            <CounterStyle>+1</CounterStyle>
+          </QualifyButtonStyle>
+          <QualifyButtonStyle color={color.agree} disabled>
+            <span>{i18n.t('qualification.platitudeAgree')}</span>
+            <CounterStyle>+1</CounterStyle>
+          </QualifyButtonStyle>
+        </SpaceBetweenColumnStyle>
+      </VoteContainerStyle>
+    </FavouritesCardStyle>
+  </CenterColumnStyle>
+);

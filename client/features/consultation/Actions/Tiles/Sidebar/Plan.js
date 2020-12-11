@@ -4,25 +4,23 @@ import { i18n } from 'Shared/i18n';
 import { ActionsParagraphStyle } from 'Client/features/consultation/Styled/Actions';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 
-export const PlanTileContent = () => {
-  return (
-    <>
-      <ParagraphStyle>{i18n.t('actions.plan.text')}</ParagraphStyle>
-      <ActionsParagraphStyle>
-        {i18n.t('actions.plan.list-bait')}
-      </ActionsParagraphStyle>
-      <ParagraphStyle>{i18n.t('actions.plan.list-intro')}</ParagraphStyle>
-      <UnstyledListStyle>
-        <ParagraphStyle as="li">
-          {i18n.t('actions.plan.list-first-item')}
-        </ParagraphStyle>
-        <ParagraphStyle as="li">
-          {i18n.t('actions.plan.list-second-item')}
-        </ParagraphStyle>
-        <ParagraphStyle as="li">
-          {i18n.t('actions.plan.list-third-item')}
-        </ParagraphStyle>
-      </UnstyledListStyle>
-    </>
-  );
-};
+export const PlanTileContent = () => (
+  <>
+    <ParagraphStyle>{i18n.t('actions.plan.text')}</ParagraphStyle>
+    <ActionsParagraphStyle>
+      {i18n.t('actions.plan.list-bait')}
+    </ActionsParagraphStyle>
+    <ParagraphStyle>{i18n.t('actions.plan.list-intro')}</ParagraphStyle>
+    <UnstyledListStyle>
+      <ParagraphStyle as="li">
+        {i18n.t('actions.plan.list-first-item')}
+      </ParagraphStyle>
+      <ParagraphStyle as="li">
+        {i18n.t('actions.plan.list-second-item')}
+      </ParagraphStyle>
+      <ParagraphStyle as="li">
+        {i18n.t('actions.plan.list-third-item')}
+      </ParagraphStyle>
+    </UnstyledListStyle>
+  </>
+);

@@ -15,20 +15,18 @@ type Props = {
   link: string,
 };
 
-export const MainResultsHeader = ({ title, count, link }: Props) => {
-  return (
-    <MainResultsHeaderStyle>
-      <MainResultsHeaderContentStyle>
-        <MainResultsTitleWrapperStyle>
-          <MainResultsTitleStyle as="span">{title}</MainResultsTitleStyle>
-          {i18n.t('search.main_results.results', { count })}
-        </MainResultsTitleWrapperStyle>
-        {count > 4 && (
-          <RedLinkRouterStyle to={link}>
-            {i18n.t('search.main_results.view_all')}
-          </RedLinkRouterStyle>
-        )}
-      </MainResultsHeaderContentStyle>
-    </MainResultsHeaderStyle>
-  );
-};
+export const MainResultsHeader = ({ title, count, link }: Props) => (
+  <MainResultsHeaderStyle>
+    <MainResultsHeaderContentStyle>
+      <MainResultsTitleWrapperStyle>
+        <MainResultsTitleStyle as="span">{title}</MainResultsTitleStyle>
+        {i18n.t('search.main_results.results', { count })}
+      </MainResultsTitleWrapperStyle>
+      {count > 4 && (
+        <RedLinkRouterStyle to={link}>
+          {i18n.t('search.main_results.view_all')}
+        </RedLinkRouterStyle>
+      )}
+    </MainResultsHeaderContentStyle>
+  </MainResultsHeaderStyle>
+);

@@ -19,51 +19,49 @@ const colors = [];
 for (const [colorName, value] of Object.entries(ColorGroupName)) {
   colors.push({ colorName, value });
 }
-export const Colors = () => {
-  return (
-    <>
-      <h1>Colors</h1>
-      <table>
-        <caption>
-          Color values used for the UI of
-          <> </>
-          <RedLinkHTMLElementStyle href={env.frontUrl()}>
-            {env.frontUrl()}
-          </RedLinkHTMLElementStyle>
-          <> </>
-          from the design tokens
-          <> </>
-          <RedLinkHTMLElementStyle
-            href="https://www.npmjs.com/package/athena-design-tokens"
-            target="_blank"
-            rel="nooperner noreferrer"
-          >
-            NPM module
-            <ExternalLinkIconStyle className="red-link" aria-hidden />
-          </RedLinkHTMLElementStyle>
-          <> </>
-        </caption>
-        <thead>
-          <tr>
-            <th scope="col">name</th>
-            <th scope="col">color</th>
-            <th scope="col">value</th>
-          </tr>
-        </thead>
-        {colors.map(c => (
-          <Fragment key={c.colorName}>
-            <tbody>
-              <tr>
-                <th scope="row">{c.colorName}</th>
-                <td>
-                  <ColorboxStyle col={c.value} />
-                </td>
-                <td>{c.value}</td>
-              </tr>
-            </tbody>
-          </Fragment>
-        ))}
-      </table>
-    </>
-  );
-};
+export const Colors = () => (
+  <>
+    <h1>Colors</h1>
+    <table>
+      <caption>
+        Color values used for the UI of
+        <> </>
+        <RedLinkHTMLElementStyle href={env.frontUrl()}>
+          {env.frontUrl()}
+        </RedLinkHTMLElementStyle>
+        <> </>
+        from the design tokens
+        <> </>
+        <RedLinkHTMLElementStyle
+          href="https://www.npmjs.com/package/athena-design-tokens"
+          target="_blank"
+          rel="nooperner noreferrer"
+        >
+          NPM module
+          <ExternalLinkIconStyle className="red-link" aria-hidden />
+        </RedLinkHTMLElementStyle>
+        <> </>
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col">name</th>
+          <th scope="col">color</th>
+          <th scope="col">value</th>
+        </tr>
+      </thead>
+      {colors.map(c => (
+        <Fragment key={c.colorName}>
+          <tbody>
+            <tr>
+              <th scope="row">{c.colorName}</th>
+              <td>
+                <ColorboxStyle col={c.value} />
+              </td>
+              <td>{c.value}</td>
+            </tr>
+          </tbody>
+        </Fragment>
+      ))}
+    </table>
+  </>
+);

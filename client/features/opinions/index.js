@@ -64,9 +64,8 @@ const RenderOpinions = ({ opinions, personality }: OpinionsProps) => {
   );
 };
 
-const getCommentedOpinions = (opinions: PersonalityOpinionType[]) => {
-  return opinions.filter(opinion => opinion.comment !== null);
-};
+const getCommentedOpinions = (opinions: PersonalityOpinionType[]) =>
+  opinions.filter(opinion => opinion.comment !== null);
 
 export const Opinions = ({ personality, privateProfile = false }: Props) => {
   const [opinions, setOpinions] = useState([]);

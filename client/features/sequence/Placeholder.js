@@ -7,18 +7,16 @@ import { SequenceContainerStyle, SequenceContentStyle } from './style';
 import { SequencePlaceholderLineStyle } from './Cards/style';
 import { SequencePlaceholderCard } from './Cards/Placeholder';
 
-export const SequencePlaceholder = () => {
-  return (
-    <SequenceContainerStyle>
-      <ScreenReaderItemStyle>{i18n.t('common.loading')}</ScreenReaderItemStyle>
-      <SequenceContentStyle>
-        <SequencePlaceholderLineStyle className="title" />
-        <SequencePlaceholderCard />
-        <SpaceBetweenRowStyle className="fullwidth">
-          <SequencePlaceholderLineStyle className="button" />
-          <SequencePlaceholderLineStyle />
-        </SpaceBetweenRowStyle>
-      </SequenceContentStyle>
-    </SequenceContainerStyle>
-  );
-};
+export const SequencePlaceholder = () => (
+  <SequenceContainerStyle>
+    <ScreenReaderItemStyle>{i18n.t('common.loading')}</ScreenReaderItemStyle>
+    <SequenceContentStyle>
+      <SequencePlaceholderLineStyle className="title" />
+      <SequencePlaceholderCard />
+      <SpaceBetweenRowStyle className="fullwidth">
+        <SequencePlaceholderLineStyle className="button" />
+        <SequencePlaceholderLineStyle />
+      </SpaceBetweenRowStyle>
+    </SequenceContentStyle>
+  </SequenceContainerStyle>
+);

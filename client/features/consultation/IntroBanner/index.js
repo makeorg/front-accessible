@@ -19,8 +19,8 @@ type Props = {
   question: QuestionType,
 };
 
-export const IntroBanner = ({ question }: Props) => {
-  return isGreatCause(question.operationKind) ? (
+export const IntroBanner = ({ question }: Props) =>
+  isGreatCause(question.operationKind) ? (
     <IntroWrapperStyle as="header" id="intro">
       {question.consultationImage ? (
         <IntroBannerTitleStyle>
@@ -64,4 +64,3 @@ export const IntroBanner = ({ question }: Props) => {
       </DefaultBannerMainContainer>
     </IntroWrapperStyle>
   );
-};

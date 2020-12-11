@@ -70,8 +70,8 @@ export const getSequenceLink = (
   country: string,
   questionSlug: string,
   params?: Object = {}
-) => {
-  return generatePath(ROUTE_SEQUENCE, {
+) =>
+  generatePath(ROUTE_SEQUENCE, {
     country,
     questionSlug,
   }).concat(
@@ -79,7 +79,6 @@ export const getSequenceLink = (
       ? `?${queryString.stringify(params)}`
       : ''
   );
-};
 
 /**
  * Get the browse consultations link
@@ -92,12 +91,11 @@ export const getSequenceLink = (
 export const getBrowseConsultationsLink = (
   country: string,
   pageId?: number = 1
-) => {
-  return generatePath(ROUTE_BROWSE_CONSULTATIONS, {
+) =>
+  generatePath(ROUTE_BROWSE_CONSULTATIONS, {
     country,
     pageId,
   });
-};
 
 /**
  * Get the browse results link
@@ -107,12 +105,11 @@ export const getBrowseConsultationsLink = (
  *
  * @return {string}
  */
-export const getBrowseResultsLink = (country: string, pageId?: number = 1) => {
-  return generatePath(ROUTE_BROWSE_RESULTS, {
+export const getBrowseResultsLink = (country: string, pageId?: number = 1) =>
+  generatePath(ROUTE_BROWSE_RESULTS, {
     country,
     pageId,
   });
-};
 
 /**
  * Get the consultation link
@@ -122,12 +119,11 @@ export const getBrowseResultsLink = (country: string, pageId?: number = 1) => {
  *
  * @return {string}
  */
-export const getConsultationLink = (country: string, questionSlug: string) => {
-  return generatePath(ROUTE_CONSULTATION, {
+export const getConsultationLink = (country: string, questionSlug: string) =>
+  generatePath(ROUTE_CONSULTATION, {
     country,
     questionSlug,
   });
-};
 
 /**
  * Get the participate link
@@ -137,12 +133,11 @@ export const getConsultationLink = (country: string, questionSlug: string) => {
  *
  * @return {string}
  */
-export const getParticipateLink = (country: string, questionSlug: string) => {
-  return generatePath(ROUTE_PARTICIPATE, {
+export const getParticipateLink = (country: string, questionSlug: string) =>
+  generatePath(ROUTE_PARTICIPATE, {
     country,
     questionSlug,
   });
-};
 
 /**
  * Get the action link
@@ -152,12 +147,11 @@ export const getParticipateLink = (country: string, questionSlug: string) => {
  *
  * @return {string}
  */
-export const getActionLink = (country: string, questionSlug: string) => {
-  return generatePath(ROUTE_ACTION, {
+export const getActionLink = (country: string, questionSlug: string) =>
+  generatePath(ROUTE_ACTION, {
     country,
     questionSlug,
   });
-};
 
 /**
  * Get the results link
@@ -167,12 +161,11 @@ export const getActionLink = (country: string, questionSlug: string) => {
  *
  * @return {string}
  */
-export const getResultsLink = (country: string, questionSlug: string) => {
-  return generatePath(ROUTE_RESULTS, {
+export const getResultsLink = (country: string, questionSlug: string) =>
+  generatePath(ROUTE_RESULTS, {
     country,
     questionSlug,
   });
-};
 
 /**
  * Get the top ideas by questions link
@@ -182,12 +175,11 @@ export const getResultsLink = (country: string, questionSlug: string) => {
  *
  * @return {string}
  */
-export const getTopIdeasLink = (country: string, questionSlug: string) => {
-  return generatePath(ROUTE_TOP_IDEAS, {
+export const getTopIdeasLink = (country: string, questionSlug: string) =>
+  generatePath(ROUTE_TOP_IDEAS, {
     country,
     questionSlug,
   });
-};
 
 /**
  * Get the top idea details link
@@ -201,13 +193,12 @@ export const getTopIdeaDetailsLink = (
   country: string,
   questionSlug: string,
   topIdeaId: string
-) => {
-  return generatePath(ROUTE_TOP_IDEA_DETAILS, {
+) =>
+  generatePath(ROUTE_TOP_IDEA_DETAILS, {
     country,
     questionSlug,
     topIdeaId,
   });
-};
 
 /**
  * Get the consultation link
@@ -222,13 +213,12 @@ export const getDynamicConsultationLink = (
   country: string,
   questionSlug: string,
   consultationStep: string
-) => {
-  return generatePath(ROUTE_CONSULTATION_STEP, {
+) =>
+  generatePath(ROUTE_CONSULTATION_STEP, {
     country,
     questionSlug,
     consultationStep,
   });
-};
 
 /**
  * Get the proposal link
@@ -245,14 +235,13 @@ export const getProposalLink = (
   questionSlug: string,
   proposalId: string,
   proposalSlug: string
-) => {
-  return generatePath(ROUTE_PROPOSAL, {
+) =>
+  generatePath(ROUTE_PROPOSAL, {
     country,
     questionSlug,
     proposalId,
     proposalSlug,
   });
-};
 
 /**
  * Get the organisation profile link
@@ -264,12 +253,11 @@ export const getProposalLink = (
 export const getOrganisationProfileLink = (
   country: string,
   organisationSlug: string
-) => {
-  return generatePath(ROUTE_ORGANISATION_PROFILE, {
+) =>
+  generatePath(ROUTE_ORGANISATION_PROFILE, {
     country,
     organisationSlug,
   });
-};
 
 /**
  * Get the personality profile link
@@ -278,12 +266,11 @@ export const getOrganisationProfileLink = (
  * @param  {string} userId
  * @return {string}
  */
-export const getPersonalityProfileLink = (country: string, userId: string) => {
-  return generatePath(ROUTE_PERSONALITY_PROFILE, {
+export const getPersonalityProfileLink = (country: string, userId: string) =>
+  generatePath(ROUTE_PERSONALITY_PROFILE, {
     country,
     userId,
   });
-};
 
 /**
  * Get the contact page link
@@ -291,8 +278,8 @@ export const getPersonalityProfileLink = (country: string, userId: string) => {
  * @param  {string} country
  * @return {string}
  */
-export const getContactPageLink = (country: string) => {
-  return generatePath(
+export const getContactPageLink = (country: string) =>
+  generatePath(
     country === 'FR' || !country
       ? ROUTE_STATIC_CONTACT
       : ROUTE_STATIC_CONTACT_EN,
@@ -300,7 +287,6 @@ export const getContactPageLink = (country: string) => {
       country,
     }
   );
-};
 
 /**
  * Get the data page link
@@ -308,14 +294,13 @@ export const getContactPageLink = (country: string) => {
  * @param  {string} country
  * @return {string}
  */
-export const getDataPageLink = (country: string) => {
-  return generatePath(
+export const getDataPageLink = (country: string) =>
+  generatePath(
     country === 'FR' || !country ? ROUTE_STATIC_DATA : ROUTE_STATIC_DATA_EN,
     {
       country,
     }
   );
-};
 
 /**
  * Get the GTU page link
@@ -323,14 +308,13 @@ export const getDataPageLink = (country: string) => {
  * @param  {string} country
  * @return {string}
  */
-export const getGTUPageLink = (country: string) => {
-  return generatePath(
+export const getGTUPageLink = (country: string) =>
+  generatePath(
     country === 'FR' || !country ? ROUTE_STATIC_GTU : ROUTE_STATIC_GTU_EN,
     {
       country,
     }
   );
-};
 
 /**
  * Get the GTU page link
@@ -338,14 +322,13 @@ export const getGTUPageLink = (country: string) => {
  * @param  {string} country
  * @return {string}
  */
-export const getLegalPageLink = (country: string) => {
-  return generatePath(
+export const getLegalPageLink = (country: string) =>
+  generatePath(
     country === 'FR' || !country ? ROUTE_STATIC_LEGAL : ROUTE_STATIC_LEGAL_EN,
     {
       country,
     }
   );
-};
 
 /**
  * Get the A11y page link
@@ -353,11 +336,10 @@ export const getLegalPageLink = (country: string) => {
  * @param  {string} country
  * @return {string}
  */
-export const getA11YPageLink = (country: string) => {
-  return generatePath(ROUTE_STATIC_A11Y, {
+export const getA11YPageLink = (country: string) =>
+  generatePath(ROUTE_STATIC_A11Y, {
     country,
   });
-};
 
 /**
  * Get the home page link
@@ -365,11 +347,10 @@ export const getA11YPageLink = (country: string) => {
  * @param  {string} country
  * @return {string}
  */
-export const getHomeLink = (country: string) => {
-  return generatePath(ROUTE_COUNTRY, {
+export const getHomeLink = (country: string) =>
+  generatePath(ROUTE_COUNTRY, {
     country,
   });
-};
 /**
  * Get the Not found page link
  *
@@ -394,9 +375,8 @@ export const isPreviewPath = (path: string): boolean =>
  * @return {string}
  */
 
-export const getWebflowDynamicLink = (language: string, route: string) => {
-  return `${ABOUT_MAKE_LINK}${language}${route}`;
-};
+export const getWebflowDynamicLink = (language: string, route: string) =>
+  `${ABOUT_MAKE_LINK}${language}${route}`;
 
 /**
  * Get the password recovery link
@@ -411,13 +391,12 @@ export const getPasswordRecoveryLink = (
   country: string,
   userId: string,
   resetToken: string
-) => {
-  return generatePath(ROUTE_PASSWORD_RECOVERY, {
+) =>
+  generatePath(ROUTE_PASSWORD_RECOVERY, {
     country,
     userId,
     resetToken,
   });
-};
 
 /**
  * Get the account activation link
@@ -432,10 +411,9 @@ export const getAccountActivationLink = (
   country: string,
   userId: string,
   verificationToken: string
-) => {
-  return generatePath(ROUTE_ACCOUNT_ACTIVATION, {
+) =>
+  generatePath(ROUTE_ACCOUNT_ACTIVATION, {
     country,
     userId,
     verificationToken,
   });
-};

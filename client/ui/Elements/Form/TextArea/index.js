@@ -54,36 +54,34 @@ export const TextArea = ({
   spellCheck,
   autoComplete,
   withCounter,
-}: Props) => {
-  return (
-    <FakeFieldStyle hasError={errors}>
-      <TextAreaIconStyle aria-hidden>{icon}</TextAreaIconStyle>
-      <FieldWrapperStyle>
-        <BasicTextAreaStyle
-          name={name}
-          id={name}
-          value={value}
-          required={required}
-          onChange={throttle(handleChange)}
-          rows={rows}
-          maxRows={25}
-          minLength={minLength}
-          maxLength={maxLength}
-          spellCheck={spellCheck}
-          autoComplete={autoComplete}
-        />
-        <FloatingLabelStyle htmlFor={name}>{label}</FloatingLabelStyle>
-        {maxLength && withCounter && (
-          <TextAreaCounterStyle>
-            {`${value ? value.length : '0'}/${maxLength} ${i18n.t(
-              'common.max_characters'
-            )}`}
-          </TextAreaCounterStyle>
-        )}
-      </FieldWrapperStyle>
-    </FakeFieldStyle>
-  );
-};
+}: Props) => (
+  <FakeFieldStyle hasError={errors}>
+    <TextAreaIconStyle aria-hidden>{icon}</TextAreaIconStyle>
+    <FieldWrapperStyle>
+      <BasicTextAreaStyle
+        name={name}
+        id={name}
+        value={value}
+        required={required}
+        onChange={throttle(handleChange)}
+        rows={rows}
+        maxRows={25}
+        minLength={minLength}
+        maxLength={maxLength}
+        spellCheck={spellCheck}
+        autoComplete={autoComplete}
+      />
+      <FloatingLabelStyle htmlFor={name}>{label}</FloatingLabelStyle>
+      {maxLength && withCounter && (
+        <TextAreaCounterStyle>
+          {`${value ? value.length : '0'}/${maxLength} ${i18n.t(
+            'common.max_characters'
+          )}`}
+        </TextAreaCounterStyle>
+      )}
+    </FieldWrapperStyle>
+  </FakeFieldStyle>
+);
 
 TextArea.defaultProps = {
   required: false,
