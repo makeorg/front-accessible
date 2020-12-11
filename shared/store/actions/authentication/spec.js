@@ -242,6 +242,12 @@ describe('Authentication Actions', () => {
       });
 
       const expectedActions = [
+        {
+          type: actionTypes.SET_SESSION_ID,
+          payload: {
+            sessionId: '',
+          },
+        },
         { type: actionTypes.LOGOUT },
         {
           type: actionTypes.DISPLAY_NOTIFICATION_BANNER,

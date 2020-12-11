@@ -21,6 +21,7 @@ type Props = {
 };
 
 const sessionExpirationDateCookieName: string = 'make-session-id-expiration';
+const apiHeaderListenerName: string = 'sessionIdListener';
 
 const SessionExpirationHandler = ({ children, cookies }: Props) => {
   const dispatch = useDispatch();
@@ -33,6 +34,7 @@ const SessionExpirationHandler = ({ children, cookies }: Props) => {
   const showExpirationSession: string = useSelector(
     (state: StateRoot) => state.modal.showExpirationSession
   );
+  const [apiSessionId, setApiSessionId] = useState('');
 
   cookieDataRef.current = cookieData;
 
@@ -42,22 +44,44 @@ const SessionExpirationHandler = ({ children, cookies }: Props) => {
     }
   };
 
-  apiClient.addHeadersListener(headers => {
-    // @toDo: use route url instead of header x-route-name
-    if (
-      headers['x-session-id'] === sessionId ||
-      !['voteproposal', 'qualificationproposal'].includes(
-        headers['x-route-name']
-      )
-    ) {
-      return;
+  // update apiSessionId from api response header
+  useEffect(() => {
+    apiClient.addHeadersListener(apiHeaderListenerName, headers => {
+      setApiSessionId(headers['x-session-id']);
+    });
+
+    return () => {
+      apiClient.removeHeadersListener(apiHeaderListenerName);
+    };
+  }, []);
+
+  // clear apiSessionId when sessionId is cleared after a logout
+  useEffect(() => {
+    if (!sessionId) {
+      setApiSessionId('');
     }
-    dispatch(updateSessionId(headers['x-session-id']));
-    if (sessionId && headers['x-session-id']) {
+  }, [sessionId]);
+
+  // show modal if sessionId in state not match session id from API response
+  useEffect(() => {
+    const sessionIdHasChanged = !!apiSessionId && apiSessionId !== sessionId;
+    const isInitalSetup = !sessionId;
+
+    if (!isInitalSetup && sessionIdHasChanged) {
       showModal();
     }
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [apiSessionId]);
 
+  // update sessionId from apiSessionId
+  useEffect(() => {
+    if (apiSessionId && apiSessionId !== sessionId) {
+      dispatch(updateSessionId(apiSessionId));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [apiSessionId]);
+
+  // show modal when session expires
   useEffect(() => {
     const currentDate = new Date();
     const timeBeforeExpire =

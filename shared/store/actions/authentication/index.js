@@ -28,6 +28,7 @@ import {
   UNEXPECTED_ERROR_MESSAGE,
 } from 'Shared/constants/notifications';
 import { displayNotificationBanner } from '../notifications';
+import { clearSessionId } from '../session';
 
 export const loginRequest = () => ({ type: actionTypes.LOGIN_REQUEST });
 export const loginFailure = (error: ErrorObjectType) => ({
@@ -188,6 +189,7 @@ export const logout = (afterAccountDeletion?: boolean) => (
   dispatch: Dispatch
 ) => {
   const success = () => {
+    dispatch(clearSessionId());
     dispatch(logoutSuccess());
     if (afterAccountDeletion) {
       return dispatch(

@@ -22,7 +22,7 @@ export class ApiServiceClient implements IApiServiceStrategy {
 
   _isLogged: boolean = false;
 
-  _headersListeners: Array<(headers: any) => void> = [];
+  _headersListeners: Map<(headers: any) => void> = new Map();
 
   constructor() {
     if (!this._instance) {
@@ -93,12 +93,16 @@ export class ApiServiceClient implements IApiServiceStrategy {
     return this._customData;
   }
 
-  set headersListener(listeners: Array<(headers: Array<any>) => void>) {
+  set headersListener(listeners: Map<(headers: Array<any>) => void>) {
     this._headersListeners = listeners;
   }
 
-  addHeadersListener(listener: (headers: any) => void) {
-    this._headersListeners.push(listener);
+  addHeadersListener(identifier: string, listener: (headers: any) => void) {
+    this._headersListeners.set(identifier, listener);
+  }
+
+  removeHeadersListener(identifier: string) {
+    this._headersListeners.delete(identifier);
   }
 
   callApi(url: string, options: Object = {}): Promise<any> {
@@ -135,7 +139,7 @@ export class ApiServiceClient implements IApiServiceStrategy {
       });
 
       response.then(res =>
-        this._headersListeners.map(listener => listener(res.headers))
+        this._headersListeners.forEach(listener => listener(res.headers))
       );
 
       return response;
