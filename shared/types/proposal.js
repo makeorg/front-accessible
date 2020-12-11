@@ -18,6 +18,9 @@ export type ContextType = {
   source: string,
   location: string,
   question: string,
+  country: string,
+  language: string,
+  getParameters: Array<string>,
 };
 
 export type TagType = {
@@ -40,8 +43,6 @@ export type ProposalType = {
   labels: any[],
   author: AuthorType,
   organisations: OrganisationSoftType[],
-  country: string,
-  language: string,
   themeId: string,
   tags: TagType[],
   selectedStakeTag: TagType,
