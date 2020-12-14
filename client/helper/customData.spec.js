@@ -6,9 +6,7 @@ describe('Custom data from query params', () => {
     setItem: value => {
       storage = value;
     },
-    getItem: () => {
-      return storage || {};
-    },
+    getItem: () => storage || {},
   };
 
   it('Store custom data from query params : first time', async () => {

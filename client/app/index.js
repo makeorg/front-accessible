@@ -25,38 +25,36 @@ import { Hreflang } from './Hreflang';
 /**
  * Handles App Business Logic
  */
-export const AppContainer = () => {
-  return (
-    <SecureExpiration>
-      <SessionExpiration>
-        <ServiceErrorHandler>
-          <ErrorBoundary>
-            {/** page_wrapper id is used to set page background color in usePageBackgroundColor hook */}
-            <AppWrapperStyle id="page_wrapper">
-              <CanonicalUrl />
-              <Hreflang />
-              <ModernNormalizeStylesheet />
-              <FontFacesStylesheet />
-              <DefaultStylesheet />
-              <UIThemeStylesheet />
-              <CookieBanner />
-              <MainSkipLinks />
-              <Header />
-              <AppMainContentStyle
-                id={MAIN_CONTENT}
-                data-cy-container="main"
-                className={`${NAVIGATION_ARIA_CLASS} ${PANEL_ARIA_CLASS}`}
-              >
-                <NotificationBanner />
-                <Routes />
-              </AppMainContentStyle>
-              <Modal />
-              <Footer />
-            </AppWrapperStyle>
-            <Panel />
-          </ErrorBoundary>
-        </ServiceErrorHandler>
-      </SessionExpiration>
-    </SecureExpiration>
-  );
-};
+export const AppContainer = () => (
+  <SecureExpiration>
+    <SessionExpiration>
+      <ServiceErrorHandler>
+        <ErrorBoundary>
+          {/** page_wrapper id is used to set page background color in usePageBackgroundColor hook */}
+          <AppWrapperStyle id="page_wrapper">
+            <CanonicalUrl />
+            <Hreflang />
+            <ModernNormalizeStylesheet />
+            <FontFacesStylesheet />
+            <DefaultStylesheet />
+            <UIThemeStylesheet />
+            <CookieBanner />
+            <MainSkipLinks />
+            <Header />
+            <AppMainContentStyle
+              id={MAIN_CONTENT}
+              data-cy-container="main"
+              className={`${NAVIGATION_ARIA_CLASS} ${PANEL_ARIA_CLASS}`}
+            >
+              <NotificationBanner />
+              <Routes />
+            </AppMainContentStyle>
+            <Modal />
+            <Footer />
+          </AppWrapperStyle>
+          <Panel />
+        </ErrorBoundary>
+      </ServiceErrorHandler>
+    </SessionExpiration>
+  </SecureExpiration>
+);

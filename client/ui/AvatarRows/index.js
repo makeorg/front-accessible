@@ -8,13 +8,9 @@ type Props = {
   avatars: string[],
 };
 
-const getAvatarKey = (index: number) => {
-  return `avatar_${index}`;
-};
+const getAvatarKey = (index: number) => `avatar_${index}`;
 
-const getZindex = (index: number) => {
-  return 10 - index;
-};
+const getZindex = (index: number) => 10 - index;
 
 export const AvatarRows = ({ avatars }: Props) => (
   <AvatarRowsStyle>

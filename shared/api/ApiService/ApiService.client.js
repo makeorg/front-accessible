@@ -124,12 +124,9 @@ export class ApiServiceClient implements IApiServiceStrategy {
     axiosRetry(axios, {
       retries: 5,
       retryDelay: retryCount => retryCount * 100,
-      retryCondition: error => {
-        return (
-          axiosRetry.isNetworkOrIdempotentRequestError(error) ||
-          (error.response && error.response.status === 401 && this._isLogged)
-        );
-      },
+      retryCondition: error =>
+        axiosRetry.isNetworkOrIdempotentRequestError(error) ||
+        (error.response && error.response.status === 401 && this._isLogged),
     });
 
     try {

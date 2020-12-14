@@ -28,36 +28,32 @@ export const Avatar = ({
   avatarUrl,
   avatarAlt = '',
   isSequence,
-}: Props) => {
-  return (
-    <AvatarStyle isSequence={isSequence}>
-      {avatarUrl ? (
-        <AvatarImageStyle
-          src={avatarUrl}
-          alt={avatarAlt}
-          width={avatarSize}
-          avatarSize={avatarSize}
-        />
-      ) : (
-        <SvgEmptyAvatar
-          aria-hidden
-          width={avatarSize}
-          height={avatarSize}
-          focusable="false"
-        />
-      )}
-    </AvatarStyle>
-  );
-};
+}: Props) => (
+  <AvatarStyle isSequence={isSequence}>
+    {avatarUrl ? (
+      <AvatarImageStyle
+        src={avatarUrl}
+        alt={avatarAlt}
+        width={avatarSize}
+        avatarSize={avatarSize}
+      />
+    ) : (
+      <SvgEmptyAvatar
+        aria-hidden
+        width={avatarSize}
+        height={avatarSize}
+        focusable="false"
+      />
+    )}
+  </AvatarStyle>
+);
 
-export const AvatarWithDots = ({ avatarSize = 34 }: DotsProps) => {
-  return (
-    <AvatarStyle>
-      <AvatarWithDotsStyle avatarSize={avatarSize}>
-        <DotsStyle />
-        <DotsStyle />
-        <DotsStyle />
-      </AvatarWithDotsStyle>
-    </AvatarStyle>
-  );
-};
+export const AvatarWithDots = ({ avatarSize = 34 }: DotsProps) => (
+  <AvatarStyle>
+    <AvatarWithDotsStyle avatarSize={avatarSize}>
+      <DotsStyle />
+      <DotsStyle />
+      <DotsStyle />
+    </AvatarWithDotsStyle>
+  </AvatarStyle>
+);

@@ -73,9 +73,7 @@ export const getErrorMessages = (
 
 export const transformFieldValueToProfileValue = (
   initialValue: string | number
-): string | number | null => {
-  return setEmptyStringToNull(initialValue);
-};
+): string | number | null => setEmptyStringToNull(initialValue);
 
 export const transformProfileToFormData = (profile: Object) => {
   const formData = { ...profile };

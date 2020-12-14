@@ -31,8 +31,7 @@ export const getVoteButtonClass = (
 export const updateAndGetVotes = (
   votesToUpdate: VoteType[],
   vote: VoteType
-): VoteType[] => {
-  return votesToUpdate.map(oldVote =>
+): VoteType[] =>
+  votesToUpdate.map(oldVote =>
     oldVote.voteKey === vote.voteKey ? vote : oldVote
   );
-};

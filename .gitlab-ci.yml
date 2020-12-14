@@ -51,7 +51,12 @@ test:
     - yarn install
     - yarn i18n:translation:check
     - yarn documentation:check
-    - yarn test-with-coverage-codacy
+    - yarn test-with-coverage
+  artifacts:
+    expire_in: 1 week
+    when: always
+    paths:
+      - coverage
 
 jscpd:
   stage: check

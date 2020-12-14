@@ -7,13 +7,11 @@ import {
   VoteOnlyButtonStyle,
 } from 'Client/ui/Elements/Notifications/Banner/style';
 
-export const VoteOnlyMessage = ({ close }) => {
-  return (
-    <VoteOnlyMessageStyle>
-      {i18n.t('common.notifications.vote_only.message')}
-      <VoteOnlyButtonStyle aria-expanded="false" onClick={close}>
-        {i18n.t('common.notifications.vote_only.button')}
-      </VoteOnlyButtonStyle>
-    </VoteOnlyMessageStyle>
-  );
-};
+export const VoteOnlyMessage = ({ close }) => (
+  <VoteOnlyMessageStyle>
+    {i18n.t('common.notifications.vote_only.message')}
+    <VoteOnlyButtonStyle aria-expanded="false" onClick={close}>
+      {i18n.t('common.notifications.vote_only.button')}
+    </VoteOnlyButtonStyle>
+  </VoteOnlyMessageStyle>
+);

@@ -86,9 +86,7 @@ export const Sequence = ({ question }: Props) => {
     });
   }, [question, firstProposal, isLoggedIn, hasProposed]);
 
-  useEffect(() => {
-    return () => dispatch(resetFirstProposal());
-  }, []);
+  useEffect(() => () => dispatch(resetFirstProposal()), []);
 
   useEffect(() => {
     if (!cards.length) {

@@ -11,22 +11,20 @@ const COUNTRIES_PATH = '/views/countries';
 export class ViewsApiService {
   static getCountries = async (
     headers?: ApiServiceHeadersType = {}
-  ): Promise<any> => {
-    return ApiService.callApi(COUNTRIES_PATH, {
+  ): Promise<any> =>
+    ApiService.callApi(COUNTRIES_PATH, {
       method: 'GET',
       headers,
     });
-  };
 
   static getHome = async (
     country: string,
     headers?: ApiServiceHeadersType = {}
-  ): Promise<Object> => {
-    return ApiService.callApi(HOMEPAGE_PATH.replace(':country', country), {
+  ): Promise<Object> =>
+    ApiService.callApi(HOMEPAGE_PATH.replace(':country', country), {
       method: 'GET',
       headers,
     });
-  };
 
   static searchViews = async (
     content: string,
@@ -34,8 +32,8 @@ export class ViewsApiService {
     proposalLimit?: number = 4,
     questionLimit?: number = 4,
     organisationLimit?: number = 4
-  ): Promise<Object> => {
-    return ApiService.callApi(
+  ): Promise<Object> =>
+    ApiService.callApi(
       SEARCH_VIEWS_PATH.replace(':content', content)
         .replace(':proposalLimit', proposalLimit.toString())
         .replace(':questionLimit', questionLimit.toString())
@@ -45,5 +43,4 @@ export class ViewsApiService {
         method: 'GET',
       }
     );
-  };
 }

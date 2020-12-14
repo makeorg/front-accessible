@@ -34,8 +34,8 @@ const getCustomDataFromQueryParams = (queryParams: Object): Object => {
  */
 const escapeValue = (value: string): string =>
   value.replace(/=/g, '%3D').replace(/,/g, '%2C');
-export const formatdDataForHeader = (customData: Object): string => {
-  return Object.keys(customData)
+export const formatdDataForHeader = (customData: Object): string =>
+  Object.keys(customData)
     .map(key => {
       const value: string =
         typeof customData[key] === 'string'
@@ -45,7 +45,6 @@ export const formatdDataForHeader = (customData: Object): string => {
       return `${escapeValue(key)}=${escapeValue(value)}`;
     })
     .join(',');
-};
 
 export const getAll = (): Object => {
   try {

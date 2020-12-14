@@ -20,33 +20,29 @@ class LoggerSingleton {
     return instance;
   }
 
-  formatApiServiceError = (error: ApiServiceError) => {
-    return {
-      message: error.message,
-      name: error.name,
-      fileName: error.fileName,
-      lineNumber: error.lineNumber,
-      columnNumber: error.columnNumber,
-      stack: error.stack,
-      status: error.status,
-      responseData: error.data,
-      url: error.url,
-      method: error.method,
-      logId: error.logId,
-    };
-  };
+  formatApiServiceError = (error: ApiServiceError) => ({
+    message: error.message,
+    name: error.name,
+    fileName: error.fileName,
+    lineNumber: error.lineNumber,
+    columnNumber: error.columnNumber,
+    stack: error.stack,
+    status: error.status,
+    responseData: error.data,
+    url: error.url,
+    method: error.method,
+    logId: error.logId,
+  });
 
-  formatError = (error: Error) => {
-    return {
-      message: error.message,
-      name: error.name,
-      fileName: error.fileName,
-      lineNumber: error.lineNumber,
-      columnNumber: error.columnNumber,
-      stack: error.stack,
-      logId: uuidv4(),
-    };
-  };
+  formatError = (error: Error) => ({
+    message: error.message,
+    name: error.name,
+    fileName: error.fileName,
+    lineNumber: error.lineNumber,
+    columnNumber: error.columnNumber,
+    stack: error.stack,
+    logId: uuidv4(),
+  });
 
   normalizeData = data => {
     if (data instanceof ApiServiceError) {

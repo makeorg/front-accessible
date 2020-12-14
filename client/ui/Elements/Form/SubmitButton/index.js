@@ -21,19 +21,12 @@ export const SubmitButton = ({
   id,
   label,
   disabled,
-}: Props) => {
-  return (
-    <ActiveButtonStyle
-      type="submit"
-      form={formName}
-      id={id}
-      disabled={disabled}
-    >
-      {icon}
-      {label}
-    </ActiveButtonStyle>
-  );
-};
+}: Props) => (
+  <ActiveButtonStyle type="submit" form={formName} id={id} disabled={disabled}>
+    {icon}
+    {label}
+  </ActiveButtonStyle>
+);
 
 SubmitButton.defaultProps = {
   id: undefined,

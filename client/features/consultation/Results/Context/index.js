@@ -9,16 +9,14 @@ type Props = {
   context: string,
 };
 
-export const ResultsContext = ({ aboutUrl, context }: Props) => {
-  return (
-    <ParagraphStyle>
-      {context}
-      &nbsp;
-      <SidebarNewWindowLink
-        linkUrl={aboutUrl}
-        linkText={i18n.t('consultation.presentation.link_text')}
-        tracking={() => trackClickLearnMore()}
-      />
-    </ParagraphStyle>
-  );
-};
+export const ResultsContext = ({ aboutUrl, context }: Props) => (
+  <ParagraphStyle>
+    {context}
+    &nbsp;
+    <SidebarNewWindowLink
+      linkUrl={aboutUrl}
+      linkText={i18n.t('consultation.presentation.link_text')}
+      tracking={() => trackClickLearnMore()}
+    />
+  </ParagraphStyle>
+);

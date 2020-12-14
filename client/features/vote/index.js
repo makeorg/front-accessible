@@ -88,11 +88,10 @@ export const Vote = ({
     (votedProposalIds[proposal.question.slug] || []).length === 0;
 
   let timeout;
-  const wait = async (ms: number) => {
-    return new Promise(resolve => {
+  const wait = async (ms: number) =>
+    new Promise(resolve => {
       timeout = setTimeout(resolve, ms);
     });
-  };
   const clearWait = async () => {
     clearTimeout(timeout);
   };
@@ -162,12 +161,13 @@ export const Vote = ({
     setVotedKey(stateUserVote ? stateUserVote.voteKey : '');
   }, [votes]);
 
-  useEffect(() => {
-    return () => {
+  useEffect(
+    () => () => {
       clearWait();
-    };
+    },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    []
+  );
 
   useEffect(() => {
     if (isFirstSequenceVote) {

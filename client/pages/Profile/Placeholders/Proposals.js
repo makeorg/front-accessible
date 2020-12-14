@@ -7,13 +7,11 @@ import {
 } from 'Client/ui/Elements/PlaceholdersElements';
 import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
 
-export const ProfileProposalsPlaceholder = () => {
-  return (
-    <CenterColumnStyle>
-      <SvgLightBulb style={LightBulbStyle} />
-      <PlaceholderParagraphStyle>
-        {i18n.t('profile.proposals.text')}
-      </PlaceholderParagraphStyle>
-    </CenterColumnStyle>
-  );
-};
+export const ProfileProposalsPlaceholder = () => (
+  <CenterColumnStyle>
+    <SvgLightBulb style={LightBulbStyle} />
+    <PlaceholderParagraphStyle>
+      {i18n.t('profile.proposals.text')}
+    </PlaceholderParagraphStyle>
+  </CenterColumnStyle>
+);

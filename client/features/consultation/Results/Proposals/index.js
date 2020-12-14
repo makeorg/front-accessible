@@ -27,55 +27,47 @@ export const ProposalsResults = ({
   proposals,
   question,
   isRejected,
-}: Props) => {
-  return (
-    <ProposalsListStyle>
-      {proposals.map(proposal => (
-        <ProposalsListItemStyle key={proposal.author}>
-          <ProposalAuthorStyle>
-            <ScreenReaderItemStyle>
-              {i18n.t('proposal_card.author.from')}
-            </ScreenReaderItemStyle>
-            {formatAuthorName(proposal.author)}
-          </ProposalAuthorStyle>
+}: Props) => (
+  <ProposalsListStyle>
+    {proposals.map(proposal => (
+      <ProposalsListItemStyle key={proposal.author}>
+        <ProposalAuthorStyle>
           <ScreenReaderItemStyle>
-            {i18n.t('proposal_card.content')}
+            {i18n.t('proposal_card.author.from')}
           </ScreenReaderItemStyle>
-          <ProposalStyle as="p" lang={question.language}>
-            {proposal.content}
-          </ProposalStyle>
-          {isRejected ? (
-            <ResultsPositionStyle>
-              <ResultsNoWayStyle>
-                {i18n.t('consultation.results.proposals.rejected_results', {
-                  disagree: proposal.disagree,
-                  no_way: proposal.no_way,
-                })}
-              </ResultsNoWayStyle>
-            </ResultsPositionStyle>
-          ) : (
-            <ResultsPositionStyle>
-              <ResultsLikeItStyle>
-                {i18n.t(
-                  'consultation.results.proposals.controversials_like_it',
-                  {
-                    count: proposal.like_it,
-                  }
-                )}
-              </ResultsLikeItStyle>
-              <ResultsProposalIconStyle aria-hidden focusable="false" />
-              <ResultsNoWayStyle>
-                {i18n.t(
-                  'consultation.results.proposals.controversials_no_way',
-                  {
-                    count: proposal.no_way,
-                  }
-                )}
-              </ResultsNoWayStyle>
-            </ResultsPositionStyle>
-          )}
-        </ProposalsListItemStyle>
-      ))}
-    </ProposalsListStyle>
-  );
-};
+          {formatAuthorName(proposal.author)}
+        </ProposalAuthorStyle>
+        <ScreenReaderItemStyle>
+          {i18n.t('proposal_card.content')}
+        </ScreenReaderItemStyle>
+        <ProposalStyle as="p" lang={question.language}>
+          {proposal.content}
+        </ProposalStyle>
+        {isRejected ? (
+          <ResultsPositionStyle>
+            <ResultsNoWayStyle>
+              {i18n.t('consultation.results.proposals.rejected_results', {
+                disagree: proposal.disagree,
+                no_way: proposal.no_way,
+              })}
+            </ResultsNoWayStyle>
+          </ResultsPositionStyle>
+        ) : (
+          <ResultsPositionStyle>
+            <ResultsLikeItStyle>
+              {i18n.t('consultation.results.proposals.controversials_like_it', {
+                count: proposal.like_it,
+              })}
+            </ResultsLikeItStyle>
+            <ResultsProposalIconStyle aria-hidden focusable="false" />
+            <ResultsNoWayStyle>
+              {i18n.t('consultation.results.proposals.controversials_no_way', {
+                count: proposal.no_way,
+              })}
+            </ResultsNoWayStyle>
+          </ResultsPositionStyle>
+        )}
+      </ProposalsListItemStyle>
+    ))}
+  </ProposalsListStyle>
+);
