@@ -36,7 +36,10 @@ export const HomePage = () => {
     setIsLoading(false);
   };
 
-  const { featuredQuestions, posts } = homepage || {};
+  const { featuredQuestions, posts } = homepage || {
+    featuredQuestions: [],
+    posts: [],
+  };
   const hasFeaturedQuestions = featuredQuestions?.length > 0;
   const hasPosts = posts?.length > 0;
 
