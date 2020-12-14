@@ -31,21 +31,31 @@ export const BrowseBannerBreadcrumbListStyle = styled.li`
 
 export const BrowseBreadcrumbsLinkStyle = styled(Link)`
   font-family: ${MakeFonts.CircularStandardBook};
-  color: ${color.black};
+  color: ${props =>
+    props.theme.fontColor ? props.theme.fontColor : color.black};
   text-decoration: underline;
   font-size: ${intToPx(typography.font.fontsize.X2S.value)};
   &:hover,
   &:focus {
-    color: ${color.black};
+    color: ${props =>
+      props.theme.fontColor ? props.theme.fontColor : color.black};
   }
 `;
 
 export const BrowseHomeIconStyle = styled(SvgHouse)`
   margin-right: 10px;
+  .tofill {
+    fill: ${props =>
+      props.theme.fontColor ? props.theme.fontColor : color.black};
+  }
 `;
 
 export const BrowseArrowIconStyle = styled(SvgBigArrowRight)`
   margin: 0 10px;
+  .tofill {
+    fill: ${props =>
+      props.theme.fontColor ? props.theme.fontColor : color.black};
+  }
 `;
 
 // DEPRECATED BREADCRUMBS STYLES //

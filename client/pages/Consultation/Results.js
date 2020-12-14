@@ -14,7 +14,7 @@ import { FollowUs } from 'Client/features/flipping/FollowUs';
 import { isGreatCause } from 'Shared/helpers/question';
 import { i18n } from 'Shared/i18n';
 import { MetaTags } from 'Client/app/MetaTags';
-import { ConsultationHeader } from 'Client/features/consultation/Header/index';
+import { DeprecatedConsultationHeader } from 'Client/features/consultation/deprecated/Header/index';
 import { useMobile } from 'Client/hooks/useMedia';
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
 import { ThemeProvider } from 'styled-components';
@@ -70,7 +70,7 @@ const ResultPage = () => {
     <ThemeProvider theme={question.theme}>
       {metas}
       <ResultsSkipLinks questionResults={questionResults} />
-      <ConsultationHeader question={question} />
+      <DeprecatedConsultationHeader question={question} />
       <ConsultationPageWrapperStyle isGreatCause={questionIsGreatCause}>
         <ResultsContent question={question} questionResults={questionResults} />
       </ConsultationPageWrapperStyle>

@@ -1,31 +1,75 @@
 import React from 'react';
-import { type QuestionType } from 'Shared/types/question';
-import { MobileDescriptionImage } from 'Client/features/consultation/MobileDescriptionImage';
-import { IntroBanner } from 'Client/features/consultation/IntroBanner';
-import { isGreatCause } from 'Shared/helpers/question';
-import { NavigationBetweenQuestions } from 'Client/features/consultation/Navigation/BetweenQuestions';
-import { NavigationWithTabs } from 'Client/features/consultation/Navigation/Tabs';
-import { ConsultationHeaderWrapperStyle } from 'Client/pages/Consultation/style';
+import { type StateRoot } from 'Shared/store/types';
+import { useSelector } from 'react-redux';
+import { useLocation } from 'react-router';
+import { Breadcrumbs } from 'Client/app/Breadcrumbs/Breadcrumbs';
+import { i18n } from 'Shared/i18n';
+import { getBrowseConsultationsLink } from 'Shared/helpers/url';
+import { type QuestionType, type PartnerType } from 'Shared/types/question';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
+import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
+import { FOUNDER_PARTNER } from 'Shared/constants/partner';
+import {
+  HeaderWrapperStyle,
+  HeaderContentStyle,
+  HeaderLabelStyle,
+  HeaderTitleStyle,
+} from './style';
+import { PartnersList } from './PartnerLink';
 
-type Props = {
-  question: QuestionType,
-};
+export const ParticipateHeader = () => {
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
+  const question: QuestionType = useSelector((state: StateRoot) =>
+    selectCurrentQuestion(state)
+  );
+  const founders: PartnerType[] = question.partners
+    ? question.partners.filter(
+        partner => partner.partnerKind === FOUNDER_PARTNER
+      )
+    : [];
+  const partners: PartnerType[] = question.partners
+    ? question.partners.filter(
+        partner => partner.partnerKind !== FOUNDER_PARTNER
+      )
+    : [];
+  const isFeatured = question.featured === true;
+  const location = useLocation();
 
-export const ConsultationHeader = ({ question }: Props) => {
-  const questionIsGreatCause = isGreatCause(question.operationKind);
+  const parentPages = [
+    {
+      name: i18n.t('browse.consultations.all'),
+      link: getBrowseConsultationsLink(country),
+    },
+  ];
+
+  const currentPage: BreadcrumbsPagesType = {
+    name: `${question.wording.title}`,
+    link: location,
+  };
 
   return (
-    <>
-      <MobileDescriptionImage question={question} />
-      <NavigationBetweenQuestions question={question} />
-      <ConsultationHeaderWrapperStyle
-        gradientStart={question.theme.gradientStart}
-        gradientEnd={question.theme.gradientEnd}
-        backgroundcolor={question.theme.gradientStart}
-      >
-        <IntroBanner question={question} />
-        {questionIsGreatCause && <NavigationWithTabs question={question} />}
-      </ConsultationHeaderWrapperStyle>
-    </>
+    <HeaderWrapperStyle>
+      <HeaderContentStyle as="header">
+        <Breadcrumbs parentPages={parentPages} currentPage={currentPage} />
+        <HeaderTitleStyle>
+          <HeaderLabelStyle>
+            {isFeatured
+              ? i18n.t('consultation.header.label_great_cause')
+              : i18n.t('consultation.header.label_consultation')}
+          </HeaderLabelStyle>
+          <ScreenReaderItemStyle> - </ScreenReaderItemStyle>
+          {question.question}
+        </HeaderTitleStyle>
+        <PartnersList
+          partnersList={founders}
+          title={i18n.t('consultation.partners.init')}
+        />
+        <PartnersList
+          partnersList={partners}
+          title={i18n.t('consultation.partners.with')}
+          seeMoreLink
+        />
+      </HeaderContentStyle>
+    </HeaderWrapperStyle>
   );
 };

@@ -2,8 +2,8 @@
 import React from 'react';
 import { type StateRoot } from 'Shared/store/types';
 import { type HomeQuestionType } from 'Shared/types/question';
-import { Link } from 'react-router-dom';
 import { NewWindowIconStyle } from 'Client/ui/Elements/LinkElements';
+import { Link } from 'react-router-dom';
 import { i18n } from 'Shared/i18n';
 import {
   getDynamicConsultationLink,
