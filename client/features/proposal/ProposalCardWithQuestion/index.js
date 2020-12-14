@@ -17,8 +17,6 @@ import { AuthorWrapperStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { i18n } from 'Shared/i18n';
 import { ColumnElementStyle } from 'Client/ui/Elements/FlexElements';
-import { useSelector } from 'react-redux';
-import { type StateRoot } from 'Shared/store/types';
 
 type Props = {
   /** Object with all proposal's properties */
@@ -40,9 +38,8 @@ export const ProposalCardWithQuestion = ({
   withOrganisations = false,
   withMobileRadius = false,
 }: Props) => {
-  const { country } = useSelector((state: StateRoot) => state.appConfig);
   const proposalLink = getProposalLink(
-    country,
+    proposal.context.country,
     proposal.question.slug,
     proposal.id,
     proposal.slug
@@ -83,13 +80,16 @@ export const ProposalCardWithQuestion = ({
         {withOrganisations && proposal.organisations && (
           <OrganisationsVote
             organisations={proposal.organisations}
-            country={country}
+            country={proposal.context.country}
           />
         )}
       </ProposalInnerStyle>
       <ProposalFooterWithQuestionElement
         question={proposal.question}
-        consultationLink={getConsultationLink(country, proposal.question.slug)}
+        consultationLink={getConsultationLink(
+          proposal.context.country,
+          proposal.question.slug
+        )}
       />
     </ProposalCardStyle>
   );
