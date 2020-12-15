@@ -98,32 +98,32 @@
         {
             "author": "Sophie",
             "content": "Il faut encourager voire imposer la parité pour les postes de managers et les postes de direction ",
-            "like_it": 33,
-            "no_way": 64
+            "agree": 33,
+            "disagree": 64
         },
         {
             "author": "Sébastien",
             "content": "Il faut que le congé paternité soit obligatoire et de même durée que le congé maternité afin de réduire les inégalités F/H",
-            "like_it": 46,
-            "no_way": 46
+            "agree": 46,
+            "disagree": 46
         },
         {
             "author": "Victor",
             "content": "Il faut abolir congés paternité et maternité et créer un congé parental unique avec un solde de congés à partager entre les deux parents",
-            "like_it": 27,
-            "no_way": 66
+            "agree": 27,
+            "disagree": 66
         },
         {
             "author": "Louise",
             "content": "Il faut intégrer la notion de genre dans les programmes d'éducation pour déconstruire les stéréotypes dès le plus jeune âge",
-            "like_it": 30,
-            "no_way": 61
+            "agree": 30,
+            "disagree": 61
         },
         {
             "author": "Emilie",
             "content": "Il faut instaurer un revenu pour les femmes s'occupant de leur foyer/enfants : reconnaître leur travail (éducation, organisation famille)",
-            "like_it": 38,
-            "no_way": 33
+            "agree": 38,
+            "disagree": 33
         }
     ],
     "rejected": [

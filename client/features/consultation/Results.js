@@ -53,6 +53,7 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
   const isDesktop = useDesktop();
   const displaySidebar = isMobile || isDesktop;
   const reports = questionResults && questionResults.reports;
+  const hasRejected = questionResults.rejected.length > 0;
 
   useEffect(() => {
     if (question) {
@@ -138,17 +139,19 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
             question={question}
           />
         </TileWithTitle>
-        <TileWithTitle
-          title={i18n.t('consultation.results.proposals.rejected')}
-          icon={<ResultsThumbIconStyle aria-hidden focusable="false" />}
-          id={RESULTS_REJECTED}
-        >
-          <ProposalsResults
-            proposals={questionResults.rejected}
-            question={question}
-            isRejected
-          />
-        </TileWithTitle>
+        {hasRejected && (
+          <TileWithTitle
+            title={i18n.t('consultation.results.proposals.rejected')}
+            icon={<ResultsThumbIconStyle aria-hidden focusable="false" />}
+            id={RESULTS_REJECTED}
+          >
+            <ProposalsResults
+              proposals={questionResults.rejected}
+              question={question}
+              isRejected
+            />
+          </TileWithTitle>
+        )}
         <TileWithTitle
           title={i18n.t('consultation.results.participation.title')}
           id={RESULTS_PARTICIPATION}

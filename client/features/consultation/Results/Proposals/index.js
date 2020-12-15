@@ -55,15 +55,18 @@ export const ProposalsResults = ({
         ) : (
           <ResultsPositionStyle>
             <ResultsLikeItStyle>
-              {i18n.t('consultation.results.proposals.controversials_like_it', {
-                count: proposal.like_it,
+              {i18n.t('consultation.results.proposals.controversials_agree', {
+                count: proposal.agree,
               })}
             </ResultsLikeItStyle>
             <ResultsProposalIconStyle aria-hidden focusable="false" />
             <ResultsNoWayStyle>
-              {i18n.t('consultation.results.proposals.controversials_no_way', {
-                count: proposal.no_way,
-              })}
+              {i18n.t(
+                'consultation.results.proposals.controversials_disagree',
+                {
+                  count: proposal.disagree,
+                }
+              )}
             </ResultsNoWayStyle>
           </ResultsPositionStyle>
         )}
