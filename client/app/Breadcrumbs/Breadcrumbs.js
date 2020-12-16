@@ -5,11 +5,11 @@ import { useSelector } from 'react-redux';
 import { getHomeLink } from 'Shared/helpers/url';
 import { type StateRoot } from 'Shared/store/types';
 import {
-  BrowseBreadcrumbWrapperStyle,
-  BrowseBannerBreadcrumbListStyle,
-  BrowseBreadcrumbsLinkStyle,
-  BrowseArrowIconStyle,
-  BrowseHomeIconStyle,
+  BreadcrumbsWrapperStyle,
+  BreadcrumbsListStyle,
+  BreadcrumbsLinkStyle,
+  ArrowIconStyle,
+  HomeIconStyle,
 } from './style';
 
 export type BreadcrumbsPagesType = {
@@ -29,29 +29,29 @@ export const Breadcrumbs = ({ parentPages, currentPage }: Props) => {
 
   return (
     <nav aria-label={i18n.t('common.breadcrumbs')}>
-      <BrowseBreadcrumbWrapperStyle as="ol">
-        <BrowseBannerBreadcrumbListStyle>
-          <BrowseHomeIconStyle aria-hidden focusable="false" />
-          <BrowseBreadcrumbsLinkStyle to={getHomeLink(country)}>
+      <BreadcrumbsWrapperStyle as="ol">
+        <BreadcrumbsListStyle>
+          <HomeIconStyle aria-hidden focusable="false" />
+          <BreadcrumbsLinkStyle to={getHomeLink(country)}>
             {i18n.t('homepage.title')}
-          </BrowseBreadcrumbsLinkStyle>
-          <BrowseArrowIconStyle aria-hidden focusable="false" />
-        </BrowseBannerBreadcrumbListStyle>
+          </BreadcrumbsLinkStyle>
+          <ArrowIconStyle aria-hidden focusable="false" />
+        </BreadcrumbsListStyle>
         {parentPages &&
           parentPages.map(parentPage => (
-            <BrowseBannerBreadcrumbListStyle key={parentPage.link}>
-              <BrowseBreadcrumbsLinkStyle to={parentPage.link}>
+            <BreadcrumbsListStyle key={parentPage.link}>
+              <BreadcrumbsLinkStyle to={parentPage.link}>
                 {parentPage.name}
-              </BrowseBreadcrumbsLinkStyle>
-              <BrowseArrowIconStyle aria-hidden focusable="false" />
-            </BrowseBannerBreadcrumbListStyle>
+              </BreadcrumbsLinkStyle>
+              <ArrowIconStyle aria-hidden focusable="false" />
+            </BreadcrumbsListStyle>
           ))}
-        <BrowseBannerBreadcrumbListStyle className="selected">
-          <BrowseBreadcrumbsLinkStyle aria-current="page" to={currentPage.link}>
+        <BreadcrumbsListStyle className="selected">
+          <BreadcrumbsLinkStyle aria-current="page" to={currentPage.link}>
             {currentPage.name}
-          </BrowseBreadcrumbsLinkStyle>
-        </BrowseBannerBreadcrumbListStyle>
-      </BrowseBreadcrumbWrapperStyle>
+          </BreadcrumbsLinkStyle>
+        </BreadcrumbsListStyle>
+      </BreadcrumbsWrapperStyle>
     </nav>
   );
 };

@@ -31,6 +31,7 @@ import {
   ROUTE_COUNTRY,
   ROUTE_PASSWORD_RECOVERY,
   ROUTE_ACCOUNT_ACTIVATION,
+  ROUTE_EXPLORE,
 } from 'Shared/routes';
 import { env } from 'Shared/env';
 
@@ -135,6 +136,20 @@ export const getConsultationLink = (country: string, questionSlug: string) =>
  */
 export const getParticipateLink = (country: string, questionSlug: string) =>
   generatePath(ROUTE_PARTICIPATE, {
+    country,
+    questionSlug,
+  });
+
+/**
+ * Get the explore link
+ *
+ * @param  {string} country
+ * @param  {string} questionSlug
+ *
+ * @return {string}
+ */
+export const getExploreLink = (country: string, questionSlug: string) =>
+  generatePath(ROUTE_EXPLORE, {
     country,
     questionSlug,
   });

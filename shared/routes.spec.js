@@ -3,6 +3,7 @@ import {
   getRouteProfileEdit,
   ROUTE_CONSULTATION,
   ROUTE_PARTICIPATE,
+  ROUTE_EXPLORE,
   matchRoute,
   ROUTE_SEQUENCE,
   getRouteOrganisationProposals,
@@ -28,6 +29,12 @@ describe('match Routes', () => {
     expect(
       matchRoute('/FR/consultation/1234/participate', ROUTE_PARTICIPATE)
     ).toBe(true);
+  });
+
+  it('match route explore', () => {
+    expect(matchRoute('/FR/consultation/1234/explore', ROUTE_EXPLORE)).toBe(
+      true
+    );
   });
 
   it('do not match route consultation', () => {

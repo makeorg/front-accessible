@@ -12,25 +12,45 @@ import {
   type BreadcrumbsPagesType,
   Breadcrumbs,
 } from 'Client/app/Breadcrumbs/Breadcrumbs';
-import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { isBrowseConsultationsPage } from 'Shared/routes';
+import {
+  InnerPagesNavigation,
+  type PageNavigationType,
+} from 'Client/features/navigation/Pages';
+import { useDesktop } from 'Client/hooks/useMedia';
 import {
   BrowseHeaderStyle,
   BrowseHeaderInnerStyle,
   BrowseHeaderTitleStyle,
-  BrowseNavItemStyle,
-  BrowseNavLinkStyle,
 } from './style';
 
 export const BrowseConsultationsHeader = () => {
   const location = useLocation();
   const { country } = useSelector((state: StateRoot) => state.appConfig);
   const consultationsPage = isBrowseConsultationsPage(location.pathname);
+  const isDesktop = useDesktop();
 
   const currentPage: BreadcrumbsPagesType = {
-    name: i18n.t('browse.page_title'),
+    name: consultationsPage
+      ? i18n.t('browse.nav_consultations_desktop')
+      : i18n.t('browse.nav_results_desktop'),
     link: location,
   };
+
+  const BrowseNavigation: PageNavigationType[] = [
+    {
+      link: getBrowseConsultationsLink(country),
+      label: isDesktop
+        ? i18n.t('browse.nav_consultations_desktop')
+        : i18n.t('browse.nav_consultations_mobile'),
+    },
+    {
+      link: getBrowseResultsLink(country),
+      label: isDesktop
+        ? i18n.t('browse.nav_results_desktop')
+        : i18n.t('browse.nav_results_mobile'),
+    },
+  ];
 
   return (
     <BrowseHeaderStyle as="header" aria-labelledby="browse_page_title">
@@ -39,26 +59,7 @@ export const BrowseConsultationsHeader = () => {
         <BrowseHeaderTitleStyle id="browse_page_title">
           {i18n.t('browse.page_title')}
         </BrowseHeaderTitleStyle>
-        <nav>
-          <UnstyledListStyle>
-            <BrowseNavItemStyle>
-              <BrowseNavLinkStyle
-                to={getBrowseConsultationsLink(country)}
-                className={consultationsPage && 'selected'}
-              >
-                {i18n.t('browse.nav_consultations')}
-              </BrowseNavLinkStyle>
-            </BrowseNavItemStyle>
-            <BrowseNavItemStyle>
-              <BrowseNavLinkStyle
-                to={getBrowseResultsLink(country)}
-                className={!consultationsPage && 'selected'}
-              >
-                {i18n.t('browse.nav_results')}
-              </BrowseNavLinkStyle>
-            </BrowseNavItemStyle>
-          </UnstyledListStyle>
-        </nav>
+        <InnerPagesNavigation pages={BrowseNavigation} />
       </BrowseHeaderInnerStyle>
     </BrowseHeaderStyle>
   );

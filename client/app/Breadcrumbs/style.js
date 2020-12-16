@@ -12,7 +12,7 @@ import { Breakpoints } from '../assets/vars/Breakpoints';
 
 // BREADCRUMBS STYLES //
 
-export const BrowseBreadcrumbWrapperStyle = styled.ol`
+export const BreadcrumbsWrapperStyle = styled.ol`
   padding: 0;
   list-style: none;
   margin: 0 0 24px;
@@ -20,7 +20,7 @@ export const BrowseBreadcrumbWrapperStyle = styled.ol`
   flex-flow: wrap;
 `;
 
-export const BrowseBannerBreadcrumbListStyle = styled.li`
+export const BreadcrumbsListStyle = styled.li`
   display: inline-flex;
   align-items: center;
   &.selected > a {
@@ -29,7 +29,7 @@ export const BrowseBannerBreadcrumbListStyle = styled.li`
   }
 `;
 
-export const BrowseBreadcrumbsLinkStyle = styled(Link)`
+export const BreadcrumbsLinkStyle = styled(Link)`
   font-family: ${MakeFonts.CircularStandardBook};
   color: ${props =>
     props.theme.fontColor ? props.theme.fontColor : color.black};
@@ -42,7 +42,7 @@ export const BrowseBreadcrumbsLinkStyle = styled(Link)`
   }
 `;
 
-export const BrowseHomeIconStyle = styled(SvgHouse)`
+export const HomeIconStyle = styled(SvgHouse)`
   margin-right: 10px;
   .tofill {
     fill: ${props =>
@@ -50,7 +50,7 @@ export const BrowseHomeIconStyle = styled(SvgHouse)`
   }
 `;
 
-export const BrowseArrowIconStyle = styled(SvgBigArrowRight)`
+export const ArrowIconStyle = styled(SvgBigArrowRight)`
   margin: 0 10px;
   .tofill {
     fill: ${props =>
