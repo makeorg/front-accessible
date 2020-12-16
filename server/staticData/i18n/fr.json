@@ -664,6 +664,42 @@
       "progress_description": "Plus les propositions recevront de votes, plus celles-ci auront le potentiel de déboucher sur des actions concrètes.",
       "progress_btn": "Participer"
     },
+    "participate": {
+      "title": "Comment participer à la consultation ?",
+      "description": "Nous sommes convaincus que chacun peut contribuer à son échelle au bien commun. C’est pourquoi nous faisons appel aux idées et opinions de milliers de citoyens dans le cadre de nos consultations."
+    },
+    "cards": {
+      "soon": "À venir",
+      "submit": {
+        "title": "Soumettre une proposition",
+        "description": "Faites découvrir vos idées au plus grand nombre. Chaque proposition sera étudiée avant d’être soumise au vote citoyen.",
+        "button": "J'ai une idée"
+      },
+      "interact": {
+        "title": "Réagir aux propositions",
+        "description": "Si les propositions définissent les enjeux de la consultation, exprimez votre opinion pour nous aider à identifier les idées qui doivent être traitées en priorité.",
+        "button": "Je vote"
+      },
+      "controversy": {
+        "title": "Départager les propositions les plus controversées",
+        "description": "Ces propositions citoyennes ont reçu autant de votes favorables que défavorables.",
+        "button": "Je départage"
+      },
+      "popular": {
+        "title": "Voter sur les propositions les plus populaires",
+        "description": "Ces propositions citoyennes ont reçu le plus de votes favorables.",
+        "button": "Je vote"
+      },
+      "sharing": {
+        "title": "Partager la consultation",
+        "description": "Vos amis ont des idées et un avis qui méritent d’être entendus eux aussi. Donnez plus de portée à cette consultation en la diffusant à votre échelle et à votre façon."
+      },
+      "about": {
+        "title": "Pourquoi cette consultation ?",
+        "description": "Pour quelles raisons cette consultation a-t-elle été lancée ? Quels sont les enjeux ? Qui est à l'initiative ?",
+        "link": "En savoir plus"
+      }
+    },
     "navigation": {
       "introduction": "Retrouvez les autres thématiques abordées dans le cadre de la consultation : {{name}}"
     },

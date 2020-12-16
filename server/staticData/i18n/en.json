@@ -731,6 +731,42 @@
       "progress_target": "@@consultation.highlights.progress_target|fr:<strong>{{votesCount}}</strong> sur {{votesTarget}} votes ({{percent}}%)",
       "progress_description": "@@consultation.highlights.progress_description|fr:Plus les propositions recevront de votes, plus celles-ci auront le potentiel de déboucher sur des actions concrètes.",
       "progress_btn": "@@consultation.highlights.progress_btn|fr:Participer"
+    },
+    "participate": {
+      "title": "@@consultation.participate.title|fr:Comment participer à la consultation ?",
+      "description": "@@consultation.participate.description|fr:Nous sommes convaincus que chacun peut contribuer à son échelle au bien commun. C’est pourquoi nous faisons appel aux idées et opinions de milliers de citoyens dans le cadre de nos consultations."
+    },
+    "cards": {
+      "soon": "@@consultation.cards.soon|fr:À venir",
+      "submit": {
+        "title": "@@consultation.cards.submit.title|fr:Soumettre une proposition",
+        "description": "@@consultation.cards.submit.description|fr:Faites découvrir vos idées au plus grand nombre. Chaque proposition sera étudiée avant d’être soumise au vote citoyen.",
+        "button": "@@consultation.cards.submit.button|fr:J'ai une idée"
+      },
+      "interact": {
+        "title": "@@consultation.cards.interact.title|fr:Réagir aux propositions",
+        "description": "@@consultation.cards.interact.description|fr:Si les propositions définissent les enjeux de la consultation, exprimez votre opinion pour nous aider à identifier les idées qui doivent être traitées en priorité.",
+        "button": "@@consultation.cards.interact.button|fr:Je vote"
+      },
+      "controversy": {
+        "title": "@@consultation.cards.controversy.title|fr:Départager les propositions les plus controversées",
+        "description": "@@consultation.cards.controversy.description|fr:Ces propositions citoyennes ont reçu autant de votes favorables que défavorables.",
+        "button": "@@consultation.cards.controversy.button|fr:Je départage"
+      },
+      "popular": {
+        "title": "@@consultation.cards.popular.title|fr:Voter sur les propositions les plus populaires",
+        "description": "@@consultation.cards.popular.description|fr:Ces propositions citoyennes ont reçu le plus de votes favorables.",
+        "button": "@@consultation.cards.popular.button|fr:Je vote"
+      },
+      "sharing": {
+        "title": "@@consultation.cards.sharing.title|fr:Partager la consultation",
+        "description": "@@consultation.cards.sharing.description|fr:Vos amis ont des idées et un avis qui méritent d’être entendus eux aussi. Donnez plus de portée à cette consultation en la diffusant à votre échelle et à votre façon."
+      },
+      "about": {
+        "title": "@@consultation.cards.about.title|fr:Pourquoi cette consultation ?",
+        "description": "@@consultation.cards.about.description|fr:Pour quelles raisons cette consultation a-t-elle été lancée ? Quels sont les enjeux ? Qui est à l'initiative ?",
+        "link": "@@consultation.cards.about.link|fr:En savoir plus"
+      }
     }
   },
   "sharing": {

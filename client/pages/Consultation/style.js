@@ -1,19 +1,11 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import { color, typography } from 'athena-design-tokens';
 import { intToPx, pxToPercent } from 'Shared/helpers/styled';
-import {
-  ColumnElementStyle,
-  MiddleColumnStyle,
-} from 'Client/ui/Elements/FlexElements';
-import {
-  Breakpoints,
-  Layouts,
-  DefaultPadding,
-} from 'Client/app/assets/vars/Breakpoints';
-import { ShadowColors } from 'Client/app/assets/vars/Colors';
+import { ColumnElementStyle } from 'Client/ui/Elements/FlexElements';
+import { Breakpoints, Layouts } from 'Client/app/assets/vars/Breakpoints';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { SvgChat } from 'Client/ui/Svg/elements';
+import { ContainerWithPadding } from 'Client/app/Styled/MainElements';
 
 export const ConsultationHeaderWrapperStyle = styled.div`
   background-color: ${props => props.backgroundcolor};
@@ -106,64 +98,49 @@ export const TopIdeasListItemStyle = styled.li`
   margin: 0 0 20px;
 `;
 
-export const SequencePageContentStyle = styled(MiddleColumnStyle)`
-  width: 100%;
+export const ParticipateContentStyle = styled.section`
   display: flex;
-  flex: 1 1 auto;
-  overflow: auto;
+  flex-flow: column;
+  ${ContainerWithPadding};
 `;
 
-export const SequenceProposalFieldStyle = styled.div`
-  display: block;
-  flex: 0 0 auto;
+export const ParticipateTitleStyle = styled.h3`
+  font-family: ${MakeFonts.CircularStandardBold};
+  text-transform: none;
+  font-size: ${intToPx(typography.font.fontsize.X2L.value)};
+  margin: 40px 0 15px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    font-size: ${intToPx(typography.font.fontsize.X4L.value)};
+    margin-bottom: 50px 0 5px;
+  }
+`;
+
+export const ParticipateDescriptionStyle = styled.p`
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
+  max-width: 750px;
+  margin-bottom: 40px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    margin-bottom: 50px;
+  }
+`;
+
+export const ParticipateInnerStyle = styled.div`
+  display: flex;
+  flex-flow: column;
   width: 100%;
   max-width: ${intToPx(Layouts.ContainerWithPadding)};
-  margin-top: 10px;
-  padding: 0 20px;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    margin-top: 25px;
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    flex-flow: row;
   }
 `;
 
-export const SequenceFooterStyle = styled.footer`
-  display: flex;
-  flex-direction: column;
-  flex: 0 1 auto;
-  z-index: 2;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  padding: 5px;
-  margin-bottom: -5px;
-  box-shadow: 0 0 16px 6px ${ShadowColors.BlackZeroTwoOpacity};
-  background-color: ${props => props.theme.color};
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    padding: 10px ${intToPx(DefaultPadding.Desktop)};
+export const ParticipateMainContentStyle = styled(ContentElementStyle)`
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    width: ${pxToPercent(750, 1140)};
   }
 `;
 
-export const SequenceFooterTitleStyle = styled.p`
-  font-family: ${MakeFonts.TradeGothicBoldCondensed};
-  color: ${props => props.theme.fontColor};
-  text-transform: uppercase;
-  font-size: ${intToPx(typography.font.fontsize.X2S.value)};
-  margin-bottom: 5px;
-  text-align: center;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: ${intToPx(typography.font.fontsize.M.value)};
-  }
-`;
-
-export const SequenceFooterLinkStyle = styled(Link)`
-  font-size: ${intToPx(typography.font.fontsize.X2S.value)};
-  color: ${props => props.theme.fontColor};
-  outline-color: ${props => props.theme.fontColor};
-  &:hover,
-  &:focus {
-    color: ${props => props.theme.fontColor};
-    outline-color: ${props => props.theme.fontColor};
-  }
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: ${intToPx(typography.font.fontsize.XS.value)};
-  }
+export const ParticipateSidebarContentStyle = styled(ContentElementStyle)`
+  margin-left: ${pxToPercent(30, 1140)};
+  width: ${pxToPercent(360, 1140)};
 `;

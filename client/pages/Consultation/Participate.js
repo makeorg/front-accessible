@@ -14,12 +14,37 @@ import {
 } from 'Shared/constants/notifications';
 import { ParticipateHeader } from 'Client/features/consultation/Header';
 import { ParticipateHighlights } from 'Client/features/consultation/Highlights';
+import { useDesktop } from 'Client/hooks/useMedia';
+import { SubmitProposal } from 'Client/features/consultation/Cards/SubmitProposal';
+import { SvgLightning, SvgLike, SvgPeople } from 'Client/ui/Svg/elements';
+import { CTAMonoBlock } from 'Client/features/consultation/Cards/CTAMonoblock';
+import { SocialSharing } from 'Client/features/consultation/Cards/SocialSharing';
+import { getSequenceLink } from 'Shared/helpers/url';
+import { CTAProposal } from 'Client/features/consultation/Cards/CTAProposal';
+import { ColumnToRowElementStyle } from 'Client/ui/Elements/FlexElements';
+import { CONSULTATION_SHARE_DISABLE } from 'Shared/constants/featureFlipping';
+import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
+import {
+  DesktopAbout,
+  MobileAbout,
+} from 'Client/features/consultation/Cards/About';
+import {
+  ParticipateContentStyle,
+  ParticipateInnerStyle,
+  ParticipateMainContentStyle,
+  ParticipateSidebarContentStyle,
+  ParticipateDescriptionStyle,
+  ParticipateTitleStyle,
+} from './style';
 
 const ParticipatePage = () => {
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
   const question: QuestionType = useSelector((state: StateRoot) =>
     selectCurrentQuestion(state)
   );
   const dispatch = useDispatch();
+  const isDesktop = useDesktop();
+  const PROPOSALS_THRESOLD = 5;
 
   useEffect(() => {
     if (!question.canPropose) {
@@ -34,6 +59,35 @@ const ParticipatePage = () => {
     }
   }, [question, dispatch]);
 
+  const InteractIcon = (
+    <SvgPeople aria-hidden width={36} height={36} focusable="false" />
+  );
+
+  const ControversyIcon = (
+    <SvgLightning
+      fill="#f7b500"
+      aria-hidden
+      width={20}
+      height={32}
+      focusable="false"
+    />
+  );
+
+  const PopularIcon = (
+    <SvgLike
+      fill="#de1a42"
+      aria-hidden
+      width={28}
+      height={28}
+      focusable="false"
+    />
+  );
+
+  const isSharingDisabled = checkIsFeatureActivated(
+    CONSULTATION_SHARE_DISABLE,
+    question.activeFeatures
+  );
+
   return (
     /** Update content for participate page when api is done */
     <ThemeProvider theme={question.theme}>
@@ -44,8 +98,66 @@ const ParticipatePage = () => {
         description={question.wording.metas.description}
         picture={question.wording.metas.picture}
       />
-      <ParticipateHeader question={question} />
+      <ParticipateHeader />
+      {!isDesktop && <MobileAbout />}
       <ParticipateHighlights />
+      <ParticipateContentStyle>
+        <ParticipateTitleStyle>
+          {i18n.t('consultation.participate.title')}
+        </ParticipateTitleStyle>
+        <ParticipateDescriptionStyle>
+          {i18n.t('consultation.participate.description')}
+        </ParticipateDescriptionStyle>
+        <ParticipateInnerStyle>
+          <ParticipateMainContentStyle>
+            <SubmitProposal />
+            <CTAMonoBlock
+              icon={InteractIcon}
+              title={i18n.t('consultation.cards.interact.title')}
+              description={i18n.t('consultation.cards.interact.description')}
+              linkText={i18n.t('consultation.cards.interact.button')}
+              linkHref={getSequenceLink(country, question.slug, {
+                introCard: false,
+              })}
+              classes="margin-bottom"
+            />
+            <ColumnToRowElementStyle>
+              <CTAProposal
+                icon={ControversyIcon}
+                title={i18n.t('consultation.cards.controversy.title')}
+                description={i18n.t(
+                  'consultation.cards.controversy.description'
+                )}
+                proposalCount={question.controversyCount}
+                thresold={PROPOSALS_THRESOLD}
+                linkText={i18n.t('consultation.cards.controversy.button')}
+                linkHref={getSequenceLink(country, question.slug, {
+                  introCard: false,
+                })}
+                classes="desktop-half margin-bottom desktop-padding-right"
+              />
+              <CTAProposal
+                icon={PopularIcon}
+                title={i18n.t('consultation.cards.popular.title')}
+                description={i18n.t('consultation.cards.popular.description')}
+                proposalCount={question.topProposalCount}
+                thresold={PROPOSALS_THRESOLD}
+                linkText={i18n.t('consultation.cards.popular.button')}
+                linkHref={getSequenceLink(country, question.slug, {
+                  introCard: false,
+                })}
+                classes="desktop-half margin-bottom desktop-padding-left"
+              />
+            </ColumnToRowElementStyle>
+            {!isSharingDisabled && <SocialSharing />}
+          </ParticipateMainContentStyle>
+          {isDesktop && (
+            <ParticipateSidebarContentStyle>
+              <DesktopAbout />
+            </ParticipateSidebarContentStyle>
+          )}
+        </ParticipateInnerStyle>
+      </ParticipateContentStyle>
     </ThemeProvider>
   );
 };
