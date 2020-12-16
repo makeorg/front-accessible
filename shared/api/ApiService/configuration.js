@@ -9,6 +9,4 @@ export const LOCATION_PARAMS =
 
 export const API_URL = env.apiUrl() || 'http://localhost:9000';
 
-export const NODE_API_BASE = env.isDev()
-  ? 'https://local.makeorg.tech:9009'
-  : '';
+export const NODE_API_BASE = '';

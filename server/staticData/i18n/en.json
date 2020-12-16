@@ -670,8 +670,8 @@
         "controversials": "Most discussed solutions",
         "rejected": "Most rejected solutions",
         "rejected_results": "{{disagree}}% 'Disagree' including {{no_way}}% 'Irrelevant !'",
-        "controversials_like_it": "{{count}}% 'Genius'",
-        "controversials_no_way": "{{count}}% 'Irrelevant !'"
+        "controversials_agree": "{{count}}% 'Agree'",
+        "controversials_disagree": "{{count}}% 'Disagree'"
       },
       "cartography": {
         "title": "Mapping of the debate"
