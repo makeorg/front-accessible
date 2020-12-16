@@ -64,7 +64,7 @@ export const ConsultationLink = ({ question, label }: Props) => {
         // $FlowFixMe : flow cannot understrand desctructuring externalResultLink
         href={externalResultLink ? resultsLink.value : aboutUrl || '#'}
         target="_blank"
-        rel="noreferrer noopener"
+        rel="noopener"
         onClick={handleClick}
         data-cy-link={`item-link-${question.questionId}`}
       >

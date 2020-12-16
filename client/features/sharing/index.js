@@ -30,7 +30,7 @@ export const Sharing = () => {
     <SharingStyle as={UnstyledListStyle}>
       <li>
         <FacebookButtonStyle
-          rel="noreferrer noopener"
+          rel="noopener"
           aria-label={i18n.t('sharing.facebook')}
           as="a"
           href={facebookShareUrl(location.pathname)}
@@ -41,7 +41,7 @@ export const Sharing = () => {
       </li>
       <li>
         <TwitterButtonStyle
-          rel="noreferrer noopener"
+          rel="noopener"
           aria-label={i18n.t('sharing.twitter')}
           as="a"
           href={twitterShareUrl(location.pathname, '', '')}
@@ -52,7 +52,7 @@ export const Sharing = () => {
       </li>
       <li>
         <LinkedInButtonStyle
-          rel="noreferrer noopener"
+          rel="noopener"
           aria-label={i18n.t('sharing.linkedin')}
           as="a"
           href={linkedinShareUrl(location.pathname)}

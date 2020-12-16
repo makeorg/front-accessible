@@ -2,7 +2,6 @@
 /* @flow */
 import axios from 'axios';
 import axiosRetry from 'axios-retry';
-import { NODE_API_BASE } from './configuration';
 import { handleErrors } from './ApiService.shared';
 
 export class ExpressApiServiceSharedError extends Error {
@@ -34,7 +33,7 @@ class ExpressApiServiceSharedClass {
     };
     const headers = { ...defaultHeaders, ...(options.headers || {}) };
 
-    const apiUrl = `${NODE_API_BASE}${url}`;
+    const apiUrl = `${url}`;
 
     return axios(apiUrl, {
       method: options.method,

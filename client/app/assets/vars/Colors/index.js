@@ -35,7 +35,7 @@ export const Colors = () => (
         <RedLinkHTMLElementStyle
           href="https://www.npmjs.com/package/athena-design-tokens"
           target="_blank"
-          rel="nooperner noreferrer"
+          rel="nooperner"
         >
           NPM module
           <ExternalLinkIconStyle className="red-link" aria-hidden />

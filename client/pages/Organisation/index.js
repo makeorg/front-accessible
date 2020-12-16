@@ -152,7 +152,7 @@ const OrganisationPage = (props: Props) => {
                 <ProfileWebsiteLinkStyle
                   as="a"
                   target="_blank"
-                  rel="noreferrer noopener"
+                  rel="noopener"
                   href={organisation.website}
                 >
                   {organisation.website}

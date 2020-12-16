@@ -151,7 +151,7 @@ export const ProposalForm = ({
       <ProposalExternalLinkStyle
         href={isFR ? MODERATION_CHARTER_FR_LINK : MODERATION_CHARTER_EN_LINK}
         target="_blank"
-        rel="noreferrer noopener"
+        rel="noopener"
         onClick={trackClickModerationLink}
       >
         {i18n.t('proposal_submit.form.moderation_link')}

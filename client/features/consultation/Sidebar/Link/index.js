@@ -19,7 +19,7 @@ export const SidebarNewWindowLink = ({
   <NewWindowLinkStyle
     href={linkUrl}
     target="_blank"
-    rel="noopener noreferrer"
+    rel="noopener"
     onClick={tracking}
   >
     {linkText}

@@ -60,7 +60,7 @@ export const DeprecatedProposalSubmitAuthentication = () => {
         {i18n.t('authentication.commitment')}
         <a
           href={getDataPageLink(country)}
-          rel="noopener noreferrer"
+          rel="noopener"
           onClick={() => trackClickPersonnalDataLink()}
         >
           {i18n.t('authentication.personal_data')}

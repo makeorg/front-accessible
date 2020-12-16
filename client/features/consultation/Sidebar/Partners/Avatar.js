@@ -23,7 +23,7 @@ const linkProps = (partner, country) => {
       as: 'a',
       href: partner.link,
       target: '_blank',
-      rel: 'noopener noreferrer',
+      rel: 'noopener',
     };
   }
 

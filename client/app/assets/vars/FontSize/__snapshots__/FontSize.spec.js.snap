@@ -47,7 +47,7 @@ Array [
       <a
         className="c0"
         href="https://www.npmjs.com/package/athena-design-tokens"
-        rel="nooperner noreferrer"
+        rel="nooperner"
         target="_blank"
       >
         NPM module
