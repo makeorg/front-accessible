@@ -2,7 +2,7 @@ export const headersResponseMiddleware = (req, res, next) => {
   res.setHeader('Server', 'Express');
   res.setHeader(
     'Strict-Transport-Security',
-    'max-age=31536000; includeSubDomains; preload;'
+    'max-age=31536000; includeSubDomains; preload'
   );
   res.setHeader('X-Frame-Options', 'deny');
   res.setHeader('X-Content-Type-Options', 'nosniff');
