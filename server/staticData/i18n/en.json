@@ -728,7 +728,7 @@
       "participant": "@@consultation.highlights.participant|fr:Participant",
       "participant_plural": "@@consultation.highlights.participant_plural|fr:Participants",
       "progress_title": "@@consultation.highlights.progress_title|fr:Notre objectif de votes",
-      "progress_target": "@@consultation.highlights.progress_target|fr:<strong>{{votesCount}}</strong> sur {{votesTarget}} votes ({{percent}}%)",
+      "progress_target": "@@consultation.highlights.progress_target|fr: sur {{votesTarget}} votes ({{percent}}%)",
       "progress_description": "@@consultation.highlights.progress_description|fr:Plus les propositions recevront de votes, plus celles-ci auront le potentiel de déboucher sur des actions concrètes.",
       "progress_btn": "@@consultation.highlights.progress_btn|fr:Participer"
     },

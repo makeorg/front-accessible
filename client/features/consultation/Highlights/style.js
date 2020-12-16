@@ -104,10 +104,11 @@ export const VotesTargetStyle = styled.span`
   font-size: ${intToPx(typography.font.fontsize.XS.value)};
   letter-spacing: 0.3px;
   color: ${color.greyDark};
-  strong {
+  span {
     font-family: ${MakeFonts.CircularStandardBold};
     font-size: ${intToPx(typography.font.fontsize.XL.value)};
     color: ${color.black};
+    font-weigth: bolder;
   }
 `;
 

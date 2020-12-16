@@ -348,9 +348,11 @@ export const getA11YPageLink = (country: string) =>
  * @return {string}
  */
 export const getHomeLink = (country: string) =>
-  generatePath(ROUTE_COUNTRY, {
-    country,
-  });
+  country
+    ? generatePath(ROUTE_COUNTRY, {
+        country,
+      })
+    : '/';
 /**
  * Get the Not found page link
  *

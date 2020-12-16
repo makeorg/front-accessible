@@ -2,6 +2,7 @@
 
 import thunk from 'redux-thunk';
 import { requestContext } from './requestContext';
-import { tracking } from './tracking';
+import { question } from './question';
+import { countryLanguage } from './countryLanguage';
 
-export const middlewares = [thunk, requestContext, tracking];
+export const middlewares = [thunk, requestContext, question, countryLanguage];

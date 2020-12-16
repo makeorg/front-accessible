@@ -22,11 +22,10 @@ import {
 export const Progress = () => {
   const {
     highlights,
-    language,
   }: {
     highlights: QuestionHighlightsType,
-    language: string,
   } = useSelector((state: StateRoot) => selectCurrentQuestion(state));
+  const { language } = useSelector((state: StateRoot) => state.appConfig);
   const { votesCount, votesTarget } = highlights;
   const votesPercent = getVotesRatio(votesCount, votesTarget);
 
@@ -37,15 +36,13 @@ export const Progress = () => {
           {i18n.t('consultation.highlights.progress_title')}
         </ProgressTitleStyle>
         <ScreenReaderItemStyle> : </ScreenReaderItemStyle>
-        <VotesTargetStyle
-          dangerouslySetInnerHTML={{
-            __html: i18n.t('consultation.highlights.progress_target', {
-              votesCount: formatCountWithLanguage(votesCount, language),
-              votesTarget: formatCountWithLanguage(votesTarget, language),
-              percent: votesPercent,
-            }),
-          }}
-        />
+        <VotesTargetStyle>
+          <span>{formatCountWithLanguage(votesCount, language)}</span>
+          {i18n.t('consultation.highlights.progress_target', {
+            votesTarget: formatCountWithLanguage(votesTarget, language),
+            percent: votesPercent,
+          })}
+        </VotesTargetStyle>
         <ProgressBarContainerStyle>
           <ProgressBarStyle percent={votesPercent} />
         </ProgressBarContainerStyle>

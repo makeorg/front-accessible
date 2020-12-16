@@ -49,7 +49,7 @@ export const Header = () => {
           <h1>
             <HeaderLogoLinkStyle
               to={getHomeLink(country)}
-              onClick={trackClickMakeLogo}
+              onClick={country ? trackClickMakeLogo : () => {}}
               data-cy-link="home"
             >
               <HeaderLogoStyle focusable="false" aria-hidden />
@@ -58,13 +58,15 @@ export const Header = () => {
               </ScreenReaderItemStyle>
             </HeaderLogoLinkStyle>
           </h1>
-          {isDesktop && <DesktopMenu />}
+          {isDesktop && !!country && <DesktopMenu />}
         </HeaderFlexLeftStyle>
-        <HeaderFlexRightStyle className={NAVIGATION_ELEMENT_ARIA_CLASS}>
-          {!isDesktop ? <MobileSearchInput /> : <DesktopSearchInput />}
-          {isDesktop && <HeaderSeparatorStyle />}
-          <HeaderAuthentication />
-        </HeaderFlexRightStyle>
+        {!!country && (
+          <HeaderFlexRightStyle className={NAVIGATION_ELEMENT_ARIA_CLASS}>
+            {!isDesktop ? <MobileSearchInput /> : <DesktopSearchInput />}
+            {isDesktop && <HeaderSeparatorStyle />}
+            <HeaderAuthentication />
+          </HeaderFlexRightStyle>
+        )}
       </HeaderInnerStyle>
     </HeaderStyle>
   );

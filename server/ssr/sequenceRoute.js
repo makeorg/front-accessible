@@ -3,7 +3,7 @@ import { createInitialState } from 'Shared/store/initialState';
 import { type Request, type Response } from 'express';
 import { type QuestionType } from 'Shared/types/question';
 import { isInProgress } from 'Shared/helpers/date';
-import { updateTrackingQuestionParam } from 'Shared/store/middleware/tracking';
+import { updateTrackingQuestionParam } from 'Shared/store/middleware/question';
 import { getLanguageFromCountryCode } from 'Shared/helpers/countries';
 import { transformExtraSlidesConfigFromQuery } from './helpers/query.helper';
 import { reactRender } from '../reactRender';

@@ -41,8 +41,9 @@ export const MenuPanel = ({ isExpanded, toggleExpansion }: Props) => {
   const { country, language } = useSelector(
     (state: StateRoot) => state.appConfig
   );
-  const browseConsultationsLink = getBrowseConsultationsLink(country);
-  const browseResultsLink = getBrowseResultsLink(country);
+  const browseConsultationsLink =
+    country && getBrowseConsultationsLink(country);
+  const browseResultsLink = country && getBrowseResultsLink(country);
   const onBrowseConsultationsPage = isBrowseConsultationsPage(
     location.pathname
   );
@@ -79,24 +80,28 @@ export const MenuPanel = ({ isExpanded, toggleExpansion }: Props) => {
                 {i18n.t('browse.page_title')}
               </MenuItemTitleStyle>
               <UnstyledListStyle>
-                <MenuItemStyle className="white">
-                  <MenuInternalLinkStyle
-                    className={onBrowseConsultationsPage && 'current'}
-                    to={browseConsultationsLink}
-                    onClick={handleInternalNavigation}
-                  >
-                    {i18n.t('browse.nav_consultations')}
-                  </MenuInternalLinkStyle>
-                </MenuItemStyle>
-                <MenuItemStyle className="white">
-                  <MenuInternalLinkStyle
-                    className={onBrowseResultsPage && 'current'}
-                    to={browseResultsLink}
-                    onClick={handleInternalNavigation}
-                  >
-                    {i18n.t('browse.nav_results')}
-                  </MenuInternalLinkStyle>
-                </MenuItemStyle>
+                {!!browseConsultationsLink && (
+                  <MenuItemStyle className="white">
+                    <MenuInternalLinkStyle
+                      className={onBrowseConsultationsPage && 'current'}
+                      to={browseConsultationsLink}
+                      onClick={handleInternalNavigation}
+                    >
+                      {i18n.t('browse.nav_consultations')}
+                    </MenuInternalLinkStyle>
+                  </MenuItemStyle>
+                )}
+                {!!browseConsultationsLink && (
+                  <MenuItemStyle className="white">
+                    <MenuInternalLinkStyle
+                      className={onBrowseResultsPage && 'current'}
+                      to={browseResultsLink}
+                      onClick={handleInternalNavigation}
+                    >
+                      {i18n.t('browse.nav_results')}
+                    </MenuInternalLinkStyle>
+                  </MenuItemStyle>
+                )}
               </UnstyledListStyle>
             </MenuItemStyle>
             <MenuItemStyle className="extra-margin-top">

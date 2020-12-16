@@ -14,6 +14,8 @@ Feature: The header
     Then I see "header" container
     When I go to "top idea" page of the question "question-1-slug"
     Then I see "header" container
+    When I go to 404 FR page
+    Then I see "header" container
     When I go to 404 page
     Then I see "header" container
   

@@ -21,7 +21,7 @@ const clearQuestionParam = () => {
   trackingParamsService.questionSlug = '';
 };
 
-export const tracking = (store: Store) => (next: Dispatch) => (
+export const question = (store: Store) => (next: Dispatch) => (
   action: Action
 ) => {
   const state = store.getState();

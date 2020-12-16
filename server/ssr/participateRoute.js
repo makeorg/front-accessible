@@ -3,7 +3,7 @@ import { createInitialState } from 'Shared/store/initialState';
 import { type Request, type Response } from 'express';
 import { type QuestionType } from 'Shared/types/question';
 import { type StateRoot as TypeStateRoot } from 'Shared/store/types';
-import { updateTrackingQuestionParam } from 'Shared/store/middleware/tracking';
+import { updateTrackingQuestionParam } from 'Shared/store/middleware/question';
 import { getLanguageFromCountryCode } from 'Shared/helpers/countries';
 import { reactRender } from '../reactRender';
 import { QuestionService } from '../service/QuestionService';
