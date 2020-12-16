@@ -32,11 +32,7 @@ export const FeaturedLink = ({ question }: Props) => {
   }
 
   return (
-    <FeaturedLinkStyle
-      href={question.aboutUrl}
-      target="_blank"
-      rel="noreferrer noopener"
-    >
+    <FeaturedLinkStyle href={question.aboutUrl} target="_blank" rel="noopener">
       {question.operationTitle}
       <> </>
       <FeaturedLinkIconStyle

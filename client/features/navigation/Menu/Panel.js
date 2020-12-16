@@ -102,7 +102,7 @@ export const MenuPanel = ({ isExpanded, toggleExpansion }: Props) => {
             <MenuItemStyle className="extra-margin-top">
               <MenuExternalLinkStyle
                 target="_blank"
-                rel="noreferrer noopener"
+                rel="noopener"
                 href={getWebflowDynamicLink(language, ROUTE_WHOAREWE)}
               >
                 {i18n.t('main-footer.whoarewe')}
@@ -118,7 +118,7 @@ export const MenuPanel = ({ isExpanded, toggleExpansion }: Props) => {
                 <MenuItemStyle className="extra-margin-top">
                   <MenuExternalLinkStyle
                     target="_blank"
-                    rel="noreferrer noopener"
+                    rel="noopener"
                     href={getWebflowDynamicLink(language, ROUTE_PARTNERSHIP)}
                   >
                     {i18n.t('homepage.partnership.subtitle')}
@@ -132,7 +132,7 @@ export const MenuPanel = ({ isExpanded, toggleExpansion }: Props) => {
                 <MenuItemStyle>
                   <MenuExternalLinkStyle
                     target="_blank"
-                    rel="noreferrer noopener"
+                    rel="noopener"
                     href={NEWS_LINK}
                   >
                     {i18n.t('main-footer.news')}
@@ -146,7 +146,7 @@ export const MenuPanel = ({ isExpanded, toggleExpansion }: Props) => {
                 <MenuItemStyle>
                   <MenuExternalLinkStyle
                     target="_blank"
-                    rel="noreferrer noopener"
+                    rel="noopener"
                     href={JOBS_LINK}
                   >
                     {i18n.t('main-footer.jobs')}

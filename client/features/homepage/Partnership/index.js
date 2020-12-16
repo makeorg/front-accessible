@@ -45,7 +45,7 @@ export const PartnershipBanner = () => {
           as="a"
           href={getWebflowDynamicLink(language, ROUTE_PARTNERSHIP)}
           target="_blank"
-          rel="noreferrer noopener"
+          rel="noopener"
         >
           {i18n.t('homepage.partnership.button')}
           <> </>

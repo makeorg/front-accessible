@@ -64,7 +64,7 @@ export const FollowUs = ({ question }: Props) => {
           <FacebookButtonStyle
             data-network-name="facebook"
             target="_blank"
-            rel="noreferrer noopener"
+            rel="noopener"
             as="a"
             href={facebookMakeUrl}
             onClick={trackClickFollowUs}
@@ -79,7 +79,7 @@ export const FollowUs = ({ question }: Props) => {
           <TwitterButtonStyle
             data-network-name="twitter"
             target="_blank"
-            rel="noreferrer noopener"
+            rel="noopener"
             as="a"
             href={twitterMakeUrl}
             onClick={trackClickFollowUs}
@@ -94,7 +94,7 @@ export const FollowUs = ({ question }: Props) => {
           <InstagramButtonStyle
             data-network-name="instagram"
             target="_blank"
-            rel="noreferrer noopener"
+            rel="noopener"
             as="a"
             href={instagramMakeUrl}
             onClick={trackClickFollowUs}
@@ -109,7 +109,7 @@ export const FollowUs = ({ question }: Props) => {
           <LinkedInButtonStyle
             data-network-name="linkedin"
             target="_blank"
-            rel="noreferrer noopener"
+            rel="noopener"
             as="a"
             href={linkedinMakeUrl}
             onClick={trackClickFollowUs}
@@ -123,7 +123,7 @@ export const FollowUs = ({ question }: Props) => {
       </FollowUsStyle>
       <RedLinkHTMLElementStyle
         target="_blank"
-        rel="noreferrer noopener"
+        rel="noopener"
         href={ABOUT_MAKE_LINK}
         onClick={() => trackClickBlog('blog list')}
       >

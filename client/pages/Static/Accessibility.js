@@ -103,7 +103,7 @@ export const Accessibility = () => (
             <RedLinkHTMLElementStyle
               href="https://www.numerique.gouv.fr/uploads/RGAA-v4.0.pdf"
               target="_blank"
-              rel="noreferrer noopener"
+              rel="noopener"
             >
               <abbr title="Référentiel Général d’Amélioration de l’Accessibilité">
                 RGAA 4.0
@@ -180,7 +180,7 @@ export const Accessibility = () => (
               <RedLinkHTMLElementStyle
                 href="https://gitlab.com/makeorg/platform/front/-/blob/production/package.json"
                 target="_blank"
-                rel="noreferrer noopener"
+                rel="noopener"
               >
                 liste complète des technologies utilisées
                 <StaticExternalLinkIconStyle aria-hidden focusable="false" />
@@ -212,7 +212,7 @@ export const Accessibility = () => (
               <RedLinkHTMLElementStyle
                 href="https://developers.google.com/web/tools/lighthouse#devtools"
                 target="_blank"
-                rel="noreferrer noopener"
+                rel="noopener"
               >
                 DevTools
                 <StaticExternalLinkIconStyle aria-hidden focusable="false" />
@@ -227,7 +227,7 @@ export const Accessibility = () => (
               <RedLinkHTMLElementStyle
                 href="https://github.com/GoogleChrome/lighthouse-ci"
                 target="_blank"
-                rel="noreferrer noopener"
+                rel="noopener"
               >
                 CI
                 <StaticExternalLinkIconStyle aria-hidden focusable="false" />
@@ -242,7 +242,7 @@ export const Accessibility = () => (
               <RedLinkHTMLElementStyle
                 href="https://chrispederick.com/work/web-developer/"
                 target="_blank"
-                rel="noreferrer noopener"
+                rel="noopener"
               >
                 extension navigateur
                 <StaticExternalLinkIconStyle aria-hidden focusable="false" />
@@ -257,7 +257,7 @@ export const Accessibility = () => (
               <RedLinkHTMLElementStyle
                 href="https://www.deque.com/axe/browser-extensions/"
                 target="_blank"
-                rel="noreferrer noopener"
+                rel="noopener"
               >
                 extension navigateur
                 <StaticExternalLinkIconStyle aria-hidden focusable="false" />
@@ -273,7 +273,7 @@ export const Accessibility = () => (
                 href="
               https://chrome.google.com/webstore/detail/wcag-color-contrast-check/plnahcmalebffmaghcpcmpaciebdhgdf"
                 target="_blank"
-                rel="noreferrer noopener"
+                rel="noopener"
                 lang="fr"
               >
                 extension navigateur

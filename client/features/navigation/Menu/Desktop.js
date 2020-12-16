@@ -63,7 +63,7 @@ export const DesktopMenu = () => {
         >
           <DesktopMenuExternalLinkStyle
             target="_blank"
-            rel="noreferrer noopener"
+            rel="noopener"
             href={getWebflowDynamicLink(language, ROUTE_WHOAREWE)}
           >
             {i18n.t('main-footer.whoarewe')}
@@ -77,7 +77,7 @@ export const DesktopMenu = () => {
           >
             <DesktopMenuExternalLinkStyle
               target="_blank"
-              rel="noreferrer noopener"
+              rel="noopener"
               href={getWebflowDynamicLink(language, ROUTE_PARTNERSHIP)}
             >
               {i18n.t('homepage.partnership.subtitle')}

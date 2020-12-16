@@ -134,7 +134,7 @@ const PersonalityPage = ({ match }: Props) => {
                 <ProfileWebsiteLinkStyle
                   as="a"
                   target="_blank"
-                  rel="noreferrer noopener"
+                  rel="noopener"
                   href={personality.profile.website}
                 >
                   {personality.profile.website}

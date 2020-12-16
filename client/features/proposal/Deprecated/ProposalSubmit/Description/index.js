@@ -40,8 +40,9 @@ export const DeprecatedProposalSubmitDescription = ({
       <CenterParagraphStyle>
         {i18n.t('proposal_submit.deprecated.moderation_charter')}
         <a
+          // eslint-disable-next-line react/jsx-no-target-blank
           target="_blank"
-          rel="noreferrer noopener"
+          rel="nooperner"
           href={isFR ? MODERATION_CHARTER_FR_LINK : MODERATION_CHARTER_EN_LINK}
           onClick={trackModerationLink}
         >

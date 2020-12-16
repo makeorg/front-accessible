@@ -159,7 +159,7 @@ export const UserInformations = ({ user, navigationBar }: Props) => {
           <ProfileWebsiteLinkStyle
             as="a"
             target="_blank"
-            rel="noreferrer noopener"
+            rel="noopener"
             href={website}
           >
             {website}

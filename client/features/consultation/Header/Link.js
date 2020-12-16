@@ -14,7 +14,7 @@ export const NewWindowLink = ({ linkUrl, linkText, tracking }: Props) => (
   <NewWindowLinkStyle
     href={linkUrl}
     target="_blank"
-    rel="noopener noreferrer"
+    rel="noopener"
     onClick={tracking}
   >
     {linkText}
