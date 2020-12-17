@@ -660,7 +660,7 @@
       "participant": "Participant",
       "participant_plural": "Participants",
       "progress_title": "Notre objectif de votes",
-      "progress_target": "<strong>{{votesCount}}</strong> sur {{votesTarget}} votes ({{percent}}%)",
+      "progress_target": " sur {{votesTarget}} votes ({{percent}}%)",
       "progress_description": "Plus les propositions recevront de votes, plus celles-ci auront le potentiel de déboucher sur des actions concrètes.",
       "progress_btn": "Participer"
     },

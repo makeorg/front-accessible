@@ -21,7 +21,7 @@ type Props = {
 export const QuestionWrapper = ({ children, withRedirect }: Props) => {
   const params = useParams();
   const dispatch = useDispatch();
-  const { country } = useSelector((state: StateRoot) => state.appConfig);
+  const { country } = useParams();
   const currentQuestion: QuestionType = useSelector((state: StateRoot) =>
     selectCurrentQuestion(state)
   );

@@ -64,7 +64,7 @@ export const Footer = () => {
       </ScreenReaderItemStyle>
     </>
   );
-  return (
+  return country ? (
     <FooterStyle
       id={MAIN_FOOTER}
       className={`${NAVIGATION_ARIA_NEGATIVE_TAB_CLASS} ${PANEL_ARIA_NEGATIVE_TAB_CLASS} ${
@@ -194,5 +194,7 @@ export const Footer = () => {
         </ColumnToRowElementStyle>
       </FooterNavStyle>
     </FooterStyle>
+  ) : (
+    <></>
   );
 };

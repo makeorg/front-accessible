@@ -36,6 +36,11 @@ given('I go to 404 page', () => {
   cy.visit('/fakeurl', {failOnStatusCode: false});
 });
 
+given('I go to 404 FR page', () => {
+  cy.visit('/FR/fakeurl', {failOnStatusCode: false});
+});
+
+
 given('I go/am to/on {string}', (targetPage) => {
   checkPageExist(targetPage);
   cy.visit(pages[targetPage]);
@@ -112,6 +117,7 @@ then('I don\'t see {string} container', containerName => {
   cy.get(`[data-cy-container=${containerName}]`)
     .should('not.be.visible');
 });
+
 
 then('I see {string} in {string} container', (text, containerName) => {
   cy.get(`[data-cy-container=${containerName}]`).first().should('contain', text);

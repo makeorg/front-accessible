@@ -14,8 +14,10 @@ Feature: The footer
     Then I see "footer" container
     When I go to "top idea" page of the question "question-1-slug"
     Then I see "footer" container
-    When I go to 404 page
+    When I go to 404 FR page
     Then I see "footer" container
+    When I go to 404 page
+    Then I don't see "footer" container
   
   Scenario: French Mobile Footer is complete
     Given I go to "france homepage"

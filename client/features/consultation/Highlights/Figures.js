@@ -15,9 +15,7 @@ import {
 } from './style';
 
 export const Figures = () => {
-  const { country, language } = useSelector(
-    (state: StateRoot) => state.appConfig
-  );
+  const { language } = useSelector((state: StateRoot) => state.appConfig);
   const question: QuestionType = useSelector((state: StateRoot) =>
     selectCurrentQuestion(state)
   );
@@ -56,11 +54,7 @@ export const Figures = () => {
         </HigthlightsTitleStyle>
         <ScreenReaderItemStyle> : </ScreenReaderItemStyle>
         <FiguresValueStyle>
-          {formatMillionToText(
-            question.highlights.participantsCount,
-            country,
-            language
-          )}
+          {formatMillionToText(question.highlights.participantsCount, language)}
         </FiguresValueStyle>
       </ColumnElementStyle>
     </FiguresWrapperStyle>

@@ -16,3 +16,4 @@
 package-lock.json
 /test/.jest-test-results.json
 /storybook-static
+/webpack/dist/

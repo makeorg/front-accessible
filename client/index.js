@@ -24,11 +24,12 @@ import { track } from 'Shared/services/TrackingService';
 import * as customDataHelper from 'Client/helper/customData';
 import { updateRequestContextCustomData } from 'Shared/store/middleware/requestContext';
 import { TwitterUniversalTag } from 'Shared/services/Trackers/TwitterTracking';
-import { updateTrackingQuestionParam } from 'Shared/store/middleware/tracking';
+import { updateTrackingQuestionParam } from 'Shared/store/middleware/question';
 import { getRouteNoCookies } from 'Shared/routes';
 import { postPerfomanceTiming } from 'Shared/helpers/tracking';
 import { translationRessources } from 'Shared/constants/languages';
 import { SnapchatTracking } from 'Shared/services/Trackers/SnapchatTracking';
+import { CountryListener } from 'Client/app/CountryListener';
 import { NoCookies } from './pages/Static/NoCookies';
 import { history, initHistory } from './app/History';
 import { ErrorBoundary, ServiceErrorHandler } from './app/Error';
@@ -160,6 +161,7 @@ const initApp = async state => {
               <React.StrictMode>
                 <ServiceErrorHandler>
                   <ErrorBoundary>
+                    <CountryListener />
                     <Switch>
                       <Route
                         path={getRouteNoCookies(state.appConfig.country)}
@@ -186,6 +188,7 @@ const initApp = async state => {
           <Provider store={store}>
             <Router history={history}>
               <React.StrictMode>
+                <CountryListener />
                 <AppContainer />
               </React.StrictMode>
             </Router>

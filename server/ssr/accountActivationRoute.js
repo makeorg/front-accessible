@@ -5,7 +5,7 @@ import {
   ACTIVATION_SUCCESS_MESSAGE,
   ACTIVATION_FAILURE_MESSAGE,
 } from 'Shared/constants/notifications';
-import { updateTrackingQuestionParam } from 'Shared/store/middleware/tracking';
+import { updateTrackingQuestionParam } from 'Shared/store/middleware/question';
 import { UserService } from '../service/UserService';
 import { reactRender } from '../reactRender';
 import { QuestionService } from '../service/QuestionService';

@@ -3,7 +3,7 @@ import {
   PASSWORD_RECOVERY_FAILURE_MESSAGE,
 } from 'Shared/constants/notifications';
 import { createInitialState } from 'Shared/store/initialState';
-import { updateTrackingQuestionParam } from 'Shared/store/middleware/tracking';
+import { updateTrackingQuestionParam } from 'Shared/store/middleware/question';
 import { UserService } from '../service/UserService';
 import { reactRender } from '../reactRender';
 import { QuestionService } from '../service/QuestionService';

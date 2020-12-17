@@ -61,10 +61,10 @@ export const CookieBanner = () => {
             dangerouslySetInnerHTML={{
               __html: i18n.t('cookie_alert.text', {
                 gtu_link: `<a href="${getGTUPageLink(
-                  country
+                  country || 'FR'
                 )}" data-cy-link="gtu">$t(cookie_alert.gtu)</a>`,
                 policy_link: `<a href="${getDataPageLink(
-                  country
+                  country || 'FR'
                 )}" data-cy-link="policy">$t(cookie_alert.policy)</a>`,
               }),
             }}

@@ -4,15 +4,9 @@ import { type StateRoot } from 'Shared/store/types';
 import { useDispatch, useSelector } from 'react-redux';
 import { i18n } from 'Shared/i18n';
 import { getHomeLink } from 'Shared/helpers/url';
-import { setLanguageByCountryCode } from 'Shared/store/actions/appConfig';
-import {
-  compareCountriesByName,
-  getLanguageFromCountryCode,
-} from 'Shared/helpers/countries';
+import { setCountryCode } from 'Shared/store/actions/appConfig';
+import { compareCountriesByName } from 'Shared/helpers/countries';
 import { modalClose } from 'Shared/store/actions/modal';
-import { DateHelper } from 'Shared/helpers/date';
-import { apiClient } from 'Shared/api/ApiService/ApiService.client';
-import { trackingParamsService } from 'Shared/services/TrackingParamsService';
 import {
   CountryLinkStyle,
   CountryListStyle,
@@ -40,14 +34,8 @@ export const SwitchCountry = () => {
     if (country === countryCode) {
       return () => {};
     }
-    const language = getLanguageFromCountryCode(countryCode);
-    dispatch(setLanguageByCountryCode(countryCode));
-    trackingParamsService.country = countryCode;
-    trackingParamsService.language = language;
-    apiClient.country = countryCode;
-    apiClient.language = language;
-    i18n.changeLanguage(language);
-    DateHelper.language = language;
+
+    dispatch(setCountryCode(countryCode));
 
     return dispatch(modalClose());
   };
