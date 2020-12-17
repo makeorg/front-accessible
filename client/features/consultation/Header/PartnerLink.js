@@ -23,12 +23,14 @@ type Props = {
   partnersList: PartnerType[],
   title: string,
   seeMoreLink?: boolean,
+  noMargin?: boolean,
 };
 
 export const PartnersList = ({
   partnersList,
   title,
   seeMoreLink = false,
+  noMargin = false,
 }: Props) => {
   const { country } = useSelector((state: StateRoot) => state.appConfig);
   const question: QuestionType = useSelector((state: StateRoot) =>
@@ -36,7 +38,7 @@ export const PartnersList = ({
   );
 
   return (
-    <HeaderListWrapperStyle>
+    <HeaderListWrapperStyle className={noMargin && 'no-margin'}>
       <HeaderListLabelStyle>
         {title}
         <> </>

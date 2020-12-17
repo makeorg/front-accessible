@@ -49,7 +49,7 @@ export const NotificationBanner = () => {
 
   return (
     <NotificationWrapperStyle ref={notificationRef} role="banner" tabIndex={0}>
-      <NotificationContentStyle as="div" className={level}>
+      <NotificationContentStyle className={level}>
         <NotificationIcon level={level} />
         <NotificationMessage
           name={contentId}

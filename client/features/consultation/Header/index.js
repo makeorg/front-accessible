@@ -60,15 +60,20 @@ export const ParticipateHeader = () => {
           <ScreenReaderItemStyle> - </ScreenReaderItemStyle>
           {question.question}
         </HeaderTitleStyle>
-        <PartnersList
-          partnersList={founders}
-          title={i18n.t('consultation.partners.init')}
-        />
-        <PartnersList
-          partnersList={partners}
-          title={i18n.t('consultation.partners.with')}
-          seeMoreLink
-        />
+        {founders.length > 0 && (
+          <PartnersList
+            partnersList={founders}
+            title={i18n.t('consultation.partners.init')}
+          />
+        )}
+        {partners.length > 0 && (
+          <PartnersList
+            partnersList={partners}
+            title={i18n.t('consultation.partners.with')}
+            seeMoreLink
+            noMargin
+          />
+        )}
       </HeaderContentStyle>
     </HeaderWrapperStyle>
   );

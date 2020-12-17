@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { color, typography } from 'athena-design-tokens';
 import {
   Breakpoints,
   Layouts,
@@ -11,7 +11,6 @@ import {
   CloseButtonStyle,
   WhiteButtonStyle,
 } from 'Client/ui/Elements/Buttons/style';
-import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { ColumnToRowElementStyle } from 'Client/ui/Elements/FlexElements';
 
 export const NotificationWrapperStyle = styled.aside`
@@ -32,10 +31,11 @@ export const NotificationWrapperStyle = styled.aside`
   }
 `;
 
-export const NotificationContentStyle = styled(ParagraphStyle)`
+export const NotificationContentStyle = styled.div`
   display: flex;
   align-items: flex-start;
   width: 100%;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
   max-width: ${intToPx(Layouts.ContainerWidth)};
   padding-right: ${intToPx(DefaultPadding.Mobile)};
   color: ${color.white};

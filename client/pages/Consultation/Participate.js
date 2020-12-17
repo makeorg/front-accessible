@@ -110,7 +110,7 @@ const ParticipatePage = () => {
         </ParticipateDescriptionStyle>
         <ParticipateInnerStyle>
           <ParticipateMainContentStyle>
-            <SubmitProposal />
+            {question.canPropose && <SubmitProposal />}
             <CTAMonoBlock
               icon={InteractIcon}
               title={i18n.t('consultation.cards.interact.title')}
