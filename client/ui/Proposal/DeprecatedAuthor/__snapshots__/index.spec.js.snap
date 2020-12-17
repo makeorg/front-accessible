@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeprecatedProposalAuthor must match the diff snapshot between default vs custom avatar 1`] = `
+Snapshot Diff:
+- First value
++ Second value
+
+@@ -1,10 +1,11 @@
+  <AuthorDescriptionStyle>
+    <AuthorInfosStyle
+      as="div"
+      isSequence={false}
+    >
++     <Avatar />
+      <ProposalAuthorInformations
+        author={
+          Object {
+            "age": 31,
+            "firstName": "Mickael",
+`;

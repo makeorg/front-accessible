@@ -3,7 +3,7 @@ import { color, typography } from 'athena-design-tokens';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
 
-export const SequenceAuthorInfosStyle = styled.div`
+export const AuthorInfosStyle = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,11 +12,15 @@ export const SequenceAuthorInfosStyle = styled.div`
   color: ${color.greyDark};
 `;
 
-export const SequenceInfosWrapperStyle = styled.span`
+export const InfosWrapperStyle = styled.span`
   display: inline-flex;
   align-items: center;
-  margin: 50px auto 5px;
+  &.sequence {
+    margin: 50px auto 5px;
+  }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    margin: 75px auto 20px;
+    &.sequence {
+      margin: 75px auto 20px;
+    }
   }
 `;

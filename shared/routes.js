@@ -9,7 +9,7 @@ export const ROUTE_BROWSE_RESULTS = `${ROUTE_COUNTRY}/browse/results/page/:pageI
 export const ROUTE_CONSULTATION = `${ROUTE_COUNTRY}/consultation/:questionSlug/consultation`;
 export const ROUTE_CONSULTATION_STEP = `${ROUTE_COUNTRY}/consultation/:questionSlug/:consultationStep`;
 export const ROUTE_PARTICIPATE = `${ROUTE_COUNTRY}/consultation/:questionSlug/participate`;
-export const ROUTE_EXPLORE = `${ROUTE_COUNTRY}/consultation/:questionSlug/explore`;
+export const ROUTE_EXPLORE = `${ROUTE_COUNTRY}/consultation/:questionSlug/explore/page/:pageId`;
 export const ROUTE_SEARCH = `${ROUTE_COUNTRY}/search`;
 export const ROUTE_SEARCH_PROPOSALS = `${ROUTE_COUNTRY}/search/proposals`;
 export const ROUTE_SEARCH_ORGANISATIONS = `${ROUTE_COUNTRY}/search/organisations`;
@@ -156,14 +156,16 @@ export const getRouteSearchOrganisations = (country: string, query: string) =>
  *
  * @param  {string} path
  * @param  {string} country
- * @param  {string} query
+ * @param  {string} page
+ * @param  {string} questionSlug
  * @return {string}
  */
 export const getPaginatedRoute = (
   path: string,
   country: string,
-  pageId: number
-) => generatePath(path, { country, pageId });
+  pageId: number,
+  questionSlug?: string
+) => generatePath(path, { country, pageId, questionSlug });
 
 export const isConsultationPage = (
   pathname: string,

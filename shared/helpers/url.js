@@ -145,13 +145,19 @@ export const getParticipateLink = (country: string, questionSlug: string) =>
  *
  * @param  {string} country
  * @param  {string} questionSlug
+ * @param  {number} pageId
  *
  * @return {string}
  */
-export const getExploreLink = (country: string, questionSlug: string) =>
+export const getExploreLink = (
+  country: string,
+  questionSlug: string,
+  pageId?: number = 1
+) =>
   generatePath(ROUTE_EXPLORE, {
     country,
     questionSlug,
+    pageId,
   });
 
 /**

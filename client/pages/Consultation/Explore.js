@@ -1,5 +1,5 @@
 // @flow
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { type StateRoot } from 'Shared/store/types';
 import { type QuestionType } from 'Shared/types/question';
 import { i18n } from 'Shared/i18n';
@@ -15,17 +15,59 @@ import {
 import { ParticipateHeader } from 'Client/features/consultation/Header';
 import { ParticipateHighlights } from 'Client/features/consultation/Highlights';
 import { ParticipateNavigation } from 'Client/features/consultation/Navigation/Participate';
+import { ProposalsList } from 'Client/features/consultation/ProposalsList';
+import {
+  getProposalsListTitle,
+  searchProposals,
+} from 'Shared/helpers/proposal';
+import { useParams } from 'react-router';
+import { Pagination } from 'Client/ui/Elements/Pagination';
+import { EXPLORE_SECTION } from 'Shared/constants/ids';
 import {
   ParticipateContentStyle,
   ParticipateInnerStyle,
-  ParticipateTitleStyle,
+  ExploreTitleWrapperStyle,
+  ExploreTitleStyle,
+  ExploreProposalsCountStyle,
+  ParticipateFullwidthContentStyle,
 } from './style';
 
 const ExplorePage = () => {
+  const { country, pageId } = useParams();
   const question: QuestionType = useSelector((state: StateRoot) =>
     selectCurrentQuestion(state)
   );
   const dispatch = useDispatch();
+  const [proposals, setProposals] = useState([]);
+  const [isLoading, setLoading] = useState<boolean>(true);
+  const [proposalsTotal, setProposalsTotal] = useState<number>(0);
+  const feedAlgorithm = 'RECENT';
+  const PROPOSALS_LIMIT = 12;
+
+  const title = getProposalsListTitle(feedAlgorithm);
+  const hasProposals = proposalsTotal > 0;
+
+  const getProposals = async () => {
+    setLoading(true);
+    const response = await searchProposals(
+      country,
+      undefined,
+      pageId - 1,
+      PROPOSALS_LIMIT,
+      undefined,
+      question.questionId,
+      undefined,
+      feedAlgorithm
+    );
+
+    if (response) {
+      const { results, total } = response;
+      setProposals(results);
+      setProposalsTotal(total);
+    }
+
+    setLoading(false);
+  };
 
   useEffect(() => {
     if (!question.canPropose) {
@@ -40,6 +82,11 @@ const ExplorePage = () => {
     }
   }, [question, dispatch]);
 
+  useEffect(() => {
+    getProposals();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <ThemeProvider theme={question.theme}>
       <MetaTags
@@ -52,9 +99,28 @@ const ExplorePage = () => {
       <ParticipateHeader />
       <ParticipateHighlights />
       <ParticipateNavigation />
-      <ParticipateContentStyle>
-        <ParticipateTitleStyle>explore title</ParticipateTitleStyle>
-        <ParticipateInnerStyle>content</ParticipateInnerStyle>
+      <ParticipateContentStyle id={EXPLORE_SECTION}>
+        <ExploreTitleWrapperStyle>
+          <ExploreTitleStyle>{title}</ExploreTitleStyle>
+          {hasProposals && (
+            <ExploreProposalsCountStyle>
+              {i18n.t('common.proposal_count', { count: proposalsTotal })}
+            </ExploreProposalsCountStyle>
+          )}
+        </ExploreTitleWrapperStyle>
+        <ParticipateInnerStyle>
+          <ParticipateFullwidthContentStyle>
+            <ProposalsList isLoading={isLoading} proposals={proposals} />
+            {proposalsTotal > PROPOSALS_LIMIT && (
+              <Pagination
+                itemsPerPage={PROPOSALS_LIMIT}
+                itemsTotal={proposalsTotal}
+                scrollToId={EXPLORE_SECTION}
+                questionSlug={question.slug}
+              />
+            )}
+          </ParticipateFullwidthContentStyle>
+        </ParticipateInnerStyle>
       </ParticipateContentStyle>
     </ThemeProvider>
   );

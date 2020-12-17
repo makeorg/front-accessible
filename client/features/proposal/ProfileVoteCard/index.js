@@ -11,7 +11,7 @@ import { RedLinkRouterStyle } from 'Client/ui/Elements/LinkElements';
 
 import { VoteResultElement } from 'Client/ui/Proposal/VoteResultElement';
 import { ProposalFooterWithTagElement } from 'Client/ui/Proposal/FooterElement/ProposalWithTag';
-import { ProposalAuthorElement } from 'Client/ui/Proposal/AuthorElement';
+import { DeprecatedProposalAuthor } from 'Client/ui/Proposal/DeprecatedAuthor';
 import {
   ProposalStyle,
   ProposalInnerStyle,
@@ -19,7 +19,7 @@ import {
 import {
   AuthorWrapperStyle,
   CertifiedIconStyle,
-} from 'Client/ui/Proposal/AuthorElement/Styled';
+} from 'Client/ui/Proposal/DeprecatedAuthor/Styled';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { CardStyle } from 'Client/ui/Cards';
 import { formatOrganisationName } from 'Shared/helpers/stringFormatter';
@@ -80,7 +80,7 @@ export const ProfileVoteCard = ({
       <ProfileVoteCardStyle>
         <CardStyle as="div">
           <AuthorWrapperStyle>
-            <ProposalAuthorElement proposal={proposal} withAvatar />
+            <DeprecatedProposalAuthor proposal={proposal} withAvatar />
           </AuthorWrapperStyle>
           <ProposalInnerStyle>
             <ScreenReaderItemStyle>

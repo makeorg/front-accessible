@@ -66,13 +66,12 @@ exports[`Pagination snapshot by default 1`] = `
   className="c0"
   data-cy-container="pagination"
 >
-  <button
+  <a
     aria-label="common.pagination.previous"
     className="c1"
-    data-cy-button="pagination-previous"
-    disabled={false}
+    data-cy-link="pagination-previous"
+    href="/"
     onClick={[Function]}
-    type="button"
   >
     <svg
       aria-hidden={true}
@@ -87,19 +86,18 @@ exports[`Pagination snapshot by default 1`] = `
         d="M0 8.444c0 .251.11.487.297.665l7 6.61c.187.178.437.281.703.281.547 0 1-.428 1-.944V1.833C9 1.317 8.547.89 8 .89c-.266 0-.516.103-.703.28l-7 6.611C.109 7.957 0 8.194 0 8.444z"
       />
     </svg>
-  </button>
+  </a>
   <span
     className="c3"
   >
     common.pagination.index_count
   </span>
-  <button
+  <a
     aria-label="common.pagination.next"
     className="c1"
-    data-cy-button="pagination-next"
-    disabled={false}
+    data-cy-link="pagination-next"
+    href="/"
     onClick={[Function]}
-    type="button"
   >
     <svg
       aria-hidden={true}
@@ -114,6 +112,6 @@ exports[`Pagination snapshot by default 1`] = `
         d="M9 7.556c0-.251-.11-.487-.297-.665l-7-6.61C1.516.102 1.266 0 1 0 .453 0 0 .428 0 .944v13.223c0 .516.453.944 1 .944.266 0 .516-.103.703-.28l7-6.611c.188-.177.297-.414.297-.664z"
       />
     </svg>
-  </button>
+  </a>
 </nav>
 `;

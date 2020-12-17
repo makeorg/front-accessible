@@ -27,7 +27,7 @@ import {
   TYPE_PERSONALITY,
   TYPE_USER,
 } from 'Shared/constants/user';
-import { CertifiedIconStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
+import { CertifiedIconStyle } from 'Client/ui/Proposal/DeprecatedAuthor/Styled';
 import {
   formatUserName,
   formatOrganisationName,

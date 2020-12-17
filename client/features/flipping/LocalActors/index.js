@@ -15,7 +15,7 @@ import {
   loadMoreLocalActors,
 } from 'Shared/store/reducers/partners/actions';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
-import { CertifiedIconStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
+import { CertifiedIconStyle } from 'Client/ui/Proposal/DeprecatedAuthor/Styled';
 import { TYPE_ORGANISATION } from 'Shared/constants/user';
 import { formatOrganisationName } from 'Shared/helpers/stringFormatter';
 import {

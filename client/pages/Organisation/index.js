@@ -45,7 +45,7 @@ import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { Sharing } from 'Client/features/sharing';
 import { TYPE_ORGANISATION } from 'Shared/constants/user';
 import { trackDisplayPublicProfile } from 'Shared/services/Tracking';
-import { CertifiedIconStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
+import { CertifiedIconStyle } from 'Client/ui/Proposal/DeprecatedAuthor/Styled';
 import { formatOrganisationName } from 'Shared/helpers/stringFormatter';
 import { getHomeLink } from 'Shared/helpers/url';
 

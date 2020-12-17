@@ -17,7 +17,7 @@ import {
   ProfileAvatarStyle,
 } from 'Client/ui/Elements/ProfileElements';
 import { GliderStylesheet } from 'Client/app/assets/css-in-js/GliderStyle';
-import { CertifiedIconStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
+import { CertifiedIconStyle } from 'Client/ui/Proposal/DeprecatedAuthor/Styled';
 import { formatOrganisationName } from 'Shared/helpers/stringFormatter';
 import {
   SearchSliderListStyle,

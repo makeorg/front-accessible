@@ -28,7 +28,7 @@ import {
   ProfileAvatarStyle,
 } from 'Client/ui/Elements/ProfileElements';
 import { useDesktop } from 'Client/hooks/useMedia';
-import { CertifiedIconStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
+import { CertifiedIconStyle } from 'Client/ui/Proposal/DeprecatedAuthor/Styled';
 import { formatOrganisationName } from 'Shared/helpers/stringFormatter';
 import { SearchBackButton } from 'Client/features/search/BackButton';
 import {

@@ -21,7 +21,7 @@ import {
   ProfileTitleStyle,
   ProfileAvatarLayoutStyle,
 } from 'Client/ui/Elements/ProfileElements';
-import { CertifiedIconStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
+import { CertifiedIconStyle } from 'Client/ui/Proposal/DeprecatedAuthor/Styled';
 import { formatOrganisationName } from 'Shared/helpers/stringFormatter';
 import { MainResultsOrganisationsMobile } from './Mobile';
 
