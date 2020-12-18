@@ -24,12 +24,20 @@ export const CardStyle = styled.section`
   &.margin-bottom {
     margin-bottom: 20px;
   }
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    &.desktop-half {
+      width: 50%;
+    }
+    &.desktop-padding-left {
+      margin-left: 10px;
+    }
+    &.desktop-padding-right {
+      margin-right: 10px;
+    }
+  }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     &.margin-bottom {
       margin-bottom: 30px;
-    }
-    &.desktop-half {
-      width: 50%;
     }
     &.desktop-padding-left {
       margin-left: 15px;
@@ -47,7 +55,7 @@ export const CardTitleStyle = styled.h4`
   margin: 15px 0 10px;
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     font-size: ${intToPx(typography.font.fontsize.XL.value)};
-    margin: 15px 0 20px;
+    margin: 15px 0;
   }
 `;
 
@@ -59,7 +67,7 @@ export const CardAltTitleStyle = styled.h4`
 `;
 
 export const CardDescriptionStyle = styled(ParagraphStyle)`
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 `;
 
 export const CardAltDescriptionStyle = styled(ParagraphStyle)`
@@ -109,6 +117,6 @@ export const CardExternalIconStyle = styled(SvgExternalLink)`
 export const MobileAboutStyle = styled.section`
   display: flex;
   flex-flow: column;
-  padding: 30px 20px 0;
+  padding: 40px 20px 10px;
   background-color: ${color.white};
 `;

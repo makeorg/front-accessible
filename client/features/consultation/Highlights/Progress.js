@@ -15,8 +15,6 @@ import {
   ProgressBarStyle,
   ProgressParticipateStyle,
   ProgressDescriptionStyle,
-  ParticipateButtonStyle,
-  ParticipateButtonIconStyle,
 } from './style';
 
 export const Progress = () => {
@@ -50,10 +48,6 @@ export const Progress = () => {
           <ProgressDescriptionStyle>
             {i18n.t('consultation.highlights.progress_description')}
           </ProgressDescriptionStyle>
-          <ParticipateButtonStyle>
-            {i18n.t('consultation.highlights.progress_btn')}
-            <ParticipateButtonIconStyle aria-hidden focusable="false" />
-          </ParticipateButtonStyle>
         </ProgressParticipateStyle>
       </ProgressInnerStyle>
     </ProgressWrapperStyle>

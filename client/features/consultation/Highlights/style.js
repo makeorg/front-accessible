@@ -3,12 +3,10 @@ import { typography } from 'athena-design-tokens/dist/typography';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { Elements } from 'Client/app/assets/vars/Elements';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
-import { RedButtonStyle } from 'Client/ui/Elements/Buttons/V2/style';
 import {
   ColumnElementStyle,
   FlexElementStyle,
 } from 'Client/ui/Elements/FlexElements';
-import { SvgArrowBottom } from 'Client/ui/Svg/elements';
 import { intToPx } from 'Shared/helpers/styled';
 import styled from 'styled-components';
 
@@ -45,7 +43,7 @@ export const HigthlightsColumnStyle = styled(ColumnElementStyle)`
   }
 `;
 
-export const FiguresWrapperStyle = styled.ul`
+export const FiguresListStyle = styled.ul`
   display: flex;
   width: 100%;
   flex-flow: column;
@@ -59,6 +57,12 @@ export const FiguresWrapperStyle = styled.ul`
   }
 `;
 
+export const FiguresListItemStyle = styled.li`
+  display: flex;
+  flex-flow: column;
+  flex: 1;
+`;
+
 export const HigthlightsTitleStyle = styled.span`
   font-size: ${intToPx(typography.font.fontsize.XS.value)};
   letter-spacing: 0.14px;
@@ -70,6 +74,14 @@ export const FiguresValueStyle = styled.strong`
   font-size: ${intToPx(typography.font.fontsize.L.value)};
   letter-spacing: 0.5px;
   margin-bottom: 20px;
+  &.mobile-extra-margin-bottom {
+    margin-bottom: 30px;
+  }
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    &.mobile-extra-margin-bottom {
+      margin-bottom: 20px;
+    }
+  }
 `;
 
 export const ImageWrapperStyle = styled.div`
@@ -92,7 +104,9 @@ export const ProgressWrapperStyle = styled(FlexElementStyle)`
 
 export const ProgressInnerStyle = styled(ColumnElementStyle)`
   width: 100%;
-  max-width: 525px;
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    max-width: 525px;
+  }
 `;
 
 export const ProgressTitleStyle = styled(HigthlightsTitleStyle)`
@@ -159,16 +173,5 @@ export const ProgressDescriptionStyle = styled.p`
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     padding-right: 55px;
     margin-bottom: 0;
-  }
-`;
-
-export const ParticipateButtonStyle = styled(RedButtonStyle)`
-  align-self: flex-start;
-`;
-
-export const ParticipateButtonIconStyle = styled(SvgArrowBottom)`
-  margin-left: 5px;
-  .tofill {
-    fill: ${color.white};
   }
 `;

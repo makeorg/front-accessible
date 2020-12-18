@@ -3,14 +3,14 @@ import { type StateRoot } from 'Shared/store/types';
 import { type QuestionType } from 'Shared/types/question';
 import { useSelector } from 'react-redux';
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
-import { ColumnElementStyle } from 'Client/ui/Elements/FlexElements';
 import { DateHelper } from 'Shared/helpers/date';
 import { i18n } from 'Shared/i18n';
 import { formatMillionToText } from 'Shared/helpers/numberFormatter';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import {
   FiguresValueStyle,
-  FiguresWrapperStyle,
+  FiguresListStyle,
+  FiguresListItemStyle,
   HigthlightsTitleStyle,
 } from './style';
 
@@ -22,8 +22,8 @@ export const Figures = () => {
   const remainingDays = DateHelper.getRemainingDays(question.endDate);
 
   return (
-    <FiguresWrapperStyle>
-      <ColumnElementStyle as="li">
+    <FiguresListStyle>
+      <FiguresListItemStyle>
         <HigthlightsTitleStyle>
           {i18n.t('consultation.highlights.date')}
         </HigthlightsTitleStyle>
@@ -36,8 +36,8 @@ export const Figures = () => {
             {DateHelper.localizedllDate(question.startDate)}
           </FiguresValueStyle>
         </strong>
-      </ColumnElementStyle>
-      <ColumnElementStyle as="li">
+      </FiguresListItemStyle>
+      <FiguresListItemStyle>
         <HigthlightsTitleStyle>
           {i18n.t('consultation.highlights.remaining', {
             count: remainingDays,
@@ -45,18 +45,18 @@ export const Figures = () => {
         </HigthlightsTitleStyle>
         <ScreenReaderItemStyle> : </ScreenReaderItemStyle>
         <FiguresValueStyle>{remainingDays}</FiguresValueStyle>
-      </ColumnElementStyle>
-      <ColumnElementStyle as="li">
+      </FiguresListItemStyle>
+      <FiguresListItemStyle>
         <HigthlightsTitleStyle>
           {i18n.t('consultation.highlights.participant', {
             count: question.highlights.participantsCount,
           })}
         </HigthlightsTitleStyle>
         <ScreenReaderItemStyle> : </ScreenReaderItemStyle>
-        <FiguresValueStyle>
+        <FiguresValueStyle className="mobile-extra-margin-bottom">
           {formatMillionToText(question.highlights.participantsCount, language)}
         </FiguresValueStyle>
-      </ColumnElementStyle>
-    </FiguresWrapperStyle>
+      </FiguresListItemStyle>
+    </FiguresListStyle>
   );
 };

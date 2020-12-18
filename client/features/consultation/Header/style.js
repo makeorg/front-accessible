@@ -33,7 +33,7 @@ export const HeaderLabelStyle = styled.span`
   background-color: ${color.black};
   color: ${color.white};
   text-transform: uppercase;
-  padding: 10px 5px 8px;
+  padding: 10px 10px 8px;
   height: 25px;
   width: max-content;
   margin: 5px 0 15px;
@@ -60,8 +60,14 @@ export const HeaderTitleStyle = styled.h2`
 export const HeaderListWrapperStyle = styled.div`
   display: inline;
   margin-bottom: 20px;
+  &.no-margin {
+    margin-bottom: 0;
+  }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     margin-bottom: 15px;
+    &.no-margin {
+      margin-bottom: 0;
+    }
   }
 `;
 
