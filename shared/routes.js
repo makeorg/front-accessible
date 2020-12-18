@@ -9,6 +9,7 @@ export const ROUTE_BROWSE_RESULTS = `${ROUTE_COUNTRY}/browse/results/page/:pageI
 export const ROUTE_CONSULTATION = `${ROUTE_COUNTRY}/consultation/:questionSlug/consultation`;
 export const ROUTE_CONSULTATION_STEP = `${ROUTE_COUNTRY}/consultation/:questionSlug/:consultationStep`;
 export const ROUTE_PARTICIPATE = `${ROUTE_COUNTRY}/consultation/:questionSlug/participate`;
+export const ROUTE_EXPLORE = `${ROUTE_COUNTRY}/consultation/:questionSlug/explore`;
 export const ROUTE_SEARCH = `${ROUTE_COUNTRY}/search`;
 export const ROUTE_SEARCH_PROPOSALS = `${ROUTE_COUNTRY}/search/proposals`;
 export const ROUTE_SEARCH_ORGANISATIONS = `${ROUTE_COUNTRY}/search/organisations`;
@@ -188,6 +189,10 @@ export const isParticipatePage = (
     false,
     includingPreview
   );
+export const isExplorePage = (
+  pathname: string,
+  includingPreview: ?boolean = true
+) => matchRoute(pathname, ROUTE_EXPLORE, false, false, false, includingPreview);
 export const isActionsPage = (
   pathname: string,
   includingPreview: ?boolean = true

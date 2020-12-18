@@ -87,18 +87,18 @@ export const MenuPanel = ({ isExpanded, toggleExpansion }: Props) => {
                       to={browseConsultationsLink}
                       onClick={handleInternalNavigation}
                     >
-                      {i18n.t('browse.nav_consultations')}
+                      {i18n.t('browse.nav_consultations_desktop')}
                     </MenuInternalLinkStyle>
                   </MenuItemStyle>
                 )}
-                {!!browseConsultationsLink && (
+                {!!browseResultsLink && (
                   <MenuItemStyle className="white">
                     <MenuInternalLinkStyle
                       className={onBrowseResultsPage && 'current'}
                       to={browseResultsLink}
                       onClick={handleInternalNavigation}
                     >
-                      {i18n.t('browse.nav_results')}
+                      {i18n.t('browse.nav_results_desktop')}
                     </MenuInternalLinkStyle>
                   </MenuItemStyle>
                 )}

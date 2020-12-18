@@ -25,6 +25,7 @@ import {
   ROUTE_BROWSE_CONSULTATIONS,
   ROUTE_BROWSE_RESULTS,
   ROUTE_PARTICIPATE,
+  ROUTE_EXPLORE,
 } from 'Shared/routes';
 
 export const getLocationContext = (
@@ -37,6 +38,7 @@ export const getLocationContext = (
   const locations = [
     { route: ROUTE_CONSULTATION, name: `page-operation ${questionId}` },
     { route: ROUTE_PARTICIPATE, name: `page-participate ${questionId}` },
+    { route: ROUTE_EXPLORE, name: `page-explore ${questionId}` },
     { route: ROUTE_ACTION, name: `page-action ${questionId}` },
     { route: ROUTE_RESULTS, name: `page-results ${questionId}` },
     {

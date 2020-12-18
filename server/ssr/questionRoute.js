@@ -8,7 +8,7 @@ import { getLanguageFromCountryCode } from 'Shared/helpers/countries';
 import { reactRender } from '../reactRender';
 import { QuestionService } from '../service/QuestionService';
 
-export const participateRoute = async (req: Request, res: Response) => {
+export const questionRoute = async (req: Request, res: Response) => {
   const routeState: TypeStateRoot = createInitialState();
 
   const { questionSlug, country } = req.params;

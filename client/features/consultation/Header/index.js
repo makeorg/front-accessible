@@ -9,6 +9,7 @@ import { type QuestionType, type PartnerType } from 'Shared/types/question';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
 import { FOUNDER_PARTNER } from 'Shared/constants/partner';
+import { isParticipatePage } from 'Shared/routes';
 import {
   HeaderWrapperStyle,
   HeaderContentStyle,
@@ -34,6 +35,7 @@ export const ParticipateHeader = () => {
     : [];
   const isFeatured = question.featured === true;
   const location = useLocation();
+  const participatePage = isParticipatePage(location.pathname);
 
   const parentPages = [
     {
@@ -42,8 +44,15 @@ export const ParticipateHeader = () => {
     },
   ];
 
+  const breadcrumbLabel = participatePage
+    ? i18n.t('consultation.navigation.participate_breadcrumb', {
+        title: question.wording.title,
+      })
+    : i18n.t('consultation.navigation.explore_breadcrumb', {
+        title: question.wording.title,
+      });
   const currentPage: BreadcrumbsPagesType = {
-    name: `${question.wording.title}`,
+    name: breadcrumbLabel,
     link: location,
   };
 

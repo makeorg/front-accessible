@@ -88,6 +88,12 @@
     "not_found": {
       "title": "Page not found - Error 404 - Make.org",
       "description": "The requested page doesn't exist anymore."
+    },
+    "participate": {
+      "title": "@@meta.participate.title|fr:Participer à la consultation '{{question}}' - Make.org"
+    },
+    "explore": {
+      "title": "@@meta.explore.title|fr:Explorer les propositions de la consultation '{{question}}' - Make.org"
     }
   },
   "common": {
@@ -627,7 +633,13 @@
       "see_proposals": "See more solutions"
     },
     "navigation": {
-      "introduction": "Find out more about the other themes addressed in the consultation: {{name}}"
+      "introduction": "Find out more about the other themes addressed in the consultation: {{name}}",
+      "participate_desktop": "@@consultation.navigation.participate_desktop|fr:Participer à la consultation",
+      "participate_mobile": "@@consultation.navigation.participate_mobile|fr:Participer",
+      "participate_breadcrumb": "@@consultation.navigation.participate_breadcrumb|fr:Participer à la consultation : \"{{title}}\"",
+      "explore_desktop": "@@consultation.navigation.explore_desktop|fr:Explorer les propositions",
+      "explore_mobile": "@@consultation.navigation.explore_mobile|fr:Explorer",
+      "explore_breadcrumb": "@@consultation.navigation.explore_breadcrumb|fr:Explorer les propositions de la consultation : \"{{title}}\""
     },
     "sort": {
       "TAGGED_FIRST": "All the solutions",
@@ -1023,8 +1035,10 @@
     "page_title": "Browse consultations",
     "title": "Participate to the current consultations",
     "initiative": "Great Causes Make.org",
-    "nav_consultations": "Current consultations",
-    "nav_results": "Results of the consultations",
+    "nav_consultations_desktop": "Current consultations",
+    "nav_consultations_mobile": "Consultations",
+    "nav_results_desktop": "Results of the consultations",
+    "nav_results_mobile": "Results",
     "consultations": {
       "all": "All consultations",
       "label": "Currently",

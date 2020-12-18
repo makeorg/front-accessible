@@ -3,7 +3,7 @@ import { createInitialState } from 'Shared/store/initialState';
 import { isInProgress } from 'Shared/helpers/date';
 import { QuestionApiService } from 'Shared/api/QuestionApiService';
 import { QuestionService } from '../service/QuestionService';
-import { consultationRoute } from './consultationRoute';
+import { questionRoute } from './questionRoute';
 import { reactRender } from '../reactRender';
 
 jest.mock('Shared/helpers/date', () => ({
@@ -40,7 +40,7 @@ const request = httpMocks.createRequest({
 });
 const response = httpMocks.createResponse();
 
-describe('Consultation page route', () => {
+describe('Participate page route', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
@@ -52,7 +52,7 @@ describe('Consultation page route', () => {
       isInProgress.mockReturnValue(true);
       QuestionService.clearCache();
 
-      await consultationRoute(request, response);
+      await questionRoute(request, response);
       expect(reactRender).toHaveBeenCalledWith(request, response, {
         questions: {
           bar: {

@@ -6,6 +6,7 @@ import {
   ROUTE_PASSWORD_RECOVERY,
   ROUTE_CONSULTATION,
   ROUTE_PARTICIPATE,
+  ROUTE_EXPLORE,
   ROUTE_PROFILE,
   ROUTE_PROFILE_PROPOSALS,
   ROUTE_PROFILE_FAVOURITES,
@@ -45,8 +46,7 @@ import * as technicalPages from './technicalPages';
 
 import { accountActivationRoute } from './ssr/accountActivationRoute';
 import { defaultRoute } from './ssr/defaultRoute';
-import { consultationRoute } from './ssr/consultationRoute';
-import { participateRoute } from './ssr/participateRoute';
+import { questionRoute } from './ssr/questionRoute';
 import { sequenceRoute } from './ssr/sequenceRoute';
 import { proposalRoute } from './ssr/proposalRoute';
 import { passwordRecoveryRoute } from './ssr/passwordRecoveryRoute';
@@ -142,12 +142,13 @@ export const initRoutes = app => {
 
   app.get(ROUTE_BROWSE_CONSULTATIONS, frontMiddlewares, defaultRoute);
   app.get(ROUTE_BROWSE_RESULTS, frontMiddlewares, defaultRoute);
-  app.get(ROUTE_CONSULTATION, frontMiddlewares, consultationRoute);
-  app.get(ROUTE_PARTICIPATE, frontMiddlewares, participateRoute);
-  app.get(ROUTE_ACTION, frontMiddlewares, consultationRoute);
-  addGetWithPreview(ROUTE_RESULTS, frontMiddlewares, consultationRoute);
-  app.get(ROUTE_TOP_IDEAS, frontMiddlewares, consultationRoute);
-  app.get(ROUTE_TOP_IDEA_DETAILS, frontMiddlewares, consultationRoute);
+  app.get(ROUTE_CONSULTATION, frontMiddlewares, questionRoute);
+  app.get(ROUTE_PARTICIPATE, frontMiddlewares, questionRoute);
+  app.get(ROUTE_EXPLORE, frontMiddlewares, questionRoute);
+  app.get(ROUTE_ACTION, frontMiddlewares, questionRoute);
+  addGetWithPreview(ROUTE_RESULTS, frontMiddlewares, questionRoute);
+  app.get(ROUTE_TOP_IDEAS, frontMiddlewares, questionRoute);
+  app.get(ROUTE_TOP_IDEA_DETAILS, frontMiddlewares, questionRoute);
   app.get(ROUTE_SEQUENCE, frontMiddlewares, sequenceRoute);
   app.get(ROUTE_ACCOUNT_ACTIVATION, frontMiddlewares, accountActivationRoute);
   app.get(ROUTE_PROPOSAL, frontMiddlewares, proposalRoute);

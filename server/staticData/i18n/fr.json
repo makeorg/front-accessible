@@ -31,6 +31,12 @@
     "consultation": {
       "title": "Consultation '{{question}}' - Make.org"
     },
+    "participate": {
+      "title": "Participer à la consultation '{{question}}' - Make.org"
+    },
+    "explore": {
+      "title": "Explorer les propositions de la consultation '{{question}}' - Make.org"
+    },
     "actions": {
       "title": "Actions '{{question}}' - Make.org"
     },
@@ -701,7 +707,13 @@
       }
     },
     "navigation": {
-      "introduction": "Retrouvez les autres thématiques abordées dans le cadre de la consultation : {{name}}"
+      "introduction": "Retrouvez les autres thématiques abordées dans le cadre de la consultation : {{name}}",
+      "participate_desktop": "Participer à la consultation",
+      "participate_mobile": "Participer",
+      "participate_breadcrumb": "Participer à la consultation : \"{{title}}\"",
+      "explore_desktop": "Explorer les propositions",
+      "explore_mobile": "Explorer",
+      "explore_breadcrumb": "Explorer les propositions de la consultation : \"{{title}}\""
     },
     "tabs": {
       "consultation": " Consultation ",
@@ -854,8 +866,10 @@
     "page_title": "Parcourir les consultations",
     "title":"Participez aux consultations en cours",
     "initiative": "Grande cause Make.org",
-    "nav_consultations": "Les consultations en cours",
-    "nav_results": "Les résultats des consultations",
+    "nav_consultations_desktop": "Les consultations en cours",
+    "nav_consultations_mobile": "Consultations",
+    "nav_results_desktop": "Les résultats des consultations",
+    "nav_results_mobile": "Résultats",
     "consultations": {
       "all": "Toutes les consultations",
       "label": "En ce moment",

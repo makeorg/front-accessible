@@ -18,6 +18,13 @@ describe('getLocationContext', () => {
       expectedTracking: `page-participate`,
     },
     {
+      name: 'ROUTE_EXPLORE',
+      path: '/FR/consultation/foo/explore',
+      params: { questionId: 'question-id' },
+      expected: `page-explore question-id`,
+      expectedTracking: `page-explore`,
+    },
+    {
       name: 'ROUTE_ACTION uppercase',
       path: '/FR/consultation/handicap/ACTIONS',
       params: { questionId: 'question-id' },
@@ -198,13 +205,11 @@ describe('getLocationContext', () => {
   it('all routes have location', () => {
     const definedRoutes = Object.keys(routes)
       .filter(name => name.includes('ROUTE_'))
-      .map(name => {
-        return {
-          name,
-          // eslint-disable-next-line import/namespace
-          path: routes[name],
-        };
-      });
+      .map(name => ({
+        name,
+        // eslint-disable-next-line import/namespace
+        path: routes[name],
+      }));
 
     const routesToExcludes = [
       'ROUTE_COUNTRY',

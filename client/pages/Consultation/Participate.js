@@ -28,6 +28,7 @@ import {
   DesktopAbout,
   MobileAbout,
 } from 'Client/features/consultation/Cards/About';
+import { ParticipateNavigation } from 'Client/features/consultation/Navigation/Participate';
 import {
   ParticipateContentStyle,
   ParticipateInnerStyle,
@@ -89,10 +90,9 @@ const ParticipatePage = () => {
   );
 
   return (
-    /** Update content for participate page when api is done */
     <ThemeProvider theme={question.theme}>
       <MetaTags
-        title={i18n.t('meta.consultation.title', {
+        title={i18n.t('meta.participate.title', {
           question: question.wording.question,
         })}
         description={question.wording.metas.description}
@@ -101,6 +101,7 @@ const ParticipatePage = () => {
       <ParticipateHeader />
       {!isDesktop && <MobileAbout />}
       <ParticipateHighlights />
+      <ParticipateNavigation />
       <ParticipateContentStyle>
         <ParticipateTitleStyle>
           {i18n.t('consultation.participate.title')}

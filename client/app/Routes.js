@@ -10,6 +10,7 @@ import {
   ROUTE_SEARCH_CONSULTATIONS,
   ROUTE_CONSULTATION,
   ROUTE_PARTICIPATE,
+  ROUTE_EXPLORE,
   ROUTE_ACTION,
   ROUTE_SEQUENCE,
   ROUTE_ACCOUNT_ACTIVATION,
@@ -55,6 +56,7 @@ const ConsultationPage = loadable(() =>
 const ParticipatePage = loadable(() =>
   import('../pages/Consultation/Participate.js')
 );
+const ExplorePage = loadable(() => import('../pages/Consultation/Explore.js'));
 const ActionsPage = loadable(() => import('../pages/Consultation/Actions.js'));
 export const ResultsPage = loadable(() =>
   import('../pages/Consultation/Results.js')
@@ -120,7 +122,11 @@ export const Routes = () => {
           <ParticipatePage />
         </QuestionWrapper>
       </Route>
-
+      <Route path={ROUTE_EXPLORE}>
+        <QuestionWrapper withRedirect>
+          <ExplorePage />
+        </QuestionWrapper>
+      </Route>
       <Route path={ROUTE_ACTION}>
         <QuestionWrapper>
           <ActionsPage />
