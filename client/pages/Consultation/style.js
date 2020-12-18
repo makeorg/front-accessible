@@ -134,13 +134,13 @@ export const ParticipateInnerStyle = styled.div`
   }
 `;
 
-export const ParticipateMainContentStyle = styled(ContentElementStyle)`
+export const ParticipateMainContentStyle = styled(ColumnElementStyle)`
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     width: ${pxToPercent(750, 1140)};
   }
 `;
 
-export const ParticipateSidebarContentStyle = styled(ContentElementStyle)`
+export const ParticipateSidebarContentStyle = styled(ColumnElementStyle)`
   margin-left: ${pxToPercent(30, 1140)};
   width: ${pxToPercent(360, 1140)};
 `;
