@@ -22,6 +22,7 @@ import {
   ProfilePageContentStyle,
   ProfilePageSidebarWrapperStyle,
 } from 'Client/ui/Elements/ProfileElements';
+import { getHomeLink } from 'Shared/helpers/url';
 
 type Props = {
   match: TypeMatch,
@@ -37,7 +38,7 @@ const ProfileEditPage = ({ match }: Props) => {
     language,
   });
   if (!user) {
-    return <Redirect to="/" />;
+    return <Redirect to={getHomeLink(country)} />;
   }
 
   const NavigationBar = <GoToProfileLink link={getRouteProfile(country)} />;

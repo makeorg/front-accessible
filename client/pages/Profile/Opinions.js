@@ -22,6 +22,7 @@ import { Opinions } from 'Client/features/opinions';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { PersonalityService } from 'Shared/services/Personality';
 import { getRouteProfileEdit } from 'Shared/routes';
+import { getHomeLink } from 'Shared/helpers/url';
 
 type Props = {
   match: TypeMatch,
@@ -50,7 +51,7 @@ const ProfilePage = ({ match }: Props) => {
   }, [user]);
 
   if (!user) {
-    return <Redirect to="/" />;
+    return <Redirect to={getHomeLink(country)} />;
   }
 
   const NavigationBar = <EditProfileLink link={getRouteProfileEdit(country)} />;

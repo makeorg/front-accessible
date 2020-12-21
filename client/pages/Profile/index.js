@@ -35,6 +35,7 @@ import {
 } from 'Client/ui/Elements/ProfileElements';
 import { UserProfileSkipLinks } from 'Client/app/SkipLinks/Profile';
 import { TYPE_PERSONALITY } from 'Shared/constants/user';
+import { getHomeLink } from 'Shared/helpers/url';
 
 const ProfileProposalsPage = loadable(() => import('./Proposals'));
 const ProfileFavouritesPage = loadable(() => import('./Favourites'));
@@ -59,7 +60,7 @@ const ProfilePage = ({ match, location }: Props) => {
   const isProfileFavouritesActive = getIsProfileFavourites(location.pathname);
 
   if (!user) {
-    return <Redirect to="/" />;
+    return <Redirect to={getHomeLink(country)} />;
   }
 
   if (isPersonality) {
