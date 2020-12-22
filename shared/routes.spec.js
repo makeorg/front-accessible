@@ -32,9 +32,9 @@ describe('match Routes', () => {
   });
 
   it('match route explore', () => {
-    expect(matchRoute('/FR/consultation/1234/explore', ROUTE_EXPLORE)).toBe(
-      true
-    );
+    expect(
+      matchRoute('/FR/consultation/1234/explore/page/1', ROUTE_EXPLORE)
+    ).toBe(true);
   });
 
   it('do not match route consultation', () => {

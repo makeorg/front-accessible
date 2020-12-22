@@ -31,7 +31,7 @@ import { Sharing } from 'Client/features/sharing';
 import { PersonalityService } from 'Shared/services/Personality';
 import { TYPE_PERSONALITY } from 'Shared/constants/user';
 import { trackDisplayPublicProfile } from 'Shared/services/Tracking';
-import { CertifiedIconStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
+import { CertifiedIconStyle } from 'Client/ui/Proposal/DeprecatedAuthor/Styled';
 import { Opinions } from 'Client/features/opinions';
 import { getHomeLink } from 'Shared/helpers/url';
 

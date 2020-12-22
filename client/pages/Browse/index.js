@@ -16,6 +16,7 @@ import {
   trackDisplayBrowseResults,
 } from 'Shared/services/Tracking';
 import { SpaceBetweenColumnStyle } from 'Client/ui/Elements/FlexElements';
+import { BROWSE_SECTION } from 'Shared/constants/ids';
 
 const BrowseConsultationsPage = () => {
   const location = useLocation();
@@ -73,7 +74,11 @@ const BrowseConsultationsPage = () => {
         />
       )}
       <BrowseConsultationsHeader />
-      <SpaceBetweenColumnStyle as="section" aria-labelledby="browse_title">
+      <SpaceBetweenColumnStyle
+        as="section"
+        aria-labelledby="browse_title"
+        id={BROWSE_SECTION}
+      >
         {isLoading ? (
           <Spinner />
         ) : (
@@ -90,6 +95,7 @@ const BrowseConsultationsPage = () => {
               <Pagination
                 itemsPerPage={CONSULTATIONS_LIMIT}
                 itemsTotal={questionsTotal}
+                scrollToId={BROWSE_SECTION}
               />
             )}
           </>

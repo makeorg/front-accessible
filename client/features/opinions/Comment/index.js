@@ -18,7 +18,7 @@ import {
   CandidateLinkStyle,
   PoliticalPartyStyle,
 } from 'Client/custom/municipales/CandidateEngagement/style';
-import { CertifiedIconStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
+import { CertifiedIconStyle } from 'Client/ui/Proposal/DeprecatedAuthor/Styled';
 import { useMobile } from 'Client/hooks/useMedia';
 import { trackClickPublicProfile } from 'Shared/services/Tracking';
 import { TYPE_PERSONALITY } from 'Shared/constants/user';

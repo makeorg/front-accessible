@@ -7,6 +7,7 @@ import { PagesItemStyle, PagesLinkStyle } from './style';
 export type PageNavigationType = {
   link: string,
   label: string,
+  routeToMatch: string,
 };
 
 type Props = {
@@ -14,7 +15,8 @@ type Props = {
 };
 
 export const InnerPagesNavigation = ({ pages }: Props) => {
-  const location = useLocation();
+  const { pathname } = useLocation();
+
   return (
     <nav>
       <UnstyledListStyle>
@@ -22,7 +24,7 @@ export const InnerPagesNavigation = ({ pages }: Props) => {
           <PagesItemStyle key={page.link}>
             <PagesLinkStyle
               to={page.link}
-              className={location.pathname === page.link && 'selected'}
+              className={pathname === page.routeToMatch && 'selected'}
             >
               {page.label}
             </PagesLinkStyle>

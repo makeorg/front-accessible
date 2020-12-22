@@ -21,7 +21,7 @@ import { Link } from 'react-router-dom';
 import { getPersonalityProfileLink } from 'Shared/helpers/url';
 
 import { i18n } from 'Shared/i18n';
-import { CertifiedIconStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
+import { CertifiedIconStyle } from 'Client/ui/Proposal/DeprecatedAuthor/Styled';
 import { intToPx, scrollToTop } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';

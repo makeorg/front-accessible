@@ -165,4 +165,15 @@ describe('Proposal Helper', () => {
       expect(repsonse).toEqual(null);
     });
   });
+  describe('getProposalsListTitle', () => {
+    it('return default title', () => {
+      const title = ProposalHelper.getProposalsListTitle('foo');
+      expect(title).toEqual('consultation.sort.RECENT');
+    });
+
+    it('return RECENT title', () => {
+      const title = ProposalHelper.getProposalsListTitle('RECENT');
+      expect(title).toEqual('consultation.sort.RECENT');
+    });
+  });
 });

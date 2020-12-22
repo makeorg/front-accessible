@@ -7,8 +7,8 @@ import {
   ProposalStyle,
   ProposalInnerStyle,
 } from 'Client/ui/Elements/ProposalCardElements';
-import { ProposalAuthorElement } from 'Client/ui/Proposal/AuthorElement';
-import { AuthorWrapperStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
+import { DeprecatedProposalAuthor } from 'Client/ui/Proposal/DeprecatedAuthor';
+import { AuthorWrapperStyle } from 'Client/ui/Proposal/DeprecatedAuthor/Styled';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { Vote } from 'Client/features/vote';
 import { DetailledVoteResults } from 'Client/ui/Proposal/DetailledVoteResults';
@@ -43,7 +43,7 @@ export const PopularProposalCard = ({
         {`#${position}`}
       </PopularProposalHeader>
       <AuthorWrapperStyle>
-        <ProposalAuthorElement proposal={proposal} withAvatar />
+        <DeprecatedProposalAuthor proposal={proposal} withAvatar />
       </AuthorWrapperStyle>
       <ProposalInnerStyle>
         <ScreenReaderItemStyle>
@@ -53,7 +53,7 @@ export const PopularProposalCard = ({
           id={`popular_proposal_content_${position}`}
           to={getProposalLink(
             country,
-            proposal.slug,
+            proposal.question.slug,
             proposal.id,
             proposal.slug
           )}

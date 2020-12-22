@@ -5,7 +5,7 @@ import { type ProposalType } from 'Shared/types/proposal';
 import { getProposalLink, getConsultationLink } from 'Shared/helpers/url';
 import { OrganisationsVote } from 'Client/features/vote/Organisation';
 import { ProposalFooterWithQuestionElement } from 'Client/ui/Proposal/FooterElement/ProposalWithQuestion';
-import { ProposalAuthorElement } from 'Client/ui/Proposal/AuthorElement';
+import { DeprecatedProposalAuthor } from 'Client/ui/Proposal/DeprecatedAuthor';
 import {
   ProposalCardStyle,
   ProposalStyle,
@@ -13,7 +13,7 @@ import {
 } from 'Client/ui/Elements/ProposalCardElements';
 import { DetailledVoteResults } from 'Client/ui/Proposal/DetailledVoteResults';
 import { isInProgress } from 'Shared/helpers/date';
-import { AuthorWrapperStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
+import { AuthorWrapperStyle } from 'Client/ui/Proposal/DeprecatedAuthor/Styled';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { i18n } from 'Shared/i18n';
 import { ColumnElementStyle } from 'Client/ui/Elements/FlexElements';
@@ -53,7 +53,7 @@ export const ProposalCardWithQuestion = ({
       aria-setsize={size}
     >
       <AuthorWrapperStyle>
-        <ProposalAuthorElement proposal={proposal} withAvatar />
+        <DeprecatedProposalAuthor proposal={proposal} withAvatar />
       </AuthorWrapperStyle>
       <ProposalInnerStyle>
         <ColumnElementStyle>

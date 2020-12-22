@@ -12,7 +12,7 @@ import { incrementSequenceIndex } from 'Shared/store/actions/sequence';
 import { type ProposalCardType } from 'Shared/types/card';
 import { type StateRoot } from 'Shared/store/types';
 import { CARD_TYPE_PROPOSAL } from 'Shared/constants/card';
-import { SequenceProposalAuthor } from '../Proposal/Author';
+import { ProposalAuthor } from '../../../ui/Proposal/Author';
 import { SequenceProposalStyle, SequenceNextCardButtonStyle } from './style';
 
 type Props = {
@@ -65,7 +65,7 @@ export const ProposalCard = ({ proposalCard }: Props) => {
 
   return (
     <>
-      <SequenceProposalAuthor proposal={proposal} />
+      <ProposalAuthor proposal={proposal} isSequence />
       <ScreenReaderItemStyle>
         {i18n.t('proposal_card.content')}
       </ScreenReaderItemStyle>

@@ -69,13 +69,13 @@ Feature: Browse page
         | questionId          |                                                                      |
         | questionSlug        |                                                                      |
         | referrer            | http://localhost:9009/__/                                            |
-        | url                 | http://localhost:9009/FR/browse/results/page/1                    |
+        | url                 | http://localhost:9009/FR/browse/results/page/1                       |
 
   Scenario: Track click pagination increment in results consultations
       Given I monitor API "postTracking" requests
       When I go to "browse results"
-      And I see a button "pagination-next" in "pagination" container
-      When I click on "pagination-next" button
+      And I see a "pagination-next" link
+      When I click on "pagination-next" link
       Then event "click-page" should be tracked by Make with parameters values:
         | name                | value                                                                |
         | eventType           | trackCustom                                                          |
@@ -86,14 +86,15 @@ Feature: Browse page
         | questionId          |                                                                      |
         | questionSlug        |                                                                      | 
         | referrer            | http://localhost:9009/__/                                            |
-        | url                 | http://localhost:9009/FR/browse/results/page/1                    |
-        | page-number         | 1                                                                    |
+        | url                 | http://localhost:9009/FR/browse/results/page/1                       |
+        | page-number         | 1                                                                    |          
+      And I go to "browse results second page"                                                        
 
   Scenario: Track click pagination decrement in results consultations
       Given I monitor API "postTracking" requests
       Then I go to "browse results second page"
-      And I see a button "pagination-previous" in "pagination" container
-      When I click on "pagination-previous" button
+      And I see a "pagination-previous" link
+      When I click on "pagination-previous" link
       Then event "click-page" should be tracked by Make with parameters values:
         | name                | value                                                                |
         | eventType           | trackCustom                                                          |
@@ -104,5 +105,6 @@ Feature: Browse page
         | questionId          |                                                                      |
         | questionSlug        |                                                                      | 
         | referrer            | http://localhost:9009/__/                                            |
-        | url                 | http://localhost:9009/FR/browse/results/page/2                    |
+        | url                 | http://localhost:9009/FR/browse/results/page/2                       |
         | page-number         | 2                                                                    |
+      And I go to "browse results"

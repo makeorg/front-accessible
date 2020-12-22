@@ -4,7 +4,7 @@ import { Vote } from 'Client/features/vote';
 import { type ProposalType } from 'Shared/types/proposal';
 import { getProposalLink } from 'Shared/helpers/url';
 import { ProposalFooterWithTagElement } from 'Client/ui/Proposal/FooterElement/ProposalWithTag';
-import { ProposalAuthorElement } from 'Client/ui/Proposal/AuthorElement';
+import { DeprecatedProposalAuthor } from 'Client/ui/Proposal/DeprecatedAuthor';
 import {
   ProposalCardStyle,
   ProposalStyle,
@@ -13,7 +13,7 @@ import {
 import { OrganisationsVote } from 'Client/features/vote/Organisation';
 import { isInProgress } from 'Shared/helpers/date';
 import { DetailledVoteResults } from 'Client/ui/Proposal/DetailledVoteResults';
-import { AuthorWrapperStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
+import { AuthorWrapperStyle } from 'Client/ui/Proposal/DeprecatedAuthor/Styled';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { i18n } from 'Shared/i18n';
 import { ColumnElementStyle } from 'Client/ui/Elements/FlexElements';
@@ -43,7 +43,7 @@ export const ProposalCardTagged = ({ proposal, position, size }: Props) => {
   return (
     <ProposalCardStyle aria-posinset={position} aria-setsize={size}>
       <AuthorWrapperStyle>
-        <ProposalAuthorElement
+        <DeprecatedProposalAuthor
           proposal={proposal}
           withAvatar
           withCreationDate

@@ -17,6 +17,7 @@ import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
 import { CONSULTATION_POPULAR_PROPOSALS } from 'Shared/constants/featureFlipping';
 import { ProposalService } from 'Shared/services/Proposal';
 import { type ProposalsType, type ProposalType } from 'Shared/types/proposal';
+import { i18n } from 'Shared/i18n';
 
 export const getProposalLength = (content: string = '') => {
   if (content === '') {
@@ -125,3 +126,18 @@ export const buildProposalsFeed = (
 
 export const getProposalCardIndex = (index: number = 0) =>
   `proposal_list_card_${index}`;
+
+/**
+ * Rendering title depending on feed algorithm type
+ * @type {string}
+ * @param {string} sortKey
+ * @return {string}
+ */
+export const getProposalsListTitle = (sortKey: string) => {
+  switch (sortKey) {
+    case sortKey === 'RECENT':
+      return i18n.t('consultation.sort.RECENT');
+    default:
+      return i18n.t('consultation.sort.RECENT');
+  }
+};

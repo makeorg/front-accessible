@@ -1,9 +1,7 @@
 // @flow
 import React from 'react';
 import { i18n } from 'Shared/i18n';
-import { type StateRoot } from 'Shared/store/types';
-import { useSelector } from 'react-redux';
-import { useLocation } from 'react-router';
+import { useLocation, useParams } from 'react-router';
 import {
   getBrowseConsultationsLink,
   getBrowseResultsLink,
@@ -26,7 +24,7 @@ import {
 
 export const BrowseConsultationsHeader = () => {
   const location = useLocation();
-  const { country } = useSelector((state: StateRoot) => state.appConfig);
+  const { country, pageId } = useParams();
   const consultationsPage = isBrowseConsultationsPage(location.pathname);
   const isDesktop = useDesktop();
 
@@ -43,12 +41,14 @@ export const BrowseConsultationsHeader = () => {
       label: isDesktop
         ? i18n.t('browse.nav_consultations_desktop')
         : i18n.t('browse.nav_consultations_mobile'),
+      pathToMatch: getBrowseConsultationsLink(country, pageId),
     },
     {
       link: getBrowseResultsLink(country),
       label: isDesktop
         ? i18n.t('browse.nav_results_desktop')
         : i18n.t('browse.nav_results_mobile'),
+      pathToMatch: getBrowseResultsLink(country, pageId),
     },
   ];
 

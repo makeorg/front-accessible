@@ -21,3 +21,7 @@ export const MAIN_SKIPLINKS: string = 'main_skiplinks';
 export const MAIN_HEADER: string = 'main_header';
 export const MAIN_CONTENT: string = 'main_content';
 export const MAIN_FOOTER: string = 'main_footer';
+
+/** Consultation Elements */
+export const BROWSE_SECTION: string = 'browse_section';
+export const EXPLORE_SECTION: string = 'explore_section';

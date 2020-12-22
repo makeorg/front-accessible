@@ -3,9 +3,9 @@ import React from 'react';
 import { type ProposalType } from 'Shared/types/proposal';
 import { getProposalLink, getConsultationLink } from 'Shared/helpers/url';
 import { DetailledVoteResults } from 'Client/ui/Proposal/DetailledVoteResults';
-import { ProposalAuthorElement } from 'Client/ui/Proposal/AuthorElement';
+import { DeprecatedProposalAuthor } from 'Client/ui/Proposal/DeprecatedAuthor';
 import { ProposalFooterWithQuestionElement } from 'Client/ui/Proposal/FooterElement/ProposalWithQuestion';
-import { AuthorWrapperStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
+import { AuthorWrapperStyle } from 'Client/ui/Proposal/DeprecatedAuthor/Styled';
 import { ProposalStyle } from 'Client/ui/Elements/ProposalCardElements';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { i18n } from 'Shared/i18n';
@@ -31,7 +31,7 @@ export const ProfileProposalCard = ({ proposal, position, size }: Props) => {
       className={`proposal-${formattedProposalStatus}`}
     >
       <AuthorWrapperStyle>
-        <ProposalAuthorElement
+        <DeprecatedProposalAuthor
           proposal={proposal}
           withAvatar
           formattedProposalStatus={formattedProposalStatus}

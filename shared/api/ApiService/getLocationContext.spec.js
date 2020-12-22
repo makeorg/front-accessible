@@ -19,7 +19,7 @@ describe('getLocationContext', () => {
     },
     {
       name: 'ROUTE_EXPLORE',
-      path: '/FR/consultation/foo/explore',
+      path: '/FR/consultation/foo/explore/page/1',
       params: { questionId: 'question-id' },
       expected: `page-explore question-id`,
       expectedTracking: `page-explore`,

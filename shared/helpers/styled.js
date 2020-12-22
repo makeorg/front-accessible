@@ -29,6 +29,16 @@ export const scrollToTop = () => {
   return window.scrollTo(0, app.getBoundingClientRect().top);
 };
 
+export const scrollToElementId = (elementId: string) => {
+  const element = document.getElementById(elementId);
+
+  if (!element) {
+    return null;
+  }
+
+  return element.scrollIntoView();
+};
+
 export const getFullWidthDividedByItems = (count: number) => `${100 / count}%`;
 
 export const lockBody = () => {

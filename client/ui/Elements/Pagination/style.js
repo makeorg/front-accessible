@@ -4,6 +4,7 @@ import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { SvgPreviousArrow, SvgNextArrow } from 'Client/ui/Svg/elements';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
+import { Link } from 'react-router-dom';
 
 export const PaginationNavStyle = styled.nav`
   display: flex;
@@ -19,7 +20,7 @@ export const PaginationTextStyle = styled.span`
   padding: 0px 30px;
 `;
 
-export const PaginationButtonStyle = styled.button`
+export const PaginationLinkStyle = styled(Link)`
   background: none;
   border: none;
   padding: 0px;
@@ -27,6 +28,12 @@ export const PaginationButtonStyle = styled.button`
     fill: ${color.brandSecondary};
   }
   &:disabled .tofill {
+    fill: ${color.greyDark};
+  }
+`;
+
+export const PaginationDisabledStyle = styled.span`
+  .tofill {
     fill: ${color.greyDark};
   }
 `;

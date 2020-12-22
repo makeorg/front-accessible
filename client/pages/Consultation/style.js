@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 import { color, typography } from 'athena-design-tokens';
 import { intToPx, pxToPercent } from 'Shared/helpers/styled';
-import { ColumnElementStyle } from 'Client/ui/Elements/FlexElements';
+import {
+  ColumnElementStyle,
+  ColumnToRowElementStyle,
+} from 'Client/ui/Elements/FlexElements';
 import { Breakpoints, Layouts } from 'Client/app/assets/vars/Breakpoints';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { SvgChat } from 'Client/ui/Svg/elements';
@@ -115,6 +118,34 @@ export const ParticipateTitleStyle = styled.h3`
   }
 `;
 
+export const ExploreTitleWrapperStyle = styled(ColumnToRowElementStyle)`
+  margin-top: 30px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    align-items: baseline;
+    margin-top: 50px;
+  }
+`;
+
+export const ExploreTitleStyle = styled.h3`
+  font-family: ${MakeFonts.CircularStandardBold};
+  text-transform: none;
+  font-size: ${intToPx(typography.font.fontsize.L.value)};
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    font-size: ${intToPx(typography.font.fontsize.XL.value)};
+    margin-bottom: 0;
+    margin-right: 15px;
+  }
+`;
+
+export const ExploreProposalsCountStyle = styled.span`
+  font-family: ${MakeFonts.CircularStandardBook};
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
+  color: ${color.greyDark};
+  letter-spacing: 0.14px;
+`;
+
 export const ParticipateDescriptionStyle = styled.p`
   font-size: ${intToPx(typography.font.fontsize.XS.value)};
   max-width: 750px;
@@ -143,4 +174,8 @@ export const ParticipateMainContentStyle = styled(ColumnElementStyle)`
 export const ParticipateSidebarContentStyle = styled(ColumnElementStyle)`
   margin-left: ${pxToPercent(30, 1140)};
   width: ${pxToPercent(360, 1140)};
+`;
+
+export const ParticipateFullwidthContentStyle = styled(ColumnElementStyle)`
+  width: 100%;
 `;
