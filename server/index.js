@@ -14,7 +14,7 @@ import { serverInitI18n } from './i18n';
 import { cspMiddleware } from './middleware/contentSecurityPolicy';
 import { headersResponseMiddleware } from './middleware/headers';
 import { nonceUuidMiddleware } from './middleware/nonceUuid';
-import { FAVICON_PATH } from './paths';
+import { CLIENT_DIR, FAVICON_FILE } from './paths';
 import { proxyTargetApiUrl, frontUrl } from './configuration';
 
 serverInitI18n();
@@ -35,11 +35,14 @@ const getApp = () => {
     secure: false,
   });
 
+  // eslint-disable-next-line import/no-unresolved
+  const webpackManifest = require('webpack-manifest');
+
   app.use('/api-local', apiProxy);
   app.use(nonceUuidMiddleware);
   app.use(compression());
   app.use(bodyParser.json());
-  app.use(favicon(FAVICON_PATH));
+  app.use(favicon(`${CLIENT_DIR}/${webpackManifest[FAVICON_FILE]}`));
   app.use(cookiesMiddleware());
   app.use(headersResponseMiddleware);
 

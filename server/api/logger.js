@@ -1,12 +1,12 @@
-import { logger } from '../logger';
+import { getLoggerInstance } from '../logger';
 
 const parser = require('ua-parser-js');
 
-export function loggerApi(req, res) {
+export const loggerApi = async (req, res) => {
   const ua = parser(req.headers['user-agent']);
   const { level, data } = req.body;
   const normalizedData = typeof data === 'string' ? { message: data } : data;
-
+  const logger = await getLoggerInstance();
   logger.log(level, {
     ...normalizedData,
     browser: ua.browser,
@@ -16,4 +16,4 @@ export function loggerApi(req, res) {
   });
 
   return res.sendStatus(204);
-}
+};

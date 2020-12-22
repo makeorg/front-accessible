@@ -56,19 +56,6 @@ if (env.isDev()) {
   initialState = require('Shared/store/initialState.debug').initialStateDebug;
 }
 
-i18n.init({
-  interpolation: {
-    escapeValue: false,
-  },
-  debug: env.isDev(),
-  lng: initialState.appConfig.language,
-  resources: translationRessources,
-});
-
-FacebookTracking.init();
-TwitterUniversalTag.init();
-SnapchatTracking.init();
-
 ApiService.strategy = apiClient;
 
 const logAndTrackEvent = (eventName: string) => {
@@ -87,10 +74,12 @@ const initApp = async state => {
   // Track performance
   postPerfomanceTiming(performance.timing);
 
+  const { language, country, source, queryParams } = state.appConfig;
+
   const authenticationStateData = await authenticationState();
 
   // Set in session storage some keys from query params
-  customDataHelper.setDataFromQueryParams(state.appConfig.queryParams);
+  customDataHelper.setDataFromQueryParams(queryParams);
 
   const store = configureStore({
     ...state,
@@ -105,8 +94,22 @@ const initApp = async state => {
     customData: customDataHelper.getAll(), // custom_data already saved in session_storage
   });
 
+  // i18n
+  i18n.init({
+    interpolation: {
+      escapeValue: false,
+    },
+    debug: env.isDev(),
+    lng: language,
+    resources: translationRessources,
+  });
+
+  FacebookTracking.init();
+  TwitterUniversalTag.init();
+  SnapchatTracking.init();
+
   // Set date helper language
-  DateHelper.language = state.appConfig.language;
+  DateHelper.language = language;
 
   // add listerner to update apiClient params
   trackingParamsService.addListener({
@@ -122,9 +125,9 @@ const initApp = async state => {
   });
 
   // Set tracking params
-  trackingParamsService.source = state.appConfig.source;
-  trackingParamsService.country = state.appConfig.country;
-  trackingParamsService.language = state.appConfig.language;
+  trackingParamsService.source = source;
+  trackingParamsService.country = country;
+  trackingParamsService.language = language;
 
   const { currentQuestion, questions, customData } = store.getState();
   if (currentQuestion && questions[currentQuestion]) {
@@ -164,13 +167,10 @@ const initApp = async state => {
                     <CountryListener />
                     <Switch>
                       <Route
-                        path={getRouteNoCookies(state.appConfig.country)}
+                        path={getRouteNoCookies(country)}
                         component={NoCookies}
                       />
-                      <Redirect
-                        from="/"
-                        to={getRouteNoCookies(state.appConfig.country)}
-                      />
+                      <Redirect from="/" to={getRouteNoCookies(country)} />
                     </Switch>
                   </ErrorBoundary>
                 </ServiceErrorHandler>

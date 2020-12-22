@@ -61,12 +61,12 @@ import {
 const express = require('express');
 const serveStatic = require('serve-static');
 const {
-  BUILD_DIR,
   IMAGES_DIR,
   REPORTS_DIR,
   DOC_DIR,
-  HTML_DIR,
   ASSETS_DIR,
+  JS_DIR,
+  FAVICON_DIR,
 } = require('./paths');
 
 function setCustomCacheControl(res, path) {
@@ -79,24 +79,8 @@ function setCustomCacheControl(res, path) {
 export const initRoutes = app => {
   // Static files
   app.use(
-    '/assets',
-    express.static(BUILD_DIR, {
-      maxAge: '1y',
-      setHeaders: setCustomCacheControl,
-    })
-  );
-
-  app.use(
-    '/images',
-    express.static(IMAGES_DIR, {
-      maxAge: '1y',
-      setHeaders: setCustomCacheControl,
-    })
-  );
-
-  app.use(
-    '/static-pages/',
-    express.static(HTML_DIR, {
+    '/assets/favicon',
+    express.static(FAVICON_DIR, {
       maxAge: '1y',
       setHeaders: setCustomCacheControl,
     })
@@ -105,6 +89,22 @@ export const initRoutes = app => {
   app.use(
     '/assets',
     express.static(ASSETS_DIR, {
+      maxAge: '1y',
+      setHeaders: setCustomCacheControl,
+    })
+  );
+
+  app.use(
+    '/js',
+    express.static(JS_DIR, {
+      maxAge: '1y',
+      setHeaders: setCustomCacheControl,
+    })
+  );
+
+  app.use(
+    '/images',
+    express.static(IMAGES_DIR, {
       maxAge: '1y',
       setHeaders: setCustomCacheControl,
     })

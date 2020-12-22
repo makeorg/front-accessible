@@ -5,7 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const childProcess = require('child_process'); // eslint-disable-line security/detect-child-process
 
-const BUILD_DIR = path.resolve(process.cwd(), 'dist');
+const CLIENT_DIR = path.resolve(process.cwd(), 'dist', 'client');
 
 const lastCommit = childProcess
   .execSync('git rev-parse HEAD')
@@ -28,7 +28,7 @@ const version = {
 };
 
 try {
-  const versionPathFile = `${BUILD_DIR}/version`;
+  const versionPathFile = `${CLIENT_DIR}/version`;
 
   fs.writeFileSync(versionPathFile, JSON.stringify(version, null, 2), 'utf8');
 } catch (error) {

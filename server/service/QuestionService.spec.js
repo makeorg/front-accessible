@@ -1,16 +1,18 @@
 import { QuestionApiService } from 'Shared/api/QuestionApiService';
 import { ApiServiceError } from 'Shared/api/ApiService/ApiServiceError';
 import { QuestionService } from './QuestionService';
-import { logger } from '../logger';
 
 const cache = require('memory-cache');
 
 jest.mock('memory-cache');
 jest.mock('fs');
 jest.mock('Shared/api/QuestionApiService');
+const mockLoggerLog = jest.fn();
 
-jest.mock('../logger', () => ({
-  logger: { log: jest.fn() },
+jest.mock('Server/logger', () => ({
+  getLoggerInstance: () => ({
+    log: mockLoggerLog,
+  }),
 }));
 
 describe('Question Service', () => {
@@ -86,7 +88,6 @@ describe('Question Service', () => {
     });
 
     it('throw error when fetching content from Api and log it', async () => {
-      jest.spyOn(logger, 'log');
       const error = new ApiServiceError(
         'error',
         500,
@@ -101,7 +102,7 @@ describe('Question Service', () => {
       const result = await QuestionService.getQuestion('foo');
 
       expect(cache.put).not.toHaveBeenCalled();
-      expect(logger.log).toHaveBeenCalledWith('error', {
+      expect(mockLoggerLog).toHaveBeenCalledWith('error', {
         name: 'api-service-error',
         message: 'error in server/service/QuestionService/getQuestion: error',
         logId: 'error-id',

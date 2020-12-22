@@ -82,6 +82,7 @@ export const Footer = () => {
                     <FooterItemLinkStyle
                       as="a"
                       target="_blank"
+                      rel="noopener"
                       href={NEWS_LINK}
                       onClick={() => trackClickBlog('blog list')}
                     >
@@ -94,6 +95,7 @@ export const Footer = () => {
                     <FooterItemLinkStyle
                       as="a"
                       target="_blank"
+                      rel="noopener"
                       href={JOBS_LINK}
                     >
                       {i18n.t('main-footer.jobs')}
@@ -107,6 +109,7 @@ export const Footer = () => {
                 <FooterItemLinkStyle
                   as="a"
                   target="_blank"
+                  rel="noopener"
                   href={PRESS_DETAILS_LINK}
                 >
                   {i18n.t('main-footer.press_details')}
@@ -118,6 +121,7 @@ export const Footer = () => {
                 <FooterItemLinkStyle
                   as="a"
                   target="_blank"
+                  rel="noopener"
                   href={DOTATION_FUNDS_LINK}
                 >
                   {i18n.t('main-footer.dotation_funds')}

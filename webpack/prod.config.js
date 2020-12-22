@@ -2,7 +2,6 @@ const webpack = require('webpack');
 const { merge } = require('webpack-merge');
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
-const InlineSourcePlugin = require('html-webpack-inline-source-plugin');
 const nodeExternals = require('webpack-node-externals');
 const baseConfig = require('./base.config.js');
 const createHtmlWebpackPlugin = require('./plugins/htmlWebpackPlugin.config.js');
@@ -11,10 +10,11 @@ module.exports = [
   merge(baseConfig, {
     mode: 'production',
     output: {
-      filename: '[name].[hash].js',
-      chunkFilename: '[name].[hash].js',
-      path: path.resolve(__dirname, '..', 'dist'),
-      publicPath: '/assets/',
+      filename: 'js/[name].[hash].js',
+      chunkFilename: 'js/[name].[hash].js',
+      path: path.resolve(__dirname, '..', 'dist', 'client'),
+      publicPath: '/',
+      sourceMapFilename: '../map/[name].[hash].js.map',
     },
     stats: {
       hash: true,
@@ -44,11 +44,11 @@ module.exports = [
     },
     plugins: [
       createHtmlWebpackPlugin({ ssr: true }),
-      new InlineSourcePlugin(),
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify('production'),
       }),
     ],
+    devtool: 'hidden-source-map',
   }),
   {
     // server side rendering
@@ -64,11 +64,15 @@ module.exports = [
       path: path.resolve(__dirname, '..', 'dist'),
       filename: 'server.js',
       libraryTarget: 'commonjs2',
+      sourceMapFilename: 'map/[file].map',
     },
     node: {
       __dirname: true,
     },
-    externals: [nodeExternals()],
+    externals: [
+      nodeExternals(),
+      { 'webpack-manifest': './webpack-manifest.json' },
+    ],
     module: {
       rules: [
         {
@@ -76,6 +80,9 @@ module.exports = [
           exclude: /node_modules/,
           use: {
             loader: 'babel-loader',
+            options: {
+              plugins: ['convert-to-json'],
+            },
           },
         },
         {
@@ -84,7 +91,9 @@ module.exports = [
             {
               loader: 'file-loader',
               options: {
-                name: '/assets/[name].[hash].[ext]',
+                name: '[name].[hash].[ext]',
+                outputPath: 'client/assets',
+                publicPath: '/assets/',
               },
             },
           ],
@@ -95,6 +104,10 @@ module.exports = [
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify('production'),
       }),
+      new webpack.optimize.LimitChunkCountPlugin({
+        maxChunks: 1,
+      }),
     ],
+    devtool: 'source-map',
   },
 ];

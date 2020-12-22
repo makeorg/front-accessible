@@ -2,16 +2,18 @@ import { ViewsApiService } from 'Shared/api/ViewsApiService';
 import { ApiServiceError } from 'Shared/api/ApiService/ApiServiceError';
 import homepageFixture from '../../apiMocks/db/views.json';
 import { ViewsService } from './ViewsService';
-import { logger } from '../logger';
 
 const cache = require('memory-cache');
 
 jest.mock('memory-cache');
 jest.mock('fs');
 jest.mock('Shared/api/ViewsApiService');
+const mockLoggerLog = jest.fn();
 
-jest.mock('../logger', () => ({
-  logger: { log: jest.fn() },
+jest.mock('Server/logger', () => ({
+  getLoggerInstance: () => ({
+    log: mockLoggerLog,
+  }),
 }));
 
 const country = 'FR';
@@ -53,8 +55,6 @@ describe('Views Service', () => {
     });
 
     it('throw error when fetching content from Api and log it', async () => {
-      jest.spyOn(logger, 'log');
-
       const error = new ApiServiceError(
         'error',
         500,
@@ -69,7 +69,7 @@ describe('Views Service', () => {
       const result = await ViewsService.getHome(homepageFixture);
 
       expect(cache.put).not.toHaveBeenCalled();
-      expect(logger.log).toHaveBeenCalledWith('error', {
+      expect(mockLoggerLog).toHaveBeenCalledWith('error', {
         name: 'api-service-error',
         message: 'error in server/service/ViewsService/getHome: error',
         logId: '123-123',

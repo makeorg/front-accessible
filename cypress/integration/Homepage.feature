@@ -102,10 +102,12 @@ Feature: The Home Page
       | referrer            | http://localhost:9009/__/                                             |
       | custom-data         |                                                                       |
 
+  @focus
   Scenario: Track participate consultations button in hero section
     Given I go to "france homepage"
     Given I monitor API "postTracking" requests
     When I click on "participate-consultations" link
+    And I see "Participez aux consultations en cours"
     Then event "click-button-consultations" should be tracked by Make with parameters values:
         | name                | value                                                               |
         | eventType           | trackCustom                                                         |
