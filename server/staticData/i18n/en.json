@@ -151,7 +151,6 @@
         "invalid_age_dynamic": "{{label}}: you must be at least 13 years old to sign up.",
         "the_field_[email]_is_missing": "The {{label}} field is mandatory.",
         "the_field_[password]_is_missing": "The {{label}} field is mandatory.",
-        "firstname_is_mandatory": "The {{label}} field is mandatory.",
         "invalid_postal_code": "The postcode must have 5 numbers.",
         "invalid_postal_code_dynamic": "The {{label}} must have 5 numbers.",
         "submit_success": "Edits saved.",

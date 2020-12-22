@@ -5,9 +5,9 @@ Snapshot Diff:
 - First value
 + Second value
 
-@@ -9,11 +9,11 @@
-    <FieldWrapperStyle>
+@@ -10,11 +10,11 @@
       <BasicInputStyle
+        aria-invalid={false}
         id="bar"
         name="bar"
         onChange={[Function handleChange]}

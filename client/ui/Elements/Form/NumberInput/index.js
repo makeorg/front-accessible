@@ -60,6 +60,7 @@ export const NumberInput = ({
           onChange={throttle(handleChange)}
           min={min}
           max={max}
+          aria-invalid={!isFieldValid}
         />
         <FloatingLabelStyle htmlFor={name}>{label}</FloatingLabelStyle>
       </FieldWrapperStyle>
