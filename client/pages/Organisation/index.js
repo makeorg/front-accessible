@@ -47,6 +47,7 @@ import { TYPE_ORGANISATION } from 'Shared/constants/user';
 import { trackDisplayPublicProfile } from 'Shared/services/Tracking';
 import { CertifiedIconStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
 import { formatOrganisationName } from 'Shared/helpers/stringFormatter';
+import { getHomeLink } from 'Shared/helpers/url';
 
 const OrganisationProposalsPage = loadable(() => import('./Proposals'));
 const OrganisationVotesPage = loadable(() => import('./Votes'));
@@ -102,7 +103,7 @@ const OrganisationPage = (props: Props) => {
   }
 
   if (!organisation) {
-    return <Redirect to="/" />;
+    return <Redirect to={getHomeLink(country)} />;
   }
 
   return (

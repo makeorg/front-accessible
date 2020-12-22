@@ -2,8 +2,8 @@
 
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { useRouteMatch } from 'react-router';
 import { ROUTE_COUNTRY } from 'Shared/routes';
-import { useRouteMatch } from 'react-router-dom/cjs/react-router-dom.min';
 import { setCountryCode } from 'Shared/store/actions/appConfig';
 
 export const CountryListener = () => {

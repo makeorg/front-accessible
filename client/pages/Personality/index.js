@@ -1,6 +1,6 @@
 // @flow
 import React, { useEffect, useState } from 'react';
-import { Redirect, type match as TypeMatch } from 'react-router';
+import { Redirect, type match as TypeMatch, useParams } from 'react-router';
 import { i18n } from 'Shared/i18n';
 import { MetaTags } from 'Client/app/MetaTags';
 import { useMobile } from 'Client/hooks/useMedia';
@@ -33,6 +33,7 @@ import { TYPE_PERSONALITY } from 'Shared/constants/user';
 import { trackDisplayPublicProfile } from 'Shared/services/Tracking';
 import { CertifiedIconStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
 import { Opinions } from 'Client/features/opinions';
+import { getHomeLink } from 'Shared/helpers/url';
 
 type Props = {
   match: TypeMatch,
@@ -43,6 +44,7 @@ const PersonalityPage = ({ match }: Props) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const isMobile = useMobile();
   const { userId } = match.params;
+  const { country } = useParams();
 
   useEffect(() => {
     trackDisplayPublicProfile(TYPE_PERSONALITY);
@@ -64,7 +66,7 @@ const PersonalityPage = ({ match }: Props) => {
   }
 
   if (!personality) {
-    return <Redirect to="/" />;
+    return <Redirect to={getHomeLink(country)} />;
   }
 
   return (

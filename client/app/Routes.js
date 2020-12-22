@@ -48,6 +48,7 @@ import { TwitterUniversalTag } from 'Shared/services/Trackers/TwitterTracking';
 import { QuestionWrapper } from 'Client/pages/Consultation/QuestionWrapper';
 import { usePageBackgoundColor } from 'Client/hooks/usePageBackgroundColor';
 import { getHomeLink } from 'Shared/helpers/url';
+import { DEFAULT_COUNTRY } from 'Shared/constants/config';
 
 const BrowsePage = loadable(() => import('../pages/Browse/index.js'));
 const ConsultationPage = loadable(() =>
@@ -196,7 +197,7 @@ export const Routes = () => {
       <Route path={ROUTE_STATIC_CONTACT_EN} component={Contact} />
 
       <Route path={ROUTE_STATIC_NOTFOUND} component={NotFoundPage} />
-      <Redirect exact path="/" to={getHomeLink(country)} />
+      <Redirect exact path="/" to={getHomeLink(country || DEFAULT_COUNTRY)} />
 
       <Route component={NotFoundPage} />
     </Switch>
