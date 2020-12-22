@@ -26,17 +26,6 @@ describe('Sequence Actions', () => {
     Tracking.trackFirstVote.mockRestore();
   });
 
-  it('Creates SEQUENCE_COLLAPSE when calling action', () => {
-    const expectedActions = [
-      {
-        type: actionTypes.SEQUENCE_COLLAPSE,
-      },
-    ];
-
-    store.dispatch(actions.sequenceCollapse());
-    expect(store.getActions()).toEqual(expectedActions);
-  });
-
   it('Creates SEQUENCE_PROPOSAL_VOTE when calling action', () => {
     const proposalId = 'foo';
     const questionSlug = 'question-slug';

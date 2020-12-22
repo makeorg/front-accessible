@@ -16,6 +16,7 @@ import {
   resetFirstProposal,
   setSequenceIndex,
   loadSequenceCards,
+  resetSequenceVotedProposals,
 } from 'Shared/store/actions/sequence';
 import { SequenceService } from 'Shared/services/Sequence';
 import { useLocation } from 'react-router-dom';
@@ -86,7 +87,10 @@ export const Sequence = ({ question }: Props) => {
     });
   }, [question, firstProposal, isLoggedIn, hasProposed]);
 
-  useEffect(() => () => dispatch(resetFirstProposal()), []);
+  useEffect(() => {
+    dispatch(resetFirstProposal());
+    return () => dispatch(resetSequenceVotedProposals(question.slug));
+  }, []);
 
   useEffect(() => {
     if (!cards.length) {

@@ -43,11 +43,6 @@ export function sequence(
         ...state,
         proposals: [],
       };
-    case actionTypes.SEQUENCE_COLLAPSE:
-      return {
-        ...state,
-        isSequenceCollapsed: true,
-      };
     case actionTypes.SEQUENCE_PROPOSAL_VOTE: {
       const oldProposalList =
         state.votedProposalIds[action.payload.questionSlug] || [];

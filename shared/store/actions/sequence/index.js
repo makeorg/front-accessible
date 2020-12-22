@@ -9,9 +9,6 @@ import { type QualificationType } from 'Shared/types/qualification';
 import { TopComponentContextValue } from 'Client/context/TopComponentContext';
 import { type VoteType } from 'Shared/types/vote';
 
-export const sequenceCollapse = () => (dispatch: Dispatch) =>
-  dispatch({ type: actionTypes.SEQUENCE_COLLAPSE });
-
 export const loadSequenceCards = (cards: SequenceCardType[]) => ({
   type: actionTypes.SEQUENCE_LOAD_CARDS,
   payload: { cards },
