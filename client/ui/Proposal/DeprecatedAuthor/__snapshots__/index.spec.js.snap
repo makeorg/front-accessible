@@ -13,8 +13,8 @@ Snapshot Diff:
     >
 +     <Avatar />
       <ProposalAuthorInformations
-        author={
+        isSequence={false}
+        proposal={
           Object {
-            "age": 31,
-            "firstName": "Mickael",
+            "author": Object {
 `;

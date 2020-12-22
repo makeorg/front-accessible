@@ -39,8 +39,9 @@ export const ProposalAuthorAge = ({ age }) => {
   return <>{`, ${i18n.t('proposal_card.author.age', { age })}`}</>;
 };
 
-export const ProposalAuthorInformations = ({ author, isSequence }) => {
+export const ProposalAuthorInformations = ({ proposal, isSequence }: Props) => {
   const { country } = useParams();
+  const { author } = proposal;
 
   const isOrganisation = author.userType === TYPE_ORGANISATION;
   const isPersonality = author.userType === TYPE_PERSONALITY;
@@ -67,7 +68,7 @@ export const ProposalAuthorInformations = ({ author, isSequence }) => {
           <>
             <RedLinkRouterStyle
               onClick={() => trackClickPublicProfile(TYPE_PERSONALITY)}
-              to={getPersonalityProfileLink(country, author.userId)}
+              to={getPersonalityProfileLink(country, proposal.userId)}
             >
               {formatAuthorName(author.firstName)}
             </RedLinkRouterStyle>
@@ -95,15 +96,9 @@ export const ProposalAuthor = ({ proposal, isSequence = false }: Props) => {
   const avatarSize = setAvatarSize(isMobile, isSequence);
 
   return (
-    <>
-      <AuthorInfosStyle>
-        <Avatar
-          avatarUrl={author.avatarUrl}
-          isSequence
-          avatarSize={avatarSize}
-        />
-      </AuthorInfosStyle>
-      <ProposalAuthorInformations author={author} isSequence={isSequence} />
-    </>
+    <AuthorInfosStyle>
+      <Avatar avatarUrl={author.avatarUrl} isSequence avatarSize={avatarSize} />
+      <ProposalAuthorInformations proposal={proposal} isSequence={isSequence} />
+    </AuthorInfosStyle>
   );
 };

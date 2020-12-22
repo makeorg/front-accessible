@@ -41,14 +41,14 @@ export const BrowseConsultationsHeader = () => {
       label: isDesktop
         ? i18n.t('browse.nav_consultations_desktop')
         : i18n.t('browse.nav_consultations_mobile'),
-      pathToMatch: getBrowseConsultationsLink(country, pageId),
+      routeToMatch: getBrowseConsultationsLink(country, pageId),
     },
     {
       link: getBrowseResultsLink(country),
       label: isDesktop
         ? i18n.t('browse.nav_results_desktop')
         : i18n.t('browse.nav_results_mobile'),
-      pathToMatch: getBrowseResultsLink(country, pageId),
+      routeToMatch: getBrowseResultsLink(country, pageId),
     },
   ];
 

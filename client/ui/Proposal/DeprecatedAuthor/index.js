@@ -50,7 +50,10 @@ export const DeprecatedProposalAuthor = ({
             {!isSequence && <Avatar avatarUrl={author.avatarUrl} />}
           </>
         )}
-        <ProposalAuthorInformations author={author} isSequence={isSequence} />
+        <ProposalAuthorInformations
+          proposal={proposal}
+          isSequence={isSequence}
+        />
         {withCreationDate && !!proposal.createdAt && (
           <>
             &nbsp;&bull;&nbsp;
