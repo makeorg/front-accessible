@@ -28,6 +28,22 @@ describe('Url Helper', () => {
     expect(link).toEqual(`/${country}/consultation/${questionSlug}/selection`);
   });
 
+  it('return sequence Popular link', () => {
+    const link = urlHelper.getSequencePopularLink(country, questionSlug);
+
+    expect(link).toEqual(
+      `/${country}/consultation/${questionSlug}/selection-popular`
+    );
+  });
+
+  it('return sequence Controversial link', () => {
+    const link = urlHelper.getSequenceControversialLink(country, questionSlug);
+
+    expect(link).toEqual(
+      `/${country}/consultation/${questionSlug}/selection-controversial`
+    );
+  });
+
   it('return consultation link', () => {
     const link = urlHelper.getConsultationLink(country, questionSlug);
 

@@ -8,6 +8,8 @@ import {
   ROUTE_PARTICIPATE,
   ROUTE_ACTION,
   ROUTE_SEQUENCE,
+  ROUTE_SEQUENCE_POPULAR,
+  ROUTE_SEQUENCE_CONTROVERSIAL,
   ROUTE_PROPOSAL,
   ROUTE_ORGANISATION_PROFILE,
   ROUTE_PERSONALITY_PROFILE,
@@ -73,6 +75,48 @@ export const getSequenceLink = (
   params?: Object = {}
 ) =>
   generatePath(ROUTE_SEQUENCE, {
+    country,
+    questionSlug,
+  }).concat(
+    params && Object.keys(params).length > 0
+      ? `?${queryString.stringify(params)}`
+      : ''
+  );
+
+/**
+ * Get the sequence Popular link
+ * @param  {string} country
+ * @param  {string} questionSlug
+ *
+ * @return {string}
+ */
+export const getSequencePopularLink = (
+  country: string,
+  questionSlug: string,
+  params?: Object = {}
+) =>
+  generatePath(ROUTE_SEQUENCE_POPULAR, {
+    country,
+    questionSlug,
+  }).concat(
+    params && Object.keys(params).length > 0
+      ? `?${queryString.stringify(params)}`
+      : ''
+  );
+
+/**
+ * Get the sequence COntroversial link
+ * @param  {string} country
+ * @param  {string} questionSlug
+ *
+ * @return {string}
+ */
+export const getSequenceControversialLink = (
+  country: string,
+  questionSlug: string,
+  params?: Object = {}
+) =>
+  generatePath(ROUTE_SEQUENCE_CONTROVERSIAL, {
     country,
     questionSlug,
   }).concat(

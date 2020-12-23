@@ -67,6 +67,20 @@ describe('getLocationContext', () => {
       expectedTracking: 'sequence',
     },
     {
+      name: 'ROUTE_SEQUENCE_POPULAR',
+      path: '/FR/consultation/foo/selection-popular',
+      params: { questionId: 'question-id' },
+      expected: 'sequence-popular question-id',
+      expectedTracking: 'sequence-popular',
+    },
+    {
+      name: 'ROUTE_SEQUENCE_CONTROVERSIAL',
+      path: '/FR/consultation/foo/selection-controversial',
+      params: { questionId: 'question-id' },
+      expected: 'sequence-controversial question-id',
+      expectedTracking: 'sequence-controversial',
+    },
+    {
       name: 'ROUTE_PROPOSAL',
       path: '/FR/consultation/foo/proposal/bar/2',
       params: { proposalId: 'proposal-id' },

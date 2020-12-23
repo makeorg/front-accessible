@@ -15,7 +15,12 @@ import {
   VOTE_ONLY_MESSAGE,
 } from 'Shared/constants/notifications';
 
-const SequencePage = () => {
+export type Props = {
+  /** optional zone parameter for popular and controversy sequences */
+  zone?: string,
+};
+
+const SequencePage = ({ zone }: Props) => {
   const dispatch = useDispatch();
   const question: QuestionType = useSelector((state: StateRoot) =>
     selectCurrentQuestion(state)
@@ -52,7 +57,7 @@ const SequencePage = () => {
         description={question.wording.metas.description}
         picture={question.wording.metas.picture}
       />
-      <Sequence question={question} />
+      <Sequence question={question} zone={zone} />
     </>
   );
 };

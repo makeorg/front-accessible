@@ -13,6 +13,8 @@ export const TopComponentContextValue = {
   getOrganisationProposalList: () => 'organisation-proposal-list',
   getSingleProposal: () => 'single-proposal ',
   getSequenceProposal: () => 'sequence-proposal-card',
+  getSequencePopular: () => 'sequence-popular',
+  getSequenceControversial: () => 'sequence-controversial',
 };
 
 const defaultContext: TopComponentContextValueType = '';

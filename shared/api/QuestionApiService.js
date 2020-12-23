@@ -95,6 +95,7 @@ export class QuestionApiService {
   static startSequence(
     questionId: string,
     includedProposalIds: string[] = [],
+    zone?: string,
     headers?: ApiServiceHeadersType = {}
   ): Promise<any> {
     let startSequenceUrl = PATH_QUESTION_START_SEQUENCE.replace(
@@ -111,6 +112,7 @@ export class QuestionApiService {
     return ApiService.callApi(startSequenceUrl, {
       method: 'GET',
       headers,
+      params: { zone },
     });
   }
 
