@@ -21,4 +21,3 @@
 #### Features
 
 - [Sequence |>](./docs/sequence.md)
-- [Feature flipping |>](./docs/feature-flipping.md)

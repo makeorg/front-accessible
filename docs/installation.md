@@ -1,9 +1,23 @@
-import { Meta } from '@storybook/addon-docs/blocks';
-
-<Meta title="Documentation/Installation" />
-
 ## Installation 
-*   yarn install
+
+- Check Node js version in [.nvmrc](https://gitlab.com/makeorg/platform/front/-/blob/preproduction/.nvmrc) and prefer using NVM to manage your Node.js version
+- Check Yarn version in [.yvmrc](https://gitlab.com/makeorg/platform/front/-/blob/preproduction/.yvmrc) and prefer using YVM to manage your Yarn version
+- clone repo from gitlab (https://gitlab.com/makeorg/platform/front)
+- add `127.0.0.1       local.makeorg.tech` to hosts file in `/etc/hosts`
+- Run `yarn install` to install dependencies
+- then run `yarn start:dev` to launch development server
+
+- go to https://local.makeorg.tech:3000/
+> You may arrive on a non secure website page, go through by clicking advanced and Accept the risk and go
+
+Once the site loaded, you'll see there no dynamic content, it's because you don't get anything from API 
+## Commands
+
+- `start:dev`
+- `build`
+- `server:dev`
+- `server:preprod`
+
 
 ## Development Mode
 
