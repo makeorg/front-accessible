@@ -32,7 +32,6 @@ export type StateProposal = $ReadOnly<{
 
 // Sequence State
 export type StateSequence = $ReadOnly<{
-  isSequenceCollapsed: boolean,
   firstProposal?: string,
   currentIndex: number,
   votedProposalIds: { [string]: string[] },

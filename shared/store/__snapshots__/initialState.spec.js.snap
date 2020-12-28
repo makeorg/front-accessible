@@ -38,7 +38,6 @@ Object {
     "cards": Array [],
     "currentIndex": 0,
     "firstProposal": undefined,
-    "isSequenceCollapsed": false,
     "proposals": Array [],
     "questionSlug": undefined,
     "votedProposalIds": Object {},
