@@ -1,7 +1,3 @@
-import { Meta } from '@storybook/addon-docs/blocks';
-
-<Meta title="Documentation/VS Code" />
-
 ## Visual Studio Code
 
 If you use Visual Studio Code its preferable that you install those extension:

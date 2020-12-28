@@ -1,7 +1,3 @@
-import { Meta } from '@storybook/addon-docs/blocks';
-
-<Meta title="Documentation/Sequence" />
-
 ## Operations Params
 
 The Sequence is configured by setting parameters in ```sequenceConfig``` from JSON file.
