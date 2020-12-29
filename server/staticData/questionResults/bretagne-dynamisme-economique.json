@@ -100,23 +100,23 @@
         {
             "author": "Mick",
             "content": "Il faut arrêter d'accepter toutes les populations du monde et favoriser nos jeunes et personnes âgées.",
-            "agree": 50,
+            "agree": 49,
             "like_it": 14,
-            "disagree": 34,
-            "no_way": 20
+            "disagree": 33,
+            "no_way": 19
         },
         {
             "author": "Legoff",
             "content": "Il faut développer le tourisme en Bretagne.",
-            "agree": 53,
-            "like_it": 9,
-            "disagree": 20,
+            "agree": 52,
+            "like_it": 8,
+            "disagree": 19,
             "no_way": 10
         },
         {
             "author": "Robin2901",
             "content": "Il faut une totale indépendance économique pour notre Bretagne.",
-            "agree": 38,
+            "agree": 37,
             "like_it": 12,
             "disagree": 39,
             "no_way": 13
@@ -124,10 +124,10 @@
         {
             "author": "Virginie ",
             "content": "Il faut verser 1 000 euros à tous les citoyens chaque mois et chacun choisit le métier qu'il veut faire. Changer autant qu'on veut si besoin.",
-            "agree": 30,
+            "agree": 29,
             "like_it": 11,
             "disagree": 43,
-            "no_way": 12
+            "no_way": 11
         }
     ],
     "rejected": [

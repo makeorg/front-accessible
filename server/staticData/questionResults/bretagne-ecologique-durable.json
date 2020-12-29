@@ -82,10 +82,10 @@
         {
             "author": "Isabelle",
             "content": "Il faut interdire la chasse afin de permettre à la faune de renaitre.",
-            "agree": 40,
-            "like_it": 15,
+            "agree": 39,
+            "like_it": 14,
             "disagree": 31,
-            "no_way": 17
+            "no_way": 16
         },
         {
             "author": "Cecile",
@@ -98,18 +98,18 @@
         {
             "author": "Guylaine",
             "content": "Il faut moins taxer les collectes d'ordures ménagères.",
-            "agree": 58,
-            "like_it": 11,
-            "disagree": 19,
-            "no_way": 11
+            "agree": 57,
+            "like_it": 10,
+            "disagree": 18,
+            "no_way": 10
         },
         {
             "author": "Thierry",
             "content": "Il faut préserver le patrimoine naturel maritime et terrestre de l'industrialisation en stoppant la prolifération des éoliennes géantes.",
-            "agree": 48,
-            "like_it": 10,
-            "disagree": 30,
-            "no_way": 18
+            "agree": 49,
+            "like_it": 9,
+            "disagree": 27,
+            "no_way": 13
         }
     ],
     "rejected": [
