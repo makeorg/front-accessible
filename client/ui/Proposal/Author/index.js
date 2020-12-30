@@ -27,7 +27,7 @@ import { AuthorInfosStyle, InfosWrapperStyle } from './style';
 type Props = {
   /** Object with author's properties */
   proposal: ProposalType,
-  /** Enable seuquence context & specials styles */
+  /** Enable sequence context & specials styles */
   isSequence?: boolean,
 };
 

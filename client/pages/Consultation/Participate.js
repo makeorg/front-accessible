@@ -19,7 +19,11 @@ import { SubmitProposal } from 'Client/features/consultation/Cards/SubmitProposa
 import { SvgLightning, SvgLike, SvgPeople } from 'Client/ui/Svg/elements';
 import { CTAMonoBlock } from 'Client/features/consultation/Cards/CTAMonoblock';
 import { SocialSharing } from 'Client/features/consultation/Cards/SocialSharing';
-import { getSequenceLink } from 'Shared/helpers/url';
+import {
+  getSequenceLink,
+  getSequenceControversialLink,
+  getSequencePopularLink,
+} from 'Shared/helpers/url';
 import { CTAProposal } from 'Client/features/consultation/Cards/CTAProposal';
 import { ColumnToRowElementStyle } from 'Client/ui/Elements/FlexElements';
 import {
@@ -27,6 +31,7 @@ import {
   MobileAbout,
 } from 'Client/features/consultation/Cards/About';
 import { ParticipateNavigation } from 'Client/features/consultation/Navigation/Participate';
+import { FeaturedProposals } from 'Client/features/consultation/Cards/FeaturedProposals';
 import {
   ParticipateContentStyle,
   ParticipateInnerStyle,
@@ -125,7 +130,7 @@ const ParticipatePage = () => {
                 proposalCount={question.controversyCount}
                 thresold={PROPOSALS_THRESOLD}
                 linkText={i18n.t('consultation.cards.controversy.button')}
-                linkHref={getSequenceLink(country, question.slug, {
+                linkHref={getSequenceControversialLink(country, question.slug, {
                   introCard: false,
                 })}
                 classes="desktop-half margin-bottom desktop-padding-right"
@@ -137,7 +142,7 @@ const ParticipatePage = () => {
                 proposalCount={question.topProposalCount}
                 thresold={PROPOSALS_THRESOLD}
                 linkText={i18n.t('consultation.cards.popular.button')}
-                linkHref={getSequenceLink(country, question.slug, {
+                linkHref={getSequencePopularLink(country, question.slug, {
                   introCard: false,
                 })}
                 classes="desktop-half margin-bottom desktop-padding-left"
@@ -145,11 +150,10 @@ const ParticipatePage = () => {
             </ColumnToRowElementStyle>
             <SocialSharing />
           </ParticipateMainContentStyle>
-          {isDesktop && (
-            <ParticipateSidebarContentStyle>
-              <DesktopAbout />
-            </ParticipateSidebarContentStyle>
-          )}
+          <ParticipateSidebarContentStyle>
+            {isDesktop && <DesktopAbout />}
+            <FeaturedProposals question={question} />
+          </ParticipateSidebarContentStyle>
         </ParticipateInnerStyle>
       </ParticipateContentStyle>
     </ThemeProvider>

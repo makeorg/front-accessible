@@ -172,8 +172,11 @@ export const ParticipateMainContentStyle = styled(ColumnElementStyle)`
 `;
 
 export const ParticipateSidebarContentStyle = styled(ColumnElementStyle)`
-  margin-left: ${pxToPercent(30, 1140)};
-  width: ${pxToPercent(360, 1140)};
+  width: 100%;
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    margin-left: ${pxToPercent(30, 1140)};
+    width: ${pxToPercent(360, 1140)};
+  }
 `;
 
 export const ParticipateFullwidthContentStyle = styled(ColumnElementStyle)`
