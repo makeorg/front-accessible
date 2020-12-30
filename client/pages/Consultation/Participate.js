@@ -12,6 +12,7 @@ import {
   NOTIFICATION_LEVEL_INFORMATION,
   VOTE_ONLY_MESSAGE,
 } from 'Shared/constants/notifications';
+import { CitizenRegister } from 'Client/features/consultation/CitizenRegister';
 import { ParticipateHeader } from 'Client/features/consultation/Header';
 import { ParticipateHighlights } from 'Client/features/consultation/Highlights';
 import { useDesktop } from 'Client/hooks/useMedia';
@@ -97,6 +98,7 @@ const ParticipatePage = () => {
         picture={question.wording.metas.picture}
       />
       <ParticipateHeader />
+
       {!isDesktop && <MobileAbout />}
       <ParticipateHighlights />
       <ParticipateNavigation />
@@ -157,6 +159,7 @@ const ParticipatePage = () => {
           {!isDesktop && <SocialSharing />}
         </ParticipateInnerStyle>
       </ParticipateContentStyle>
+      <CitizenRegister />
     </ThemeProvider>
   );
 };
