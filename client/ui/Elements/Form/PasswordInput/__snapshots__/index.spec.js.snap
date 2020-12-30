@@ -9,6 +9,7 @@ exports[`PasswordInput must match the snapshot with default Props 1`] = `
   </CenterInputIconStyle>
   <FieldWrapperStyle>
     <BasicInputStyle
+      aria-invalid={false}
       id="bar"
       minLength={8}
       name="bar"

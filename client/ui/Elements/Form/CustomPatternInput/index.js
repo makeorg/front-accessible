@@ -67,6 +67,7 @@ export const CustomPatternInput = ({
           pattern={pattern}
           minLength={minLength}
           maxLength={maxLength}
+          aria-invalid={!isFieldValid}
         />
         <FloatingLabelStyle htmlFor={name}>{label}</FloatingLabelStyle>
       </FieldWrapperStyle>

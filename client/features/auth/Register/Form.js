@@ -55,7 +55,7 @@ export const RegisterForm = ({
   const emailError = getFieldError('email', errors);
   const passwordError = getFieldError('password', errors);
   const firstnameError = getFieldError('firstname', errors);
-  const ageError = getFieldError('age', errors);
+  const ageError = getFieldError('dateofbirth', errors);
   const postalcodeError = getFieldError('postalcode', errors);
   // @todo remove after territoires consultation is over
   const isPostalCodeRequired = currentQuestion === 'territoires';

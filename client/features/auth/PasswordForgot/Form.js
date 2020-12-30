@@ -30,9 +30,7 @@ export const ForgotPasswordForm = () => {
     const handleErrors = (serviceErrors: ErrorObjectType[]) => {
       setErrors(serviceErrors);
     };
-    if (email.trim() !== '') {
-      await UserService.forgotPassword(email.trim(), success, handleErrors);
-    }
+    await UserService.forgotPassword(email.trim(), success, handleErrors);
   };
 
   if (isSuccess) {

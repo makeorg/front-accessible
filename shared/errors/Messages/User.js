@@ -55,9 +55,20 @@ export const registerErrors: ErrorObjectType[] = [
     key: 'mandatory',
     message: (
       <MessageWithDynamicLabel
-        messageKey="common.form.messages.firstname_is_mandatory"
+        messageKey="common.form.messages.mandatory_dynamic"
         field="firstname"
         labelKey="common.form.label.firstname"
+      />
+    ),
+  },
+  {
+    field: 'dateofbirth',
+    key: 'mandatory',
+    message: (
+      <MessageWithDynamicLabel
+        messageKey="common.form.messages.mandatory_dynamic"
+        field="age"
+        labelKey="common.form.label.age"
       />
     ),
   },

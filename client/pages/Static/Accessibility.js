@@ -78,7 +78,7 @@ export const Accessibility = () => (
       <FocusBlockWrapperStyle as="section">
         <FocusBlockCheckIconStyle aria-hidden focusable="false" />
         <FocusBlockTitleStyle>
-          77% des critères RGAA 4.0 sont respectés
+          75% des critères RGAA 4.0 sont respectés
         </FocusBlockTitleStyle>
         <FocusBlockParagraphStyle>
           Make.org s&apos;engage à améliorer l&apos;accessibilité et
@@ -125,13 +125,13 @@ export const Accessibility = () => (
           </StaticParagraphStyle>
           <StaticSquareListStyle>
             <StaticSquareListItemStyle>
-              112 tests sont réalisés avec succès.
+              114 tests sont réalisés avec succès.
             </StaticSquareListItemStyle>
             <StaticSquareListItemStyle>
-              22 tests échouent.
+              23 tests échouent.
             </StaticSquareListItemStyle>
             <StaticSquareListItemStyle>
-              123 tests sont relatifs à des critères non applicables.
+              120 tests sont relatifs à des critères non applicables.
             </StaticSquareListItemStyle>
           </StaticSquareListStyle>
           <StaticSquareListStyle>
@@ -139,14 +139,14 @@ export const Accessibility = () => (
               53 critères sont respectés.
             </StaticSquareListItemStyle>
             <StaticSquareListItemStyle>
-              16 critères ne sont pas respectés.
+              18 critères ne sont pas respectés.
             </StaticSquareListItemStyle>
             <StaticSquareListItemStyle>
-              37 critères ne sont pas applicables.
+              35 critères ne sont pas applicables.
             </StaticSquareListItemStyle>
           </StaticSquareListStyle>
           <StaticParagraphStyle>
-            Soit 74% critères
+            Soit 75% critères
             <> </>
             <abbr title="Référentiel Général d’Amélioration de l’Accessibilité">
               RGAA 4.0

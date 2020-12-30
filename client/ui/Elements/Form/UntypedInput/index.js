@@ -42,6 +42,7 @@ export const UntypedInput = ({
 }: Props) => {
   const inputRef = useRef(null);
   const isFieldValid = useIsFieldValid(inputRef, error);
+
   return (
     <MiddleFakeFieldStyle hasError={!isFieldValid}>
       <CenterInputIconStyle aria-hidden>{icon}</CenterInputIconStyle>
@@ -54,6 +55,7 @@ export const UntypedInput = ({
           value={value}
           required={required}
           onChange={handleChange}
+          aria-invalid={!isFieldValid}
         />
         <FloatingLabelStyle htmlFor={name}>{label}</FloatingLabelStyle>
       </FieldWrapperStyle>

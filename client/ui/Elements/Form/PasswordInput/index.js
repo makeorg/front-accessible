@@ -56,6 +56,7 @@ export const PasswordInput = ({
           required={required}
           onChange={throttle(handleChange)}
           minLength={8}
+          aria-invalid={!isFieldValid}
         />
         <FloatingLabelStyle htmlFor={name}>{label}</FloatingLabelStyle>
       </FieldWrapperStyle>
