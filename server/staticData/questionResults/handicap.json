@@ -119,32 +119,42 @@
         {
             "author": "Marie",
             "content": "Il faut qu'un handicapé français puisse garder ses aides sociales, s'il choisit de vivre dans un autre pays de l'Europe",
-            "agree": 18,
-            "disagree": 37
+            "agree": 46,
+            "like_it": 8,
+            "disagree": 30,
+            "no_way": 11
         },
         {
             "author": "Philippe",
             "content": "Il faut légaliser le canabis, pour arrêter tout ces médicament bien chimiques qui nous rendent encore plus malades et qui nous coûtent cher",
-            "agree": 27,
-            "disagree": 49
+            "agree": 51,
+            "like_it": 14,
+            "disagree": 26,
+            "no_way": 13
         },
         {
             "author": "Laurence",
             "content": "Il faut faire des écoles parallèles avec des niveaux différents, qui doivent s'adapter aux publics concernés",
-            "agree": 18,
-            "disagree": 53
+            "agree": 59,
+            "like_it": 11,
+            "disagree": 17,
+            "no_way": 9
         },
         {
             "author": "Christelle",
             "content": "Il faut forcer les entreprises à employer des personnes handicapées et ne pas les autoriser à payer des amendes ou des pénalités.",
-            "agree": 23,
-            "disagree": 35
+            "agree": 56,
+            "like_it": 13,
+            "disagree": 27,
+            "no_way": 9
         },
         {
             "author": "Juliette",
             "content": "Il faut supprimer ce logo de fauteuil qui ne représente qu'une minorité des personnes en situation de handicap",
-            "agree": 21,
-            "disagree": 42
+            "agree": 42,
+            "like_it": 9,
+            "disagree": 38,
+            "no_way": 16
         }
     ],
     "rejected": [

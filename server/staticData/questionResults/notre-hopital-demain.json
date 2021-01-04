@@ -180,72 +180,72 @@
             "content": "Il faut donner une plus grande visibilité et rembourser l'homéopathie, ostéopathie, la médecine chinoise",
             "agree": 45,
             "like_it": 11,
-            "disagree": 32,
+            "disagree": 31,
             "no_way": 16
         },
         {
             "author": "Xavier",
             "content": "Il faut interdire les médecins libéraux de s'installer librement pour remédier aux déserts médicaux.",
-            "agree": 46,
-            "like_it": 12,
+            "agree": 45,
+            "like_it": 10,
             "disagree": 33,
-            "no_way": 11
+            "no_way": 10
         },
         {
             "author": "Marianne",
             "content": "Il faut rétablir l'isf pour donner les moyens de fonctionner à l'hôpital public",
             "agree": 45,
-            "like_it": 10,
-            "disagree": 27,
-            "no_way": 8
+            "like_it": 9,
+            "disagree": 26,
+            "no_way": 7
         },
         {
             "author": "Ilena",
             "content": "Il faut payer les urgences le jour même (même 1€ symbolique pour les moins favorisés)",
             "agree": 43,
-            "like_it": 9,
-            "disagree": 29,
+            "like_it": 8,
+            "disagree": 28,
             "no_way": 15
         },
         {
             "author": "Philippe",
             "content": "Il faut nationaliser les cliniques privées qui exercent une concurrence déloyale avec l'hôpital public. ",
-            "agree": 37,
-            "like_it": 10,
+            "agree": 35,
+            "like_it": 8,
             "disagree": 36,
-            "no_way": 11
+            "no_way": 10
         },
         {
             "author": "Safia",
             "content": "Il faut interdire la proposition de consultations privées dans des établissements publics",
             "agree": 46,
             "like_it": 13,
-            "disagree": 28,
-            "no_way": 12
+            "disagree": 27,
+            "no_way": 11
         },
         {
             "author": "Leila",
             "content": "Il faut accepter de donner la mort à l'hôpital. On y naît, pourquoi ne pas y mourir de façon prévisionnelle aussi ?",
-            "agree": 54,
-            "like_it": 11,
-            "disagree": 20,
-            "no_way": 9
-        },
-        {
-            "author": "Philippe",
-            "content": "Il faut évaluer le gain financier de la gratuitė totale des soins qui supprimerait  tous  les dispositifs de recouvrement .",
-            "agree": 40,
-            "like_it": 11,
+            "agree": 51,
+            "like_it": 9,
             "disagree": 20,
             "no_way": 8
         },
         {
+            "author": "Philippe",
+            "content": "Il faut évaluer le gain financier de la gratuitė totale des soins qui supprimerait  tous  les dispositifs de recouvrement .",
+            "agree": 39,
+            "like_it": 11,
+            "disagree": 19,
+            "no_way": 7
+        },
+        {
             "author": "Laurence",
             "content": "Il faut renforcer le rôle des patients par une démocratie sanitaire participative (ouverte à tous les usagers) par territoire de santé ",
-            "agree": 40,
-            "like_it": 7,
-            "disagree": 23,
-            "no_way": 10
+            "agree": 39,
+            "like_it": 6,
+            "disagree": 22,
+            "no_way": 9
         }
     ],
     "rejected": [

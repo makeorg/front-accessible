@@ -89,42 +89,42 @@
         {
             "author": "Thomas",
             "content": "Il faut piétonniser complètement les Champs Elysées pour en faire un lieu de vie urbaine et non un lieu de passage touristique.",
-            "agree": 44,
-            "like_it": 18,
-            "disagree": 44,
-            "no_way": 22
+            "agree": 41,
+            "like_it": 15,
+            "disagree": 45,
+            "no_way": 18
         },
         {
             "author": "Anne",
             "content": "Il faut permettre la voiture pour une meilleure mobilité car seule une classe d'âge peut utiliser vélos et trottinettes.",
-            "agree": 54,
-            "like_it": 19,
+            "agree": 52,
+            "like_it": 15,
             "disagree": 31,
-            "no_way": 17
+            "no_way": 18
         },
         {
             "author": "Caroline",
             "content": "Il faut réduire les voies de circulation de véhicules à moteur pour créer plusieurs voies vélos",
-            "agree": 59,
+            "agree": 60,
             "like_it": 12,
-            "disagree": 28,
-            "no_way": 14
+            "disagree": 26,
+            "no_way": 11
         },
         {
             "author": "Greg",
             "content": "Il faut créer un grand jardin 100% piéton, central park parisien, sur toute l'avenue de l'Arc à la Concorde",
-            "agree": 45,
-            "like_it": 20,
+            "agree": 44,
+            "like_it": 19,
             "disagree": 45,
             "no_way": 22
         },
         {
             "author": "Thomas",
             "content": "Il faut faire des concerts comme à l'époque (Supertramp, Johnny...)\t",
-            "agree": 42,
-            "like_it": 15,
-            "disagree": 40,
-            "no_way": 20
+            "agree": 44,
+            "like_it": 14,
+            "disagree": 33,
+            "no_way": 14
         }
     ],
     "rejected": [
