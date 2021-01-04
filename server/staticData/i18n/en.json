@@ -635,10 +635,10 @@
       "introduction": "Find out more about the other themes addressed in the consultation: {{name}}",
       "participate_desktop": "@@consultation.navigation.participate_desktop|fr:Participer à la consultation",
       "participate_mobile": "@@consultation.navigation.participate_mobile|fr:Participer",
-      "participate_breadcrumb": "@@consultation.navigation.participate_breadcrumb|fr:Participer à la consultation : \"{{title}}\"",
+      "participate_breadcrumb": "@@consultation.navigation.participate_breadcrumb|fr:Participer à \"{{title}}\"",
       "explore_desktop": "@@consultation.navigation.explore_desktop|fr:Explorer les propositions",
       "explore_mobile": "@@consultation.navigation.explore_mobile|fr:Explorer",
-      "explore_breadcrumb": "@@consultation.navigation.explore_breadcrumb|fr:Explorer les propositions de la consultation : \"{{title}}\""
+      "explore_breadcrumb": "@@consultation.navigation.explore_breadcrumb|fr:Explorer \"{{title}}\""
     },
     "sort": {
       "TAGGED_FIRST": "All the solutions",

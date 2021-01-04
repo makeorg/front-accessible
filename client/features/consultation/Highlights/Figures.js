@@ -28,14 +28,12 @@ export const Figures = () => {
           {i18n.t('consultation.highlights.date')}
         </HigthlightsTitleStyle>
         <ScreenReaderItemStyle> : </ScreenReaderItemStyle>
-        <strong>
-          <FiguresValueStyle
-            as="time"
-            dateTime={DateHelper.localizedLDate(question.startDate)}
-          >
-            {DateHelper.localizedllDate(question.startDate)}
-          </FiguresValueStyle>
-        </strong>
+        <FiguresValueStyle
+          as="time"
+          dateTime={DateHelper.localizedLDate(question.startDate)}
+        >
+          {DateHelper.localizedllDate(question.startDate)}
+        </FiguresValueStyle>
       </FiguresListItemStyle>
       <FiguresListItemStyle>
         <HigthlightsTitleStyle>
