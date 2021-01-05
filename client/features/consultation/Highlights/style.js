@@ -68,7 +68,7 @@ export const HigthlightsTitleStyle = styled.span`
   letter-spacing: 0.14px;
 `;
 
-export const FiguresValueStyle = styled.strong`
+export const FiguresValueStyle = styled.span`
   display: block;
   font-family: ${MakeFonts.CircularStandardBold};
   font-size: ${intToPx(typography.font.fontsize.L.value)};

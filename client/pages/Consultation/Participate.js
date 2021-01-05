@@ -22,8 +22,6 @@ import { SocialSharing } from 'Client/features/consultation/Cards/SocialSharing'
 import { getSequenceLink } from 'Shared/helpers/url';
 import { CTAProposal } from 'Client/features/consultation/Cards/CTAProposal';
 import { ColumnToRowElementStyle } from 'Client/ui/Elements/FlexElements';
-import { CONSULTATION_SHARE_DISABLE } from 'Shared/constants/featureFlipping';
-import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
 import {
   DesktopAbout,
   MobileAbout,
@@ -82,11 +80,6 @@ const ParticipatePage = () => {
       height={28}
       focusable="false"
     />
-  );
-
-  const isSharingDisabled = checkIsFeatureActivated(
-    CONSULTATION_SHARE_DISABLE,
-    question.activeFeatures
   );
 
   return (
@@ -150,7 +143,7 @@ const ParticipatePage = () => {
                 classes="desktop-half margin-bottom desktop-padding-left"
               />
             </ColumnToRowElementStyle>
-            {!isSharingDisabled && <SocialSharing />}
+            <SocialSharing />
           </ParticipateMainContentStyle>
           {isDesktop && (
             <ParticipateSidebarContentStyle>

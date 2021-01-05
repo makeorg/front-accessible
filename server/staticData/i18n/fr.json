@@ -709,10 +709,10 @@
       "introduction": "Retrouvez les autres thématiques abordées dans le cadre de la consultation : {{name}}",
       "participate_desktop": "Participer à la consultation",
       "participate_mobile": "Participer",
-      "participate_breadcrumb": "Participer à la consultation : \"{{title}}\"",
+      "participate_breadcrumb": "Participer à \"{{title}}\"",
       "explore_desktop": "Explorer les propositions",
       "explore_mobile": "Explorer",
-      "explore_breadcrumb": "Explorer les propositions de la consultation : \"{{title}}\""
+      "explore_breadcrumb": "Explorer \"{{title}}\""
     },
     "tabs": {
       "consultation": " Consultation ",
