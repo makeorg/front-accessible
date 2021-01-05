@@ -24,16 +24,18 @@ describe('Question Service', () => {
       QuestionApiService.startSequence.mockResolvedValue({
         id: 'foo',
         proposals,
+        zone: 'bar',
       });
 
       jest.spyOn(QuestionApiService, 'startSequence');
 
-      await SequenceService.startSequence('foo', includedProposalIds);
+      await SequenceService.startSequence('foo', includedProposalIds, 'bar');
 
       expect(QuestionApiService.startSequence).toHaveBeenNthCalledWith(
         1,
         'foo',
-        includedProposalIds
+        includedProposalIds,
+        'bar'
       );
     });
 

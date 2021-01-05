@@ -13,6 +13,8 @@ import {
   ROUTE_EXPLORE,
   ROUTE_ACTION,
   ROUTE_SEQUENCE,
+  ROUTE_SEQUENCE_POPULAR,
+  ROUTE_SEQUENCE_CONTROVERSIAL,
   ROUTE_ACCOUNT_ACTIVATION,
   ROUTE_PROPOSAL,
   ROUTE_PASSWORD_RECOVERY,
@@ -71,6 +73,13 @@ const TopIdeaDetailsPage = loadable(() =>
 const SequencePage = loadable(() =>
   import('../pages/Consultation/Sequence.js')
 );
+const SequencePopularPage = loadable(() =>
+  import('../pages/Consultation/Sequence.js')
+);
+const SequenceControversialPage = loadable(() =>
+  import('../pages/Consultation/Sequence.js')
+);
+
 const PasswordRecoveryPage = loadable(() =>
   import('../pages/PasswordRecovery')
 );
@@ -136,6 +145,16 @@ export const Routes = () => {
       <Route path={ROUTE_SEQUENCE}>
         <QuestionWrapper withRedirect>
           <SequencePage />
+        </QuestionWrapper>
+      </Route>
+      <Route path={ROUTE_SEQUENCE_POPULAR}>
+        <QuestionWrapper withRedirect>
+          <SequencePopularPage zone="consensus" />
+        </QuestionWrapper>
+      </Route>
+      <Route path={ROUTE_SEQUENCE_CONTROVERSIAL}>
+        <QuestionWrapper withRedirect>
+          <SequenceControversialPage zone="controversy" />
         </QuestionWrapper>
       </Route>
       <Route path={ROUTE_RESULTS}>

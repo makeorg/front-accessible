@@ -37,12 +37,14 @@ import { SequencePlaceholder } from './Placeholder';
 export type Props = {
   /** Object with Dynamic properties used to configure the Sequence (questionId, country, ...) */
   question: QuestionType,
+  /** optional zone parameter for popular and controversy sequences */
+  zone?: string,
 };
 
 /**
  * Renders Sequence component with Intro / Push Proposal / Sign Up & Proposal Cards
  */
-export const Sequence = ({ question }: Props) => {
+export const Sequence = ({ question, zone }: Props) => {
   const dispatch = useDispatch();
   const { country } = useSelector((state: StateRoot) => state.appConfig);
   const { firstProposal, votedProposalIds, currentIndex, cards } = useSelector(
@@ -76,10 +78,11 @@ export const Sequence = ({ question }: Props) => {
 
   useEffect(() => {
     const votedProposalIdsOfQuestion = votedProposalIds[question.slug] || [];
-    SequenceService.startSequence(question.questionId, [
-      firstProposal,
-      ...votedProposalIdsOfQuestion,
-    ]).then(proposals => {
+    SequenceService.startSequence(
+      question.questionId,
+      [firstProposal, ...votedProposalIdsOfQuestion],
+      zone
+    ).then(proposals => {
       setSequenceProposals(proposals || []);
       dispatch(resetSequenceIndex());
 

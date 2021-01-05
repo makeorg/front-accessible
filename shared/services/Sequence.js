@@ -7,13 +7,15 @@ import { defaultUnexpectedError } from './DefaultErrorHandler';
 
 const startSequence = async (
   questionId: string,
-  includedProposalIds: string[]
+  includedProposalIds: string[],
+  zone?: string
 ): Promise<?(ProposalType[])> => {
   const getProposals = await (async (): Promise<ProposalType[] | null> => {
     try {
       const response = await QuestionApiService.startSequence(
         questionId,
-        includedProposalIds
+        includedProposalIds,
+        zone
       );
       const sequence: SequenceType = response.data;
       const { proposals } = sequence;

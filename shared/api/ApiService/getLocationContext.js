@@ -3,6 +3,8 @@
 import {
   ROUTE_CONSULTATION,
   ROUTE_SEQUENCE,
+  ROUTE_SEQUENCE_POPULAR,
+  ROUTE_SEQUENCE_CONTROVERSIAL,
   ROUTE_PROPOSAL,
   matchRoute,
   ROUTE_ACTION,
@@ -47,6 +49,11 @@ export const getLocationContext = (
     },
     { route: ROUTE_TOP_IDEAS, name: `page-top-ideas ${questionId}` },
     { route: ROUTE_SEQUENCE, name: `sequence ${questionId}` },
+    { route: ROUTE_SEQUENCE_POPULAR, name: `sequence-popular ${questionId}` },
+    {
+      route: ROUTE_SEQUENCE_CONTROVERSIAL,
+      name: `sequence-controversial ${questionId}`,
+    },
     { route: ROUTE_PROPOSAL, name: `proposal-page ${proposalId}` },
     { route: ROUTE_SEARCH_PROPOSALS, name: `search-proposals-page` },
     { route: ROUTE_SEARCH_ORGANISATIONS, name: `search-organisations-page` },
