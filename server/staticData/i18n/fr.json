@@ -703,6 +703,9 @@
         "title": "Pourquoi cette consultation ?",
         "description": "Pour quelles raisons cette consultation a-t-elle été lancée ? Quels sont les enjeux ? Qui est à l'initiative ?",
         "link": "En savoir plus"
+      },
+      "featured_proposals": {
+        "title": "Ils ont soumis une proposition"
       }
     },
     "navigation": {

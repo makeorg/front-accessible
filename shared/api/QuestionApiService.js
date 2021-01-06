@@ -13,6 +13,8 @@ const PATH_QUESTION_POPULAR_TAGS = '/questions/:questionId/popular-tags';
 const PATH_QUESTION_TOP_IDEAS = '/questions/:questionId/top-ideas';
 const PATH_QUESTION_TOP_IDEA_DETAILS =
   '/questions/:questionId/top-ideas/:topIdeaId';
+const PATH_QUESTION_FEATURED_PROPOSALS =
+  '/questions/:questionId/featured-proposals';
 
 export class QuestionApiService {
   static getQuestions(
@@ -163,6 +165,27 @@ export class QuestionApiService {
       {
         method: 'GET',
         headers,
+      }
+    );
+  }
+
+  static getFeaturedProposals(
+    questionId: string,
+    maxPartnerProposals: number,
+    limit: number,
+    seed?: number,
+    headers?: ApiServiceHeadersType = {}
+  ): Promise<any> {
+    return ApiService.callApi(
+      PATH_QUESTION_FEATURED_PROPOSALS.replace(':questionId', questionId),
+      {
+        method: 'GET',
+        headers,
+        params: {
+          maxPartnerProposals,
+          limit,
+          seed,
+        },
       }
     );
   }

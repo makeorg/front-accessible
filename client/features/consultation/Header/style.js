@@ -71,11 +71,11 @@ export const HeaderListWrapperStyle = styled.div`
   }
 `;
 
-export const HeaderListLabelStyle = styled.label`
+export const HeaderListLabelStyle = styled.span`
+  font-family: ${MakeFonts.CircularStandardBold};
   color: ${props =>
     props.theme.fontColor ? props.theme.fontColor : color.black};
   font-size: ${intToPx(typography.font.fontsize.XS.value)};
-  font-weight: bold;
 `;
 
 export const HeaderListStyle = styled.ul`

@@ -146,6 +146,27 @@ const getQuestionPersonalities = async (
   }
 };
 
+const getFeaturedProposals = async (
+  questionId: string,
+  maxPartnerProposals: number,
+  limit: number,
+  seed: ?number = undefined
+): Promise<?{ total: number, results: QuestionPartnerType[] }> => {
+  try {
+    const response = await QuestionApiService.getFeaturedProposals(
+      questionId,
+      maxPartnerProposals,
+      limit,
+      seed
+    );
+    return response.data;
+  } catch (apiServiceError) {
+    defaultUnexpectedError(apiServiceError);
+
+    return null;
+  }
+};
+
 export const QuestionService = {
   getQuestions,
   getDetail,
@@ -153,4 +174,5 @@ export const QuestionService = {
   getQuestionPopularTags,
   getQuestionPartners,
   getQuestionPersonalities,
+  getFeaturedProposals,
 };

@@ -777,6 +777,9 @@
         "title": "@@consultation.cards.about.title|fr:Pourquoi cette consultation ?",
         "description": "@@consultation.cards.about.description|fr:Pour quelles raisons cette consultation a-t-elle été lancée ? Quels sont les enjeux ? Qui est à l'initiative ?",
         "link": "@@consultation.cards.about.link|fr:En savoir plus"
+      },
+      "featured_proposals": {
+        "title": "They have submitted a proposal"
       }
     }
   },
