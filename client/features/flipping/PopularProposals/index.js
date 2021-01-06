@@ -1,5 +1,6 @@
 // @flow
 import React, { useEffect, useRef, useState } from 'react';
+import { type StateRoot } from 'Shared/store/types';
 import { type QuestionType } from 'Shared/types/question';
 import { type SliderParamsType } from 'Shared/types/views';
 import { i18n } from 'Shared/i18n';
@@ -10,11 +11,12 @@ import { SvgArrowLeft, SvgArrowRight } from 'Client/ui/Svg/elements';
 import { FlexElementStyle } from 'Client/ui/Elements/FlexElements';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import { GliderStylesheet } from 'Client/app/assets/css-in-js/GliderStyle';
-import { useMobile } from 'Client/hooks/useMedia';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { trackLoadMoreProposals } from 'Shared/services/Tracking';
 import { COMPONENT_PARAM_TOP_PROPOSALS } from 'Shared/constants/tracking';
 import { ProposalService } from 'Shared/services/Proposal';
+import { matchMobileDevice } from 'Shared/helpers/styled';
+import { useSelector } from 'react-redux';
 import {
   PopularProposalsSliderListStyle,
   PopularProposalsSliderListItemStyle,
@@ -70,7 +72,8 @@ const sliderParams: SliderParamsType = {
 
 export const PopularProposals = ({ question, position, size }: Props) => {
   const sliderRef = useRef();
-  const isMobile = useMobile();
+  const { device } = useSelector((state: StateRoot) => state.appConfig);
+  const isMobile = matchMobileDevice(device);
   const [proposals, setProposals] = useState([]);
   const hasProposals = proposals && proposals.length > 0;
 

@@ -1,7 +1,6 @@
 // @flow
 import React from 'react';
 import { type StateRoot } from 'Shared/store/types';
-import { useDesktop } from 'Client/hooks/useMedia';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectAuthentication } from 'Shared/store/selectors/user.selector';
 import { trackClickProfile } from 'Shared/services/Tracking';
@@ -18,15 +17,18 @@ import { i18n } from 'Shared/i18n';
 import { modalShowLogin } from 'Shared/store/actions/modal';
 import { SEARCH_ELEMENT_ARIA_CLASS } from 'Shared/constants/a11y';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
+import { matchDesktopDevice } from 'Shared/helpers/styled';
 import { ProfileLinkStyle } from './style';
 
 export const HeaderAuthentication = () => {
-  const isDesktop = useDesktop();
   const dispatch = useDispatch();
   const { user } = useSelector((state: StateRoot) =>
     selectAuthentication(state)
   );
-  const { country } = useSelector((state: StateRoot) => state.appConfig);
+  const { country, device } = useSelector(
+    (state: StateRoot) => state.appConfig
+  );
+  const isDesktop = matchDesktopDevice(device);
 
   if (user) {
     const isOrganisation = user.userType === TYPE_ORGANISATION;

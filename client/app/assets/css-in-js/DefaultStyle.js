@@ -6,8 +6,6 @@ import {
   NAVIGATION_ELEMENT_ARIA_CLASS,
   SEARCH_ARIA_CLASS,
   SEARCH_ELEMENT_ARIA_CLASS,
-  FADE_OUT_ANIMATION,
-  FADE_IN_ANIMATION,
 } from 'Shared/constants/a11y';
 import { MakeFonts } from '../vars/Fonts';
 
@@ -109,26 +107,6 @@ export const DefaultStylesheet = createGlobalStyle`
     }
   }
 
-  .${FADE_OUT_ANIMATION},
-  .${FADE_OUT_ANIMATION} a,
-  .${FADE_OUT_ANIMATION} button,
-  .${FADE_OUT_ANIMATION} input {
-    animation-name: fadeOut;
-    animation-duration: 1s;
-    animation-iteration-count: 1;
-  }
-
-  .${SEARCH_ELEMENT_ARIA_CLASS}.${FADE_OUT_ANIMATION},
-  .${SEARCH_ARIA_CLASS}.${FADE_OUT_ANIMATION} {
-    animation-duration: 0.25s;
-  }
-
-  .${SEARCH_ELEMENT_ARIA_CLASS}.${FADE_IN_ANIMATION},
-  .${SEARCH_ARIA_CLASS}.${FADE_IN_ANIMATION} {
-    animation-name: fadeIn;
-    animation-duration: 1s;
-    animation-iteration-count: 1;
-  }
 
   .${NAVIGATION_ELEMENT_ARIA_CLASS}[aria-hidden="true"],
   .${NAVIGATION_ARIA_CLASS}[aria-hidden="true"] a,

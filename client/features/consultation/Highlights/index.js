@@ -4,7 +4,7 @@ import { type QuestionType } from 'Shared/types/question';
 import { useSelector } from 'react-redux';
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
 import { Image } from 'Client/ui/Image';
-import { useDesktop } from 'Client/hooks/useMedia';
+import { matchDesktopDevice } from 'Shared/helpers/styled';
 import { Figures } from './Figures';
 import {
   HigthlightsColumnStyle,
@@ -14,10 +14,12 @@ import {
 import { Progress } from './Progress';
 
 export const ParticipateHighlights = () => {
-  const isDesktop = useDesktop();
   const question: QuestionType = useSelector((state: StateRoot) =>
     selectCurrentQuestion(state)
   );
+  const { device } = useSelector((state: StateRoot) => state.appConfig);
+  const isDesktop = matchDesktopDevice(device);
+
   return (
     <HigthlightsWrapperStyle>
       <HigthlightsColumnStyle className="half">
@@ -35,6 +37,7 @@ export const ParticipateHighlights = () => {
               src={question.descriptionImage}
               alt={question.descriptionImageAlt}
               width={555}
+              height={331}
             />
           </ImageWrapperStyle>
         </HigthlightsColumnStyle>

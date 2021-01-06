@@ -6,3 +6,8 @@ export const GOOGLE_LOGIN_ID =
 
 export const DEFAULT_LANGUAGE = 'en';
 export const DEFAULT_COUNTRY = 'FR';
+
+export const DESKTOP_DEVICE = 'DESKTOP';
+export const MOBILE_DEVICE = 'MOBILE';
+
+export const DEBOUNCE_TIMER = 250;

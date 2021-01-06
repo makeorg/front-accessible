@@ -4,8 +4,10 @@ import { i18n } from 'Shared/i18n';
 import { type ProposalType } from 'Shared/types/proposal';
 import { DateHelper } from 'Shared/helpers/date';
 import { Avatar } from 'Client/ui/Avatar';
-import { useMobile } from 'Client/hooks/useMedia';
+import { type StateRoot } from 'Shared/store/types';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
+import { matchMobileDevice } from 'Shared/helpers/styled';
+import { useSelector } from 'react-redux';
 import {
   AuthorDescriptionStyle,
   AuthorInfosStyle,
@@ -34,7 +36,8 @@ export const DeprecatedProposalAuthor = ({
   isSequence = false,
 }: Props) => {
   const { author } = proposal;
-  const isMobile = useMobile();
+  const { device } = useSelector((state: StateRoot) => state.appConfig);
+  const isMobile = matchMobileDevice(device);
   return (
     <AuthorDescriptionStyle>
       <AuthorInfosStyle as="div" isSequence={isSequence}>

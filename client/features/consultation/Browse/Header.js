@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import { i18n } from 'Shared/i18n';
+import { type StateRoot } from 'Shared/store/types';
 import { useLocation, useParams } from 'react-router';
 import {
   getBrowseConsultationsLink,
@@ -15,7 +16,8 @@ import {
   InnerPagesNavigation,
   type PageNavigationType,
 } from 'Client/features/navigation/Pages';
-import { useDesktop } from 'Client/hooks/useMedia';
+import { useSelector } from 'react-redux';
+import { matchDesktopDevice } from 'Shared/helpers/styled';
 import {
   BrowseHeaderStyle,
   BrowseHeaderInnerStyle,
@@ -25,8 +27,9 @@ import {
 export const BrowseConsultationsHeader = () => {
   const location = useLocation();
   const { country, pageId } = useParams();
+  const { device } = useSelector((state: StateRoot) => state.appConfig);
   const consultationsPage = isBrowseConsultationsPage(location.pathname);
-  const isDesktop = useDesktop();
+  const isDesktop = matchDesktopDevice(device);
 
   const currentPage: BreadcrumbsPagesType = {
     name: consultationsPage

@@ -7,11 +7,11 @@ import {
   type match as TypeMatch,
   type Location as TypeLocation,
 } from 'react-router';
+import { type StateRoot } from 'Shared/store/types';
 import loadable from '@loadable/component';
 import { i18n } from 'Shared/i18n';
 import { MetaTags } from 'Client/app/MetaTags';
 import { type OrganisationType } from 'Shared/types/organisation';
-import { useMobile } from 'Client/hooks/useMedia';
 import { TabNavStyle, TabListStyle, TabStyle } from 'Client/ui/Elements/Tabs';
 import {
   isOrganisationProposals as getIsOrganisationProposals,
@@ -48,6 +48,8 @@ import { trackDisplayPublicProfile } from 'Shared/services/Tracking';
 import { CertifiedIconStyle } from 'Client/ui/Proposal/DeprecatedAuthor/Styled';
 import { formatOrganisationName } from 'Shared/helpers/stringFormatter';
 import { getHomeLink } from 'Shared/helpers/url';
+import { matchMobileDevice } from 'Shared/helpers/styled';
+import { useSelector } from 'react-redux';
 
 const OrganisationProposalsPage = loadable(() => import('./Proposals'));
 const OrganisationVotesPage = loadable(() => import('./Votes'));
@@ -60,7 +62,8 @@ type Props = {
 const OrganisationPage = (props: Props) => {
   const [organisation, setOrganisation] = useState(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const isMobile = useMobile();
+  const { device } = useSelector((state: StateRoot) => state.appConfig);
+  const isMobile = matchMobileDevice(device);
   const { match, location } = props;
   const { country, organisationSlug } = match.params;
   const organisationProposalsLink = getRouteOrganisationProposals(

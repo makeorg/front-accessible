@@ -18,8 +18,8 @@ import {
   getRouteSearchConsultations,
   getRouteSearchOrganisations,
 } from 'Shared/routes';
-import { useDesktop } from 'Client/hooks/useMedia';
 import { BusinessConsultationsList } from 'Client/features/search/MainResults/BusinessConsultationItem';
+import { matchDesktopDevice } from 'Shared/helpers/styled';
 import {
   SearchPageWrapperStyle,
   SearchPageTitleStyle,
@@ -34,7 +34,9 @@ export type Props = {
 };
 
 export const SearchMainResults = ({ location }: Props) => {
-  const { country } = useSelector((state: StateRoot) => state.appConfig);
+  const { country, device } = useSelector(
+    (state: StateRoot) => state.appConfig
+  );
   const params = new URLSearchParams(location.search);
   const term = params.get('query') || '';
 
@@ -49,7 +51,7 @@ export const SearchMainResults = ({ location }: Props) => {
   const organisationsCount = data.organisations.total;
   const responseCount = proposalsCount + questionsCount + organisationsCount;
   const noResults = responseCount === 0;
-  const isDesktop = useDesktop();
+  const isDesktop = matchDesktopDevice(device);
 
   useEffect(() => {
     trackDisplaySearchMainResult();

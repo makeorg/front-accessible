@@ -1,7 +1,6 @@
 // @flow
 import React, { useEffect } from 'react';
 import { type StateRoot } from 'Shared/store/types';
-import { useMobile } from 'Client/hooks/useMedia';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { getParticipateLink, getResultsLink } from 'Shared/helpers/url';
 import { i18n } from 'Shared/i18n';
@@ -16,6 +15,7 @@ import { OPERATION_MULTI_QUESTIONS_NAVIGATION } from 'Shared/constants/featureFl
 import { QuestionService } from 'Shared/services/Question';
 import { loadQuestion } from 'Shared/store/actions/sequence';
 import { useSelector, useDispatch } from 'react-redux';
+import { matchMobileDevice } from 'Shared/helpers/styled';
 import { SliderNavigationBetweenQuestions } from './Slider';
 
 type Props = {
@@ -23,10 +23,12 @@ type Props = {
 };
 
 export const NavigationBetweenQuestions = ({ question }: Props) => {
-  const isMobile = useMobile();
   const dispatch = useDispatch();
-  const { country } = useSelector((state: StateRoot) => state.appConfig);
+  const { country, device } = useSelector(
+    (state: StateRoot) => state.appConfig
+  );
   const questions = useSelector((state: StateRoot) => state.questions);
+  const isMobile = matchMobileDevice(device);
   const hasSiblingQuestions = question.operation.questions.length > 0;
   const isNavigationBetweenQuestionActive: boolean = checkIsFeatureActivated(
     OPERATION_MULTI_QUESTIONS_NAVIGATION,

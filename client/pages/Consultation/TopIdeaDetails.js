@@ -26,10 +26,10 @@ import { TopIdeaDetailsSkipLinks } from 'Client/app/SkipLinks/TopIdeaDetails';
 import { TopIdeaDetailsProposals } from 'Client/features/topIdeas/Proposals';
 import { TopIdeaDetailsComments } from 'Client/features/topIdeas/Comments';
 import { MobileDescriptionImage } from 'Client/features/consultation/MobileDescriptionImage';
-import { useMobile } from 'Client/hooks/useMedia';
 import { ThemeProvider } from 'styled-components';
 import { useSelector } from 'react-redux';
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
+import { matchMobileDevice } from 'Shared/helpers/styled';
 import {
   ConsultationPageContentStyle,
   ConsultationPageWrapperStyle,
@@ -37,11 +37,13 @@ import {
 } from './style';
 
 const TopIdeaDetailsPage = () => {
-  const { country } = useSelector((state: StateRoot) => state.appConfig);
+  const { country, device } = useSelector(
+    (state: StateRoot) => state.appConfig
+  );
   const question: QuestionType = useSelector((state: StateRoot) =>
     selectCurrentQuestion(state)
   );
-  const isMobile = useMobile();
+  const isMobile = matchMobileDevice(device);
   const { topIdeaId } = useParams();
   const location = useLocation();
   const [topIdea, setTopIdea] = useState<?TopIdeaType>(undefined);

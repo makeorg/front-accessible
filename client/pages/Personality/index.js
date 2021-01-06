@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Redirect, type match as TypeMatch, useParams } from 'react-router';
 import { i18n } from 'Shared/i18n';
 import { MetaTags } from 'Client/app/MetaTags';
-import { useMobile } from 'Client/hooks/useMedia';
+import { type StateRoot } from 'Shared/store/types';
 import { TabNavStyle, TabListStyle, TabStyle } from 'Client/ui/Elements/Tabs';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { MiddlePageWrapperStyle } from 'Client/app/Styled/MainElements';
@@ -34,6 +34,8 @@ import { trackDisplayPublicProfile } from 'Shared/services/Tracking';
 import { CertifiedIconStyle } from 'Client/ui/Proposal/DeprecatedAuthor/Styled';
 import { Opinions } from 'Client/features/opinions';
 import { getHomeLink } from 'Shared/helpers/url';
+import { useSelector } from 'react-redux';
+import { matchMobileDevice } from 'Shared/helpers/styled';
 
 type Props = {
   match: TypeMatch,
@@ -42,7 +44,8 @@ type Props = {
 const PersonalityPage = ({ match }: Props) => {
   const [personality, setPersonality] = useState(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const isMobile = useMobile();
+  const { device } = useSelector((state: StateRoot) => state.appConfig);
+  const isMobile = matchMobileDevice(device);
   const { userId } = match.params;
   const { country } = useParams();
 

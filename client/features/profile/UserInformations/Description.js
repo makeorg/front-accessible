@@ -7,7 +7,9 @@ import {
   ProfileCollapseButtonStyle,
   ProfileSeparatorStyle,
 } from 'Client/ui/Elements/ProfileElements';
-import { useMobile } from 'Client/hooks/useMedia';
+import { type StateRoot } from 'Shared/store/types';
+import { useSelector } from 'react-redux';
+import { matchMobileDevice } from 'Shared/helpers/styled';
 
 type Props = {
   description: string,
@@ -15,7 +17,8 @@ type Props = {
 
 export const UserDescription = ({ description }: Props) => {
   const [isCollapsed, setCollapse] = useState(false);
-  const isMobile = useMobile();
+  const { device } = useSelector((state: StateRoot) => state.appConfig);
+  const isMobile = matchMobileDevice(device);
   const renderCollapseTrigger = description.length > 280 && isMobile;
 
   useEffect(() => {

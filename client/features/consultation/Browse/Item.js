@@ -15,14 +15,17 @@ import {
   ConsultationActionIconStyle,
 } from 'Client/features/consultation/Browse/style';
 import { i18n } from 'Shared/i18n';
-
 import {
-  useDesktop,
   useScreenMobileContainerWidth,
   useTablet,
 } from 'Client/hooks/useMedia';
 import { formatMillionToText } from 'Shared/helpers/numberFormatter';
-import { getSixteenPerNineRatioHeight } from 'Shared/helpers/styled';
+import {
+  getSixteenPerNineRatioHeight,
+  matchDesktopDevice,
+} from 'Shared/helpers/styled';
+import { type StateRoot } from 'Shared/store/types';
+import { useSelector } from 'react-redux';
 import { ConsultationLink } from './Link';
 
 type Props = {
@@ -83,21 +86,22 @@ export const ConsultationItem = ({
     linkText = i18n.t('browse.results.see_results');
   }
 
-  const isDesktop = useDesktop();
-  const isTablet = useTablet();
+  const isTabletViewport = useTablet();
+  const { device } = useSelector((state: StateRoot) => state.appConfig);
   const containerWidth = useScreenMobileContainerWidth();
+  const isDesktopInState = matchDesktopDevice(device);
 
   let imageWidth = containerWidth;
   let imageHeight = getSixteenPerNineRatioHeight(containerWidth);
 
-  if (isTablet) {
-    imageWidth = containerWidth / 2;
-    imageHeight = getSixteenPerNineRatioHeight(containerWidth / 2);
-  }
-
-  if (isDesktop) {
+  if (isDesktopInState) {
     imageWidth = getHomepageRatio(248, itemsCount);
     imageHeight = 248;
+  }
+
+  if (isTabletViewport && !isDesktopInState) {
+    imageWidth = containerWidth / 2;
+    imageHeight = getSixteenPerNineRatioHeight(containerWidth / 2);
   }
 
   return (

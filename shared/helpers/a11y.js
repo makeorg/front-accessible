@@ -1,6 +1,4 @@
 // @flow
-import { FADE_OUT_ANIMATION, FADE_IN_ANIMATION } from 'Shared/constants/a11y';
-
 export const addAriaHiddenAndNegativeTab = (className: string) => {
   /** get elements by className and tranform the NodeList in Array */
   const elementsCollection = document.querySelectorAll(`.${className}`);
@@ -71,10 +69,7 @@ export const removeAriaHiddenAndNegativeTab = (className: string) => {
   );
 };
 
-export const addAriaHiddenByClass = (
-  className: string,
-  animationTiming?: number = 500
-) => {
+export const addAriaHiddenByClass = (className: string) => {
   /** get elements by className and tranform the NodeList in Array */
   const elementsCollection = document.querySelectorAll(`.${className}`);
   const elementsArray = Array.from(elementsCollection);
@@ -84,22 +79,14 @@ export const addAriaHiddenByClass = (
   }
 
   /** map on element to set animation and aria-hidden */
-  const elementWithAttribute: any = elementsArray.map(element => {
-    element.classList.add(FADE_OUT_ANIMATION);
-    const timer = setTimeout(
-      () => element.setAttribute('aria-hidden', 'true'),
-      animationTiming
-    );
-    return () => clearTimeout(timer);
-  });
+  const elementWithAttribute: any = elementsArray.map(element =>
+    element.setAttribute('aria-hidden', 'true')
+  );
 
   return elementWithAttribute;
 };
 
-export const removeAriaHiddenByClass = (
-  className: string,
-  animationTiming?: number = 500
-) => {
+export const removeAriaHiddenByClass = (className: string) => {
   /** get elements by className and tranform the NodeList in Array */
   const elementsCollection = document.querySelectorAll(`.${className}`);
   const elementsArray = Array.from(elementsCollection);
@@ -109,16 +96,9 @@ export const removeAriaHiddenByClass = (
   }
 
   /** map on element to remove animation and aria-hidden */
-  const elementWithoutAttribute: any = elementsArray.map(element => {
-    element.removeAttribute('aria-hidden');
-    element.classList.remove(FADE_OUT_ANIMATION);
-    element.classList.add(FADE_IN_ANIMATION);
-    const timer = setTimeout(
-      () => element.classList.remove(FADE_IN_ANIMATION),
-      animationTiming
-    );
-    return () => clearTimeout(timer);
-  });
+  const elementWithoutAttribute: any = elementsArray.map(element =>
+    element.removeAttribute('aria-hidden')
+  );
 
   return elementWithoutAttribute;
 };

@@ -3,8 +3,10 @@ import React from 'react';
 import { type TagType } from 'Shared/types/tag';
 import { i18n } from 'Shared/i18n';
 import { trackTag } from 'Shared/services/Tracking';
-import { useMobile } from 'Client/hooks/useMedia';
+import { type StateRoot } from 'Shared/store/types';
 import { FLUSH_TAGS_TRIGGER } from 'Shared/constants/ids';
+import { matchMobileDevice } from 'Shared/helpers/styled';
+import { useSelector } from 'react-redux';
 import {
   TagListStyle,
   TagButtonElementStyle,
@@ -51,7 +53,8 @@ export const TagList = ({
   resetTags,
   tagsSelected = 0,
 }: Props) => {
-  const isMobile = useMobile();
+  const { device } = useSelector((state: StateRoot) => state.appConfig);
+  const isMobile = matchMobileDevice(device);
   const updateSelectedTags = (tag: TagType) => {
     trackTag(tag.label, tag.isSelected ? 'unselect' : 'select');
     const newTags = tags.map(tagItem => ({

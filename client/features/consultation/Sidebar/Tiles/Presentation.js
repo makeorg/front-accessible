@@ -2,14 +2,17 @@
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import React from 'react';
 import { i18n } from 'Shared/i18n';
+import { type StateRoot } from 'Shared/store/types';
 import { type QuestionType, type PartnerType } from 'Shared/types/question';
 import { PresentationTileWithTitleStyle } from 'Client/ui/Elements/TileWithTitle/style';
 import { DescriptionImageStyle } from 'Client/features/consultation/Styled/Presentation';
-import { useMobile, useDesktop, useScreenWidth } from 'Client/hooks/useMedia';
+import { useScreenWidth } from 'Client/hooks/useMedia';
 import { isGreatCause } from 'Shared/helpers/question';
 import { trackClickLearnMore } from 'Shared/services/Tracking';
 import { FOUNDER_PARTNER, MEDIA_PARTNER } from 'Shared/constants/partner';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
+import { useSelector } from 'react-redux';
+import { matchDesktopDevice, matchMobileDevice } from 'Shared/helpers/styled';
 import { Founders } from '../Founders';
 import { SidebarNewWindowLink } from '../Link';
 
@@ -17,8 +20,9 @@ type Props = {
   question: QuestionType,
 };
 export const PresentationTile = ({ question }: Props) => {
-  const isMobile = useMobile();
-  const isDesktop = useDesktop();
+  const { device } = useSelector((state: StateRoot) => state.appConfig);
+  const isMobile = matchMobileDevice(device);
+  const isDesktop = matchDesktopDevice(device);
   const screenWidth = useScreenWidth();
   const foundersOrMedia: PartnerType[] = question.partners
     ? question.partners.filter(

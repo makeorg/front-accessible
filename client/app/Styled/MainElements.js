@@ -1,6 +1,6 @@
 /* @flow */
 
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { intToPx } from 'Shared/helpers/styled';
 import { color } from 'athena-design-tokens';
 import {
@@ -32,16 +32,10 @@ export const AppWrapperStyle = styled(ColumnElementStyle)`
   }
 `;
 
-const FadeInAnimation = keyframes`  
-  from { opacity: 0; }
-  to { opacity: 1; }
-`;
-
 export const AppMainContentStyle = styled.main`
   display: flex;
   flex-flow: column;
   flex: 1 1 auto;
-  animation: ${FadeInAnimation} 1s ease-in;
   &[aria-hidden='true'],
   &[aria-hidden='true'] div,
   &[aria-hidden='true'] a,

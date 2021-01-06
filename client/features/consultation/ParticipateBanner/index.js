@@ -13,16 +13,18 @@ import {
   ParticipateSeparatorStyle,
   ParticipateIntroductionStyle,
 } from 'Client/features/consultation/Styled/ParticipateBanner';
-import { useMobile } from 'Client/hooks/useMedia';
 import { useSelector } from 'react-redux';
+import { matchMobileDevice } from 'Shared/helpers/styled';
 
 type Props = {
   question: QuestionType,
 };
 
 export const ParticipateBanner = ({ question }: Props) => {
-  const { country } = useSelector((state: StateRoot) => state.appConfig);
-  const isMobile = useMobile();
+  const { country, device } = useSelector(
+    (state: StateRoot) => state.appConfig
+  );
+  const isMobile = matchMobileDevice(device);
   const sequenceLink = getSequenceLink(country, question.slug);
 
   return (

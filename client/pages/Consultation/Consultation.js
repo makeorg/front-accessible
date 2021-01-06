@@ -13,7 +13,6 @@ import { i18n } from 'Shared/i18n';
 import { MetaTags } from 'Client/app/MetaTags';
 import { LocalActorsTile } from 'Client/features/flipping/LocalActors/Tille';
 import { DeprecatedConsultationHeader } from 'Client/features/consultation/deprecated/Header/index';
-import { useMobile } from 'Client/hooks/useMedia';
 import { useDispatch, useSelector } from 'react-redux';
 import { displayNotificationBanner } from 'Shared/store/actions/notifications';
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
@@ -22,13 +21,15 @@ import {
   NOTIFICATION_LEVEL_INFORMATION,
   VOTE_ONLY_MESSAGE,
 } from 'Shared/constants/notifications';
+import { matchMobileDevice } from 'Shared/helpers/styled';
 import { ConsultationPageWrapperStyle } from './style';
 
 const ConsultationPage = () => {
   const question: QuestionType = useSelector((state: StateRoot) =>
     selectCurrentQuestion(state)
   );
-  const isMobile = useMobile();
+  const { device } = useSelector((state: StateRoot) => state.appConfig);
+  const isMobile = matchMobileDevice(device);
   const dispatch = useDispatch();
   const questionIsGreatCause = isGreatCause(question.operationKind);
   // @todo remove or refactor when Municipales is over

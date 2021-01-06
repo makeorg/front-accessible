@@ -1,5 +1,7 @@
 // @flow
 
+import { DESKTOP_DEVICE, MOBILE_DEVICE } from 'Shared/constants/config';
+
 export const pxToRem = (value: string | number, base: number = 16) => {
   const px = parseInt(value, 10);
   const rem = parseFloat((px / parseInt(base, 10)).toPrecision(4));
@@ -65,3 +67,19 @@ export const getSixteenPerNineRatioWidth = (height: number) =>
   (height * 16) / 9;
 
 export const getSixteenPerNineRatioHeight = (width: number) => (width * 9) / 16;
+
+export const matchDesktopDevice = (device: string) => {
+  if (device === DESKTOP_DEVICE) {
+    return true;
+  }
+
+  return false;
+};
+
+export const matchMobileDevice = (device: string) => {
+  if (device === MOBILE_DEVICE) {
+    return true;
+  }
+
+  return false;
+};

@@ -1,7 +1,10 @@
 // @flow
 import React from 'react';
+import { type StateRoot } from 'Shared/store/types';
 import { type QuestionType } from 'Shared/types/question';
-import { useMobile, useScreenWidth } from 'Client/hooks/useMedia';
+import { useScreenWidth } from 'Client/hooks/useMedia';
+import { useSelector } from 'react-redux';
+import { matchMobileDevice } from 'Shared/helpers/styled';
 import { MobileDescriptionImageStyle } from '../Styled/Presentation';
 
 type Props = {
@@ -9,7 +12,8 @@ type Props = {
 };
 
 export const MobileDescriptionImage = ({ question }: Props) => {
-  const isMobile = useMobile();
+  const { device } = useSelector((state: StateRoot) => state.appConfig);
+  const isMobile = matchMobileDevice(device);
   const screenWidth = useScreenWidth();
 
   return (

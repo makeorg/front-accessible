@@ -4,7 +4,6 @@ import {
   InnerPagesNavigation,
   type PageNavigationType,
 } from 'Client/features/navigation/Pages';
-import { useDesktop } from 'Client/hooks/useMedia';
 import { useSelector } from 'react-redux';
 import { getExploreLink, getParticipateLink } from 'Shared/helpers/url';
 import { i18n } from 'Shared/i18n';
@@ -12,7 +11,7 @@ import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector
 import { type QuestionType } from 'Shared/types/question';
 import { useParams } from 'react-router';
 import { CONSULTATION_NAVIGATION } from 'Shared/constants/ids';
-import { scrollToElementId } from 'Shared/helpers/styled';
+import { scrollToElementId, matchDesktopDevice } from 'Shared/helpers/styled';
 import {
   trackClickExploreTab,
   trackClickParticipateTab,
@@ -24,7 +23,8 @@ export const ParticipateNavigation = () => {
   const question: QuestionType = useSelector((state: StateRoot) =>
     selectCurrentQuestion(state)
   );
-  const isDesktop = useDesktop();
+  const { device } = useSelector((state: StateRoot) => state.appConfig);
+  const isDesktop = matchDesktopDevice(device);
   const NavigationPages: PageNavigationType[] = [
     {
       onClickAction: () => {

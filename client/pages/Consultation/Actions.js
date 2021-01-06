@@ -12,10 +12,10 @@ import { MetaTags } from 'Client/app/MetaTags';
 import { i18n } from 'Shared/i18n';
 import { LocalActorsTile } from 'Client/features/flipping/LocalActors/Tille';
 import { MobileDescriptionImage } from 'Client/features/consultation/MobileDescriptionImage';
-import { useMobile } from 'Client/hooks/useMedia';
 import { useSelector } from 'react-redux';
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
 import { ThemeProvider } from 'styled-components';
+import { matchMobileDevice } from 'Shared/helpers/styled';
 import {
   ConsultationPageWrapperStyle,
   ConsultationHeaderWrapperStyle,
@@ -26,7 +26,8 @@ const ActionPage = () => {
   const question: QuestionType = useSelector((state: StateRoot) =>
     selectCurrentQuestion(state)
   );
-  const isMobile = useMobile();
+  const { device } = useSelector((state: StateRoot) => state.appConfig);
+  const isMobile = matchMobileDevice(device);
   const questionIsGreatCause = isGreatCause(question.operationKind);
 
   if (!questionIsGreatCause) {

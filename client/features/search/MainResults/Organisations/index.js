@@ -6,7 +6,6 @@ import { type OrganisationType } from 'Shared/types/organisation';
 import { i18n } from 'Shared/i18n';
 import { getOrganisationProfileLink } from 'Shared/helpers/url';
 import { type StateRoot } from 'Shared/store/types';
-import { useMobile } from 'Client/hooks/useMedia';
 import { Avatar } from 'Client/ui/Avatar';
 import {
   SearchOrganisationsListStyle,
@@ -23,6 +22,7 @@ import {
 } from 'Client/ui/Elements/ProfileElements';
 import { CertifiedIconStyle } from 'Client/ui/Proposal/DeprecatedAuthor/Styled';
 import { formatOrganisationName } from 'Shared/helpers/stringFormatter';
+import { matchMobileDevice } from 'Shared/helpers/styled';
 import { MainResultsOrganisationsMobile } from './Mobile';
 
 type Props = {
@@ -30,8 +30,10 @@ type Props = {
 };
 
 export const MainResultsOrganisations = ({ organisations }: Props) => {
-  const { country } = useSelector((state: StateRoot) => state.appConfig);
-  const isMobile = useMobile();
+  const { country, device } = useSelector(
+    (state: StateRoot) => state.appConfig
+  );
+  const isMobile = matchMobileDevice(device);
 
   if (isMobile) {
     return <MainResultsOrganisationsMobile organisations={organisations} />;

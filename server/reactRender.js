@@ -22,6 +22,7 @@ import { env } from 'Shared/env';
 import { env as processEnv } from 'Shared/process';
 import { TWTTR_SCRIPT } from 'Shared/services/Trackers/twttr';
 import { SecureExpiredMessage } from 'Client/app/Notifications/Banner/SecureExpired';
+import { DESKTOP_DEVICE, MOBILE_DEVICE } from 'Shared/constants/config';
 import { CLIENT_DIR } from './paths';
 import { logInfo } from './ssr/helpers/ssr.helper';
 import { ViewsService } from './service/ViewsService';
@@ -82,7 +83,8 @@ const renderHtml = (reactApp, reduxStore, metaTags, pwaManifest, res) => {
 // @todo test this function!!
 export const reactRender = async (req, res, routeState = {}) => {
   const { country, language } = req.params;
-  const ua = parser(req.headers['user-agent']);
+  const { browser, os, device, ua } = parser(req.headers['user-agent']);
+  const isMobileOrTablet = device.type === 'mobile' || device.type === 'tablet';
 
   const { secureExpired, ...queryParams } = req.query;
   const countriesWithConsultations = await ViewsService.getCountries(
@@ -112,6 +114,7 @@ export const reactRender = async (req, res, routeState = {}) => {
         ...initialState.notifications,
         banner: notificationBanner,
       },
+      device: isMobileOrTablet ? MOBILE_DEVICE : DESKTOP_DEVICE,
     },
   };
 
@@ -145,10 +148,10 @@ export const reactRender = async (req, res, routeState = {}) => {
   logInfo({
     message: 'app-served-from-server',
     url: req.originalUrl,
-    browser: ua.browser,
-    os: ua.os,
-    device: ua.device,
-    raw: ua.ua,
+    browser,
+    os,
+    device,
+    raw: ua,
   });
 
   return res.send(reactHtml);
