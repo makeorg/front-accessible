@@ -5,6 +5,7 @@ import { intToPx } from 'Shared/helpers/styled';
 import { MiddleColumnStyle } from 'Client/ui/Elements/FlexElements';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { typography } from 'athena-design-tokens';
+import { SvgArrowReturn } from 'Client/ui/Svg/elements';
 
 export const SequenceContainerStyle = styled(MiddleColumnStyle)`
   position: relative;
@@ -19,6 +20,32 @@ export const SequenceContainerStyle = styled(MiddleColumnStyle)`
 export const SequenceContentStyle = styled(MiddleColumnStyle)`
   width: 100%;
   flex: 1;
+`;
+
+export const SequenceAltTitleStyle = styled.h2`
+  font-family: ${MakeFonts.CircularStandardBook};
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
+  letter-spacing: 0.14px;
+  align-self: flex-start;
+  text-transform: none;
+  margin-top: 30px;
+`;
+
+export const SequenceSpecialTitleStyle = styled.div`
+  font-family: ${MakeFonts.CircularStandardBold};
+  font-size: ${intToPx(typography.font.fontsize.S.value)};
+  letter-spacing: 0.12px;
+  align-self: flex-start;
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    font-size: ${intToPx(typography.font.fontsize.XL.value)};
+  }
+`;
+
+export const SequenceSpecialIconStyle = styled(SvgArrowReturn)`
+  margin-right: 5px;
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    margin-right: 10px;
+  }
 `;
 
 export const SequenceTitleStyle = styled.h2`

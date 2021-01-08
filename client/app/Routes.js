@@ -51,6 +51,7 @@ import { QuestionWrapper } from 'Client/pages/Consultation/QuestionWrapper';
 import { usePageBackgoundColor } from 'Client/hooks/usePageBackgroundColor';
 import { getHomeLink } from 'Shared/helpers/url';
 import { DEFAULT_COUNTRY } from 'Shared/constants/config';
+import { ZONE_CONTROVERSY, ZONE_POPULAR } from 'Shared/constants/sequence';
 
 const BrowsePage = loadable(() => import('../pages/Browse/index.js'));
 const ConsultationPage = loadable(() =>
@@ -149,12 +150,12 @@ export const Routes = () => {
       </Route>
       <Route path={ROUTE_SEQUENCE_POPULAR}>
         <QuestionWrapper withRedirect>
-          <SequencePopularPage zone="consensus" />
+          <SequencePopularPage zone={ZONE_POPULAR} />
         </QuestionWrapper>
       </Route>
       <Route path={ROUTE_SEQUENCE_CONTROVERSIAL}>
         <QuestionWrapper withRedirect>
-          <SequenceControversialPage zone="controversy" />
+          <SequenceControversialPage zone={ZONE_CONTROVERSY} />
         </QuestionWrapper>
       </Route>
       <Route path={ROUTE_RESULTS}>

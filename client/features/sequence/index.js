@@ -29,10 +29,10 @@ import {
   SequenceContainerStyle,
   ConsultationPageLinkStyle,
   SequenceContentStyle,
-  SequenceTitleStyle,
 } from './style';
 import { SequenceProgress } from './Progress';
 import { SequencePlaceholder } from './Placeholder';
+import { SequenceTitle } from './Title';
 
 export type Props = {
   /** Object with Dynamic properties used to configure the Sequence (questionId, country, ...) */
@@ -138,7 +138,7 @@ export const Sequence = ({ question, zone }: Props) => {
   return (
     <SequenceContainerStyle data-cy-container="sequence">
       <SequenceContentStyle>
-        <SequenceTitleStyle>{question.question}</SequenceTitleStyle>
+        <SequenceTitle question={question} zone={zone} />
         <SequenceCard card={currentCard} />
         <SequenceProgress />
       </SequenceContentStyle>
