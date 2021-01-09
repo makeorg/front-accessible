@@ -60,6 +60,7 @@ import {
   trackDisplayProposalPage,
   trackClickPublicProfile,
   trackSeeMorePartners,
+  trackClickOperationPage,
 } from './Tracking';
 import { FacebookTracking } from './Trackers/FacebookTracking';
 import { TwitterTracking } from './Trackers/TwitterTracking';
@@ -1041,6 +1042,20 @@ describe('Tracking Service', () => {
     const eventName = trackingConfiguration.CLICK_SEE_MORE_COMMUNITY.key;
 
     trackSeeMorePartners();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {});
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
+      1,
+      eventName,
+      eventParameters
+    );
+    expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
+    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
+  });
+
+  it('track Click Operation Page link', () => {
+    const eventName = trackingConfiguration.CLICK_OPERATION_PAGE.key;
+
+    trackClickOperationPage();
     expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {});
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
       1,

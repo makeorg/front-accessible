@@ -1,7 +1,10 @@
 /* @flow */
-import { CARD_TYPE_EXTRASLIDE_INTRO } from 'Shared/constants/card';
+import {
+  CARD_TYPE_EXTRASLIDE_FINAL_CARD,
+  CARD_TYPE_EXTRASLIDE_INTRO,
+  CARD_TYPE_EXTRASLIDE_SPECIAL_FINAL_CARD,
+} from 'Shared/constants/card';
 import { ZONE_CONTROVERSY, ZONE_POPULAR } from 'Shared/constants/sequence';
-import { i18n } from 'Shared/i18n';
 import * as helpers from './sequence';
 
 describe('Sequence Helper', () => {
@@ -156,6 +159,23 @@ describe('Sequence Helper', () => {
     it('title from unknown zone', () => {
       const specialTitle = helpers.getSequenceTitleByZone('foo');
       expect(specialTitle).toEqual(null);
+    });
+  });
+
+  describe('get finard card by zone', () => {
+    it('card from controversy zone', () => {
+      const finalCard = helpers.getFinalCardByZone(ZONE_CONTROVERSY);
+      expect(finalCard).toEqual(CARD_TYPE_EXTRASLIDE_SPECIAL_FINAL_CARD);
+    });
+
+    it('card from consensus zone', () => {
+      const finalCard = helpers.getFinalCardByZone(ZONE_POPULAR);
+      expect(finalCard).toEqual(CARD_TYPE_EXTRASLIDE_SPECIAL_FINAL_CARD);
+    });
+
+    it('card from unknown zone', () => {
+      const finalCard = helpers.getFinalCardByZone('foo');
+      expect(finalCard).toEqual(CARD_TYPE_EXTRASLIDE_FINAL_CARD);
     });
   });
 });

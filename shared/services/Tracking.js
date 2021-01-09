@@ -59,9 +59,13 @@ export const trackLoadMoreProposals = (
   );
 };
 
-/* On Load Sequence Tracking */
+/* Sequence Tracking */
 export const trackDisplaySequence = () => {
   TrackingService.sendAllTrackers(trackingEvent.DISPLAY_SEQUENCE());
+};
+
+export const trackClickOperationPage = () => {
+  TrackingService.sendAllTrackers(trackingEvent.CLICK_OPERATION_PAGE());
 };
 
 /* Header Tracking */

@@ -23,6 +23,7 @@ import { ProposalSubmit } from 'Client/features/proposal/Submit';
 import { CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL } from 'Shared/constants/card';
 import { getParticipateLink } from 'Shared/helpers/url';
 import { i18n } from 'Shared/i18n';
+import { trackClickOperationPage } from 'Shared/services/Tracking';
 import { SequenceCard } from './Cards';
 import {
   SequenceContainerStyle,
@@ -121,7 +122,8 @@ export const Sequence = ({ question, zone }: Props) => {
       isLoggedIn,
       hasProposed,
       question.canPropose,
-      disableIntroCard
+      disableIntroCard,
+      zone
     );
 
     dispatch(loadSequenceCards(buildedCards));
@@ -150,6 +152,7 @@ export const Sequence = ({ question, zone }: Props) => {
       <ConsultationPageLinkStyle
         className={!withProposalButton && 'static'}
         to={getParticipateLink(country, question.slug)}
+        onClick={() => trackClickOperationPage()}
       >
         {i18n.t('sequence.more')}
       </ConsultationPageLinkStyle>

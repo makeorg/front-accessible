@@ -7,6 +7,7 @@ import {
   CARD_TYPE_EXTRASLIDE_INTRO,
   CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL,
   CARD_TYPE_EXTRASLIDE_PUSH_SIGNUP,
+  CARD_TYPE_EXTRASLIDE_SPECIAL_FINAL_CARD,
   CARD_TYPE_PROPOSAL,
 } from 'Shared/constants/card';
 import { ZONE_CONTROVERSY, ZONE_POPULAR } from 'Shared/constants/sequence';
@@ -47,6 +48,7 @@ export const getCardIndex = (index: number = 0) => `cardKey_${index}`;
  * Find the index of first no voted card
  * @param  {Object} firstNoVotedProposal
  * @param  {SequenceCardType[]} cards
+ * @param  {number} currentIndex
  * @return {number}
  */
 export const findIndexOfFirstUnvotedCard = (
@@ -75,9 +77,32 @@ export const findIndexOfFirstUnvotedCard = (
 };
 
 /**
+ * Return finql card depending on zone
+ * @param  {string} zone
+ * @return {SequenceCardType}
+ */
+export const getFinalCardByZone = (zone: string) => {
+  switch (zone) {
+    case ZONE_CONTROVERSY: {
+      return CARD_TYPE_EXTRASLIDE_SPECIAL_FINAL_CARD;
+    }
+    case ZONE_POPULAR: {
+      return CARD_TYPE_EXTRASLIDE_SPECIAL_FINAL_CARD;
+    }
+    default:
+      return CARD_TYPE_EXTRASLIDE_FINAL_CARD;
+  }
+};
+
+/**
  * Build cards array
  * @param  {ProposalType[]} proposals
  * @param  {QuestionExtraSlidesConfigType} extraSlidesConfig
+ * @param  {boolean} isLoggedIn
+ * @param  {boolean} hasProposed
+ * @param  {boolean} canPropose
+ * @param  {boolean} disableIntroCard
+ * @param  {string} zone
  * @return {SequenceCardType[]}
  */
 export const buildCards = (
@@ -86,7 +111,8 @@ export const buildCards = (
   isLoggedIn: boolean,
   hasProposed: boolean,
   canPropose: boolean,
-  disableIntroCard: boolean
+  disableIntroCard: boolean,
+  zone?: string
 ): SequenceCardType[] => {
   const withPushProposalCard: boolean =
     extraSlidesConfig.pushProposalCard &&
@@ -143,7 +169,7 @@ export const buildCards = (
 
   if (withFinalCard) {
     cards.splice(cards.length, 0, {
-      type: CARD_TYPE_EXTRASLIDE_FINAL_CARD,
+      type: getFinalCardByZone(zone),
       configuration: extraSlidesConfig.finalCard,
       offset: cardOffset,
       index: 0,
@@ -158,6 +184,11 @@ export const buildCards = (
   return cardsIndexed;
 };
 
+/**
+ * Check if card zone needs a special title
+ * @param  {string} zone
+ * @return {boolean}
+ */
 export const getSpecialTitle = (zone: string) => {
   switch (zone) {
     case ZONE_CONTROVERSY: {
@@ -171,6 +202,11 @@ export const getSpecialTitle = (zone: string) => {
   }
 };
 
+/**
+ * Render title depending on zone
+ * @param  {string} zone
+ * @return {string || null}
+ */
 export const getSequenceTitleByZone = (zone: string) => {
   switch (zone) {
     case ZONE_CONTROVERSY: {
