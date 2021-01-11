@@ -60,3 +60,8 @@ export const unlockBody = () => {
 
   return body.classList.remove('locked');
 };
+
+export const getSixteenPerNineRatioWidth = (height: number) =>
+  (height * 16) / 9;
+
+export const getSixteenPerNineRatioHeight = (width: number) => (width * 9) / 16;
