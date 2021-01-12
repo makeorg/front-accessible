@@ -1,5 +1,7 @@
 /* @flow */
 import { CARD_TYPE_EXTRASLIDE_INTRO } from 'Shared/constants/card';
+import { ZONE_CONTROVERSY, ZONE_POPULAR } from 'Shared/constants/sequence';
+import { i18n } from 'Shared/i18n';
 import * as helpers from './sequence';
 
 describe('Sequence Helper', () => {
@@ -120,6 +122,40 @@ describe('Sequence Helper', () => {
       const cards = helpers.buildCards(proposals, extraSlidesConfig);
 
       expect(cards.length).toBe(0);
+    });
+  });
+
+  describe('get special title', () => {
+    it('controversy zone', () => {
+      const specialZone = helpers.getSpecialTitle(ZONE_CONTROVERSY);
+      expect(specialZone).toEqual(true);
+    });
+
+    it('consensus zone', () => {
+      const specialZone = helpers.getSpecialTitle(ZONE_POPULAR);
+      expect(specialZone).toEqual(true);
+    });
+
+    it('unknown zone', () => {
+      const specialZone = helpers.getSpecialTitle('foo');
+      expect(specialZone).toEqual(false);
+    });
+  });
+
+  describe('get sequence title by zone', () => {
+    it('title from controversy zone', () => {
+      const specialTitle = helpers.getSequenceTitleByZone(ZONE_CONTROVERSY);
+      expect(specialTitle).toEqual('sequence_zone.controversial_title');
+    });
+
+    it('title from consensus zone', () => {
+      const specialTitle = helpers.getSequenceTitleByZone(ZONE_POPULAR);
+      expect(specialTitle).toEqual('sequence_zone.popular_title');
+    });
+
+    it('title from unknown zone', () => {
+      const specialTitle = helpers.getSequenceTitleByZone('foo');
+      expect(specialTitle).toEqual(null);
     });
   });
 });

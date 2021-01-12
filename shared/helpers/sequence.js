@@ -9,6 +9,8 @@ import {
   CARD_TYPE_EXTRASLIDE_PUSH_SIGNUP,
   CARD_TYPE_PROPOSAL,
 } from 'Shared/constants/card';
+import { ZONE_CONTROVERSY, ZONE_POPULAR } from 'Shared/constants/sequence';
+import { i18n } from 'Shared/i18n';
 
 export const getPosition = (index: number = 0, currentIndex: number = 0) =>
   (index - currentIndex) * 2;
@@ -154,4 +156,30 @@ export const buildCards = (
   }));
 
   return cardsIndexed;
+};
+
+export const getSpecialTitle = (zone: string) => {
+  switch (zone) {
+    case ZONE_CONTROVERSY: {
+      return true;
+    }
+    case ZONE_POPULAR: {
+      return true;
+    }
+    default:
+      return false;
+  }
+};
+
+export const getSequenceTitleByZone = (zone: string) => {
+  switch (zone) {
+    case ZONE_CONTROVERSY: {
+      return i18n.t('sequence_zone.controversial_title');
+    }
+    case ZONE_POPULAR: {
+      return i18n.t('sequence_zone.popular_title');
+    }
+    default:
+      return null;
+  }
 };

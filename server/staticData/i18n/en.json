@@ -1100,5 +1100,9 @@
     "SE": "Sweden",
     "SI": "Slovenia",
     "SK": "Slovakia"
+  },
+  "sequence_zone": {
+    "popular_title": "@@sequence_zone.popular_title|fr:Les propositions les plus populaires",
+    "controversial_title": "@@sequence_zone.controversial_title|fr:Les propositions les plus controversées"
   }
 }

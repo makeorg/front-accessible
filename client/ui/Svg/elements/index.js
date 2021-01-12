@@ -70,3 +70,4 @@ export { SvgPreviousArrowLeft } from './PreviousArrowLeft';
 export { SvgWorldMap } from './WorldMap';
 export { SvgBigCheck } from './BigCheck';
 export { SvgArrowBottom } from './ArrowBottom';
+export { SvgArrowReturn } from './ArrowReturn';
