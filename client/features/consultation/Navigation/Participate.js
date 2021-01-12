@@ -11,6 +11,8 @@ import { i18n } from 'Shared/i18n';
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
 import { type QuestionType } from 'Shared/types/question';
 import { useParams } from 'react-router';
+import { CONSULTATION_NAVIGATION } from 'Shared/constants/ids';
+import { scrollToElementId } from 'Shared/helpers/styled';
 import { NavigationWrapperStyle, NavigationInnerStyle } from './style';
 
 export const ParticipateNavigation = () => {
@@ -21,6 +23,7 @@ export const ParticipateNavigation = () => {
   const isDesktop = useDesktop();
   const NavigationPages: PageNavigationType[] = [
     {
+      onClickAction: () => scrollToElementId(CONSULTATION_NAVIGATION),
       link: getParticipateLink(country, question.slug),
       label: isDesktop
         ? i18n.t('consultation.navigation.participate_desktop')
@@ -28,6 +31,7 @@ export const ParticipateNavigation = () => {
       routeToMatch: getParticipateLink(country, question.slug),
     },
     {
+      onClickAction: () => scrollToElementId(CONSULTATION_NAVIGATION),
       link: getExploreLink(country, question.slug),
       label: isDesktop
         ? i18n.t('consultation.navigation.explore_desktop')
@@ -37,7 +41,7 @@ export const ParticipateNavigation = () => {
   ];
 
   return (
-    <NavigationWrapperStyle>
+    <NavigationWrapperStyle id={CONSULTATION_NAVIGATION}>
       <NavigationInnerStyle>
         <InnerPagesNavigation pages={NavigationPages} />
       </NavigationInnerStyle>

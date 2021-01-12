@@ -25,3 +25,4 @@ export const MAIN_FOOTER: string = 'main_footer';
 /** Consultation Elements */
 export const BROWSE_SECTION: string = 'browse_section';
 export const EXPLORE_SECTION: string = 'explore_section';
+export const CONSULTATION_NAVIGATION: string = 'consultation_navigation';
