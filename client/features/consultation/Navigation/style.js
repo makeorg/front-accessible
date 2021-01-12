@@ -3,6 +3,10 @@ import { ContainerWithPadding } from 'Client/app/Styled/MainElements';
 import styled from 'styled-components';
 
 export const NavigationWrapperStyle = styled.div`
+  padding-top: 15px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
   background-color: ${color.white};
 `;
 

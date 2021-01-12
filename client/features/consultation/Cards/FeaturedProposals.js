@@ -6,6 +6,8 @@ import { QuestionService } from 'Shared/services/Question';
 import { DeprecatedProposalAuthor } from 'Client/ui/Proposal/DeprecatedAuthor';
 import { getProposalLink, getExploreLink } from 'Shared/helpers/url';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
+import { CONSULTATION_NAVIGATION } from 'Shared/constants/ids';
+import { scrollToElementId } from 'Shared/helpers/styled';
 import {
   CardStyle,
   CardAltTitleStyle,
@@ -75,7 +77,10 @@ export const FeaturedProposals = ({ question }: Props) => {
           </UnstyledListStyle>
         )}
       </>
-      <ExploreLinkStyle to={getExploreLink(country, question.slug, pageId)}>
+      <ExploreLinkStyle
+        to={getExploreLink(country, question.slug, pageId)}
+        onClick={() => scrollToElementId(CONSULTATION_NAVIGATION)}
+      >
         {i18n.t('consultation.navigation.explore_desktop')}
       </ExploreLinkStyle>
     </CardStyle>

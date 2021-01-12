@@ -15,7 +15,7 @@ export const HigthlightsWrapperStyle = styled.section`
   display: flex;
   flex-flow: column;
   background-color: ${color.white};
-  padding: 30px 0;
+  padding: 60px 0 45px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     flex-flow: row;
   }

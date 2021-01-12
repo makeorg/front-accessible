@@ -25,6 +25,7 @@ export const InnerPagesNavigation = ({ pages }: Props) => {
             <PagesLinkStyle
               to={page.link}
               className={pathname === page.routeToMatch && 'selected'}
+              onClick={page.onClickAction}
             >
               {page.label}
             </PagesLinkStyle>
