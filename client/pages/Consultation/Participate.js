@@ -148,12 +148,13 @@ const ParticipatePage = () => {
                 classes="desktop-half margin-bottom desktop-padding-left"
               />
             </ColumnToRowElementStyle>
-            <SocialSharing />
+            {isDesktop && <SocialSharing />}
           </ParticipateMainContentStyle>
           <ParticipateSidebarContentStyle>
             {isDesktop && <DesktopAbout />}
             <FeaturedProposals question={question} />
           </ParticipateSidebarContentStyle>
+          {!isDesktop && <SocialSharing />}
         </ParticipateInnerStyle>
       </ParticipateContentStyle>
     </ThemeProvider>
