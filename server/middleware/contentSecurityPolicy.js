@@ -54,5 +54,6 @@ export const cspMiddleware = csp({
     objectSrc: ["'none'"],
     mediaSrc: ["'none'"],
     frameAncestors: ["'none'"],
+    manifestSrc: ["'self'"],
   },
 });

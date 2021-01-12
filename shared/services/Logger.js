@@ -89,15 +89,33 @@ class LoggerSingleton {
     this.log(data, LOG_WARNING);
   };
 
-  log = (data, level) => {
+  log = async (data, level) => {
     if (env.isDev()) {
       // eslint-disable-next-line no-console
       console.log(level, data);
     }
+    if (!env.isClient()) {
+      const { logError, logInfo, logWarning } = await import(
+        'Server/ssr/helpers/ssr.helper'
+      );
+
+      switch (level) {
+        case LOG_INFO:
+          logInfo(data);
+          break;
+        case LOG_WARNING:
+          logWarning(data);
+          break;
+        default:
+          logError(data);
+      }
+
+      return () => {};
+    }
 
     return axios({
       method: 'POST',
-      url: '/api/logger',
+      url: `/api/logger`,
       proxy: {
         port: processEnv.PORT,
       },

@@ -1,6 +1,6 @@
 const path = require('path');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
-const ManifestPlugin = require('webpack-manifest-plugin');
+const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const LoadablePlugin = require('@loadable/webpack-plugin');
 const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 
@@ -16,13 +16,18 @@ module.exports = {
   },
   plugins: [
     new WebpackPwaManifest({
+      filename: 'assets/[name].[hash].[ext]',
       short_name: 'Make.org',
+      inject: true,
       name: 'Make.org',
-      start_url: './index.html',
+      start_url: '/',
       display: 'standalone',
       theme_color: '#ed1844',
       background_color: '#ffffff',
-      fingerprints: false,
+      fingerprints: true,
+      includeDirectory: true,
+      ios: true,
+      publicPath: '/assets/',
       icons: [
         {
           src: path.join(__dirname, '../client/app/assets/images/favicon.png'),
@@ -31,7 +36,9 @@ module.exports = {
         },
       ],
     }),
-    new ManifestPlugin(),
+    new WebpackManifestPlugin({
+      fileName: '../webpack-manifest.json',
+    }),
     new LoadablePlugin(),
     new MomentLocalesPlugin({
       localesToKeep: ['fr', 'en'],
@@ -55,7 +62,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: '[name].[hash].[ext]',
+              name: 'assets/[name].[hash].[ext]',
             },
           },
         ],

@@ -3,17 +3,17 @@ import { createInitialState } from 'Shared/store/initialState';
 import { type Request, type Response } from 'express';
 import { type HomeViewType } from 'Shared/types/views';
 import { type StateRoot as TypeStateRoot } from 'Shared/store/types';
+import { getLanguageFromCountryCode } from 'Shared/helpers/countries';
 import { ViewsService } from '../service/ViewsService';
 import { reactRender } from '../reactRender';
 
 export const homepageRoute = async (req: Request, res: Response) => {
   const routeState: TypeStateRoot = createInitialState();
 
-  const { country, language } = req.params;
+  const { country } = req.params;
   const homepageData: ?HomeViewType = await ViewsService.getHome(
     country,
-    // @todo remove it when ready on API side
-    language
+    getLanguageFromCountryCode(country)
   );
 
   if (!homepageData) {

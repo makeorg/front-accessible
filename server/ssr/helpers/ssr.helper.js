@@ -1,7 +1,8 @@
 import { Logger as SharedLogger } from 'Shared/services/Logger';
-import { logger } from '../../logger';
+import { getLoggerInstance } from '../../logger';
 
-const log = (level, error) => {
+const log = async (level, error) => {
+  const logger = await getLoggerInstance();
   logger.log(level, SharedLogger.normalizeData(error));
 };
 

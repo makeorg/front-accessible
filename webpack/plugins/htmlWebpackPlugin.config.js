@@ -24,5 +24,6 @@ module.exports = function createHtmlWebpackPlugin(options) {
       minifyURLs: true,
     },
     inlineSource: 'runtime~.+\\.js',
+    scriptLoading: 'defer',
   });
 };

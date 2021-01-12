@@ -22,7 +22,7 @@ import { env } from 'Shared/env';
 import { env as processEnv } from 'Shared/process';
 import { TWTTR_SCRIPT } from 'Shared/services/Trackers/twttr';
 import { SecureExpiredMessage } from 'Client/app/Notifications/Banner/SecureExpired';
-import { BUILD_DIR } from './paths';
+import { CLIENT_DIR } from './paths';
 import { logInfo } from './ssr/helpers/ssr.helper';
 import { ViewsService } from './service/ViewsService';
 
@@ -30,11 +30,14 @@ const parser = require('ua-parser-js');
 
 deepFreeze(initialState);
 
-const statsFile = path.resolve(__dirname, '..', 'dist', 'loadable-stats.json');
+const statsFile = path.resolve(CLIENT_DIR, 'loadable-stats.json');
 
-const htmlContent = fs.readFileSync(path.join(BUILD_DIR, 'index.html'), 'utf8');
+const htmlContent = fs.readFileSync(
+  path.join(CLIENT_DIR, 'index.html'),
+  'utf8'
+);
 
-const renderHtml = (reactApp, reduxStore, metaTags, res) => {
+const renderHtml = (reactApp, reduxStore, metaTags, pwaManifest, res) => {
   if (!htmlContent) {
     return false;
   }
@@ -52,11 +55,13 @@ const renderHtml = (reactApp, reduxStore, metaTags, res) => {
   const linkTags = extractor.getLinkTags();
   const nonceId = res.locals.nonce;
 
-  return htmlContent
+  const content = htmlContent
     .replace(/<div id="app"><\/div>/, `<div id="app">${body}</div>`)
     .replace(
       '<head>',
-      `<head>${ReactDOMServer.renderToString(metaTags)}${linkTags}`
+      `<head>${ReactDOMServer.renderToString(
+        metaTags
+      )}${linkTags}<link rel="manifest" href="${pwaManifest}" />`
     )
     .replace('</head>', `${styles}</head>`)
     .replace('"__REDUX__"', JSON.stringify(reduxState))
@@ -70,6 +75,8 @@ const renderHtml = (reactApp, reduxStore, metaTags, res) => {
       '</body>',
       `${env.isTest() || env.isDev() ? '' : TWTTR_SCRIPT}</body>`
     );
+
+  return content;
 };
 
 // @todo test this function!!
@@ -124,7 +131,12 @@ export const reactRender = async (req, res, routeState = {}) => {
     </CookiesProvider>
   );
 
-  const reactHtml = renderHtml(ReactApp, store, headTags, res);
+  // eslint-disable-next-line import/no-unresolved
+  const webpackManifest = require('webpack-manifest');
+
+  const pwaManifest = webpackManifest['assets/manifest.json'];
+
+  const reactHtml = renderHtml(ReactApp, store, headTags, pwaManifest, res);
 
   if (!reactHtml) {
     return res.status(404).end();

@@ -1,45 +1,129 @@
 import winston from 'winston';
 import { env } from 'Shared/env';
+import fs from 'fs';
+import path from 'path';
+import sourceMap from 'source-map';
+import { MAP_DIR, JS_DIR, BUILD_DIR } from './paths';
 
-const { combine, timestamp, label, simple, printf } = winston.format;
+const createSourceMapConsumers = async sourcesPath => {
+  const sourceMapConsumers = new Map();
+  const items = fs.readdirSync(sourcesPath);
+  const mapFiles = fs.readdirSync(MAP_DIR);
+  const jsFiles = items.filter(item => item.endsWith('.js'));
+  await Promise.all(
+    jsFiles.map(async item => {
+      const mapFile = `${item}.map`;
+      if (mapFiles.indexOf(mapFile) >= 0) {
+        const contents = fs.readFileSync(path.join(MAP_DIR, mapFile), 'utf8');
+        const consumer = await new sourceMap.SourceMapConsumer(contents);
+        sourceMapConsumers.set(item, consumer);
+      }
+      return item;
+    })
+  );
 
-const logFormat = printf(info => {
-  const data = info instanceof Object ? info : { message: info };
+  return sourceMapConsumers;
+};
 
-  const { stack, level, os, device, browser } = data;
-  const infoLabel = data.label;
-  const infoTime = data.timestamp;
-  const infoBrowser = JSON.stringify(browser);
-  const infoOS = JSON.stringify(os);
-  const infoDevice = JSON.stringify(device);
-  const infoStack =
-    typeof stack === 'string' ? stack.replace(/\n/g, ' >>> ') : stack;
+const formatStack = (stack, sourceMapConsumers) => {
+  const replacement = (coresp, sourcename, sourceline, sourcecolumn) => {
+    if (!sourceMapConsumers.has(sourcename)) {
+      return coresp;
+    }
+    const { source, column, line, name } = sourceMapConsumers
+      .get(sourcename)
+      .originalPositionFor({
+        line: parseInt(sourceline, 10),
+        column: parseInt(sourcecolumn, 10),
+      });
 
-  delete data.stack;
-  delete data.level;
-  delete data.os;
-  delete data.device;
-  delete data.browser;
-  delete data.label;
-  delete data.timestamp;
+    if (!source) {
+      return coresp;
+    }
 
-  const message = JSON.stringify(data);
+    return `@${name}|${source}:${line}:${column}`;
+  };
 
-  // eslint-disable-next-line max-len
-  return `${infoTime} ${infoLabel} browser ${infoBrowser} - os ${infoOS} - device ${infoDevice} - ${level}: ${message} - stackTrace: ${infoStack}`;
-});
+  const transformedStack = stack
+    .replace(/\/([^/+]+\.js):([0-9]+):([0-9]+)/g, replacement)
+    .replace(/\n/g, ' >>> ');
+
+  return transformedStack;
+};
+
+const getLogFormat = sourceMapReplace => {
+  const { printf } = winston.format;
+
+  return printf(info => {
+    const data = info instanceof Object ? info : { message: info };
+
+    const infoLabel = data.label;
+    delete data.label;
+
+    const infoTime = data.timestamp;
+    delete data.timestamp;
+
+    const infoBrowser = JSON.stringify(data.browser);
+    delete data.browser;
+
+    const infoOS = JSON.stringify(data.os);
+    delete data.os;
+
+    const infoDevice = JSON.stringify(data.device);
+    delete data.device;
+
+    const infoLevel = data.level;
+    delete data.level;
+
+    const infoStack =
+      typeof data.stack === 'string'
+        ? sourceMapReplace(data.stack)
+        : data.stack;
+    delete data.stack;
+
+    const longFilename =
+      data.fileName &&
+      `${data.fileName}:${data.lineNumber}:${data.columnNumber}`;
+    const originalName = longFilename && sourceMapReplace(longFilename);
+    const message = JSON.stringify(
+      originalName && originalName !== longFilename
+        ? {
+            ...data,
+            original: originalName,
+          }
+        : data
+    );
+
+    // eslint-disable-next-line max-len
+    return `${infoTime} ${infoLabel} browser ${infoBrowser} - os ${infoOS} - device ${infoDevice} - ${infoLevel}: ${message} - stackTrace: ${infoStack}`;
+  });
+};
 
 const isTestEnv = env.isTest();
-/**
- * Instantiate the logger
- */
-export const logger = winston.createLogger({
-  silent: isTestEnv,
-  format: combine(
-    label({ label: 'front-accessible' }),
-    timestamp(),
-    simple(),
-    logFormat
-  ),
-  transports: [new winston.transports.Console()],
-});
+
+let loggerInstance;
+export const getLoggerInstance = async () => {
+  if (!loggerInstance) {
+    const { combine, timestamp, label, simple } = winston.format;
+    const sourceMapConsumersClient = await createSourceMapConsumers(JS_DIR);
+    const sourceMapConsumersServer = await createSourceMapConsumers(BUILD_DIR);
+    const sourceMapConsumers = new Map([
+      ...sourceMapConsumersClient,
+      ...sourceMapConsumersServer,
+    ]);
+    const sourceMapReplace = stack => formatStack(stack, sourceMapConsumers);
+    const logFormat = getLogFormat(sourceMapReplace);
+    loggerInstance = winston.createLogger({
+      silent: isTestEnv,
+      format: combine(
+        label({ label: 'front-accessible' }),
+        timestamp(),
+        simple(),
+        logFormat
+      ),
+      transports: [new winston.transports.Console()],
+    });
+  }
+
+  return loggerInstance;
+};

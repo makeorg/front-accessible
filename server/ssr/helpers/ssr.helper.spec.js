@@ -1,9 +1,12 @@
 import { v4 as uuidv4 } from 'uuid';
-import { logger } from '../../logger';
 import { logError } from './ssr.helper';
 
-jest.mock('../../logger', () => ({
-  logger: { log: jest.fn() },
+const mockLoggerLog = jest.fn();
+
+jest.mock('Server/logger', () => ({
+  getLoggerInstance: () => ({
+    log: mockLoggerLog,
+  }),
 }));
 
 jest.mock('uuid');
@@ -11,9 +14,12 @@ uuidv4.mockReturnValue('uuid-121212');
 
 describe('ssr helper', () => {
   describe('logError', () => {
+    const stack = { stack: 'value stack' };
+    logError('value');
+    logError(stack);
+
     it('default case', () => {
-      logError('value');
-      expect(logger.log).toHaveBeenNthCalledWith(1, 'error', {
+      expect(mockLoggerLog).toHaveBeenNthCalledWith(1, 'error', {
         logId: 'uuid-121212',
         message: 'value',
         stack: 'no-stack',
@@ -21,9 +27,7 @@ describe('ssr helper', () => {
     });
 
     it('must return stack', () => {
-      const stack = { stack: 'value stack' };
-      logError(stack);
-      expect(logger.log).toHaveBeenNthCalledWith(2, 'error', {
+      expect(mockLoggerLog).toHaveBeenNthCalledWith(2, 'error', {
         logId: 'uuid-121212',
         stack: 'value stack',
       });
