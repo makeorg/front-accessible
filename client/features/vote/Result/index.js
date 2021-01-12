@@ -87,7 +87,7 @@ export const VoteResult = ({
           <VoteResultItemStyle key={`${voteKey}_item_${proposalId}`}>
             <Tooltip
               content={tooltipContent(votesPercent[voteKey], voteKey)}
-              direction="bottom"
+              direction="left"
             >
               <VoteResultBarStyle
                 aria-label={i18n.t('common.display_tooltip')}
