@@ -49,9 +49,10 @@ test:
   script:    
     - node -v
     - yarn install
-    - yarn i18n:translation:check
-    - yarn documentation:check
-    - yarn test-with-coverage
+    - yarn translation
+    - yarn documentation
+    - yarn accessibility
+    - yarn test --coverage
   artifacts:
     expire_in: 1 week
     when: always
@@ -86,8 +87,7 @@ e2e-test:
     - apt-get update && apt-get install -y dbus-x11 google-chrome-stable && rm -rf /var/lib/apt/lists/*
     - yarn install
     - yarn build
-    - yarn cypress install
-    - yarn test:cypress
+    - yarn ci cypress:run
   artifacts:
     expire_in: 1 week
     when: always
@@ -105,9 +105,9 @@ lighthouse:
     - n 12.20
     - npm i -g lighthouse@~6.1.0 lighthouse-ci@1.10.0 yarn
     - yarn install
-    - yarn build
     - lighthouse --version && lighthouse-ci --version
-    - yarn lighthouse:run
+    - yarn build
+    - yarn ci lighthouse:all
   artifacts:
     paths:
       - ./report-home.html

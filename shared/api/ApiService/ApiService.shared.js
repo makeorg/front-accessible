@@ -1,5 +1,5 @@
 /* eslint-disable max-classes-per-file */
-/* @flow */
+// @flow
 
 import axios from 'axios';
 import axiosRetry from 'axios-retry';
@@ -8,8 +8,16 @@ import { Logger } from 'Shared/services/Logger';
 import { APP_NAME } from 'Shared/constants/config';
 import { v4 as uuidv4 } from 'uuid';
 import { ApiServiceError } from 'Shared/api/ApiService/ApiServiceError';
+import { env } from 'Shared/env';
 import { type ErrorResponse } from './types';
-import { HOSTNAME, LOCATION_PARAMS, API_URL } from './configuration';
+
+const HOSTNAME =
+  (typeof window !== 'undefined' && window?.location?.hostname) || null;
+
+const LOCATION_PARAMS =
+  (typeof window !== 'undefined' && window?.location?.search) || '';
+
+const API_URL = env.apiUrl();
 
 axiosRetry(axios, {
   retries: 5,

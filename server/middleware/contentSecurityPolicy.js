@@ -1,5 +1,5 @@
 import csp from 'helmet-csp';
-import { apiUrl, frontUrl } from 'Server/configuration';
+import { env } from 'Shared/env';
 
 export const cspMiddleware = csp({
   // Specify directives as normal.
@@ -33,8 +33,8 @@ export const cspMiddleware = csp({
     ],
     connectSrc: [
       "'self'",
-      apiUrl,
-      frontUrl,
+      env.apiUrl(),
+      env.frontUrl(),
       'https://*.makeorg.tech',
       'https://*.make.org',
       'https://*.placebymake.org',

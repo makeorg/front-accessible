@@ -6,7 +6,6 @@ WORKDIR /usr/app/
 COPY . .
 RUN yarn install --no-progress --frozen-lockfile
 RUN yarn build
-RUN yarn version:build
 
 # keep only production modules and autoclean
 RUN yarn install -A --no-progress --frozen-lockfile --check-files --production

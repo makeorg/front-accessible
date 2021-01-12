@@ -1,10 +1,9 @@
-import { env } from 'Shared/env';
-
 /* eslint consistent-return: 0 */
 
 const fs = require('fs');
 const path = require('path');
 const cache = require('memory-cache');
+const { env } = require('Shared/env');
 const { SERVER_DIR } = require('../paths');
 
 export const ALLOWED_URL = env.frontUrl();

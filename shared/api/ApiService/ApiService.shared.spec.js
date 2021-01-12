@@ -2,8 +2,8 @@ import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 import { Logger } from 'Shared/services/Logger';
 import { ApiServiceError } from 'Shared/api/ApiService/ApiServiceError';
+import { env } from 'Shared/env';
 import { ApiServiceShared, handleErrors } from './ApiService.shared';
-import { API_URL } from './configuration';
 
 jest.mock('uuid');
 uuidv4.mockReturnValue('uuid-121212');
@@ -27,7 +27,7 @@ describe('ApiServiceShared', () => {
       const options = { method: 'POST' };
 
       ApiServiceShared.callApi(url, options);
-      expect(axios).toHaveBeenNthCalledWith(1, API_URL + url, {
+      expect(axios).toHaveBeenNthCalledWith(1, env.apiUrl() + url, {
         data: undefined,
         headers,
         method: 'POST',
@@ -42,7 +42,7 @@ describe('ApiServiceShared', () => {
       const options = { method: 'GET', params: { value: 'value' } };
 
       ApiServiceShared.callApi(url, options);
-      expect(axios).toHaveBeenNthCalledWith(1, API_URL + url, {
+      expect(axios).toHaveBeenNthCalledWith(1, env.apiUrl() + url, {
         data: undefined,
         params: { value: 'value' },
         headers,

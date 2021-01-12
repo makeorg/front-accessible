@@ -77,7 +77,7 @@ notifier.add('Documentation check', '').notifyInfo2();
 notifier.setPrefix(level1).add('Starting analyse...', '').notifyInfo();
 
 try {
-  const trackingConfiguration = yaml.safeLoad(
+  const trackingConfiguration = yaml.load(
     fs.readFileSync(trackingConfigurationFile, 'utf8')
   );
   const documentationContent = fs.readFileSync(
