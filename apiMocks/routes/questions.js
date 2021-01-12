@@ -3,12 +3,11 @@ const { fixtures } = require('../fixtures/generator');
 
 const questionsRouter = jsonServer.create();
 
-const getLimitAndSkip = (questions, req) => {
-  return questions.slice(
+const getLimitAndSkip = (questions, req) =>
+  questions.slice(
     parseInt(req.query.skip, 10),
     parseInt(req.query.limit, 10) + parseInt(req.query.skip, 10)
   );
-};
 
 questionsRouter.get('/', (req, res) => {
   const { status } = req.query;
@@ -55,26 +54,32 @@ questionsRouter.get('/:questionIdOrQuestionSlug/details', (req, res) => {
   return res.send(questionDataById || questionDataBySlug);
 });
 
-questionsRouter.get('/:questionId/partners', (req, res) => {
-  return res.send({
+questionsRouter.get('/:questionId/partners', (req, res) =>
+  res.send({
     total: fixtures.partners.length,
     results: fixtures.partners,
-  });
-});
+  })
+);
 
-questionsRouter.get('/:questionId/popular-tags', (req, res) => {
-  return res.send(fixtures.popularTags);
-});
+questionsRouter.get('/:questionId/popular-tags', (req, res) =>
+  res.send(fixtures.popularTags)
+);
 
 questionsRouter.get('/:questionId/start-sequence', (req, res) => {
-  const proposalsOfQuestion = fixtures.proposals.filter(proposal => {
-    return proposal.question.questionId === req.params.questionId;
-  });
+  const proposalsOfQuestion = fixtures.proposals.filter(
+    proposal => proposal.question.questionId === req.params.questionId
+  );
   let proposals;
   if (req.params.questionId === 'question-3-id') {
     proposals = proposalsOfQuestion.slice(0, 2);
   } else {
     proposals = proposalsOfQuestion.slice(0, 12);
+  }
+
+  if (req.query && req.query.include) {
+    proposals[0] = fixtures.proposals.find(
+      proposal => proposal.id === req.query.include
+    );
   }
 
   return res.send({
@@ -84,9 +89,9 @@ questionsRouter.get('/:questionId/start-sequence', (req, res) => {
 });
 
 questionsRouter.get('/:questionId/top-ideas', (req, res) => {
-  const questionTopIdeas = fixtures.topIdeas.filter(topIdea => {
-    return topIdea.questionId === req.params.questionId;
-  });
+  const questionTopIdeas = fixtures.topIdeas.filter(
+    topIdea => topIdea.questionId === req.params.questionId
+  );
 
   return res.send({
     questionTopIdeas,
@@ -95,12 +100,11 @@ questionsRouter.get('/:questionId/top-ideas', (req, res) => {
 });
 
 questionsRouter.get('/:questionId/top-ideas/:topIdeaId', (req, res) => {
-  const questionTopIdeas = fixtures.topIdeas.filter(topIdea => {
-    return (
+  const questionTopIdeas = fixtures.topIdeas.filter(
+    topIdea =>
       topIdea.questionId === req.params.questionId &&
       topIdea.id === req.params.topIdeaId
-    );
-  });
+  );
 
   return res.send(questionTopIdeas[0] ? questionTopIdeas[0] : []);
 });

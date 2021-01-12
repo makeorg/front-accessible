@@ -37,7 +37,6 @@ Object {
   "sequence": Object {
     "cards": Array [],
     "currentIndex": 0,
-    "firstProposal": undefined,
     "proposals": Array [],
     "questionSlug": undefined,
     "votedProposalIds": Object {},

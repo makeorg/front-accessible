@@ -18,7 +18,6 @@ export const initialState: StateRoot = {
     data: undefined,
   },
   sequence: {
-    firstProposal: undefined,
     questionSlug: undefined,
     currentIndex: 0,
     votedProposalIds: {},

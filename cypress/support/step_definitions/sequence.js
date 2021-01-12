@@ -14,6 +14,13 @@ given('I am/go on/to the sequence page of the question {string}', questionSlug =
   cy.wait('@getStartSequence', {timeout: 8000});
 });
 
+given('I am/go on/to the sequence page of the question {string} with a first proposal {string}', (questionSlug, firstProposalId) => {
+  const page = sequencePage.replace(':questionSlug', questionSlug);
+  cy.monitorApiCall('getStartSequence');
+  cy.visit(`${page}?firstProposal=${firstProposalId}`);
+  cy.wait('@getStartSequence', {timeout: 8000});
+});
+
 given('I am/go on/to the sequence page of the question {string} with intro card disabled', questionSlug => {
   const page = sequencePage.replace(':questionSlug', questionSlug);
   cy.monitorApiCall('getStartSequence');

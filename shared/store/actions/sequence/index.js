@@ -38,9 +38,6 @@ export const unloadSequenceProposals = () => (dispatch: Dispatch) =>
 export const resetSequenceIndex = () => (dispatch: Dispatch) =>
   dispatch({ type: actionTypes.SEQUENCE_RESET_INDEX });
 
-export const resetFirstProposal = () => (dispatch: Dispatch) =>
-  dispatch({ type: actionTypes.SEQUENCE_RESET_FIRST_PROPOSAL });
-
 export const incrementSequenceIndex = () => (dispatch: Dispatch) =>
   dispatch({ type: actionTypes.SEQUENCE_INCREMENT_INDEX });
 
