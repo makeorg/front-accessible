@@ -5,7 +5,6 @@ import { sequence } from './index';
 describe('Sequence reducer', () => {
   it('Return the initial state', () => {
     const expectedState = {
-      firstProposal: undefined,
       questionSlug: undefined,
       currentIndex: 0,
       votedProposalIds: {},

@@ -92,11 +92,6 @@ export function sequence(
         ...state,
         currentIndex: state.currentIndex - 1,
       };
-    case actionTypes.SEQUENCE_RESET_FIRST_PROPOSAL:
-      return {
-        ...state,
-        firstProposal: undefined,
-      };
     default:
       return state;
   }

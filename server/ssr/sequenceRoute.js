@@ -45,13 +45,5 @@ export const sequenceRoute = async (req: Request, res: Response) => {
   };
   updateTrackingQuestionParam(questionModified);
 
-  const { firstProposal } = req.query;
-  if (firstProposal) {
-    routeState.sequence = {
-      ...routeState.sequence,
-      firstProposal,
-    };
-  }
-
   return reactRender(req, res, routeState);
 };

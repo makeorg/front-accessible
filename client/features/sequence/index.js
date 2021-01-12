@@ -13,7 +13,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { selectAuthentication } from 'Shared/store/selectors/user.selector';
 import {
   resetSequenceIndex,
-  resetFirstProposal,
   setSequenceIndex,
   loadSequenceCards,
   resetSequenceVotedProposals,
@@ -47,7 +46,7 @@ export type Props = {
 export const Sequence = ({ question, zone }: Props) => {
   const dispatch = useDispatch();
   const { country } = useSelector((state: StateRoot) => state.appConfig);
-  const { firstProposal, votedProposalIds, currentIndex, cards } = useSelector(
+  const { votedProposalIds, currentIndex, cards } = useSelector(
     (state: StateRoot) => ({
       ...state.sequence,
       currentIndex: state.sequence.currentIndex || 0,
@@ -64,6 +63,8 @@ export const Sequence = ({ question, zone }: Props) => {
     question && question.canPropose
   );
   const { search } = useLocation();
+  const params = new URLSearchParams(search);
+  const firstProposal = params.get('firstProposal');
   const disableIntroCard =
     new URLSearchParams(search.toLowerCase()).get('introcard') === 'false';
   const isPushProposal = useSelector(
@@ -80,7 +81,9 @@ export const Sequence = ({ question, zone }: Props) => {
     const votedProposalIdsOfQuestion = votedProposalIds[question.slug] || [];
     SequenceService.startSequence(
       question.questionId,
-      [firstProposal, ...votedProposalIdsOfQuestion],
+      firstProposal
+        ? [firstProposal, ...votedProposalIdsOfQuestion]
+        : votedProposalIdsOfQuestion,
       zone
     ).then(proposals => {
       setSequenceProposals(proposals || []);
@@ -90,10 +93,12 @@ export const Sequence = ({ question, zone }: Props) => {
     });
   }, [question, firstProposal, isLoggedIn, hasProposed]);
 
-  useEffect(() => {
-    dispatch(resetFirstProposal());
-    return () => dispatch(resetSequenceVotedProposals(question.slug));
-  }, []);
+  useEffect(
+    () => () => {
+      dispatch(resetSequenceVotedProposals(question.slug));
+    },
+    []
+  );
 
   useEffect(() => {
     if (!cards.length) {
@@ -120,7 +125,7 @@ export const Sequence = ({ question, zone }: Props) => {
     );
 
     dispatch(loadSequenceCards(buildedCards));
-  }, [firstProposal, hasProposed, sequenceProposals]);
+  }, [hasProposed, sequenceProposals]);
 
   useEffect(() => {
     const indexOfFirstUnvotedCard: number = findIndexOfFirstUnvotedCard(
