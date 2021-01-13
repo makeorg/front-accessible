@@ -223,3 +223,17 @@ export const SequenceSeparatorStyle = styled(SeparatorStyle)`
   max-width: 80px;
   margin: 10px auto 20px;
 `;
+
+export const SpecialSequenceFinalWrapperStyle = styled(SequenceCardStyle)`
+  justify-content: center;
+`;
+
+export const SpecialSequenceFinalContentStyle = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  & button {
+    margin-top: 0;
+  }
+`;

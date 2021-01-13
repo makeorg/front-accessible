@@ -334,6 +334,11 @@
     "popular_title":"Les propositions les plus populaires",
     "controversial_title": "Les propositions les plus controversées"
   },
+  "special_final_card": {
+    "title": "Merci pour vos votes !",
+    "subtitle": "Vous pouvez continuer à participer à la consulation",
+    "cta_text": "J'accède à la consultation"
+  },
   "proposal_submit": {
     "deprecated": {
       "bait": "Il faut ",
