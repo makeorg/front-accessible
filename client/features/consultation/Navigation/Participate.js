@@ -41,7 +41,7 @@ export const ParticipateNavigation = () => {
   ];
 
   return (
-    <NavigationWrapperStyle id={CONSULTATION_NAVIGATION}>
+    <NavigationWrapperStyle>
       <NavigationInnerStyle>
         <InnerPagesNavigation pages={NavigationPages} />
       </NavigationInnerStyle>
