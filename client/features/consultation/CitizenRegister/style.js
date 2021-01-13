@@ -44,6 +44,7 @@ export const SocialRegisterLabelStyle = styled.span`
   color: ${props =>
     props.theme.fontColor ? color.black : props.theme.fontColor};
   font-weight: bold;
+  font-family: ${MakeFonts.CircularStandardBold};
   font-size: ${intToPx(typography.font.fontsize.XS.value)};
   margin: 15px 0 10px;
 `;
