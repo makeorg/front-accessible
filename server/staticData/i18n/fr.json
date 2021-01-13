@@ -677,6 +677,11 @@
       "title": "Comment participer à la consultation ?",
       "description": "Nous sommes convaincus que chacun peut contribuer à son échelle au bien commun. C’est pourquoi nous faisons appel aux idées et opinions de milliers de citoyens dans le cadre de nos consultations."
     },
+    "citizen_account": {
+      "title": "Votre espace citoyen sur Make.org",
+      "description": "Grâce à votre compte personnel vous avez accès aux résultats de vos propositions, à l’historique de vos votes et vous recevrez les résultats des consultations. En vous inscrivant chez nous, vous serez informé par email des prochaines consultations citoyennes et vous serez convié à nos événements participatifs.",
+      "register_links": "Je m’inscris avec :"
+    },
     "cards": {
       "soon": "À venir",
       "submit": {

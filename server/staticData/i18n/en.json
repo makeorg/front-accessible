@@ -747,6 +747,11 @@
       "title": "@@consultation.participate.title|fr:Comment participer à la consultation ?",
       "description": "@@consultation.participate.description|fr:Nous sommes convaincus que chacun peut contribuer à son échelle au bien commun. C’est pourquoi nous faisons appel aux idées et opinions de milliers de citoyens dans le cadre de nos consultations."
     },
+    "citizen_account": {
+      "title": "Your citizen account on Make.org",
+      "description": "Thanks to your personal account you have access to the results of your proposals, the history of your votes and you will receive the results of the consultations. By registering with us, you will be informed by email of the next citizen consultations and you will be invited to our participatory events.",
+      "register_links": "I register with :"
+    },
     "cards": {
       "soon": "@@consultation.cards.soon|fr:À venir",
       "submit": {
