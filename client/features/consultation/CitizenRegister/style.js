@@ -7,8 +7,6 @@ import { intToPx } from 'Shared/helpers/styled';
 import { Layouts, Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { FlexElementStyle } from 'Client/ui/Elements/FlexElements';
 
-export const CitizenRegisterWrapperStyle = styled(FlexElementStyle);
-
 export const CitizenRegisterContentStyle = styled(FlexElementStyle)`
   width: 100%;
   max-width: ${intToPx(Layouts.ContainerWidth)};

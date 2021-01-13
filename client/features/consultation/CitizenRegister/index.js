@@ -5,10 +5,10 @@ import { useSelector } from 'react-redux';
 import { type StateRoot } from 'Shared/store/types';
 import { selectAuthentication } from 'Shared/store/selectors/user.selector';
 
+import { FlexElementStyle } from 'Client/ui/Elements/FlexElements';
 import {
   CitizenRegisterContentStyle,
   CitizenRegisterTitleStyle,
-  CitizenRegisterWrapperStyle,
   CitizenRegisterSubtitleStyle,
   SocialRegisterLabelStyle,
   SocialCitizenRegisterWrapperStyle,
@@ -23,7 +23,7 @@ export const CitizenRegister = () => {
   }
 
   return (
-    <CitizenRegisterWrapperStyle as="section">
+    <FlexElementStyle as="section">
       <CitizenRegisterContentStyle>
         <CitizenRegisterTitleStyle>
           {i18n.t('consultation.citizen_account.title')}
@@ -38,6 +38,6 @@ export const CitizenRegister = () => {
           <AuthenticationRegisterButtons />
         </SocialCitizenRegisterWrapperStyle>
       </CitizenRegisterContentStyle>
-    </CitizenRegisterWrapperStyle>
+    </FlexElementStyle>
   );
 };
