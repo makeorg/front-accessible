@@ -33,6 +33,7 @@ import {
 } from 'Client/features/consultation/Cards/About';
 import { ParticipateNavigation } from 'Client/features/consultation/Navigation/Participate';
 import { FeaturedProposals } from 'Client/features/consultation/Cards/FeaturedProposals';
+import { CONSULTATION_NAVIGATION } from 'Shared/constants/ids';
 import {
   ParticipateContentStyle,
   ParticipateInnerStyle,
@@ -101,6 +102,7 @@ const ParticipatePage = () => {
 
       {!isDesktop && <MobileAbout />}
       <ParticipateHighlights />
+      <div id={CONSULTATION_NAVIGATION} />
       <ParticipateNavigation />
       <ParticipateContentStyle>
         <ParticipateTitleStyle>

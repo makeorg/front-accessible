@@ -22,7 +22,7 @@ import {
 } from 'Shared/helpers/proposal';
 import { useParams } from 'react-router';
 import { Pagination } from 'Client/ui/Elements/Pagination';
-import { EXPLORE_SECTION } from 'Shared/constants/ids';
+import { CONSULTATION_NAVIGATION } from 'Shared/constants/ids';
 import {
   ParticipateContentStyle,
   ParticipateInnerStyle,
@@ -98,8 +98,9 @@ const ExplorePage = () => {
       />
       <ParticipateHeader />
       <ParticipateHighlights />
+      <div id={CONSULTATION_NAVIGATION} />
       <ParticipateNavigation />
-      <ParticipateContentStyle id={EXPLORE_SECTION}>
+      <ParticipateContentStyle>
         <ExploreTitleWrapperStyle>
           <ExploreTitleStyle>{title}</ExploreTitleStyle>
           {hasProposals && (
@@ -115,7 +116,7 @@ const ExplorePage = () => {
               <Pagination
                 itemsPerPage={PROPOSALS_LIMIT}
                 itemsTotal={proposalsTotal}
-                scrollToId={EXPLORE_SECTION}
+                scrollToId={CONSULTATION_NAVIGATION}
                 questionSlug={question.slug}
               />
             )}

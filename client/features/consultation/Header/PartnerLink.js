@@ -37,6 +37,8 @@ export const PartnersList = ({
     selectCurrentQuestion(state)
   );
 
+  const displayMoreLink = seeMoreLink && partnersList.length > 2;
+
   return (
     <HeaderListWrapperStyle className={noMargin && 'no-margin'}>
       <HeaderListLabelStyle>
@@ -61,7 +63,7 @@ export const PartnersList = ({
             {partnersList.length !== index + 1 && <>, </>}
           </HeaderListItemStyle>
         ))}
-        {seeMoreLink && (
+        {displayMoreLink && (
           <HeaderListItemStyle>
             <>, ... </>
             <NewWindowLink
