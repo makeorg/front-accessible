@@ -63,13 +63,19 @@ Following parameters are added to all events.
   - `display-page-operation` Display consultation page
 
     
-    | param_name | required | description | values |
-    |-|-|-|-|
-    | `type` | true | page type | `consultation`, `results` |
-  
   
 
   - `click-actions-tab` Click on actions tab
+
+    
+  
+
+  - `click-participate-tab` Click on participate tab
+
+    
+  
+
+  - `click-explore-tab` Click on explore tab
 
     
   
@@ -87,6 +93,10 @@ Following parameters are added to all events.
   - `click-see-more-community` Click on see all partners
 
     
+    | param_name | required | description | values |
+    |-|-|-|-|
+    | `component` | false | component name |  |
+  
   
 
   - `click-tag-action` On change tags select
@@ -340,7 +350,6 @@ Following parameters are added to all events.
     | param_name | required | description | values |
     |-|-|-|-|
     | `social-network` | true | provider name |  |
-    | `location` | false | location page | `profile` |
   
   
 
@@ -408,6 +417,7 @@ Following parameters are added to all events.
     | param_name | required | description | values |
     |-|-|-|-|
     | `type` | true | user type | `PERSONALITY`, `ORGANISATION` |
+    | `component` | false | component name |  |
   
   
 
@@ -508,6 +518,20 @@ Following parameters are added to all events.
   - `display-session-expired` Display modal session expired
 
     
+  
+
+  - `display-proposal-page` Display proposal page
+
+    
+  
+
+  - `click-breadcrumbs` Click on breadcrumbs link
+
+    
+    | param_name | required | description | values |
+    |-|-|-|-|
+    | `level` | true | level of the link in breacrumbs |  |
+  
   
 
 </auto-generated-tracking-doc>

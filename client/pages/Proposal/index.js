@@ -16,6 +16,7 @@ import { CONSULTATION_SHARE_DISABLE } from 'Shared/constants/featureFlipping';
 import { isInProgress } from 'Shared/helpers/date';
 import { QuestionService } from 'Shared/services/Question';
 import { ProposalService } from 'Shared/services/Proposal';
+import { trackDisplayProposalPage } from 'Shared/services/Tracking';
 
 const ProposalPage = () => {
   const { proposalId } = useParams();
@@ -35,6 +36,11 @@ const ProposalPage = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [proposal]);
+
+  useEffect(() => {
+    trackDisplayProposalPage();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   if (!question) {
     return (

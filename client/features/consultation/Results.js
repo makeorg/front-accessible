@@ -15,7 +15,7 @@ import {
   SvgLightBulb,
 } from 'Client/ui/Svg/elements';
 import { useDesktop, useMobile } from 'Client/hooks/useMedia';
-import { trackDisplayConsultation } from 'Shared/services/Tracking';
+import { trackDisplayOperationPage } from 'Shared/services/Tracking';
 import { GliderStylesheet } from 'Client/app/assets/css-in-js/GliderStyle';
 import {
   RESULTS_CONTEXT,
@@ -57,7 +57,7 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
 
   useEffect(() => {
     if (question) {
-      trackDisplayConsultation('results');
+      trackDisplayOperationPage();
     }
   }, [question]);
 

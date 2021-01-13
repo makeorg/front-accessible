@@ -13,6 +13,10 @@ import { type QuestionType } from 'Shared/types/question';
 import { useParams } from 'react-router';
 import { CONSULTATION_NAVIGATION } from 'Shared/constants/ids';
 import { scrollToElementId } from 'Shared/helpers/styled';
+import {
+  trackClickExploreTab,
+  trackClickParticipateTab,
+} from 'Shared/services/Tracking';
 import { NavigationWrapperStyle, NavigationInnerStyle } from './style';
 
 export const ParticipateNavigation = () => {
@@ -23,7 +27,10 @@ export const ParticipateNavigation = () => {
   const isDesktop = useDesktop();
   const NavigationPages: PageNavigationType[] = [
     {
-      onClickAction: () => scrollToElementId(CONSULTATION_NAVIGATION),
+      onClickAction: () => {
+        scrollToElementId(CONSULTATION_NAVIGATION);
+        trackClickParticipateTab();
+      },
       link: getParticipateLink(country, question.slug),
       label: isDesktop
         ? i18n.t('consultation.navigation.participate_desktop')
@@ -31,7 +38,10 @@ export const ParticipateNavigation = () => {
       routeToMatch: getParticipateLink(country, question.slug),
     },
     {
-      onClickAction: () => scrollToElementId(CONSULTATION_NAVIGATION),
+      onClickAction: () => {
+        scrollToElementId(CONSULTATION_NAVIGATION);
+        trackClickExploreTab();
+      },
       link: getExploreLink(country, question.slug),
       label: isDesktop
         ? i18n.t('consultation.navigation.explore_desktop')

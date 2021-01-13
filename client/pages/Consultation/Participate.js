@@ -35,6 +35,10 @@ import { ParticipateNavigation } from 'Client/features/consultation/Navigation/P
 import { FeaturedProposals } from 'Client/features/consultation/Cards/FeaturedProposals';
 import { CONSULTATION_NAVIGATION } from 'Shared/constants/ids';
 import {
+  trackDisplayOperationPage,
+  trackOpenSequence,
+} from 'Shared/services/Tracking';
+import {
   ParticipateContentStyle,
   ParticipateInnerStyle,
   ParticipateMainContentStyle,
@@ -64,6 +68,10 @@ const ParticipatePage = () => {
       );
     }
   }, [question, dispatch]);
+
+  useEffect(() => {
+    trackDisplayOperationPage();
+  }, []);
 
   const InteractIcon = (
     <SvgPeople aria-hidden width={36} height={36} focusable="false" />
@@ -123,6 +131,7 @@ const ParticipatePage = () => {
                 introCard: false,
               })}
               classes="margin-bottom"
+              onClickAction={() => trackOpenSequence()}
             />
             <ColumnToRowElementStyle>
               <CTAProposal

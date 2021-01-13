@@ -8,7 +8,7 @@ import { ParticipateBanner } from 'Client/features/consultation/ParticipateBanne
 import { InfiniteProposals } from 'Client/features/consultation/InfiniteProposals';
 import { ConsultationProposal } from 'Client/features/consultation/Proposal';
 import { ConsultationPageContentStyle } from 'Client/pages/Consultation/style';
-import { trackDisplayConsultation } from 'Shared/services/Tracking';
+import { trackDisplayOperationPage } from 'Shared/services/Tracking';
 import { PROPOSALS_FEED_ALGORITHMS } from 'Shared/api/ProposalApiService';
 import { selectQuestionPopularTags } from 'Shared/store/selectors/questions.selector';
 import { fetchPopularTags } from 'Shared/store/reducers/questions/actions';
@@ -37,8 +37,9 @@ export const ConsultationContent = ({ question }: Props) => {
   const [tags, setTags] = useState<TagType[]>([]);
 
   useEffect(() => {
+    trackDisplayOperationPage();
     dispatch(fetchPopularTags(question.questionId, question.slug));
-    trackDisplayConsultation('consultation');
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [question]);
 

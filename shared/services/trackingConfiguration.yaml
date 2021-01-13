@@ -51,16 +51,18 @@ CLICK_CLOSE_MODAL:
 DISPLAY_PAGE_OPERATION:
     key: display-page-operation
     description: Display consultation page
-    parameters:
-        - key: type
-          description: page type
-          values:
-            - consultation
-            - results
 
 CLICK_ACTIONS_TAB:
     key: click-actions-tab
     description: Click on actions tab
+
+CLICK_PARTICIPATE_TAB:
+    key: click-participate-tab
+    description: Click on participate tab
+
+CLICK_EXPLORE_TAB:
+    key: click-explore-tab
+    description: Click on explore tab
 
 CLICK_BUTTON_LEARN_MORE:
     key: click-button-learn-more
@@ -72,7 +74,11 @@ CLICK_SEQUENCE_OPEN:
 
 CLICK_SEE_MORE_COMMUNITY:
     key: click-see-more-community
-    description: Click on see all partners
+    description: Click on see all partners    
+    parameters:
+      - key: component
+        description: component name
+        optional: true
 
 CLICK_TAG_ACTION:
     key: click-tag-action
@@ -310,11 +316,6 @@ CLICK_SHARE:
     parameters:
         - key: social-network
           description: provider name
-        - key: location
-          optional: true
-          description: location page
-          values:
-            - profile 
 
 CLICK_FOLLOW_US:
     key: click-follow-us
@@ -374,6 +375,9 @@ CLICK_PUBLIC_PROFILE:
           values:
             - PERSONALITY
             - ORGANISATION
+        - key: component
+          description: component name
+          optional: true
 
 DISPLAY_PUBLIC_PROFILE:
     key: display-public-profile
@@ -435,8 +439,7 @@ CLICK_BROWSE_PARTICIPATE:
     description: Click participate button on browse consultations
     parameters:
         - key: question-Id
-          description: question id
-          
+          description: question id   
 
 CLICK_PAGINATION:
     key: click-page
@@ -444,7 +447,6 @@ CLICK_PAGINATION:
     parameters:
         - key: page-number
           description: page number
-
 
 CLICK_RESULTS:
     key: click-button-results
@@ -462,3 +464,14 @@ CLICK_SUBSCRIBE:
 DISPLAY_SESSION_EXPIRED:
     key: display-session-expired
     description: Display modal session expired 
+
+DISPLAY_PROPOSAL_PAGE:
+    key: display-proposal-page
+    description: Display proposal page 
+
+CLICK_BREADCRUMBS:
+    key: click-breadcrumbs
+    description: Click on breadcrumbs link 
+    parameters:
+        - key: level
+          description: level of the link in breacrumbs
