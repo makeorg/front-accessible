@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { type ProposalType } from 'Shared/types/proposal';
-import { getProposalLink, getConsultationLink } from 'Shared/helpers/url';
+import { getProposalLink, getParticipateLink } from 'Shared/helpers/url';
 import { DetailledVoteResults } from 'Client/ui/Proposal/DetailledVoteResults';
 import { DeprecatedProposalAuthor } from 'Client/ui/Proposal/DeprecatedAuthor';
 import { ProposalFooterWithQuestionElement } from 'Client/ui/Proposal/FooterElement/ProposalWithQuestion';
@@ -62,7 +62,7 @@ export const ProfileProposalCard = ({ proposal, position, size }: Props) => {
       )}
       <ProposalFooterWithQuestionElement
         question={proposal.question}
-        consultationLink={getConsultationLink(
+        consultationLink={getParticipateLink(
           proposal.context.country,
           proposal.question.slug
         )}

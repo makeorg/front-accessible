@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { i18n } from 'Shared/i18n';
 import {
   getDynamicConsultationLink,
-  getConsultationLink,
+  getParticipateLink,
 } from 'Shared/helpers/url';
 import { scrollToTop } from 'Shared/helpers/styled';
 import { isInProgress } from 'Shared/helpers/date';
@@ -26,7 +26,7 @@ type Props = {
 export const ConsultationLink = ({ question, label }: Props) => {
   const { country } = useSelector((state: StateRoot) => state.appConfig);
   const { questionSlug, resultsLink, aboutUrl } = question;
-  const consultationPath = getConsultationLink(country, questionSlug);
+  const consultationPath = getParticipateLink(country, questionSlug);
 
   const openedConsultation = isInProgress(question);
   const closedConsultationWithoutResults = !openedConsultation && !resultsLink;

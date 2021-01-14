@@ -2,7 +2,7 @@
 import React from 'react';
 import { Vote } from 'Client/features/vote';
 import { type ProposalType } from 'Shared/types/proposal';
-import { getProposalLink, getConsultationLink } from 'Shared/helpers/url';
+import { getProposalLink, getParticipateLink } from 'Shared/helpers/url';
 import { OrganisationsVote } from 'Client/features/vote/Organisation';
 import { ProposalFooterWithQuestionElement } from 'Client/ui/Proposal/FooterElement/ProposalWithQuestion';
 import { DeprecatedProposalAuthor } from 'Client/ui/Proposal/DeprecatedAuthor';
@@ -89,7 +89,7 @@ export const ProposalCardWithQuestion = ({
       </ProposalInnerStyle>
       <ProposalFooterWithQuestionElement
         question={proposal.question}
-        consultationLink={getConsultationLink(country, proposal.question.slug)}
+        consultationLink={getParticipateLink(country, proposal.question.slug)}
       />
     </ProposalCardStyle>
   );

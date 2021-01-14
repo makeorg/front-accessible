@@ -8,7 +8,7 @@ import {
   getActionLink,
   getBrowseConsultationsLink,
   getBrowseResultsLink,
-  getConsultationLink,
+  getParticipateLink,
   getContactPageLink,
   getDataPageLink,
   getGTUPageLink,
@@ -315,7 +315,7 @@ export const Accessibility = () => (
             </StaticSquareListItemStyle>
             <StaticSquareListItemStyle>
               {'Page consultation : '}
-              {env.frontUrl() + getConsultationLink('FR', 'dynamicslug')}
+              {env.frontUrl() + getParticipateLink('FR', 'dynamicslug')}
             </StaticSquareListItemStyle>
             <StaticSquareListItemStyle>
               {'Page actions : '}

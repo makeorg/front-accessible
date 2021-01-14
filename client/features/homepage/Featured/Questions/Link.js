@@ -6,7 +6,7 @@ import { isInProgress } from 'Shared/helpers/date';
 import { Link } from 'react-router-dom';
 import { scrollToTop } from 'Shared/helpers/styled';
 import { SvgExternalLink } from 'Client/ui/Svg/elements';
-import { getConsultationLink } from 'Shared/helpers/url';
+import { getParticipateLink } from 'Shared/helpers/url';
 import { useSelector } from 'react-redux';
 import { i18n } from 'Shared/i18n';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
@@ -22,7 +22,7 @@ export const FeaturedLink = ({ question }: Props) => {
     return (
       <FeaturedLinkStyle
         as={Link}
-        to={getConsultationLink(country, question.questionSlug)}
+        to={getParticipateLink(country, question.questionSlug)}
         onClick={scrollToTop}
       >
         {question.operationTitle}

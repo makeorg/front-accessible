@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { type StateRoot } from 'Shared/store/types';
 import { type QuestionType } from 'Shared/types/question';
 import { isInProgress } from 'Shared/helpers/date';
-import { getConsultationLink } from 'Shared/helpers/url';
+import { getParticipateLink } from 'Shared/helpers/url';
 import { trackClickHomepageConsultations } from 'Shared/services/Tracking';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { i18n } from 'Shared/i18n';
@@ -46,7 +46,7 @@ const businessConsultation = (question, country) => (
         <BusinessConsultationsItemLinkStyle
           to={
             isInProgress(question)
-              ? getConsultationLink(country, question.slug)
+              ? getParticipateLink(country, question.slug)
               : undefined
           }
           as={!isInProgress(question) && 'a'}

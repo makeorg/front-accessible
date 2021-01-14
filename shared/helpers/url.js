@@ -4,7 +4,6 @@ import { generatePath } from 'react-router';
 import queryString from 'query-string';
 import { ABOUT_MAKE_LINK } from 'Shared/constants/url';
 import {
-  ROUTE_CONSULTATION,
   ROUTE_PARTICIPATE,
   ROUTE_ACTION,
   ROUTE_SEQUENCE,
@@ -154,20 +153,6 @@ export const getBrowseResultsLink = (country: string, pageId?: number = 1) =>
   generatePath(ROUTE_BROWSE_RESULTS, {
     country,
     pageId,
-  });
-
-/**
- * Get the consultation link
- *
- * @param  {string} country
- * @param  {string} questionSlug
- *
- * @return {string}
- */
-export const getConsultationLink = (country: string, questionSlug: string) =>
-  generatePath(ROUTE_CONSULTATION, {
-    country,
-    questionSlug,
   });
 
 /**

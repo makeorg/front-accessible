@@ -254,6 +254,8 @@ describe('getLocationContext', () => {
       'ROUTE_CONSULTATION_STEP',
       'ROUTE_WHOAREWE',
       'ROUTE_PARTNERSHIP',
+      'ROUTE_EXPLORE_ROOT',
+      'ROUTE_EXPLORE_FIRST_PAGE',
     ];
 
     // .map(route => route.replace(/:/g, ''));

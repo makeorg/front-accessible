@@ -12,7 +12,7 @@ import {
 } from 'Client/features/consultation/Styled/Tabs';
 import { TabListStyle, FullWidthTabStyle } from 'Client/ui/Elements/Tabs';
 import {
-  getConsultationLink,
+  getParticipateLink,
   getActionLink,
   getResultsLink,
 } from 'Shared/helpers/url';
@@ -31,7 +31,7 @@ type Props = {
 };
 export const NavigationWithTabs = ({ question }: Props) => {
   const { country } = useSelector((state: StateRoot) => state.appConfig);
-  const consultationLink = getConsultationLink(country, question.slug);
+  const consultationLink = getParticipateLink(country, question.slug);
   const actionsLink = getActionLink(country, question.slug);
   const resultsLink = getResultsLink(country, question.slug);
 

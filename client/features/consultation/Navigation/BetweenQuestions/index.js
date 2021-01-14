@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { type StateRoot } from 'Shared/store/types';
 import { useMobile } from 'Client/hooks/useMedia';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
-import { getConsultationLink, getResultsLink } from 'Shared/helpers/url';
+import { getParticipateLink, getResultsLink } from 'Shared/helpers/url';
 import { i18n } from 'Shared/i18n';
 import { type QuestionType } from 'Shared/types/question';
 import {
@@ -82,7 +82,7 @@ export const NavigationBetweenQuestions = ({ question }: Props) => {
                 to={
                   siblingQuestion.displayResults
                     ? getResultsLink(country, siblingQuestion.questionSlug)
-                    : getConsultationLink(country, siblingQuestion.questionSlug)
+                    : getParticipateLink(country, siblingQuestion.questionSlug)
                 }
                 aria-current={
                   siblingQuestion.questionId === question.questionId
