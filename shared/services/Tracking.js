@@ -11,16 +11,20 @@ const getPosition = (cardPosition?: number): string => {
 };
 
 /* On Load Consultation Tracking */
-export const trackDisplayConsultation = (pageType: string) => {
-  TrackingService.sendAllTrackers(
-    trackingEvent.DISPLAY_PAGE_OPERATION({
-      type: pageType,
-    })
-  );
+export const trackDisplayOperationPage = () => {
+  TrackingService.sendAllTrackers(trackingEvent.DISPLAY_PAGE_OPERATION());
 };
 
 export const trackClickActionsTab = () => {
   TrackingService.sendAllTrackers(trackingEvent.CLICK_ACTIONS_TAB());
+};
+
+export const trackClickParticipateTab = () => {
+  TrackingService.sendAllTrackers(trackingEvent.CLICK_PARTICIPATE_TAB());
+};
+
+export const trackClickExploreTab = () => {
+  TrackingService.sendAllTrackers(trackingEvent.CLICK_EXPLORE_TAB());
 };
 
 export const trackClickLearnMore = () => {
@@ -35,8 +39,10 @@ export const trackOpenSequence = () => {
 
 /* Partners Block Tracking */
 
-export const trackSeeMorePartners = () => {
-  TrackingService.sendAllTrackers(trackingEvent.CLICK_SEE_MORE_COMMUNITY());
+export const trackSeeMorePartners = (component?: string) => {
+  TrackingService.sendAllTrackers(
+    trackingEvent.CLICK_SEE_MORE_COMMUNITY({ component })
+  );
 };
 
 export const trackLoadMoreProposals = (
@@ -327,14 +333,10 @@ export const trackUnqualify = (
 };
 
 /* Sharing */
-export const trackClickShare = (
-  socialNetwork: string,
-  parameters?: Object = {}
-) => {
+export const trackClickShare = (socialNetwork: string) => {
   TrackingService.sendAllTrackers(
     trackingEvent.CLICK_SHARE({
       'social-network': socialNetwork,
-      location: parameters.location,
     })
   );
 };
@@ -404,10 +406,14 @@ export const trackClickProfile = () => {
   TrackingService.sendAllTrackers(trackingEvent.CLICK_PROFILE());
 };
 
-export const trackClickPublicProfile = (userType: string) => {
+export const trackClickPublicProfile = (
+  userType: string,
+  component?: string
+) => {
   TrackingService.sendAllTrackers(
     trackingEvent.CLICK_PUBLIC_PROFILE({
       type: userType,
+      component,
     })
   );
 };
@@ -502,6 +508,18 @@ export const trackDisplayLegalConsent = () => {
 // session
 export const trackDisplaySessionExpired = () => {
   TrackingService.sendAllTrackers(trackingEvent.DISPLAY_SESSION_EXPIRED());
+};
+
+// Proposal Page
+export const trackDisplayProposalPage = () => {
+  TrackingService.sendAllTrackers(trackingEvent.DISPLAY_PROPOSAL_PAGE());
+};
+
+// Breadcrumbs
+export const trackClickBreadcrumbs = (level: number) => {
+  TrackingService.sendAllTrackers(
+    trackingEvent.CLICK_BREADCRUMBS({ level: level.toString() })
+  );
 };
 
 /* eslint-disable import/no-default-export */

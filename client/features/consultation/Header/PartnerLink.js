@@ -1,12 +1,17 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { COMPONENT_PARAM_CONSULTATION_HEADER } from 'Shared/constants/tracking';
+import { TYPE_ORGANISATION } from 'Shared/constants/user';
 import { orderPartnersByWeight } from 'Shared/helpers/question';
 import {
   getOrganisationProfileLink,
   getPartnerAnchor,
 } from 'Shared/helpers/url';
 import { i18n } from 'Shared/i18n';
-import { trackSeeMorePartners } from 'Shared/services/Tracking';
+import {
+  trackSeeMorePartners,
+  trackClickPublicProfile,
+} from 'Shared/services/Tracking';
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
 import { type PartnerType } from 'Shared/types/question';
 import { NewWindowLink } from './Link';
@@ -54,6 +59,12 @@ export const PartnersList = ({
                   country,
                   partner.organisation.slug
                 )}
+                onClick={() =>
+                  trackClickPublicProfile(
+                    TYPE_ORGANISATION,
+                    COMPONENT_PARAM_CONSULTATION_HEADER
+                  )
+                }
               >
                 {partner.name}
               </PartnerLinkStyle>
@@ -69,7 +80,9 @@ export const PartnersList = ({
             <NewWindowLink
               linkUrl={getPartnerAnchor(question.aboutUrl)}
               linkText={i18n.t('consultation.partners.commitment_link')}
-              tracking={() => trackSeeMorePartners()}
+              tracking={() =>
+                trackSeeMorePartners(COMPONENT_PARAM_CONSULTATION_HEADER)
+              }
             />
           </HeaderListItemStyle>
         )}

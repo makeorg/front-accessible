@@ -14,6 +14,7 @@ type Props = {
   linkText: string,
   linkHref: string,
   classes?: string,
+  onClickAction?: () => void,
 };
 
 export const CTAMonoBlock = ({
@@ -23,11 +24,14 @@ export const CTAMonoBlock = ({
   linkText,
   linkHref,
   classes = '',
+  onClickAction = () => {},
 }: Props) => (
   <CardStyle className={classes}>
     {icon}
     <CardTitleStyle>{title}</CardTitleStyle>
     <CardDescriptionStyle>{description}</CardDescriptionStyle>
-    <CardLinkAsButtonStyle to={linkHref}>{linkText}</CardLinkAsButtonStyle>
+    <CardLinkAsButtonStyle to={linkHref} onClick={onClickAction}>
+      {linkText}
+    </CardLinkAsButtonStyle>
   </CardStyle>
 );

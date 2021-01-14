@@ -23,6 +23,7 @@ import {
 import { useParams } from 'react-router';
 import { Pagination } from 'Client/ui/Elements/Pagination';
 import { CONSULTATION_NAVIGATION } from 'Shared/constants/ids';
+import { trackDisplayOperationPage } from 'Shared/services/Tracking';
 import {
   ParticipateContentStyle,
   ParticipateInnerStyle,
@@ -84,6 +85,7 @@ const ExplorePage = () => {
 
   useEffect(() => {
     getProposals();
+    trackDisplayOperationPage();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
