@@ -69,8 +69,8 @@ import { SnapchatTracking } from './Trackers/SnapchatTracking';
 const eventParameters = {
   location: 'homepage',
   source: 'foo',
-  language: 'foo',
-  country: 'foo',
+  language: 'fr',
+  country: 'FR',
   questionId: 'foo',
   questionSlug: 'fooSlug',
   referrer: undefined,
@@ -80,7 +80,6 @@ const eventParameters = {
 trackingParamsService.location = eventParameters.location;
 trackingParamsService.source = eventParameters.source;
 trackingParamsService.country = eventParameters.country;
-trackingParamsService.language = eventParameters.language;
 trackingParamsService.questionId = eventParameters.questionId;
 trackingParamsService.questionSlug = eventParameters.questionSlug;
 trackingParamsService.referrer = eventParameters.referrer;

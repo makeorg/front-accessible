@@ -12,7 +12,6 @@ export const countryLanguage = () => (next: Dispatch) => (action: Action) => {
     case SET_COUNTRY_CONFIGURATION: {
       const language = getLanguageFromCountryCode(action.payload.country || '');
       trackingParamsService.country = action.payload.country;
-      trackingParamsService.language = language;
       i18n.changeLanguage(language);
       DateHelper.language = language;
       return next(action);

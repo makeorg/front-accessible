@@ -1,5 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { getLanguageFromCountryCode } from 'Shared/helpers/countries';
+import { formatCountWithLanguage } from 'Shared/helpers/numberFormatter';
 import { i18n } from 'Shared/i18n';
 import {
   KeyFiguresListStyle,
@@ -16,26 +18,26 @@ type Props = {
 };
 
 export const KeyFigures = ({ results }: Props) => {
-  const language = useSelector(state => state.appConfig.language);
   const country = useSelector(state => state.appConfig.country);
+  const language = getLanguageFromCountryCode(country);
 
   return (
     <KeyFiguresListStyle>
       <KeyFiguresListItemStyle>
         <KeyFiguresCountStyle>
-          {results.participants.toLocaleString(`${language}-${country}`)}
+          {formatCountWithLanguage(results.participants, language)}
         </KeyFiguresCountStyle>
         {i18n.t('consultation.results.key_figures.participants')}
       </KeyFiguresListItemStyle>
       <KeyFiguresListItemStyle>
         <KeyFiguresCountStyle>
-          {results.proposals.toLocaleString(`${language}-${country}`)}
+          {formatCountWithLanguage(results.proposals, language)}
         </KeyFiguresCountStyle>
         {i18n.t('consultation.results.key_figures.proposals')}
       </KeyFiguresListItemStyle>
       <KeyFiguresListItemStyle>
         <KeyFiguresCountStyle>
-          {results.votes.toLocaleString(`${language}-${country}`)}
+          {formatCountWithLanguage(results.votes, language)}
         </KeyFiguresCountStyle>
         {i18n.t('consultation.results.key_figures.votes')}
       </KeyFiguresListItemStyle>
