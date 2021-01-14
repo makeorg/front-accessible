@@ -21,7 +21,7 @@ import { SequenceService } from 'Shared/services/Sequence';
 import { useLocation } from 'react-router-dom';
 import { ProposalSubmit } from 'Client/features/proposal/Submit';
 import { CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL } from 'Shared/constants/card';
-import { getConsultationLink } from 'Shared/helpers/url';
+import { getParticipateLink } from 'Shared/helpers/url';
 import { i18n } from 'Shared/i18n';
 import { SequenceCard } from './Cards';
 import {
@@ -149,7 +149,7 @@ export const Sequence = ({ question, zone }: Props) => {
       </SequenceContentStyle>
       <ConsultationPageLinkStyle
         className={!withProposalButton && 'static'}
-        to={getConsultationLink(country, question.slug)}
+        to={getParticipateLink(country, question.slug)}
       >
         {i18n.t('sequence.more')}
       </ConsultationPageLinkStyle>

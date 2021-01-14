@@ -45,6 +45,8 @@ import {
   ROUTE_BROWSE_RESULTS,
   BASE_PREVIEW_PATH,
   ROUTE_STATIC_A11Y,
+  ROUTE_EXPLORE_ROOT,
+  ROUTE_EXPLORE_FIRST_PAGE,
 } from 'Shared/routes';
 import { TwitterUniversalTag } from 'Shared/services/Trackers/TwitterTracking';
 import { QuestionWrapper } from 'Client/pages/Consultation/QuestionWrapper';
@@ -54,14 +56,10 @@ import { DEFAULT_COUNTRY } from 'Shared/constants/config';
 import { ZONE_CONTROVERSY, ZONE_POPULAR } from 'Shared/constants/sequence';
 
 const BrowsePage = loadable(() => import('../pages/Browse/index.js'));
-const ConsultationPage = loadable(() =>
-  import('../pages/Consultation/Consultation.js')
-);
 const ParticipatePage = loadable(() =>
   import('../pages/Consultation/Participate.js')
 );
 const ExplorePage = loadable(() => import('../pages/Consultation/Explore.js'));
-const ActionsPage = loadable(() => import('../pages/Consultation/Actions.js'));
 export const ResultsPage = loadable(() =>
   import('../pages/Consultation/Results.js')
 );
@@ -123,11 +121,6 @@ export const Routes = () => {
     <Switch>
       <Route path={ROUTE_BROWSE_CONSULTATIONS} component={BrowsePage} />
       <Route path={ROUTE_BROWSE_RESULTS} component={BrowsePage} />
-      <Route path={ROUTE_CONSULTATION}>
-        <QuestionWrapper withRedirect>
-          <ConsultationPage />
-        </QuestionWrapper>
-      </Route>
       <Route path={ROUTE_PARTICIPATE}>
         <QuestionWrapper withRedirect>
           <ParticipatePage />
@@ -136,11 +129,6 @@ export const Routes = () => {
       <Route path={ROUTE_EXPLORE}>
         <QuestionWrapper withRedirect>
           <ExplorePage />
-        </QuestionWrapper>
-      </Route>
-      <Route path={ROUTE_ACTION}>
-        <QuestionWrapper>
-          <ActionsPage />
         </QuestionWrapper>
       </Route>
       <Route path={ROUTE_SEQUENCE}>
@@ -218,6 +206,9 @@ export const Routes = () => {
 
       <Route path={ROUTE_STATIC_NOTFOUND} component={NotFoundPage} />
       <Redirect exact path="/" to={getHomeLink(country || DEFAULT_COUNTRY)} />
+      <Redirect path={ROUTE_CONSULTATION} to={ROUTE_PARTICIPATE} />
+      <Redirect path={ROUTE_ACTION} to={ROUTE_PARTICIPATE} />
+      <Redirect path={ROUTE_EXPLORE_ROOT} to={ROUTE_EXPLORE_FIRST_PAGE} />
 
       <Route component={NotFoundPage} />
     </Switch>

@@ -44,11 +44,19 @@ describe('Url Helper', () => {
     );
   });
 
-  it('return consultation link', () => {
-    const link = urlHelper.getConsultationLink(country, questionSlug);
+  it('return participate link', () => {
+    const link = urlHelper.getParticipateLink(country, questionSlug);
 
     expect(link).toEqual(
-      `/${country}/consultation/${questionSlug}/consultation`
+      `/${country}/consultation/${questionSlug}/participate`
+    );
+  });
+
+  it('return explore link', () => {
+    const link = urlHelper.getExploreLink(country, questionSlug);
+
+    expect(link).toEqual(
+      `/${country}/consultation/${questionSlug}/explore/page/1`
     );
   });
 

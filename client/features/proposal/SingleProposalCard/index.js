@@ -2,7 +2,7 @@ import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { Link } from 'react-router-dom';
 import { type ProposalType } from 'Shared/types/proposal';
-import { getSequenceLink, getConsultationLink } from 'Shared/helpers/url';
+import { getSequenceLink, getParticipateLink } from 'Shared/helpers/url';
 import { DeprecatedProposalAuthor } from 'Client/ui/Proposal/DeprecatedAuthor';
 import { Vote } from 'Client/features/vote';
 import { ContentSeparatorStyle } from 'Client/ui/Elements/Separators';
@@ -71,7 +71,7 @@ export const SingleProposalCard = ({ proposal }: Props) => {
                 __html: i18n.t('proposal_page.footer_text', {
                   operation_name: `<a 
                   lang=${proposal.question.language}
-                  href="${getConsultationLink(
+                  href="${getParticipateLink(
                     country,
                     proposal.question.slug
                   )}">${proposal.question.wording.title}</a>`,
@@ -90,7 +90,7 @@ export const SingleProposalCard = ({ proposal }: Props) => {
               )}
               <ButtonStyle
                 as={Link}
-                to={getConsultationLink(country, proposal.question.slug)}
+                to={getParticipateLink(country, proposal.question.slug)}
               >
                 {i18n.t('proposal_page.button_2')}
               </ButtonStyle>

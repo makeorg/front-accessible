@@ -4,7 +4,7 @@ import Glider from 'glider-js';
 import { type StateRoot } from 'Shared/store/types';
 import { type SliderParamsType } from 'Shared/types/views';
 import { i18n } from 'Shared/i18n';
-import { getConsultationLink, getResultsLink } from 'Shared/helpers/url';
+import { getParticipateLink, getResultsLink } from 'Shared/helpers/url';
 import { type QuestionType } from 'Shared/types/question';
 import { GliderStylesheet } from 'Client/app/assets/css-in-js/GliderStyle';
 import { useSlider } from 'Client/hooks/useSlider';
@@ -67,7 +67,7 @@ export const SliderNavigationBetweenQuestions = ({ question }: Props) => {
                   to={
                     siblingQuestion.displayResults
                       ? getResultsLink(country, siblingQuestion.questionSlug)
-                      : getConsultationLink(
+                      : getParticipateLink(
                           country,
                           siblingQuestion.questionSlug
                         )
