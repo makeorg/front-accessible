@@ -1,4 +1,5 @@
 import { getTrackingLocation } from 'Shared/api/ApiService/getLocationContext';
+import { getLanguageFromCountryCode } from 'Shared/helpers/countries';
 
 /* @flow */
 class TrackingParamsServiceClass {
@@ -38,33 +39,39 @@ class TrackingParamsServiceClass {
   }
 
   set source(source: string) {
-    this._source = source;
-    this._dispatchUpdate();
-  }
-
-  set language(language: string) {
-    this._language = language;
-    this._dispatchUpdate();
+    if (this._source !== source) {
+      this._source = source;
+      this._dispatchUpdate();
+    }
   }
 
   set country(country: string) {
-    this._country = country;
-    this._dispatchUpdate();
+    if (this._country !== country) {
+      this._country = country;
+      this._language = getLanguageFromCountryCode(country);
+      this._dispatchUpdate();
+    }
   }
 
   set questionId(questionId: string) {
-    this._questionId = questionId;
-    this._dispatchUpdate();
+    if (this._questionId !== questionId) {
+      this._questionId = questionId;
+      this._dispatchUpdate();
+    }
   }
 
   set questionSlug(questionSlug: string) {
-    this._questionSlug = questionSlug;
-    this._dispatchUpdate();
+    if (this.questionSlug !== questionSlug) {
+      this._questionSlug = questionSlug;
+      this._dispatchUpdate();
+    }
   }
 
   set referrer(referrer: string) {
-    this._referrer = referrer;
-    this._dispatchUpdate();
+    if (this._referrer !== referrer) {
+      this._referrer = referrer;
+      this._dispatchUpdate();
+    }
   }
 
   _updateDynamicParams() {

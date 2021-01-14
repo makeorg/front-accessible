@@ -127,7 +127,6 @@ const initApp = async state => {
   // Set tracking params
   trackingParamsService.source = source;
   trackingParamsService.country = country;
-  trackingParamsService.language = language;
 
   const { currentQuestion, questions, customData } = store.getState();
   if (currentQuestion && questions[currentQuestion]) {
