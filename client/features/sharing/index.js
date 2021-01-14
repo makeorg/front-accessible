@@ -34,7 +34,7 @@ export const Sharing = () => {
           aria-label={i18n.t('sharing.facebook')}
           as="a"
           href={facebookShareUrl(location.pathname)}
-          onClick={() => trackClickShare('facebook', { location: 'profile' })}
+          onClick={() => trackClickShare('facebook')}
         >
           <SvgFacebookLogoF aria-hidden focusable="false" />
         </FacebookButtonStyle>
