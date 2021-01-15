@@ -534,4 +534,9 @@ Following parameters are added to all events.
   
   
 
+  - `click-operation-page` Click on operation page link
+
+    
+  
+
 </auto-generated-tracking-doc>

@@ -7,6 +7,7 @@ import {
   CARD_TYPE_EXTRASLIDE_PUSH_SIGNUP,
   CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL,
   CARD_TYPE_EXTRASLIDE_FINAL_CARD,
+  CARD_TYPE_EXTRASLIDE_SPECIAL_FINAL_CARD,
 } from 'Shared/constants/card';
 import {
   TopComponentContext,
@@ -17,6 +18,7 @@ import { SequenceCardStyle } from './style';
 import { IntroCard } from './Intro';
 import { PushProposalCard } from './PushProposal';
 import { FinalCard } from './Final';
+import { SpecialFinalCard } from './SpecialFinal';
 import { SignUpCard } from './SignUp';
 import { ProposalCard } from './Proposal';
 
@@ -37,6 +39,8 @@ export const Card = ({ card }: CardProps) => {
       return <PushProposalCard configuration={card.configuration} />;
     case CARD_TYPE_EXTRASLIDE_FINAL_CARD:
       return <FinalCard configuration={card.configuration} />;
+    case CARD_TYPE_EXTRASLIDE_SPECIAL_FINAL_CARD:
+      return <SpecialFinalCard />;
     default:
       return null;
   }

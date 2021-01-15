@@ -145,6 +145,8 @@ const ParticipatePage = () => {
                 linkText={i18n.t('consultation.cards.controversy.button')}
                 linkHref={getSequenceControversialLink(country, question.slug, {
                   introCard: false,
+                  pushProposal: false,
+                  signUpCard: false,
                 })}
                 classes="desktop-half margin-bottom desktop-padding-right"
               />
@@ -157,6 +159,8 @@ const ParticipatePage = () => {
                 linkText={i18n.t('consultation.cards.popular.button')}
                 linkHref={getSequencePopularLink(country, question.slug, {
                   introCard: false,
+                  pushProposal: false,
+                  signUpCard: false,
                 })}
                 classes="desktop-half margin-bottom desktop-padding-left"
               />

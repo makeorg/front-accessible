@@ -475,3 +475,6 @@ CLICK_BREADCRUMBS:
     parameters:
         - key: level
           description: level of the link in breacrumbs
+CLICK_OPERATION_PAGE:
+    key: click-operation-page
+    description: Click on operation page link
