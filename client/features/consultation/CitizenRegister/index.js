@@ -4,7 +4,6 @@ import { i18n } from 'Shared/i18n';
 import { useSelector } from 'react-redux';
 import { type StateRoot } from 'Shared/store/types';
 import { selectAuthentication } from 'Shared/store/selectors/user.selector';
-
 import { FlexElementStyle } from 'Client/ui/Elements/FlexElements';
 import {
   CitizenRegisterContentStyle,
