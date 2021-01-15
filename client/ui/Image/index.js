@@ -6,8 +6,11 @@ import {
 } from 'Shared/types/image';
 import { useDevicePixelRatio } from 'Client/hooks/useMedia';
 
-const imageflowQueryParams = (width: ?number, height: ?number) =>
-  `?w=${width || ''}&h=${height || ''}`;
+const imageflowQueryParams = (
+  width: ?number,
+  height: ?number,
+  crop: ?boolean
+) => `?w=${width || ''}&h=${height || ''}&mode=${crop ? 'crop' : 'pad'}`;
 
 type Props = {
   /** image source */
@@ -26,6 +29,8 @@ type Props = {
   key?: string | number,
   /** image loading */
   loading?: string,
+  /** image loading */
+  crop?: boolean,
 };
 
 const isInternalSourceUrl = url =>
@@ -36,7 +41,7 @@ const isInternalSourceUrl = url =>
 const isImageSupportedByImageFlow = url =>
   /\.(jpg|jpeg|gif|png)($|\?)/.test(url.toLowerCase());
 
-const getImageFlowSrcs = (url, width, height) => {
+const getImageFlowSrcs = (url, width, height, crop) => {
   if (!url) {
     return { src1x: '' };
   }
@@ -47,9 +52,9 @@ const getImageFlowSrcs = (url, width, height) => {
     return { src1x: url };
   }
   const src = url.replace(/\?.*/g, "$'");
-  const paramsSrc1x = imageflowQueryParams(width, height);
-  const paramsSrc2x = imageflowQueryParams(width * 2, height * 2);
-  const paramsSrc3x = imageflowQueryParams(width * 3, height * 3);
+  const paramsSrc1x = imageflowQueryParams(width, height, crop);
+  const paramsSrc2x = imageflowQueryParams(width * 2, height * 2, crop);
+  const paramsSrc3x = imageflowQueryParams(width * 3, height * 3, crop);
 
   return {
     src1x: `${src}${paramsSrc1x}`,
@@ -83,7 +88,7 @@ const selectImageToLoad = (ratio, src1x, src2x, src3x) => {
   return src1x;
 };
 
-export const getSrcValues = (useImageFlow, url, width, height) => {
+export const getSrcValues = (useImageFlow, url, width, height, crop) => {
   if (!useImageFlow) {
     return {
       src1x: url,
@@ -91,7 +96,7 @@ export const getSrcValues = (useImageFlow, url, width, height) => {
     };
   }
 
-  const srcs = getImageFlowSrcs(url, width, height);
+  const srcs = getImageFlowSrcs(url, width, height, crop);
   const sep = srcs.src1x.includes('?') ? '&' : '?';
 
   return {
@@ -109,6 +114,7 @@ export const Image = ({
   alt,
   srcSet,
   loading,
+  crop,
 }: Props) => {
   // @toDo: src can be an imageData object or a string
   const imgData = useMemo(
@@ -120,7 +126,8 @@ export const Image = ({
   const ratio = useDevicePixelRatio();
 
   const { src1x, src2x, src3x, srcSetValue, placeHolder } = useMemo(
-    () => getSrcValues(source === IMAGE_SOURCE_INTERNAL, url, width, height),
+    () =>
+      getSrcValues(source === IMAGE_SOURCE_INTERNAL, url, width, height, crop),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [url, width, height]
   );

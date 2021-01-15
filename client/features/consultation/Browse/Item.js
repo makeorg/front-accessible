@@ -21,14 +21,32 @@ import {
   useScreenMobileContainerWidth,
 } from 'Client/hooks/useMedia';
 import { formatMillionToText } from 'Shared/helpers/numberFormatter';
+import { getSixteenPerNineRatioHeight } from 'Shared/helpers/styled';
 import { ConsultationLink } from './Link';
 
 type Props = {
   question: HomeQuestionType,
   resultsContext: boolean,
+  itemsCount: number,
 };
 
-export const ConsultationItem = ({ question, resultsContext }: Props) => {
+export const getHomepageRatio = (height: number, itemsCount: number) => {
+  switch (itemsCount) {
+    case 4:
+      return (height * 255) / 248;
+    case 3:
+      return (height * 353) / 248;
+    default: {
+      return (height * 275) / 124;
+    }
+  }
+};
+
+export const ConsultationItem = ({
+  question,
+  resultsContext,
+  itemsCount,
+}: Props) => {
   const {
     descriptionImage,
     descriptionImageAlt,
@@ -67,11 +85,11 @@ export const ConsultationItem = ({ question, resultsContext }: Props) => {
   const isMobile = useMobile();
   const containerWidth = useScreenMobileContainerWidth();
 
-  let imageWidth = null;
+  let imageWidth = getHomepageRatio(248, itemsCount);
   let imageHeight = 248;
   if (isMobile) {
     imageWidth = containerWidth;
-    imageHeight = null;
+    imageHeight = getSixteenPerNineRatioHeight(containerWidth);
   }
 
   return (
@@ -81,6 +99,7 @@ export const ConsultationItem = ({ question, resultsContext }: Props) => {
         alt={descriptionImageAlt || ''}
         width={imageWidth}
         height={imageHeight}
+        crop
       />
       {featured && (
         <ConsultationElementSubtitleStyle>
