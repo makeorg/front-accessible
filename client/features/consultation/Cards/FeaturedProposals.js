@@ -46,6 +46,12 @@ export const FeaturedProposals = ({ question }: Props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const hasFeaturedProposals = featuredProposals.length > 0;
+
+  if (!hasFeaturedProposals) {
+    return null;
+  }
+
   return (
     <CardStyle className="margin-bottom">
       <CardAltTitleStyle>
