@@ -80,6 +80,20 @@ export const StaticFourthLevelTitleStyle = styled(FourthLevelTitleStyle)`
   font-family: ${MakeFonts.CircularStandardBold};
   text-transform: none;
   margin: 15px 0 5px;
+  font-size: ${intToPx(typography.font.fontsize.X2S.value)};
+  @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
+  }
+`;
+
+export const StaticListTitleStyle = styled.h5`
+  font-family: ${MakeFonts.CircularStandardBook};
+  text-transform: none;
+  margin: 15px 0 0;
+  font-size: ${intToPx(typography.font.fontsize.X2S.value)};
+  @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
+  }
 `;
 
 export const StaticTitleExtra = styled.span`
