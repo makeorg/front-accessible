@@ -17,8 +17,9 @@ import {
 import { i18n } from 'Shared/i18n';
 
 import {
-  useMobile,
+  useDesktop,
   useScreenMobileContainerWidth,
+  useTablet,
 } from 'Client/hooks/useMedia';
 import { formatMillionToText } from 'Shared/helpers/numberFormatter';
 import { getSixteenPerNineRatioHeight } from 'Shared/helpers/styled';
@@ -82,14 +83,21 @@ export const ConsultationItem = ({
     linkText = i18n.t('browse.results.see_results');
   }
 
-  const isMobile = useMobile();
+  const isDesktop = useDesktop();
+  const isTablet = useTablet();
   const containerWidth = useScreenMobileContainerWidth();
 
-  let imageWidth = getHomepageRatio(248, itemsCount);
-  let imageHeight = 248;
-  if (isMobile) {
-    imageWidth = containerWidth;
-    imageHeight = getSixteenPerNineRatioHeight(containerWidth);
+  let imageWidth = containerWidth;
+  let imageHeight = getSixteenPerNineRatioHeight(containerWidth);
+
+  if (isTablet) {
+    imageWidth = containerWidth / 2;
+    imageHeight = getSixteenPerNineRatioHeight(containerWidth / 2);
+  }
+
+  if (isDesktop) {
+    imageWidth = getHomepageRatio(248, itemsCount);
+    imageHeight = 248;
   }
 
   return (

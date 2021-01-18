@@ -133,6 +133,7 @@ export const ConsultationArticleStyle = styled.article`
 
 export const ConsultationElementPictureStyle = styled(Image)`
   margin-bottom: 20px;
+  object-fit: cover;
 `;
 
 export const ConsultationElementSubtitleStyle = styled.span`
