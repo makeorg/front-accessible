@@ -90,10 +90,10 @@
       "description": "The requested page doesn't exist anymore."
     },
     "participate": {
-      "title": "@@meta.participate.title|fr:Participer à la consultation '{{question}}' - Make.org"
+      "title": "Participate in the consultation '{{question}}' - Make.org"
     },
     "explore": {
-      "title": "@@meta.explore.title|fr:Explorer les propositions de la consultation '{{question}}' - Make.org"
+      "title": "Explore solutions of '{{question}}' - Make.org"
     }
   },
   "common": {
@@ -633,12 +633,12 @@
     },
     "navigation": {
       "introduction": "Find out more about the other themes addressed in the consultation: {{name}}",
-      "participate_desktop": "@@consultation.navigation.participate_desktop|fr:Participer à la consultation",
-      "participate_mobile": "@@consultation.navigation.participate_mobile|fr:Participer",
-      "participate_breadcrumb": "@@consultation.navigation.participate_breadcrumb|fr:Participer à \"{{title}}\"",
-      "explore_desktop": "@@consultation.navigation.explore_desktop|fr:Explorer les propositions",
-      "explore_mobile": "@@consultation.navigation.explore_mobile|fr:Explorer",
-      "explore_breadcrumb": "@@consultation.navigation.explore_breadcrumb|fr:Explorer \"{{title}}\""
+      "participate_desktop": "Participate in the consultation",
+      "participate_mobile": "Participate",
+      "participate_breadcrumb": "Participate in \"{{title}}\"",
+      "explore_desktop": "Explore solutions",
+      "explore_mobile": "Explore",
+      "explore_breadcrumb": "Explore \"{{title}}\""
     },
     "sort": {
       "TAGGED_FIRST": "All the solutions",
@@ -733,19 +733,19 @@
       "title": "The {{ count }} most popular solutions by topic"
     },
     "highlights": {
-      "date": "@@consultation.highlights.date|fr:Date de lancement",
-      "remaining": "@@consultation.highlights.remaining|fr:Jour restant",
-      "remaining_plural": "@@consultation.highlights.remaining_plural|fr:Jours restants",
-      "participant": "@@consultation.highlights.participant|fr:Participant",
-      "participant_plural": "@@consultation.highlights.participant_plural|fr:Participants",
-      "progress_title": "@@consultation.highlights.progress_title|fr:Notre objectif de votes",
-      "progress_target": "@@consultation.highlights.progress_target|fr: sur {{votesTarget}} votes ({{percent}}%)",
-      "progress_description": "@@consultation.highlights.progress_description|fr:Plus les propositions recevront de votes, plus celles-ci auront le potentiel de déboucher sur des actions concrètes.",
-      "progress_btn": "@@consultation.highlights.progress_btn|fr:Participer"
+      "date": "Launch day",
+      "remaining": "Remaining day",
+      "remaining_plural": "Remaining days",
+      "participant": "Participant",
+      "participant_plural": "Participants",
+      "progress_title": "Our votes target",
+      "progress_target": "{{votesTarget}} over ({{percent}}%)",
+      "progress_description": "The more proposals will receive votes, the more it will have a chance to be turned into a real change.",
+      "progress_btn": "Participate"
     },
     "participate": {
-      "title": "@@consultation.participate.title|fr:Comment participer à la consultation ?",
-      "description": "@@consultation.participate.description|fr:Nous sommes convaincus que chacun peut contribuer à son échelle au bien commun. C’est pourquoi nous faisons appel aux idées et opinions de milliers de citoyens dans le cadre de nos consultations."
+      "title": "How to participate in this consultation ?",
+      "description": "We trust in everybody action to improve the commun good. So we need thousands of citizens' solutions and opinions during our consultations."
     },
     "citizen_account": {
       "title": "Your citizen account on Make.org",
@@ -753,35 +753,35 @@
       "register_links": "I register with :"
     },
     "cards": {
-      "soon": "@@consultation.cards.soon|fr:À venir",
+      "soon": "Coming up",
       "submit": {
-        "title": "@@consultation.cards.submit.title|fr:Soumettre une proposition",
-        "description": "@@consultation.cards.submit.description|fr:Faites découvrir vos idées au plus grand nombre. Chaque proposition sera étudiée avant d’être soumise au vote citoyen.",
-        "button": "@@consultation.cards.submit.button|fr:J'ai une idée"
+        "title": "Write a solution",
+        "description": "Tell everybody what are your ideas. Every solution will be studied before starting votes.",
+        "button": "I write a solution"
       },
       "interact": {
-        "title": "@@consultation.cards.interact.title|fr:Réagir aux propositions",
-        "description": "@@consultation.cards.interact.description|fr:Si les propositions définissent les enjeux de la consultation, exprimez votre opinion pour nous aider à identifier les idées qui doivent être traitées en priorité.",
-        "button": "@@consultation.cards.interact.button|fr:Je vote"
+        "title": "React to the solutions",
+        "description": "Because the solutions are the stakes of a consultation, express yourself to determine what are the citizen priorities.",
+        "button": "I vote"
       },
       "controversy": {
-        "title": "@@consultation.cards.controversy.title|fr:Départager les propositions les plus controversées",
-        "description": "@@consultation.cards.controversy.description|fr:Ces propositions citoyennes ont reçu autant de votes favorables que défavorables.",
-        "button": "@@consultation.cards.controversy.button|fr:Je départage"
+        "title": "Decide between the controversial solutions",
+        "description": "These citizen solutions have received as many positive votes than negative ones.",
+        "button": "I decide"
       },
       "popular": {
-        "title": "@@consultation.cards.popular.title|fr:Voter sur les propositions les plus populaires",
-        "description": "@@consultation.cards.popular.description|fr:Ces propositions citoyennes ont reçu le plus de votes favorables.",
-        "button": "@@consultation.cards.popular.button|fr:Je vote"
+        "title": "Vote on popular solutions",
+        "description": "These citizen solutions have received the most favorable vote.",
+        "button": "I vote"
       },
       "sharing": {
-        "title": "@@consultation.cards.sharing.title|fr:Partager la consultation",
-        "description": "@@consultation.cards.sharing.description|fr:Vos amis ont des idées et un avis qui méritent d’être entendus eux aussi. Donnez plus de portée à cette consultation en la diffusant à votre échelle et à votre façon."
+        "title": "Share the consultation",
+        "description": "Your friends also have ideas and opinions that must be heard. Broadcast this consultation int the way you like to make it more powerful."
       },
       "about": {
-        "title": "@@consultation.cards.about.title|fr:Pourquoi cette consultation ?",
-        "description": "@@consultation.cards.about.description|fr:Pour quelles raisons cette consultation a-t-elle été lancée ? Quels sont les enjeux ? Qui est à l'initiative ?",
-        "link": "@@consultation.cards.about.link|fr:En savoir plus"
+        "title": "Why this consultation ?",
+        "description": "Why this consultation has been launched ? What is the matter ? Who asked for it ?",
+        "link": "Learn more"
       },
       "featured_proposals": {
         "title": "They have submitted a proposal"
