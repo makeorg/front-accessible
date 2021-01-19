@@ -66,8 +66,10 @@ export const Sequence = ({ question, zone }: Props) => {
   const { search } = useLocation();
   const params = new URLSearchParams(search);
   const firstProposal = params.get('firstProposal');
-  const disableIntroCard =
-    new URLSearchParams(search.toLowerCase()).get('introcard') === 'false';
+  const introCardParam = params.get('introCard')?.toLowerCase() !== 'false';
+  const pushProposalParam =
+    params.get('pushProposal')?.toLowerCase() !== 'false';
+  const signUpCardParam = params.get('signUpCard')?.toLowerCase() !== 'false';
   const isPushProposal = useSelector(
     (state: StateRoot) =>
       !!(
@@ -87,10 +89,13 @@ export const Sequence = ({ question, zone }: Props) => {
         : votedProposalIdsOfQuestion,
       zone
     ).then(proposals => {
-      setSequenceProposals(proposals || []);
+      setSequenceProposals(proposals);
       dispatch(resetSequenceIndex());
 
-      setLoading(false);
+      if (proposals.length < 1) {
+        return setLoading(true);
+      }
+      return setLoading(false);
     });
   }, [question, firstProposal, isLoggedIn, hasProposed]);
 
@@ -122,8 +127,10 @@ export const Sequence = ({ question, zone }: Props) => {
       isLoggedIn,
       hasProposed,
       question.canPropose,
-      disableIntroCard,
-      zone
+      zone,
+      introCardParam,
+      pushProposalParam,
+      signUpCardParam
     );
 
     dispatch(loadSequenceCards(buildedCards));
