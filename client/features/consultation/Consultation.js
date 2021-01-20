@@ -3,7 +3,6 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { type QuestionType } from 'Shared/types/question';
 import { type TagType } from 'Shared/types/tag';
-import { useMobile } from 'Client/hooks/useMedia';
 import { ParticipateBanner } from 'Client/features/consultation/ParticipateBanner';
 import { InfiniteProposals } from 'Client/features/consultation/InfiniteProposals';
 import { ConsultationProposal } from 'Client/features/consultation/Proposal';
@@ -13,6 +12,7 @@ import { PROPOSALS_FEED_ALGORITHMS } from 'Shared/api/ProposalApiService';
 import { selectQuestionPopularTags } from 'Shared/store/selectors/questions.selector';
 import { fetchPopularTags } from 'Shared/store/reducers/questions/actions';
 import { type StateRoot } from 'Shared/store/types';
+import { matchMobileDevice } from 'Shared/helpers/styled';
 import { ConsultationSidebar } from './Sidebar';
 import { SortAndFilter } from './SortAndFilter';
 
@@ -25,6 +25,7 @@ export const ConsultationContent = ({ question }: Props) => {
   const questionTags: TagType[] = useSelector((state: StateRoot) =>
     selectQuestionPopularTags(state, question.slug)
   );
+  const { device } = useSelector((state: StateRoot) => state.appConfig);
 
   // Sorting
   const AVAILABLE_SORTS_KEYS: string[] = useMemo(
@@ -53,7 +54,7 @@ export const ConsultationContent = ({ question }: Props) => {
     }
   }, [questionTags]);
 
-  const isMobile = useMobile();
+  const isMobile = matchMobileDevice(device);
   const renderMobileProposal = question.canPropose && isMobile;
   const renderDesktopProposal = question.canPropose && !isMobile;
 

@@ -1,4 +1,5 @@
-const {
+import { DESKTOP_DEVICE, MOBILE_DEVICE } from 'Shared/constants/config';
+import {
   pxToRem,
   pxToPercent,
   intToPx,
@@ -6,7 +7,11 @@ const {
   getFullWidthDividedByItems,
   getSixteenPerNineRatioWidth,
   getSixteenPerNineRatioHeight,
-} = require('./styled');
+  matchDesktopDevice,
+  matchMobileDevice,
+} from './styled';
+
+jest.mock('Shared/constants/config');
 
 describe('pxToRem', () => {
   it('convert unit from pixel to rem on default base', () => {
@@ -51,5 +56,33 @@ describe('getSixteenPerNineRatioWidth', () => {
 describe('getSixteenPerNineRatioHeight', () => {
   it('return a height value from a 16:9 ratio', () => {
     expect(getSixteenPerNineRatioHeight(16)).toEqual(9);
+  });
+});
+
+describe('matchDesktopDevice', () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('return value for desktop device value', () => {
+    expect(matchDesktopDevice(DESKTOP_DEVICE)).toEqual(true);
+  });
+
+  it('return value for other device value', () => {
+    expect(matchDesktopDevice('foo')).toEqual(false);
+  });
+});
+
+describe('matchMobileDevice', () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('return value for mobile device value', () => {
+    expect(matchMobileDevice(MOBILE_DEVICE)).toEqual(true);
+  });
+
+  it('return value for other device value', () => {
+    expect(matchMobileDevice('foo')).toEqual(false);
   });
 });

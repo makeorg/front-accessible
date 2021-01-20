@@ -4,6 +4,7 @@ import {
   type QuestionType,
   type QuestionResultsType,
 } from 'Shared/types/question';
+import { type StateRoot } from 'Shared/store/types';
 import { ConsultationPageContentStyle } from 'Client/pages/Consultation/style';
 import { i18n } from 'Shared/i18n';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
@@ -14,7 +15,6 @@ import {
   SvgMap,
   SvgLightBulb,
 } from 'Client/ui/Svg/elements';
-import { useDesktop, useMobile } from 'Client/hooks/useMedia';
 import { trackDisplayOperationPage } from 'Shared/services/Tracking';
 import { GliderStylesheet } from 'Client/app/assets/css-in-js/GliderStyle';
 import {
@@ -27,6 +27,8 @@ import {
   RESULTS_PARTICIPATION,
   RESULTS_REPORT,
 } from 'Shared/constants/ids';
+import { useSelector } from 'react-redux';
+import { matchDesktopDevice, matchMobileDevice } from 'Shared/helpers/styled';
 import { ConsultationSidebar } from './Sidebar';
 import { ResultsContext } from './Results/Context';
 import {
@@ -49,8 +51,9 @@ const CARTOGRAPHY_SLIDER: string = 'cartography';
 const PARTICIPATION_SLIDER: string = 'participation';
 
 export const ResultsContent = ({ questionResults, question }: Props) => {
-  const isMobile = useMobile();
-  const isDesktop = useDesktop();
+  const { device } = useSelector((state: StateRoot) => state.appConfig);
+  const isMobile = matchMobileDevice(device);
+  const isDesktop = matchDesktopDevice(device);
   const displaySidebar = isMobile || isDesktop;
   const reports = questionResults && questionResults.reports;
   const hasRejected = questionResults.rejected.length > 0;

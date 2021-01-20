@@ -1,6 +1,6 @@
 // @flow
 import React, { type Element } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logout } from 'Shared/store/actions/authentication';
 import { type UserType } from 'Shared/types/user';
 import { i18n } from 'Shared/i18n';
@@ -21,7 +21,7 @@ import {
   ProfileMapIconStyle,
 } from 'Client/ui/Elements/ProfileElements';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
-import { useMobile } from 'Client/hooks/useMedia';
+import { type StateRoot } from 'Shared/store/types';
 import {
   TYPE_ORGANISATION,
   TYPE_PERSONALITY,
@@ -32,6 +32,7 @@ import {
   formatUserName,
   formatOrganisationName,
 } from 'Shared/helpers/stringFormatter';
+import { matchMobileDevice } from 'Shared/helpers/styled';
 import { UserDescription } from './Description';
 
 type Props = {
@@ -41,7 +42,8 @@ type Props = {
 
 export const UserInformations = ({ user, navigationBar }: Props) => {
   const dispatch = useDispatch();
-  const isMobile = useMobile();
+  const { device } = useSelector((state: StateRoot) => state.appConfig);
+  const isMobile = matchMobileDevice(device);
   const isOrganisation = user.userType === TYPE_ORGANISATION;
   const isPersonality = user.userType === TYPE_PERSONALITY;
   const isBasicUser = user.userType === TYPE_USER;

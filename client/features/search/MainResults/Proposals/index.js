@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { type ProposalType } from 'Shared/types/proposal';
-import { useMobile } from 'Client/hooks/useMedia';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { ProposalCardWithQuestion } from 'Client/features/proposal/ProposalCardWithQuestion';
 import { i18n } from 'Shared/i18n';
@@ -15,6 +14,7 @@ import {
   type TopComponentContextValueType,
   TopComponentContextValue,
 } from 'Client/context/TopComponentContext';
+import { matchMobileDevice } from 'Shared/helpers/styled';
 import { MainResultsProposalsMobile } from './Mobile';
 import { MainResultsProposalsItemStyle } from './Styled';
 
@@ -29,8 +29,10 @@ export const MainResultsProposals = ({
   proposals,
   count,
 }: Props) => {
-  const { country } = useSelector((state: StateRoot) => state.appConfig);
-  const isMobile = useMobile();
+  const { country, device } = useSelector(
+    (state: StateRoot) => state.appConfig
+  );
+  const isMobile = matchMobileDevice(device);
   const [page, setPage] = useState<number>(1);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [proposalsResult, setProposalsResult] = useState<ProposalType[]>(

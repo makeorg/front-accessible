@@ -11,13 +11,13 @@ import { type StateRoot } from 'Shared/store/types';
 import { ProposalCardWithQuestion } from 'Client/features/proposal/ProposalCardWithQuestion';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { trackDisplaySearchProposalsResult } from 'Shared/services/Tracking';
-import { useDesktop } from 'Client/hooks/useMedia';
 import {
   TopComponentContext,
   type TopComponentContextValueType,
   TopComponentContextValue,
 } from 'Client/context/TopComponentContext';
 import { SearchBackButton } from 'Client/features/search/BackButton';
+import { matchDesktopDevice } from 'Shared/helpers/styled';
 import {
   SearchPageTitleStyle,
   SearchPageContentStyle,
@@ -36,7 +36,9 @@ type Props = {
 const PROPOSALS_LIMIT = 10;
 
 export const SearchResultsProposals = ({ location, history }: Props) => {
-  const { country } = useSelector((state: StateRoot) => state.appConfig);
+  const { country, device } = useSelector(
+    (state: StateRoot) => state.appConfig
+  );
   const params = new URLSearchParams(location.search);
   const term = params.get('query') || '';
   const [isLoading, setIsLoading] = useState(true);
@@ -47,7 +49,7 @@ export const SearchResultsProposals = ({ location, history }: Props) => {
     proposalsCount > PROPOSALS_LIMIT &&
     proposalsCount > proposalsResult.length &&
     !isLoading;
-  const isDesktop = useDesktop();
+  const isDesktop = matchDesktopDevice(device);
 
   const initProposal = async () => {
     const result = await searchProposals(country, term, page);

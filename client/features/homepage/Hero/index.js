@@ -1,12 +1,12 @@
 import React from 'react';
 import { i18n } from 'Shared/i18n';
-import { useDesktop } from 'Client/hooks/useMedia';
 import {
   trackClickHomepageParticipate,
   trackClickHomepageDiscover,
 } from 'Shared/services/Tracking';
 import { useSelector } from 'react-redux';
 import { type StateRoot } from 'Shared/store/types';
+import { matchDesktopDevice } from 'Shared/helpers/styled';
 import { HeroPictures } from './Pictures';
 import {
   ColumnToRowToColumnStyle,
@@ -22,8 +22,10 @@ import {
 } from './style';
 
 export const Hero = () => {
-  const isDesktop = useDesktop();
-  const { country } = useSelector((state: StateRoot) => state.appConfig);
+  const { country, device } = useSelector(
+    (state: StateRoot) => state.appConfig
+  );
+  const isDesktop = matchDesktopDevice(device);
   const isFr = country === 'FR';
 
   return (

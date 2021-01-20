@@ -15,10 +15,10 @@ import { isGreatCause } from 'Shared/helpers/question';
 import { i18n } from 'Shared/i18n';
 import { MetaTags } from 'Client/app/MetaTags';
 import { DeprecatedConsultationHeader } from 'Client/features/consultation/deprecated/Header/index';
-import { useMobile } from 'Client/hooks/useMedia';
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
 import { ThemeProvider } from 'styled-components';
 import { ExpressService } from 'Shared/services/Express';
+import { matchMobileDevice } from 'Shared/helpers/styled';
 import { ConsultationPageWrapperStyle } from './style';
 import { NotFoundPage } from '../NotFound';
 
@@ -26,6 +26,7 @@ const ResultPage = () => {
   const question: QuestionType = useSelector((state: StateRoot) =>
     selectCurrentQuestion(state)
   );
+  const { device } = useSelector((state: StateRoot) => state.appConfig);
   const metas = (
     <MetaTags
       title={i18n.t('meta.results.title', {
@@ -35,7 +36,7 @@ const ResultPage = () => {
       picture={question.wording.metas.picture}
     />
   );
-  const isMobile = useMobile();
+  const isMobile = matchMobileDevice(device);
   const questionIsGreatCause = isGreatCause(question.operationKind);
   const [alternativeContent, setAlternativeContent] = useState(
     <>

@@ -9,9 +9,9 @@ import { QuestionService } from 'Shared/services/Question';
 import { trackDisplaySearchConsultationsResult } from 'Shared/services/Tracking';
 import { type StateRoot } from 'Shared/store/types';
 import { MetaTags } from 'Client/app/MetaTags';
-import { useDesktop } from 'Client/hooks/useMedia';
 import { SearchBackButton } from 'Client/features/search/BackButton';
 import { BusinessConsultationsList } from 'Client/features/search/MainResults/BusinessConsultationItem';
+import { matchDesktopDevice } from 'Shared/helpers/styled';
 import {
   SearchPageTitleStyle,
   SearchPageContentStyle,
@@ -26,7 +26,7 @@ type Props = {
 };
 
 export const SearchConsultations = ({ location, history }: Props) => {
-  const { country, language } = useSelector(
+  const { country, language, device } = useSelector(
     (state: StateRoot) => state.appConfig
   );
   const params = new URLSearchParams(location.search);
@@ -34,7 +34,7 @@ export const SearchConsultations = ({ location, history }: Props) => {
   const [isLoading, setIsLoading] = useState(true);
   const [count, setCount] = useState<number>(0);
   const [questions, setQuestions] = useState<QuestionType[]>([]);
-  const isDesktop = useDesktop();
+  const isDesktop = matchDesktopDevice(device);
 
   const initQuestions = async () => {
     setIsLoading(true);

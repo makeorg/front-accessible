@@ -1,3 +1,5 @@
+import { DESKTOP_DEVICE } from 'Shared/constants/config';
+
 export const initialStateDebug = {
   appConfig: {
     source: 'core',
@@ -34,6 +36,7 @@ export const initialStateDebug = {
       'SI',
       'SK',
     ],
+    device: DESKTOP_DEVICE,
   },
   user: {
     authentication: {

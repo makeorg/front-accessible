@@ -2,7 +2,6 @@
 import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { trackClickMakeLogo } from 'Shared/services/Tracking';
-import { useDesktop } from 'Client/hooks/useMedia';
 import { HeaderAuthentication } from 'Client/features/auth/Header';
 import {
   NAVIGATION_ELEMENT_ARIA_CLASS,
@@ -18,6 +17,7 @@ import { getHomeLink } from 'Shared/helpers/url';
 import { useSelector } from 'react-redux';
 import { type StateRoot } from 'Shared/store/types';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
+import { matchDesktopDevice } from 'Shared/helpers/styled';
 import {
   HeaderStyle,
   HeaderInnerStyle,
@@ -32,8 +32,10 @@ import {
  * Renders Main Header
  */
 export const Header = () => {
-  const isDesktop = useDesktop();
-  const { country } = useSelector((state: StateRoot) => state.appConfig);
+  const { country, device } = useSelector(
+    (state: StateRoot) => state.appConfig
+  );
+  const isDesktop = matchDesktopDevice(device);
 
   return (
     <HeaderStyle

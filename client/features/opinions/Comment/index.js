@@ -5,7 +5,7 @@ import { ProposalCardStyle } from 'Client/ui/Elements/ProposalCardElements';
 import { Link } from 'react-router-dom';
 import { opinionsVoteStaticParams } from 'Shared/constants/opinions';
 import { i18n } from 'Shared/i18n';
-import { scrollToTop } from 'Shared/helpers/styled';
+import { matchMobileDevice, scrollToTop } from 'Shared/helpers/styled';
 import { SvgThumbsUp } from 'Client/ui/Svg/elements';
 import {
   MiddleRowStyle,
@@ -19,7 +19,6 @@ import {
   PoliticalPartyStyle,
 } from 'Client/custom/municipales/CandidateEngagement/style';
 import { CertifiedIconStyle } from 'Client/ui/Proposal/DeprecatedAuthor/Styled';
-import { useMobile } from 'Client/hooks/useMedia';
 import { trackClickPublicProfile } from 'Shared/services/Tracking';
 import { TYPE_PERSONALITY } from 'Shared/constants/user';
 import { useSelector } from 'react-redux';
@@ -42,8 +41,10 @@ const handleClickProfile = () => {
 };
 
 export const OpinionComment = ({ comment }: Props) => {
-  const { country } = useSelector((state: StateRoot) => state.appConfig);
-  const isMobile = useMobile();
+  const { country, device } = useSelector(
+    (state: StateRoot) => state.appConfig
+  );
+  const isMobile = matchMobileDevice(device);
   const {
     politicalParty,
     displayName,

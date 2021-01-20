@@ -1,6 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import snapshotDiff from 'snapshot-diff';
+import * as reactRedux from 'react-redux';
+import { initialStateDebug } from 'Shared/store/initialState.debug';
 import { TagList } from './index';
 
 jest.mock('./style', () => ({
@@ -30,6 +32,10 @@ jest.mock('../AccessibilityElements', () => ({
   ScreenReaderItemStyle: 'ScreenReaderItemStyle',
 }));
 
+jest.mock('../Buttons/style', () => ({
+  ActiveButtonStyle: 'ActiveButtonStyle',
+}));
+
 const tagsArray = [
   { id: '1', label: 'foo', isSelected: true },
   { id: '2', label: 'bar', isSelected: false },
@@ -37,6 +43,15 @@ const tagsArray = [
 ];
 
 describe('TagList', () => {
+  const useSelectorMock = jest.spyOn(reactRedux, 'useSelector');
+  beforeEach(() => {
+    useSelectorMock.mockReturnValue(initialStateDebug);
+  });
+
+  afterEach(() => {
+    useSelectorMock.mockClear();
+  });
+
   it('must match the snapshot with default Props', () => {
     const component = renderer.create(<TagList tags={tagsArray} />).toJSON();
     expect(component).toMatchSnapshot();

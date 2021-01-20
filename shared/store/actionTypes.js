@@ -66,3 +66,6 @@ export const CUSTOM_DATA_REMOVE_KEY = 'CUSTOM_DATA_REMOVE_KEY';
 export const SET_SESSION_ID = 'SET_SESSION_ID';
 /** i18n */
 export const SET_COUNTRY_CONFIGURATION = 'SET_COUNTRY_CONFIGURATION';
+/** Set device configuration */
+export const SET_DESKTOP_DEVICE = 'SET_DESKTOP_DEVICE';
+export const SET_MOBILE_DEVICE = 'SET_MOBILE_DEVICE';

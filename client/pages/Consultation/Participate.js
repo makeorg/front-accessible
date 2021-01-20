@@ -15,7 +15,6 @@ import {
 import { CitizenRegister } from 'Client/features/consultation/CitizenRegister';
 import { ParticipateHeader } from 'Client/features/consultation/Header';
 import { ParticipateHighlights } from 'Client/features/consultation/Highlights';
-import { useDesktop } from 'Client/hooks/useMedia';
 import { SubmitProposal } from 'Client/features/consultation/Cards/SubmitProposal';
 import { SvgLightning, SvgLike, SvgPeople } from 'Client/ui/Svg/elements';
 import { CTAMonoBlock } from 'Client/features/consultation/Cards/CTAMonoblock';
@@ -38,6 +37,7 @@ import {
   trackDisplayOperationPage,
   trackOpenSequence,
 } from 'Shared/services/Tracking';
+import { matchDesktopDevice } from 'Shared/helpers/styled';
 import {
   ParticipateContentStyle,
   ParticipateInnerStyle,
@@ -48,12 +48,14 @@ import {
 } from './style';
 
 const ParticipatePage = () => {
-  const { country } = useSelector((state: StateRoot) => state.appConfig);
+  const { country, device } = useSelector(
+    (state: StateRoot) => state.appConfig
+  );
   const question: QuestionType = useSelector((state: StateRoot) =>
     selectCurrentQuestion(state)
   );
   const dispatch = useDispatch();
-  const isDesktop = useDesktop();
+  const isDesktop = matchDesktopDevice(device);
   const PROPOSALS_THRESOLD = 5;
 
   useEffect(() => {

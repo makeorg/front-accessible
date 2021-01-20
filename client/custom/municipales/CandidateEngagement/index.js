@@ -8,7 +8,6 @@ import { type PersonalityType } from 'Shared/types/user';
 import { useDispatch, useSelector } from 'react-redux';
 import { fechQuestionPersonalities } from 'Shared/store/reducers/questions/actions';
 import { FourthLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
-import { useMobile } from 'Client/hooks/useMedia';
 import { GliderStylesheet } from 'Client/app/assets/css-in-js/GliderStyle';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import {
@@ -22,7 +21,7 @@ import { getPersonalityProfileLink } from 'Shared/helpers/url';
 
 import { i18n } from 'Shared/i18n';
 import { CertifiedIconStyle } from 'Client/ui/Proposal/DeprecatedAuthor/Styled';
-import { intToPx, scrollToTop } from 'Shared/helpers/styled';
+import { intToPx, matchMobileDevice, scrollToTop } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { trackClickPublicProfile } from 'Shared/services/Tracking';
@@ -48,7 +47,8 @@ export const CandidateEngagement = ({ question }: Props) => {
   const personalitiesState: PersonalityType[] = useSelector(
     (state: StateRoot) => state.questions[question.slug].personalities
   );
-  const isMobile = useMobile();
+  const { device } = useSelector((state: StateRoot) => state.appConfig);
+  const isMobile = matchMobileDevice(device);
 
   useEffect(() => {
     setPersonalities(personalitiesState);
@@ -209,8 +209,10 @@ const handleClickProfile = () => {
 };
 
 export const CandidateItem = ({ personality }: CandidateProps) => {
-  const isMobile = useMobile();
-  const { country } = useSelector((state: StateRoot) => state.appConfig);
+  const { country, device } = useSelector(
+    (state: StateRoot) => state.appConfig
+  );
+  const isMobile = matchMobileDevice(device);
   const personalityFullName = `${personality.firstName} ${personality.lastName}`;
   return (
     <CenterRowStyle as={isMobile && MiddleColumnStyle}>

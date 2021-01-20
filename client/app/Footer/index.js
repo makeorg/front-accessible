@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { i18n } from 'Shared/i18n';
 import { type StateRoot } from 'Shared/store/types';
 import { trackClickBlog } from 'Shared/services/Tracking';
-import { useDesktop } from 'Client/hooks/useMedia';
 import { ColumnToRowElementStyle } from 'Client/ui/Elements/FlexElements';
 import {
   JOBS_LINK,
@@ -19,7 +18,7 @@ import {
   getContactPageLink,
   getA11YPageLink,
 } from 'Shared/helpers/url';
-import { scrollToTop } from 'Shared/helpers/styled';
+import { matchDesktopDevice, scrollToTop } from 'Shared/helpers/styled';
 import {
   NAVIGATION_ARIA_NEGATIVE_TAB_CLASS,
   PANEL_ARIA_NEGATIVE_TAB_CLASS,
@@ -49,10 +48,12 @@ import {
  * Renders Main Footer
  */
 export const Footer = () => {
-  const isDesktop = useDesktop();
   const dispatch = useDispatch();
   const location = useLocation();
-  const { country } = useSelector((state: StateRoot) => state.appConfig);
+  const { country, device } = useSelector(
+    (state: StateRoot) => state.appConfig
+  );
+  const isDesktop = matchDesktopDevice(device);
   const isFR = country === 'FR';
   const isSequencePage = getIsSequencePage(location.pathname);
 

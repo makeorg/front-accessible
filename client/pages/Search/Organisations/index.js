@@ -27,10 +27,10 @@ import {
   ProfileAvatarLayoutStyle,
   ProfileAvatarStyle,
 } from 'Client/ui/Elements/ProfileElements';
-import { useDesktop } from 'Client/hooks/useMedia';
 import { CertifiedIconStyle } from 'Client/ui/Proposal/DeprecatedAuthor/Styled';
 import { formatOrganisationName } from 'Shared/helpers/stringFormatter';
 import { SearchBackButton } from 'Client/features/search/BackButton';
+import { matchDesktopDevice } from 'Shared/helpers/styled';
 import {
   SearchPageTitleStyle,
   SearchPageContentStyle,
@@ -45,13 +45,15 @@ type Props = {
 };
 
 export const SearchOrganisations = ({ history, location }: Props) => {
-  const { country } = useSelector((state: StateRoot) => state.appConfig);
+  const { country, device } = useSelector(
+    (state: StateRoot) => state.appConfig
+  );
   const params = new URLSearchParams(location.search);
   const term = params.get('query') || '';
   const [isLoading, setIsLoading] = useState(true);
   const [count, setCount] = useState<number>(0);
   const [organisations, setOrganisations] = useState<OrganisationType[]>([]);
-  const isDesktop = useDesktop();
+  const isDesktop = matchDesktopDevice(device);
 
   const initOrganisations = async () => {
     setIsLoading(true);

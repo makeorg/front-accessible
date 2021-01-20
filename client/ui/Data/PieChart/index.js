@@ -1,8 +1,10 @@
 import React, { useRef, useEffect } from 'react';
 import { type PieChartDataType } from 'Shared/types/question';
-import { useMobile } from 'Client/hooks/useMedia';
+import { type StateRoot } from 'Shared/store/types';
 import { i18n } from 'Shared/i18n';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
+import { useSelector } from 'react-redux';
+import { matchMobileDevice } from 'Shared/helpers/styled';
 import {
   PieChartWrapperStyle,
   PieChartTitleStyle,
@@ -20,7 +22,8 @@ type Props = {
 
 export const PieChart = ({ unit, name, legend, data }: Props) => {
   const canvasRef = useRef(null);
-  const isMobile = useMobile();
+  const { device } = useSelector((state: StateRoot) => state.appConfig);
+  const isMobile = matchMobileDevice(device);
 
   useEffect(() => {
     if (canvasRef) {

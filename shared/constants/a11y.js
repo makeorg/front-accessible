@@ -1,7 +1,3 @@
-/** className used for Aria Hidden handling */
-export const FADE_OUT_ANIMATION = 'fade-out-animation';
-export const FADE_IN_ANIMATION = 'fade-in-animation';
-
 /** Navigation */
 export const NAVIGATION_ARIA_CLASS = 'expand-navigation-aria';
 export const NAVIGATION_ELEMENT_ARIA_CLASS = 'expand-navigation-element-aria';

@@ -1,9 +1,12 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { type StateRoot } from 'Shared/store/types';
+import { matchDesktopDevice } from 'Shared/helpers/styled';
 import { HeroPicturesStyle } from './style';
-import { useDesktop } from '../../../hooks/useMedia';
 
 export const HeroPictures = () => {
-  const isDesktop = useDesktop();
+  const { device } = useSelector((state: StateRoot) => state.appConfig);
+  const isDesktop = matchDesktopDevice(device);
 
   const HeroDesktop =
     'https://assets.make.org/assets/home/hero-desktop-170720.png';

@@ -1,20 +1,21 @@
 // @flow
 import React, { useMemo, useEffect } from 'react';
+import { type StateRoot } from 'Shared/store/types';
 import { type TagType } from 'Shared/types/tag';
 import { i18n } from 'Shared/i18n';
-import { useMobile } from 'Client/hooks/useMedia';
 import { SelectPanel } from 'Client/ui/Elements/SelectPanel';
 import { TagList } from 'Client/ui/Elements/TagList';
 import { SortedList } from 'Client/ui/Elements/SortedList';
 import { PROPOSALS_FEED_ALGORITHMS } from 'Shared/api/ProposalApiService';
 import { Tip } from 'Client/ui/Elements/Notifications/Tip';
 import { TAGS_LIST, SORT_LIST, TAGS_SECTION } from 'Shared/constants/ids';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   clearNotificationTip,
   displayNotificationTip,
 } from 'Shared/store/actions/notifications';
 import { TAGS_TIP_MESSAGE } from 'Shared/constants/notifications';
+import { matchMobileDevice } from 'Shared/helpers/styled';
 import {
   TagSectionTitle,
   FiltersWrapperStyle,
@@ -45,7 +46,8 @@ export const SortAndFilter = ({
     []
   );
 
-  const isMobile = useMobile();
+  const { device } = useSelector((state: StateRoot) => state.appConfig);
+  const isMobile = matchMobileDevice(device);
   const dispatch = useDispatch();
 
   const hasTags = !!(tags.length > 0);

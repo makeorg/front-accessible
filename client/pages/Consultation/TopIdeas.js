@@ -20,9 +20,9 @@ import { ConsultationSidebar } from 'Client/features/consultation/Sidebar';
 import { TopIdeasSkipLinks } from 'Client/app/SkipLinks/TopIdeas';
 
 import { MobileDescriptionImage } from 'Client/features/consultation/MobileDescriptionImage';
-import { useMobile } from 'Client/hooks/useMedia';
 import { ThemeProvider } from 'styled-components';
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
+import { matchMobileDevice } from 'Shared/helpers/styled';
 import {
   ConsultationPageContentStyle,
   ConsultationPageWrapperStyle,
@@ -33,11 +33,13 @@ import {
 } from './style';
 
 const TopIdeasPage = () => {
-  const { country } = useSelector((state: StateRoot) => state.appConfig);
+  const { country, device } = useSelector(
+    (state: StateRoot) => state.appConfig
+  );
   const question: QuestionType = useSelector((state: StateRoot) =>
     selectCurrentQuestion(state)
   );
-  const isMobile = useMobile();
+  const isMobile = matchMobileDevice(device);
   const [topIdeas, setTopIdeas] = useState<TopIdeaType[]>([]);
   const hasTopIdeas = topIdeas && topIdeas.length > 0;
   // @todo remove or refactor when Municipales is over

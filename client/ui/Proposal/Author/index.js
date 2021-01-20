@@ -7,7 +7,7 @@ import {
   getPersonalityProfileLink,
 } from 'Shared/helpers/url';
 import { Avatar } from 'Client/ui/Avatar';
-import { useMobile } from 'Client/hooks/useMedia';
+import { type StateRoot } from 'Shared/store/types';
 import { RedLinkRouterStyle } from 'Client/ui/Elements/LinkElements';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { trackClickPublicProfile } from 'Shared/services/Tracking';
@@ -22,6 +22,8 @@ import {
 } from 'Shared/helpers/stringFormatter';
 import { CertifiedIconStyle } from 'Client/ui/Proposal/DeprecatedAuthor/Styled';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
+import { useSelector } from 'react-redux';
+import { matchMobileDevice } from 'Shared/helpers/styled';
 import { AuthorInfosStyle, InfosWrapperStyle } from './style';
 
 type Props = {
@@ -92,7 +94,8 @@ const setAvatarSize = (isMobile: boolean, isSequence: boolean) => {
 
 export const ProposalAuthor = ({ proposal, isSequence = false }: Props) => {
   const { author } = proposal;
-  const isMobile = useMobile();
+  const { device } = useSelector((state: StateRoot) => state.appConfig);
+  const isMobile = matchMobileDevice(device);
   const avatarSize = setAvatarSize(isMobile, isSequence);
 
   return (

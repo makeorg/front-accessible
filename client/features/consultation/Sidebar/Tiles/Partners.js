@@ -1,5 +1,5 @@
 // @flow
-import { useMobile } from 'Client/hooks/useMedia';
+import { type StateRoot } from 'Shared/store/types';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { Collapse } from 'Client/ui/Elements/Collapse';
 import React from 'react';
@@ -7,13 +7,16 @@ import { i18n } from 'Shared/i18n';
 import { type QuestionType } from 'Shared/types/question';
 import { isInProgress } from 'Shared/helpers/date';
 import { isGreatCause } from 'Shared/helpers/question';
+import { useSelector } from 'react-redux';
+import { matchMobileDevice } from 'Shared/helpers/styled';
 import { Partners } from '../Partners';
 
 type Props = {
   question: QuestionType,
 };
 export const PartnersTile = ({ question }: Props) => {
-  const isMobile = useMobile();
+  const { device } = useSelector((state: StateRoot) => state.appConfig);
+  const isMobile = matchMobileDevice(device);
   const questionIsGreatCause = isGreatCause(question.operationKind);
 
   if (!questionIsGreatCause) {
