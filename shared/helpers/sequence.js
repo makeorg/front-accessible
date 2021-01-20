@@ -13,37 +13,6 @@ import {
 import { ZONE_CONTROVERSY, ZONE_POPULAR } from 'Shared/constants/sequence';
 import { i18n } from 'Shared/i18n';
 
-export const getPosition = (index: number = 0, currentIndex: number = 0) =>
-  (index - currentIndex) * 2;
-
-export const getZIndex = (index: number = 0, currentIndex: number = 0) =>
-  50 - (index - currentIndex);
-
-export const getScale = (initialIndex: number = 0, currentIndex: number = 0) =>
-  1 - (initialIndex - currentIndex) / 75;
-
-export const gaugeProgress = (
-  initialIndex: number = 0,
-  totalIndex: number = 0
-) => {
-  if (initialIndex === 0 || totalIndex === 0) {
-    return 0;
-  }
-  return Math.floor((initialIndex / totalIndex) * 100);
-};
-
-export const gaugeRemain = (
-  initialIndex: number = 0,
-  totalIndex: number = 0
-) => {
-  if (initialIndex === 0 || totalIndex === 0) {
-    return 0;
-  }
-  return 100 - Math.floor((initialIndex / totalIndex) * 100);
-};
-
-export const getCardIndex = (index: number = 0) => `cardKey_${index}`;
-
 /**
  * Find the index of first no voted card
  * @param  {Object} firstNoVotedProposal
@@ -111,21 +80,25 @@ export const buildCards = (
   isLoggedIn: boolean,
   hasProposed: boolean,
   canPropose: boolean,
-  disableIntroCard: boolean,
-  zone?: string
+  zone?: string,
+  introCardParam?: string,
+  pushProposalParam?: string,
+  signUpCardParam?: string
 ): SequenceCardType[] => {
   const withPushProposalCard: boolean =
     extraSlidesConfig.pushProposalCard &&
     extraSlidesConfig.pushProposalCard.enabled &&
     canPropose &&
+    pushProposalParam &&
     !hasProposed;
   const withIntroCard: boolean =
     extraSlidesConfig.introCard &&
     extraSlidesConfig.introCard.enabled &&
-    !disableIntroCard;
+    introCardParam;
   const withSignupCard: boolean =
     extraSlidesConfig.signUpCard &&
     extraSlidesConfig.signUpCard.enabled &&
+    signUpCardParam &&
     !isLoggedIn;
   const withFinalCard: boolean =
     extraSlidesConfig.finalCard && extraSlidesConfig.finalCard.enabled;

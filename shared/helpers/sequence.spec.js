@@ -2,112 +2,83 @@
 import {
   CARD_TYPE_EXTRASLIDE_FINAL_CARD,
   CARD_TYPE_EXTRASLIDE_INTRO,
+  CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL,
+  CARD_TYPE_EXTRASLIDE_PUSH_SIGNUP,
   CARD_TYPE_EXTRASLIDE_SPECIAL_FINAL_CARD,
 } from 'Shared/constants/card';
 import { ZONE_CONTROVERSY, ZONE_POPULAR } from 'Shared/constants/sequence';
 import * as helpers from './sequence';
 
 describe('Sequence Helper', () => {
-  describe('test getPosition', () => {
-    it('without currentIndex', () => {
-      const position = helpers.getPosition();
-      expect(position).toBeCloseTo(0, 0.001);
-    });
-
-    it('without Index and with currentIndex', () => {
-      const position = helpers.getPosition(5);
-      expect(position).toBeCloseTo(10, 0.001);
-    });
-
-    it('with Index & currentIndex', () => {
-      const position = helpers.getPosition(5, 1);
-      expect(position).toBeCloseTo(8, 0.001);
-    });
-  });
-
-  describe('test getZIndex', () => {
-    it('without Index & currentIndex', () => {
-      const zindex = helpers.getZIndex();
-      expect(zindex).toBeCloseTo(50, 0.001);
-    });
-
-    it('without Index and with currentIndex', () => {
-      const zindex = helpers.getZIndex(10);
-      expect(zindex).toBeCloseTo(40, 0.001);
-    });
-
-    it('with Index & currentIndex', () => {
-      const zindex = helpers.getZIndex(7, 1);
-      expect(zindex).toBeCloseTo(44.0, 0.001);
-    });
-  });
-  describe('test getScale', () => {
-    it('getScale without Index & currentIndex', () => {
-      const scale = helpers.getScale();
-      expect(scale).toBeCloseTo(1, 0.001);
-    });
-
-    it('getScale without Index and with currentIndex', () => {
-      const scale = helpers.getScale(10);
-      expect(scale).toBeCloseTo(0.86, 0.01);
-    });
-
-    it('getScale with Index & currentIndex', () => {
-      const scale = helpers.getScale(400, 100);
-      expect(scale).toBe(-3);
-    });
-  });
-
-  describe('test gaugeProgress', () => {
-    it('gaugeProgress without Index & currentIndex', () => {
-      const scale = helpers.gaugeProgress();
-      expect(scale).toBe(0);
-    });
-
-    it('gaugeProgress without Index or currentIndex', () => {
-      const scale = helpers.gaugeProgress(10);
-      expect(scale).toBe(0);
-    });
-
-    it('gaugeProgress with Index & currentIndex', () => {
-      const scale = helpers.gaugeProgress(3, 12);
-      expect(scale).toBe(25);
-    });
-  });
-
-  describe('test gaugeRemain', () => {
-    it('without initialIndex & without totalIndex', () => {
-      const scale = helpers.gaugeRemain();
-      expect(scale).toBe(0);
-    });
-
-    it('gaugeRemain with initialIndex and without totalIndex', () => {
-      const scale = helpers.gaugeRemain(10);
-      expect(scale).toBe(0);
-    });
-
-    it('gaugeRemain with initialIndex and totalIndex', () => {
-      const scale = helpers.gaugeRemain(3, 12);
-      expect(scale).toBe(75);
-    });
-  });
   describe('test buildCards', () => {
     const proposals = [];
 
-    it('dont contain intro card', () => {
+    it("doesn't contain intro card in API conf and in params", () => {
       const extraSlidesConfig = {
         introCard: { enabled: false },
       };
-      const cards = helpers.buildCards(proposals, extraSlidesConfig);
+      const introCardParam = false;
+      const cards = helpers.buildCards(
+        proposals,
+        extraSlidesConfig,
+        false,
+        false,
+        false,
+        null,
+        introCardParam
+      );
+      expect(cards.length).toBe(0);
+    });
+
+    it('contain intro card in API conf but false in params', () => {
+      const extraSlidesConfig = {
+        introCard: { enabled: true },
+      };
+      const introCardParam = false;
+      const cards = helpers.buildCards(
+        proposals,
+        extraSlidesConfig,
+        false,
+        false,
+        false,
+        null,
+        introCardParam
+      );
+      expect(cards.length).toBe(0);
+    });
+
+    it("doesn't contain intro card in API conf but true in params", () => {
+      const extraSlidesConfig = {
+        introCard: { enabled: false },
+      };
+      const introCardParam = true;
+      const cards = helpers.buildCards(
+        proposals,
+        extraSlidesConfig,
+        false,
+        false,
+        false,
+        null,
+        introCardParam
+      );
 
       expect(cards.length).toBe(0);
     });
 
-    it('contain intro card', () => {
+    it('contain intro card in API conf and in params', () => {
       const extraSlidesConfig = {
         introCard: { enabled: true },
       };
-      const cards = helpers.buildCards(proposals, extraSlidesConfig);
+      const introCardParam = true;
+      const cards = helpers.buildCards(
+        proposals,
+        extraSlidesConfig,
+        false,
+        false,
+        false,
+        null,
+        introCardParam
+      );
 
       expect(cards.length).toBe(1);
       expect(cards[0]).toEqual({
@@ -118,11 +89,243 @@ describe('Sequence Helper', () => {
       });
     });
 
-    it('dont contain push proposal card', () => {
+    it("doesn't contain push proposal card in API conf and in params", () => {
       const extraSlidesConfig = {
         pushProposalCard: { enabled: false },
       };
-      const cards = helpers.buildCards(proposals, extraSlidesConfig);
+      const pushProposalParam = false;
+      const hasProposed = false;
+      const canPropose = true;
+      const cards = helpers.buildCards(
+        proposals,
+        extraSlidesConfig,
+        false,
+        hasProposed,
+        canPropose,
+        null,
+        false,
+        pushProposalParam
+      );
+      expect(cards.length).toBe(0);
+    });
+
+    it('contain push proposal in API conf but false in params', () => {
+      const extraSlidesConfig = {
+        pushProposalCard: { enabled: true },
+      };
+      const pushProposalParam = false;
+      const hasProposed = false;
+      const canPropose = true;
+      const cards = helpers.buildCards(
+        proposals,
+        extraSlidesConfig,
+        false,
+        hasProposed,
+        canPropose,
+        null,
+        false,
+        pushProposalParam
+      );
+      expect(cards.length).toBe(0);
+    });
+
+    it("doesn't contain push proposal in API conf but true in params", () => {
+      const extraSlidesConfig = {
+        pushProposalCard: { enabled: false },
+      };
+      const pushProposalParam = true;
+      const hasProposed = false;
+      const canPropose = true;
+      const cards = helpers.buildCards(
+        proposals,
+        extraSlidesConfig,
+        false,
+        hasProposed,
+        canPropose,
+        null,
+        false,
+        pushProposalParam
+      );
+
+      expect(cards.length).toBe(0);
+    });
+
+    it('contain push proposal in API conf and in params', () => {
+      const extraSlidesConfig = {
+        pushProposalCard: { enabled: true },
+      };
+      const pushProposalParam = true;
+      const hasProposed = false;
+      const canPropose = true;
+      const cards = helpers.buildCards(
+        proposals,
+        extraSlidesConfig,
+        false,
+        hasProposed,
+        canPropose,
+        null,
+        false,
+        pushProposalParam
+      );
+
+      expect(cards.length).toBe(1);
+      expect(cards[0]).toEqual({
+        index: 0,
+        offset: 1,
+        type: CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL,
+        configuration: extraSlidesConfig.pushProposalCard,
+      });
+    });
+
+    it('contain push proposal but has already proposed', () => {
+      const extraSlidesConfig = {
+        pushProposalCard: { enabled: true },
+      };
+      const pushProposalParam = true;
+      const hasProposed = true;
+      const canPropose = true;
+      const cards = helpers.buildCards(
+        proposals,
+        extraSlidesConfig,
+        false,
+        hasProposed,
+        canPropose,
+        null,
+        false,
+        pushProposalParam
+      );
+
+      expect(cards.length).toBe(0);
+    });
+
+    it('contain push proposal but canPropose is disabled', () => {
+      const extraSlidesConfig = {
+        pushProposalCard: { enabled: true },
+      };
+      const pushProposalParam = true;
+      const hasProposed = false;
+      const canPropose = false;
+      const cards = helpers.buildCards(
+        proposals,
+        extraSlidesConfig,
+        false,
+        hasProposed,
+        canPropose,
+        null,
+        false,
+        pushProposalParam
+      );
+
+      expect(cards.length).toBe(0);
+    });
+
+    it("doesn't contain signup card in API conf and in params", () => {
+      const extraSlidesConfig = {
+        signUpCard: { enabled: false },
+      };
+      const signUpCardParam = false;
+      const isLoggedIn = false;
+
+      const cards = helpers.buildCards(
+        proposals,
+        extraSlidesConfig,
+        isLoggedIn,
+        false,
+        false,
+        null,
+        false,
+        false,
+        signUpCardParam
+      );
+      expect(cards.length).toBe(0);
+    });
+
+    it('contain signup card in API conf but false in params', () => {
+      const extraSlidesConfig = {
+        signUpCard: { enabled: true },
+      };
+      const signUpCardParam = false;
+      const isLoggedIn = false;
+
+      const cards = helpers.buildCards(
+        proposals,
+        extraSlidesConfig,
+        isLoggedIn,
+        false,
+        false,
+        null,
+        false,
+        false,
+        signUpCardParam
+      );
+      expect(cards.length).toBe(0);
+    });
+
+    it("doesn't contain sign up card in API conf but true in params", () => {
+      const extraSlidesConfig = {
+        signUpCard: { enabled: false },
+      };
+      const signUpCardParam = true;
+      const isLoggedIn = false;
+      const cards = helpers.buildCards(
+        proposals,
+        extraSlidesConfig,
+        isLoggedIn,
+        false,
+        false,
+        null,
+        false,
+        false,
+        signUpCardParam
+      );
+
+      expect(cards.length).toBe(0);
+    });
+
+    it('contain sign up card in API conf and in params', () => {
+      const extraSlidesConfig = {
+        signUpCard: { enabled: true },
+      };
+      const signUpCardParam = true;
+      const isLoggedIn = false;
+      const cards = helpers.buildCards(
+        proposals,
+        extraSlidesConfig,
+        isLoggedIn,
+        false,
+        false,
+        null,
+        false,
+        false,
+        signUpCardParam
+      );
+
+      expect(cards.length).toBe(1);
+      expect(cards[0]).toEqual({
+        index: 0,
+        offset: 1,
+        type: CARD_TYPE_EXTRASLIDE_PUSH_SIGNUP,
+        configuration: extraSlidesConfig.signUpCard,
+      });
+    });
+
+    it('contain sign up card in conf but user is Logged In', () => {
+      const extraSlidesConfig = {
+        signUpCard: { enabled: true },
+      };
+      const signUpCardParam = true;
+      const isLoggedIn = true;
+      const cards = helpers.buildCards(
+        proposals,
+        extraSlidesConfig,
+        isLoggedIn,
+        false,
+        false,
+        null,
+        false,
+        false,
+        signUpCardParam
+      );
 
       expect(cards.length).toBe(0);
     });

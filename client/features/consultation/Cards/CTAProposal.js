@@ -15,6 +15,8 @@ type Props = {
   icon: any,
   title: string,
   description: string,
+  proposalCount: number,
+  thresold: number,
   linkText: string,
   linkHref: string,
   classes?: string,
@@ -24,11 +26,13 @@ export const CTAProposal = ({
   icon,
   title,
   description,
+  proposalCount,
+  thresold,
   linkText,
   linkHref,
   classes = '',
 }: Props) => {
-  const isActive = false;
+  const isActive = proposalCount >= thresold;
 
   return (
     <CardStyle className={classes}>
