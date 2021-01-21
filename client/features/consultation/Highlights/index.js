@@ -38,6 +38,7 @@ export const ParticipateHighlights = () => {
               alt={question.descriptionImageAlt}
               width={555}
               height={331}
+              crop
             />
           </ImageWrapperStyle>
         </HigthlightsColumnStyle>
