@@ -20,7 +20,10 @@ export const homepageRoute = async (req: Request, res: Response) => {
     return reactRender(req, res.status(404), routeState);
   }
   routeState.views = {
-    homepage: homepageData,
+    homepage: {
+      ...homepageData,
+      country,
+    },
   };
 
   return reactRender(req, res, routeState);

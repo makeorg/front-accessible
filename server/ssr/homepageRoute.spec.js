@@ -39,7 +39,7 @@ describe('Homepage route', () => {
 
       await homepageRoute(request, response);
       expect(reactRender).toHaveBeenCalledWith(request, response, {
-        views: { homepage: { test: 'test' } },
+        views: { homepage: { test: 'test', country } },
       });
     });
   });
