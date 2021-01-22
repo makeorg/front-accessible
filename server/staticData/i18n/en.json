@@ -740,51 +740,51 @@
       "participant_plural": "Participants",
       "progress_title": "Our votes target",
       "progress_target": "{{votesTarget}} over ({{percent}}%)",
-      "progress_description": "The more proposals will receive votes, the more it will have a chance to be turned into a real change.",
+      "progress_description": "The more votes a solution receives, the more likely it will be to become a real change in society.",
       "progress_btn": "Participate"
     },
     "participate": {
       "title": "How to participate in this consultation ?",
-      "description": "We trust in everybody action to improve the commun good. So we need thousands of citizens' solutions and opinions during our consultations."
+      "description": "We rely on everybody's action to improve the common good. So we need thousands of citizen solutions and opinions during our consultations."
     },
     "citizen_account": {
       "title": "Your citizen account on Make.org",
-      "description": "Thanks to your personal account you have access to the results of your proposals, the history of your votes and you will receive the results of the consultations. By registering with us, you will be informed by email of the next citizen consultations and you will be invited to our participatory events.",
+      "description": "Thanks to your personal account you have access to the results of your solutions and the records for your votes, as well as receiving the results of the consultations. By signing up with us, you will be informed by email of the next citizen consultations and you will be invited to our participative events.",
       "register_links": "I register with :"
     },
     "cards": {
       "soon": "Coming up",
       "submit": {
         "title": "Write a solution",
-        "description": "Tell everybody what are your ideas. Every solution will be studied before starting votes.",
+        "description": "Tell everybody what your ideas are. Every solution is studied before getting submitted for citizen voting.",
         "button": "I write a solution"
       },
       "interact": {
         "title": "React to the solutions",
-        "description": "Because the solutions are the stakes of a consultation, express yourself to determine what are the citizen priorities.",
+        "description": "Solutions define the stakes of a consultation: express yourself to determine what the citizen priorities are.",
         "button": "I vote"
       },
       "controversy": {
         "title": "Decide between the controversial solutions",
-        "description": "These citizen solutions have received as many positive votes than negative ones.",
+        "description": "These citizen solutions have received as many positive votes as negative ones.",
         "button": "I decide"
       },
       "popular": {
         "title": "Vote on popular solutions",
-        "description": "These citizen solutions have received the most favorable vote.",
+        "description": "These citizen solutions have received the most favorable votes.",
         "button": "I vote"
       },
       "sharing": {
         "title": "Share the consultation",
-        "description": "Your friends also have ideas and opinions that must be heard. Broadcast this consultation int the way you like to make it more powerful."
+        "description": "Surely, your friends also have ideas and opinions that must be heard. Broadcast this consultation however way you like to make it more reach further."
       },
       "about": {
         "title": "Why this consultation ?",
-        "description": "Why this consultation has been launched ? What is the matter ? Who asked for it ?",
+        "description": "Why has this consultation been launched ? What is the underlying issue ? Who promoted it ?",
         "link": "Learn more"
       },
       "featured_proposals": {
-        "title": "They have submitted a proposal"
+        "title": "They have submitted a solution"
       }
     }
   },
