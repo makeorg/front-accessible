@@ -22,7 +22,6 @@ ApiService.strategy = new ApiServiceMock();
 
 jest.mock('Shared/services/Trackers/FacebookTracking');
 jest.mock('Shared/services/Trackers/TwitterTracking');
-jest.mock('Shared/services/Trackers/SnapchatTracking');
 jest.mock('Shared/constants/config');
 
 window.matchMedia = jest.fn().mockImplementation(query => {

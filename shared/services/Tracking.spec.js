@@ -65,7 +65,6 @@ import {
 import { FacebookTracking } from './Trackers/FacebookTracking';
 import { TwitterTracking } from './Trackers/TwitterTracking';
 import { trackingParamsService } from './TrackingParamsService';
-import { SnapchatTracking } from './Trackers/SnapchatTracking';
 
 const eventParameters = {
   location: 'homepage',
@@ -103,14 +102,12 @@ describe('Tracking Service', () => {
     jest.spyOn(TrackingService, 'track');
     jest.spyOn(FacebookTracking, 'trackCustom');
     jest.spyOn(TwitterTracking, 'track');
-    jest.spyOn(SnapchatTracking, 'track');
   });
 
   afterEach(() => {
     TrackingService.track.mockRestore();
     FacebookTracking.trackCustom.mockRestore();
     TwitterTracking.track.mockRestore();
-    SnapchatTracking.track.mockRestore();
   });
 
   it('track performance', async () => {
@@ -182,12 +179,6 @@ describe('Tracking Service', () => {
     TrackingService.trackTwitterPixel('eventName', eventParameters);
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, 'eventName');
   });
-
-  it('track trackSnapchatPixel', () => {
-    TrackingService.trackSnapchatPixel('eventName', eventParameters);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, 'eventName');
-  });
-
   it('track DisplaySequence', () => {
     const eventName = trackingConfiguration.DISPLAY_SEQUENCE.key;
 
@@ -199,7 +190,6 @@ describe('Tracking Service', () => {
       eventParameters
     );
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Display Page Operation', () => {
@@ -213,7 +203,6 @@ describe('Tracking Service', () => {
       eventParameters
     );
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Click Actions Tab', () => {
@@ -227,7 +216,6 @@ describe('Tracking Service', () => {
       eventParameters
     );
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Click Participate Tab', () => {
@@ -241,7 +229,6 @@ describe('Tracking Service', () => {
       eventParameters
     );
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Click Explore Tab', () => {
@@ -255,7 +242,6 @@ describe('Tracking Service', () => {
       eventParameters
     );
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track ClickMakeLogo', () => {
@@ -269,7 +255,6 @@ describe('Tracking Service', () => {
       eventParameters
     );
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Display Moderation Text', () => {
@@ -283,7 +268,6 @@ describe('Tracking Service', () => {
       eventParameters
     );
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Click Moderation Text', () => {
@@ -297,7 +281,6 @@ describe('Tracking Service', () => {
       eventParameters
     );
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Display Authentication Form', () => {
@@ -311,7 +294,6 @@ describe('Tracking Service', () => {
       eventParameters
     );
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Click Personnal DataLink', () => {
@@ -325,7 +307,6 @@ describe('Tracking Service', () => {
       eventParameters
     );
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Display Proposal Field', () => {
@@ -339,7 +320,6 @@ describe('Tracking Service', () => {
       eventParameters
     );
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Click Proposal Submit', () => {
@@ -353,7 +333,6 @@ describe('Tracking Service', () => {
       eventParameters
     );
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Click Back Proposals', () => {
@@ -367,7 +346,6 @@ describe('Tracking Service', () => {
       eventParameters
     );
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Display Proposal Submit Validation', () => {
@@ -382,7 +360,6 @@ describe('Tracking Service', () => {
       eventParameters
     );
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Click Keep Voting', () => {
@@ -396,7 +373,6 @@ describe('Tracking Service', () => {
       eventParameters
     );
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Display Forgot Password Form', () => {
@@ -410,7 +386,6 @@ describe('Tracking Service', () => {
       eventParameters
     );
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Click Close Modal', () => {
@@ -431,7 +406,6 @@ describe('Tracking Service', () => {
       fbParams
     );
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Display Signup Form', () => {
@@ -445,7 +419,6 @@ describe('Tracking Service', () => {
       eventParameters
     );
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Signup Email Success', () => {
@@ -459,7 +432,6 @@ describe('Tracking Service', () => {
       eventParameters
     );
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Signup Email Failure', () => {
@@ -473,7 +445,6 @@ describe('Tracking Service', () => {
       eventParameters
     );
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Display Signin Form', () => {
@@ -487,7 +458,6 @@ describe('Tracking Service', () => {
       eventParameters
     );
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Authentication Social Success', () => {
@@ -510,7 +480,6 @@ describe('Tracking Service', () => {
       fbParams
     );
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Authentication Social Failure', () => {
@@ -530,7 +499,6 @@ describe('Tracking Service', () => {
       fbParams
     );
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Login Email Success', () => {
@@ -544,7 +512,6 @@ describe('Tracking Service', () => {
       eventParameters
     );
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Login Email Failure', () => {
@@ -558,7 +525,6 @@ describe('Tracking Service', () => {
       eventParameters
     );
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Click Start Sequence', () => {
@@ -572,7 +538,6 @@ describe('Tracking Service', () => {
       eventParameters
     );
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Click Next Card', () => {
@@ -586,7 +551,6 @@ describe('Tracking Service', () => {
       eventParameters
     );
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Click Last Proposal Card', () => {
@@ -600,7 +564,6 @@ describe('Tracking Service', () => {
       eventParameters
     );
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Click Previous Card', () => {
@@ -614,7 +577,6 @@ describe('Tracking Service', () => {
       eventParameters
     );
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Display Final Card', () => {
@@ -628,7 +590,6 @@ describe('Tracking Service', () => {
       eventParameters
     );
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track First Vote', () => {
@@ -645,7 +606,6 @@ describe('Tracking Service', () => {
       'card-position': '999',
     });
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Vote', () => {
@@ -664,7 +624,6 @@ describe('Tracking Service', () => {
       component: 'my-component',
     });
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Unvote', () => {
@@ -683,7 +642,6 @@ describe('Tracking Service', () => {
       component: '',
     });
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Vote on Single Proposal Card', () => {
@@ -702,7 +660,6 @@ describe('Tracking Service', () => {
       component: '',
     });
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Unvote on Single Proposal Card', () => {
@@ -721,7 +678,6 @@ describe('Tracking Service', () => {
       component: '',
     });
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Qualify', () => {
@@ -741,7 +697,6 @@ describe('Tracking Service', () => {
       component: '',
     });
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Unqualify', () => {
@@ -761,7 +716,6 @@ describe('Tracking Service', () => {
       component: '',
     });
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Load More Proposals without page number', () => {
@@ -778,7 +732,6 @@ describe('Tracking Service', () => {
       component: 'proposals',
     });
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Load More Proposals with page number', () => {
@@ -796,7 +749,6 @@ describe('Tracking Service', () => {
       component: componentName,
     });
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Display Homepage', () => {
@@ -810,7 +762,6 @@ describe('Tracking Service', () => {
       eventParameters
     );
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Click Homepage Consultations', () => {
@@ -824,7 +775,6 @@ describe('Tracking Service', () => {
       eventParameters
     );
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Display Browse Consultations', () => {
@@ -837,7 +787,6 @@ describe('Tracking Service', () => {
       eventParameters
     );
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Display Browse Results', () => {
@@ -850,7 +799,6 @@ describe('Tracking Service', () => {
       eventParameters
     );
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Click Homepage Participate consultations', () => {
@@ -863,7 +811,6 @@ describe('Tracking Service', () => {
       eventParameters
     );
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Click Homepage Discover great causes', () => {
@@ -876,7 +823,6 @@ describe('Tracking Service', () => {
       eventParameters
     );
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Click Homepage Browse Consultations', () => {
@@ -890,7 +836,6 @@ describe('Tracking Service', () => {
       eventParameters
     );
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Click Homepage Browse Results', () => {
@@ -903,7 +848,6 @@ describe('Tracking Service', () => {
       eventParameters
     );
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Click view Blog', () => {
@@ -917,7 +861,6 @@ describe('Tracking Service', () => {
       component: 'blog list',
     });
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Click participate consultations', () => {
@@ -932,7 +875,6 @@ describe('Tracking Service', () => {
       'question-Id': '999',
     });
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Click page number', () => {
@@ -947,7 +889,6 @@ describe('Tracking Service', () => {
       'page-number': '9',
     });
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Click see results', () => {
@@ -960,7 +901,6 @@ describe('Tracking Service', () => {
       eventParameters
     );
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Click susbscribe', () => {
@@ -974,7 +914,6 @@ describe('Tracking Service', () => {
       component: 'subscribe-next-consultation',
     });
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Click on breadcrumbs link', () => {
@@ -989,7 +928,6 @@ describe('Tracking Service', () => {
       level: '1',
     });
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Display Proposal Page', () => {
@@ -1003,7 +941,6 @@ describe('Tracking Service', () => {
       eventParameters
     );
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track click public profile with type parameter', () => {
@@ -1018,7 +955,6 @@ describe('Tracking Service', () => {
       type: TYPE_ORGANISATION,
     });
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track click public profile with type and componentparameter', () => {
@@ -1035,7 +971,6 @@ describe('Tracking Service', () => {
       component: 'foo',
     });
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track click see more community', () => {
@@ -1049,7 +984,6 @@ describe('Tracking Service', () => {
       eventParameters
     );
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track Click Operation Page link', () => {
@@ -1063,7 +997,6 @@ describe('Tracking Service', () => {
       eventParameters
     );
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track click see more community with component', () => {
@@ -1079,6 +1012,5 @@ describe('Tracking Service', () => {
       component: 'foo',
     });
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(SnapchatTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 });
