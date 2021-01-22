@@ -9,7 +9,7 @@ import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { TileSeparatorStyle } from 'Client/ui/Elements/TileWithTitle/style';
 import { getPartnerAnchor, getSequenceLink } from 'Shared/helpers/url';
 import {
-  trackSeeMorePartners,
+  trackClickLearnMore,
   trackOpenSequence,
 } from 'Shared/services/Tracking';
 import { isInProgress } from 'Shared/helpers/date';
@@ -60,7 +60,7 @@ export const Partners = ({ question }: Props) => {
       <SidebarNewWindowLink
         linkUrl={getPartnerAnchor(question.aboutUrl)}
         linkText={i18n.t('consultation.partners.commitment_link')}
-        tracking={() => trackSeeMorePartners()}
+        tracking={() => trackClickLearnMore()}
       />
     </>
   );

@@ -9,7 +9,7 @@ import {
 } from 'Shared/helpers/url';
 import { i18n } from 'Shared/i18n';
 import {
-  trackSeeMorePartners,
+  trackClickLearnMore,
   trackClickPublicProfile,
 } from 'Shared/services/Tracking';
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
@@ -81,7 +81,7 @@ export const PartnersList = ({
               linkUrl={getPartnerAnchor(question.aboutUrl)}
               linkText={i18n.t('consultation.partners.commitment_link')}
               tracking={() =>
-                trackSeeMorePartners(COMPONENT_PARAM_CONSULTATION_HEADER)
+                trackClickLearnMore(COMPONENT_PARAM_CONSULTATION_HEADER)
               }
             />
           </HeaderListItemStyle>

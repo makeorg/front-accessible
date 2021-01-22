@@ -67,6 +67,10 @@ CLICK_EXPLORE_TAB:
 CLICK_BUTTON_LEARN_MORE:
     key: click-button-learn-more
     description: Click on learn more link
+    parameters:
+      - key: component
+        description: component name
+        optional: true
 
 CLICK_SEQUENCE_OPEN:
     key: click-sequence-open

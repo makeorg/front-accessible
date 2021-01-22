@@ -27,22 +27,16 @@ export const trackClickExploreTab = () => {
   TrackingService.sendAllTrackers(trackingEvent.CLICK_EXPLORE_TAB());
 };
 
-export const trackClickLearnMore = () => {
-  TrackingService.sendAllTrackers(trackingEvent.CLICK_BUTTON_LEARN_MORE());
+export const trackClickLearnMore = (component?: string) => {
+  TrackingService.sendAllTrackers(
+    trackingEvent.CLICK_BUTTON_LEARN_MORE({ component })
+  );
 };
 
 /* Open Sequence Tracking */
 
 export const trackOpenSequence = () => {
   TrackingService.sendAllTrackers(trackingEvent.CLICK_SEQUENCE_OPEN());
-};
-
-/* Partners Block Tracking */
-
-export const trackSeeMorePartners = (component?: string) => {
-  TrackingService.sendAllTrackers(
-    trackingEvent.CLICK_SEE_MORE_COMMUNITY({ component })
-  );
 };
 
 export const trackLoadMoreProposals = (
