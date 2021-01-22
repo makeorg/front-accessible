@@ -35,7 +35,12 @@ export const FeaturedPosts = ({ posts }: Props) => {
         {posts.map(post => (
           <ConsultationsListItemStyle itemsPerRow={3} key={post.title}>
             <ConsultationArticleStyle>
-              <ConsultationElementPictureStyle src={post.picture} alt="" />
+              <ConsultationElementPictureStyle
+                width={353}
+                height={199}
+                src={post.picture}
+                alt=""
+              />
               <ConsultationElementTitleStyle>
                 {post.title}
               </ConsultationElementTitleStyle>

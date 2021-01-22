@@ -35,7 +35,9 @@ export const Avatar = ({
         src={avatarUrl}
         alt={avatarAlt}
         width={avatarSize}
+        height={avatarSize}
         avatarSize={avatarSize}
+        crop
       />
     ) : (
       <SvgEmptyAvatar
