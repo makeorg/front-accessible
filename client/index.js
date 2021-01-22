@@ -28,7 +28,6 @@ import { updateTrackingQuestionParam } from 'Shared/store/middleware/question';
 import { getRouteNoCookies } from 'Shared/routes';
 import { postPerfomanceTiming } from 'Shared/helpers/tracking';
 import { translationRessources } from 'Shared/constants/languages';
-import { SnapchatTracking } from 'Shared/services/Trackers/SnapchatTracking';
 import { CountryListener } from 'Client/app/CountryListener';
 import { NoCookies } from './pages/Static/NoCookies';
 import { history, initHistory } from './app/History';
@@ -107,7 +106,6 @@ const initApp = async state => {
 
   FacebookTracking.init();
   TwitterUniversalTag.init();
-  SnapchatTracking.init();
 
   // Set date helper language
   DateHelper.language = language;

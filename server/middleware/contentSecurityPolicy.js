@@ -41,16 +41,8 @@ export const cspMiddleware = csp({
       'https://*.facebook.com',
       'https://*.facebook.net',
     ],
-    formAction: [
-      "'self'",
-      'https://www.facebook.com/tr/',
-      'https://tr.snapchat.com',
-    ],
-    frameSrc: [
-      'https://*.facebook.com',
-      'https://*.google.com',
-      'https://tr.snapchat.com',
-    ],
+    formAction: ["'self'", 'https://www.facebook.com/tr/'],
+    frameSrc: ['https://*.facebook.com', 'https://*.google.com'],
     objectSrc: ["'none'"],
     mediaSrc: ["'none'"],
     frameAncestors: ["'none'"],
