@@ -739,7 +739,7 @@
       "participant": "Participant",
       "participant_plural": "Participants",
       "progress_title": "Our votes target",
-      "progress_target": "{{votesTarget}} over ({{percent}}%)",
+      "progress_target": " over {{votesTarget}} votes ({{percent}}%)",
       "progress_description": "The more votes a solution receives, the more likely it will be to become a real change in society.",
       "progress_btn": "Participate"
     },
