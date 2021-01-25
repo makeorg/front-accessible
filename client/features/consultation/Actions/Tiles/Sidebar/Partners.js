@@ -6,7 +6,7 @@ import { i18n } from 'Shared/i18n';
 import { PartnersList } from 'Client/features/consultation/Sidebar/Partners/List';
 import { getPartnerAnchor } from 'Shared/helpers/url';
 import { SidebarNewWindowLink } from 'Client/features/consultation/Sidebar/Link';
-import { trackSeeMorePartners } from 'Shared/services/Tracking';
+import { trackClickLearnMore } from 'Shared/services/Tracking';
 
 type Props = {
   partners: PartnerType[],
@@ -20,7 +20,7 @@ export const PartnersTileContent = ({ partners, aboutUrl }: Props) => (
     <SidebarNewWindowLink
       linkUrl={getPartnerAnchor(aboutUrl)}
       linkText={i18n.t('consultation.partners.commitment_link')}
-      tracking={() => trackSeeMorePartners()}
+      tracking={() => trackClickLearnMore()}
     />
   </>
 );

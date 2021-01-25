@@ -83,6 +83,10 @@ Following parameters are added to all events.
   - `click-button-learn-more` Click on learn more link
 
     
+    | param_name | required | description | values |
+    |-|-|-|-|
+    | `component` | false | component name |  |
+  
   
 
   - `click-sequence-open` Click on go to sequence link

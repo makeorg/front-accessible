@@ -59,8 +59,8 @@ import {
   trackClickBreadcrumbs,
   trackDisplayProposalPage,
   trackClickPublicProfile,
-  trackSeeMorePartners,
   trackClickOperationPage,
+  trackClickLearnMore,
 } from './Tracking';
 import { FacebookTracking } from './Trackers/FacebookTracking';
 import { TwitterTracking } from './Trackers/TwitterTracking';
@@ -972,20 +972,6 @@ describe('Tracking Service', () => {
     });
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
-
-  it('track click see more community', () => {
-    const eventName = trackingConfiguration.CLICK_SEE_MORE_COMMUNITY.key;
-
-    trackSeeMorePartners();
-    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {});
-    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
-      1,
-      eventName,
-      eventParameters
-    );
-    expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
-  });
-
   it('track Click Operation Page link', () => {
     const eventName = trackingConfiguration.CLICK_OPERATION_PAGE.key;
 
@@ -999,10 +985,23 @@ describe('Tracking Service', () => {
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
-  it('track click see more community with component', () => {
-    const eventName = trackingConfiguration.CLICK_SEE_MORE_COMMUNITY.key;
+  it('track click learn more', () => {
+    const eventName = trackingConfiguration.CLICK_BUTTON_LEARN_MORE.key;
 
-    trackSeeMorePartners('foo');
+    trackClickLearnMore();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {});
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
+      1,
+      eventName,
+      eventParameters
+    );
+    expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
+  });
+
+  it('track click learn more with component', () => {
+    const eventName = trackingConfiguration.CLICK_BUTTON_LEARN_MORE.key;
+
+    trackClickLearnMore('foo');
     expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {
       component: 'foo',
     });
