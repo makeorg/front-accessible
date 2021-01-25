@@ -20,7 +20,7 @@ lint:
   stage: check
   except: 
     - production
-  image: node:12.19-alpine
+  image: node:12.20-alpine
   before_script:
     - export YARN_VERSION="1.22.5"
   script:
@@ -31,7 +31,7 @@ flow-static:
   stage: check
   except: 
     - production
-  image: node:12.19-alpine
+  image: node:12.20-alpine
   before_script:
     - export YARN_VERSION="1.22.5"
   script:
@@ -43,7 +43,7 @@ flow-static:
 
 test:
   stage: check
-  image: node:12.19-alpine
+  image: node:12.20-alpine
   before_script:
     - export YARN_VERSION="1.22.5"
   script:    
@@ -62,7 +62,7 @@ jscpd:
   stage: check
   except: 
     - production
-  image: node:12.19-alpine
+  image: node:12.20-alpine
   before_script:
     - export YARN_VERSION="1.22.5"
   script:
@@ -102,7 +102,7 @@ lighthouse:
   image: markhobson/node-chrome:latest
   script:
     - npm install -g n
-    - n 12.19
+    - n 12.20
     - npm i -g lighthouse@~6.1.0 lighthouse-ci@1.10.0 yarn
     - yarn install
     - yarn build
