@@ -150,7 +150,10 @@ export const Register = () => {
         aria-labelledby="register_title"
         className={needLegalConsent && 'hidden'}
       >
-        <SecondLevelTitleStyle id="register_title">
+        <SecondLevelTitleStyle
+          id="register_title"
+          data-cy-container="register-modal-title"
+        >
           {i18n.t('register.title')}
         </SecondLevelTitleStyle>
         <SmallSeparatorWithMarginStyle />

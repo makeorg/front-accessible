@@ -304,16 +304,13 @@
     "partnership": "en partenariat avec"
   },
   "final_card": {
-    "title": "Merci de votre participation !",
-    "sharing_text": "Invitez vos proches à participer.",
-    "more": {
-      "title": "Découvrez toutes les propositions.",
-      "button": "En savoir +"
-    },
-    "extra_question": {
-      "title": "Merci d'avoir donné votre avis sur cette consultation !",
-      "discover": "Découvrez toutes les propositions.",
-      "more": "Votez et proposez sur une autre consultation"
+    "title": "Merci d’avoir réagi aux propositions !",
+    "description": "Continuez à voter pour nous aider à identifier les priorités.",
+    "link_text": "J'accède à la consultation",
+    "register": {
+      "description": "Comment suivre les résultats ?",
+      "button_intro": "Créez votre",
+      "button_text": "espace citoyen."
     }
   },
   "sign_up_card": {
