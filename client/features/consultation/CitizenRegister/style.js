@@ -3,21 +3,17 @@
 import styled from 'styled-components';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { color, typography } from 'athena-design-tokens';
-import { intToPx } from 'Shared/helpers/styled';
-import { Layouts, Breakpoints } from 'Client/app/assets/vars/Breakpoints';
+import { intToPx, pxToPercent } from 'Shared/helpers/styled';
+import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { FlexElementStyle } from 'Client/ui/Elements/FlexElements';
 
 export const CitizenRegisterContentStyle = styled(FlexElementStyle)`
-  width: 100%;
-  max-width: ${intToPx(Layouts.ContainerWidth)};
-  margin: auto;
   justify-content: flex-start;
   justify-items: flex-start;
   flex-flow: column;
-  padding: 30px 20px 40px;
-  @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
-    padding-left: 0px;
-    padding-right: 0px;
+  padding: 30px 0 40px;
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    width: ${pxToPercent(750, 1140)};
   }
 `;
 
@@ -38,15 +34,6 @@ export const CitizenRegisterSubtitleStyle = styled.p`
   width: 100%;
   margin: 15px 0 10px;
   color: ${color.greyDark};
-`;
-
-export const SocialRegisterLabelStyle = styled.span`
-  color: ${props =>
-    props.theme.fontColor ? color.black : props.theme.fontColor};
-  font-weight: bold;
-  font-family: ${MakeFonts.CircularStandardBold};
-  font-size: ${intToPx(typography.font.fontsize.XS.value)};
-  margin: 15px 0 10px;
 `;
 
 export const SocialCitizenRegisterWrapperStyle = styled(FlexElementStyle)`

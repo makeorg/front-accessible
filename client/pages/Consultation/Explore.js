@@ -24,6 +24,7 @@ import { useParams } from 'react-router';
 import { Pagination } from 'Client/ui/Elements/Pagination';
 import { CONSULTATION_NAVIGATION } from 'Shared/constants/ids';
 import { trackDisplayOperationPage } from 'Shared/services/Tracking';
+import { CitizenRegister } from 'Client/features/consultation/CitizenRegister';
 import {
   ParticipateContentStyle,
   ParticipateInnerStyle,
@@ -124,6 +125,9 @@ const ExplorePage = () => {
             )}
           </ParticipateFullwidthContentStyle>
         </ParticipateInnerStyle>
+      </ParticipateContentStyle>
+      <ParticipateContentStyle as="aside">
+        <CitizenRegister />
       </ParticipateContentStyle>
     </ThemeProvider>
   );

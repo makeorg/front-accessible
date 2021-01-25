@@ -750,7 +750,7 @@
     "citizen_account": {
       "title": "Your citizen account on Make.org",
       "description": "Thanks to your personal account you have access to the results of your solutions and the records for your votes, as well as receiving the results of the consultations. By signing up with us, you will be informed by email of the next citizen consultations and you will be invited to our participative events.",
-      "register_links": "I register with :"
+      "button_text": "I register"
     },
     "cards": {
       "soon": "Coming up",

@@ -1,19 +1,19 @@
 import React from 'react';
-import { AuthenticationRegisterButtons } from 'Client/features/auth/Register/Buttons';
 import { i18n } from 'Shared/i18n';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { type StateRoot } from 'Shared/store/types';
 import { selectAuthentication } from 'Shared/store/selectors/user.selector';
-import { FlexElementStyle } from 'Client/ui/Elements/FlexElements';
+import { RedButtonStyle } from 'Client/ui/Elements/Buttons/V2/style';
+import { modalShowRegister } from 'Shared/store/actions/modal';
 import {
   CitizenRegisterContentStyle,
   CitizenRegisterTitleStyle,
   CitizenRegisterSubtitleStyle,
-  SocialRegisterLabelStyle,
   SocialCitizenRegisterWrapperStyle,
 } from './style';
 
 export const CitizenRegister = () => {
+  const dispatch = useDispatch();
   const { isLoggedIn } = useSelector((state: StateRoot) =>
     selectAuthentication(state)
   );
@@ -22,21 +22,18 @@ export const CitizenRegister = () => {
   }
 
   return (
-    <FlexElementStyle as="section">
-      <CitizenRegisterContentStyle>
-        <CitizenRegisterTitleStyle>
-          {i18n.t('consultation.citizen_account.title')}
-        </CitizenRegisterTitleStyle>
-        <CitizenRegisterSubtitleStyle>
-          {i18n.t('consultation.citizen_account.description')}
-        </CitizenRegisterSubtitleStyle>
-        <SocialCitizenRegisterWrapperStyle>
-          <SocialRegisterLabelStyle>
-            {i18n.t('consultation.citizen_account.register_links')}
-          </SocialRegisterLabelStyle>
-          <AuthenticationRegisterButtons />
-        </SocialCitizenRegisterWrapperStyle>
-      </CitizenRegisterContentStyle>
-    </FlexElementStyle>
+    <CitizenRegisterContentStyle>
+      <CitizenRegisterTitleStyle>
+        {i18n.t('consultation.citizen_account.title')}
+      </CitizenRegisterTitleStyle>
+      <CitizenRegisterSubtitleStyle>
+        {i18n.t('consultation.citizen_account.description')}
+      </CitizenRegisterSubtitleStyle>
+      <SocialCitizenRegisterWrapperStyle>
+        <RedButtonStyle onClick={() => dispatch(modalShowRegister())}>
+          {i18n.t('consultation.citizen_account.button_text')}
+        </RedButtonStyle>
+      </SocialCitizenRegisterWrapperStyle>
+    </CitizenRegisterContentStyle>
   );
 };
