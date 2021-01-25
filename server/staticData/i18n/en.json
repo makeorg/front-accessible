@@ -1107,12 +1107,12 @@
     "SK": "Slovakia"
   },
   "sequence_zone": {
-    "popular_title": "@@sequence_zone.popular_title|fr:Les propositions les plus populaires",
-    "controversial_title": "@@sequence_zone.controversial_title|fr:Les propositions les plus controversées"
+    "popular_title": "Most popular solutions",
+    "controversial_title": "Most controversial solutions"
   },
   "special_final_card": {
-    "title": "@@special_final_card.title|fr:Merci pour vos votes !",
-    "subtitle": "@@special_final_card.subtitle|fr:Vous pouvez continuer à participer à la consulation",
-    "cta_text": "@@special_final_card.cta_text|fr:J'accède à la consultation"
+    "title": "Thank you for voting !",
+    "subtitle": "You can continue to participate in the consultation.",
+    "cta_text": "Access the consultation"
   }
 }
