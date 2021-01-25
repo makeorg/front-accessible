@@ -74,8 +74,7 @@ export const Sequence = ({ question, zone }: Props) => {
     (state: StateRoot) =>
       !!(
         state.sequence.cards &&
-        state.sequence.cards.length &&
-        state.sequence.cards[state.sequence.currentIndex].type ===
+        state.sequence.cards[state.sequence.currentIndex]?.type ===
           CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL
       )
   );
