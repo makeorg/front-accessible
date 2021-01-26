@@ -166,7 +166,12 @@ const ParticipatePage = () => {
                 classes="desktop-half margin-bottom desktop-padding-left"
               />
             </ColumnToRowElementStyle>
-            {isDesktop && <SocialSharing />}
+            {isDesktop && (
+              <>
+                <SocialSharing />
+                <CitizenRegister />
+              </>
+            )}
           </ParticipateMainContentStyle>
           <ParticipateSidebarContentStyle>
             {isDesktop && <DesktopAbout />}
@@ -175,9 +180,7 @@ const ParticipatePage = () => {
           {!isDesktop && <SocialSharing />}
         </ParticipateInnerStyle>
       </ParticipateContentStyle>
-      <ParticipateContentStyle as="aside">
-        <CitizenRegister />
-      </ParticipateContentStyle>
+      {!isDesktop && <CitizenRegister />}
     </ThemeProvider>
   );
 };
