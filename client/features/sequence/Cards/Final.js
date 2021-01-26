@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   trackDisplayFinalCard,
-  trackClickLearnMore,
+  trackClickOperationPage,
 } from 'Shared/services/Tracking';
 import { i18n } from 'Shared/i18n';
 import { resetSequenceVotedProposals } from 'Shared/store/actions/sequence';
@@ -41,7 +41,7 @@ export const FinalCard = () => {
       </SequenceParagraphStyle>
       <LinkAsRedButtonStyle
         to={getParticipateLink(country, currentQuestion)}
-        onClick={() => trackClickLearnMore()}
+        onClick={() => trackClickOperationPage()}
       >
         {i18n.t('final_card.link_text')}
       </LinkAsRedButtonStyle>

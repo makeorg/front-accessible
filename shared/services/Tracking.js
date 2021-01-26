@@ -184,10 +184,6 @@ export const trackClickProposalPushCardIgnore = () => {
   );
 };
 
-export const trackSkipSignUpCard = () => {
-  TrackingService.sendAllTrackers(trackingEvent.SKIP_SIGNUP_CARD());
-};
-
 export const trackClickPreviousCard = () => {
   TrackingService.sendAllTrackers(trackingEvent.CLICK_SEQUENCE_PREVIOUS_CARD());
 };

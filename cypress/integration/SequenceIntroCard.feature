@@ -24,7 +24,7 @@ Feature: Intro card on sequence
       | url                 | http://localhost:9009/FR/consultation/question-0-slug/selection     |
     And card "2" is visible
     And card "2" is a proposal card
-    And progress gauge is "2" on "16"
+    And progress bar is "2" on "15"
 
   Scenario: Disable intro card from query
     Given I am on the sequence page of the question "question-0-slug" with intro card disabled

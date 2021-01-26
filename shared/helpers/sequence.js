@@ -6,7 +6,6 @@ import {
   CARD_TYPE_EXTRASLIDE_FINAL_CARD,
   CARD_TYPE_EXTRASLIDE_INTRO,
   CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL,
-  CARD_TYPE_EXTRASLIDE_PUSH_SIGNUP,
   CARD_TYPE_EXTRASLIDE_SPECIAL_FINAL_CARD,
   CARD_TYPE_PROPOSAL,
 } from 'Shared/constants/card';
@@ -67,7 +66,6 @@ export const getFinalCardByZone = (zone: string) => {
  * Build cards array
  * @param  {ProposalType[]} proposals
  * @param  {QuestionExtraSlidesConfigType} extraSlidesConfig
- * @param  {boolean} isLoggedIn
  * @param  {boolean} hasProposed
  * @param  {boolean} canPropose
  * @param  {boolean} disableIntroCard
@@ -77,13 +75,11 @@ export const getFinalCardByZone = (zone: string) => {
 export const buildCards = (
   proposals: ProposalType[],
   extraSlidesConfig: QuestionExtraSlidesConfigType,
-  isLoggedIn: boolean,
   hasProposed: boolean,
   canPropose: boolean,
   zone?: string,
   introCardParam?: string,
-  pushProposalParam?: string,
-  signUpCardParam?: string
+  pushProposalParam?: string
 ): SequenceCardType[] => {
   const withPushProposalCard: boolean =
     extraSlidesConfig.pushProposalCard &&
@@ -95,13 +91,6 @@ export const buildCards = (
     extraSlidesConfig.introCard &&
     extraSlidesConfig.introCard.enabled &&
     introCardParam;
-  const withSignupCard: boolean =
-    extraSlidesConfig.signUpCard &&
-    extraSlidesConfig.signUpCard.enabled &&
-    signUpCardParam &&
-    !isLoggedIn;
-  const withFinalCard: boolean =
-    extraSlidesConfig.finalCard && extraSlidesConfig.finalCard.enabled;
 
   const cardOffset = withIntroCard ? 0 : 1;
 
@@ -131,23 +120,12 @@ export const buildCards = (
     });
   }
 
-  if (withSignupCard) {
-    cards.splice(cards.length, 0, {
-      type: CARD_TYPE_EXTRASLIDE_PUSH_SIGNUP,
-      configuration: extraSlidesConfig.signUpCard,
-      offset: cardOffset,
-      index: 0,
-    });
-  }
-
-  if (withFinalCard) {
-    cards.splice(cards.length, 0, {
-      type: getFinalCardByZone(zone),
-      configuration: extraSlidesConfig.finalCard,
-      offset: cardOffset,
-      index: 0,
-    });
-  }
+  cards.splice(cards.length, 0, {
+    type: getFinalCardByZone(zone),
+    configuration: extraSlidesConfig.finalCard,
+    offset: cardOffset,
+    index: 0,
+  });
 
   const cardsIndexed = cards.map((card, index) => ({
     ...card,
