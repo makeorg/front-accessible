@@ -109,7 +109,6 @@ const ParticipatePage = () => {
         picture={question.wording.metas.picture}
       />
       <ParticipateHeader />
-
       {!isDesktop && <MobileAbout />}
       <ParticipateHighlights />
       <div id={CONSULTATION_NAVIGATION} />
@@ -167,12 +166,7 @@ const ParticipatePage = () => {
                 classes="desktop-half margin-bottom desktop-padding-left"
               />
             </ColumnToRowElementStyle>
-            {isDesktop && (
-              <>
-                <SocialSharing />
-                <CitizenRegister />
-              </>
-            )}
+            {isDesktop && <SocialSharing />}
           </ParticipateMainContentStyle>
           <ParticipateSidebarContentStyle>
             {isDesktop && <DesktopAbout />}
@@ -181,7 +175,9 @@ const ParticipatePage = () => {
           {!isDesktop && <SocialSharing />}
         </ParticipateInnerStyle>
       </ParticipateContentStyle>
-      {!isDesktop && <CitizenRegister />}
+      <ParticipateContentStyle as="aside">
+        <CitizenRegister />
+      </ParticipateContentStyle>
     </ThemeProvider>
   );
 };
