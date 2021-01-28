@@ -63,7 +63,6 @@ export const SequenceAltTitleStyle = styled(SequenceTitleStyle)`
   letter-spacing: 0.12px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: ${intToPx(typography.font.fontsize.S.value)};
-    margin-bottom: 30px;
   }
 `;
 
@@ -129,10 +128,6 @@ export const SequencePushProposalNextButtonStyle = styled(GreyButtonStyle)`
 
 export const SequenceSignUpNextButtonStyle = styled(GreyButtonStyle)`
   margin-top: 20px;
-`;
-
-export const SequenceFinalMoreWrapperStyle = styled(CenterColumnStyle)`
-  flex: 1;
 `;
 
 export const SequenceParagraphStyle = styled(CenterColumnStyle)`
@@ -224,9 +219,14 @@ export const SequenceSeparatorStyle = styled(SeparatorStyle)`
   margin: 10px auto 20px;
 `;
 
-export const SpecialSequenceFinalContentStyle = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+export const FinalCardSeparatorStyle = styled(SeparatorStyle)`
+  max-width: 80px;
+  margin: 20px auto;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    margin: 40px auto;
+  }
+`;
+
+export const FinalCardRegisterStyle = styled.div`
+  color: ${color.greyDark};
 `;

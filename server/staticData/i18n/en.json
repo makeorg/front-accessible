@@ -281,20 +281,6 @@
     "partnership": "in partnership with",
     "purpose": "Introduction card"
   },
-  "final_card": {
-    "title": "Thank you for contributing!",
-    "sharing": {},
-    "more": {
-      "title": "See all the solutions on this consultation",
-      "button": "Learn more"
-    },
-    "sharing_text": "Do you want to go further with this solution?\nShare it with your network to spread the word.",
-    "extra_question": {
-      "title": "Thanks for reacting to this consultation!",
-      "discover": "Discover all the solutions",
-      "more": "Vote and submit another solution"
-    }
-  },
   "sign_up_card": {
     "title": "Send me the results and let me know about upcoming actions on this consultation by email.",
     "authentication-text": "Sign in with",
@@ -1114,5 +1100,15 @@
     "title": "Thank you for voting !",
     "subtitle": "You can continue to participate in the consultation.",
     "cta_text": "Access the consultation"
+  },
+  "final_card": {
+    "title": "@@final_card.title|fr:Merci d’avoir réagi aux propositions !",
+    "description": "@@final_card.description|fr:Continuez à voter pour nous aider à identifier les priorités.",
+    "link_text": "@@final_card.link_text|fr:j'accède à la consultation",
+    "register": {
+      "description": "@@final_card.register.description|fr:Comment suivre les résultats ?",
+      "button_intro": "@@final_card.register.button_intro|fr:Créez votre",
+      "button_text": "@@final_card.register.button_text|fr:espace citoyen."
+    }
   }
 }

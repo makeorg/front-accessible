@@ -69,7 +69,6 @@ export const Sequence = ({ question, zone }: Props) => {
   const introCardParam = params.get('introCard')?.toLowerCase() !== 'false';
   const pushProposalParam =
     params.get('pushProposal')?.toLowerCase() !== 'false';
-  const signUpCardParam = params.get('signUpCard')?.toLowerCase() !== 'false';
   const isPushProposal = useSelector(
     (state: StateRoot) =>
       !!(
@@ -123,13 +122,11 @@ export const Sequence = ({ question, zone }: Props) => {
     const buildedCards: SequenceCardType[] = buildCards(
       sequenceProposals,
       question.sequenceConfig,
-      isLoggedIn,
       hasProposed,
       question.canPropose,
       zone,
       introCardParam,
-      pushProposalParam,
-      signUpCardParam
+      pushProposalParam
     );
 
     dispatch(loadSequenceCards(buildedCards));

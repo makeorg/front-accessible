@@ -210,10 +210,6 @@ CLICK_SEQUENCE_LAST_PROPOSAL:
     key: click-sequence-last-proposal
     description: Click next card button of last proposal card
 
-SKIP_SIGNUP_CARD:
-    key: skip-sign-up-card
-    description: Click skip button of signup card
-
 CLICK_PROPOSAL_PUSH_CARD_IGNORE:
     key: click-proposal-push-card-ignore
     description: Click next card button of push proposal card
@@ -225,10 +221,6 @@ DISPLAY_INTRO_CARD:
 DISPLAY_PROPOSAL_PUSH_CARD:
     key: display-proposal-push-card
     description: Display push proposal card
-
-DISPLAY_SIGN_UP_CARD:
-    key: display-sign-up-card
-    description: Display signup card
 
 DISPLAY_FINAL_CARD:
     key: display-final-card

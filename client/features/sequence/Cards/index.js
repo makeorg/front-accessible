@@ -4,7 +4,6 @@ import { type SequenceCardType } from 'Shared/types/card';
 import {
   CARD_TYPE_EXTRASLIDE_INTRO,
   CARD_TYPE_PROPOSAL,
-  CARD_TYPE_EXTRASLIDE_PUSH_SIGNUP,
   CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL,
   CARD_TYPE_EXTRASLIDE_FINAL_CARD,
   CARD_TYPE_EXTRASLIDE_SPECIAL_FINAL_CARD,
@@ -19,7 +18,6 @@ import { IntroCard } from './Intro';
 import { PushProposalCard } from './PushProposal';
 import { FinalCard } from './Final';
 import { SpecialFinalCard } from './SpecialFinal';
-import { SignUpCard } from './SignUp';
 import { ProposalCard } from './Proposal';
 
 type CardProps = {
@@ -33,8 +31,6 @@ export const Card = ({ card }: CardProps) => {
       return <ProposalCard proposalCard={card} />;
     case CARD_TYPE_EXTRASLIDE_INTRO:
       return <IntroCard configuration={card.configuration} />;
-    case CARD_TYPE_EXTRASLIDE_PUSH_SIGNUP:
-      return <SignUpCard configuration={card.configuration} />;
     case CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL:
       return <PushProposalCard configuration={card.configuration} />;
     case CARD_TYPE_EXTRASLIDE_FINAL_CARD:

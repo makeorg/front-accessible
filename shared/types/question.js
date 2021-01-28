@@ -2,8 +2,6 @@
 import {
   type IntroCardConfigType,
   type PushProposalCardConfigType,
-  type SignUpCardConfigType,
-  type FinalCardConfigType,
 } from 'Shared/types/card';
 
 export type QuestionThemeType = {
@@ -119,8 +117,6 @@ export type QuestionWordingType = {
 export type QuestionExtraSlidesConfigType = {
   introCard: IntroCardConfigType,
   pushProposalCard: PushProposalCardConfigType,
-  signUpCard: SignUpCardConfigType,
-  finalCard: FinalCardConfigType,
 };
 
 export type SimpleOperationDataType = {

@@ -156,12 +156,7 @@ then('card {string} is a push proposal card', (cardNumber) => {
     .should('have.attr', 'data-cy-card-type', 'EXTRASLIDE_PUSH_PROPOSAL_CARD');
 });
 
-then('card {string} is a signup card', (cardNumber) => {
-  cy.get(`[data-cy-card-number=${cardNumber}]`)
-    .should('have.attr', 'data-cy-card-type', 'EXTRASLIDE_PUSH_SIGNUP_CARD');
-});
-
-then('progress gauge is {string} on {string}', (current, total) => {
+then('progress bar is {string} on {string}', (current, total) => {
   cy.get('[data-cy-container=progress]')
   .contains(`${current}/${total}`)
   cy.get('[data-cy-container=progress]')
@@ -171,20 +166,6 @@ then('progress gauge is {string} on {string}', (current, total) => {
 then('I see {string} in the current card', (text) => {
   cy.get('[data-cy-card-number]')
     .should('contain', text);
-});
-
-then ('I see signup buttons in the current card', () => {
-  cy.get('[data-cy-card-number]')
-    .find('[data-cy-container=signup-auth-buttons] button:nth-child(1)')
-   
-    .should('contain', 'Google');
-  cy.get('[data-cy-card-number]')
-    .find('[data-cy-container=signup-auth-buttons] button:nth-child(2)')
-   
-    .should('contain', 'Facebook');
-  cy.get('[data-cy-card-number]')
-    .find('[data-cy-container=signup-auth-buttons] button:nth-child(3)')
-    .should('contain', 'Email');
 });
 
 then('I see vote buttons on card {string}', (cardNumber) => {

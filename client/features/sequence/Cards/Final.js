@@ -1,67 +1,63 @@
 // @flow
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { type FinalCardConfigType } from 'Shared/types/card';
 import {
   trackDisplayFinalCard,
-  trackClickLearnMore,
+  trackClickOperationPage,
 } from 'Shared/services/Tracking';
-import { Sharing } from 'Client/features/flipping/Sharing/FinalCards';
 import { i18n } from 'Shared/i18n';
 import { resetSequenceVotedProposals } from 'Shared/store/actions/sequence';
 import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
 import { LinkAsRedButtonStyle } from 'Client/ui/Elements/Buttons/V2/style';
+import { getParticipateLink } from 'Shared/helpers/url';
+import { useParams } from 'react-router';
+import { RedLinkButtonStyle } from 'Client/ui/Elements/Buttons/style';
+import { modalShowRegister } from 'Shared/store/actions/modal';
 import {
   SequenceAltTitleStyle,
-  SequenceFinalMoreWrapperStyle,
   SequenceParagraphStyle,
+  FinalCardSeparatorStyle,
+  FinalCardRegisterStyle,
 } from './style';
 
-type Props = {
-  /** Object with Static properties used to configure the Final Card */
-  configuration: FinalCardConfigType,
-};
-
-export const FinalCard = ({ configuration }: Props) => {
-  const dispach = useDispatch();
+export const FinalCard = () => {
+  const dispatch = useDispatch();
+  const { country } = useParams();
   const currentQuestion: string = useSelector(state => state.currentQuestion);
 
   useEffect(() => {
     trackDisplayFinalCard();
-    return () => dispach(resetSequenceVotedProposals(currentQuestion));
-  }, [currentQuestion, dispach]);
-
-  const sharingText =
-    configuration.share === '' || !configuration.share
-      ? i18n.t('final_card.sharing_text')
-      : configuration.share;
+    return () => dispatch(resetSequenceVotedProposals(currentQuestion));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
-    <>
-      <CenterColumnStyle data-cy-container="final-card-share">
-        <SequenceAltTitleStyle data-cy-container="final-card-title">
-          {configuration.title
-            ? configuration.title
-            : i18n.t('final_card.title')}
-        </SequenceAltTitleStyle>
-        <Sharing text={sharingText} />
-        <SequenceFinalMoreWrapperStyle data-cy-container="final-card-learn-more">
-          <SequenceParagraphStyle as="p">
-            {configuration.learnMoreTitle
-              ? configuration.learnMoreTitle
-              : i18n.t('final_card.more.title')}
-          </SequenceParagraphStyle>
-          <LinkAsRedButtonStyle
-            as="a"
-            href={configuration.linkUrl}
-            onClick={() => trackClickLearnMore()}
-          >
-            {configuration.learnMoreTextButton
-              ? configuration.learnMoreTextButton
-              : i18n.t('final_card.more.button')}
-          </LinkAsRedButtonStyle>
-        </SequenceFinalMoreWrapperStyle>
-      </CenterColumnStyle>
-    </>
+    <CenterColumnStyle data-cy-container="final-card">
+      <SequenceAltTitleStyle data-cy-container="final-card-title">
+        {i18n.t('final_card.title')}
+      </SequenceAltTitleStyle>
+      <SequenceParagraphStyle as="p" data-cy-container="final-card-description">
+        {i18n.t('final_card.description')}
+      </SequenceParagraphStyle>
+      <LinkAsRedButtonStyle
+        to={getParticipateLink(country, currentQuestion)}
+        onClick={() => trackClickOperationPage()}
+      >
+        {i18n.t('final_card.link_text')}
+      </LinkAsRedButtonStyle>
+      <FinalCardSeparatorStyle />
+      <div data-cy-container="final-card-register-description">
+        {i18n.t('final_card.register.description')}
+      </div>
+      <FinalCardRegisterStyle data-cy-container="final-card-register-intro">
+        {i18n.t('final_card.register.button_intro')}
+        <RedLinkButtonStyle
+          onClick={() => dispatch(modalShowRegister())}
+          data-cy-button="final-card-register-button"
+        >
+          {i18n.t('final_card.register.button_text')}
+        </RedLinkButtonStyle>
+      </FinalCardRegisterStyle>
+    </CenterColumnStyle>
   );
 };

@@ -219,11 +219,6 @@ Following parameters are added to all events.
     
   
 
-  - `skip-sign-up-card` Click skip button of signup card
-
-    
-  
-
   - `click-proposal-push-card-ignore` Click next card button of push proposal card
 
     
@@ -235,11 +230,6 @@ Following parameters are added to all events.
   
 
   - `display-proposal-push-card` Display push proposal card
-
-    
-  
-
-  - `display-sign-up-card` Display signup card
 
     
   
