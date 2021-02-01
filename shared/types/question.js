@@ -153,11 +153,9 @@ export type QuestionHighlightsType = {
 };
 
 export type QuestionTimelineType = {
-  startDate: ?string,
-  endDate: ?string,
-  resultDate: ?string,
-  workshopDate: ?string,
-  actionDate: ?string,
+  date: string,
+  dateText: string,
+  description: string,
 };
 
 export type QuestionType = {
@@ -189,7 +187,11 @@ export type QuestionType = {
   activeFeatures: string[],
   featured: boolean,
   highlights: QuestionHighlightsType,
-  timeline: QuestionTimelineType,
+  timeline: {
+    result?: QuestionTimelineType,
+    workshop?: QuestionTimelineType,
+    action?: QuestionTimelineType,
+  },
   controversyCount: number,
   topProposalCount: number,
 };

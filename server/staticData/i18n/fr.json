@@ -719,6 +719,13 @@
         "title": "Ils ont soumis une proposition"
       }
     },
+    "timeline": {
+      "consultation_title": "Consultation citoyenne",
+      "consultation_description": "Toutes nos consultations commencent par un appel aux idées et votes citoyens.",
+      "result_title": "Résultat",
+      "workshop_title": "Ateliers citoyens",
+      "action_title": "Passage à l’action"
+    },
     "navigation": {
       "introduction": "Retrouvez les autres thématiques abordées dans le cadre de la consultation : {{name}}",
       "participate_desktop": "Participer à la consultation",

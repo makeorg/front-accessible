@@ -110,8 +110,27 @@ describe('Date Helper', () => {
       expect(DateHelper.localizedllDate('foo')).toBeNull();
     });
   });
+  describe('localizedMonthYear', () => {
+    it('localizedMonthYear with valid date', () => {
+      DateHelper.language = 'fr';
+      expect(DateHelper.localizedMonthYear('2018-10-25T12:45:25.752Z')).toBe(
+        'octobre 2018'
+      );
+    });
+
+    it('localizedMonthYear with valid date and en locale', () => {
+      DateHelper.language = 'en';
+      expect(DateHelper.localizedMonthYear('2018-10-24T12:45:25.752Z')).toBe(
+        'October 2018'
+      );
+    });
+
+    it('localizedMonthYear with invalid date', () => {
+      expect(DateHelper.localizedMonthYear('foo')).toBeNull();
+    });
+  });
   describe('localizedLDate', () => {
-    it('localizedllDate with valid date', () => {
+    it('localizedLDate with valid date', () => {
       DateHelper.language = 'fr';
       expect(DateHelper.localizedLDate('2018-10-25T12:45:25.752Z')).toBe(
         '25/10/2018'

@@ -3,7 +3,7 @@
 import styled from 'styled-components';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { color, typography } from 'athena-design-tokens';
-import { intToPx } from 'Shared/helpers/styled';
+import { intToPx, pxToPercent } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { FlexElementStyle } from 'Client/ui/Elements/FlexElements';
 
@@ -12,6 +12,9 @@ export const CitizenRegisterContentStyle = styled(FlexElementStyle)`
   justify-items: flex-start;
   flex-flow: column;
   padding: 30px 0 40px;
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    width: ${pxToPercent(750, 1140)};
+  }
 `;
 
 export const CitizenRegisterTitleStyle = styled.h4`

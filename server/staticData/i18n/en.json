@@ -772,6 +772,13 @@
       "featured_proposals": {
         "title": "They have submitted a solution"
       }
+    },
+    "timeline": {
+      "consultation_title": "@@consultation.timeline.consultation_title|fr:Consultation citoyenne",
+      "consultation_description": "@@consultation.timeline.consultation_description|fr:Toutes nos consultations commencent par un appel aux idées et votes citoyens.",
+      "result_title": "@@consultation.timeline.result_title|fr:Résultat",
+      "workshop_title": "@@consultation.timeline.workshop_title|fr:Ateliers citoyens",
+      "action_title": "@@consultation.timeline.action_title|fr:Passage à l’action"
     }
   },
   "sharing": {

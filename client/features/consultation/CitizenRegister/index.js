@@ -5,7 +5,6 @@ import { type StateRoot } from 'Shared/store/types';
 import { selectAuthentication } from 'Shared/store/selectors/user.selector';
 import { RedButtonStyle } from 'Client/ui/Elements/Buttons/V2/style';
 import { modalShowRegister } from 'Shared/store/actions/modal';
-import { FlexElementStyle } from 'Client/ui/Elements/FlexElements';
 import {
   CitizenRegisterContentStyle,
   CitizenRegisterTitleStyle,
@@ -23,20 +22,18 @@ export const CitizenRegister = () => {
   }
 
   return (
-    <FlexElementStyle as="section">
-      <CitizenRegisterContentStyle>
-        <CitizenRegisterTitleStyle>
-          {i18n.t('consultation.citizen_account.title')}
-        </CitizenRegisterTitleStyle>
-        <CitizenRegisterSubtitleStyle>
-          {i18n.t('consultation.citizen_account.description')}
-        </CitizenRegisterSubtitleStyle>
-        <SocialCitizenRegisterWrapperStyle>
-          <RedButtonStyle onClick={() => dispatch(modalShowRegister())}>
-            {i18n.t('consultation.citizen_account.button_text')}
-          </RedButtonStyle>
-        </SocialCitizenRegisterWrapperStyle>
-      </CitizenRegisterContentStyle>
-    </FlexElementStyle>
+    <CitizenRegisterContentStyle>
+      <CitizenRegisterTitleStyle>
+        {i18n.t('consultation.citizen_account.title')}
+      </CitizenRegisterTitleStyle>
+      <CitizenRegisterSubtitleStyle>
+        {i18n.t('consultation.citizen_account.description')}
+      </CitizenRegisterSubtitleStyle>
+      <SocialCitizenRegisterWrapperStyle>
+        <RedButtonStyle onClick={() => dispatch(modalShowRegister())}>
+          {i18n.t('consultation.citizen_account.button_text')}
+        </RedButtonStyle>
+      </SocialCitizenRegisterWrapperStyle>
+    </CitizenRegisterContentStyle>
   );
 };
