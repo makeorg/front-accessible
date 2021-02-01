@@ -58,7 +58,7 @@ export const SequenceMainTitleStyle = styled(SequenceTitleStyle)`
 
 export const SequenceAltTitleStyle = styled(SequenceTitleStyle)`
   font-size: ${intToPx(typography.font.fontsize.XS.value)};
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   line-height: 1.5;
   letter-spacing: 0.12px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
@@ -223,7 +223,7 @@ export const FinalCardSeparatorStyle = styled(SeparatorStyle)`
   max-width: 80px;
   margin: 20px auto;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    margin: 40px auto;
+    margin: 30px auto;
   }
 `;
 
