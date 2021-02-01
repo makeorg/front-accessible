@@ -83,8 +83,19 @@ export const CardLinkAsButtonStyle = styled(LinkAsRedButtonStyle)`
 `;
 
 export const CardLinkStyle = styled(Link)`
+  font-family: ${MakeFonts.TradeGothicBoldCondensed};
   font-size: ${intToPx(typography.font.fontsize.XS.value)};
+  text-decoration: none;
+  text-transform: uppercase;
   color: ${color.black};
+  border: solid ${color.black} 1px;
+  border-radius: 50px;
+  width: max-content;
+  height: 35px;
+  padding: 15px 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const CardExternalLinkStyle = styled.a`
