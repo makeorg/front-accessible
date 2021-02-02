@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import { type StateRoot } from 'Shared/store/types';
 import { useSelector } from 'react-redux';

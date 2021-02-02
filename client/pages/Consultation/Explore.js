@@ -25,6 +25,7 @@ import { Pagination } from 'Client/ui/Elements/Pagination';
 import { CONSULTATION_NAVIGATION } from 'Shared/constants/ids';
 import { trackDisplayOperationPage } from 'Shared/services/Tracking';
 import { CitizenRegister } from 'Client/features/consultation/CitizenRegister';
+import { Timeline } from 'Client/features/consultation/Timeline';
 import {
   ParticipateContentStyle,
   ParticipateInnerStyle,
@@ -126,6 +127,7 @@ const ExplorePage = () => {
           </ParticipateFullwidthContentStyle>
         </ParticipateInnerStyle>
       </ParticipateContentStyle>
+      <Timeline />
       <ParticipateContentStyle as="aside">
         <CitizenRegister />
       </ParticipateContentStyle>

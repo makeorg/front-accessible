@@ -38,6 +38,7 @@ import {
   trackOpenSequence,
 } from 'Shared/services/Tracking';
 import { matchDesktopDevice } from 'Shared/helpers/styled';
+import { Timeline } from 'Client/features/consultation/Timeline';
 import {
   ParticipateContentStyle,
   ParticipateInnerStyle,
@@ -166,12 +167,7 @@ const ParticipatePage = () => {
                 classes="desktop-half margin-bottom desktop-padding-left"
               />
             </ColumnToRowElementStyle>
-            {isDesktop && (
-              <>
-                <SocialSharing />
-                <CitizenRegister />
-              </>
-            )}
+            {isDesktop && <SocialSharing />}
           </ParticipateMainContentStyle>
           <ParticipateSidebarContentStyle>
             {isDesktop && <DesktopAbout />}
@@ -180,7 +176,10 @@ const ParticipatePage = () => {
           {!isDesktop && <SocialSharing />}
         </ParticipateInnerStyle>
       </ParticipateContentStyle>
-      {!isDesktop && <CitizenRegister />}
+      <Timeline />
+      <ParticipateContentStyle as="aside">
+        <CitizenRegister />
+      </ParticipateContentStyle>
     </ThemeProvider>
   );
 };

@@ -150,11 +150,24 @@ const generateOpenedQuestions = count => {
     operationKind: setOperationKind(number),
     featured: setFeaturedConsultation(number),
     timeline: {
-      startDate,
-      endDate,
-      resultDate: null,
-      workshopDate: null,
-      actionDate: null,
+      result: {
+        date: '2021-01-14',
+        dateText: 'Le 20 janvier 2020 ',
+        description:
+          'Nous publions les idées prioritaires issues de vos propositions.',
+      },
+      workshop: {
+        date: '2021-01-28',
+        dateText: ' Le 28 janvier ',
+        description:
+          'À partir de vos propositions, nous définissons avec nos partenaires et citoyens un plan d’actions collectives, mesurables et ouvertes à tous.',
+      },
+      action: {
+        date: '2021-02-04',
+        dateText: 'le 4 fevrier',
+        description:
+          'Début des premières actions concrètes sur le terrain pour répondre à vos priorités.',
+      },
     },
     highlights: {
       votesTarget: 150000,
@@ -169,9 +182,6 @@ const generateOpenedQuestions = count => {
 const generateClosedQuestions = count => {
   const startDate = `${today.getFullYear() - 2}-${month}-${day}T01:00:00.000Z`;
   const endDate = `${today.getFullYear() - 1}-${month}-${day}T01:00:00.000Z`;
-  const resultDate = `${today.getFullYear() - 1}-${
-    month + 2
-  }-${day}T01:00:00.000Z`;
 
   return range(10, count + 10).map(number => ({
     ...defaultQuestion,
@@ -189,11 +199,24 @@ const generateClosedQuestions = count => {
     operationKind: setOperationKind(number),
     featured: setFeaturedConsultation(number),
     timeline: {
-      startDate,
-      endDate,
-      resultDate,
-      workshopDate: null,
-      actionDate: null,
+      result: {
+        date: '2021-01-14',
+        dateText: 'Le 20 janvier 2020 ',
+        description:
+          'Nous publions les idées prioritaires issues de vos propositions.',
+      },
+      workshop: {
+        date: '2021-01-28',
+        dateText: ' Le 28 janvier ',
+        description:
+          'À partir de vos propositions, nous définissons avec nos partenaires et citoyens un plan d’actions collectives, mesurables et ouvertes à tous.',
+      },
+      action: {
+        date: '2021-02-04',
+        dateText: 'le 4 fevrier',
+        description:
+          'Début des premières actions concrètes sur le terrain pour répondre à vos priorités.',
+      },
     },
     highlights: {
       votesTarget: 150000,
@@ -207,11 +230,6 @@ const generateClosedQuestions = count => {
 
 const generateQuestionsWithResults = count => {
   const startDate = `${today.getFullYear() - 2}-${month}-${day}T01:00:00.000Z`;
-  const resultDate = `${today.getFullYear()}-${month}-${day}T01:00:00.000Z`;
-  const workshopDate = `${today.getFullYear()}-${
-    month + 2
-  }-${day}T01:00:00.000Z`;
-  const actionDate = `${today.getFullYear()}-${month + 3}-${day}T01:00:00.000Z`;
 
   return range(20, count + 20).map(number => ({
     ...defaultQuestion,
@@ -230,11 +248,24 @@ const generateQuestionsWithResults = count => {
     operationKind: setOperationKind(number),
     featured: setFeaturedConsultation(number),
     timeline: {
-      startDate,
-      endDate: mixPastAndFutureDates(number),
-      resultDate,
-      workshopDate,
-      actionDate,
+      result: {
+        date: '2021-01-14',
+        dateText: 'Le 20 janvier 2020 ',
+        description:
+          'Nous publions les idées prioritaires issues de vos propositions.',
+      },
+      workshop: {
+        date: '2021-01-28',
+        dateText: ' Le 28 janvier ',
+        description:
+          'À partir de vos propositions, nous définissons avec nos partenaires et citoyens un plan d’actions collectives, mesurables et ouvertes à tous.',
+      },
+      action: {
+        date: '2021-02-04',
+        dateText: 'le 4 fevrier',
+        description:
+          'Début des premières actions concrètes sur le terrain pour répondre à vos priorités.',
+      },
     },
     highlights: {
       votesTarget: 150000,
@@ -246,8 +277,8 @@ const generateQuestionsWithResults = count => {
   }));
 };
 
-const generateProposals = (question, author, count) => {
-  return range(0, count).map(number => ({
+const generateProposals = (question, author, count) =>
+  range(0, count).map(number => ({
     ...defaultProposal,
     id: `proposal-${question.slug}-${number}-id`,
     slug: `proposal-${question.slug}-${number}-slug`,
@@ -269,38 +300,33 @@ const generateProposals = (question, author, count) => {
       ...author,
     },
   }));
-};
 
-const generatePartners = count => {
-  return range(0, count).map(number => ({
+const generatePartners = count =>
+  range(0, count).map(number => ({
     ...defaultPartner,
     organisationId: `partner-${number}-id`,
   }));
-};
 
-const generatePopularTags = count => {
-  return range(0, count).map(number => ({
+const generatePopularTags = count =>
+  range(0, count).map(number => ({
     ...defaultPopularTag,
     tagId: `popular-tag-${number}-id`,
   }));
-};
 
-const generateTags = count => {
-  return range(0, count).map(number => ({
+const generateTags = count =>
+  range(0, count).map(number => ({
     ...defaultTag,
     tagId: `tag-${number}-id`,
     label: `tag-${number}-label`,
   }));
-};
 
-const generateOrganisations = count => {
-  return range(0, count).map(number => ({
+const generateOrganisations = count =>
+  range(0, count).map(number => ({
     ...defaultOrganisation,
     organisationId: `organisation-${number}-id`,
     organisationName: `organisation-${number}-name`,
     slug: `organisation-${number}-slug`,
   }));
-};
 
 const openedHomepageQuestions = generateOpenedHomepageQuestions(6);
 const finishedHomepageQuestions = generateFinishedHomepageQuestions(24);
@@ -379,19 +405,17 @@ const generateHomeView = () => {
 };
 const homeView = generateHomeView();
 
-const generateForeignHomeView = () => {
-  return {
-    ...defaultHomeView.home,
-    currentQuestions: [],
-    pastQuestions: [],
-    featuredQuestions: [],
-  };
-};
+const generateForeignHomeView = () => ({
+  ...defaultHomeView.home,
+  currentQuestions: [],
+  pastQuestions: [],
+  featuredQuestions: [],
+});
 const foreignHomeView = generateForeignHomeView();
 
-const generateTopIdeas = () => {
-  return questions.flatMap((question, index1) => {
-    return range(0, 10).map(number => ({
+const generateTopIdeas = () =>
+  questions.flatMap((question, index1) =>
+    range(0, 10).map(number => ({
       ...defaultTopIdea,
       id: `top-idea-id-${question.questionId}_${number}`,
       ideaId: `idea-id-${number}`,
@@ -414,9 +438,8 @@ const generateTopIdeas = () => {
         likeItRatio: defaultTopIdea.scores.likeItRatio + index1 + number,
       },
       commentsCount: defaultTopIdea.commentsCount + number,
-    }));
-  });
-};
+    }))
+  );
 const topIdeas = generateTopIdeas();
 
 const countriesWithConsultations = [

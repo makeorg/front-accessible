@@ -106,6 +106,21 @@ export class DateHelperSingleton {
     return moment(objectDate).format('ll');
   }
 
+  localizedMonthYear(date: ?string | null) {
+    if (!date) {
+      return null;
+    }
+
+    const objectDate = new Date(date);
+    if (Number.isNaN(objectDate.getMonth())) {
+      return null;
+    }
+
+    moment.locale(this._language);
+
+    return moment(objectDate).format('MMMM YYYY');
+  }
+
   localizedLDate(date: ?string | null) {
     if (!date) {
       return null;
