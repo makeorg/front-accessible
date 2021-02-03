@@ -31,7 +31,6 @@ import { CountryListener } from 'Client/app/CountryListener';
 import { NoCookies } from './pages/Static/NoCookies';
 import { history, initHistory } from './app/History';
 import { ErrorBoundary, ServiceErrorHandler } from './app/Error';
-import { updateDeviceInState } from './helper/updateDeviceInState';
 
 window.onerror = (message, source, lineNumber, columnNumber, error) => {
   if (error && error.stack) {
@@ -70,7 +69,7 @@ const logAndTrackEvent = (eventName: string) => {
 };
 
 const initApp = async state => {
-  const { language, country, source, queryParams, device } = state.appConfig;
+  const { language, country, source, queryParams } = state.appConfig;
 
   const authenticationStateData = await authenticationState();
 
@@ -145,9 +144,6 @@ const initApp = async state => {
 
   // Init history
   initHistory(store);
-
-  // Check Device Viewport
-  store.dispatch(updateDeviceInState(device));
 
   loadableReady(() => {
     const appDom = document.getElementById('app');
