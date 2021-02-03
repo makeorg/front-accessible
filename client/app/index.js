@@ -45,6 +45,11 @@ export const AppContainer = () => {
     return () => window.removeEventListener('resize', updateDeviceConfig);
   }, [updateDeviceConfig]);
 
+  useEffect(() => {
+    updateDeviceConfig();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <SecureExpiration>
       <SessionExpiration>
