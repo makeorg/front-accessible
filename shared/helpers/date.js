@@ -59,6 +59,21 @@ export const isInProgress = (dates: ConsultationDates) => {
   return start <= today && today < end;
 };
 
+export const isCurrentStep = (currentStep, nextStep) => {
+  if (!currentStep || !nextStep) {
+    return false;
+  }
+  const today = Date.now();
+  const currentParsedDate = Date.parse(
+    currentStep.date || currentStep.startDate
+  );
+  const nextParsedDate = Date.parse(nextStep.date || nextStep.endDate);
+  if (today >= currentParsedDate && today < nextParsedDate) {
+    return true;
+  }
+  return false;
+};
+
 export class DateHelperSingleton {
   _language: string;
 
