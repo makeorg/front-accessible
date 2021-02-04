@@ -40,7 +40,7 @@ const TimelineItem = ({
     <TimelineItemDateStyle>{dateText}</TimelineItemDateStyle>
     <TimelineItemTextStyle>{description}</TimelineItemTextStyle>
     {withLink && (
-      <TimelineWorkshopLinkStyle>
+      <TimelineWorkshopLinkStyle href="mailto:contact@make.org">
         {i18n.t('consultation.timeline.workshop_link')}
       </TimelineWorkshopLinkStyle>
     )}
@@ -54,24 +54,14 @@ export const Timeline = () => {
   const { result, workshop, action } = question.timeline;
   const withExtraData: ?QuestionTimelineType = result || workshop || action;
 
-  if (!withExtraData) {
-    return (
-      <TimelineItem
-        title={i18n.t('consultation.timeline.consultation_title')}
-        dateText={DateHelper.localizedMonthYear(question.startDate)}
-        description={i18n.t('consultation.timeline.consultation_description')}
-      />
-    );
-  }
   return (
     <TimelineWrapperStyle>
       <TimelineContentStyle>
         <TimelineTitleStyle>
           {i18n.t('consultation.timeline.timeline_title')}
         </TimelineTitleStyle>
-
-        <TimelineListWrapperStyle>
-          <li>
+        {!withExtraData ? (
+          <TimelineListWrapperStyle as="div">
             <TimelineItem
               title={i18n.t('consultation.timeline.consultation_title')}
               dateText={DateHelper.localizedMonthYear(question.startDate)}
@@ -79,36 +69,48 @@ export const Timeline = () => {
                 'consultation.timeline.consultation_description'
               )}
             />
-          </li>
-          {result && (
+          </TimelineListWrapperStyle>
+        ) : (
+          <TimelineListWrapperStyle>
             <li>
               <TimelineItem
-                title={i18n.t('consultation.timeline.result_title')}
-                dateText={result.dateText}
-                description={result.description}
+                title={i18n.t('consultation.timeline.consultation_title')}
+                dateText={DateHelper.localizedMonthYear(question.startDate)}
+                description={i18n.t(
+                  'consultation.timeline.consultation_description'
+                )}
               />
             </li>
-          )}
-          {workshop && (
-            <li>
-              <TimelineItem
-                title={i18n.t('consultation.timeline.workshop_title')}
-                dateText={workshop.dateText}
-                description={workshop.description}
-                withLink
-              />
-            </li>
-          )}
-          {action && (
-            <li>
-              <TimelineItem
-                title={i18n.t('consultation.timeline.action_title')}
-                dateText={action.dateText}
-                description={action.description}
-              />
-            </li>
-          )}
-        </TimelineListWrapperStyle>
+            {result && (
+              <li>
+                <TimelineItem
+                  title={i18n.t('consultation.timeline.result_title')}
+                  dateText={result.dateText}
+                  description={result.description}
+                />
+              </li>
+            )}
+            {workshop && (
+              <li>
+                <TimelineItem
+                  title={i18n.t('consultation.timeline.workshop_title')}
+                  dateText={workshop.dateText}
+                  description={workshop.description}
+                  withLink
+                />
+              </li>
+            )}
+            {action && (
+              <li>
+                <TimelineItem
+                  title={i18n.t('consultation.timeline.action_title')}
+                  dateText={action.dateText}
+                  description={action.description}
+                />
+              </li>
+            )}
+          </TimelineListWrapperStyle>
+        )}
       </TimelineContentStyle>
     </TimelineWrapperStyle>
   );
