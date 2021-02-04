@@ -2,6 +2,7 @@
 import React from 'react';
 import { RedLinkHTMLElementStyle } from 'Client/ui/Elements/LinkElements';
 import { MetaTags } from 'Client/app/MetaTags';
+import { CONTACT_EMAIL } from 'Shared/constants/config';
 import {
   StaticPageWrapperStyle,
   StaticSecondLevelTitleStyle,
@@ -194,8 +195,8 @@ export const DataEN = () => (
           <StaticParagraphStyle>
             These rights can be exercised by any means, and notably by sending
             an e-mail to the following address :&nbsp;
-            <RedLinkHTMLElementStyle as="a" href="mailto:contact@make.org">
-              contact@make.org
+            <RedLinkHTMLElementStyle as="a" href={`mailto:${CONTACT_EMAIL}`}>
+              {`${CONTACT_EMAIL}`}
             </RedLinkHTMLElementStyle>
           </StaticParagraphStyle>
         </StaticPrimaryUnorderedListItemStyle>
@@ -247,8 +248,8 @@ export const DataEN = () => (
           </StaticParagraphStyle>
           <StaticParagraphStyle>
             The DPO can be contacted at the following address:&nbsp;
-            <RedLinkHTMLElementStyle href="mailto:contact@make.org">
-              contact@make.org
+            <RedLinkHTMLElementStyle href={`mailto:${CONTACT_EMAIL}`}>
+              {`${CONTACT_EMAIL}`}
             </RedLinkHTMLElementStyle>
           </StaticParagraphStyle>
         </StaticPrimaryUnorderedListItemStyle>

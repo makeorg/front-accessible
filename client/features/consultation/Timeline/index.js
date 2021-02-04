@@ -6,6 +6,7 @@ import { i18n } from 'Shared/i18n';
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
 import { type StateRoot } from 'Shared/store/types';
 import { isGreatCause } from 'Shared/helpers/question';
+import { CONTACT_EMAIL } from 'Shared/constants/config';
 import { type QuestionType } from 'Shared/types/question';
 
 import {
@@ -38,7 +39,7 @@ const TimelineItem = ({
     <TimelineItemDateStyle>{dateText}</TimelineItemDateStyle>
     <TimelineItemTextStyle>{description}</TimelineItemTextStyle>
     {withLink && (
-      <TimelineWorkshopLinkStyle href="mailto:contact@make.org">
+      <TimelineWorkshopLinkStyle href={`mailto:${CONTACT_EMAIL}`}>
         {i18n.t('consultation.timeline.workshop_link')}
       </TimelineWorkshopLinkStyle>
     )}

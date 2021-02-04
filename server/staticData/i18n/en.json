@@ -686,7 +686,7 @@
         "title": "Download the full report",
         "type": "Format : {{extension}} - Weight : {{weight}}",
         "button": "Download",
-        "contact": "If you want to receive the full report on this consultation, contact us at this address : contact@make.org ",
+        "contact": "If you want to receive the full report on this consultation, contact us at this address : {{mail}} ",
         "email_object": "Ask for the results report."
       }
     },
@@ -1004,8 +1004,7 @@
   },
   "contact": {
     "contactUs": "Contact us",
-    "paragraph": "Have an suggestion or want to report a bug? Feel free to send us an email:",
-    "email_address": "contact@make.org"
+    "paragraph": "Have an suggestion or want to report a bug? Feel free to send us an email:"
   },
   "legal": {
     "title": "Legal mentions",

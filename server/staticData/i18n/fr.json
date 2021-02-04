@@ -1069,8 +1069,7 @@
   },
   "contact": {
     "contactUs": "Contactez-nous",
-    "paragraph": "Une idée, une suggestion, un bug ? N’hésitez pas à nous contacter en envoyant un e-mail à notre adresse :", 
-    "email_address": "contact@make.org"
+    "paragraph": "Une idée, une suggestion, un bug ? N’hésitez pas à nous contacter en envoyant un e-mail à notre adresse :"
   },
   "legal":{
     "title": "Mentions légales",

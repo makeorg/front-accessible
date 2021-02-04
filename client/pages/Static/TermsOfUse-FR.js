@@ -5,6 +5,7 @@ import { type StateRoot } from 'Shared/store/types';
 import { RedLinkHTMLElementStyle } from 'Client/ui/Elements/LinkElements';
 import { getDataPageLink } from 'Shared/helpers/url';
 import { MetaTags } from 'Client/app/MetaTags';
+import { CONTACT_EMAIL } from 'Shared/constants/config';
 import {
   StaticPageWrapperStyle,
   StaticSecondLevelTitleStyle,
@@ -189,8 +190,8 @@ export const TermsOfUseFR = () => {
                   Il s’engage à mettre à jour ces informations dans son Espace
                   Personnel en contactant Make.org par courriel à
                   l’adresse&nbsp;
-                  <RedLinkHTMLElementStyle href="mailto:contact@Make.org">
-                    contact@Make.org.
+                  <RedLinkHTMLElementStyle href={`mailto:${CONTACT_EMAIL}`}>
+                    {`${CONTACT_EMAIL}`}
                   </RedLinkHTMLElementStyle>
                 </StaticParagraphStyle>
                 <StaticParagraphStyle>
@@ -350,8 +351,8 @@ export const TermsOfUseFR = () => {
                   Proposition citoyenne publiée fasse l’objet d’une suppression,
                   il adressera sa demande par mail à Make.org à l’adresse
                   suivante :&nbsp;
-                  <RedLinkHTMLElementStyle href="mailto:contact@make.org">
-                    contact@make.org.
+                  <RedLinkHTMLElementStyle href={`mailto:${CONTACT_EMAIL}`}>
+                    {`${CONTACT_EMAIL}`}
                   </RedLinkHTMLElementStyle>
                 </StaticParagraphStyle>
                 <StaticParagraphStyle>
@@ -1028,8 +1029,8 @@ export const TermsOfUseFR = () => {
               L’Utilisateur Inscrit peut se désinscrire des Services à tout
               moment, en adressant une demande à cet effet à Make.org par
               courriel à&nbsp;
-              <RedLinkHTMLElementStyle href="mailto:contact@make.org">
-                contact@make.org
+              <RedLinkHTMLElementStyle href={`mailto:${CONTACT_EMAIL}`}>
+                {`${CONTACT_EMAIL}`}
               </RedLinkHTMLElementStyle>
             </StaticParagraphStyle>
             <StaticParagraphStyle>
