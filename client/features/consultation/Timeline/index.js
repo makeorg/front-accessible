@@ -5,10 +5,8 @@ import { DateHelper } from 'Shared/helpers/date';
 import { i18n } from 'Shared/i18n';
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
 import { type StateRoot } from 'Shared/store/types';
-import {
-  type QuestionType,
-  type QuestionTimelineType,
-} from 'Shared/types/question';
+import { isGreatCause } from 'Shared/helpers/question';
+import { type QuestionType } from 'Shared/types/question';
 
 import {
   TimelineWrapperStyle,
@@ -52,15 +50,18 @@ export const Timeline = () => {
     selectCurrentQuestion(state)
   );
   const { result, workshop, action } = question.timeline;
-  const withExtraData: ?QuestionTimelineType = result || workshop || action;
+  const oneStepTimeline = !result && !workshop && !action;
+  const questionIsGreatCause = isGreatCause(question.operationKind);
 
   return (
     <TimelineWrapperStyle>
       <TimelineContentStyle>
         <TimelineTitleStyle>
-          {i18n.t('consultation.timeline.timeline_title')}
+          {questionIsGreatCause
+            ? i18n.t('consultation.timeline.timeline_title_great_cause')
+            : i18n.t('consultation.timeline.timeline_title_consultation')}
         </TimelineTitleStyle>
-        {!withExtraData ? (
+        {oneStepTimeline ? (
           <TimelineListWrapperStyle as="div">
             <TimelineItem
               title={i18n.t('consultation.timeline.consultation_title')}
