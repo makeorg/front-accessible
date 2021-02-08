@@ -720,10 +720,11 @@
       }
     },
     "timeline": {
-      "timeline_title": "Quels sont les temps forts de cette Grande Cause ?",
+      "timeline_title_great_cause": "Quels sont les temps forts de cette Grande Cause ?",
+      "timeline_title_consultation": "Quels sont les temps forts de cette consultation ?",
       "consultation_title": "Consultation citoyenne",
       "consultation_description": "Toutes nos consultations commencent par un appel aux idées et votes citoyens.",
-      "result_title": "Résultat",
+      "result_title": "Résultats",
       "workshop_title": "Ateliers citoyens",
       "workshop_link": "Contactez-nous pour participer",
       "action_title": "Passage à l’action"

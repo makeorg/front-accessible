@@ -774,13 +774,14 @@
       }
     },
     "timeline": {
-      "consultation_title": "@@consultation.timeline.consultation_title|fr:Consultation citoyenne",
-      "consultation_description": "@@consultation.timeline.consultation_description|fr:Toutes nos consultations commencent par un appel aux idées et votes citoyens.",
-      "result_title": "@@consultation.timeline.result_title|fr:Résultat",
-      "workshop_title": "@@consultation.timeline.workshop_title|fr:Ateliers citoyens",
-      "action_title": "@@consultation.timeline.action_title|fr:Passage à l’action",
-      "timeline_title": "@@consultation.timeline.timeline_title|fr:Quels sont les temps forts de cette Grande Cause ?",
-      "workshop_link": "@@consultation.timeline.workshop_link|fr:Contactez-nous pour participer"
+      "consultation_title": "Citizen consultation",
+      "consultation_description": "All our consultations begin with a call for ideas and citizen votes.",
+      "result_title": "Results",
+      "workshop_title": "Citizen workshops",
+      "action_title": "Move to action",
+      "timeline_title_great_cause": "What are the highlights of this great cause?",
+      "timeline_title_consultation": "What are the highlights of this consultation?",
+      "workshop_link": "Contact us to participate"
     }
   },
   "sharing": {

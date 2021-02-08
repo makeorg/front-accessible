@@ -19,7 +19,7 @@ export const TimelineListWrapperStyle = styled.ul`
   list-style-type: none;
   grid-template-columns: repeat(1, 1fr);
   padding: 0;
-  grid-gap: 30px;
+  grid-gap: 0;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -57,9 +57,11 @@ export const TimelineItemDateStyle = styled.span`
   font-family: ${MakeFonts.CircularStandardBold};
   font-size: ${intToPx(typography.font.fontsize.M.value)};
   font-weight: bold;
-  text-transform: capitalize;
   color: ${color.black};
   margin: 8px 0;
+  &:first-letter {
+    text-transform: capitalize;
+  }
 `;
 
 export const TimelineItemTextStyle = styled.p`
