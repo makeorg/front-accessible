@@ -185,7 +185,7 @@
       "unexpected_error": "Nous rencontrons actuellement une erreur, merci de réessayer ultérieurement.",
       "network_error": "Il est impossible d'accéder à l'intégralité du contenu de Make.org car il semblerait que vous soyez hors ligne",
       "vote_only": {
-          "message": "La consultation \"{{title}}\" a recueilli de nombreuses propositions citoyennes et a besoin de vos votes pour les départager. En attendant, nous ne pouvons pas accepter de nouvelles propositions.",
+          "message": "La consultation \"{{title}}\" ne peut plus recevoir de nouvelles propositions, mais continuez à voter pour départager les propositions existantes.",
           "button": "j'ai compris"
       },
       "vote_on_proposal" : "Votez sur cette proposition"
