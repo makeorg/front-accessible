@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import { i18n } from 'Shared/i18n';
+import { CONTACT_EMAIL } from 'Shared/constants/config';
 import { type QuestionType, type ReportsType } from 'Shared/types/question';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
@@ -13,15 +14,17 @@ type Props = {
 };
 export const ResultsContact = ({ question, reports }: Props) => {
   if (!reports) {
-    const mailToHref = `mailto:contact@make.org?subject=${i18n.t(
+    const mailToHref = `mailto:${CONTACT_EMAIL}?subject=${i18n.t(
       'consultation.results.download.email_object'
     )} - ${question.question}`;
 
     return (
       <ParagraphStyle>
-        {i18n.t('consultation.results.download.contact')}
+        {i18n.t('consultation.results.download.contact', {
+          mail: CONTACT_EMAIL,
+        })}
         <a className="red-link" href={mailToHref}>
-          contact@make.org
+          {`${CONTACT_EMAIL}`}
         </a>
       </ParagraphStyle>
     );

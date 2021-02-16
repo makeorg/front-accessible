@@ -3,6 +3,7 @@ import React from 'react';
 import { RedLinkHTMLElementStyle } from 'Client/ui/Elements/LinkElements';
 import { MetaTags } from 'Client/app/MetaTags';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
+import { CONTACT_EMAIL } from 'Shared/constants/config';
 import {
   StaticPageWrapperStyle,
   StaticSecondLevelTitleStyle,
@@ -256,8 +257,8 @@ export const DataFR = () => (
             L’exercice par les utilisateurs des droits ci-dessus rappelés peut
             être fait par tout moyen, et notamment par l’envoi d’un courriel à
             l’adresse :&nbsp;
-            <RedLinkHTMLElementStyle as="a" href="mailto:contact@make.org">
-              contact@make.org
+            <RedLinkHTMLElementStyle as="a" href={`mailto:${CONTACT_EMAIL}`}>
+              {`${CONTACT_EMAIL}`}
             </RedLinkHTMLElementStyle>
             . Si les utilisateurs estiment que leurs droits sur les données ne
             sont pas respectés par Make.org, ils peuvent en tout état de cause
@@ -313,8 +314,8 @@ export const DataFR = () => (
             l’article 37 du RGPD est la SELARL FWPA Avocats, 18 rue des
             Pyramides, 75001, Paris, représentée par Maître Jean-Baptiste
             Soufron. Il peut être contacté à l’adresse :&nbsp;
-            <RedLinkHTMLElementStyle href="mailto:contact@make.org">
-              contact@make.org
+            <RedLinkHTMLElementStyle href={`mailto:${CONTACT_EMAIL}`}>
+              {`${CONTACT_EMAIL}`}
             </RedLinkHTMLElementStyle>
             .
           </StaticParagraphStyle>

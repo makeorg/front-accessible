@@ -11,3 +11,4 @@ export const DESKTOP_DEVICE = 'DESKTOP';
 export const MOBILE_DEVICE = 'MOBILE';
 
 export const DEBOUNCE_TIMER = 250;
+export const CONTACT_EMAIL = 'contact@make.org';
