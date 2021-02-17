@@ -45,7 +45,7 @@ export const findIndexOfFirstUnvotedCard = (
 };
 
 /**
- * Return finql card depending on zone
+ * Return final card depending on zone
  * @param  {string} zone
  * @return {SequenceCardType}
  */
@@ -168,5 +168,23 @@ export const getSequenceTitleByZone = (zone: string) => {
     }
     default:
       return null;
+  }
+};
+
+/** Render NoProposal card title depending on type of sequence, regular, zone or keyword
+ * @param  {string} zone
+ * @param  {string} keyword
+ * @return {string || null}
+ */
+export const getNoProposalCardTitle = (zone: string) => {
+  switch (zone) {
+    case ZONE_CONTROVERSY: {
+      return i18n.t('no_proposal_card.title.controversial');
+    }
+    case ZONE_POPULAR: {
+      return i18n.t('no_proposal_card.title.popular');
+    }
+    default:
+      return i18n.t('no_proposal_card.title.regular');
   }
 };

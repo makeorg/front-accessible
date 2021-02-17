@@ -23,7 +23,8 @@ export const SequenceCardStyle = styled.section`
   background-color: ${color.white};
   border-radius: 8px;
   box-shadow: 0 2px 3px 0 ${ShadowColors.BlackZeroTwoOpacity};
-  margin: 20px auto 40px;
+  margin: ${props =>
+    props.isNoProposalCard ? '20px auto 0px' : '20px auto 40px'};
   min-height: 315px;
   &.center {
     justify-content: center;

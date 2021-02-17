@@ -127,6 +127,10 @@ DISPLAY_SEQUENCE:
     key: display-sequence
     description: On display sequence
 
+DISPLAY_NO_PROPOSAL_SEQUENCE:
+    key: display-proposal-null
+    description: On display no proposal card for empty sequence
+
 CLICK_START_SEQUENCE:
     key: click-start-sequence
     description: Click to start sequence

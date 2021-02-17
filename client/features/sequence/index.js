@@ -17,13 +17,17 @@ import {
   loadSequenceCards,
   resetSequenceVotedProposals,
 } from 'Shared/store/actions/sequence';
+import { trackClickOperationPage } from 'Shared/services/Tracking';
 import { SequenceService } from 'Shared/services/Sequence';
 import { useLocation } from 'react-router-dom';
 import { ProposalSubmit } from 'Client/features/proposal/Submit';
-import { CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL } from 'Shared/constants/card';
+import {
+  CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL,
+  CARD_TYPE_NO_PROPOSAL_CARD,
+} from 'Shared/constants/card';
 import { getParticipateLink } from 'Shared/helpers/url';
 import { i18n } from 'Shared/i18n';
-import { trackClickOperationPage } from 'Shared/services/Tracking';
+
 import { SequenceCard } from './Cards';
 import {
   SequenceContainerStyle,
@@ -90,9 +94,6 @@ export const Sequence = ({ question, zone }: Props) => {
       setSequenceProposals(proposals);
       dispatch(resetSequenceIndex());
 
-      if (proposals.length < 1) {
-        return setLoading(true);
-      }
       return setLoading(false);
     });
   }, [question, firstProposal, isLoggedIn, hasProposed]);
@@ -141,16 +142,23 @@ export const Sequence = ({ question, zone }: Props) => {
     dispatch(setSequenceIndex(indexOfFirstUnvotedCard));
   }, [cards]);
 
-  if (!currentCard || isLoading) {
+  if (isLoading) {
     return <SequencePlaceholder />;
   }
+
+  const displayNoProposalCard = { type: CARD_TYPE_NO_PROPOSAL_CARD };
+  const isSequenceEmpty = sequenceProposals.length === 0;
 
   return (
     <SequenceContainerStyle data-cy-container="sequence">
       <SequenceContentStyle>
         <SequenceTitle question={question} zone={zone} />
-        <SequenceCard card={currentCard} />
-        <SequenceProgress />
+        <SequenceCard
+          card={isSequenceEmpty ? displayNoProposalCard : currentCard}
+          question={question}
+          zone={zone}
+        />
+        {!isSequenceEmpty && <SequenceProgress />}
       </SequenceContentStyle>
       <ConsultationPageLinkStyle
         className={!withProposalButton && 'static'}

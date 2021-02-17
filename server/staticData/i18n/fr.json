@@ -313,6 +313,20 @@
       "button_text": "espace citoyen."
     }
   },
+  "no_proposal_card": {
+    "title": {
+      "regular": "Merci pour votre incroyable contribution !",
+      "popular": "Merci, vous avez voté sur toutes les propositions les plus populaires",
+      "controversial": "Merci, vous avez voté sur toutes les propositions les plus controversées",
+      "keyword": "Merci, vous avez voté sur toutes les propositions de {{keyword}}"
+    },
+    "description": {
+      "regular": "Il n'y a pas de nouvelles proposition pour le moment.",
+      "special": "Continuez à voter pour nous aider à identifier les priorités."  
+    },
+    "link_text": "J'accède à la consultation",
+    "sharing": "Ou donnez plus de portée à cette consultation en la diffusant."
+  },
   "sign_up_card": {
     "title": "Recevez les résultats de la consultation",
     "authentication-text": "Je m'identifie avec",
