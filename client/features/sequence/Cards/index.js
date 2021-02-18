@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { useEffect } from 'react';
 import { type SequenceCardType } from 'Shared/types/card';
 import {
   CARD_TYPE_EXTRASLIDE_INTRO,
@@ -7,7 +7,10 @@ import {
   CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL,
   CARD_TYPE_EXTRASLIDE_FINAL_CARD,
   CARD_TYPE_EXTRASLIDE_SPECIAL_FINAL_CARD,
+  CARD_TYPE_NO_PROPOSAL_CARD,
 } from 'Shared/constants/card';
+import { trackDisplayNoProposalSequence } from 'Shared/services/Tracking';
+
 import {
   TopComponentContext,
   type TopComponentContextValueType,
@@ -19,13 +22,18 @@ import { PushProposalCard } from './PushProposal';
 import { FinalCard } from './Final';
 import { SpecialFinalCard } from './SpecialFinal';
 import { ProposalCard } from './Proposal';
+import { NoProposal } from './NoProposal';
 
 type CardProps = {
   /** Attribute of the card */
   card: any,
+  /** Object with Dynamic properties used to configure the Sequence (questionId, country, ...) */
+  question: QuestionType,
+  /** optional zone parameter for popular and controversy sequences */
+  zone?: string,
 };
 
-export const Card = ({ card }: CardProps) => {
+export const Card = ({ card, question, zone }: CardProps) => {
   switch (card.type) {
     case CARD_TYPE_PROPOSAL:
       return <ProposalCard proposalCard={card} />;
@@ -37,6 +45,8 @@ export const Card = ({ card }: CardProps) => {
       return <FinalCard configuration={card.configuration} />;
     case CARD_TYPE_EXTRASLIDE_SPECIAL_FINAL_CARD:
       return <SpecialFinalCard />;
+    case CARD_TYPE_NO_PROPOSAL_CARD:
+      return <NoProposal question={question} zone={zone} />;
     default:
       return null;
   }
@@ -45,11 +55,23 @@ export const Card = ({ card }: CardProps) => {
 type Props = {
   /** Attribute of the card */
   card: SequenceCardType,
+  /** Object with Dynamic properties used to configure the Sequence (questionId, country, ...) */
+  question: QuestionType,
+  /** optional zone parameter for popular and controversy sequences */
+  zone?: string,
 };
 
-export const SequenceCard = ({ card }: Props) => {
+export const SequenceCard = ({ card, question, zone }: Props) => {
   const isProposalCard = card.type === CARD_TYPE_PROPOSAL;
+  const isNoProposalCard = card.type === CARD_TYPE_NO_PROPOSAL_CARD;
   const topComponentContext: TopComponentContextValueType = TopComponentContextValue.getSequenceProposal();
+
+  useEffect(() => {
+    if (isNoProposalCard) {
+      trackDisplayNoProposalSequence();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
@@ -58,10 +80,11 @@ export const SequenceCard = ({ card }: Props) => {
           className={!isProposalCard && 'center'}
           id={`card-${card.index}`}
           data-cy-card-type={card.type}
-          data-cy-card-number={card.index + 1}
+          data-cy-card-number={!isNoProposalCard && card.index + 1}
           aria-live="polite"
+          isNoProposalCard={isNoProposalCard}
         >
-          <Card card={card} />
+          <Card card={card} question={question} zone={zone} />
         </SequenceCardStyle>
       </TopComponentContext.Provider>
     </>

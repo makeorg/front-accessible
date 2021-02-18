@@ -1119,5 +1119,19 @@
       "button_intro": "@@final_card.register.button_intro|fr:Créez votre",
       "button_text": "@@final_card.register.button_text|fr:espace citoyen."
     }
+  },
+  "no_proposal_card": {
+    "title": {
+      "regular": "@@no_proposal_card.title.regular|fr:Merci pour votre incroyable contribution !",
+      "popular": "@@no_proposal_card.title.popular|fr:Merci, vous avez voté sur toutes les propositions les plus populaires",
+      "controversial": "@@no_proposal_card.title.controversial|fr:Merci, vous avez voté sur toutes les propositions les plus controversées",
+      "keyword": "@@no_proposal_card.title.keyword|fr:Merci, vous avez voté sur toutes les propositions de {{keyword}}"
+    },
+    "description": {
+      "regular": "@@no_proposal_card.description.regular|fr:Il n'y a pas de nouvelles proposition pour le moment.",
+      "special": "@@no_proposal_card.description.special|fr:Continuez à voter pour nous aider à identifier les priorités."
+    },
+    "link_text": "@@no_proposal_card.link_text|fr:J'accède à la consultation",
+    "sharing": "@@no_proposal_card.sharing|fr:Ou donnez plus de portée à cette consultation en la diffusant."
   }
 }

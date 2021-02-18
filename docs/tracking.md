@@ -138,6 +138,11 @@ Following parameters are added to all events.
     
   
 
+  - `display-proposal-null` On display no proposal card for empty sequence
+
+    
+  
+
   - `click-start-sequence` Click to start sequence
 
     

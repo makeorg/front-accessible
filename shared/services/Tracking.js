@@ -58,6 +58,10 @@ export const trackDisplaySequence = () => {
   TrackingService.sendAllTrackers(trackingEvent.DISPLAY_SEQUENCE());
 };
 
+export const trackDisplayNoProposalSequence = () => {
+  TrackingService.sendAllTrackers(trackingEvent.DISPLAY_NO_PROPOSAL_SEQUENCE());
+};
+
 export const trackClickOperationPage = () => {
   TrackingService.sendAllTrackers(trackingEvent.CLICK_OPERATION_PAGE());
 };
