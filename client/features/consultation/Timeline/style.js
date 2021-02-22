@@ -51,6 +51,17 @@ export const TimelineItemTitleStyle = styled.h5`
   font-family: ${MakeFonts.TradeGothicBoldCondensed};
   font-size: ${intToPx(typography.font.fontsize.X2S.value)};
   color: ${color.greyDark};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const TimelineItemMarkerIsCurrent = styled.span`
+  height: 7px;
+  width: 7px;
+  border-radius: 50%;
+  background-color: ${color.brandSecondary};
+  margin-left: 5px;
 `;
 
 export const TimelineItemDateStyle = styled.span`
