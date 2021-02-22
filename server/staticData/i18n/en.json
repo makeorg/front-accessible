@@ -281,6 +281,16 @@
     "partnership": "in partnership with",
     "purpose": "Introduction card"
   },
+  "final_card": {
+    "title": "Thank you for reacting to the solutions !",
+    "description": "Keep voting to help us identify our priorities.",
+    "link_text": "Access to the consultation",
+    "register": {
+      "description": "How to follow the results ?",
+      "button_intro": "Create your citizen account",
+      "button_text": "citizen account."
+    }
+  },
   "sign_up_card": {
     "title": "Send me the results and let me know about upcoming actions on this consultation by email.",
     "authentication-text": "Sign in with",
