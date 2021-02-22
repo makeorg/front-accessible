@@ -44,12 +44,14 @@ export type Props = {
   question: QuestionType,
   /** optional zone parameter for popular and controversy sequences */
   zone?: string,
+  /** optional keyword parameter for thematic sequences */
+  keyword?: string,
 };
 
 /**
  * Renders Sequence component with Intro / Push Proposal / Sign Up & Proposal Cards
  */
-export const Sequence = ({ question, zone }: Props) => {
+export const Sequence = ({ question, zone, keyword }: Props) => {
   const dispatch = useDispatch();
   const { country } = useSelector((state: StateRoot) => state.appConfig);
   const { votedProposalIds, currentIndex, cards } = useSelector(
@@ -90,7 +92,8 @@ export const Sequence = ({ question, zone }: Props) => {
       firstProposal
         ? [firstProposal, ...votedProposalIdsOfQuestion]
         : votedProposalIdsOfQuestion,
-      zone
+      zone,
+      keyword
     ).then(proposals => {
       setSequenceProposals(proposals);
       dispatch(resetSequenceIndex());
@@ -127,6 +130,7 @@ export const Sequence = ({ question, zone }: Props) => {
       hasProposed,
       question.canPropose,
       zone,
+      keyword,
       introCardParam,
       pushProposalParam
     );
@@ -157,11 +161,12 @@ export const Sequence = ({ question, zone }: Props) => {
   return (
     <SequenceContainerStyle data-cy-container="sequence">
       <SequenceContentStyle>
-        <SequenceTitle question={question} zone={zone} />
+        <SequenceTitle question={question} zone={zone} keyword={keyword} />
         <SequenceCard
           card={isSequenceEmpty ? displayNoProposalCard : currentCard}
           question={question}
           zone={zone}
+          keyword={keyword}
         />
         {!isSequenceEmpty && <SequenceProgress />}
       </SequenceContentStyle>

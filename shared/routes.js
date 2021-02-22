@@ -23,6 +23,7 @@ export const ROUTE_TOP_IDEA_DETAILS = `${ROUTE_COUNTRY}/consultation/:questionSl
 export const ROUTE_SEQUENCE = `${ROUTE_COUNTRY}/consultation/:questionSlug/selection`;
 export const ROUTE_SEQUENCE_POPULAR = `${ROUTE_COUNTRY}/consultation/:questionSlug/selection-popular`;
 export const ROUTE_SEQUENCE_CONTROVERSIAL = `${ROUTE_COUNTRY}/consultation/:questionSlug/selection-controversial`;
+export const ROUTE_SEQUENCE_KEYWORD = `${ROUTE_COUNTRY}/consultation/:questionSlug/selection/keyword/:encodedKeyword`;
 export const ROUTE_PROPOSAL = `${ROUTE_COUNTRY}/consultation/:questionSlug/proposal/:proposalId/:proposalSlug`;
 export const ROUTE_ACCOUNT_ACTIVATION = `${ROUTE_COUNTRY}/account-activation/:userId/:verificationToken`;
 export const ROUTE_PASSWORD_RECOVERY = `${ROUTE_COUNTRY}/password-recovery/:userId/:resetToken`;

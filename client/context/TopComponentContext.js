@@ -15,6 +15,7 @@ export const TopComponentContextValue = {
   getSequenceProposal: () => 'sequence-proposal-card',
   getSequencePopular: () => 'sequence-popular',
   getSequenceControversial: () => 'sequence-controversial',
+  getSequenceKeyword: () => 'sequence-keyword',
 };
 
 const defaultContext: TopComponentContextValueType = '';

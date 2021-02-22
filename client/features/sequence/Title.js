@@ -16,10 +16,16 @@ export type Props = {
   question: QuestionType,
   /** optional zone parameter for popular and controversy sequences */
   zone?: string,
+  /** optional keyword parameter for thematic sequences */
+  keyword?: string,
 };
 
-export const SequenceTitle = ({ question, zone }: Props) => {
-  const specialTitle = getSpecialTitle(zone);
+export const SequenceTitle = ({ question, zone, keyword }: Props) => {
+  const specialTitle = getSpecialTitle(zone, keyword);
+  const hasKeyword = keyword && keyword !== undefined;
+  const keywordWithUppercase =
+    hasKeyword &&
+    keyword.charAt(0).toUpperCase() + keyword.substring(1).toLowerCase();
 
   if (!specialTitle) {
     return <SequenceTitleStyle>{question.question}</SequenceTitleStyle>;
@@ -30,7 +36,8 @@ export const SequenceTitle = ({ question, zone }: Props) => {
       <SequenceAltTitleStyle>{question.question}</SequenceAltTitleStyle>
       <SequenceSpecialTitleStyle>
         <SequenceSpecialIconStyle aria-hidden focusable={false} />
-        {getSequenceTitleByZone(zone)}
+        {zone && getSequenceTitleByZone(zone)}
+        {keyword && `${keywordWithUppercase}`}
       </SequenceSpecialTitleStyle>
     </>
   );

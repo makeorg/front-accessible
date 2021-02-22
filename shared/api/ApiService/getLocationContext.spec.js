@@ -81,6 +81,13 @@ describe('getLocationContext', () => {
       expectedTracking: 'sequence-controversial',
     },
     {
+      name: 'ROUTE_SEQUENCE_KEYWORD',
+      path: '/FR/consultation/foo/selection/keyword/bar',
+      params: { questionId: 'question-id' },
+      expected: 'sequence-keyword question-id',
+      expectedTracking: 'sequence-keyword',
+    },
+    {
       name: 'ROUTE_PROPOSAL',
       path: '/FR/consultation/foo/proposal/bar/2',
       params: { proposalId: 'proposal-id' },
@@ -111,7 +118,6 @@ describe('getLocationContext', () => {
       expected: `private-profile-page`,
       expectedTracking: `private-profile-page`,
     },
-
     {
       name: 'ROUTE_PROFILE_PROPOSALS',
       path: '/FR/profile/proposals',

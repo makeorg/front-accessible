@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { type StateRoot } from 'Shared/store/types';
 import { type QuestionType } from 'Shared/types/question';
 import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router';
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
 import { trackDisplaySequence } from 'Shared/services/Tracking';
 import { MetaTags } from 'Client/app/MetaTags';
@@ -25,6 +26,8 @@ const SequencePage = ({ zone }: Props) => {
   const question: QuestionType = useSelector((state: StateRoot) =>
     selectCurrentQuestion(state)
   );
+  const { encodedKeyword } = useParams();
+  const keyword = encodedKeyword && decodeURI(encodedKeyword);
 
   useEffect(() => {
     trackDisplaySequence();
@@ -57,7 +60,7 @@ const SequencePage = ({ zone }: Props) => {
         description={question.wording.metas.description}
         picture={question.wording.metas.picture}
       />
-      <Sequence question={question} zone={zone} />
+      <Sequence question={question} zone={zone} keyword={keyword} />
     </>
   );
 };

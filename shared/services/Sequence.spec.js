@@ -25,17 +25,24 @@ describe('Question Service', () => {
         id: 'foo',
         proposals,
         zone: 'bar',
+        keyword: 'keyword',
       });
 
       jest.spyOn(QuestionApiService, 'startSequence');
 
-      await SequenceService.startSequence('foo', includedProposalIds, 'bar');
+      await SequenceService.startSequence(
+        'foo',
+        includedProposalIds,
+        'bar',
+        'keyword'
+      );
 
       expect(QuestionApiService.startSequence).toHaveBeenNthCalledWith(
         1,
         'foo',
         includedProposalIds,
-        'bar'
+        'bar',
+        'keyword'
       );
     });
 

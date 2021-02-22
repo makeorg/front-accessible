@@ -4,7 +4,7 @@ const { fixtures } = require('../fixtures/generator');
 const tagsRouter = jsonServer.create();
 
 tagsRouter.get('/', (req, res) => {
-  return res.send(fixtures.tags);
+  res.send(fixtures.tags);
 });
 
 module.exports = tagsRouter;
