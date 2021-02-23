@@ -87,7 +87,12 @@ export const DataFR = () => (
             <StaticSquareListItemStyle>
               Date de naissance
             </StaticSquareListItemStyle>
-            <StaticSquareListItemStyle>Profession</StaticSquareListItemStyle>
+            <StaticSquareListItemStyle>
+              Profession (optionnel pour certaines consultations)
+            </StaticSquareListItemStyle>
+            <StaticSquareListItemStyle>
+              Code postal (optionnel pour certaines consultations)
+            </StaticSquareListItemStyle>
           </StaticSquareListStyle>
           <StaticListTitleStyle>Connexion</StaticListTitleStyle>
           <StaticSquareListStyle>
@@ -133,10 +138,11 @@ export const DataFR = () => (
             </StaticSquareListItemStyle>
           </StaticSquareListStyle>
           <StaticParagraphStyle>
-            Le refus de fournir les données mentionnées ci-dessus empêchera
-            l’utilisateur de soumettre des propositions à la consultation
-            (option n°1) et/ou de réagir aux propositions soumises à
-            consultation (option n°2).
+            À l&#39;exception des catégories de données personnelles identifiées
+            comme optionnelles, le refus de fournir les données mentionnées
+            ci-dessus empêchera l’utilisateur de soumettre des propositions à la
+            consultation (option n°1) et/ou de réagir aux propositions soumises
+            à consultation (option n°2).
           </StaticParagraphStyle>
         </StaticPrimaryUnorderedListItemStyle>
         <StaticPrimaryUnorderedListItemStyle>
@@ -192,8 +198,9 @@ export const DataFR = () => (
               protection de la sécurité et de la confidentialité des données ;
             </StaticSquareListItemStyle>
             <StaticSquareListItemStyle>
-              les partenaires pour les campagnes dans lesquelles les
-              utilisateurs auront été prévenus de leur participation.
+              le cas échéant, les partenaires ou commanditaires des
+              consultations, en particulier aux fins d&#39;accompagnement et de
+              valorisation, notamment éditoriale, de celles-ci.
             </StaticSquareListItemStyle>
           </StaticSquareListStyle>
           <StaticParagraphStyle>
