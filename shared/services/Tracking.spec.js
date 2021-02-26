@@ -61,6 +61,7 @@ import {
   trackClickPublicProfile,
   trackClickOperationPage,
   trackClickLearnMore,
+  trackOpenSequence,
 } from './Tracking';
 import { FacebookTracking } from './Trackers/FacebookTracking';
 import { TwitterTracking } from './Trackers/TwitterTracking';
@@ -189,6 +190,21 @@ describe('Tracking Service', () => {
       eventName,
       eventParameters
     );
+    expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
+  });
+
+  it('track open sequence with component', () => {
+    const eventName = trackingConfiguration.CLICK_SEQUENCE_OPEN.key;
+    const component = trackingConstants.COMPONENT_PARAM_SEQUENCE;
+
+    trackOpenSequence(component);
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {
+      component,
+    });
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(1, eventName, {
+      ...eventParameters,
+      component,
+    });
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
@@ -1007,7 +1023,6 @@ describe('Tracking Service', () => {
     });
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(1, eventName, {
       ...eventParameters,
-
       component: 'foo',
     });
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);

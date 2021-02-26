@@ -11,6 +11,7 @@ import { type QuestionType } from 'Shared/types/question';
 import { searchFirstUnvotedProposal } from 'Shared/helpers/proposal';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectAuthentication } from 'Shared/store/selectors/user.selector';
+import { scrollToTop } from 'Shared/helpers/styled';
 import {
   resetSequenceIndex,
   setSequenceIndex,
@@ -141,6 +142,10 @@ export const Sequence = ({ question, zone }: Props) => {
     );
     dispatch(setSequenceIndex(indexOfFirstUnvotedCard));
   }, [cards]);
+
+  useEffect(() => {
+    scrollToTop();
+  }, []);
 
   if (isLoading) {
     return <SequencePlaceholder />;

@@ -75,6 +75,14 @@ CLICK_BUTTON_LEARN_MORE:
 CLICK_SEQUENCE_OPEN:
     key: click-sequence-open
     description: Click on go to sequence link
+    parameters:
+        - key: component
+          description: component name
+          values:
+            - sequence
+            - sequence-popular
+            - sequence-controversial
+            - sequence-keyword
 
 CLICK_SEE_MORE_COMMUNITY:
     key: click-see-more-community

@@ -35,8 +35,10 @@ export const trackClickLearnMore = (component?: string) => {
 
 /* Open Sequence Tracking */
 
-export const trackOpenSequence = () => {
-  TrackingService.sendAllTrackers(trackingEvent.CLICK_SEQUENCE_OPEN());
+export const trackOpenSequence = (component: string) => {
+  TrackingService.sendAllTrackers(
+    trackingEvent.CLICK_SEQUENCE_OPEN({ component })
+  );
 };
 
 export const trackLoadMoreProposals = (
