@@ -15,6 +15,7 @@ import {
   ROUTE_SEQUENCE,
   ROUTE_SEQUENCE_POPULAR,
   ROUTE_SEQUENCE_CONTROVERSIAL,
+  ROUTE_SEQUENCE_KEYWORD,
   ROUTE_ACCOUNT_ACTIVATION,
   ROUTE_PROPOSAL,
   ROUTE_PASSWORD_RECOVERY,
@@ -78,7 +79,9 @@ const SequencePopularPage = loadable(() =>
 const SequenceControversialPage = loadable(() =>
   import('../pages/Consultation/Sequence.js')
 );
-
+const SequenceKeywordPage = loadable(() =>
+  import('../pages/Consultation/Sequence.js')
+);
 const PasswordRecoveryPage = loadable(() =>
   import('../pages/PasswordRecovery')
 );
@@ -129,6 +132,11 @@ export const Routes = () => {
       <Route path={ROUTE_EXPLORE}>
         <QuestionWrapper withRedirect>
           <ExplorePage />
+        </QuestionWrapper>
+      </Route>
+      <Route path={ROUTE_SEQUENCE_KEYWORD}>
+        <QuestionWrapper withRedirect>
+          <SequenceKeywordPage />
         </QuestionWrapper>
       </Route>
       <Route path={ROUTE_SEQUENCE}>

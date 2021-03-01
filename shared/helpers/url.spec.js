@@ -8,6 +8,7 @@ const country = 'FR';
 const questionSlug = 'fooQuestionSlug';
 const proposalId = 'fooProposalId';
 const proposalSlug = 'fooProposalSlug';
+const encodedKeyword = 'fookeyword';
 
 describe('Url Helper', () => {
   it('return relative current url', () => {
@@ -41,6 +42,18 @@ describe('Url Helper', () => {
 
     expect(link).toEqual(
       `/${country}/consultation/${questionSlug}/selection-controversial`
+    );
+  });
+
+  it('return sequence keywords link', () => {
+    const link = urlHelper.getSequenceKeywordLink(
+      country,
+      questionSlug,
+      encodedKeyword
+    );
+
+    expect(link).toEqual(
+      `/${country}/consultation/${questionSlug}/selection/keyword/${encodedKeyword}`
     );
   });
 

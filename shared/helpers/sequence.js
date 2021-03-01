@@ -68,8 +68,10 @@ export const getFinalCardByZone = (zone: string) => {
  * @param  {QuestionExtraSlidesConfigType} extraSlidesConfig
  * @param  {boolean} hasProposed
  * @param  {boolean} canPropose
- * @param  {boolean} disableIntroCard
  * @param  {string} zone
+ * @param  {string} keyword
+ * @param  {string} introCardParam
+ * @param  {string} pushProposalParam
  * @return {SequenceCardType[]}
  */
 export const buildCards = (
@@ -78,6 +80,7 @@ export const buildCards = (
   hasProposed: boolean,
   canPropose: boolean,
   zone?: string,
+  keyword?: string,
   introCardParam?: string,
   pushProposalParam?: string
 ): SequenceCardType[] => {
@@ -136,21 +139,20 @@ export const buildCards = (
 };
 
 /**
- * Check if card zone needs a special title
+ * Check if card zone or keyword needs a special title
  * @param  {string} zone
+ * @param  {string} keyword
  * @return {boolean}
  */
-export const getSpecialTitle = (zone: string) => {
-  switch (zone) {
-    case ZONE_CONTROVERSY: {
-      return true;
-    }
-    case ZONE_POPULAR: {
-      return true;
-    }
-    default:
-      return false;
+export const getSpecialTitle = (zone: string, keyword: string) => {
+  if (
+    zone === ZONE_POPULAR ||
+    zone === ZONE_CONTROVERSY ||
+    (keyword && keyword !== undefined)
+  ) {
+    return true;
   }
+  return false;
 };
 
 /**
@@ -173,7 +175,6 @@ export const getSequenceTitleByZone = (zone: string) => {
 
 /** Render NoProposal card title depending on type of sequence, regular, zone or keyword
  * @param  {string} zone
- * @param  {string} keyword
  * @return {string || null}
  */
 export const getNoProposalCardTitle = (zone: string) => {

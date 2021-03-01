@@ -31,9 +31,11 @@ type CardProps = {
   question: QuestionType,
   /** optional zone parameter for popular and controversy sequences */
   zone?: string,
+  /** optional keyword parameter for thematic sequences */
+  keyword?: string,
 };
 
-export const Card = ({ card, question, zone }: CardProps) => {
+export const Card = ({ card, question, zone, keyword }: CardProps) => {
   switch (card.type) {
     case CARD_TYPE_PROPOSAL:
       return <ProposalCard proposalCard={card} />;
@@ -46,7 +48,7 @@ export const Card = ({ card, question, zone }: CardProps) => {
     case CARD_TYPE_EXTRASLIDE_SPECIAL_FINAL_CARD:
       return <SpecialFinalCard />;
     case CARD_TYPE_NO_PROPOSAL_CARD:
-      return <NoProposal question={question} zone={zone} />;
+      return <NoProposal question={question} zone={zone} keyword={keyword} />;
     default:
       return null;
   }
@@ -59,9 +61,11 @@ type Props = {
   question: QuestionType,
   /** optional zone parameter for popular and controversy sequences */
   zone?: string,
+  /** optional keyword parameter for thematic sequences */
+  keyword?: string,
 };
 
-export const SequenceCard = ({ card, question, zone }: Props) => {
+export const SequenceCard = ({ card, question, zone, keyword }: Props) => {
   const isProposalCard = card.type === CARD_TYPE_PROPOSAL;
   const isNoProposalCard = card.type === CARD_TYPE_NO_PROPOSAL_CARD;
   const topComponentContext: TopComponentContextValueType = TopComponentContextValue.getSequenceProposal();
@@ -84,7 +88,7 @@ export const SequenceCard = ({ card, question, zone }: Props) => {
           aria-live="polite"
           isNoProposalCard={isNoProposalCard}
         >
-          <Card card={card} question={question} zone={zone} />
+          <Card card={card} question={question} zone={zone} keyword={keyword} />
         </SequenceCardStyle>
       </TopComponentContext.Provider>
     </>

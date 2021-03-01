@@ -23,6 +23,7 @@ describe('Sequence Helper', () => {
         false,
         false,
         null,
+        null,
         introCardParam
       );
       expect(cards.length).toBe(1);
@@ -46,6 +47,7 @@ describe('Sequence Helper', () => {
         extraSlidesConfig,
         false,
         false,
+        null,
         null,
         introCardParam
       );
@@ -71,6 +73,7 @@ describe('Sequence Helper', () => {
         false,
         false,
         null,
+        null,
         introCardParam
       );
       expect(cards.length).toBe(1);
@@ -94,6 +97,7 @@ describe('Sequence Helper', () => {
         extraSlidesConfig,
         false,
         false,
+        null,
         null,
         introCardParam
       );
@@ -128,6 +132,7 @@ describe('Sequence Helper', () => {
         hasProposed,
         canPropose,
         null,
+        null,
         false,
         pushProposalParam
       );
@@ -154,6 +159,7 @@ describe('Sequence Helper', () => {
         extraSlidesConfig,
         hasProposed,
         canPropose,
+        null,
         null,
         false,
         pushProposalParam
@@ -182,6 +188,7 @@ describe('Sequence Helper', () => {
         hasProposed,
         canPropose,
         null,
+        null,
         false,
         pushProposalParam
       );
@@ -208,6 +215,7 @@ describe('Sequence Helper', () => {
         extraSlidesConfig,
         hasProposed,
         canPropose,
+        null,
         null,
         false,
         pushProposalParam
@@ -243,6 +251,7 @@ describe('Sequence Helper', () => {
         hasProposed,
         canPropose,
         null,
+        null,
         false,
         pushProposalParam
       );
@@ -270,6 +279,7 @@ describe('Sequence Helper', () => {
         extraSlidesConfig,
         hasProposed,
         canPropose,
+        null,
         null,
         false,
         pushProposalParam

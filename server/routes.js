@@ -3,6 +3,7 @@ import {
   ROUTE_SEQUENCE,
   ROUTE_SEQUENCE_POPULAR,
   ROUTE_SEQUENCE_CONTROVERSIAL,
+  ROUTE_SEQUENCE_KEYWORD,
   ROUTE_ACCOUNT_ACTIVATION,
   ROUTE_PROPOSAL,
   ROUTE_PASSWORD_RECOVERY,
@@ -154,6 +155,7 @@ export const initRoutes = app => {
   app.get(ROUTE_SEQUENCE, frontMiddlewares, sequenceRoute);
   app.get(ROUTE_SEQUENCE_POPULAR, frontMiddlewares, sequenceRoute);
   app.get(ROUTE_SEQUENCE_CONTROVERSIAL, frontMiddlewares, sequenceRoute);
+  app.get(ROUTE_SEQUENCE_KEYWORD, frontMiddlewares, sequenceRoute);
   app.get(ROUTE_ACCOUNT_ACTIVATION, frontMiddlewares, accountActivationRoute);
   app.get(ROUTE_PROPOSAL, frontMiddlewares, proposalRoute);
   app.get(ROUTE_PASSWORD_RECOVERY, frontMiddlewares, passwordRecoveryRoute);

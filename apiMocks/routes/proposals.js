@@ -4,7 +4,7 @@ const { fixtures } = require('../fixtures/generator');
 const proposalsRouter = jsonServer.create();
 
 proposalsRouter.use('/:proposalId/vote', (req, res) => {
-  return res.send({
+  res.send({
     ...fixtures.vote,
     hasVoted: true,
     voteKey: req.body.voteKey,
@@ -13,7 +13,7 @@ proposalsRouter.use('/:proposalId/vote', (req, res) => {
 });
 
 proposalsRouter.use('/:proposalId/unvote', (req, res) => {
-  return res.send({
+  res.send({
     ...fixtures.vote,
     hasVoted: false,
     voteKey: req.body.voteKey,
@@ -44,14 +44,14 @@ proposalsRouter.use('/:proposalId/unqualification', (req, res) => {
   });
 });
 
-proposalsRouter.use('/:proposalId', (req, res) => {
-  return res.send({
+proposalsRouter.use('/:proposalId', (req, res) =>
+  res.send({
     ...fixtures.proposals.find(
       proposal => proposal.id === req.params.proposalId
     ),
     hasQualified: false,
-  });
-});
+  })
+);
 
 proposalsRouter.use('/', (req, res) => {
   const proposalsOfQuestion = fixtures.proposals.filter(

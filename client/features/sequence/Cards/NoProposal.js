@@ -17,21 +17,31 @@ export type Props = {
   question: QuestionType,
   /** optional zone parameter for popular and controversy sequences */
   zone?: string,
+  /** optional keyword parameter for thematic sequences */
+  keyword?: string,
 };
 
-export const NoProposal = ({ question, zone }) => {
+export const NoProposal = ({ question, zone, keyword }) => {
   const { device, country } = useSelector(
     (state: StateRoot) => state.appConfig
   );
   const isDesktop = matchDesktopDevice(device);
+  const hasKeyword = keyword && keyword !== undefined;
+  const keywordWithUppercase =
+    hasKeyword &&
+    keyword.charAt(0).toUpperCase() + keyword.substring(1).toLowerCase();
 
   return (
     <>
       <SequenceMainTitleStyle>
-        {getNoProposalCardTitle(zone)}
+        {zone && getNoProposalCardTitle(zone)}
+        {hasKeyword &&
+          i18n.t('no_proposal_card.title.keyword', {
+            keyword: keywordWithUppercase,
+          })}
       </SequenceMainTitleStyle>
       <SequenceParagraphStyle>
-        {zone
+        {zone || hasKeyword
           ? i18n.t('no_proposal_card.description.special')
           : i18n.t('no_proposal_card.description.regular')}
       </SequenceParagraphStyle>

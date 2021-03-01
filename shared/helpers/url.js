@@ -9,6 +9,7 @@ import {
   ROUTE_SEQUENCE,
   ROUTE_SEQUENCE_POPULAR,
   ROUTE_SEQUENCE_CONTROVERSIAL,
+  ROUTE_SEQUENCE_KEYWORD,
   ROUTE_PROPOSAL,
   ROUTE_ORGANISATION_PROFILE,
   ROUTE_PERSONALITY_PROFILE,
@@ -104,10 +105,9 @@ export const getSequencePopularLink = (
   );
 
 /**
- * Get the sequence COntroversial link
+ * Get the sequence Controversial link
  * @param  {string} country
  * @param  {string} questionSlug
- *
  * @return {string}
  */
 export const getSequenceControversialLink = (
@@ -118,6 +118,30 @@ export const getSequenceControversialLink = (
   generatePath(ROUTE_SEQUENCE_CONTROVERSIAL, {
     country,
     questionSlug,
+  }).concat(
+    params && Object.keys(params).length > 0
+      ? `?${queryString.stringify(params)}`
+      : ''
+  );
+
+/**
+ * Get the sequence keyword link
+ * @param  {string} country
+ * @param  {string} questionSlug
+ * @param  {string} encodedKeyword
+ *
+ * @return {string}
+ */
+export const getSequenceKeywordLink = (
+  country: string,
+  questionSlug: string,
+  encodedKeyword: string,
+  params?: Object = {}
+) =>
+  generatePath(ROUTE_SEQUENCE_KEYWORD, {
+    country,
+    questionSlug,
+    encodedKeyword,
   }).concat(
     params && Object.keys(params).length > 0
       ? `?${queryString.stringify(params)}`
