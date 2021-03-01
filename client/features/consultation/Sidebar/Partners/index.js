@@ -12,6 +12,7 @@ import {
   trackClickLearnMore,
   trackOpenSequence,
 } from 'Shared/services/Tracking';
+import { COMPONENT_PARAM_SEQUENCE } from 'Shared/constants/tracking';
 import { isInProgress } from 'Shared/helpers/date';
 import { ParticipateButtonStyle } from 'Client/features/consultation/Styled/Partners';
 import { SidebarNewWindowLink } from 'Client/features/consultation/Sidebar/Link';
@@ -43,7 +44,7 @@ export const Partners = ({ question }: Props) => {
           <ParticipateButtonStyle
             as={Link}
             to={sequenceLink}
-            onClick={trackOpenSequence}
+            onClick={() => trackOpenSequence(COMPONENT_PARAM_SEQUENCE)}
           >
             {i18n.t('common.participate')}
           </ParticipateButtonStyle>

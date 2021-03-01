@@ -20,6 +20,7 @@ type Props = {
   linkText: string,
   linkHref: string,
   classes?: string,
+  onClickAction?: () => void,
 };
 
 export const CTAProposal = ({
@@ -31,6 +32,7 @@ export const CTAProposal = ({
   linkText,
   linkHref,
   classes = '',
+  onClickAction = () => {},
 }: Props) => {
   const isActive = proposalCount >= thresold;
 
@@ -42,7 +44,9 @@ export const CTAProposal = ({
         <CardDescriptionStyle>{description}</CardDescriptionStyle>
       </ColumnElementStyle>
       {isActive ? (
-        <CardLinkStyle to={linkHref}>{linkText}</CardLinkStyle>
+        <CardLinkStyle to={linkHref} onClick={onClickAction}>
+          {linkText}
+        </CardLinkStyle>
       ) : (
         <CardSoonStyle>
           <CardSoonIconStyle

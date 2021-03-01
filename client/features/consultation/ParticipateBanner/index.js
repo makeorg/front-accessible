@@ -6,6 +6,7 @@ import { getSequenceLink } from 'Shared/helpers/url';
 import { i18n } from 'Shared/i18n';
 import { Link } from 'react-router-dom';
 import { trackOpenSequence } from 'Shared/services/Tracking';
+import { COMPONENT_PARAM_SEQUENCE } from 'Shared/constants/tracking';
 import { LinkAsRedButton } from 'Client/ui/Elements/LinkElements';
 import {
   ParticipateWrapperStyle,
@@ -37,7 +38,7 @@ export const ParticipateBanner = ({ question }: Props) => {
         <LinkAsRedButton
           as={Link}
           to={sequenceLink}
-          onClick={trackOpenSequence}
+          onClick={() => trackOpenSequence(COMPONENT_PARAM_SEQUENCE)}
         >
           {i18n.t('common.participate')}
         </LinkAsRedButton>

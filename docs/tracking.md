@@ -92,6 +92,10 @@ Following parameters are added to all events.
   - `click-sequence-open` Click on go to sequence link
 
     
+    | param_name | required | description | values |
+    |-|-|-|-|
+    | `component` | true | component name | `sequence`, `sequence-popular`, `sequence-controversial`, `sequence-keyword` |
+  
   
 
   - `click-see-more-community` Click on see all partners

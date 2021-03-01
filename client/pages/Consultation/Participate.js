@@ -37,6 +37,11 @@ import {
   trackDisplayOperationPage,
   trackOpenSequence,
 } from 'Shared/services/Tracking';
+import {
+  COMPONENT_PARAM_SEQUENCE,
+  COMPONENT_PARAM_SEQUENCE_POPULAR,
+  COMPONENT_PARAM_SEQUENCE_CONTROVERSIAL,
+} from 'Shared/constants/tracking';
 import { matchDesktopDevice } from 'Shared/helpers/styled';
 import { Timeline } from 'Client/features/consultation/Timeline';
 import {
@@ -133,7 +138,7 @@ const ParticipatePage = () => {
                 introCard: false,
               })}
               classes="margin-bottom"
-              onClickAction={() => trackOpenSequence()}
+              onClickAction={() => trackOpenSequence(COMPONENT_PARAM_SEQUENCE)}
             />
             <ColumnToRowElementStyle>
               <CTAProposal
@@ -151,6 +156,9 @@ const ParticipatePage = () => {
                   signUpCard: false,
                 })}
                 classes="desktop-half margin-bottom desktop-padding-right"
+                onClickAction={() =>
+                  trackOpenSequence(COMPONENT_PARAM_SEQUENCE_CONTROVERSIAL)
+                }
               />
               <CTAProposal
                 icon={PopularIcon}
@@ -165,6 +173,9 @@ const ParticipatePage = () => {
                   signUpCard: false,
                 })}
                 classes="desktop-half margin-bottom desktop-padding-left"
+                onClickAction={() =>
+                  trackOpenSequence(COMPONENT_PARAM_SEQUENCE_POPULAR)
+                }
               />
             </ColumnToRowElementStyle>
             {isDesktop && <SocialSharing />}
