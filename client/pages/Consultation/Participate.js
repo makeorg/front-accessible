@@ -44,6 +44,7 @@ import {
 } from 'Shared/constants/tracking';
 import { matchDesktopDevice } from 'Shared/helpers/styled';
 import { Timeline } from 'Client/features/consultation/Timeline';
+import { Keywords } from 'Client/features/flipping/Keywords';
 import {
   ParticipateContentStyle,
   ParticipateInnerStyle,
@@ -177,6 +178,7 @@ const ParticipatePage = () => {
                   trackOpenSequence(COMPONENT_PARAM_SEQUENCE_POPULAR)
                 }
               />
+              <Keywords question={question} />
             </ColumnToRowElementStyle>
             {isDesktop && <SocialSharing />}
           </ParticipateMainContentStyle>

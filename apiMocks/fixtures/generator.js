@@ -11,6 +11,7 @@ const defaultAgreeQualifications = require('../db/defaultAgreeQualifications.jso
 const defaultDisagreeQualifications = require('../db/defaultDisagreeQualifications.json');
 const defaultNeutralQualifications = require('../db/defaultNeutralQualifications.json');
 const defaultTopIdea = require('../db/defaultTopIdea.json');
+const defaultSequenceKeyword = require('../db/defaultSequenceKeyword.json');
 
 const range = (start, end) => {
   const values = [];
@@ -172,7 +173,7 @@ const generateOpenedQuestions = count => {
     highlights: {
       votesTarget: 150000,
       votesCount: 100000,
-      participantCount: 50000,
+      participantsCount: 50000,
     },
     controversyCount: 15,
     topProposalCount: 15,
@@ -221,7 +222,7 @@ const generateClosedQuestions = count => {
     highlights: {
       votesTarget: 150000,
       votesCount: 100000,
-      participantCount: 50000,
+      participantsCount: 50000,
     },
     controversyCount: 15,
     topProposalCount: 15,
@@ -270,7 +271,7 @@ const generateQuestionsWithResults = count => {
     highlights: {
       votesTarget: 150000,
       votesCount: 100000,
-      participantCount: 50000,
+      participantsCount: 50000,
     },
     controversyCount: 15,
     topProposalCount: 15,
@@ -442,6 +443,20 @@ const generateTopIdeas = () =>
   );
 const topIdeas = generateTopIdeas();
 
+const generateKeywords = () =>
+  questions.flatMap(question =>
+    range(0, 5).map(number => ({
+      ...defaultSequenceKeyword,
+      questionId: question.questionId,
+      key: `kw-${number}`,
+      label: `CoeŒÊÉÈËÀÁ ÙÚÛùúûur  et ëêéèœíîï`,
+      score: `10` - `${number}`,
+      count: `50` - `${number}`,
+    }))
+  );
+
+const keywords = generateKeywords();
+
 const countriesWithConsultations = [
   { countryCode: 'AT', activeConsultations: false },
   { countryCode: 'BE', activeConsultations: true },
@@ -493,6 +508,7 @@ const fixtures = {
   },
   topIdeas,
   countriesWithConsultations,
+  keywords,
 };
 
 module.exports = { fixtures };

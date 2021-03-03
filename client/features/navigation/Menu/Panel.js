@@ -120,7 +120,7 @@ export const MenuPanel = ({ isExpanded, toggleExpansion }: Props) => {
             </MenuItemStyle>
             {isFR && (
               <>
-                <MenuItemStyle className="extra-margin-top">
+                <MenuItemStyle>
                   <MenuExternalLinkStyle
                     target="_blank"
                     rel="noopener"

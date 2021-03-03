@@ -78,6 +78,7 @@ export const MenuItemStyle = styled.li`
   width: 100%;
   &.white {
     background-color: ${color.white};
+    margin-bottom: 2px;
   }
   &.extra-margin-top {
     margin-top: 15px;

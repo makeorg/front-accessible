@@ -318,7 +318,7 @@
       "regular": "Merci pour votre incroyable contribution !",
       "popular": "Merci, vous avez voté sur toutes les propositions les plus populaires",
       "controversial": "Merci, vous avez voté sur toutes les propositions les plus controversées",
-      "keyword": "Merci, vous avez voté sur toutes les propositions de {{keyword}}"
+      "keyword": "Merci, vous avez voté sur toutes les propositions de \"{{keyword}}\""
     },
     "description": {
       "regular": "Il n'y a pas de nouvelles proposition pour le moment.",

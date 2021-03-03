@@ -239,3 +239,11 @@ export type HomeQuestionType = {
   participantsCount: number,
   proposalsCount: number,
 };
+
+export type QuestionKeywordType = {
+  questionId: string,
+  key: string,
+  label: string,
+  score: number,
+  count: number,
+};
