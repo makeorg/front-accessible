@@ -21,6 +21,7 @@ type Props = {
   linkHref: string,
   classes?: string,
   onClickAction?: () => void,
+  isKeywordActive?: boolean,
 };
 
 export const CTAProposal = ({
@@ -33,11 +34,12 @@ export const CTAProposal = ({
   linkHref,
   classes = '',
   onClickAction = () => {},
+  isKeywordActive,
 }: Props) => {
   const isActive = proposalCount >= thresold;
 
   return (
-    <CardStyle className={classes}>
+    <CardStyle className={classes} isKeywordActive={isKeywordActive}>
       <ColumnElementStyle>
         {icon}
         <CardTitleStyle>{title}</CardTitleStyle>

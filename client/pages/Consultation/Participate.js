@@ -45,6 +45,8 @@ import {
 import { matchDesktopDevice } from 'Shared/helpers/styled';
 import { Timeline } from 'Client/features/consultation/Timeline';
 import { Keywords } from 'Client/features/flipping/Keywords';
+import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
+import { CONSULTATION_KEYWORD_ACTIVE } from 'Shared/constants/featureFlipping';
 import {
   ParticipateContentStyle,
   ParticipateInnerStyle,
@@ -52,6 +54,7 @@ import {
   ParticipateSidebarContentStyle,
   ParticipateDescriptionStyle,
   ParticipateTitleStyle,
+  ParticipateCTAProposalBloc,
 } from './style';
 
 const ParticipatePage = () => {
@@ -106,6 +109,11 @@ const ParticipatePage = () => {
     />
   );
 
+  const isKeywordActive: boolean = checkIsFeatureActivated(
+    CONSULTATION_KEYWORD_ACTIVE,
+    question.activeFeatures
+  );
+
   return (
     <ThemeProvider theme={question.theme}>
       <MetaTags
@@ -142,43 +150,51 @@ const ParticipatePage = () => {
               onClickAction={() => trackOpenSequence(COMPONENT_PARAM_SEQUENCE)}
             />
             <ColumnToRowElementStyle>
-              <CTAProposal
-                icon={ControversyIcon}
-                title={i18n.t('consultation.cards.controversy.title')}
-                description={i18n.t(
-                  'consultation.cards.controversy.description'
-                )}
-                proposalCount={question.controversyCount}
-                thresold={PROPOSALS_THRESOLD}
-                linkText={i18n.t('consultation.cards.controversy.button')}
-                linkHref={getSequenceControversialLink(country, question.slug, {
-                  introCard: false,
-                  pushProposal: false,
-                  signUpCard: false,
-                })}
-                classes="desktop-half margin-bottom desktop-padding-right"
-                onClickAction={() =>
-                  trackOpenSequence(COMPONENT_PARAM_SEQUENCE_CONTROVERSIAL)
-                }
-              />
-              <CTAProposal
-                icon={PopularIcon}
-                title={i18n.t('consultation.cards.popular.title')}
-                description={i18n.t('consultation.cards.popular.description')}
-                proposalCount={question.topProposalCount}
-                thresold={PROPOSALS_THRESOLD}
-                linkText={i18n.t('consultation.cards.popular.button')}
-                linkHref={getSequencePopularLink(country, question.slug, {
-                  introCard: false,
-                  pushProposal: false,
-                  signUpCard: false,
-                })}
-                classes="desktop-half margin-bottom desktop-padding-left"
-                onClickAction={() =>
-                  trackOpenSequence(COMPONENT_PARAM_SEQUENCE_POPULAR)
-                }
-              />
-              <Keywords question={question} />
+              <ParticipateCTAProposalBloc isKeywordActive={isKeywordActive}>
+                <CTAProposal
+                  icon={ControversyIcon}
+                  title={i18n.t('consultation.cards.controversy.title')}
+                  description={i18n.t(
+                    'consultation.cards.controversy.description'
+                  )}
+                  proposalCount={question.controversyCount}
+                  thresold={PROPOSALS_THRESOLD}
+                  linkText={i18n.t('consultation.cards.controversy.button')}
+                  linkHref={getSequenceControversialLink(
+                    country,
+                    question.slug,
+                    {
+                      introCard: false,
+                      pushProposal: false,
+                      signUpCard: false,
+                    }
+                  )}
+                  classes="margin-bottom desktop-padding-right"
+                  isKeywordActive={isKeywordActive}
+                  onClickAction={() =>
+                    trackOpenSequence(COMPONENT_PARAM_SEQUENCE_CONTROVERSIAL)
+                  }
+                />
+                <CTAProposal
+                  icon={PopularIcon}
+                  title={i18n.t('consultation.cards.popular.title')}
+                  description={i18n.t('consultation.cards.popular.description')}
+                  proposalCount={question.topProposalCount}
+                  thresold={PROPOSALS_THRESOLD}
+                  linkText={i18n.t('consultation.cards.popular.button')}
+                  linkHref={getSequencePopularLink(country, question.slug, {
+                    introCard: false,
+                    pushProposal: false,
+                    signUpCard: false,
+                  })}
+                  classes="margin-bottom desktop-padding-left"
+                  isKeywordActive={isKeywordActive}
+                  onClickAction={() =>
+                    trackOpenSequence(COMPONENT_PARAM_SEQUENCE_POPULAR)
+                  }
+                />
+              </ParticipateCTAProposalBloc>
+              <Keywords question={question} isKeywordActive={isKeywordActive} />
             </ColumnToRowElementStyle>
             {isDesktop && <SocialSharing />}
           </ParticipateMainContentStyle>

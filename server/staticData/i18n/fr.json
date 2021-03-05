@@ -720,6 +720,10 @@
         "description": "Ces propositions citoyennes ont reçu le plus de votes favorables.",
         "button": "Je vote"
       },
+      "keywords": {
+        "title": "Les sujets qui vous interpellent",
+        "description": "Choisissez les sujets sur lesquels vous souhaitez vous exprimer en priorité."
+      },
       "sharing": {
         "title": "Partager la consultation",
         "description": "Vos amis ont des idées et un avis qui méritent d’être entendus eux aussi. Donnez plus de portée à cette consultation en la diffusant à votre échelle et à votre façon."

@@ -182,3 +182,17 @@ export const ParticipateSidebarContentStyle = styled(ColumnElementStyle)`
 export const ParticipateFullwidthContentStyle = styled(ColumnElementStyle)`
   width: 100%;
 `;
+
+export const ParticipateCTAProposalBloc = styled.div`
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    flex-flow: ${props => (props.isKeywordActive ? 'column' : 'row')};
+    width: ${props => (props.isKeywordActive ? '50%' : '100%')};
+    margin-right: 10px;
+  }
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    margin-right: 15px;
+  }
+`;

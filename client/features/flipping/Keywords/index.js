@@ -1,17 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import { QuestionService } from 'Shared/services/Question';
 import { useParams } from 'react-router';
+import { i18n } from 'Shared/i18n';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { getSequenceKeywordLink } from 'Shared/helpers/url';
+import { capitalizeFirstLetter } from 'Shared/helpers/stringFormatter';
 import { trackOpenSequence } from 'Shared/services/Tracking';
 import { COMPONENT_PARAM_SEQUENCE_KEYWORD } from 'Shared/constants/tracking';
-import { KeywordItemStyle } from './style';
+import {
+  CardStyle,
+  CardTitleStyle,
+  CardDescriptionStyle,
+} from 'Client/features/consultation/Cards/style';
+import { SvgAngleArrowRight, SvgArrowUp } from 'Client/ui/Svg/elements';
+import {
+  KeywordsListWrapperStyle,
+  KeywordListItemStyle,
+  KeywordItemLinkStyle,
+  KeywordListSeparatorStyle,
+} from './style';
 
 type Props = {
   question: QuestionType,
+  isKeywordActive: boolean,
 };
 
-export const Keywords = ({ question }: Props) => {
+export const Keywords = ({ question, isKeywordActive }: Props) => {
   const { country } = useParams();
   const [isLoading, setIsLoading] = useState(false);
   const [keywords, setKeywords] = useState([]);
@@ -35,24 +49,49 @@ export const Keywords = ({ question }: Props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  if (!isKeywordActive) {
+    return null;
+  }
+
   return isLoading ? (
     <Spinner />
   ) : (
-    <ul>
-      {keywords.map(keyword => (
-        <li>
-          <KeywordItemStyle
-            to={getSequenceKeywordLink(
-              country,
-              question.slug,
-              encodeURI(keyword.label)
-            )}
-            onClick={() => trackOpenSequence(COMPONENT_PARAM_SEQUENCE_KEYWORD)}
-          >
-            {keyword.label}
-          </KeywordItemStyle>
-        </li>
-      ))}
-    </ul>
+    <CardStyle className="desktop-half margin-bottom">
+      <SvgArrowUp
+        fill="#253186"
+        aria-hidden
+        width={26}
+        height={29}
+        focusable="false"
+      />
+      <CardTitleStyle>
+        {i18n.t('consultation.cards.keywords.title')}
+      </CardTitleStyle>
+      <CardDescriptionStyle>
+        {i18n.t('consultation.cards.keywords.description')}
+      </CardDescriptionStyle>
+      <KeywordsListWrapperStyle>
+        {keywords.map(keyword => (
+          <>
+            <KeywordListItemStyle>
+              <KeywordListSeparatorStyle />
+              <KeywordItemLinkStyle
+                to={getSequenceKeywordLink(
+                  country,
+                  question.slug,
+                  encodeURI(keyword.label)
+                )}
+                onClick={() =>
+                  trackOpenSequence(COMPONENT_PARAM_SEQUENCE_KEYWORD)
+                }
+              >
+                {capitalizeFirstLetter(keyword.label)}
+                <SvgAngleArrowRight />
+              </KeywordItemLinkStyle>
+            </KeywordListItemStyle>
+          </>
+        ))}
+      </KeywordsListWrapperStyle>
+    </CardStyle>
   );
 };

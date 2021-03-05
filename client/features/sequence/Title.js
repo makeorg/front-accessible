@@ -4,6 +4,7 @@ import {
   getSequenceTitleByZone,
   getSpecialTitle,
 } from 'Shared/helpers/sequence';
+import { capitalizeFirstLetter } from 'Shared/helpers/stringFormatter';
 import {
   SequenceAltTitleStyle,
   SequenceSpecialIconStyle,
@@ -23,9 +24,7 @@ export type Props = {
 export const SequenceTitle = ({ question, zone, keyword }: Props) => {
   const specialTitle = getSpecialTitle(zone, keyword);
   const hasKeyword = keyword && keyword !== undefined;
-  const keywordWithUppercase =
-    hasKeyword &&
-    keyword.charAt(0).toUpperCase() + keyword.substring(1).toLowerCase();
+  const keywordWithUppercase = hasKeyword && capitalizeFirstLetter(keyword);
 
   if (!specialTitle) {
     return <SequenceTitleStyle>{question.question}</SequenceTitleStyle>;

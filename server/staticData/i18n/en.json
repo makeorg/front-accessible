@@ -781,6 +781,10 @@
       },
       "featured_proposals": {
         "title": "They have submitted a solution"
+      },
+      "keywords": {
+        "title": "@@consultation.cards.keywords.title|fr:Les sujets qui vous interpellent",
+        "description": "@@consultation.cards.keywords.description|fr:Choisissez les sujets sur lesquels vous souhaitez vous exprimer en priorité."
       }
     },
     "timeline": {
