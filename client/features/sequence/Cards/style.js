@@ -19,7 +19,7 @@ export const SequenceCardStyle = styled.section`
   align-items: center;
   flex: 1;
   width: 100%;
-  padding: 0 20px;
+  padding: ${props => (props.isNoProposalCard ? '60px 20px' : '0 20px')};
   background-color: ${color.white};
   border-radius: 8px;
   box-shadow: 0 2px 3px 0 ${ShadowColors.BlackZeroTwoOpacity};
@@ -31,7 +31,7 @@ export const SequenceCardStyle = styled.section`
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     max-height: 365px;
-    padding: 0 30px;
+    padding: ${props => (props.isNoProposalCard ? '70px 30px 40px' : '0 30px')};
     margin-top: 30px;
   }
 `;
