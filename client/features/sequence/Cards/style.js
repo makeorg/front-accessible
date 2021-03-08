@@ -223,6 +223,7 @@ export const SequenceSeparatorStyle = styled(SeparatorStyle)`
 export const FinalCardSeparatorStyle = styled(SeparatorStyle)`
   max-width: 80px;
   margin: 20px auto;
+  border: solid 0.5px ${color.grey};
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     margin: 30px auto;
   }
