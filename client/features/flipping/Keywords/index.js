@@ -17,7 +17,6 @@ import {
   KeywordsListWrapperStyle,
   KeywordListItemStyle,
   KeywordItemLinkStyle,
-  KeywordListSeparatorStyle,
 } from './style';
 
 type Props = {
@@ -39,13 +38,14 @@ export const Keywords = ({ question, isKeywordActive }: Props) => {
     );
 
     if (response) {
-      setKeywords(response.results);
+      setKeywords(response);
       setIsLoading(false);
     }
   };
 
   useEffect(() => {
     getQuestionKeywords();
+    return () => {};
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -56,7 +56,7 @@ export const Keywords = ({ question, isKeywordActive }: Props) => {
   return isLoading ? (
     <Spinner />
   ) : (
-    <CardStyle className="desktop-half margin-bottom">
+    <CardStyle className="desktop-half margin-bottom" isKeywordActive>
       <SvgArrowUp
         fill="#253186"
         aria-hidden
@@ -73,20 +73,23 @@ export const Keywords = ({ question, isKeywordActive }: Props) => {
       <KeywordsListWrapperStyle>
         {keywords.map(keyword => (
           <>
-            <KeywordListItemStyle>
-              <KeywordListSeparatorStyle />
+            <KeywordListItemStyle key={keyword.label}>
               <KeywordItemLinkStyle
                 to={getSequenceKeywordLink(
                   country,
                   question.slug,
-                  encodeURI(keyword.label)
+                  encodeURI(keyword.label),
+                  {
+                    introCard: false,
+                    pushProposal: false,
+                  }
                 )}
                 onClick={() =>
                   trackOpenSequence(COMPONENT_PARAM_SEQUENCE_KEYWORD)
                 }
               >
                 {capitalizeFirstLetter(keyword.label)}
-                <SvgAngleArrowRight />
+                <SvgAngleArrowRight width={17} height={17} />
               </KeywordItemLinkStyle>
             </KeywordListItemStyle>
           </>

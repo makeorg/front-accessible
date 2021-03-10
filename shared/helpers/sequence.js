@@ -45,21 +45,16 @@ export const findIndexOfFirstUnvotedCard = (
 };
 
 /**
- * Return final card depending on zone
+ * Return final card depending on zone and keyword
  * @param  {string} zone
+ * @param  {string} keyword
  * @return {SequenceCardType}
  */
-export const getFinalCardByZone = (zone: string) => {
-  switch (zone) {
-    case ZONE_CONTROVERSY: {
-      return CARD_TYPE_EXTRASLIDE_SPECIAL_FINAL_CARD;
-    }
-    case ZONE_POPULAR: {
-      return CARD_TYPE_EXTRASLIDE_SPECIAL_FINAL_CARD;
-    }
-    default:
-      return CARD_TYPE_EXTRASLIDE_FINAL_CARD;
+export const getFinalCard = (zone: string, keyword: string) => {
+  if (zone === ZONE_CONTROVERSY || zone === ZONE_POPULAR || keyword) {
+    return CARD_TYPE_EXTRASLIDE_SPECIAL_FINAL_CARD;
   }
+  return CARD_TYPE_EXTRASLIDE_FINAL_CARD;
 };
 
 /**
@@ -124,7 +119,7 @@ export const buildCards = (
   }
 
   cards.splice(cards.length, 0, {
-    type: getFinalCardByZone(zone),
+    type: getFinalCard(zone, keyword),
     configuration: extraSlidesConfig.finalCard,
     offset: cardOffset,
     index: 0,
