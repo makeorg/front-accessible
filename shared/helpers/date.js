@@ -136,6 +136,36 @@ export class DateHelperSingleton {
     return moment(objectDate).format('MMMM YYYY');
   }
 
+  localizedDayMonth(date: ?string | null) {
+    if (!date) {
+      return null;
+    }
+
+    const objectDate = new Date(date);
+    if (Number.isNaN(objectDate.getMonth())) {
+      return null;
+    }
+
+    moment.locale(this._language);
+
+    return moment(objectDate).format('DD MMMM');
+  }
+
+  localizedDayMonthYear(date: ?string | null) {
+    if (!date) {
+      return null;
+    }
+
+    const objectDate = new Date(date);
+    if (Number.isNaN(objectDate.getMonth())) {
+      return null;
+    }
+
+    moment.locale(this._language);
+
+    return moment(objectDate).format('DD MMMM YYYY');
+  }
+
   localizedLDate(date: ?string | null) {
     if (!date) {
       return null;

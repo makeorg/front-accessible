@@ -18,6 +18,7 @@ export const ROUTE_SEARCH_ORGANISATIONS = `${ROUTE_COUNTRY}/search/organisations
 export const ROUTE_SEARCH_CONSULTATIONS = `${ROUTE_COUNTRY}/search/consultations`;
 export const ROUTE_ACTION = `${ROUTE_COUNTRY}/consultation/:questionSlug/actions`;
 export const ROUTE_RESULTS = `${ROUTE_COUNTRY}/consultation/:questionSlug/results`;
+export const ROUTE_BETA_RESULTS = `${ROUTE_COUNTRY}/beta/consultation/:questionSlug/results`;
 export const ROUTE_TOP_IDEAS = `${ROUTE_COUNTRY}/consultation/:questionSlug/top-ideas`;
 export const ROUTE_TOP_IDEA_DETAILS = `${ROUTE_COUNTRY}/consultation/:questionSlug/top-ideas/:topIdeaId`;
 export const ROUTE_SEQUENCE = `${ROUTE_COUNTRY}/consultation/:questionSlug/selection`;
@@ -208,6 +209,18 @@ export const isResultsPage = (
   pathname: string,
   includingPreview: ?boolean = true
 ) => matchRoute(pathname, ROUTE_RESULTS, false, false, false, includingPreview);
+export const isBetaResultsPage = (
+  pathname: string,
+  includingPreview: ?boolean = true
+) =>
+  matchRoute(
+    pathname,
+    ROUTE_BETA_RESULTS,
+    false,
+    false,
+    false,
+    includingPreview
+  );
 export const isTopIdeasPage = (
   pathname: string,
   includingPreview: ?boolean = true

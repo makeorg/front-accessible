@@ -77,9 +77,16 @@ export const FiguresValueStyle = styled.span`
   &.mobile-extra-margin-bottom {
     margin-bottom: 30px;
   }
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    font-size: ${intToPx(typography.font.fontsize.XL.value)};
+  }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    margin-bottom: 0px;
     &.mobile-extra-margin-bottom {
-      margin-bottom: 20px;
+      margin-bottom: 0px;
+    }
+    &.padding-right {
+      padding-right: 50px;
     }
   }
 `;

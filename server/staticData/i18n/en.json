@@ -571,7 +571,8 @@
   "consultation": {
     "header": {
       "label_great_cause": "great cause Make.org",
-      "label_consultation": "citizen consultation"
+      "label_consultation": "citizen consultation",
+      "label_results": "Results"
     },
     "tabs": {
       "consultation": " Consultation ",
@@ -654,51 +655,55 @@
       "discover": "Read our blog"
     },
     "results": {
-      "title": "Results of the consultation {{question}}",
-      "context": "Context",
-      "methodology": {
-        "title": "Methodology",
-        "description": "Our methodology is based on citizens’ solutions collected and reviewed by our Moderation team. They are first submitted for validation with regard to their compliance with the Make.org guidelines, then classified according to a thematic tagging. Algorithms developed by Make.org teams then guarantee each validated solution an equal level of exposure, and organize a competition between them. Through this constant rotation, Make.org identifies the solutions that have the greatest consensus among citizens before analyzing them and grouping them into big ideas."
+      "deprecated": {
+        "title": "Results of the consultation {{question}}",
+        "context": "Context",
+        "methodology": {
+          "title": "Methodology",
+          "description": "Our methodology is based on citizens’ solutions collected and reviewed by our Moderation team. They are first submitted for validation with regard to their compliance with the Make.org guidelines, then classified according to a thematic tagging. Algorithms developed by Make.org teams then guarantee each validated solution an equal level of exposure, and organize a competition between them. Through this constant rotation, Make.org identifies the solutions that have the greatest consensus among citizens before analyzing them and grouping them into big ideas."
+        },
+        "key_figures": {
+          "title": "Key figures",
+          "participants": "Contributors",
+          "proposals": "Solutions",
+          "votes": "Votes"
+        },
+        "top_ideas": {
+          "skiplink": "Top emerging ideas",
+          "title": "Top emerging ideas, grouped into {{count}} themes",
+          "introduction": ", The best citizen solutions are grouped into big ideas that structure the consultation. To classify these ideas, the Make.org algorithm takes into account the votes 'Agree' and 'Disagree' as well as the mentions 'Genius', 'Obvious', 'Irrelevant !' and 'Nonsense'.",
+          "theme_title": "Theme {{count}} : {{name}}",
+          "title_plural": "Top ideas is merged in {{count}} topics"
+        },
+        "proposals": {
+          "controversials": "Most discussed solutions",
+          "rejected": "Most rejected solutions",
+          "rejected_results": "{{disagree}}% 'Disagree' including {{no_way}}% 'Irrelevant !'",
+          "controversials_agree": "{{count}}% 'Agree'",
+          "controversials_disagree": "{{count}}% 'Disagree'"
+        },
+        "cartography": {
+          "title": "Mapping of the debate"
+        },
+        "participation": {
+          "title": "Who participated to this consultation?"
+        },
+        "table": {
+          "name": "Name",
+          "value": "Value",
+          "value_with_unit": "Value in {{unit}}",
+          "percentage": "percentage"
+        },
+        "download": {
+          "title": "Download the full report",
+          "type": "Format : {{extension}} - Weight : {{weight}}",
+          "button": "Download",
+          "contact": "If you want to receive the full report on this consultation, contact us at this address : {{mail}} ",
+          "email_object": "Ask for the results report."
+        }
       },
-      "key_figures": {
-        "title": "Key figures",
-        "participants": "Contributors",
-        "proposals": "Solutions",
-        "votes": "Votes"
-      },
-      "top_ideas": {
-        "skiplink": "Top emerging ideas",
-        "title": "Top emerging ideas, grouped into {{count}} themes",
-        "introduction": ", The best citizen solutions are grouped into big ideas that structure the consultation. To classify these ideas, the Make.org algorithm takes into account the votes 'Agree' and 'Disagree' as well as the mentions 'Genius', 'Obvious', 'Irrelevant !' and 'Nonsense'.",
-        "theme_title": "Theme {{count}} : {{name}}",
-        "title_plural": "Top ideas is merged in {{count}} topics"
-      },
-      "proposals": {
-        "controversials": "Most discussed solutions",
-        "rejected": "Most rejected solutions",
-        "rejected_results": "{{disagree}}% 'Disagree' including {{no_way}}% 'Irrelevant !'",
-        "controversials_agree": "{{count}}% 'Agree'",
-        "controversials_disagree": "{{count}}% 'Disagree'"
-      },
-      "cartography": {
-        "title": "Mapping of the debate"
-      },
-      "participation": {
-        "title": "Who participated to this consultation?"
-      },
-      "table": {
-        "name": "Name",
-        "value": "Value",
-        "value_with_unit": "Value in {{unit}}",
-        "percentage": "percentage"
-      },
-      "download": {
-        "title": "Download the full report",
-        "type": "Format : {{extension}} - Weight : {{weight}}",
-        "button": "Download",
-        "contact": "If you want to receive the full report on this consultation, contact us at this address : {{mail}} ",
-        "email_object": "Ask for the results report."
-      }
+      "breadcrumb": "@@consultation.results.breadcrumb|fr:Résultats : \"{{title}}\"",
+      "title": "@@consultation.results.title|fr:Que retenir de cette consultation ?"
     },
     "close": "Close",
     "reset": "Reinitialize",
@@ -729,7 +734,6 @@
       "title": "The {{ count }} most popular solutions by topic"
     },
     "highlights": {
-      "date": "Launch day",
       "remaining": "Remaining day",
       "remaining_plural": "Remaining days",
       "participant": "Participant",
@@ -737,7 +741,11 @@
       "progress_title": "Our votes target",
       "progress_target": " over {{votesTarget}} votes ({{percent}}%)",
       "progress_description": "The more votes a solution receives, the more likely it is to become a real change in society.",
-      "progress_btn": "Participate"
+      "progress_btn": "Participate",
+      "start_date": "@@consultation.highlights.start_date|fr:Date de lancement",
+      "end_date": "@@consultation.highlights.end_date|fr:Date de fin",
+      "proposals": "@@consultation.highlights.proposals|fr:Propositions",
+      "progress_total": "@@consultation.highlights.progress_total|fr:Nombre total de votes"
     },
     "participate": {
       "title": "How to participate in this consultation ?",
@@ -795,7 +803,8 @@
       "action_title": "Move to action",
       "timeline_title_great_cause": "What are the highlights of this great cause?",
       "timeline_title_consultation": "What are the highlights of this consultation?",
-      "workshop_link": "Contact us to participate"
+      "workshop_link": "Contact us to participate",
+      "consultation_from_to": "@@consultation.timeline.consultation_from_to|fr:Du {{startDate}} au {{endDate}}"
     }
   },
   "sharing": {
@@ -1082,7 +1091,8 @@
     "text_content_zero": "No consultation for now, but let's keep in touch!",
     "text_content_one": "Sign up to be aware of new consultations.",
     "subscribe": "Sign up",
-    "past_questions": "You can also check on the results of our past consultations"
+    "past_questions": "You can also check on the results of our past consultations",
+    "short_page_title": "@@browse.short_page_title|fr:Parcourir"
   },
   "countries": {
     "AT": "Austria",

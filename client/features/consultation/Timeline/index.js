@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { useLocation } from 'react-router';
 import { DateHelper, isCurrentStep } from 'Shared/helpers/date';
 import { i18n } from 'Shared/i18n';
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
@@ -8,7 +9,7 @@ import { type StateRoot } from 'Shared/store/types';
 import { isGreatCause } from 'Shared/helpers/question';
 import { CONTACT_EMAIL } from 'Shared/constants/config';
 import { type QuestionType } from 'Shared/types/question';
-
+import { isBetaResultsPage } from 'Shared/routes';
 import {
   TimelineWrapperStyle,
   TimelineListWrapperStyle,
@@ -58,6 +59,15 @@ export const Timeline = () => {
   const { result, workshop, action } = question.timeline;
   const oneStepTimeline = !result && !workshop && !action;
   const questionIsGreatCause = isGreatCause(question.operationKind);
+  const location = useLocation();
+  const resultsPage = isBetaResultsPage(location.pathname);
+
+  const firstStepDateText = resultsPage
+    ? i18n.t('consultation.timeline.consultation_from_to', {
+        startDate: DateHelper.localizedDayMonth(question.startDate),
+        endDate: DateHelper.localizedDayMonthYear(question.endDate),
+      })
+    : DateHelper.localizedMonthYear(question.startDate);
 
   return (
     <TimelineWrapperStyle>
@@ -71,7 +81,7 @@ export const Timeline = () => {
           <TimelineListWrapperStyle as="div">
             <TimelineItem
               title={i18n.t('consultation.timeline.consultation_title')}
-              dateText={DateHelper.localizedMonthYear(question.startDate)}
+              dateText={firstStepDateText}
               description={i18n.t(
                 'consultation.timeline.consultation_description'
               )}
@@ -83,7 +93,7 @@ export const Timeline = () => {
             <li>
               <TimelineItem
                 title={i18n.t('consultation.timeline.consultation_title')}
-                dateText={DateHelper.localizedMonthYear(question.startDate)}
+                dateText={firstStepDateText}
                 description={i18n.t(
                   'consultation.timeline.consultation_description'
                 )}

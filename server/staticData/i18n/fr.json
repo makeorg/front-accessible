@@ -676,15 +676,19 @@
   "consultation": {
     "header": {
       "label_great_cause": "Grande Cause Make.org",
-      "label_consultation": "Consultation citoyenne"
+      "label_consultation": "Consultation citoyenne",
+      "label_results": "Les résultats"
     },
     "highlights": {
-      "date": "Date de lancement",
+      "start_date": "Date de lancement",
+      "end_date": "Date de fin",
       "remaining": "Jour restant",
+      "proposals": "Propositions",
       "remaining_plural": "Jours restants",
       "participant": "Participant",
       "participant_plural": "Participants",
       "progress_title": "Notre objectif de votes",
+      "progress_total": "Nombre total de votes",
       "progress_target": " sur {{votesTarget}} votes ({{percent}}%)",
       "progress_description": "Plus les propositions recevront de votes, plus celles-ci auront le potentiel de déboucher sur des actions concrètes.",
       "progress_btn": "Participer"
@@ -742,6 +746,7 @@
       "timeline_title_consultation": "Quels sont les temps forts de cette consultation ?",
       "consultation_title": "Consultation citoyenne",
       "consultation_description": "Toutes nos consultations commencent par un appel aux idées et votes citoyens.",
+      "consultation_from_to": "Du {{startDate}} au {{endDate}}",
       "result_title": "Résultats",
       "workshop_title": "Ateliers citoyens",
       "workshop_link": "Contactez-nous pour participer",
@@ -828,51 +833,55 @@
       "see_proposals": "Voir les propositions"
     },
     "results": {
-      "title": "Résultats de la consultation <span lang=\"{{lang}}\">{{question}}<span>",
-      "context": "Le contexte",
-      "methodology": {
-        "title": "La méthodologie",
-        "description": "La méthodologie repose sur une modération fine des propositions recueillies. Elles sont d’abord soumises à validation au regard de leur conformité à la Charte Make.org, puis classées selon un balisage thématique. Les algorithmes développés par les équipes de Make.org garantissent ensuite à chacune des propositions validées un niveau égal d’exposition, et organisent une compétition entre elles. Grâce à ce roulement permanent, Make.org identifie les propositions faisant le plus consensus auprès des citoyens avant de les analyser et de les regrouper en grandes idées."
+      "breadcrumb": "Résultats : \"{{title}}\"",
+      "deprecated": {
+        "title": "Résultats de la consultation <span lang=\"{{lang}}\">{{question}}<span>",
+        "context": "Le contexte",
+        "methodology": {
+          "title": "La méthodologie",
+          "description": "La méthodologie repose sur une modération fine des propositions recueillies. Elles sont d’abord soumises à validation au regard de leur conformité à la Charte Make.org, puis classées selon un balisage thématique. Les algorithmes développés par les équipes de Make.org garantissent ensuite à chacune des propositions validées un niveau égal d’exposition, et organisent une compétition entre elles. Grâce à ce roulement permanent, Make.org identifie les propositions faisant le plus consensus auprès des citoyens avant de les analyser et de les regrouper en grandes idées."
+        },
+        "key_figures": {
+          "title": "Chiffres-clés",
+          "participants": "Participants",
+          "proposals": "Propositions",
+          "votes": "Votes"
+        },
+        "top_ideas": {
+          "skiplink": "Le top des idées émergentes",
+          "title": "Le top des idées émergentes, regroupées en {{count}} thème",
+          "title_plural": "Le top des idées émergentes, regroupées en {{count}} thèmes",
+          "introduction": "À leur arrivée sur la plateforme, les meilleures propositions citoyennes sont regroupées en grandes idées qui structurent la consultation. Pour classer ces idées, l’algorithme Make.org tient compte des votes « pour » et « contre » ainsi que des mentions « coup de cœur», « banalité », « surtout pas ! » et « réaliste ».",
+          "theme_title": "Thème {{count}} : {{name}}"
+        },
+        "proposals": {
+          "controversials": "Les propositions les plus controversées",
+          "rejected": "Les propositions les plus repoussées",
+          "rejected_results": "{{disagree}}% contre dont {{no_way}}% surtout pas",
+          "controversials_agree": "{{count}}% pour",
+          "controversials_disagree": "{{count}}% contre"
+        },
+        "cartography": {
+          "title": "La cartographie du débat"
+        },
+        "participation": {
+          "title": "Qui a participé à cette consultation ?"
+        },
+        "table": {
+          "name": "Nom",
+          "value": "Valeur",
+          "value_with_unit": "valeur en {{unit}}",
+          "percentage": "pourcentage"
+        },
+        "download": { 
+          "title": "Obtenir le rapport complet",
+          "type": "Format : {{extension}} - Poids : {{weight}}",
+          "button": "Télécharger",
+          "contact": "Si vous souhaitez obtenir le rapport complet de la consultation, merci de nous contacter à l’adresse : ",
+          "email_object": "Demande de rapport pour la consultation"
+        }
       },
-      "key_figures": {
-        "title": "Chiffres-clés",
-        "participants": "Participants",
-        "proposals": "Propositions",
-        "votes": "Votes"
-      },
-      "top_ideas": {
-        "skiplink": "Le top des idées émergentes",
-        "title": "Le top des idées émergentes, regroupées en {{count}} thème",
-        "title_plural": "Le top des idées émergentes, regroupées en {{count}} thèmes",
-        "introduction": "À leur arrivée sur la plateforme, les meilleures propositions citoyennes sont regroupées en grandes idées qui structurent la consultation. Pour classer ces idées, l’algorithme Make.org tient compte des votes « pour » et « contre » ainsi que des mentions « coup de cœur», « banalité », « surtout pas ! » et « réaliste ».",
-        "theme_title": "Thème {{count}} : {{name}}"
-      },
-      "proposals": {
-        "controversials": "Les propositions les plus controversées",
-        "rejected": "Les propositions les plus repoussées",
-        "rejected_results": "{{disagree}}% contre dont {{no_way}}% surtout pas",
-        "controversials_agree": "{{count}}% pour",
-        "controversials_disagree": "{{count}}% contre"
-      },
-      "cartography": {
-        "title": "La cartographie du débat"
-      },
-      "participation": {
-        "title": "Qui a participé à cette consultation ?"
-      },
-      "table": {
-        "name": "Nom",
-        "value": "Valeur",
-        "value_with_unit": "valeur en {{unit}}",
-        "percentage": "pourcentage"
-      },
-      "download": { 
-        "title": "Obtenir le rapport complet",
-        "type": "Format : {{extension}} - Poids : {{weight}}",
-        "button": "Télécharger",
-        "contact": "Si vous souhaitez obtenir le rapport complet de la consultation, merci de nous contacter à l’adresse : ",
-        "email_object": "Demande de rapport pour la consultation"
-      }
+      "title": "Que retenir de cette consultation ?"
     },
     "close": "Fermer",
     "reset": "Réinitialiser",
@@ -904,6 +913,7 @@
     }
   },
   "browse": {
+    "short_page_title": "Parcourir",
     "page_title": "Parcourir les consultations",
     "title":"Participez aux consultations en cours",
     "initiative": "Grande cause Make.org",

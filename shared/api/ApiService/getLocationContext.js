@@ -20,6 +20,7 @@ import {
   ROUTE_PROFILE_PROPOSALS,
   ROUTE_PROFILE_FOLLOWING,
   ROUTE_RESULTS,
+  ROUTE_BETA_RESULTS,
   ROUTE_TOP_IDEAS,
   ROUTE_TOP_IDEA_DETAILS,
   ROUTE_PROFILE_OPINIONS,
@@ -43,7 +44,8 @@ export const getLocationContext = (
     { route: ROUTE_PARTICIPATE, name: `page-participate ${questionId}` },
     { route: ROUTE_EXPLORE, name: `page-explore ${questionId}` },
     { route: ROUTE_ACTION, name: `page-action ${questionId}` },
-    { route: ROUTE_RESULTS, name: `page-results ${questionId}` },
+    { route: ROUTE_RESULTS, name: `page-results-deprecated ${questionId}` },
+    { route: ROUTE_BETA_RESULTS, name: `page-results ${questionId}` },
     {
       route: ROUTE_TOP_IDEA_DETAILS,
       name: `page-top-idea-details ${questionId}`,

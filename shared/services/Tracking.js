@@ -488,6 +488,10 @@ export const trackClickResults = () => {
   TrackingService.sendAllTrackers(trackingEvent.CLICK_RESULTS());
 };
 
+export const trackDisplayResultsPage = () => {
+  TrackingService.sendAllTrackers(trackingEvent.DISPLAY_PAGE_RESULTS());
+};
+
 export const trackClickSubscribe = (componentName: string) => {
   TrackingService.sendAllTrackers(
     trackingEvent.CLICK_SUBSCRIBE({

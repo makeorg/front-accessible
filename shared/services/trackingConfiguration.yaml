@@ -340,6 +340,10 @@ CLICK_NAVBAR_SEARCH:
     key: click-navbar-search
     description: Click navbar search button
 
+DISPLAY_PAGE_RESULTS:
+    key: display-page-results
+    description: Display results page
+
 DISPLAY_SEARCH_MAIN_RESULTS:
     key: display-search-main-results
     description: Display search results
