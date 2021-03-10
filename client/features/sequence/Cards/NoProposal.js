@@ -5,6 +5,7 @@ import { LinkAsRedButtonStyle } from 'Client/ui/Elements/Buttons/V2/style';
 import { Sharing } from 'Client/features/sharing';
 import { matchDesktopDevice } from 'Shared/helpers/styled';
 import { getParticipateLink } from 'Shared/helpers/url';
+import { capitalizeFirstLetter } from 'Shared/helpers/stringFormatter';
 import { getNoProposalCardTitle } from 'Shared/helpers/sequence';
 import {
   SequenceMainTitleStyle,
@@ -27,9 +28,7 @@ export const NoProposal = ({ question, zone, keyword }) => {
   );
   const isDesktop = matchDesktopDevice(device);
   const hasKeyword = keyword && keyword !== undefined;
-  const keywordWithUppercase =
-    hasKeyword &&
-    keyword.charAt(0).toUpperCase() + keyword.substring(1).toLowerCase();
+  const keywordWithUppercase = hasKeyword && capitalizeFirstLetter(keyword);
 
   return (
     <>

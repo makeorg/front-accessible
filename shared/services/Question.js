@@ -4,6 +4,7 @@ import {
   type QuestionType,
   type QuestionPartnerType,
   type HomeQuestionType,
+  type QuestionKeywordType,
 } from 'Shared/types/question';
 import { type TagType } from 'Shared/types/tag';
 import { type PersonalityType } from 'Shared/types/user';
@@ -167,6 +168,20 @@ const getFeaturedProposals = async (
   }
 };
 
+const getQuestionKeywords = async (
+  questionId: string,
+  limit: number
+): Promise<?(QuestionKeywordType[])> => {
+  try {
+    const response = await QuestionApiService.getKeywords(questionId, limit);
+    return response.data;
+  } catch (apiServiceError) {
+    defaultUnexpectedError(apiServiceError);
+
+    return null;
+  }
+};
+
 export const QuestionService = {
   getQuestions,
   getDetail,
@@ -175,4 +190,5 @@ export const QuestionService = {
   getQuestionPartners,
   getQuestionPersonalities,
   getFeaturedProposals,
+  getQuestionKeywords,
 };

@@ -318,7 +318,7 @@
       "regular": "Merci pour votre incroyable contribution !",
       "popular": "Merci, vous avez voté sur toutes les propositions les plus populaires",
       "controversial": "Merci, vous avez voté sur toutes les propositions les plus controversées",
-      "keyword": "Merci, vous avez voté sur toutes les propositions de {{keyword}}"
+      "keyword": "Merci, vous avez voté sur toutes les propositions de \"{{keyword}}\""
     },
     "description": {
       "regular": "Il n'y a pas de nouvelles proposition pour le moment.",
@@ -719,6 +719,10 @@
         "title": "Voter sur les propositions les plus populaires",
         "description": "Ces propositions citoyennes ont reçu le plus de votes favorables.",
         "button": "Je vote"
+      },
+      "keywords": {
+        "title": "Les sujets qui vous interpellent",
+        "description": "Choisissez les sujets sur lesquels vous souhaitez vous exprimer en priorité."
       },
       "sharing": {
         "title": "Partager la consultation",

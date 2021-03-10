@@ -74,5 +74,5 @@
       
     ]
   },
-  "activeFeatures":["consultation-follow-us-active"]
+  "activeFeatures":["consultation-follow-us-active", "keyword-sequence"]
 }

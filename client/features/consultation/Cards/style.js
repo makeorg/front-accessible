@@ -28,11 +28,12 @@ export const CardStyle = styled.section`
     &.desktop-half {
       width: 50%;
     }
+
     &.desktop-padding-left {
-      margin-left: 10px;
+      margin-left: ${props => (props.isKeywordActive ? '0px' : '10px')};
     }
     &.desktop-padding-right {
-      margin-right: 10px;
+      margin-right: ${props => (props.isKeywordActive ? '0px' : '10px')};
     }
   }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
@@ -40,10 +41,10 @@ export const CardStyle = styled.section`
       margin-bottom: 30px;
     }
     &.desktop-padding-left {
-      margin-left: 15px;
+      margin-left: ${props => (props.isKeywordActive ? '0px' : '15px')};
     }
     &.desktop-padding-right {
-      margin-right: 15px;
+      margin-right: ${props => (props.isKeywordActive ? '0px' : '15px')};
     }
   }
 `;

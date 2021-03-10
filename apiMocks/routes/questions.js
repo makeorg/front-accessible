@@ -109,4 +109,11 @@ questionsRouter.get('/:questionId/top-ideas/:topIdeaId', (req, res) => {
   return res.send(questionTopIdeas[0] ? questionTopIdeas[0] : []);
 });
 
+questionsRouter.get('/:questionId/keywords', (req, res) => {
+  const results = fixtures.keywords.filter(
+    keyword => keyword.questionId === req.params.questionId
+  );
+  return res.send({ results });
+});
+
 module.exports = questionsRouter;

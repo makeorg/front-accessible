@@ -45,3 +45,11 @@ describe('formatOrganisationName', () => {
     );
   });
 });
+
+describe('capitalizeFirstLetter', () => {
+  it('should be formatted', () => {
+    expect(helpers.capitalizeFirstLetter('emballages et déchets')).toBe(
+      'Emballages et déchets'
+    );
+  });
+});

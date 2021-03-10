@@ -15,6 +15,7 @@ const PATH_QUESTION_TOP_IDEA_DETAILS =
   '/questions/:questionId/top-ideas/:topIdeaId';
 const PATH_QUESTION_FEATURED_PROPOSALS =
   '/questions/:questionId/featured-proposals';
+export const PATH_QUESTION_KEYWORDS = '/questions/:questionId/keywords';
 
 export class QuestionApiService {
   static getQuestions(
@@ -186,6 +187,23 @@ export class QuestionApiService {
           maxPartnerProposals,
           limit,
           seed,
+        },
+      }
+    );
+  }
+
+  static getKeywords(
+    questionId: string,
+    limit: number,
+    headers?: ApiServiceHeadersType = {}
+  ): Promise<any> {
+    return ApiService.callApi(
+      PATH_QUESTION_KEYWORDS.replace(':questionId', questionId),
+      {
+        method: 'GET',
+        headers,
+        params: {
+          limit,
         },
       }
     );
