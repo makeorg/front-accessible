@@ -33,11 +33,11 @@ export const NoProposal = ({ question, zone, keyword }) => {
   return (
     <>
       <SequenceMainTitleStyle>
-        {zone && getNoProposalCardTitle(zone)}
-        {hasKeyword &&
-          i18n.t('no_proposal_card.title.keyword', {
-            keyword: keywordWithUppercase,
-          })}
+        {hasKeyword
+          ? i18n.t('no_proposal_card.title.keyword', {
+              keyword: keywordWithUppercase,
+            })
+          : getNoProposalCardTitle(zone)}
       </SequenceMainTitleStyle>
       <SequenceParagraphStyle>
         {zone || hasKeyword

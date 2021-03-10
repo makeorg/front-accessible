@@ -13,12 +13,13 @@ export const CountryListener = () => {
     params: {},
   };
   const { country } = params;
+  const upperCountry = country.toUpperCase();
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(setCountryCode(country));
+    dispatch(setCountryCode(upperCountry));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [country]);
+  }, [upperCountry]);
 
   return null;
 };
