@@ -56,7 +56,7 @@ export const Keywords = ({ question, isKeywordActive }: Props) => {
   return isLoading ? (
     <Spinner />
   ) : (
-    <CardStyle className="desktop-half margin-bottom" isKeywordActive>
+    <CardStyle className="desktop-half margin-bottom no-padding-bottom">
       <SvgArrowUp
         fill="#253186"
         aria-hidden

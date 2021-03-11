@@ -20,7 +20,10 @@ export const CardStyle = styled.section`
   justify-content: space-between;
   background-color: ${color.white};
   border-radius: ${intToPx(Elements.BorderRadius)};
-  padding: ${props => (props.isKeywordActive ? '30px 30px 0px' : '30px')};
+  padding: 30px;
+  &.no-padding-bottom {
+    padding-bottom: 0px;
+  }
   &.margin-bottom {
     margin-bottom: 20px;
   }
