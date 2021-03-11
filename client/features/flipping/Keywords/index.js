@@ -78,7 +78,7 @@ export const Keywords = ({ question, isKeywordActive }: Props) => {
                 to={getSequenceKeywordLink(
                   country,
                   question.slug,
-                  encodeURI(keyword.label),
+                  encodeURI(keyword.key),
                   {
                     introCard: false,
                     pushProposal: false,
