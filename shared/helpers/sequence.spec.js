@@ -333,18 +333,23 @@ describe('Sequence Helper', () => {
 
   describe('get finard card by zone', () => {
     it('card from controversy zone', () => {
-      const finalCard = helpers.getFinalCardByZone(ZONE_CONTROVERSY);
+      const finalCard = helpers.getFinalCard(ZONE_CONTROVERSY);
       expect(finalCard).toEqual(CARD_TYPE_EXTRASLIDE_SPECIAL_FINAL_CARD);
     });
 
     it('card from consensus zone', () => {
-      const finalCard = helpers.getFinalCardByZone(ZONE_POPULAR);
+      const finalCard = helpers.getFinalCard(ZONE_POPULAR);
       expect(finalCard).toEqual(CARD_TYPE_EXTRASLIDE_SPECIAL_FINAL_CARD);
     });
 
     it('card from unknown zone', () => {
-      const finalCard = helpers.getFinalCardByZone('foo');
+      const finalCard = helpers.getFinalCard('foo');
       expect(finalCard).toEqual(CARD_TYPE_EXTRASLIDE_FINAL_CARD);
+    });
+
+    it('card from keyword', () => {
+      const finalCard = helpers.getFinalCard('foo', 'bar');
+      expect(finalCard).toEqual(CARD_TYPE_EXTRASLIDE_SPECIAL_FINAL_CARD);
     });
   });
 });

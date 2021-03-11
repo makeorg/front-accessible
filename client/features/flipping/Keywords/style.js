@@ -8,7 +8,8 @@ import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 
 export const KeywordsListWrapperStyle = styled.ul`
   display: flex;
-  flex-wrap: wrap;
+  flex-flow: column;
+  justify-content: space-between;
   align-content: normal;
   list-style: none;
   padding: 0px;
@@ -19,10 +20,14 @@ export const KeywordListItemStyle = styled.li`
   display: flex;
   flex-flow: column;
   text-decoration: none;
+  justify-content: space-between;
+  flex: 1 1 auto;
+  border-top: solid 2px ${color.greyLighter};
 `;
 
 export const KeywordItemLinkStyle = styled(Link)`
   display: inline-flex;
+  align-items: center;
   letter-spacing: 0.14px;
   line-height: 1.5;
   font-family: ${MakeFonts.CircularStandardBold};
@@ -33,12 +38,4 @@ export const KeywordItemLinkStyle = styled(Link)`
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     margin: auto 0px;
   }
-`;
-
-export const KeywordListSeparatorStyle = styled.hr`
-  margin: 0px;
-  width: 100%;
-  height: 2px;
-  background-color: ${color.greyLighter};
-  border: none;
 `;
