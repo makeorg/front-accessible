@@ -38,7 +38,7 @@ import {
 } from './Results/style';
 import { KeyFigures } from './Results/KeyFigures';
 import { ProposalsResults } from './Results/Proposals';
-import { TopIdeas } from './Results/TopIdeas';
+import { DeprecatedTopIdeas } from './Results/TopIdeas/DeprecatedTopIdeas';
 import { ResultsSlider } from './Results/Sliders';
 import { ResultsContact } from './Results/Contact';
 
@@ -79,7 +79,7 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
           }}
         />
         <TileWithTitle
-          title={i18n.t('consultation.results.deprecated.context')}
+          title={i18n.t('consultation.results.context')}
           icon={
             <SvgInfos aria-hidden style={ResultsIconsStyle} focusable="false" />
           }
@@ -105,7 +105,7 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
           <KeyFigures results={questionResults.key_figures} />
         </TileWithTitle>
         <TileWithTitle
-          title={i18n.t('consultation.results.deprecated.top_ideas.title', {
+          title={i18n.t('consultation.results.top_ideas.deprecated_title', {
             count: questionResults.top_ideas.length,
           })}
           icon={
@@ -118,10 +118,13 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
           }
           id={RESULTS_TOP_IDEAS}
         >
-          <TopIdeas topIdeas={questionResults.top_ideas} question={question} />
+          <DeprecatedTopIdeas
+            topIdeas={questionResults.top_ideas}
+            question={question}
+          />
         </TileWithTitle>
         <TileWithTitle
-          title={i18n.t('consultation.results.deprecated.cartography.title')}
+          title={i18n.t('consultation.results.cartography.title')}
           icon={
             <SvgMap aria-hidden style={ResultsIconsStyle} focusable="false" />
           }
@@ -133,9 +136,7 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
           />
         </TileWithTitle>
         <TileWithTitle
-          title={i18n.t(
-            'consultation.results.deprecated.proposals.controversials'
-          )}
+          title={i18n.t('consultation.results.proposals.controversials')}
           icon={<ResultsLightningIconStyle aria-hidden focusable="false" />}
           id={RESULTS_CONTROVERSIALS}
         >
@@ -146,7 +147,7 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
         </TileWithTitle>
         {hasRejected && (
           <TileWithTitle
-            title={i18n.t('consultation.results.deprecated.proposals.rejected')}
+            title={i18n.t('consultation.results.proposals.rejected')}
             icon={<ResultsThumbIconStyle aria-hidden focusable="false" />}
             id={RESULTS_REJECTED}
           >
@@ -167,7 +168,7 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
           />
         </TileWithTitle>
         <TileWithTitle
-          title={i18n.t('consultation.results.deprecated.download.title')}
+          title={i18n.t('consultation.results.download.title')}
           id={RESULTS_REPORT}
         >
           <ResultsContact reports={reports} question={question} />

@@ -22,20 +22,22 @@ export const MethodologyTile = ({ question }: Props) => {
   if (isMobile) {
     return (
       <Collapse
-        title={i18n.t('consultation.results.methodology.title')}
+        title={i18n.t('consultation.results.deprecated.methodology.title')}
         withTileStyle
       >
         <ParagraphStyle>
-          {i18n.t('consultation.results.methodology.description')}
+          {i18n.t('consultation.results.deprecated.methodology.description')}
         </ParagraphStyle>
       </Collapse>
     );
   }
 
   return (
-    <TileWithTitle title={i18n.t('consultation.results.methodology.title')}>
+    <TileWithTitle
+      title={i18n.t('consultation.results.deprecated.methodology.title')}
+    >
       <ParagraphStyle>
-        {i18n.t('consultation.results.methodology.description')}
+        {i18n.t('consultation.results.deprecated.methodology.description')}
       </ParagraphStyle>
     </TileWithTitle>
   );

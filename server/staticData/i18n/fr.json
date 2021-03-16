@@ -833,10 +833,8 @@
       "see_proposals": "Voir les propositions"
     },
     "results": {
-      "breadcrumb": "Résultats : \"{{title}}\"",
       "deprecated": {
         "title": "Résultats de la consultation <span lang=\"{{lang}}\">{{question}}<span>",
-        "context": "Le contexte",
         "methodology": {
           "title": "La méthodologie",
           "description": "La méthodologie repose sur une modération fine des propositions recueillies. Elles sont d’abord soumises à validation au regard de leur conformité à la Charte Make.org, puis classées selon un balisage thématique. Les algorithmes développés par les équipes de Make.org garantissent ensuite à chacune des propositions validées un niveau égal d’exposition, et organisent une compétition entre elles. Grâce à ce roulement permanent, Make.org identifie les propositions faisant le plus consensus auprès des citoyens avant de les analyser et de les regrouper en grandes idées."
@@ -847,40 +845,46 @@
           "proposals": "Propositions",
           "votes": "Votes"
         },
-        "top_ideas": {
-          "skiplink": "Le top des idées émergentes",
-          "title": "Le top des idées émergentes, regroupées en {{count}} thème",
-          "title_plural": "Le top des idées émergentes, regroupées en {{count}} thèmes",
-          "introduction": "À leur arrivée sur la plateforme, les meilleures propositions citoyennes sont regroupées en grandes idées qui structurent la consultation. Pour classer ces idées, l’algorithme Make.org tient compte des votes « pour » et « contre » ainsi que des mentions « coup de cœur», « banalité », « surtout pas ! » et « réaliste ».",
-          "theme_title": "Thème {{count}} : {{name}}"
-        },
-        "proposals": {
-          "controversials": "Les propositions les plus controversées",
-          "rejected": "Les propositions les plus repoussées",
-          "rejected_results": "{{disagree}}% contre dont {{no_way}}% surtout pas",
-          "controversials_agree": "{{count}}% pour",
-          "controversials_disagree": "{{count}}% contre"
-        },
-        "cartography": {
-          "title": "La cartographie du débat"
-        },
         "participation": {
           "title": "Qui a participé à cette consultation ?"
-        },
-        "table": {
-          "name": "Nom",
-          "value": "Valeur",
-          "value_with_unit": "valeur en {{unit}}",
-          "percentage": "pourcentage"
-        },
-        "download": { 
-          "title": "Obtenir le rapport complet",
-          "type": "Format : {{extension}} - Poids : {{weight}}",
-          "button": "Télécharger",
-          "contact": "Si vous souhaitez obtenir le rapport complet de la consultation, merci de nous contacter à l’adresse : ",
-          "email_object": "Demande de rapport pour la consultation"
         }
       },
+      "context": "Le contexte",
+      "cartography": {
+        "title": "La cartographie du débat"
+      },
+      "download": { 
+        "title": "Obtenir le rapport complet",
+        "type": "Format : {{extension}} - Poids : {{weight}}",
+        "button": "Télécharger",
+        "contact": "Si vous souhaitez obtenir le rapport complet de la consultation, merci de nous contacter à l’adresse : ",
+        "email_object": "Demande de rapport pour la consultation"
+      },
+      "top_ideas": {
+        "skiplink": "Le top des idées émergentes",
+        "deprecated_title": "Le top des idées émergentes, regroupées en {{count}} thème",
+        "title": "Le top des idées plébiscitées, regroupées en {{count}} axe",
+        "deprecated_title_plural": "Le top des idées émergentes, regroupées en {{count}} thèmes",
+        "title_plural": "Le top des idées plébiscitées, regroupées en {{count}} axes",
+        "deprecated_introduction": "À leur arrivée sur la plateforme, les meilleures propositions citoyennes sont regroupées en grandes idées qui structurent la consultation. Pour classer ces idées, l’algorithme Make.org tient compte des votes « pour » et « contre » ainsi que des mentions « coup de cœur», « banalité », « surtout pas ! » et « réaliste ».",
+        "introduction": "À leur arrivée sur la plateforme, les meilleures propositions des citoyens sont regroupées en grandes idées qui structurent la consultation. Pour classer ces idées, l’algorithme Make.org tient compte des votes « pour » et « contre » ainsi que des mentions « coup de coeur », « réaliste », « banalité » et « surtout pas ! ».",
+        "deprecated_theme_title": "Thème {{count}} : {{name}}",
+        "axe_title": "Axe {{count}} : {{name}}"
+      },  
+      "proposals": {
+        "controversials": "Les propositions les plus controversées",
+        "rejected": "Les propositions les plus repoussées",
+        "rejected_results": "{{disagree}}% contre dont {{no_way}}% surtout pas",
+        "controversials_agree": "{{count}}% pour",
+        "controversials_disagree": "{{count}}% contre"
+      },
+      "table": {
+        "name": "Nom",
+        "value": "Valeur",
+        "value_with_unit": "valeur en {{unit}}",
+        "percentage": "pourcentage"
+      },
+      "breadcrumb": "Résultats : \"{{title}}\"",
       "title": "Que retenir de cette consultation ?"
     },
     "close": "Fermer",

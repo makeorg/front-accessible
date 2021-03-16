@@ -25,21 +25,24 @@ type Props = {
   question: QuestionType,
 };
 
-export const TopIdeas = ({ topIdeas, question }: Props) => {
+export const DeprecatedTopIdeas = ({ topIdeas, question }: Props) => {
   const voteAttributes = voteStaticParams[VOTE_AGREE_KEY];
 
   return (
     <>
       <TopIdeasParagraphStyle>
-        {i18n.t('consultation.results.top_ideas.introduction')}
+        {i18n.t('consultation.results.top_ideas.deprecated_introduction')}
       </TopIdeasParagraphStyle>
       {topIdeas.map((topIdea, index) => (
         <Collapse
           key={topIdea.name}
-          title={i18n.t('consultation.results.top_ideas.axe_title', {
-            count: index + 1,
-            name: topIdea.name,
-          })}
+          title={i18n.t(
+            'consultation.results.top_ideas.deprecated_theme_title',
+            {
+              count: index + 1,
+              name: topIdea.name,
+            }
+          )}
           open={index === 0}
           noMargin
           language={question.language}

@@ -40,7 +40,7 @@ export const ResultsSkipLinks = ({ questionResults }: Props) => (
     <li>
       <SkipLink as="a" href={`#${RESULTS_KEY_FIGURES}`}>
         {i18n.t('skip_links.dynamic_section', {
-          name: i18n.t('consultation.results.key_figures.title'),
+          name: i18n.t('consultation.results.deprecated.key_figures.title'),
         })}
       </SkipLink>
     </li>
@@ -75,7 +75,7 @@ export const ResultsSkipLinks = ({ questionResults }: Props) => (
     <li>
       <SkipLink as="a" href={`#${RESULTS_PARTICIPATION}`}>
         {i18n.t('skip_links.dynamic_section', {
-          name: i18n.t('consultation.results.participation.title'),
+          name: i18n.t('consultation.results.deprecated.participation.title'),
         })}
       </SkipLink>
     </li>
