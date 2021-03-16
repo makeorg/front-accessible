@@ -1,10 +1,12 @@
 import React from 'react';
+import { useLocation } from 'react-router';
 import { type StateRoot } from 'Shared/store/types';
 import { type QuestionType } from 'Shared/types/question';
 import { useSelector } from 'react-redux';
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
 import { DateHelper } from 'Shared/helpers/date';
 import { i18n } from 'Shared/i18n';
+import { isBetaResultsPage } from 'Shared/routes';
 import { formatMillionToText } from 'Shared/helpers/numberFormatter';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import {
@@ -20,29 +22,44 @@ export const Figures = () => {
     selectCurrentQuestion(state)
   );
   const remainingDays = DateHelper.getRemainingDays(question.endDate);
+  const location = useLocation();
+  const resultsPage = isBetaResultsPage(location.pathname);
 
   return (
     <FiguresListStyle>
       <FiguresListItemStyle>
         <HigthlightsTitleStyle>
-          {i18n.t('consultation.highlights.date')}
+          {resultsPage
+            ? i18n.t('consultation.highlights.end_date')
+            : i18n.t('consultation.highlights.start_date')}
         </HigthlightsTitleStyle>
         <ScreenReaderItemStyle> : </ScreenReaderItemStyle>
         <FiguresValueStyle
+          className="padding-right"
           as="time"
-          dateTime={DateHelper.localizedLDate(question.startDate)}
+          dateTime={
+            resultsPage
+              ? DateHelper.localizedLDate(question.endDate)
+              : DateHelper.localizedLDate(question.startDate)
+          }
         >
-          {DateHelper.localizedllDate(question.startDate)}
+          {resultsPage
+            ? DateHelper.localizedllDate(question.endDate)
+            : DateHelper.localizedllDate(question.startDate)}
         </FiguresValueStyle>
       </FiguresListItemStyle>
       <FiguresListItemStyle>
         <HigthlightsTitleStyle>
-          {i18n.t('consultation.highlights.remaining', {
-            count: remainingDays,
-          })}
+          {resultsPage
+            ? i18n.t('consultation.highlights.proposals')
+            : i18n.t('consultation.highlights.remaining', {
+                count: remainingDays,
+              })}
         </HigthlightsTitleStyle>
         <ScreenReaderItemStyle> : </ScreenReaderItemStyle>
-        <FiguresValueStyle>{remainingDays}</FiguresValueStyle>
+        <FiguresValueStyle>
+          {resultsPage ? question.highlights.proposalsCount : remainingDays}
+        </FiguresValueStyle>
       </FiguresListItemStyle>
       <FiguresListItemStyle>
         <HigthlightsTitleStyle>

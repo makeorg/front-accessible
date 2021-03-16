@@ -1,10 +1,12 @@
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import React from 'react';
+import { useLocation } from 'react-router';
 import { type QuestionHighlightsType } from 'Shared/types/question';
 import { useSelector } from 'react-redux';
 import { i18n } from 'Shared/i18n';
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
 import { getVotesRatio } from 'Shared/helpers/voteResult';
+import { isBetaResultsPage } from 'Shared/routes';
 import { formatCountWithLanguage } from 'Shared/helpers/numberFormatter';
 import {
   ProgressWrapperStyle,
@@ -26,12 +28,16 @@ export const Progress = () => {
   const { language } = useSelector((state: StateRoot) => state.appConfig);
   const { votesCount, votesTarget } = highlights;
   const votesPercent = getVotesRatio(votesCount, votesTarget);
+  const location = useLocation();
+  const resultsPage = isBetaResultsPage(location.pathname);
 
   return (
     <ProgressWrapperStyle>
       <ProgressInnerStyle>
         <ProgressTitleStyle as="h3">
-          {i18n.t('consultation.highlights.progress_title')}
+          {resultsPage
+            ? i18n.t('consultation.highlights.progress_total')
+            : i18n.t('consultation.highlights.progress_title')}
         </ProgressTitleStyle>
         <ScreenReaderItemStyle> : </ScreenReaderItemStyle>
         <VotesTargetStyle>
@@ -44,11 +50,13 @@ export const Progress = () => {
         <ProgressBarContainerStyle>
           <ProgressBarStyle percent={votesPercent} />
         </ProgressBarContainerStyle>
-        <ProgressParticipateStyle>
-          <ProgressDescriptionStyle>
-            {i18n.t('consultation.highlights.progress_description')}
-          </ProgressDescriptionStyle>
-        </ProgressParticipateStyle>
+        {!resultsPage && (
+          <ProgressParticipateStyle>
+            <ProgressDescriptionStyle>
+              {i18n.t('consultation.highlights.progress_description')}
+            </ProgressDescriptionStyle>
+          </ProgressParticipateStyle>
+        )}
       </ProgressInnerStyle>
     </ProgressWrapperStyle>
   );

@@ -72,14 +72,14 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
         <HiddenItemStyle
           as="h2"
           dangerouslySetInnerHTML={{
-            __html: i18n.t('consultation.results.title', {
+            __html: i18n.t('consultation.results.deprecated.title', {
               question: question.wording.question,
               lang: question.language,
             }),
           }}
         />
         <TileWithTitle
-          title={i18n.t('consultation.results.context')}
+          title={i18n.t('consultation.results.deprecated.context')}
           icon={
             <SvgInfos aria-hidden style={ResultsIconsStyle} focusable="false" />
           }
@@ -91,7 +91,7 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
           />
         </TileWithTitle>
         <TileWithTitle
-          title={i18n.t('consultation.results.key_figures.title')}
+          title={i18n.t('consultation.results.deprecated.key_figures.title')}
           icon={
             // eslint-disable-next-line react/jsx-wrap-multilines
             <SvgCalculator
@@ -105,7 +105,7 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
           <KeyFigures results={questionResults.key_figures} />
         </TileWithTitle>
         <TileWithTitle
-          title={i18n.t('consultation.results.top_ideas.title', {
+          title={i18n.t('consultation.results.deprecated.top_ideas.title', {
             count: questionResults.top_ideas.length,
           })}
           icon={
@@ -121,7 +121,7 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
           <TopIdeas topIdeas={questionResults.top_ideas} question={question} />
         </TileWithTitle>
         <TileWithTitle
-          title={i18n.t('consultation.results.cartography.title')}
+          title={i18n.t('consultation.results.deprecated.cartography.title')}
           icon={
             <SvgMap aria-hidden style={ResultsIconsStyle} focusable="false" />
           }
@@ -133,7 +133,9 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
           />
         </TileWithTitle>
         <TileWithTitle
-          title={i18n.t('consultation.results.proposals.controversials')}
+          title={i18n.t(
+            'consultation.results.deprecated.proposals.controversials'
+          )}
           icon={<ResultsLightningIconStyle aria-hidden focusable="false" />}
           id={RESULTS_CONTROVERSIALS}
         >
@@ -144,7 +146,7 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
         </TileWithTitle>
         {hasRejected && (
           <TileWithTitle
-            title={i18n.t('consultation.results.proposals.rejected')}
+            title={i18n.t('consultation.results.deprecated.proposals.rejected')}
             icon={<ResultsThumbIconStyle aria-hidden focusable="false" />}
             id={RESULTS_REJECTED}
           >
@@ -156,7 +158,7 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
           </TileWithTitle>
         )}
         <TileWithTitle
-          title={i18n.t('consultation.results.participation.title')}
+          title={i18n.t('consultation.results.deprecated.participation.title')}
           id={RESULTS_PARTICIPATION}
         >
           <ResultsSlider
@@ -165,7 +167,7 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
           />
         </TileWithTitle>
         <TileWithTitle
-          title={i18n.t('consultation.results.download.title')}
+          title={i18n.t('consultation.results.deprecated.download.title')}
           id={RESULTS_REPORT}
         >
           <ResultsContact reports={reports} question={question} />

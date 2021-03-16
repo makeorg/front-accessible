@@ -375,6 +375,11 @@ Following parameters are added to all events.
     
   
 
+  - `display-page-results` Display results page
+
+    
+  
+
   - `display-search-main-results` Display search results
 
     

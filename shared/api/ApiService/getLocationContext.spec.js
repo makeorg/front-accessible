@@ -42,9 +42,17 @@ describe('getLocationContext', () => {
       name: 'ROUTE_RESULTS',
       path: '/FR/consultation/foo/results',
       params: { questionId: 'question-id' },
+      expected: `page-results-deprecated question-id`,
+      expectedTracking: `page-results-deprecated`,
+    },
+    {
+      name: 'ROUTE_BETA_RESULTS',
+      path: '/FR/beta/consultation/foo/results',
+      params: { questionId: 'question-id' },
       expected: `page-results question-id`,
       expectedTracking: `page-results`,
     },
+
     {
       name: 'ROUTE_TOP_IDEA_DETAILS',
       path: '/FR/consultation/foo/top-ideas/bar',
@@ -236,6 +244,7 @@ describe('getLocationContext', () => {
       'ROUTE_COUNTRY_LANG',
       'ROUTE_COUNTRY_FR',
       'ROUTE_RESULTS',
+      'ROUTE_BETA_RESULTS',
       'ROUTE_TOP_IDEAS',
       'ROUTE_ACCOUNT_ACTIVATION',
       'ROUTE_PASSWORD_RECOVERY',

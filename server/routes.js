@@ -27,6 +27,7 @@ import {
   ROUTE_STATIC_DATA,
   ROUTE_STATIC_GTU,
   ROUTE_RESULTS,
+  ROUTE_BETA_RESULTS,
   ROUTE_TOP_IDEAS,
   ROUTE_TOP_IDEA_DETAILS,
   ROUTE_PERSONALITY_PROFILE,
@@ -150,6 +151,7 @@ export const initRoutes = app => {
   app.get(ROUTE_EXPLORE, frontMiddlewares, questionRoute);
   app.get(ROUTE_ACTION, frontMiddlewares, questionRoute);
   addGetWithPreview(ROUTE_RESULTS, frontMiddlewares, questionRoute);
+  addGetWithPreview(ROUTE_BETA_RESULTS, frontMiddlewares, questionRoute);
   app.get(ROUTE_TOP_IDEAS, frontMiddlewares, questionRoute);
   app.get(ROUTE_TOP_IDEA_DETAILS, frontMiddlewares, questionRoute);
   app.get(ROUTE_SEQUENCE, frontMiddlewares, sequenceRoute);

@@ -25,18 +25,33 @@ export const HeaderContentStyle = styled(FlexElementStyle)`
   }
 `;
 
+export const HeaderWrapperLabelStyle = styled(FlexElementStyle)`
+  flex-direction: row;
+`;
+
 export const HeaderLabelStyle = styled.span`
   display: flex;
   align-items: center;
   font-family: ${MakeFonts.TradeGothicBoldCondensed};
   font-size: ${intToPx(typography.font.fontsize.XS.value)};
-  background-color: ${color.black};
-  color: ${color.white};
   text-transform: uppercase;
   padding: 10px 10px 8px;
   height: 25px;
   width: max-content;
   margin: 5px 0 15px;
+  color: ${color.white};
+  background-color: ${color.black};
+  &.white-text {
+    color: ${color.white};
+    background-color: ${color.black};
+  }
+  &.black-text {
+    color: ${color.black};
+    background-color: ${color.white};
+  }
+  &.margin-left {
+    margin-left: 10px;
+  }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     margin: 15px 0;
   }

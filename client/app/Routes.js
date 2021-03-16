@@ -33,6 +33,7 @@ import {
   ROUTE_STATIC_DATA,
   ROUTE_STATIC_CONTACT,
   ROUTE_RESULTS,
+  ROUTE_BETA_RESULTS,
   ROUTE_TOP_IDEAS,
   ROUTE_PERSONALITY_PROFILE,
   ROUTE_TOP_IDEA_DETAILS,
@@ -61,6 +62,9 @@ const ParticipatePage = loadable(() =>
   import('../pages/Consultation/Participate.js')
 );
 const ExplorePage = loadable(() => import('../pages/Consultation/Explore.js'));
+export const DeprecatedResultsPage = loadable(() =>
+  import('../pages/Consultation/DeprecatedResults.js')
+);
 export const ResultsPage = loadable(() =>
   import('../pages/Consultation/Results.js')
 );
@@ -156,12 +160,17 @@ export const Routes = () => {
       </Route>
       <Route path={ROUTE_RESULTS}>
         <QuestionWrapper>
+          <DeprecatedResultsPage />
+        </QuestionWrapper>
+      </Route>
+      <Route path={ROUTE_BETA_RESULTS}>
+        <QuestionWrapper>
           <ResultsPage />
         </QuestionWrapper>
       </Route>
       <Route path={`${BASE_PREVIEW_PATH}${ROUTE_RESULTS}`}>
         <QuestionWrapper>
-          <ResultsPage />
+          <DeprecatedResultsPage />
         </QuestionWrapper>
       </Route>
       <Route path={ROUTE_TOP_IDEA_DETAILS}>

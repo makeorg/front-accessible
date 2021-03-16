@@ -6,31 +6,27 @@ import {
   type QuestionType,
   type QuestionResultsType,
 } from 'Shared/types/question';
-import { i18n } from 'Shared/i18n';
 import { ResultsSkipLinks } from 'Client/app/SkipLinks/Results';
+import { ResultsContent } from 'Client/features/consultation/Results';
 import { MiddlePageWrapperStyle } from 'Client/app/Styled/MainElements';
-import { trackDisplayResultsPage } from 'Shared/services/Tracking';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
+import { FollowUs } from 'Client/features/flipping/FollowUs';
+import { isGreatCause } from 'Shared/helpers/question';
+import { i18n } from 'Shared/i18n';
 import { MetaTags } from 'Client/app/MetaTags';
+import { DeprecatedConsultationHeader } from 'Client/features/consultation/deprecated/Header/index';
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
 import { ThemeProvider } from 'styled-components';
 import { ExpressService } from 'Shared/services/Express';
-import { ParticipateHeader } from 'Client/features/consultation/Header';
-import { ParticipateHighlights } from 'Client/features/consultation/Highlights';
-import { Timeline } from 'Client/features/consultation/Timeline';
-import { CitizenRegister } from 'Client/features/consultation/CitizenRegister';
-import {
-  ParticipateContentStyle,
-  ParticipateInnerStyle,
-  ParticipateSidebarContentStyle,
-  ParticipateTitleStyle,
-} from './style';
+import { matchMobileDevice } from 'Shared/helpers/styled';
+import { ConsultationPageWrapperStyle } from './style';
 import { NotFoundPage } from '../NotFound';
 
-const ResultPage = () => {
+const DeprecatedResultPage = () => {
   const question: QuestionType = useSelector((state: StateRoot) =>
     selectCurrentQuestion(state)
   );
+  const { device } = useSelector((state: StateRoot) => state.appConfig);
   const metas = (
     <MetaTags
       title={i18n.t('meta.results.title', {
@@ -40,6 +36,8 @@ const ResultPage = () => {
       picture={question.wording.metas.picture}
     />
   );
+  const isMobile = matchMobileDevice(device);
+  const questionIsGreatCause = isGreatCause(question.operationKind);
   const [alternativeContent, setAlternativeContent] = useState(
     <>
       {metas}
@@ -62,7 +60,6 @@ const ResultPage = () => {
 
   useEffect(() => {
     initResults();
-    trackDisplayResultsPage();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -74,28 +71,15 @@ const ResultPage = () => {
     <ThemeProvider theme={question.theme}>
       {metas}
       <ResultsSkipLinks questionResults={questionResults} />
-      <ParticipateHeader />
-      <ParticipateHighlights />
-      <ParticipateContentStyle>
-        <ParticipateTitleStyle>
-          {i18n.t('consultation.results.title')}
-        </ParticipateTitleStyle>
-        <ParticipateInnerStyle>
-          {/* top idées + cartogrpahie débat + propositions controversées +
-          participants */}
-          <ParticipateSidebarContentStyle>
-            {/* contexte + rapport + parcourir */}
-          </ParticipateSidebarContentStyle>
-        </ParticipateInnerStyle>
-      </ParticipateContentStyle>
-      <Timeline />
-      <ParticipateContentStyle as="aside">
-        <CitizenRegister />
-      </ParticipateContentStyle>
+      <DeprecatedConsultationHeader question={question} />
+      <ConsultationPageWrapperStyle isGreatCause={questionIsGreatCause}>
+        <ResultsContent question={question} questionResults={questionResults} />
+      </ConsultationPageWrapperStyle>
+      {isMobile && <FollowUs question={question} />}
     </ThemeProvider>
   );
 };
 
 // default export needed for loadable coomponent
 // eslint-disable-next-line import/no-default-export
-export default ResultPage;
+export default DeprecatedResultPage;
