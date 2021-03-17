@@ -1,19 +1,22 @@
+// @flow
 import React from 'react';
-// import { i18n } from 'Shared/i18n';
-import { ColumnElementStyle } from 'Client/ui/Elements/FlexElements';
+
 import {
   CardTitleStyle,
   CardDescriptionStyle,
 } from 'Client/features/consultation/Cards/style';
-import { ResultCardStyle, ResultCardSeparatorStyle } from './style';
+import { ResultCardStyle, ResultCardIntroWrapperStyle } from './style';
 
 type Props = {
+  /** Optional icon to render */
   icon?: any,
+  /** Title to render */
   title: string,
+  /** Optional description to render */
   description?: string,
-  /** Optional id for Tile */
+  /** Optional id to render */
   id?: string,
-  /** Chidlren to render */
+  /** Children to render */
   children: Node,
 };
 
@@ -25,14 +28,15 @@ export const ResultCard = ({
   children,
 }: Props) => (
   <ResultCardStyle>
-    <ColumnElementStyle>
+    <ResultCardIntroWrapperStyle>
       {icon}
       <CardTitleStyle id={id}>{title}</CardTitleStyle>
-      <CardDescriptionStyle className="padding-right">
-        {description}
-      </CardDescriptionStyle>
-    </ColumnElementStyle>
-    <ResultCardSeparatorStyle />
+      {description && (
+        <CardDescriptionStyle className="padding-right">
+          {description}
+        </CardDescriptionStyle>
+      )}
+    </ResultCardIntroWrapperStyle>
     {children}
   </ResultCardStyle>
 );

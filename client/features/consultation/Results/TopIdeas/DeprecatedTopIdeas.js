@@ -1,16 +1,17 @@
+// @flow
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import React from 'react';
 import { voteStaticParams, VOTE_AGREE_KEY } from 'Shared/constants/vote';
 import { i18n } from 'Shared/i18n';
 import { ThemeItemType } from 'Shared/types/question';
-import { Collapse } from 'Client/ui/Elements/Collapse';
+import { DeprecatedCollapse } from 'Client/ui/Elements/Collapse/DeprecatedCollapse';
 import { ColumnToRowElementStyle } from 'Client/ui/Elements/FlexElements';
 import { VoteIconStyle } from 'Client/ui/Elements/Buttons/style';
 import {
-  TopIdeasParagraphStyle,
+  DeprecatedTopIdeasParagraphStyle,
   ThemeAgreeResultsStyle,
-  ThemeItemProposalStyle,
-  ThemeListItemStyle,
+  DeprecatedThemeItemProposalStyle,
+  DeprecatedThemeListItemStyle,
   ThemeQualifiedStyle,
   ThemeResultsButtonStyle,
   ThemeResultsDetailsStyle,
@@ -30,11 +31,11 @@ export const DeprecatedTopIdeas = ({ topIdeas, question }: Props) => {
 
   return (
     <>
-      <TopIdeasParagraphStyle>
+      <DeprecatedTopIdeasParagraphStyle>
         {i18n.t('consultation.results.top_ideas.deprecated_introduction')}
-      </TopIdeasParagraphStyle>
+      </DeprecatedTopIdeasParagraphStyle>
       {topIdeas.map((topIdea, index) => (
-        <Collapse
+        <DeprecatedCollapse
           key={topIdea.name}
           title={i18n.t(
             'consultation.results.top_ideas.deprecated_theme_title',
@@ -49,10 +50,13 @@ export const DeprecatedTopIdeas = ({ topIdeas, question }: Props) => {
         >
           <UnstyledListStyle>
             {topIdea.ideas.map(idea => (
-              <ThemeListItemStyle key={idea.idea}>
-                <ThemeItemProposalStyle as="p" lang={question.language}>
+              <DeprecatedThemeListItemStyle key={idea.idea}>
+                <DeprecatedThemeItemProposalStyle
+                  as="p"
+                  lang={question.language}
+                >
                   {idea.idea}
-                </ThemeItemProposalStyle>
+                </DeprecatedThemeItemProposalStyle>
                 <ThemeResultsWrapperStyle>
                   <ThemeResultsButtonStyle className="agree voted">
                     <VoteIconStyle
@@ -84,10 +88,10 @@ export const DeprecatedTopIdeas = ({ topIdeas, question }: Props) => {
                     </ColumnToRowElementStyle>
                   </ThemeResultsDetailsStyle>
                 </ThemeResultsWrapperStyle>
-              </ThemeListItemStyle>
+              </DeprecatedThemeListItemStyle>
             ))}
           </UnstyledListStyle>
-        </Collapse>
+        </DeprecatedCollapse>
       ))}
     </>
   );

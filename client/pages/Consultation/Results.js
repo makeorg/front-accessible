@@ -71,7 +71,7 @@ const ResultPage = () => {
     <SvgLightBulb
       aria-hidden
       width={isDesktop ? 36 : 31}
-      height={isDesktop ? 31 : 31}
+      height={isDesktop ? 36 : 31}
       focusable="false"
     />
   );

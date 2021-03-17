@@ -884,7 +884,7 @@
         "value_with_unit": "valeur en {{unit}}",
         "percentage": "pourcentage"
       },
-      "breadcrumb": "Résultats : \"{{title}}\"",
+      "breadcrumb": "Résultats de \"{{title}}\"",
       "title": "Que retenir de cette consultation ?"
     },
     "close": "Fermer",
@@ -938,6 +938,7 @@
       "empty": "Nous sommes désolés, aucune consultation n'est diponible actuellement dans votre pays."
     },
     "results":{
+      "all": "Tous les résultats",
       "label": "Consultations terminées",
       "title": "Découvrez les résultats",
       "subtitle": "A l'issue de nos consultations, découvrez les priorités des citoyens et les actions menées par Make.org dans le cadre de ses Grandes Causes.",

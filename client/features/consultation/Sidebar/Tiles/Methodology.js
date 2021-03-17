@@ -3,7 +3,7 @@ import React from 'react';
 import { type StateRoot } from 'Shared/store/types';
 import { type QuestionType } from 'Shared/types/question';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
-import { Collapse } from 'Client/ui/Elements/Collapse';
+import { DeprecatedCollapse } from 'Client/ui/Elements/Collapse/DeprecatedCollapse';
 import { i18n } from 'Shared/i18n';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { useSelector } from 'react-redux';
@@ -21,14 +21,14 @@ export const MethodologyTile = ({ question }: Props) => {
 
   if (isMobile) {
     return (
-      <Collapse
+      <DeprecatedCollapse
         title={i18n.t('consultation.results.deprecated.methodology.title')}
         withTileStyle
       >
         <ParagraphStyle>
           {i18n.t('consultation.results.deprecated.methodology.description')}
         </ParagraphStyle>
-      </Collapse>
+      </DeprecatedCollapse>
     );
   }
 

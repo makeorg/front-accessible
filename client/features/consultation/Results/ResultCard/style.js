@@ -1,9 +1,10 @@
+// @flow
 import { color } from 'athena-design-tokens/dist/color';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { Elements } from 'Client/app/assets/vars/Elements';
 import { intToPx } from 'Shared/helpers/styled';
 import styled from 'styled-components';
-import { SeparatorStyle } from 'Client/ui/Elements/Separators';
+import { ColumnElementStyle } from 'Client/ui/Elements/FlexElements';
 
 export const ResultCardStyle = styled.section`
   display: flex;
@@ -19,9 +20,6 @@ export const ResultCardStyle = styled.section`
   }
 `;
 
-export const ResultCardSeparatorStyle = styled(SeparatorStyle)`
-  margin-bottom: 30px;
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    margin-bottom: 35px;
-  }
+export const ResultCardIntroWrapperStyle = styled(ColumnElementStyle)`
+  border-bottom: solid 1px ${color.grey};
 `;

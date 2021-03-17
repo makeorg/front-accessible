@@ -7,14 +7,13 @@ import { Collapse } from 'Client/ui/Elements/Collapse';
 import { ColumnToRowElementStyle } from 'Client/ui/Elements/FlexElements';
 import { VoteIconStyle } from 'Client/ui/Elements/Buttons/style';
 import {
-  TopIdeasParagraphStyle,
-  ThemeAgreeResultsStyle,
-  ThemeItemProposalStyle,
-  ThemeListItemStyle,
-  ThemeQualifiedStyle,
-  ThemeResultsButtonStyle,
+  TopIdeaListItemStyle,
+  TopIdeaItemTitleStyle,
   ThemeResultsDetailsStyle,
+  ThemeAgreeResultsStyle,
   ThemeResultsWrapperStyle,
+  ThemeResultsButtonStyle,
+  ThemeQualifiedStyle,
 } from './style';
 
 type Props = {
@@ -30,9 +29,6 @@ export const TopIdeas = ({ topIdeas, question }: Props) => {
 
   return (
     <>
-      <TopIdeasParagraphStyle>
-        {i18n.t('consultation.results.top_ideas.introduction')}
-      </TopIdeasParagraphStyle>
       {topIdeas.map((topIdea, index) => (
         <Collapse
           key={topIdea.name}
@@ -41,15 +37,14 @@ export const TopIdeas = ({ topIdeas, question }: Props) => {
             name: topIdea.name,
           })}
           open={index === 0}
-          noMargin
           language={question.language}
         >
           <UnstyledListStyle>
             {topIdea.ideas.map(idea => (
-              <ThemeListItemStyle key={idea.idea}>
-                <ThemeItemProposalStyle as="p" lang={question.language}>
+              <TopIdeaListItemStyle key={idea.idea}>
+                <TopIdeaItemTitleStyle lang={question.language}>
                   {idea.idea}
-                </ThemeItemProposalStyle>
+                </TopIdeaItemTitleStyle>
                 <ThemeResultsWrapperStyle>
                   <ThemeResultsButtonStyle className="agree voted">
                     <VoteIconStyle
@@ -81,7 +76,7 @@ export const TopIdeas = ({ topIdeas, question }: Props) => {
                     </ColumnToRowElementStyle>
                   </ThemeResultsDetailsStyle>
                 </ThemeResultsWrapperStyle>
-              </ThemeListItemStyle>
+              </TopIdeaListItemStyle>
             ))}
           </UnstyledListStyle>
         </Collapse>

@@ -10,14 +10,14 @@ import { intToPx } from 'Shared/helpers/styled';
 import styled from 'styled-components';
 import { FlexElementStyle } from 'Client/ui/Elements/FlexElements';
 
-export const TopIdeasParagraphStyle = styled(ParagraphStyle)`
+export const DeprecatedTopIdeasParagraphStyle = styled(ParagraphStyle)`
   margin-bottom: 20px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     margin-bottom: 30px;
   }
 `;
 
-export const ThemeListItemStyle = styled.li`
+export const DeprecatedThemeListItemStyle = styled.li`
   margin-bottom: 15px;
   padding: 20px;
   background-color: ${color.greyLighter};
@@ -25,7 +25,7 @@ export const ThemeListItemStyle = styled.li`
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
 `;
 
-export const ThemeItemProposalStyle = styled(ProposalStyle)`
+export const DeprecatedThemeItemProposalStyle = styled(ProposalStyle)`
   margin: 0 0 10px;
 `;
 
@@ -61,4 +61,25 @@ export const ThemeQualifiedStyle = styled.span`
   font-family: ${MakeFonts.CircularStandardBold};
   color: ${color.black};
   margin: 0 15px 0 5px;
+`;
+
+export const TopIdeaListItemStyle = styled.li`
+  margin-bottom: 10px;
+  &:first-child {
+    margin-top: 50px;
+  }
+  padding: 25px 20px;
+  background-color: ${color.white};
+  border-radius: ${intToPx(Elements.BorderRadius)};
+  border: solid 1px ${color.grey};
+`;
+
+export const TopIdeaItemTitleStyle = styled.p`
+  margin-bottom: 25px;
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    margin-bottom: 15px;
+  }
+  font-family: ${MakeFonts.CircularStandardBold};
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
+  letter-spacing: 0.14px;
 `;

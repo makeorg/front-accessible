@@ -706,7 +706,7 @@
         "value_with_unit": "Value in {{unit}}",
         "percentage": "percentage"
       },
-      "breadcrumb": "@@consultation.results.breadcrumb|fr:Résultats : \"{{title}}\"",
+      "breadcrumb": "Results of \"{{title}}\"",
       "title": "@@consultation.results.title|fr:Que retenir de cette consultation ?"
     },
     "close": "Close",
@@ -1087,7 +1087,8 @@
       "see_results": "See the results",
       "see_topideas": "See top ideas",
       "coming_results": "Coming results",
-      "empty": "We have never run any consultation in this country so far."
+      "empty": "We have never run any consultation in this country so far.",
+      "all": "All results"
     },
     "date": "Consultation from {{startDate}} to {{endDate}}",
     "browse": "Browse consultations",
