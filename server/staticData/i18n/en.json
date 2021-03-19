@@ -697,11 +697,12 @@
         "axe_title": "@@consultation.results.top_ideas.axe_title|fr:Axe {{count}} : {{name}}"
       },
       "proposals": {
-        "controversials": "Most discussed solutions",
+        "controversials_title": "Most discussed solutions",
         "rejected": "Most rejected solutions",
         "rejected_results": "{{disagree}}% 'Disagree' including {{no_way}}% 'Irrelevant !'",
         "controversials_agree": "{{count}}% 'Agree'",
-        "controversials_disagree": "{{count}}% 'Disagree'"
+        "controversials_disagree": "{{count}}% 'Disagree'",
+        "controversials_description": "@@consultation.results.proposals.controversials_description|fr:Les idées “controversées” témoignent d’un clivage important au sein de la société : elles recueillent globalement autant d’adhésion forte que de net rejet."
       },
       "table": {
         "name": "Name",
@@ -710,7 +711,10 @@
         "percentage": "percentage"
       },
       "breadcrumb": "Results of \"{{title}}\"",
-      "title": "@@consultation.results.title|fr:Que retenir de cette consultation ?"
+      "title": "@@consultation.results.title|fr:Que retenir de cette consultation ?",
+      "participation": {
+        "title": "@@consultation.results.participation.title|fr:Les participants à la consultation"
+      }
     },
     "close": "Close",
     "reset": "Reinitialize",
@@ -749,10 +753,10 @@
       "progress_target": " over {{votesTarget}} votes ({{percent}}%)",
       "progress_description": "The more votes a solution receives, the more likely it is to become a real change in society.",
       "progress_btn": "Participate",
-      "start_date": "@@consultation.highlights.start_date|fr:Date de lancement",
-      "end_date": "@@consultation.highlights.end_date|fr:Date de fin",
-      "proposals": "@@consultation.highlights.proposals|fr:Propositions",
-      "progress_total": "@@consultation.highlights.progress_total|fr:Nombre total de votes"
+      "start_date": "Consultation start date",
+      "end_date": "Consultation end date",
+      "proposals": "Proposals",
+      "progress_total": "Total number of votes"
     },
     "participate": {
       "title": "How to participate in this consultation ?",

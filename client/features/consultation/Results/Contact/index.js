@@ -19,7 +19,7 @@ export const ResultsContact = ({ question }: Props) => {
       description={i18n.t('consultation.results.download.contact')}
     >
       <a className="red-link" href={mailToHref}>
-        {`${CONTACT_EMAIL}`}
+        {CONTACT_EMAIL}
       </a>
     </ResultCardSidebar>
   );

@@ -11,10 +11,11 @@ export const ResultCardSidebarStyle = styled.section`
   justify-content: space-between;
   background-color: ${color.white};
   border-radius: ${intToPx(Elements.BorderRadius)};
-  padding: 25px;
-  margin-bottom: 30px;
+  padding: ${props => (props.isContext ? '25px 25px 0px' : '25px')};
+  margin-bottom: ${props => (props.isContext ? '0px' : '30px')};
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     padding: 30px;
+    margin-bottom: 30px;
   }
 `;
 

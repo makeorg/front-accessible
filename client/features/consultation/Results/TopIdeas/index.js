@@ -1,3 +1,4 @@
+// @flow
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import React from 'react';
 import { voteStaticParams, VOTE_AGREE_KEY } from 'Shared/constants/vote';

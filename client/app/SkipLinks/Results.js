@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { type QuestionResultsType } from 'Shared/types/question';
@@ -61,7 +62,7 @@ export const ResultsSkipLinks = ({ questionResults }: Props) => (
     <li>
       <SkipLink as="a" href={`#${RESULTS_CONTROVERSIALS}`}>
         {i18n.t('skip_links.dynamic_section', {
-          name: i18n.t('consultation.results.proposals.controversials'),
+          name: i18n.t('consultation.results.proposals.controversials_title'),
         })}
       </SkipLink>
     </li>

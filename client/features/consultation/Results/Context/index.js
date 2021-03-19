@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { trackClickLearnMore } from 'Shared/services/Tracking';
@@ -17,9 +18,12 @@ export const ResultsContext = ({ aboutUrl, context }: Props) => (
     <ResultCardSidebar
       title={i18n.t('consultation.results.context')}
       description={context}
+      isContext
     >
       <ResultContextNewWindowLinkStyle
-        to={aboutUrl}
+        href={aboutUrl}
+        target="_blank"
+        rel="noopener"
         onClick={() => trackClickLearnMore()}
       >
         {i18n.t('consultation.cards.about.link')}

@@ -8,10 +8,10 @@ import { UnstyledButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { ColumnElementStyle } from 'Client/ui/Elements/FlexElements';
 
 export const CollapseWrapperStyle = styled(ColumnElementStyle)`
-  padding: 25px 0px;
+  padding: 30px 0px;
   border-bottom: solid 1px ${color.grey};
   &:last-child {
-    padding-bottom: 0px;
+    padding-bottom: 5px;
     border-bottom: none;
   }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
@@ -36,7 +36,7 @@ export const CollapseTriggerStyle = styled(UnstyledButtonStyle)`
 
 export const CollapseIconStyle = styled.span`
   display: inline-flex;
-  padding-left: 10px;
+  padding-left: ${props => (props.iscollapsed ? `10px` : `0px`)};
   padding-right: ${props => (props.iscollapsed ? `0px` : `10px`)};
   transform: ${props => (props.iscollapsed ? `rotate(0)` : `rotate(180deg)`)};
   .tofill {

@@ -849,6 +849,9 @@
           "title": "Qui a participé à cette consultation ?"
         }
       },
+      "participation": {
+        "title": "Les participants à la consultation"
+      },
       "context": "Le contexte",
       "cartography": {
         "title": "La cartographie du débat"
@@ -875,7 +878,8 @@
         "axe_title": "Axe {{count}} : {{name}}"
       },  
       "proposals": {
-        "controversials": "Les propositions les plus controversées",
+        "controversials_title": "Les propositions les plus controversées",
+        "controversials_description": "Les propositions “controversées” témoignent d’un clivage important au sein de la société : elles recueillent globalement autant d’adhésion forte que de net rejet.",
         "rejected": "Les propositions les plus repoussées",
         "rejected_results": "{{disagree}}% contre dont {{no_way}}% surtout pas",
         "controversials_agree": "{{count}}% pour",

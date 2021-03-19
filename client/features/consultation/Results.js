@@ -37,9 +37,9 @@ import {
   ResultsThumbIconStyle,
 } from './Results/style';
 import { KeyFigures } from './Results/KeyFigures';
-import { ProposalsResults } from './Results/Proposals';
+import { DeprecatedProposalsResults } from './Results/Proposals/DeprecatedProposals';
 import { DeprecatedTopIdeas } from './Results/TopIdeas/DeprecatedTopIdeas';
-import { ResultsSlider } from './Results/Sliders';
+import { DeprecatedResultsSlider } from './Results/Sliders/DeprecatedSliders';
 import { DeprecatedResultsContact } from './Results/Contact/DeprecatedResultsContact';
 
 type Props = {
@@ -130,17 +130,17 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
           }
           id={RESULTS_CARTOGRAPHY}
         >
-          <ResultsSlider
+          <DeprecatedResultsSlider
             data={questionResults.cartography}
             sliderName={CARTOGRAPHY_SLIDER}
           />
         </TileWithTitle>
         <TileWithTitle
-          title={i18n.t('consultation.results.proposals.controversials')}
+          title={i18n.t('consultation.results.proposals.controversials_title')}
           icon={<ResultsLightningIconStyle aria-hidden focusable="false" />}
           id={RESULTS_CONTROVERSIALS}
         >
-          <ProposalsResults
+          <DeprecatedProposalsResults
             proposals={questionResults.controversials}
             question={question}
           />
@@ -151,7 +151,7 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
             icon={<ResultsThumbIconStyle aria-hidden focusable="false" />}
             id={RESULTS_REJECTED}
           >
-            <ProposalsResults
+            <DeprecatedProposalsResults
               proposals={questionResults.rejected}
               question={question}
               isRejected
@@ -162,7 +162,7 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
           title={i18n.t('consultation.results.deprecated.participation.title')}
           id={RESULTS_PARTICIPATION}
         >
-          <ResultsSlider
+          <DeprecatedResultsSlider
             data={questionResults.participation}
             sliderName={PARTICIPATION_SLIDER}
           />

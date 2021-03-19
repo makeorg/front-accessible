@@ -1,4 +1,3 @@
-// @flow
 import styled from 'styled-components';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { typography } from 'athena-design-tokens';

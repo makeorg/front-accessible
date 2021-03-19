@@ -24,7 +24,7 @@ export const DeprecatedResultsContact = ({ question, reports }: Props) => {
           mail: CONTACT_EMAIL,
         })}
         <a className="red-link" href={mailToHref}>
-          {`${CONTACT_EMAIL}`}
+          {CONTACT_EMAIL}
         </a>
       </ParagraphStyle>
     );

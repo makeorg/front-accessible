@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import {
   ResultCardSidebarStyle,
@@ -12,9 +13,16 @@ type Props = {
   description: string,
   /** Children to render */
   children: Node,
+  /** Optional parameter to render for context display */
+  isContext?: boolean,
 };
-export const ResultCardSidebar = ({ title, description, children }: Props) => (
-  <ResultCardSidebarStyle>
+export const ResultCardSidebar = ({
+  title,
+  description,
+  children,
+  isContext,
+}: Props) => (
+  <ResultCardSidebarStyle isContext={isContext}>
     <ResultCardSidebarTitleStyle>{title}</ResultCardSidebarTitleStyle>
     <ResultCardSidebarParagraphStyle>
       {description}
