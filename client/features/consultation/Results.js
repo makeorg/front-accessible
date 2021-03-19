@@ -30,7 +30,7 @@ import {
 import { useSelector } from 'react-redux';
 import { matchDesktopDevice, matchMobileDevice } from 'Shared/helpers/styled';
 import { ConsultationSidebar } from './Sidebar';
-import { ResultsContext } from './Results/Context';
+import { DeprecatedResultsContext } from './Results/Context/DeprecatedContext';
 import {
   ResultsIconsStyle,
   ResultsLightningIconStyle,
@@ -40,7 +40,7 @@ import { KeyFigures } from './Results/KeyFigures';
 import { ProposalsResults } from './Results/Proposals';
 import { DeprecatedTopIdeas } from './Results/TopIdeas/DeprecatedTopIdeas';
 import { ResultsSlider } from './Results/Sliders';
-import { ResultsContact } from './Results/Contact';
+import { DeprecatedResultsContact } from './Results/Contact/DeprecatedResultsContact';
 
 type Props = {
   questionResults: QuestionResultsType,
@@ -85,7 +85,7 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
           }
           id={RESULTS_CONTEXT}
         >
-          <ResultsContext
+          <DeprecatedResultsContext
             context={questionResults.context}
             aboutUrl={question.aboutUrl}
           />
@@ -168,10 +168,10 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
           />
         </TileWithTitle>
         <TileWithTitle
-          title={i18n.t('consultation.results.download.title')}
+          title={i18n.t('consultation.results.download.deprecated_title')}
           id={RESULTS_REPORT}
         >
-          <ResultsContact reports={reports} question={question} />
+          <DeprecatedResultsContact reports={reports} question={question} />
         </TileWithTitle>
       </ConsultationPageContentStyle>
     </>

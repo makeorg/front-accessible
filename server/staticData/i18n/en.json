@@ -676,11 +676,14 @@
         "title": "Mapping of the debate"
       },
       "download": {
+        "deprecated_title": "Download the full report",
         "title": "Download the full report",
         "type": "Format : {{extension}} - Weight : {{weight}}",
         "button": "Download",
-        "contact": "If you want to receive the full report on this consultation, contact us at this address : {{mail}} ",
-        "email_object": "Ask for the results report."
+        "deprecated_contact": "If you want to receive the full report on this consultation, contact us at this address :",
+        "contact": "To receive the full report on this consultation, please contact us at this address :",
+        "deprecated_email_object": "Ask for the results report.",
+        "email_object": "Results report."
       },
       "top_ideas": {
         "skiplink": "Top emerging ideas",

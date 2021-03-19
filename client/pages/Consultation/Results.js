@@ -2,12 +2,12 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { type StateRoot } from 'Shared/store/types';
+import { matchDesktopDevice } from 'Shared/helpers/styled';
 import {
   type QuestionType,
   type QuestionResultsType,
 } from 'Shared/types/question';
 import { i18n } from 'Shared/i18n';
-import { matchDesktopDevice } from 'Shared/helpers/styled';
 import { ResultsSkipLinks } from 'Client/app/SkipLinks/Results';
 import { MiddlePageWrapperStyle } from 'Client/app/Styled/MainElements';
 import { trackDisplayResultsPage } from 'Shared/services/Tracking';
@@ -18,17 +18,20 @@ import { ThemeProvider } from 'styled-components';
 import { ExpressService } from 'Shared/services/Express';
 import { ParticipateHeader } from 'Client/features/consultation/Header';
 import { ParticipateHighlights } from 'Client/features/consultation/Highlights';
+import { ResultsContext } from 'Client/features/consultation/Results/Context';
 import { Timeline } from 'Client/features/consultation/Timeline';
 import { CitizenRegister } from 'Client/features/consultation/CitizenRegister';
 import { SvgLightBulb } from 'Client/ui/Svg/elements';
 import { ResultCard } from 'Client/features/consultation/Results/ResultCard';
+import { ResultsContact } from 'Client/features/consultation/Results/Contact';
 import { RESULTS_TOP_IDEAS } from 'Shared/constants/ids';
 import { TopIdeas } from 'Client/features/consultation/Results/TopIdeas';
 import {
   ParticipateContentStyle,
+  ParticipateMainContentStyle,
   ParticipateInnerStyle,
   ParticipateSidebarContentStyle,
-  ParticipateTitleStyle,
+  ResultsTitleStyle,
 } from './style';
 import { NotFoundPage } from '../NotFound';
 
@@ -38,6 +41,7 @@ const ResultPage = () => {
   );
   const { device } = useSelector((state: StateRoot) => state.appConfig);
   const isDesktop = matchDesktopDevice(device);
+
   const metas = (
     <MetaTags
       title={i18n.t('meta.results.title', {
@@ -91,28 +95,43 @@ const ResultPage = () => {
       {metas}
       <ResultsSkipLinks questionResults={questionResults} />
       <ParticipateHeader />
+      {!isDesktop && (
+        <ResultsContext
+          context={questionResults.context}
+          aboutUrl={question.aboutUrl}
+        />
+      )}
       <ParticipateHighlights />
       <ParticipateContentStyle>
-        <ParticipateTitleStyle>
+        <ResultsTitleStyle>
           {i18n.t('consultation.results.title')}
-        </ParticipateTitleStyle>
+        </ResultsTitleStyle>
         <ParticipateInnerStyle>
-          <ResultCard
-            icon={TopIdeaIcon}
-            title={i18n.t('consultation.results.top_ideas.title', {
-              count: questionResults.top_ideas.length,
-            })}
-            description={i18n.t('consultation.results.top_ideas.introduction')}
-            id={RESULTS_TOP_IDEAS}
-          >
-            <TopIdeas
-              topIdeas={questionResults.top_ideas}
-              question={question}
-            />
-          </ResultCard>
-
+          <ParticipateMainContentStyle>
+            <ResultCard
+              icon={TopIdeaIcon}
+              title={i18n.t('consultation.results.top_ideas.title', {
+                count: questionResults.top_ideas.length,
+              })}
+              description={i18n.t(
+                'consultation.results.top_ideas.introduction'
+              )}
+              id={RESULTS_TOP_IDEAS}
+            >
+              <TopIdeas
+                topIdeas={questionResults.top_ideas}
+                question={question}
+              />
+            </ResultCard>
+          </ParticipateMainContentStyle>
           <ParticipateSidebarContentStyle>
-            {/* contexte + rapport + parcourir */}
+            {isDesktop && (
+              <ResultsContext
+                context={questionResults.context}
+                aboutUrl={question.aboutUrl}
+              />
+            )}
+            <ResultsContact question={question} />
           </ParticipateSidebarContentStyle>
         </ParticipateInnerStyle>
       </ParticipateContentStyle>

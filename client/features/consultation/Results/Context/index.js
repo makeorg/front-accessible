@@ -1,22 +1,33 @@
 import React from 'react';
-import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { i18n } from 'Shared/i18n';
 import { trackClickLearnMore } from 'Shared/services/Tracking';
-import { SidebarNewWindowLink } from '../../Sidebar/Link';
+import { ResultCardSidebar } from 'Client/features/consultation/Results/ResultCardSidebar';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
+import { ResultContextNewWindowLinkStyle, NewWindowIconStyle } from './style';
 
 type Props = {
+  /** About link to render */
   aboutUrl: string,
+  /** context description to render */
   context: string,
 };
 
 export const ResultsContext = ({ aboutUrl, context }: Props) => (
-  <ParagraphStyle>
-    {context}
-    &nbsp;
-    <SidebarNewWindowLink
-      linkUrl={aboutUrl}
-      linkText={i18n.t('consultation.presentation.link_text')}
-      tracking={() => trackClickLearnMore()}
-    />
-  </ParagraphStyle>
+  <>
+    <ResultCardSidebar
+      title={i18n.t('consultation.results.context')}
+      description={context}
+    >
+      <ResultContextNewWindowLinkStyle
+        to={aboutUrl}
+        onClick={() => trackClickLearnMore()}
+      >
+        {i18n.t('consultation.cards.about.link')}
+        <NewWindowIconStyle />
+        <ScreenReaderItemStyle>
+          {i18n.t('common.open_new_window')}
+        </ScreenReaderItemStyle>
+      </ResultContextNewWindowLinkStyle>
+    </ResultCardSidebar>
+  </>
 );

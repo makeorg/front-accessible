@@ -83,7 +83,7 @@ export const ResultsSkipLinks = ({ questionResults }: Props) => (
       <li>
         <SkipLink as="a" href={`#${RESULTS_REPORT}`}>
           {i18n.t('skip_links.dynamic_section', {
-            name: i18n.t('consultation.results.download.title'),
+            name: i18n.t('consultation.results.download.deprecated_title'),
           })}
         </SkipLink>
       </li>
