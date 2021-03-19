@@ -27,19 +27,19 @@ export const KeyFigures = ({ results }: Props) => {
         <KeyFiguresCountStyle>
           {formatCountWithLanguage(results.participants, language)}
         </KeyFiguresCountStyle>
-        {i18n.t('consultation.results.key_figures.participants')}
+        {i18n.t('consultation.results.deprecated.key_figures.participants')}
       </KeyFiguresListItemStyle>
       <KeyFiguresListItemStyle>
         <KeyFiguresCountStyle>
           {formatCountWithLanguage(results.proposals, language)}
         </KeyFiguresCountStyle>
-        {i18n.t('consultation.results.key_figures.proposals')}
+        {i18n.t('consultation.results.deprecated.key_figures.proposals')}
       </KeyFiguresListItemStyle>
       <KeyFiguresListItemStyle>
         <KeyFiguresCountStyle>
           {formatCountWithLanguage(results.votes, language)}
         </KeyFiguresCountStyle>
-        {i18n.t('consultation.results.key_figures.votes')}
+        {i18n.t('consultation.results.deprecated.key_figures.votes')}
       </KeyFiguresListItemStyle>
     </KeyFiguresListStyle>
   );

@@ -9,11 +9,12 @@ import {
   getBrowseConsultationsLink,
   getBrowseResultsLink,
 } from 'Shared/helpers/url';
+import { getCurrentLabel } from 'Shared/helpers/consultation';
 import { type QuestionType, type PartnerType } from 'Shared/types/question';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
 import { FOUNDER_PARTNER } from 'Shared/constants/partner';
-import { isParticipatePage, isBetaResultsPage } from 'Shared/routes';
+import { isBetaResultsPage } from 'Shared/routes';
 import {
   HeaderWrapperStyle,
   HeaderContentStyle,
@@ -40,32 +41,23 @@ export const ParticipateHeader = () => {
     : [];
   const isFeatured = question.featured === true;
   const location = useLocation();
-  const participatePage = isParticipatePage(location.pathname);
   const resultsPage = isBetaResultsPage(location.pathname);
   const parentPages = [
-    {
-      name: participatePage
-        ? i18n.t('browse.consultations.all')
-        : i18n.t('browse.short_page_title'),
-      link: participatePage
-        ? getBrowseConsultationsLink(country)
-        : getBrowseResultsLink(country),
-    },
+    resultsPage
+      ? {
+          name: i18n.t('browse.results.all'),
+          link: getBrowseResultsLink(country),
+        }
+      : {
+          name: i18n.t('browse.consultations.all'),
+          link: getBrowseConsultationsLink(country),
+        },
   ];
 
-  const breadcrumbLabel = () => {
-    if (participatePage) {
-      return i18n.t('consultation.navigation.participate_breadcrumb', {
-        title: question.wording.title,
-      });
-    }
-    return i18n.t('consultation.results.breadcrumb', {
-      title: question.slug,
-    });
-  };
+  const breadcrumbLabel = getCurrentLabel(location.pathname, question);
 
   const currentPage: BreadcrumbsPagesType = {
-    name: breadcrumbLabel(),
+    name: breadcrumbLabel,
     link: location,
   };
 

@@ -657,7 +657,6 @@
     "results": {
       "deprecated": {
         "title": "Results of the consultation {{question}}",
-        "context": "Context",
         "methodology": {
           "title": "Methodology",
           "description": "Our methodology is based on citizens’ solutions collected and reviewed by our Moderation team. They are first submitted for validation with regard to their compliance with the Make.org guidelines, then classified according to a thematic tagging. Algorithms developed by Make.org teams then guarantee each validated solution an equal level of exposure, and organize a competition between them. Through this constant rotation, Make.org identifies the solutions that have the greatest consensus among citizens before analyzing them and grouping them into big ideas."
@@ -668,41 +667,46 @@
           "proposals": "Solutions",
           "votes": "Votes"
         },
-        "top_ideas": {
-          "skiplink": "Top emerging ideas",
-          "title": "Top emerging ideas, grouped into {{count}} themes",
-          "introduction": ", The best citizen solutions are grouped into big ideas that structure the consultation. To classify these ideas, the Make.org algorithm takes into account the votes 'Agree' and 'Disagree' as well as the mentions 'Genius', 'Obvious', 'Irrelevant !' and 'Nonsense'.",
-          "theme_title": "Theme {{count}} : {{name}}",
-          "title_plural": "Top ideas is merged in {{count}} topics"
-        },
-        "proposals": {
-          "controversials": "Most discussed solutions",
-          "rejected": "Most rejected solutions",
-          "rejected_results": "{{disagree}}% 'Disagree' including {{no_way}}% 'Irrelevant !'",
-          "controversials_agree": "{{count}}% 'Agree'",
-          "controversials_disagree": "{{count}}% 'Disagree'"
-        },
-        "cartography": {
-          "title": "Mapping of the debate"
-        },
         "participation": {
           "title": "Who participated to this consultation?"
-        },
-        "table": {
-          "name": "Name",
-          "value": "Value",
-          "value_with_unit": "Value in {{unit}}",
-          "percentage": "percentage"
-        },
-        "download": {
-          "title": "Download the full report",
-          "type": "Format : {{extension}} - Weight : {{weight}}",
-          "button": "Download",
-          "contact": "If you want to receive the full report on this consultation, contact us at this address : {{mail}} ",
-          "email_object": "Ask for the results report."
         }
       },
-      "breadcrumb": "@@consultation.results.breadcrumb|fr:Résultats : \"{{title}}\"",
+      "context": "Context",
+      "cartography": {
+        "title": "Mapping of the debate"
+      },
+      "download": {
+        "title": "Download the full report",
+        "type": "Format : {{extension}} - Weight : {{weight}}",
+        "button": "Download",
+        "contact": "If you want to receive the full report on this consultation, contact us at this address : {{mail}} ",
+        "email_object": "Ask for the results report."
+      },
+      "top_ideas": {
+        "skiplink": "Top emerging ideas",
+        "title": "Top emerging ideas, grouped into {{count}} themes",
+        "introduction": ", The best citizen solutions are grouped into big ideas that structure the consultation. To classify these ideas, the Make.org algorithm takes into account the votes 'Agree' and 'Disagree' as well as the mentions 'Genius', 'Obvious', 'Irrelevant !' and 'Nonsense'.",
+        "title_plural": "Top ideas is merged in {{count}} topics",
+        "deprecated_title": "@@consultation.results.top_ideas.deprecated_title|fr:Le top des idées émergentes, regroupées en {{count}} thème",
+        "deprecated_title_plural": "@@consultation.results.top_ideas.deprecated_title_plural|fr:Le top des idées émergentes, regroupées en {{count}} thèmes",
+        "deprecated_introduction": "@@consultation.results.top_ideas.deprecated_introduction|fr:À leur arrivée sur la plateforme, les meilleures propositions citoyennes sont regroupées en grandes idées qui structurent la consultation. Pour classer ces idées, l’algorithme Make.org tient compte des votes « pour » et « contre » ainsi que des mentions « coup de cœur», « banalité », « surtout pas ! » et « réaliste ».",
+        "deprecated_theme_title": "@@consultation.results.top_ideas.deprecated_theme_title|fr:Thème {{count}} : {{name}}",
+        "axe_title": "@@consultation.results.top_ideas.axe_title|fr:Axe {{count}} : {{name}}"
+      },
+      "proposals": {
+        "controversials": "Most discussed solutions",
+        "rejected": "Most rejected solutions",
+        "rejected_results": "{{disagree}}% 'Disagree' including {{no_way}}% 'Irrelevant !'",
+        "controversials_agree": "{{count}}% 'Agree'",
+        "controversials_disagree": "{{count}}% 'Disagree'"
+      },
+      "table": {
+        "name": "Name",
+        "value": "Value",
+        "value_with_unit": "Value in {{unit}}",
+        "percentage": "percentage"
+      },
+      "breadcrumb": "Results of \"{{title}}\"",
       "title": "@@consultation.results.title|fr:Que retenir de cette consultation ?"
     },
     "close": "Close",
@@ -1083,7 +1087,8 @@
       "see_results": "See the results",
       "see_topideas": "See top ideas",
       "coming_results": "Coming results",
-      "empty": "We have never run any consultation in this country so far."
+      "empty": "We have never run any consultation in this country so far.",
+      "all": "All results"
     },
     "date": "Consultation from {{startDate}} to {{endDate}}",
     "browse": "Browse consultations",

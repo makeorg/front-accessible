@@ -72,3 +72,4 @@ export { SvgBigCheck } from './BigCheck';
 export { SvgArrowBottom } from './ArrowBottom';
 export { SvgArrowReturn } from './ArrowReturn';
 export { SvgArrowUp } from './ArrowUp';
+export { SvgArrowDown } from './ArrowDown';

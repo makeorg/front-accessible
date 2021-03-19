@@ -1,19 +1,21 @@
+// @flow
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import React from 'react';
 import { voteStaticParams, VOTE_AGREE_KEY } from 'Shared/constants/vote';
 import { i18n } from 'Shared/i18n';
 import { ThemeItemType } from 'Shared/types/question';
-import { Collapse } from 'Client/ui/Elements/Collapse';
+import { DeprecatedCollapse } from 'Client/ui/Elements/Collapse/DeprecatedCollapse';
 import { ColumnToRowElementStyle } from 'Client/ui/Elements/FlexElements';
 import { VoteIconStyle } from 'Client/ui/Elements/Buttons/style';
 import {
-  TopIdeaListItemStyle,
-  TopIdeaItemTitleStyle,
-  ThemeResultsDetailsStyle,
+  DeprecatedTopIdeasParagraphStyle,
   ThemeAgreeResultsStyle,
-  ThemeResultsWrapperStyle,
-  ThemeResultsButtonStyle,
+  DeprecatedThemeItemProposalStyle,
+  DeprecatedThemeListItemStyle,
   ThemeQualifiedStyle,
+  ThemeResultsButtonStyle,
+  ThemeResultsDetailsStyle,
+  ThemeResultsWrapperStyle,
 } from './style';
 
 type Props = {
@@ -24,27 +26,37 @@ type Props = {
   question: QuestionType,
 };
 
-export const TopIdeas = ({ topIdeas, question }: Props) => {
+export const DeprecatedTopIdeas = ({ topIdeas, question }: Props) => {
   const voteAttributes = voteStaticParams[VOTE_AGREE_KEY];
 
   return (
     <>
+      <DeprecatedTopIdeasParagraphStyle>
+        {i18n.t('consultation.results.top_ideas.deprecated_introduction')}
+      </DeprecatedTopIdeasParagraphStyle>
       {topIdeas.map((topIdea, index) => (
-        <Collapse
+        <DeprecatedCollapse
           key={topIdea.name}
-          title={i18n.t('consultation.results.top_ideas.axe_title', {
-            count: index + 1,
-            name: topIdea.name,
-          })}
+          title={i18n.t(
+            'consultation.results.top_ideas.deprecated_theme_title',
+            {
+              count: index + 1,
+              name: topIdea.name,
+            }
+          )}
           open={index === 0}
+          noMargin
           language={question.language}
         >
           <UnstyledListStyle>
             {topIdea.ideas.map(idea => (
-              <TopIdeaListItemStyle key={idea.idea}>
-                <TopIdeaItemTitleStyle lang={question.language}>
+              <DeprecatedThemeListItemStyle key={idea.idea}>
+                <DeprecatedThemeItemProposalStyle
+                  as="p"
+                  lang={question.language}
+                >
                   {idea.idea}
-                </TopIdeaItemTitleStyle>
+                </DeprecatedThemeItemProposalStyle>
                 <ThemeResultsWrapperStyle>
                   <ThemeResultsButtonStyle className="agree voted">
                     <VoteIconStyle
@@ -76,10 +88,10 @@ export const TopIdeas = ({ topIdeas, question }: Props) => {
                     </ColumnToRowElementStyle>
                   </ThemeResultsDetailsStyle>
                 </ThemeResultsWrapperStyle>
-              </TopIdeaListItemStyle>
+              </DeprecatedThemeListItemStyle>
             ))}
           </UnstyledListStyle>
-        </Collapse>
+        </DeprecatedCollapse>
       ))}
     </>
   );

@@ -1,10 +1,10 @@
 import React from 'react';
-import { Collapse } from '.';
+import { DeprecatedCollapse } from './DeprecatedCollapse';
 
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Collapse',
-  component: Collapse,
+  component: DeprecatedCollapse,
   argTypes: {
     title: {
       control: {
@@ -35,7 +35,7 @@ export default {
 };
 
 // eslint-disable-next-line react/jsx-props-no-spreading
-export const CollapseComponent = args => <Collapse {...args} />;
+export const CollapseComponent = args => <DeprecatedCollapse {...args} />;
 
 CollapseComponent.args = {
   title: 'Collapse Tile',
@@ -46,5 +46,5 @@ CollapseComponent.args = {
 };
 
 CollapseComponent.parameters = {
-  jest: ['Collapse.spec.js'],
+  jest: ['DeprecatedCollapse.spec.js'],
 };

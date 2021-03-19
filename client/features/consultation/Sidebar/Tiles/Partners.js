@@ -1,7 +1,7 @@
 // @flow
 import { type StateRoot } from 'Shared/store/types';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
-import { Collapse } from 'Client/ui/Elements/Collapse';
+import { DeprecatedCollapse } from 'Client/ui/Elements/Collapse/DeprecatedCollapse';
 import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { type QuestionType } from 'Shared/types/question';
@@ -25,7 +25,7 @@ export const PartnersTile = ({ question }: Props) => {
 
   if (isMobile) {
     return (
-      <Collapse
+      <DeprecatedCollapse
         title={
           isInProgress(question)
             ? i18n.t('consultation.partners.intro_title')
@@ -34,7 +34,7 @@ export const PartnersTile = ({ question }: Props) => {
         withTileStyle
       >
         <Partners question={question} />
-      </Collapse>
+      </DeprecatedCollapse>
     );
   }
 
