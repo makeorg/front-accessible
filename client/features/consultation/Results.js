@@ -30,17 +30,17 @@ import {
 import { useSelector } from 'react-redux';
 import { matchDesktopDevice, matchMobileDevice } from 'Shared/helpers/styled';
 import { ConsultationSidebar } from './Sidebar';
-import { ResultsContext } from './Results/Context';
+import { DeprecatedResultsContext } from './Results/Context/DeprecatedContext';
 import {
   ResultsIconsStyle,
   ResultsLightningIconStyle,
   ResultsThumbIconStyle,
 } from './Results/style';
 import { KeyFigures } from './Results/KeyFigures';
-import { ProposalsResults } from './Results/Proposals';
+import { DeprecatedProposalsResults } from './Results/Proposals/DeprecatedProposals';
 import { DeprecatedTopIdeas } from './Results/TopIdeas/DeprecatedTopIdeas';
-import { ResultsSlider } from './Results/Sliders';
-import { ResultsContact } from './Results/Contact';
+import { DeprecatedResultsSlider } from './Results/Sliders/DeprecatedSliders';
+import { DeprecatedResultsContact } from './Results/Contact/DeprecatedResultsContact';
 
 type Props = {
   questionResults: QuestionResultsType,
@@ -85,7 +85,7 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
           }
           id={RESULTS_CONTEXT}
         >
-          <ResultsContext
+          <DeprecatedResultsContext
             context={questionResults.context}
             aboutUrl={question.aboutUrl}
           />
@@ -130,17 +130,17 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
           }
           id={RESULTS_CARTOGRAPHY}
         >
-          <ResultsSlider
+          <DeprecatedResultsSlider
             data={questionResults.cartography}
             sliderName={CARTOGRAPHY_SLIDER}
           />
         </TileWithTitle>
         <TileWithTitle
-          title={i18n.t('consultation.results.proposals.controversials')}
+          title={i18n.t('consultation.results.proposals.controversials_title')}
           icon={<ResultsLightningIconStyle aria-hidden focusable="false" />}
           id={RESULTS_CONTROVERSIALS}
         >
-          <ProposalsResults
+          <DeprecatedProposalsResults
             proposals={questionResults.controversials}
             question={question}
           />
@@ -151,7 +151,7 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
             icon={<ResultsThumbIconStyle aria-hidden focusable="false" />}
             id={RESULTS_REJECTED}
           >
-            <ProposalsResults
+            <DeprecatedProposalsResults
               proposals={questionResults.rejected}
               question={question}
               isRejected
@@ -162,16 +162,16 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
           title={i18n.t('consultation.results.deprecated.participation.title')}
           id={RESULTS_PARTICIPATION}
         >
-          <ResultsSlider
+          <DeprecatedResultsSlider
             data={questionResults.participation}
             sliderName={PARTICIPATION_SLIDER}
           />
         </TileWithTitle>
         <TileWithTitle
-          title={i18n.t('consultation.results.download.title')}
+          title={i18n.t('consultation.results.download.deprecated_title')}
           id={RESULTS_REPORT}
         >
-          <ResultsContact reports={reports} question={question} />
+          <DeprecatedResultsContact reports={reports} question={question} />
         </TileWithTitle>
       </ConsultationPageContentStyle>
     </>

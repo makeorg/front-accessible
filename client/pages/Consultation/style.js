@@ -114,7 +114,14 @@ export const ParticipateTitleStyle = styled.h3`
   margin: 40px 0 15px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: ${intToPx(typography.font.fontsize.X4L.value)};
-    margin-bottom: 50px 0 5px;
+    margin: 50px 0 5px;
+  }
+`;
+
+export const ResultsTitleStyle = styled(ParticipateTitleStyle)`
+  margin: 60px 0 40px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    margin: 60px 0px;
   }
 `;
 

@@ -1,11 +1,16 @@
 // @flow
 import React from 'react';
-
 import {
-  CardTitleStyle,
-  CardDescriptionStyle,
-} from 'Client/features/consultation/Cards/style';
-import { ResultCardStyle, ResultCardIntroWrapperStyle } from './style';
+  RESULTS_TOP_IDEAS,
+  RESULTS_CONTROVERSIALS,
+} from 'Shared/constants/ids';
+import {
+  ResultCardStyle,
+  ResultTitleWrapperStyle,
+  ResultCardTitleStyle,
+  ResultCardDescriptionStyle,
+  ResultCardIconStyle,
+} from './style';
 
 type Props = {
   /** Optional icon to render */
@@ -26,17 +31,25 @@ export const ResultCard = ({
   description,
   id,
   children,
-}: Props) => (
-  <ResultCardStyle>
-    <ResultCardIntroWrapperStyle>
-      {icon}
-      <CardTitleStyle id={id}>{title}</CardTitleStyle>
-      {description && (
-        <CardDescriptionStyle className="padding-right">
-          {description}
-        </CardDescriptionStyle>
-      )}
-    </ResultCardIntroWrapperStyle>
-    {children}
-  </ResultCardStyle>
-);
+}: Props) => {
+  const isTopIdeas = id && id === RESULTS_TOP_IDEAS;
+  const isControversials = id && id === RESULTS_CONTROVERSIALS;
+  return (
+    <ResultCardStyle>
+      <ResultTitleWrapperStyle isTopIdeas={isTopIdeas}>
+        {icon && (
+          <ResultCardIconStyle aria-hidden focusable="false">
+            {icon}
+          </ResultCardIconStyle>
+        )}
+        <ResultCardTitleStyle id={id}>{title}</ResultCardTitleStyle>
+        {description && (
+          <ResultCardDescriptionStyle isControversials={isControversials}>
+            {description}
+          </ResultCardDescriptionStyle>
+        )}
+      </ResultTitleWrapperStyle>
+      {children}
+    </ResultCardStyle>
+  );
+};

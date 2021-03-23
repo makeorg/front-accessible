@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { SkipLink } from 'Client/app/Styled/MainElements';

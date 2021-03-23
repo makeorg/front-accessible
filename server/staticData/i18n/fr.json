@@ -681,7 +681,7 @@
     },
     "highlights": {
       "start_date": "Date de lancement",
-      "end_date": "Date de fin",
+      "end_date": "Date de fin de la consultation",
       "remaining": "Jour restant",
       "proposals": "Propositions",
       "remaining_plural": "Jours restants",
@@ -849,16 +849,22 @@
           "title": "Qui a participé à cette consultation ?"
         }
       },
+      "participation": {
+        "title": "Les participants à la consultation"
+      },
       "context": "Le contexte",
       "cartography": {
         "title": "La cartographie du débat"
       },
       "download": { 
-        "title": "Obtenir le rapport complet",
+        "deprecated_title": "Obtenir le rapport complet",
+        "title": "Obtenez le rapport complet",
         "type": "Format : {{extension}} - Poids : {{weight}}",
         "button": "Télécharger",
-        "contact": "Si vous souhaitez obtenir le rapport complet de la consultation, merci de nous contacter à l’adresse : ",
-        "email_object": "Demande de rapport pour la consultation"
+        "deprecated_contact": "Si vous souhaitez obtenir le rapport complet de la consultation, merci de nous contacter à l’adresse : ",
+        "contact": "Pour obtenir le rapport d’analyses complet de cette consultation, merci de bien vouloir nous contacter à l’adresse : ",
+        "deprecated_email_object": "Demande de rapport pour la consultation",
+        "email_object": "Rapport analyse"
       },
       "top_ideas": {
         "skiplink": "Le top des idées émergentes",
@@ -872,7 +878,8 @@
         "axe_title": "Axe {{count}} : {{name}}"
       },  
       "proposals": {
-        "controversials": "Les propositions les plus controversées",
+        "controversials_title": "Les propositions les plus controversées",
+        "controversials_description": "Les propositions “controversées” témoignent d’un clivage important au sein de la société : elles recueillent globalement autant d’adhésion forte que de net rejet.",
         "rejected": "Les propositions les plus repoussées",
         "rejected_results": "{{disagree}}% contre dont {{no_way}}% surtout pas",
         "controversials_agree": "{{count}}% pour",

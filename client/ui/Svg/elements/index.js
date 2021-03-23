@@ -73,3 +73,5 @@ export { SvgArrowBottom } from './ArrowBottom';
 export { SvgArrowReturn } from './ArrowReturn';
 export { SvgArrowUp } from './ArrowUp';
 export { SvgArrowDown } from './ArrowDown';
+export { SvgChevronArrowRight } from './ChevronArrowRight';
+export { SvgChevronArrowLeft } from './ChevronArrowLeft';

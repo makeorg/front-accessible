@@ -2,54 +2,25 @@
 import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { CONTACT_EMAIL } from 'Shared/constants/config';
-import { type QuestionType, type ReportsType } from 'Shared/types/question';
-import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
-import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
-import { trackDownloadReport } from 'Shared/services/Tracking';
-import { ResultsDownloadItemStyle, ResultsDownloadButtonStyle } from './style';
+import { type QuestionType } from 'Shared/types/question';
+import { ResultCardSidebar } from 'Client/features/consultation/Results/ResultCardSidebar';
 
 type Props = {
   question: QuestionType,
-  reports: ?(ReportsType[]),
 };
-export const ResultsContact = ({ question, reports }: Props) => {
-  if (!reports) {
-    const mailToHref = `mailto:${CONTACT_EMAIL}?subject=${i18n.t(
-      'consultation.results.download.email_object'
-    )} - ${question.question}`;
-
-    return (
-      <ParagraphStyle>
-        {i18n.t('consultation.results.download.contact', {
-          mail: CONTACT_EMAIL,
-        })}
-        <a className="red-link" href={mailToHref}>
-          {`${CONTACT_EMAIL}`}
-        </a>
-      </ParagraphStyle>
-    );
-  }
+export const ResultsContact = ({ question }: Props) => {
+  const mailToHref = `mailto:${CONTACT_EMAIL}?subject=${i18n.t(
+    'consultation.results.download.email_object'
+  )} - ${question.question}`;
 
   return (
-    <UnstyledListStyle>
-      {reports.map(report => (
-        <ResultsDownloadItemStyle as="li" key={report.type}>
-          <ParagraphStyle as="span">
-            {i18n.t('consultation.results.download.type', {
-              extension: report.type,
-              weight: report.size,
-            })}
-          </ParagraphStyle>
-          <ResultsDownloadButtonStyle
-            as="a"
-            href={report.path}
-            download={question.slug}
-            onClick={() => trackDownloadReport(report.type)}
-          >
-            {i18n.t('consultation.results.download.button')}
-          </ResultsDownloadButtonStyle>
-        </ResultsDownloadItemStyle>
-      ))}
-    </UnstyledListStyle>
+    <ResultCardSidebar
+      title={i18n.t('consultation.results.download.title')}
+      description={i18n.t('consultation.results.download.contact')}
+    >
+      <a className="red-link" href={mailToHref}>
+        {CONTACT_EMAIL}
+      </a>
+    </ResultCardSidebar>
   );
 };

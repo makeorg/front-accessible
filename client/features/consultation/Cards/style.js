@@ -72,11 +72,6 @@ export const CardAltTitleStyle = styled.h4`
 
 export const CardDescriptionStyle = styled(ParagraphStyle)`
   margin-bottom: 25px;
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    &.padding-right {
-      padding-right: 70px;
-    }
-  }
 `;
 
 export const CardAltDescriptionStyle = styled(ParagraphStyle)`
