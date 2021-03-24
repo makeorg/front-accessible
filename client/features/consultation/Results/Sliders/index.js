@@ -1,6 +1,7 @@
 // @flow
 import React, { useRef } from 'react';
 import { useLocation } from 'react-router';
+import { type StateRoot } from 'Shared/store/types';
 import { type SliderParamsType } from 'Shared/types/views';
 import { i18n } from 'Shared/i18n';
 import {
@@ -12,6 +13,8 @@ import { useSlider } from 'Client/hooks/useSlider';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { isBetaResultsPage } from 'Shared/routes';
+import { matchMobileDevice } from 'Shared/helpers/styled';
+import { useSelector } from 'react-redux';
 import {
   ResultsSliderStyle,
   ResultsSliderArrowsStyle,
@@ -26,6 +29,8 @@ type Props = {
 
 export const ResultsSlider = ({ data, sliderName, styleClass }: Props) => {
   const sliderRef = useRef();
+  const { device } = useSelector((state: StateRoot) => state.appConfig);
+  const isMobile = matchMobileDevice(device);
   const dataLength = data.length;
   const sliderParams: SliderParamsType = {
     slidesToShow: 1,
@@ -70,14 +75,22 @@ export const ResultsSlider = ({ data, sliderName, styleClass }: Props) => {
           aria-label={i18n.t('common.slider.previous')}
           isResultsPage={resultsPage}
         >
-          <SvgChevronArrowLeft aria-hidden focusable="false" />
+          <SvgChevronArrowLeft
+            aria-hidden
+            focusable="false"
+            width={isMobile ? 10 : 20}
+          />
         </ResultsSliderArrowsStyle>
         <ResultsSliderArrowsStyle
           className={`${sliderName} glider-next`}
           aria-label={i18n.t('common.slider.next')}
           isResultsPage={resultsPage}
         >
-          <SvgChevronArrowRight aria-hidden focusable="false" />
+          <SvgChevronArrowRight
+            aria-hidden
+            focusable="false"
+            width={isMobile ? 10 : 20}
+          />
         </ResultsSliderArrowsStyle>
         <ResultsSliderPagination aria-hidden focusable="false">
           <span className={`${sliderName} glider-index`}>1</span>
