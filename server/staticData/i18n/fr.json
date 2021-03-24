@@ -495,10 +495,40 @@
     "press_details": "Revue de presse",
     "a11y": "Déclaration d'accessibilité"
   },
-  "cookie_alert": {
-    "text": "En poursuivant votre navigation vous consentez à nos {{gtu_link}}, à notre {{policy_link}}, ainsi qu'à l'utilisation de cookies sur notre site dans un but d'améliorer notre service.",
-    "gtu": "conditions d’utilisation",
-    "policy": "charte de données personnelles"
+  "cookie_modal": {
+    "title": "Exprimez-vous chez Make.org dans le respect de votre vie privée",
+    "description": "Dans un souci d’optimiser encore davantage notre service et votre expérience, nous sollicitons votre consentement aux cookies que nous et nos partenaires souhaitons utiliser lors de votre visite.",
+    "details" :{
+      "title": "De quels cookies s’agit-il ?",
+      "technicals": "<strong>Techniques :</strong> des cookies indispensables pour faire fonctionner le site",
+      "preferences": "<strong>Préférences :</strong> des cookies pour améliorer votre expérience lors de votre navigation sur le site",
+      "statistics": "<strong>Statistiques :</strong> des cookies pour enrichir l’analyse de nos consultations citoyennes de façon agrégées",
+      "social_media": "<strong>Réseaux sociaux :</strong> des cookies pour nous aider à optimiser notre impact grâce aux réseaux sociaux"
+    },
+    "accept": "Accepter",
+    "personalize": "Personnaliser",
+    "refuse": "Continuer sans accepter",
+    "back": "Revenir à l'étape précédente",
+    "mandatory": "Toujours actif",
+    "save": "Enregistrer mes préférences",
+    "technicals": {
+      "secure": "make secure : une fois que vous vous êtes connecté à votre espace citoyen sur Make.org, ce cookie garantit que cette connexion va se maintenir pendant votre navigation sur le service.",
+      "expiration": "make-secure-expiration : ce cookie sert à détecter votre inactivité sur le service de façon à faire expirer cette connexion."
+    },
+    "preferences": {
+      "authentication": "Les cookies d authentification Google et Facebook : ils permettent l'inscription et la connexion à votre espace citoyen via ces réseaux sociaux.",
+      "session": "make-session-id : ce cookie sert à regrouper toutes les actions que vous effectuez sur le service dans une session.",
+      "expiration": "make-session-id-expiration : ce cookie permet de vous afficher la notification indiquant que votre session a expiré (au bout de 20 minutes) et va donc être rechargée.",
+      "user": "make-user-id : ce cookie permet d’identifier que vous avez déjà créé un espace sur Make.org et à vous inviter à vous connecter de façon à ce que vous puissiez retrouver toutes vos actions dans votre espace citoyen."
+    },
+    "statistics": {
+      "visitor": "make-visitor-id : ce cookie sert à suivre les visites et revisites sur notre service de façon à mesurer le trafic de façon anonyme et agrégée. Ce suivi ne se fait pas au niveau individuel.",
+      "tracking": "Cookie de tracking Facebook : il sert à recueillir de la donnée de comportement sur le service en vue d'analyses agrégées permettant d’améliorer le service. Il sert également à recueillir les données socio démo (âge, genre, région) de façon agrégée pour enrichir l’analyse de la consultation."
+    },
+    "social_media": {
+      "pixel": "Pixel réseaux sociaux : il sert à optimiser les performances des campagnes de promotion des consultations sur les réseaux sociaux Facebook et Twitter afin d’augmenter la participation des citoyens.",
+      "sharing": "Partage : permettre à l’utilisateur de partager du contenu sur ses comptes réseaux sociaux (Facebook, Instagram, Twitter, Linkedin)."
+    }
   },
   "reset_password": {
     "title": "Je crée un nouveau mot de passe",

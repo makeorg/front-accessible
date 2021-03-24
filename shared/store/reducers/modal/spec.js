@@ -9,6 +9,7 @@ describe('Modal reducer', () => {
       isOpen: false,
       contentType: '',
       showExpirationSession: false,
+      showCookies: true,
       focusAfterClose: true,
     };
 

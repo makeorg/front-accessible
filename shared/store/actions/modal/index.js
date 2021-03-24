@@ -10,6 +10,11 @@ import {
 export const modalClose = () => (dispatch: Function) => {
   dispatch({ type: actionTypes.MODAL_CLOSE });
 };
+
+export const modalCloseCookies = () => (dispatch: Function) => {
+  dispatch({ type: actionTypes.MODAL_CLOSE_COOKIES });
+};
+
 export const modalShowLogin = () => (dispatch: Function) => {
   dispatch({ type: actionTypes.MODAL_SHOW_LOGIN });
   trackDisplaySigninForm();

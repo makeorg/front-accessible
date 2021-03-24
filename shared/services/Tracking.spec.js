@@ -62,6 +62,14 @@ import {
   trackClickOperationPage,
   trackClickLearnMore,
   trackOpenSequence,
+  trackDisplayModalCookieFirstStep,
+  trackDisplayModalCookieSecondStep,
+  trackClickModalCookieRefuse,
+  trackClickModalCookieSave,
+  trackClickModalCookiePersonalize,
+  trackClickModalCookieBack,
+  trackClickCookieSwitchAccept,
+  trackClickCookieSwitchRefuse,
 } from './Tracking';
 import { FacebookTracking } from './Trackers/FacebookTracking';
 import { TwitterTracking } from './Trackers/TwitterTracking';
@@ -1025,6 +1033,106 @@ describe('Tracking Service', () => {
       ...eventParameters,
       component: 'foo',
     });
+    expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
+  });
+
+  it('track display Modal Cookie First Step', () => {
+    const eventName = trackingConfiguration.DISPLAY_COOKIE_MODAL_FIRST_STEP.key;
+    trackDisplayModalCookieFirstStep();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {});
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
+      1,
+      eventName,
+      eventParameters
+    );
+    expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
+  });
+
+  it('track display Modal Cookie Second Step', () => {
+    const eventName =
+      trackingConfiguration.DISPLAY_COOKIE_MODAL_SECOND_STEP.key;
+    trackDisplayModalCookieSecondStep();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {});
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
+      1,
+      eventName,
+      eventParameters
+    );
+    expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
+  });
+
+  it('track click Modal Cookie Refuse', () => {
+    const eventName = trackingConfiguration.CLICK_COOKIE_MODAL_REFUSE.key;
+    trackClickModalCookieRefuse();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {});
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
+      1,
+      eventName,
+      eventParameters
+    );
+    expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
+  });
+
+  it('track click Modal Cookie Personalize', () => {
+    const eventName = trackingConfiguration.CLICK_COOKIE_MODAL_PERSONALIZE.key;
+    trackClickModalCookiePersonalize();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {});
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
+      1,
+      eventName,
+      eventParameters
+    );
+    expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
+  });
+
+  it('track click Modal Cookie Save', () => {
+    const eventName = trackingConfiguration.CLICK_COOKIE_MODAL_SAVE.key;
+    trackClickModalCookieSave('cookies-accept-all');
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {
+      type: 'cookies-accept-all',
+    });
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(1, eventName, {
+      ...eventParameters,
+      type: 'cookies-accept-all',
+    });
+    expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
+  });
+
+  it('track click Modal Switch Accept', () => {
+    const eventName = trackingConfiguration.CLICK_COOKIE_SWITCH_ACCEPT.key;
+    trackClickCookieSwitchAccept('fb_tracking');
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {
+      type: 'fb_tracking',
+    });
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(1, eventName, {
+      ...eventParameters,
+      type: 'fb_tracking',
+    });
+    expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
+  });
+
+  it('track click Modal Switch Refuse', () => {
+    const eventName = trackingConfiguration.CLICK_COOKIE_SWITCH_REFUSE.key;
+    trackClickCookieSwitchRefuse('share_tracking');
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {
+      type: 'share_tracking',
+    });
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(1, eventName, {
+      ...eventParameters,
+      type: 'share_tracking',
+    });
+    expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
+  });
+
+  it('track click Modal Cookie Back', () => {
+    const eventName = trackingConfiguration.CLICK_COOKIE_MODAL_BACK.key;
+    trackClickModalCookieBack();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {});
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
+      1,
+      eventName,
+      eventParameters
+    );
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 });

@@ -50,6 +50,7 @@ export const initialState: StateRoot = {
     isOpen: false,
     contentType: '',
     showExpirationSession: false,
+    showCookies: true,
     focusAfterClose: true,
   },
   partners: {},

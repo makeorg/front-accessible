@@ -8,7 +8,7 @@ const ResultContextLinkStyle = `
 display: inline-flex;
 font-family: ${MakeFonts.CircularStandardBook};
 text-transform: none;
-text-decoration: uncerline;
+text-decoration: underline;
 align-items: center;
 font-size: ${intToPx(typography.font.fontsize.XS.value)};
 line-height: 1.31;
