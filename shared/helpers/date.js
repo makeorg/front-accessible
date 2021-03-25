@@ -1,6 +1,9 @@
 // @flow
 import moment from 'moment';
-import { type HomeQuestionType } from 'Shared/types/question';
+import {
+  type HomeQuestionType,
+  type QuestionTimelineType,
+} from 'Shared/types/question';
 import { DEFAULT_LANGUAGE } from 'Shared/constants/config';
 
 let instance = null;
@@ -59,18 +62,30 @@ export const isInProgress = (dates: ConsultationDates) => {
   return start <= today && today < end;
 };
 
-export const isCurrentStep = (currentStep, nextStep) => {
-  if (!currentStep || !nextStep) {
-    return false;
-  }
+export const selectStep = (
+  timeline: {
+    result?: QuestionTimelineType,
+    workshop?: QuestionTimelineType,
+    action?: QuestionTimelineType,
+  },
+  currentStep: string,
+  nextStep: string | undefined
+) => {
   const today = Date.now();
-  const currentParsedDate = Date.parse(
-    currentStep.date || currentStep.startDate
-  );
-  const nextParsedDate = Date.parse(nextStep.date || nextStep.endDate);
-  if (today >= currentParsedDate && today < nextParsedDate) {
+  const currentStepDate = Date.parse(timeline[currentStep].date);
+  let nextStepDate;
+
+  if (nextStep) {
+    nextStepDate = Date.parse(timeline[nextStep].date);
+  }
+
+  const isBetweenSteps = today >= currentStepDate && today < nextStepDate;
+  const isLastStep = today >= currentStepDate && !nextStepDate;
+
+  if (isBetweenSteps || isLastStep) {
     return true;
   }
+
   return false;
 };
 
@@ -234,6 +249,26 @@ export const orderByEndDate = (
   }
 
   return dateB - dateA;
+};
+
+export const chronologicalOrder = (
+  stepA: QuestionTimelineType,
+  stepB: QuestionTimelineType
+) => {
+  const dateA = getDate(stepA.date);
+  const dateB = getDate(stepB.date);
+
+  if (dateA === null && dateB === null) {
+    return 0;
+  }
+  if (dateA === null) {
+    return 1;
+  }
+  if (dateB === null) {
+    return -1;
+  }
+
+  return dateA - dateB;
 };
 
 export const DateHelper = new DateHelperSingleton(DEFAULT_LANGUAGE);
