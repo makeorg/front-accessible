@@ -98,7 +98,7 @@ export const setPercentAsLabel = (
 
   ctx.beginPath();
   ctx.font = isMobile
-    ? `10px ${MakeFonts.CircularStandardBold}`
+    ? `8px ${MakeFonts.CircularStandardBold}`
     : `15px ${MakeFonts.CircularStandardBold}`;
   ctx.textAlign = isTextAlignAdjusted || 'center';
   ctx.fillStyle = color.black;
@@ -121,7 +121,7 @@ export const setMainLabel = (
 
   ctx.beginPath();
   ctx.font = isMobile
-    ? `8px ${MakeFonts.CircularStandardBook}`
+    ? `6px ${MakeFonts.CircularStandardBook}`
     : `11px ${MakeFonts.CircularStandardBook}`;
   ctx.textAlign = isTextAlignAdjusted || 'center';
   ctx.fillStyle = color.black;
@@ -139,7 +139,7 @@ export const setSubLabel = (
 
   ctx.beginPath();
   ctx.font = isMobile
-    ? `8px ${MakeFonts.CircularStandardBook}`
+    ? `6px ${MakeFonts.CircularStandardBook}`
     : `11px ${MakeFonts.CircularStandardBook}`;
   ctx.textAlign = isTextAlignAdjusted || 'center';
   ctx.fillStyle = color.black;

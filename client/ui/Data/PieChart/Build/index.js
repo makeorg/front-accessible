@@ -19,11 +19,11 @@ export const buildPieChart = (
 ) => {
   const canvas: HTMLCanvasElement = ref.current;
   const ctx = canvas.getContext('2d');
-  canvas.width = isMobile ? 300 : 500;
-  canvas.height = isMobile ? 300 : 400;
+  canvas.width = isMobile ? 230 : 500;
+  canvas.height = isMobile ? 230 : 400;
   const total = data.reduce((ttl, item) => ttl + item.percent, 0);
   let startAngle = 4.725;
-  const radius = isMobile ? 75 : 100;
+  const radius = isMobile ? 60 : 100;
   const cx = canvas.width / 2;
   const cy = canvas.height / 2;
   const labelYOffset = 0.125;
@@ -39,8 +39,12 @@ export const buildPieChart = (
     // midpoint between the two angles
     const theta = (startAngle + endAngle) / 2;
     // 1.5 * radius is the length of the Hypotenuses
-    const deltaY = Math.sin(theta) * 1.5 * radius;
-    const deltaX = Math.cos(theta) * 1.5 * radius;
+    const deltaY = isMobile
+      ? Math.sin(theta) * 1.35 * radius
+      : Math.sin(theta) * 1.5 * radius;
+    const deltaX = isMobile
+      ? Math.cos(theta) * 1.35 * radius
+      : Math.cos(theta) * 1.5 * radius;
 
     // set XAxis position
     const itemDeltaX = getItemDeltaX(item, canvas, deltaX, cx);

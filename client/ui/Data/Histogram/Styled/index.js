@@ -87,8 +87,11 @@ export const HistogramBarStyle = styled.div`
 `;
 
 export const HistogramCommonLabelStyle = styled.p`
-  font-size: ${intToPx(typography.font.fontsize.X2S.value)};
+  font-size: 6px;
   font-family: ${MakeFonts.CircularStandardBook};
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    font-size: ${intToPx(typography.font.fontsize.X2S.value)};
+  }
 `;
 
 export const HistogramLegendLabelStyle = styled(HistogramCommonLabelStyle)`

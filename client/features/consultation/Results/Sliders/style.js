@@ -23,30 +23,29 @@ export const ResultsSliderStyle = styled.div`
 
 export const ResultsSliderArrowsStyle = styled(UnstyledButtonStyle)`
   position: absolute;
-  top: ${props => (props.isResultsPage ? '40%' : '50%')};
-  right: ${props => (props.isResultsPage ? '20px' : '0px')};
+  top: 50%;
   display: flex;
   align-content: center;
   justify-content: center;
-  width: ${props => (props.isResultsPage ? '40px' : '30px')};
-  height: ${props => (props.isResultsPage ? '40px' : '30px')};
-  border-radius: 50%;
   font-size: ${intToPx(typography.font.fontsize.XS.value)};
   transform: translateY(-50%);
   z-index: 2;
-  background-color: ${props =>
-    props.isResultsPage ? 'transparent' : `${color.black}`};
   svg {
-    fill: ${props =>
-      props.isResultsPage ? `${color.black}` : `${color.white}`};
+    fill: ${color.black};
   }
   &.glider-prev {
-    left: 0;
-    transform: translateX(-50%);
+    left: 5px;
   }
   &.glider-next {
-    right: 0;
-    transform: translateX(50%);
+    right: 5px;
+  }
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    &.glider-prev {
+      left: 10px;
+    }
+    &.glider-next {
+      right: 10px;
+    }
   }
 `;
 
