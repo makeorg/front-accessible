@@ -1,5 +1,5 @@
 {
-  "context": "Consultation citoyenne réalisée par Make.org du 2020-12-18 au 2021-02-09, autour de la question : Comment améliorer la place des personnes âgées dans la société ?",
+  "context": "Cette démarche a réaffirmé certains des consensus issus de la consultation réalisée pour la Grande Cause \"Mieux prendre soin de nos aînés\" en 2019. En même temps, elle a mis en avant des nouvelles priorités citoyennes, notamment autour de sujets comme l'isolement, l'habitat ou la place des aidants. Ses conclusions, concrétisées sous la forme de 10 idées plébiscitées réunies en 4 axes, nourriront par la suite les actions gouvernementales en cours et à venir dans ce domaine.",
   "key_figures": {
     "participants": 53877,
     "proposals": 1788,
@@ -184,7 +184,7 @@
           "label": "Ehpad ",
           "sublabel": "& maisons de retraite",
           "percent": 21,
-          "color": "#eeb29a",
+          "color": "#4B45A5",
           "adjustLabel": {
             "textAlign": "left",
             "xAxis": 2.2,
@@ -195,7 +195,7 @@
           "label": "Lien intergénérationnel",
           "sublabel": "",
           "percent": 14,
-          "color": "#ffd674",
+          "color": "#8955bd",
           "adjustLabel": {
             "textAlign": "left",
             "xAxis": 2.4
@@ -216,7 +216,7 @@
           "label": "Isolement",
           "sublabel": " & activités",
           "percent": 13,
-          "color": "#fff689",
+          "color": "#f5976e",
           "adjustLabel": {
             "textAlign": "center",
             "yAxis": 2.3
@@ -226,7 +226,7 @@
           "label": "Habitat",
           "sublabel": "",
           "percent": 11,
-          "color": "#eb7575",
+          "color": "#eeb298",
           "adjustLabel": {
             "textAlign": "right",
             "xAxis": 1.8,
@@ -237,85 +237,20 @@
           "label": "Sensibilisation",
           "sublabel": " & prévention",
           "percent": 10,
-          "color": "#59bad4",
+          "color": "#ffd266",
           "adjustLabel": {
             "textAlign": "right",
-            "xAxis": 1.75,
-            "yAxis": 2.15
+            "xAxis": 1.75
           }
         },
         {
-          "label": "Maintien à domicile",
+          "label": "Autres",
           "sublabel": "",
-          "percent": 8,
+          "percent": 17,
           "color": "#fff689",
           "adjustLabel": {
-            "textAlign": "right",
-            "xAxis": 1.8
-          }
-        },
-        {
-          "label": "Rôle des personnes âgées",
-          "sublabel": "",
-          "percent": 7,
-          "color": "#5985af",
-          "adjustLabel": {
-            "textAlign": "right",
-            "xAxis": 1.7,
-            "yAxis": 1.9
-          }
-        },
-        {
-          "label": "Familles & proches aidants",
-          "sublabel": "",
-          "percent": 6,
-          "color": "#4c45a5",
-          "adjustLabel": {
-            "textAlign": "right",
-            "xAxis": 1.8,
-            "yAxis": 1.8
-          }
-        },
-        {
-          "label": "Retraite & niveau de vie",
-          "sublabel": "",
-          "percent": 6,
-          "color": "#eb7575",
-          "adjustLabel": {
-            "textAlign": "right",
-            "xAxis": 1.9,
-            "yAxis": 1.8
-          }
-        },
-        {
-          "label": "Droit des personnes agées",
-          "sublabel": "",
-          "percent": 5,
-          "color": "#59bad4",
-          "adjustLabel": {
-            "textAlign": "right",
-            "xAxis": 1.9,
-            "yAxis": 1.9
-          }
-        },
-        {
-          "label": "Transport & mobilités",
-          "sublabel": "",
-          "percent": 2,
-          "color": "#c1ebdd",
-          "adjustLabel": {
-            "textAlign": "right",
-            "yAxis": 2.1
-          }
-        },
-        {
-          "label": "Entreprise & emploi",
-          "sublabel": "",
-          "percent": 2,
-          "color": "#4c45a5",
-          "adjustLabel": {
             "textAlign": "left",
-            "yAxis": 2.2
+            "yAxis": 1.9
           }
         }
       ]
@@ -330,7 +265,7 @@
           "label": "Favoriser, développer",
           "sublabel": "",
           "percent": 48,
-          "color": "#eeb29a",
+          "color": "#4b45a5",
           "adjustLabel": {
             "textAlign": "left",
             "xAxis": 2.4
@@ -340,7 +275,7 @@
           "label": "Créer, proposer",
           "sublabel": "",
           "percent": 11,
-          "color": "#ffd674",
+          "color": "#8955bd",
           "adjustLabel": {
             "textAlign": "right",
             "xAxis": 1.8,
@@ -351,7 +286,7 @@
           "label": "Limiter, réduire, arrêter",
           "sublabel": "",
           "percent": 7,
-          "color": "#fff689",
+          "color": "#eb7575",
           "adjustLabel": {
             "textAlign": "right",
             "xAxis": 1.8,
@@ -362,39 +297,27 @@
           "label": "Maintenir, garder",
           "sublabel": "",
           "percent": 6,
-          "color": "#ffd674",
+          "color": "#f5976e",
           "adjustLabel": {
             "textAlign": "right",
             "xAxis": 1.8
           }
         },
         {
-          "label": "Sensibiliser, communiquer",
-          "sublabel": "",
+          "label": "Sensibiliser,",
+          "sublabel": " communiquer",
           "percent": 6,
-          "color": "#eb7575",
+          "color": "#eeb298",
           "adjustLabel": {
             "textAlign": "right",
-            "xAxis": 1.8,
-            "yAxis": 1.8
+            "xAxis": 1.8
           }
         },
         {
           "label": "Changer, adapter",
           "sublabel": "",
           "percent": 5,
-          "color": "#fff689",
-          "adjustLabel": {
-            "textAlign": "right",
-            "xAxis": 1.9,
-            "yAxis": 1.8
-          }
-        },
-        {
-          "label": "Donner, transmettre",
-          "sublabel": "",
-          "percent": 4,
-          "color": "#59bad4",
+          "color": "#ffd266",
           "adjustLabel": {
             "textAlign": "right",
             "xAxis": 1.9,
@@ -402,23 +325,13 @@
           }
         },
         {
-          "label": "Obliger, imposer",
+          "label": "Autres",
           "sublabel": "",
-          "percent": 2,
-          "color": "#4c45a5",
-          "adjustLabel": {
-            "textAlign": "right",
-            "yAxis": 2.1
-          }
-        },
-        {
-          "label": "Interdire, sanctionner",
-          "sublabel": "",
-          "percent": 1,
-          "color": "#5985af",
+          "percent": 17,
+          "color": "#fff689",
           "adjustLabel": {
             "textAlign": "left",
-            "yAxis": 2.2
+            "yAxis": 1.9
           }
         }
       ]
@@ -627,11 +540,11 @@
         {
           "label": "femmes",
           "percent": 63,
-          "color": "#4c45a5"
+          "color": "#4B45A5"
         },{
           "label": "hommes",
           "percent": 37,
-          "color": "#eeb29a"
+          "color": "#8955bd"
         }
       ],
       "id": "participation_3"
