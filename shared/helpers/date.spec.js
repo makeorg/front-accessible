@@ -8,7 +8,8 @@ import {
   isInProgress,
   getDate,
   orderByEndDate,
-  isCurrentStep,
+  selectStep,
+  chronologicalOrder,
 } from './date';
 
 describe('Date Helper', () => {
@@ -186,80 +187,39 @@ describe('Date Helper', () => {
     });
   });
 
-  describe('isCurrentStep', () => {
-    const question = { startDate: '2021-01-15', endDate: '2021-05-15' };
+  describe('selectStep', () => {
     const result = { date: '2021-02-15' };
     const workshop = { date: '2021-03-15' };
     const action = { date: '2021-04-15' };
+    const timeline = { result, action, workshop };
 
-    it('marks first step consultation has current', () => {
-      MockDate.set('2021-02-10');
-      expect(isCurrentStep(question, result)).toBe(true);
-      expect(isCurrentStep(result, workshop)).toBe(false);
-      expect(isCurrentStep(workshop, action)).toBe(false);
-      expect(isCurrentStep(action, question)).toBe(false);
-    });
-
-    it('marks second step result has current', () => {
+    it('marks first step result as current', () => {
       MockDate.set('2021-03-10');
-      expect(isCurrentStep(result, workshop)).toBe(true);
-      expect(isCurrentStep(question, result)).toBe(false);
-      expect(isCurrentStep(workshop, action)).toBe(false);
-      expect(isCurrentStep(action, question)).toBe(false);
+      expect(selectStep(timeline, 'result', 'workshop')).toBe(true);
+      expect(selectStep(timeline, 'workshop', 'result')).toBe(false);
+      expect(selectStep(timeline, 'workshop', 'action')).toBe(false);
     });
 
-    it('marks third step workshop has current', () => {
+    it('marks second step workshop as current', () => {
       MockDate.set('2021-04-10');
-      expect(isCurrentStep(workshop, action)).toBe(true);
-      expect(isCurrentStep(question, result)).toBe(false);
-      expect(isCurrentStep(result, workshop)).toBe(false);
-      expect(isCurrentStep(action, question)).toBe(false);
+      expect(selectStep(timeline, 'workshop', 'action')).toBe(true);
+      expect(selectStep(timeline, 'action', 'result')).toBe(false);
+      expect(selectStep(timeline, 'result', 'workshop')).toBe(false);
+      expect(selectStep(timeline, 'result', 'workshop')).toBe(false);
+      expect(selectStep(timeline, 'workshop', 'result')).toBe(false);
     });
 
-    it('marks last step action has current', () => {
+    it('marks last step as current', () => {
       MockDate.set('2021-05-10');
-      expect(isCurrentStep(action, question)).toBe(true);
-      expect(isCurrentStep(question, result)).toBe(false);
-      expect(isCurrentStep(result, workshop)).toBe(false);
-      expect(isCurrentStep(workshop, action)).toBe(false);
-    });
-
-    it('returns false if result does not exists for second step', () => {
-      const noResult = {};
-      MockDate.set('2021-03-10');
-      expect(isCurrentStep(noResult, workshop)).toBe(false);
-    });
-
-    it('returns false if result does not exists for first step', () => {
-      const noResult = {};
-      MockDate.set('2021-03-10');
-      expect(isCurrentStep(question, noResult)).toBe(false);
-    });
-
-    it('returns false if workshop does not exists for third step', () => {
-      const noWorkshop = {};
-      MockDate.set('2021-04-10');
-      expect(isCurrentStep(noWorkshop, action)).toBe(false);
-    });
-
-    it('returns false if workshop does not exists for second step', () => {
-      const noWorkshop = {};
-      MockDate.set('2021-04-10');
-      expect(isCurrentStep(result, noWorkshop)).toBe(false);
-    });
-
-    it('returns false if action does not exists for last step', () => {
-      const noAction = {};
-      MockDate.set('2021-05-10');
-      expect(isCurrentStep(noAction, question)).toBe(false);
-    });
-
-    it('returns false if action not exists for third step', () => {
-      const noAction = {};
-      MockDate.set('2021-04-10');
-      expect(isCurrentStep(workshop, noAction)).toBe(false);
+      expect(selectStep(timeline, 'result', undefined)).toBe(true);
+      expect(selectStep(timeline, 'workshop', 'result')).toBe(false);
+      expect(selectStep(timeline, 'action', 'result')).toBe(false);
+      expect(selectStep(timeline, 'action', 'workshop')).toBe(false);
+      expect(selectStep(timeline, 'result', 'action')).toBe(false);
+      expect(selectStep(timeline, 'result', 'workshop')).toBe(false);
     });
   });
+
   describe('getDate', () => {
     const nullDate = null;
     const dateString = '1984-02-15';
@@ -297,6 +257,32 @@ describe('Date Helper', () => {
       const dateB = getDate(questionB.endDate);
 
       expect(orderByEndDate(questionA, questionB)).toBe(dateB - dateA);
+    });
+  });
+
+  describe('chronologicalOrder', () => {
+    const stepA = { date: '1980-01-02' };
+    const stepB = { date: '2075-01-01' };
+    const stepANullDate = { date: null };
+    const stepBNullDate = { date: null };
+
+    it('receive null date for both steps', () => {
+      expect(chronologicalOrder(stepANullDate, stepBNullDate)).toBe(0);
+    });
+
+    it('receive null date for stepA', () => {
+      expect(chronologicalOrder(stepANullDate, stepB)).toBe(1);
+    });
+
+    it('receive null date for stepB', () => {
+      expect(chronologicalOrder(stepA, stepBNullDate)).toBe(-1);
+    });
+
+    it('receive dates for stepA & stepB', () => {
+      const dateA = getDate(stepA.date);
+      const dateB = getDate(stepB.date);
+
+      expect(chronologicalOrder(stepA, stepB)).toBe(dateA - dateB);
     });
   });
 });

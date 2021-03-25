@@ -2,7 +2,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router';
-import { DateHelper, isCurrentStep } from 'Shared/helpers/date';
+import { DateHelper, isInProgress, selectStep } from 'Shared/helpers/date';
 import { i18n } from 'Shared/i18n';
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
 import { type StateRoot } from 'Shared/store/types';
@@ -10,6 +10,7 @@ import { isGreatCause } from 'Shared/helpers/question';
 import { CONTACT_EMAIL } from 'Shared/constants/config';
 import { type QuestionType } from 'Shared/types/question';
 import { isBetaResultsPage } from 'Shared/routes';
+import { buildTimeline, getStepTitle } from 'Client/helper/timeline';
 import {
   TimelineWrapperStyle,
   TimelineListWrapperStyle,
@@ -56,7 +57,8 @@ export const Timeline = () => {
   const question: QuestionType = useSelector((state: StateRoot) =>
     selectCurrentQuestion(state)
   );
-  const { result, workshop, action } = question.timeline;
+  const { timeline } = question;
+  const { result, workshop, action } = timeline;
   const oneStepTimeline = !result && !workshop && !action;
   const questionIsGreatCause = isGreatCause(question.operationKind);
   const location = useLocation();
@@ -68,6 +70,7 @@ export const Timeline = () => {
         endDate: DateHelper.localizedDayMonthYear(question.endDate),
       })
     : DateHelper.localizedMonthYear(question.startDate);
+  const timelineSteps = buildTimeline(timeline);
 
   return (
     <TimelineWrapperStyle>
@@ -97,40 +100,23 @@ export const Timeline = () => {
                 description={i18n.t(
                   'consultation.timeline.consultation_description'
                 )}
-                isCurrent={isCurrentStep(question, result)}
+                isCurrent={isInProgress(question)}
               />
             </li>
-            {result && (
-              <li>
+            {timelineSteps.map((step, index) => (
+              <li key={step.name}>
                 <TimelineItem
-                  title={i18n.t('consultation.timeline.result_title')}
-                  dateText={result.dateText}
-                  description={result.description}
-                  isCurrent={isCurrentStep(result, workshop)}
+                  title={getStepTitle(step.name)}
+                  dateText={step.dateText}
+                  description={step.description}
+                  isCurrent={selectStep(
+                    timeline,
+                    step.name,
+                    timelineSteps[index + 1] && timelineSteps[index + 1].name
+                  )}
                 />
               </li>
-            )}
-            {workshop && (
-              <li>
-                <TimelineItem
-                  title={i18n.t('consultation.timeline.workshop_title')}
-                  dateText={workshop.dateText}
-                  description={workshop.description}
-                  withLink
-                  isCurrent={isCurrentStep(workshop, action)}
-                />
-              </li>
-            )}
-            {action && (
-              <li>
-                <TimelineItem
-                  title={i18n.t('consultation.timeline.action_title')}
-                  dateText={action.dateText}
-                  description={action.description}
-                  isCurrent={isCurrentStep(action, question)}
-                />
-              </li>
-            )}
+            ))}
           </TimelineListWrapperStyle>
         )}
       </TimelineContentStyle>
