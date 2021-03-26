@@ -11,7 +11,7 @@ Feature: Progress and card position on sequence
     Then card "2" is visible
     And card "2" is a proposal card
     And progress bar is "2" on "15"
-    And I don't see "next proposal" button on card "2"
+    And The "next proposal" button on card "2" doesn't exist
     When I vote "neutral" on the current card
     Then I see "next proposal" button on card "2"
     When I click on "next proposal" of the current card
@@ -28,7 +28,7 @@ Feature: Progress and card position on sequence
     And card "3" is visible
     And card "3" is a proposal card
     And progress bar is "3" on "15"
-    And I don't see "next proposal" button on card "3"
+    And The "next proposal" button on card "3" doesn't exist
     When I vote "neutral" on the current card
     Then I see "next proposal" button on card "3"
     When I click on "next proposal" of the current card
@@ -45,7 +45,7 @@ Feature: Progress and card position on sequence
     And card "4" is visible
     And card "4" is a proposal card
     And progress bar is "4" on "15"
-    And I don't see "next proposal" button on card "4"
+    And The "next proposal" button on card "4" doesn't exist
     When I vote "neutral" on the current card
     Then I see "next proposal" button on card "4"
     When I click on "next proposal" of the current card
@@ -62,7 +62,7 @@ Feature: Progress and card position on sequence
     And card "5" is visible
     And card "5" is a proposal card
     And progress bar is "5" on "15"
-    And I don't see "next proposal" button on card "5"
+    And The "next proposal" button on card "5" doesn't exist
     When I vote "neutral" on the current card
     Then I see "next proposal" button on card "5"
     When I click on "next proposal" of the current card
@@ -79,7 +79,7 @@ Feature: Progress and card position on sequence
     And card "6" is visible
     And card "6" is a proposal card
     And progress bar is "6" on "15"
-    And I don't see "next proposal" button on card "6"
+    And The "next proposal" button on card "6" doesn't exist
     When I vote "neutral" on the current card
     Then I see "next proposal" button on card "6"
     When I click on "next proposal" of the current card
@@ -97,7 +97,7 @@ Feature: Progress and card position on sequence
     And card "7" is visible
     And card "7" is a proposal card
     And progress bar is "7" on "15"
-    And I don't see "next proposal" button on card "7"
+    And The "next proposal" button on card "7" doesn't exist
     When I vote "neutral" on the current card
     Then I see "next proposal" button on card "7"
     When I click on "next proposal" of the current card
@@ -131,7 +131,7 @@ Feature: Progress and card position on sequence
     And card "9" is visible
     And card "9" is a proposal card
     And progress bar is "9" on "15"
-    And I don't see "next proposal" button on card "9"
+    And The "next proposal" button on card "9" doesn't exist
     When I vote "neutral" on the current card
     Then I see "next proposal" button on card "9"
     When I click on "next proposal" of the current card
@@ -149,7 +149,7 @@ Feature: Progress and card position on sequence
     And card "10" is visible
     And card "10" is a proposal card
     And progress bar is "10" on "15"
-    And I don't see "next proposal" button on card "10"
+    And The "next proposal" button on card "10" doesn't exist
     When I vote "neutral" on the current card
     Then I see "next proposal" button on card "10"
     When I click on "next proposal" of the current card
@@ -166,7 +166,7 @@ Feature: Progress and card position on sequence
     And card "11" is visible
     And card "11" is a proposal card
     And progress bar is "11" on "15"
-    And I don't see "next proposal" button on card "11"
+    And The "next proposal" button on card "11" doesn't exist
     When I vote "neutral" on the current card
     Then I see "next proposal" button on card "11"
     When I click on "next proposal" of the current card
@@ -183,7 +183,7 @@ Feature: Progress and card position on sequence
     And card "12" is visible
     And card "12" is a proposal card
     And progress bar is "12" on "15"
-    And I don't see "next proposal" button on card "12"
+    And The "next proposal" button on card "12" doesn't exist
     When I vote "neutral" on the current card
     Then I see "next proposal" button on card "12"
     When I click on "next proposal" of the current card
@@ -200,7 +200,7 @@ Feature: Progress and card position on sequence
     And card "13" is visible
     And card "13" is a proposal card
     And progress bar is "13" on "15"
-    And I don't see "next proposal" button on card "13"
+    And The "next proposal" button on card "13" doesn't exist
     When I vote "agree" on the current card
     And I qualify "likeIt" on the current card
     Then I see "next proposal" button on card "13"
@@ -218,7 +218,7 @@ Feature: Progress and card position on sequence
     And card "14" is visible
     And card "14" is a proposal card
     And progress bar is "14" on "15"
-    And I don't see "next proposal" button on card "14"
+    And The "next proposal" button on card "14" doesn't exist
     When I vote "neutral" on the current card
     Then I see "next proposal" button on card "14"
     When I click on "next proposal" of the current card

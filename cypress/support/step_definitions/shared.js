@@ -69,6 +69,12 @@ Given('I am/go on/to {string} page of the question {string}', (targetPage, quest
   cy.visit(page);
 });
 
+When('I am/go on/to {string} page of the question {string}', (targetPage, questionSlug) => {
+  checkPageExist(targetPage);
+  const page = pages[targetPage].replace(':questionSlug', questionSlug);
+  cy.visit(page);
+});
+
 When('I focus {string} field', (fieldName) => {
   cy.get(`[data-cy-field=${fieldName}]`).first().focus();
 });
@@ -125,9 +131,9 @@ Then('I see {string} container', containerName => {
     .should('be.visible');
 });
 
-Then('I don\'t see {string} container', containerName => {
+Then('The {string} container doesn\'t exist', containerName => {
   cy.get(`[data-cy-container=${containerName}]`)
-    .should('not.be.visible');
+    .should('not.exist');
 });
 
 
@@ -165,10 +171,10 @@ Then('The link {string} to {string} in {string} container exists', (linkLabel, h
     .and('have.attr', 'href', href);
 });
 
-Then('I don\'t see the link {string}', (label) => {
+Then('The link {string} doesn\'t exist', (label) => {
   cy.get('body')
     .contains('a', label)
-    .should('not.visible');
+    .should('not.exist');
 });
 
 // I see button
@@ -179,7 +185,12 @@ Then('I see (a )(the ){string} button', (buttonName) => {
     .and('be.visible');
 });
 
-Then('I don\'t see (a )(the ){string} button', (buttonName) => {
+Then('The {string} button doesn\'t exist', (buttonName) => {
+  cy.get(`button[data-cy-button=${getIdentifierButtonByName(buttonName)}]`)
+    .should('not.exist');
+});
+
+Then('I don\'t see even if it exists (a )(the ){string} button', (buttonName) => {
   cy.get(`button[data-cy-button=${getIdentifierButtonByName(buttonName)}]`)
     .should('not.be.visible');
 });

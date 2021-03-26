@@ -34,7 +34,7 @@ Feature: The header
   Scenario: Navigation through the menu
     Given I am on "homepage"
     And I see "header" container
-    Then I don't see "mobile-header-menu" container
+    Then I don't see even if it exists the mobile header menu container
     When I click on "mobile-header-menu" button
     Then I see "mobile-header-menu" container
     And  I see "Parcourir les consultations"
@@ -44,7 +44,7 @@ Feature: The header
     And I see an external link "Notre actualité" to "https://about.make.org" in "mobile-header-menu" container
     And I see an external link "Jobs" to "https://about.make.org/jobs" in "mobile-header-menu" container
     When I click on "close mobile menu" button
-    Then I don't see "mobile-header-menu" container
+    Then I don't see even if it exists the mobile header menu container
 
   Scenario: Search from header
     Given I am on "homepage"
@@ -52,23 +52,23 @@ Feature: The header
     And the search input in header is not visible
     When I click on "mobile search" button
     Then the search input in header is visible
-    And I don't see "mobile header menu" button
-    And I don't see Make logo
-    And I don't see "login" button
+    And I don't see even if it exists "mobile header menu" button
+    And I don't see even if it exists Make logo
+    And I don't see even if it exists "login" button
     # @toDo
     # And the search input in header has focus
     And the search input in header has a "Rechercher" label
     And I see a button "mobile search cancel" in "header" container
     And I see a button "search submit" in "header" container
-    And I don't see "mobile search" button
+    And I don't see even if it exists "mobile search" button
     When I click on "mobile search cancel" button
     Then the search input in header is not visible
     And I see "mobile header menu" button
     And I see Make logo
     And I see "login" button
     And I see "mobile search" button
-    And I don't see "mobile search cancel" button
-    And I don't see "search submit" button
+    And I don't see even if it exists "mobile search cancel" button
+    And I don't see even if it exists "search submit" button
     When I click on "mobile search" button
     Then the "search submit" button is disabled
     When I type "t" in field "search"
@@ -81,7 +81,7 @@ Feature: The header
     Then I see the "search" page with "query=tes" as query params
     And the search input in header is visible
     And The field "search" should have value "tes"
-    And I don't see "search submit" button
+    And The "search submit" button doesn't exist
     And I see "mobile search cancel" button
     And I see a "search clear" button
     When I click on "search clear" button

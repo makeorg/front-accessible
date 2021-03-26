@@ -4,6 +4,7 @@ import {
   RESULTS_TOP_IDEAS,
   RESULTS_CONTROVERSIALS,
 } from 'Shared/constants/ids';
+import { getCurrentContainer } from 'Shared/helpers/consultation';
 import {
   ResultCardStyle,
   ResultTitleWrapperStyle,
@@ -32,6 +33,7 @@ export const ResultCard = ({
   id,
   children,
 }: Props) => {
+  const currentContainer = getCurrentContainer(id);
   const isTopIdeas = id && id === RESULTS_TOP_IDEAS;
   const isControversials = id && id === RESULTS_CONTROVERSIALS;
   return (
@@ -42,7 +44,9 @@ export const ResultCard = ({
             {icon}
           </ResultCardIconStyle>
         )}
-        <ResultCardTitleStyle id={id}>{title}</ResultCardTitleStyle>
+        <ResultCardTitleStyle id={id} data-cy-container={currentContainer}>
+          {title}
+        </ResultCardTitleStyle>
         {description && (
           <ResultCardDescriptionStyle isControversials={isControversials}>
             {description}

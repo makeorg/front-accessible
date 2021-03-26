@@ -23,7 +23,11 @@ export const ResultCardSidebar = ({
   isContext,
 }: Props) => (
   <ResultCardSidebarStyle isContext={isContext}>
-    <ResultCardSidebarTitleStyle>{title}</ResultCardSidebarTitleStyle>
+    <ResultCardSidebarTitleStyle
+      data-cy-container={isContext ? 'context' : 'contact'}
+    >
+      {title}
+    </ResultCardSidebarTitleStyle>
     <ResultCardSidebarParagraphStyle>
       {description}
     </ResultCardSidebarParagraphStyle>

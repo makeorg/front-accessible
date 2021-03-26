@@ -1,5 +1,12 @@
 // flow
 import { isParticipatePage, isResultsPage } from 'Shared/routes';
+import {
+  RESULTS_TOP_IDEAS,
+  RESULTS_CONTROVERSIALS,
+  RESULTS_CARTOGRAPHY,
+  RESULTS_PARTICIPATION,
+} from 'Shared/constants/ids';
+
 import { i18n } from 'Shared/i18n';
 
 /**
@@ -23,4 +30,19 @@ export const getCurrentLabel = (location, question) => {
   return i18n.t('consultation.navigation.explore_breadcrumb', {
     title: question.wording.title,
   });
+};
+
+export const getCurrentContainer = id => {
+  switch (id) {
+    case RESULTS_TOP_IDEAS:
+      return 'top-ideas';
+    case RESULTS_CONTROVERSIALS:
+      return 'proposals-controversials';
+    case RESULTS_CARTOGRAPHY:
+      return 'cartography';
+    case RESULTS_PARTICIPATION:
+      return 'participants-chart';
+    default:
+      return null;
+  }
 };

@@ -2,8 +2,8 @@ Feature: Propose on sequence
   I want to propose on sequence
   Scenario: display propose panel
     Given I am on the sequence page of the question "question-0-slug"
-    And I don't see "proposal_submit" container
-    And I don't see the link "En savoir plus sur notre charte de modération"
+    And The "proposal_submit" container doesn't exist
+    And The link "En savoir plus sur notre charte de modération" doesn't exist
     And I see "open propose panel" button
     When I click on "open propose panel" button
     Then I see "proposal_submit" container
@@ -12,7 +12,7 @@ Feature: Propose on sequence
     And I see a button "proposal submit" in "proposal_submit" container with label "Valider"
     And I see a "close panel" button
     When I click on "cancel proposal form" button
-    Then I don't see "proposal_submit" container
+    Then The "proposal_submit" container doesn't exist
 
   Scenario: submit button activation
     Given I am on the sequence page of the question "question-0-slug"
