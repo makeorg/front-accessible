@@ -9,7 +9,7 @@ import { type StateRoot } from 'Shared/store/types';
 import { isGreatCause } from 'Shared/helpers/question';
 import { CONTACT_EMAIL } from 'Shared/constants/config';
 import { type QuestionType } from 'Shared/types/question';
-import { isBetaResultsPage } from 'Shared/routes';
+import { isResultsPage } from 'Shared/routes';
 import { buildTimeline, getStepTitle } from 'Client/helper/timeline';
 import {
   TimelineWrapperStyle,
@@ -62,7 +62,7 @@ export const Timeline = () => {
   const oneStepTimeline = !result && !workshop && !action;
   const questionIsGreatCause = isGreatCause(question.operationKind);
   const location = useLocation();
-  const resultsPage = isBetaResultsPage(location.pathname);
+  const resultsPage = isResultsPage(location.pathname);
 
   const firstStepDateText = resultsPage
     ? i18n.t('consultation.timeline.consultation_from_to', {

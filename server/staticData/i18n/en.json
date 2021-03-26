@@ -655,21 +655,9 @@
       "discover": "Read our blog"
     },
     "results": {
-      "deprecated": {
-        "title": "Results of the consultation {{question}}",
-        "methodology": {
-          "title": "Methodology",
-          "description": "Our methodology is based on citizens’ solutions collected and reviewed by our Moderation team. They are first submitted for validation with regard to their compliance with the Make.org guidelines, then classified according to a thematic tagging. Algorithms developed by Make.org teams then guarantee each validated solution an equal level of exposure, and organize a competition between them. Through this constant rotation, Make.org identifies the solutions that have the greatest consensus among citizens before analyzing them and grouping them into big ideas."
-        },
-        "key_figures": {
-          "title": "Key figures",
-          "participants": "Contributors",
-          "proposals": "Solutions",
-          "votes": "Votes"
-        },
-        "participation": {
-          "title": "Who participated to this consultation?"
-        }
+      "methodology": {
+        "title": "Methodology",
+        "description": "Our methodology is based on citizens’ solutions collected and reviewed by our Moderation team. They are first submitted for validation with regard to their compliance with the Make.org guidelines, then classified according to a thematic tagging. Algorithms developed by Make.org teams then guarantee each validated solution an equal level of exposure, and organize a competition between them. Through this constant rotation, Make.org identifies the solutions that have the greatest consensus among citizens before analyzing them and grouping them into big ideas."
       },
       "context": "Context",
       "cartography": {

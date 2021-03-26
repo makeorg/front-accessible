@@ -42,17 +42,9 @@ describe('getLocationContext', () => {
       name: 'ROUTE_RESULTS',
       path: '/FR/consultation/foo/results',
       params: { questionId: 'question-id' },
-      expected: `page-results-deprecated question-id`,
-      expectedTracking: `page-results-deprecated`,
-    },
-    {
-      name: 'ROUTE_BETA_RESULTS',
-      path: '/FR/beta/consultation/foo/results',
-      params: { questionId: 'question-id' },
       expected: `page-results question-id`,
       expectedTracking: `page-results`,
     },
-
     {
       name: 'ROUTE_TOP_IDEA_DETAILS',
       path: '/FR/consultation/foo/top-ideas/bar',

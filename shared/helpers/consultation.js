@@ -1,5 +1,5 @@
 // flow
-import { isParticipatePage, isBetaResultsPage } from 'Shared/routes';
+import { isParticipatePage, isResultsPage } from 'Shared/routes';
 import { i18n } from 'Shared/i18n';
 
 /**
@@ -15,7 +15,7 @@ export const getCurrentLabel = (location, question) => {
       title: question.wording.title,
     });
   }
-  if (isBetaResultsPage(location)) {
+  if (isResultsPage(location)) {
     return i18n.t('consultation.results.breadcrumb', {
       title: question.wording.title,
     });
