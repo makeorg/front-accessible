@@ -11,7 +11,7 @@ import { searchProposals } from 'Shared/helpers/proposal';
 import { ProposalCardTagged } from 'Client/features/proposal/ProposalCardTagged';
 import { LoadMoreWrapperStyle } from 'Client/features/consultation/Styled/Proposal';
 import { RedButtonStyle } from 'Client/ui/Elements/Buttons/style';
-import { InfiniteProposalsContainerStyle } from 'Client/features/consultation/InfiniteProposals/style';
+import { InfiniteProposalsContainerStyle } from 'Client/features/topIdeas/style';
 import { COMPONENT_PARAM_DETAIL_IDEAS } from 'Shared/constants/tracking';
 import { ColumnElementStyle } from 'Client/ui/Elements/FlexElements';
 import {

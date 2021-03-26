@@ -1,14 +1,12 @@
 // @flow
 
 import {
-  ROUTE_CONSULTATION,
   ROUTE_SEQUENCE,
   ROUTE_SEQUENCE_POPULAR,
   ROUTE_SEQUENCE_CONTROVERSIAL,
   ROUTE_SEQUENCE_KEYWORD,
   ROUTE_PROPOSAL,
   matchRoute,
-  ROUTE_ACTION,
   ROUTE_SEARCH,
   ROUTE_SEARCH_PROPOSALS,
   ROUTE_SEARCH_ORGANISATIONS,
@@ -39,10 +37,8 @@ export const getLocationContext = (
   const path = pathname.toLowerCase();
 
   const locations = [
-    { route: ROUTE_CONSULTATION, name: `page-operation ${questionId}` },
     { route: ROUTE_PARTICIPATE, name: `page-participate ${questionId}` },
     { route: ROUTE_EXPLORE, name: `page-explore ${questionId}` },
-    { route: ROUTE_ACTION, name: `page-action ${questionId}` },
     { route: ROUTE_RESULTS, name: `page-results ${questionId}` },
     {
       route: ROUTE_TOP_IDEA_DETAILS,

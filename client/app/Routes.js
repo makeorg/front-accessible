@@ -8,10 +8,8 @@ import {
   ROUTE_SEARCH_PROPOSALS,
   ROUTE_SEARCH_ORGANISATIONS,
   ROUTE_SEARCH_CONSULTATIONS,
-  ROUTE_CONSULTATION,
   ROUTE_PARTICIPATE,
   ROUTE_EXPLORE,
-  ROUTE_ACTION,
   ROUTE_SEQUENCE,
   ROUTE_SEQUENCE_POPULAR,
   ROUTE_SEQUENCE_CONTROVERSIAL,
@@ -214,8 +212,6 @@ export const Routes = () => {
 
       <Route path={ROUTE_STATIC_NOTFOUND} component={NotFoundPage} />
       <Redirect exact path="/" to={getHomeLink(country || DEFAULT_COUNTRY)} />
-      <Redirect path={ROUTE_CONSULTATION} to={ROUTE_PARTICIPATE} />
-      <Redirect path={ROUTE_ACTION} to={ROUTE_PARTICIPATE} />
       <Redirect path={ROUTE_EXPLORE_ROOT} to={ROUTE_EXPLORE_FIRST_PAGE} />
 
       <Route component={NotFoundPage} />

@@ -5,7 +5,6 @@ import queryString from 'query-string';
 import { ABOUT_MAKE_LINK } from 'Shared/constants/url';
 import {
   ROUTE_PARTICIPATE,
-  ROUTE_ACTION,
   ROUTE_SEQUENCE,
   ROUTE_SEQUENCE_POPULAR,
   ROUTE_SEQUENCE_CONTROVERSIAL,
@@ -211,20 +210,6 @@ export const getExploreLink = (
     country,
     questionSlug,
     pageId,
-  });
-
-/**
- * Get the action link
- *
- * @param  {string} country
- * @param  {string} questionSlug
- *
- * @return {string}
- */
-export const getActionLink = (country: string, questionSlug: string) =>
-  generatePath(ROUTE_ACTION, {
-    country,
-    questionSlug,
   });
 
 /**

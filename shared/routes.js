@@ -6,7 +6,6 @@ export const ROUTE_COUNTRY_FR = '/FR';
 
 export const ROUTE_BROWSE_CONSULTATIONS = `${ROUTE_COUNTRY}/browse/consultations/page/:pageId`;
 export const ROUTE_BROWSE_RESULTS = `${ROUTE_COUNTRY}/browse/results/page/:pageId`;
-export const ROUTE_CONSULTATION = `${ROUTE_COUNTRY}/consultation/:questionSlug/consultation`;
 export const ROUTE_CONSULTATION_STEP = `${ROUTE_COUNTRY}/consultation/:questionSlug/:consultationStep`;
 export const ROUTE_PARTICIPATE = `${ROUTE_COUNTRY}/consultation/:questionSlug/participate`;
 export const ROUTE_EXPLORE = `${ROUTE_COUNTRY}/consultation/:questionSlug/explore/page/:pageId`;
@@ -16,7 +15,6 @@ export const ROUTE_SEARCH = `${ROUTE_COUNTRY}/search`;
 export const ROUTE_SEARCH_PROPOSALS = `${ROUTE_COUNTRY}/search/proposals`;
 export const ROUTE_SEARCH_ORGANISATIONS = `${ROUTE_COUNTRY}/search/organisations`;
 export const ROUTE_SEARCH_CONSULTATIONS = `${ROUTE_COUNTRY}/search/consultations`;
-export const ROUTE_ACTION = `${ROUTE_COUNTRY}/consultation/:questionSlug/actions`;
 export const ROUTE_RESULTS = `${ROUTE_COUNTRY}/consultation/:questionSlug/results`;
 export const ROUTE_TOP_IDEAS = `${ROUTE_COUNTRY}/consultation/:questionSlug/top-ideas`;
 export const ROUTE_TOP_IDEA_DETAILS = `${ROUTE_COUNTRY}/consultation/:questionSlug/top-ideas/:topIdeaId`;
@@ -179,19 +177,6 @@ export const getPaginatedRoute = (
   questionSlug?: string
 ) => generatePath(path, { country, pageId, questionSlug });
 
-export const isConsultationPage = (
-  pathname: string,
-  includingPreview: ?boolean = true
-) =>
-  matchRoute(
-    pathname,
-    ROUTE_CONSULTATION,
-    false,
-    false,
-    false,
-    includingPreview
-  );
-
 export const isParticipatePage = (
   pathname: string,
   includingPreview: ?boolean = true
@@ -209,11 +194,6 @@ export const isExplorePage = (
   pathname: string,
   includingPreview: ?boolean = true
 ) => matchRoute(pathname, ROUTE_EXPLORE, false, false, false, includingPreview);
-
-export const isActionsPage = (
-  pathname: string,
-  includingPreview: ?boolean = true
-) => matchRoute(pathname, ROUTE_ACTION, false, false, false, includingPreview);
 
 export const isResultsPage = (
   pathname: string,

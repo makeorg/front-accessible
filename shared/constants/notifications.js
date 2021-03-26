@@ -18,7 +18,6 @@ export const NETWORK_ERROR_MESSAGE: string = 'NETWORK_ERROR_MESSAGE';
 export const VOTE_ONLY_MESSAGE: string = 'VOTE_ONLY_MESSAGE';
 
 // Tip
-export const TAGS_TIP_MESSAGE: string = 'TAGS_TIP_MESSAGE';
 export const FIRST_VOTE_TIP_MESSAGE: string = 'FIRST_VOTE_TIP_MESSAGE';
 
 export const NOTIFICATION_LEVEL_INFORMATION: string = 'information';

@@ -73,12 +73,6 @@ describe('Url Helper', () => {
     );
   });
 
-  it('return action link', () => {
-    const link = urlHelper.getActionLink(country, questionSlug);
-
-    expect(link).toEqual(`/${country}/consultation/${questionSlug}/actions`);
-  });
-
   it('return proposal link', () => {
     const link = urlHelper.getProposalLink(
       country,
