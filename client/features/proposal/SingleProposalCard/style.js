@@ -17,6 +17,7 @@ import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 
 export const InnerProposalStyle = styled(MiddleColumnStyle)`
   width: 100%;
+  flex: 1 1 auto;
 `;
 
 export const ProposalFooterStyle = styled.footer`
@@ -92,7 +93,7 @@ export const ProposalCardContentStyle = styled.blockquote`
   max-width: 100%;
   font-size: ${intToPx(typography.font.fontsize.X2S.value)};
   line-height: normal;
-  font-family: ${MakeFonts.CircularStandardBold};
+  font-family: ${MakeFonts.CircularStandardBook};
   text-align: center;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: ${intToPx(typography.font.fontsize.L.value)};
