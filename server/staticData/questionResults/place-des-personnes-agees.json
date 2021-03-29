@@ -247,8 +247,9 @@
           "label": "Autres",
           "sublabel": "",
           "percent": 17,
-          "color": "#fff689",
+          "color": "#ffffff",
           "adjustLabel": {
+            "hidePercent": true,
             "textAlign": "left",
             "yAxis": 1.9
           }
@@ -328,8 +329,9 @@
           "label": "Autres",
           "sublabel": "",
           "percent": 17,
-          "color": "#fff689",
+          "color": "#ffffff",
           "adjustLabel": {
+            "hidePercent": true,
             "textAlign": "left",
             "yAxis": 1.9
           }
