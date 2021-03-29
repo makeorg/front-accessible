@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { i18n } from 'Shared/i18n';
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
 import { getVotesRatio } from 'Shared/helpers/voteResult';
-import { isBetaResultsPage } from 'Shared/routes';
+import { isResultsPage } from 'Shared/routes';
 import { formatCountWithLanguage } from 'Shared/helpers/numberFormatter';
 import {
   ProgressWrapperStyle,
@@ -29,7 +29,7 @@ export const Progress = () => {
   const { votesCount, votesTarget } = highlights;
   const votesPercent = getVotesRatio(votesCount, votesTarget);
   const location = useLocation();
-  const resultsPage = isBetaResultsPage(location.pathname);
+  const resultsPage = isResultsPage(location.pathname);
 
   return (
     <ProgressWrapperStyle>

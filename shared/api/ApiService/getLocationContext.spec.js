@@ -4,13 +4,6 @@ import { getLocationContext, getTrackingLocation } from './getLocationContext';
 describe('getLocationContext', () => {
   const fixtures = [
     {
-      name: 'ROUTE_CONSULTATION',
-      path: '/FR/consultation/foo/consultation',
-      params: { questionId: 'question-id' },
-      expected: `page-operation question-id`,
-      expectedTracking: `page-operation`,
-    },
-    {
       name: 'ROUTE_PARTICIPATE',
       path: '/FR/consultation/foo/participate',
       params: { questionId: 'question-id' },
@@ -25,34 +18,12 @@ describe('getLocationContext', () => {
       expectedTracking: `page-explore`,
     },
     {
-      name: 'ROUTE_ACTION uppercase',
-      path: '/FR/consultation/handicap/ACTIONS',
-      params: { questionId: 'question-id' },
-      expected: 'page-action question-id',
-      expectedTracking: 'page-action',
-    },
-    {
-      name: 'ROUTE_ACTION',
-      path: '/FR/consultation/handicap/actions',
-      params: { questionId: 'question-id' },
-      expected: 'page-action question-id',
-      expectedTracking: 'page-action',
-    },
-    {
       name: 'ROUTE_RESULTS',
       path: '/FR/consultation/foo/results',
-      params: { questionId: 'question-id' },
-      expected: `page-results-deprecated question-id`,
-      expectedTracking: `page-results-deprecated`,
-    },
-    {
-      name: 'ROUTE_BETA_RESULTS',
-      path: '/FR/beta/consultation/foo/results',
       params: { questionId: 'question-id' },
       expected: `page-results question-id`,
       expectedTracking: `page-results`,
     },
-
     {
       name: 'ROUTE_TOP_IDEA_DETAILS',
       path: '/FR/consultation/foo/top-ideas/bar',

@@ -8,10 +8,8 @@ import {
   ROUTE_SEARCH_PROPOSALS,
   ROUTE_SEARCH_ORGANISATIONS,
   ROUTE_SEARCH_CONSULTATIONS,
-  ROUTE_CONSULTATION,
   ROUTE_PARTICIPATE,
   ROUTE_EXPLORE,
-  ROUTE_ACTION,
   ROUTE_SEQUENCE,
   ROUTE_SEQUENCE_POPULAR,
   ROUTE_SEQUENCE_CONTROVERSIAL,
@@ -33,7 +31,6 @@ import {
   ROUTE_STATIC_DATA,
   ROUTE_STATIC_CONTACT,
   ROUTE_RESULTS,
-  ROUTE_BETA_RESULTS,
   ROUTE_TOP_IDEAS,
   ROUTE_PERSONALITY_PROFILE,
   ROUTE_TOP_IDEA_DETAILS,
@@ -62,9 +59,6 @@ const ParticipatePage = loadable(() =>
   import('../pages/Consultation/Participate.js')
 );
 const ExplorePage = loadable(() => import('../pages/Consultation/Explore.js'));
-export const DeprecatedResultsPage = loadable(() =>
-  import('../pages/Consultation/DeprecatedResults.js')
-);
 export const ResultsPage = loadable(() =>
   import('../pages/Consultation/Results.js')
 );
@@ -160,17 +154,12 @@ export const Routes = () => {
       </Route>
       <Route path={ROUTE_RESULTS}>
         <QuestionWrapper>
-          <DeprecatedResultsPage />
-        </QuestionWrapper>
-      </Route>
-      <Route path={ROUTE_BETA_RESULTS}>
-        <QuestionWrapper>
           <ResultsPage />
         </QuestionWrapper>
       </Route>
       <Route path={`${BASE_PREVIEW_PATH}${ROUTE_RESULTS}`}>
         <QuestionWrapper>
-          <DeprecatedResultsPage />
+          <ResultsPage />
         </QuestionWrapper>
       </Route>
       <Route path={ROUTE_TOP_IDEA_DETAILS}>
@@ -223,8 +212,6 @@ export const Routes = () => {
 
       <Route path={ROUTE_STATIC_NOTFOUND} component={NotFoundPage} />
       <Redirect exact path="/" to={getHomeLink(country || DEFAULT_COUNTRY)} />
-      <Redirect path={ROUTE_CONSULTATION} to={ROUTE_PARTICIPATE} />
-      <Redirect path={ROUTE_ACTION} to={ROUTE_PARTICIPATE} />
       <Redirect path={ROUTE_EXPLORE_ROOT} to={ROUTE_EXPLORE_FIRST_PAGE} />
 
       <Route component={NotFoundPage} />

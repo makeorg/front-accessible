@@ -6,7 +6,6 @@ import {
   NOTIFICATION_LEVEL_SUCCESS,
   NOTIFICATION_LEVEL_INFORMATION,
   FIRST_VOTE_TIP_MESSAGE,
-  TAGS_TIP_MESSAGE,
 } from 'Shared/constants/notifications';
 import * as actions from './index';
 
@@ -68,31 +67,6 @@ describe('Notification Actions', () => {
         LOGIN_SUCCESS_MESSAGE,
         NOTIFICATION_LEVEL_SUCCESS,
         { questionId: 'QUESTION_ID' },
-        tagToDismiss
-      )
-    );
-
-    expect(store.getActions()).toEqual(expectedActions);
-  });
-
-  it('Creates DISPLAY_NOTIFICATION_TIP when calling action', () => {
-    const tagToDismiss = true;
-
-    const expectedActions = [
-      {
-        type: actionTypes.DISPLAY_NOTIFICATION_TIP,
-        payload: {
-          contentId: TAGS_TIP_MESSAGE,
-          level: NOTIFICATION_LEVEL_INFORMATION,
-          toDismiss: tagToDismiss,
-        },
-      },
-    ];
-
-    store.dispatch(
-      actions.displayNotificationTip(
-        TAGS_TIP_MESSAGE,
-        NOTIFICATION_LEVEL_INFORMATION,
         tagToDismiss
       )
     );

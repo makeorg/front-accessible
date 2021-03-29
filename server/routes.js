@@ -7,14 +7,12 @@ import {
   ROUTE_ACCOUNT_ACTIVATION,
   ROUTE_PROPOSAL,
   ROUTE_PASSWORD_RECOVERY,
-  ROUTE_CONSULTATION,
   ROUTE_PARTICIPATE,
   ROUTE_EXPLORE,
   ROUTE_PROFILE,
   ROUTE_PROFILE_PROPOSALS,
   ROUTE_PROFILE_FAVOURITES,
   ROUTE_PROFILE_EDIT,
-  ROUTE_ACTION,
   ROUTE_ORGANISATION_PROFILE,
   ROUTE_ORGANISATION_PROPOSALS,
   ROUTE_ORGANISATION_VOTES,
@@ -27,7 +25,6 @@ import {
   ROUTE_STATIC_DATA,
   ROUTE_STATIC_GTU,
   ROUTE_RESULTS,
-  ROUTE_BETA_RESULTS,
   ROUTE_TOP_IDEAS,
   ROUTE_TOP_IDEA_DETAILS,
   ROUTE_PERSONALITY_PROFILE,
@@ -146,12 +143,9 @@ export const initRoutes = app => {
 
   app.get(ROUTE_BROWSE_CONSULTATIONS, frontMiddlewares, defaultRoute);
   app.get(ROUTE_BROWSE_RESULTS, frontMiddlewares, defaultRoute);
-  app.get(ROUTE_CONSULTATION, frontMiddlewares, questionRoute);
   app.get(ROUTE_PARTICIPATE, frontMiddlewares, questionRoute);
   app.get(ROUTE_EXPLORE, frontMiddlewares, questionRoute);
-  app.get(ROUTE_ACTION, frontMiddlewares, questionRoute);
   addGetWithPreview(ROUTE_RESULTS, frontMiddlewares, questionRoute);
-  addGetWithPreview(ROUTE_BETA_RESULTS, frontMiddlewares, questionRoute);
   app.get(ROUTE_TOP_IDEAS, frontMiddlewares, questionRoute);
   app.get(ROUTE_TOP_IDEA_DETAILS, frontMiddlewares, questionRoute);
   app.get(ROUTE_SEQUENCE, frontMiddlewares, sequenceRoute);

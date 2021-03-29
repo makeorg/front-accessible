@@ -1,7 +1,6 @@
 import {
   getRouteProfile,
   getRouteProfileEdit,
-  ROUTE_CONSULTATION,
   ROUTE_PARTICIPATE,
   ROUTE_EXPLORE,
   matchRoute,
@@ -19,12 +18,6 @@ import {
 } from './routes';
 
 describe('match Routes', () => {
-  it('match route consultation', () => {
-    expect(
-      matchRoute('/FR/consultation/1234/consultation', ROUTE_CONSULTATION)
-    ).toBe(true);
-  });
-
   it('match route participate', () => {
     expect(
       matchRoute('/FR/consultation/1234/participate', ROUTE_PARTICIPATE)

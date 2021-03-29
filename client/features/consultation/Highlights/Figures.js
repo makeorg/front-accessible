@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
 import { DateHelper } from 'Shared/helpers/date';
 import { i18n } from 'Shared/i18n';
-import { isBetaResultsPage } from 'Shared/routes';
+import { isResultsPage } from 'Shared/routes';
 import { formatMillionToText } from 'Shared/helpers/numberFormatter';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import {
@@ -23,7 +23,7 @@ export const Figures = () => {
   );
   const remainingDays = DateHelper.getRemainingDays(question.endDate);
   const location = useLocation();
-  const resultsPage = isBetaResultsPage(location.pathname);
+  const resultsPage = isResultsPage(location.pathname);
 
   return (
     <FiguresListStyle>

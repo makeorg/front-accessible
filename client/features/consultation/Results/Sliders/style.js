@@ -49,12 +49,6 @@ export const ResultsSliderArrowsStyle = styled(UnstyledButtonStyle)`
   }
 `;
 
-export const ResultsCounterStyle = styled(ParagraphStyle)`
-  text-align: center;
-  margin-top: 20px;
-  font-family: ${MakeFonts.CircularStandardBold};
-`;
-
 export const ResultsSliderPagination = styled(ParagraphStyle)`
   text-align: center;
   margin-top: 10px;

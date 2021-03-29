@@ -26,12 +26,6 @@
         "title": "Profil - My favourites - Make.org"
       }
     },
-    "consultation": {
-      "title": "Consultation '{{question}}' - Make.org"
-    },
-    "actions": {
-      "title": "Actions '{{question}}' - Make.org"
-    },
     "results": {
       "title": "Results of the consultation '{{question}}' - Make.org",
       "description": "Discover the results of citizen consultation, classified by most popular, controversial and rejected solutions."
@@ -586,11 +580,6 @@
       "title": "Why this consultation?",
       "link_text": "Learn more"
     },
-    "sharing": {
-      "title": "Share this consultation",
-      "display_pannel": "Display the content of the sharing pannel",
-      "hide_pannel": "Hide the content of the sharing pannel"
-    },
     "partners": {
       "intro_title": "The community of actions",
       "intro_text": "Thousands of citizens participated to the consultation.",
@@ -606,17 +595,7 @@
       "profile_link_new_window": "Go to: {{name}}'s profile' (open new window)"
     },
     "tags": {
-      "description": "Feel free to use several filters. You can also sort the proposal list by using the function \"Sort by:\".",
       "proposal_list": "<span lang=\"en\">Tags<span> selected for this solution: ",
-      "count": "{{count}} selected",
-      "count_plural": "{{count}} selected",
-      "select": "Select one or several topics",
-      "select_mobile": "Topics",
-      "expand": " - Click to display the list of available options",
-      "collapse": " - Click to hide the list of available options",
-      "selected_state": "Selected: ",
-      "add_filter": "Add filter:",
-      "remove_filter": "Delete filter: ",
       "popular_title": "Most discussed topics"
     },
     "banner": {
@@ -655,21 +634,9 @@
       "discover": "Read our blog"
     },
     "results": {
-      "deprecated": {
-        "title": "Results of the consultation {{question}}",
-        "methodology": {
-          "title": "Methodology",
-          "description": "Our methodology is based on citizens’ solutions collected and reviewed by our Moderation team. They are first submitted for validation with regard to their compliance with the Make.org guidelines, then classified according to a thematic tagging. Algorithms developed by Make.org teams then guarantee each validated solution an equal level of exposure, and organize a competition between them. Through this constant rotation, Make.org identifies the solutions that have the greatest consensus among citizens before analyzing them and grouping them into big ideas."
-        },
-        "key_figures": {
-          "title": "Key figures",
-          "participants": "Contributors",
-          "proposals": "Solutions",
-          "votes": "Votes"
-        },
-        "participation": {
-          "title": "Who participated to this consultation?"
-        }
+      "methodology": {
+        "title": "Methodology",
+        "description": "Our methodology is based on citizens’ solutions collected and reviewed by our Moderation team. They are first submitted for validation with regard to their compliance with the Make.org guidelines, then classified according to a thematic tagging. Algorithms developed by Make.org teams then guarantee each validated solution an equal level of exposure, and organize a competition between them. Through this constant rotation, Make.org identifies the solutions that have the greatest consensus among citizens before analyzing them and grouping them into big ideas."
       },
       "context": "Context",
       "cartography": {
@@ -839,30 +806,6 @@
   },
   "modal": {
     "close": "Close the dialog modal"
-  },
-  "actions": {
-    "register": {
-      "title": "At the end of the consultation, citizens and partners of the consultation will meet to elaborate an action plan built around your solutions.",
-      "text": "Want to attend future workshops or simply stay in the loop?",
-      "button": "Sign up"
-    },
-    "support": {
-      "title": "Support the actions",
-      "text": "Once the action plan is launched, you can follow here the progress and achievements, support or get involved at any time."
-    },
-    "plan": {
-      "title": "Our civic action plan",
-      "text": "Here, you will soon find the action plan built from the consultation.",
-      "list-bait": "What is an action on Make.org ?",
-      "list-intro": "For us, an action must be :",
-      "list-first-item": "- civic, stemming from your solutions,",
-      "list-second-item": "- collective, available and accessible to all,",
-      "list-third-item": "- mission-driven, with a concrete and measurable impact."
-    },
-    "partners": {
-      "title": "Our actions' partners",
-      "text": "At Make.org, we believe in bringing all civic stakeholders together (citizens, institutions, companies, organizations) to move society forward."
-    }
   },
   "idea_card": {
     "title": "Top ideas",

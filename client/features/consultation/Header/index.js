@@ -14,7 +14,7 @@ import { type QuestionType, type PartnerType } from 'Shared/types/question';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
 import { FOUNDER_PARTNER } from 'Shared/constants/partner';
-import { isBetaResultsPage } from 'Shared/routes';
+import { isResultsPage } from 'Shared/routes';
 import {
   HeaderWrapperStyle,
   HeaderContentStyle,
@@ -41,7 +41,7 @@ export const ParticipateHeader = () => {
     : [];
   const isFeatured = question.featured === true;
   const location = useLocation();
-  const resultsPage = isBetaResultsPage(location.pathname);
+  const resultsPage = isResultsPage(location.pathname);
   const parentPages = [
     resultsPage
       ? {

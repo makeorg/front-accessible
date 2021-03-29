@@ -5,7 +5,6 @@ import { i18n } from 'Shared/i18n';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import {
   getA11YPageLink,
-  getActionLink,
   getBrowseConsultationsLink,
   getBrowseResultsLink,
   getParticipateLink,
@@ -316,10 +315,6 @@ export const Accessibility = () => (
             <StaticSquareListItemStyle>
               {'Page consultation : '}
               {env.frontUrl() + getParticipateLink('FR', 'dynamicslug')}
-            </StaticSquareListItemStyle>
-            <StaticSquareListItemStyle>
-              {'Page actions : '}
-              {env.frontUrl() + getActionLink('FR', 'dynamicslug')}
             </StaticSquareListItemStyle>
             <StaticSquareListItemStyle>
               {'Page de propositions en séquence : '}

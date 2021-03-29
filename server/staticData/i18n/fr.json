@@ -28,17 +28,11 @@
       "title": "Proposition '{{proposal}}' de la consultation '{{question}}' - Make.org",
       "description": "Soutenez ma proposition en votant et trouvons ensemble des solutions aux grandes problématiques actuelles. Les plus soutenues seront mises en action par Make.org et ses partenaires."
     },
-    "consultation": {
-      "title": "Consultation '{{question}}' - Make.org"
-    },
     "participate": {
       "title": "Participer à la consultation '{{question}}' - Make.org"
     },
     "explore": {
       "title": "Explorer les propositions de la consultation '{{question}}' - Make.org"
-    },
-    "actions": {
-      "title": "Actions '{{question}}' - Make.org"
     },
     "results": {
       "title": "Résultats de la consultation '{{question}}' - Make.org",
@@ -781,11 +775,6 @@
       "title": "Pourquoi cette consultation ?",
       "link_text": "En savoir +"
     },
-    "sharing": {
-      "title": "Partagez cette consultation",
-      "display_pannel": "Afficher le contenu du panneau de partage",
-      "hide_pannel": "Masquer le contenu du panneau de partage"
-    },
     "followus": {
       "title": "Pour aller plus loin",
       "description": "Découvrez toute l'actualité Make.org !",
@@ -810,17 +799,7 @@
       "profile_link_new_window": "Aller sur le profil de : {{name}} (nouvelle fenêtre)"
     },
     "tags": {
-      "description": "Les filtres disponibles peuvent être cumulés. Vous pouvez également trier la liste de propositions en utilisant la fonction \"Trier par :\".",
       "proposal_list": "<span lang=\"en\">Tags<span> sélectionnés pour cette proposition : ",
-      "count": "{{count}} sélectionné",
-      "count_plural": "{{count}} sélectionnés",
-      "select": "Sélectionnez un ou plusieurs sujets",
-      "select_mobile": "Les sujets",
-      "expand": " - Cliquez pour afficher la liste d'options disponibles",
-      "collapse": " - Cliquez pour masquer la liste d'options disponibles",
-      "selected_state": "Actuellement sélectionné : ",
-      "add_filter": "Ajouter le filtre : ",
-      "remove_filter": "Retirer le filtre : ",
       "popular_title": "Les sujets les plus discutés"
     },
     "banner": {
@@ -833,22 +812,11 @@
       "see_proposals": "Voir les propositions"
     },
     "results": {
-      "deprecated": {
-        "title": "Résultats de la consultation <span lang=\"{{lang}}\">{{question}}<span>",
-        "methodology": {
-          "title": "La méthodologie",
-          "description": "La méthodologie repose sur une modération fine des propositions recueillies. Elles sont d’abord soumises à validation au regard de leur conformité à la Charte Make.org, puis classées selon un balisage thématique. Les algorithmes développés par les équipes de Make.org garantissent ensuite à chacune des propositions validées un niveau égal d’exposition, et organisent une compétition entre elles. Grâce à ce roulement permanent, Make.org identifie les propositions faisant le plus consensus auprès des citoyens avant de les analyser et de les regrouper en grandes idées."
-        },
-        "key_figures": {
-          "title": "Chiffres-clés",
-          "participants": "Participants",
-          "proposals": "Propositions",
-          "votes": "Votes"
-        },
-        "participation": {
-          "title": "Qui a participé à cette consultation ?"
-        }
+      "methodology": {
+        "title": "La méthodologie",
+        "description": "La méthodologie repose sur une modération fine des propositions recueillies. Elles sont d’abord soumises à validation au regard de leur conformité à la Charte Make.org, puis classées selon un balisage thématique. Les algorithmes développés par les équipes de Make.org garantissent ensuite à chacune des propositions validées un niveau égal d’exposition, et organisent une compétition entre elles. Grâce à ce roulement permanent, Make.org identifie les propositions faisant le plus consensus auprès des citoyens avant de les analyser et de les regrouper en grandes idées."
       },
+      
       "participation": {
         "title": "Les participants à la consultation"
       },
@@ -983,30 +951,6 @@
   },
   "modal": {
     "close": "Fermer la fenêtre de dialogue"
-  },
-  "actions": {
-    "register": {
-      "title": "A la fin de la consultation, citoyens et partenaires de la Grande Cause se réuniront pour construire le plan d'actions issu de vos propositions.",
-      "text": "Vous souhaitez être informé(e) du lancement de la phase actions ou participer aux ateliers ?",
-      "button": "Inscrivez-vous"
-    },
-    "support": {
-      "title": "Soutenez les actions",
-      "text": "Une fois le plan d'action lancé, vous pourrez suivre ici les avancées et succès des différentes actions, les soutenir ou y prendre part à tout moment."
-    },
-    "plan": {
-      "title": "Notre plan d'actions citoyen",
-      "text": "Vous trouverez ici prochainement le plan d'actions citoyen issu de la consultation.",
-      "list-bait": "Qu'est-ce qu'une action sur Make.org ?",
-      "list-intro": "Pour nous une action se doit d'être :",
-      "list-first-item": "- citoyenne car issue de vos propositions,",
-      "list-second-item": "- collective, et toujours ouverte à toutes et tous,",
-      "list-third-item": "- avec un impact fort, réel et mesurable."
-    },
-    "partners": {
-      "title": "Nos partenaires actions",
-      "text": "Chez Make.org nous sommes convaincus que c'est en rassemblant tous les acteurs de la société civile (citoyens mais aussi entreprises, associations, institutions, ...) que nous pourrons changer la donne."
-    }
   },
   "homepage": {
     "featured": {

@@ -13,7 +13,6 @@ import {
   UNEXPECTED_ERROR_MESSAGE,
   VOTE_ONLY_MESSAGE,
   ACCOUNT_DELETION_SUCCESS_MESSAGE,
-  TAGS_TIP_MESSAGE,
   FIRST_VOTE_TIP_MESSAGE,
 } from 'Shared/constants/notifications';
 import { SecureExpiredMessage } from 'Client/app/Notifications/Banner/SecureExpired';
@@ -28,7 +27,6 @@ import { NetworkErrorMessage } from 'Client/app/Notifications/Banner/NetworkErro
 import { UnexpectedErrorMessage } from 'Client/app/Notifications/Banner/UnexpectedError';
 import { VoteOnlyMessage } from 'Client/app/Notifications/Banner/VoteOnly';
 import { AccountDeletionSuccessMessage } from 'Client/app/Notifications/Banner/AccountDeletionSuccess';
-import { TagsTip } from 'Client/app/Notifications/Tip/Tags';
 import { FirstVoteTip } from 'Client/app/Notifications/Tip/FirstVote';
 
 export const NotificationMessage = ({ name, params, close }) => {
@@ -57,8 +55,6 @@ export const NotificationMessage = ({ name, params, close }) => {
       return <VoteOnlyMessage close={close} />;
     case ACCOUNT_DELETION_SUCCESS_MESSAGE:
       return <AccountDeletionSuccessMessage />;
-    case TAGS_TIP_MESSAGE:
-      return <TagsTip />;
     case FIRST_VOTE_TIP_MESSAGE:
       return <FirstVoteTip />;
     default:

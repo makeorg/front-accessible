@@ -12,7 +12,7 @@ import { ChartType } from 'Client/ui/Data';
 import { useSlider } from 'Client/hooks/useSlider';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
-import { isBetaResultsPage } from 'Shared/routes';
+import { isResultsPage } from 'Shared/routes';
 import { matchMobileDevice } from 'Shared/helpers/styled';
 import { useSelector } from 'react-redux';
 import {
@@ -41,7 +41,7 @@ export const ResultsSlider = ({ data, sliderName, styleClass }: Props) => {
     counterName: `.${sliderName}.glider-index`,
   };
   const location = useLocation();
-  const resultsPage = isBetaResultsPage(location.pathname);
+  const resultsPage = isResultsPage(location.pathname);
 
   useSlider(sliderRef, sliderParams, dataLength > 0);
 

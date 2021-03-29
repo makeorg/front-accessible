@@ -4,7 +4,6 @@ import {
   NOTIFICATION_LEVEL_SUCCESS,
   NOTIFICATION_LEVEL_INFORMATION,
   FIRST_VOTE_TIP_MESSAGE,
-  TAGS_TIP_MESSAGE,
 } from 'Shared/constants/notifications';
 import { notifications } from './index';
 
@@ -81,31 +80,6 @@ describe('Notification reducer', () => {
         toDismiss: true,
       },
     };
-    expect(notifications(previousState, action)).toEqual(expectedState);
-  });
-
-  it('Displays Notification Tip', () => {
-    const action = {
-      type: 'DISPLAY_NOTIFICATION_TIP',
-      payload: {
-        contentId: TAGS_TIP_MESSAGE,
-        level: NOTIFICATION_LEVEL_INFORMATION,
-        toDismiss: true,
-      },
-    };
-
-    const previousState = {
-      tip: {},
-    };
-
-    const expectedState = {
-      tip: {
-        contentId: TAGS_TIP_MESSAGE,
-        level: NOTIFICATION_LEVEL_INFORMATION,
-        toDismiss: true,
-      },
-    };
-
     expect(notifications(previousState, action)).toEqual(expectedState);
   });
 });
