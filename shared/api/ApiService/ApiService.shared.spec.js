@@ -1,14 +1,19 @@
 import axios from 'axios';
+import { v4 as uuidv4 } from 'uuid';
 import { Logger } from 'Shared/services/Logger';
 import { ApiServiceError } from 'Shared/api/ApiService/ApiServiceError';
 import { ApiServiceShared, handleErrors } from './ApiService.shared';
 import { API_URL } from './configuration';
+
+jest.mock('uuid');
+uuidv4.mockReturnValue('uuid-121212');
 
 describe('ApiServiceShared', () => {
   const headers = {
     'Content-Type': 'application/json; charset=UTF-8',
     'x-hostname': 'localhost',
     'x-make-app-name': 'main-front',
+    'x-make-external-id': 'uuid-121212',
     'x-make-location': 'core',
   };
 
@@ -72,6 +77,7 @@ describe('ApiServiceShared', () => {
         response: {
           status: 200,
         },
+        request: {},
       };
       expect(() => handleErrors(error)).toThrow(
         expect.objectContaining({
@@ -90,6 +96,7 @@ describe('ApiServiceShared', () => {
           status: 400,
           data: 'error 400',
         },
+        request: {},
       };
       expect(() => handleErrors(error, 'http://test', 'GET')).toThrow(
         expect.objectContaining({

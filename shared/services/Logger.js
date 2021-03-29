@@ -31,6 +31,7 @@ class LoggerSingleton {
     url: error.url,
     method: error.method,
     logId: error.logId,
+    requestId: error.requestId,
   });
 
   formatError = (error: Error) => ({

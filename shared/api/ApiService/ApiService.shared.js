@@ -1,5 +1,6 @@
 /* eslint-disable max-classes-per-file */
 /* @flow */
+
 import axios from 'axios';
 import axiosRetry from 'axios-retry';
 import * as UrlHelper from 'Shared/helpers/url';
@@ -24,62 +25,82 @@ axiosRetry(axios, {
  */
 export const handleErrors = (
   error: ErrorResponse,
-  requestUrl: string,
-  requestMethod: string
+  requestUrl?: string,
+  requestMethod?: string,
+  requestId?: string
 ) => {
-  const status = error.response ? error.response.status : null;
-  const responseData = error.response ? error.response.data : null;
-  const hasConfig = error.response && error.response.config;
-  const url = hasConfig ? error.response.config.url : null;
-  const method = hasConfig ? error.response.config.method : null;
+  const status = error.response?.status || 0;
+  const responseData = error.response?.data || null;
+  const url = error.response?.config?.url || requestUrl || 'none';
+  const method = error.response?.config?.method || requestMethod || 'none';
+  const isNetworkError = !!error.isAxiosError && !error.response;
+  const isServerError = status && status >= 500;
+  const isClientOffline =
+    typeof window !== 'undefined' && window?.navigator?.onLine === false;
   const uuid = uuidv4();
-  let logged = false;
 
-  if (status && status >= 500) {
-    Logger.logError(
-      new ApiServiceError(
-        `API call error - server error - ${error.message}`,
-        status,
-        responseData || 'none',
-        url || requestUrl || 'none',
-        method || requestMethod || 'none',
-        uuid
-      )
-    );
+  let logged;
 
-    logged = true;
-  }
+  const commonArguments = [
+    status,
+    responseData,
+    url,
+    method,
+    uuid,
+    false,
+    requestId || 'none',
+  ];
 
-  if (!status && error.request) {
-    Logger.logError(
-      new ApiServiceError(
-        `API call error - no response - ${error.message}`,
-        null,
-        null,
-        url || requestUrl || 'none',
-        method || requestMethod || 'none',
-        uuid
-      )
-    );
-
-    logged = true;
-  }
-
-  if (!status && !error.request) {
-    Logger.logWarning(
-      new ApiServiceError(
-        `API call error - request error - ${error.message} - ${JSON.stringify(
-          error
-        )}`,
-        null,
-        null,
-        url || requestUrl || 'none',
-        method || requestMethod || 'none',
-        uuid
-      )
-    );
-
-    logged = true;
+  switch (true) {
+    case isServerError:
+      Logger.logError(
+        new ApiServiceError(
+          `API call error - server error - ${error.message}`,
+          ...commonArguments
+        )
+      );
+      logged = true;
+      break;
+    case isClientOffline:
+      Logger.logInfo(
+        new ApiServiceError(
+          `API call error - client off line - ${error.message}`,
+          ...commonArguments
+        )
+      );
+      logged = true;
+      break;
+    case isNetworkError:
+      Logger.logError(
+        new ApiServiceError(
+          `API call error - no response - ${error.message}`,
+          ...commonArguments
+        )
+      );
+      logged = true;
+      break;
+    case !error.response:
+      Logger.logError(
+        new ApiServiceError(
+          `API call error - not axios error - ${error.message}`,
+          ...commonArguments
+        )
+      );
+      logged = true;
+      break;
+    case !error.request:
+      Logger.logWarning(
+        new ApiServiceError(
+          `API call error - no request - ${error.message} - ${JSON.stringify(
+            error
+          )}`,
+          ...commonArguments
+        )
+      );
+      logged = true;
+      break;
+    default:
+      logged = false;
   }
 
   throw new ApiServiceError(
@@ -89,7 +110,8 @@ export const handleErrors = (
     url,
     method,
     uuid,
-    logged
+    logged,
+    requestId || 'none'
   );
 };
 
@@ -97,11 +119,13 @@ class ApiServiceSharedClass {
   // eslint-disable-next-line class-methods-use-this
   callApi(url: string, options: Object = {}): Promise<any> {
     const paramsQuery = UrlHelper.getParamsQuery(LOCATION_PARAMS);
+    const requestId = uuidv4();
     const defaultHeaders = {
       'Content-Type': 'application/json; charset=UTF-8',
       'x-hostname': HOSTNAME,
       'x-make-app-name': APP_NAME,
       'x-make-location': 'core',
+      'x-make-external-id': requestId,
     };
     let headers = { ...defaultHeaders, ...(options.headers || {}) };
 
@@ -118,7 +142,7 @@ class ApiServiceSharedClass {
       params: options.params,
       withCredentials: true,
       httpsAgent: options.httpsAgent || undefined,
-    }).catch(error => handleErrors(error, apiUrl, options.method));
+    }).catch(error => handleErrors(error, apiUrl, options.method, requestId));
   }
 }
 
