@@ -4,6 +4,8 @@ import { v4 as uuidv4 } from 'uuid';
 export class ApiServiceError extends Error {
   message: string;
 
+  name: string;
+
   logId: string;
 
   status: ?number;
@@ -16,6 +18,8 @@ export class ApiServiceError extends Error {
 
   method: ?string;
 
+  requestId: ?string;
+
   clone = (message: string) =>
     new ApiServiceError(
       message,
@@ -24,7 +28,8 @@ export class ApiServiceError extends Error {
       this.url,
       this.method,
       this.logId,
-      this.logged
+      this.logged,
+      this.requestId
     );
 
   constructor(
@@ -34,7 +39,8 @@ export class ApiServiceError extends Error {
     url: ?string,
     method: ?string,
     logId: ?string,
-    logged: ?boolean
+    logged: ?boolean,
+    requestId: ?string
   ) {
     super(message);
     this.status = status;
@@ -45,6 +51,7 @@ export class ApiServiceError extends Error {
     this.logId = logId || uuidv4();
     this.logged = logged || false;
     this.name = 'api-service-error';
+    this.requestId = requestId;
 
     if (Error.captureStackTrace) {
       Error.captureStackTrace(this, ApiServiceError);
