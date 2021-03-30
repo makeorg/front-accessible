@@ -36,6 +36,7 @@ import {
 } from 'Shared/routes';
 import { MetaTags } from 'Client/app/MetaTags';
 import { env } from 'Shared/env';
+import { summary } from 'Shared/constants/accessibilitySummary';
 import {
   StaticPageWrapperStyle,
   StaticSecondLevelTitleStyle,
@@ -77,7 +78,8 @@ export const Accessibility = () => (
       <FocusBlockWrapperStyle as="section">
         <FocusBlockCheckIconStyle aria-hidden focusable="false" />
         <FocusBlockTitleStyle>
-          75% des critères RGAA 4.0 sont respectés
+          {`${summary.criteria.pourcentOk}% `}
+          des critères RGAA 4.0 sont respectés
         </FocusBlockTitleStyle>
         <FocusBlockParagraphStyle>
           Make.org s&apos;engage à améliorer l&apos;accessibilité et
@@ -124,29 +126,29 @@ export const Accessibility = () => (
           </StaticParagraphStyle>
           <StaticSquareListStyle>
             <StaticSquareListItemStyle>
-              114 tests sont réalisés avec succès.
+              {`${summary.test.successOk} tests sont réalisés avec succès.`}
             </StaticSquareListItemStyle>
             <StaticSquareListItemStyle>
-              23 tests échouent.
+              {`${summary.test.successKo} tests échouent.`}
             </StaticSquareListItemStyle>
             <StaticSquareListItemStyle>
-              120 tests sont relatifs à des critères non applicables.
+              {`${summary.test.successNa} tests sont relatifs à des critères non applicables.`}
             </StaticSquareListItemStyle>
           </StaticSquareListStyle>
           <StaticSquareListStyle>
             <StaticSquareListItemStyle>
-              53 critères sont respectés.
+              {`${summary.criteria.successOk} critères sont respectés.`}
             </StaticSquareListItemStyle>
             <StaticSquareListItemStyle>
-              18 critères ne sont pas respectés.
+              {`${summary.criteria.successKo} critères ne sont pas respectés.`}
             </StaticSquareListItemStyle>
             <StaticSquareListItemStyle>
-              35 critères ne sont pas applicables.
+              {`${summary.criteria.successNa} critères ne sont pas applicables.`}
             </StaticSquareListItemStyle>
           </StaticSquareListStyle>
           <StaticParagraphStyle>
-            Soit 75% critères
-            <> </>
+            Soit
+            {` ${summary.criteria.pourcentOk}% critères `}
             <abbr title="Référentiel Général d’Amélioration de l’Accessibilité">
               RGAA 4.0
             </abbr>
