@@ -5,6 +5,7 @@ import { i18n } from 'Shared/i18n';
 import { type RegisterFormDataType } from 'Shared/types/form';
 import { type ErrorObjectType } from 'Shared/types/api';
 import { type StateRoot } from 'Shared/store/types';
+import { RegisterCheckBox } from 'Client/ui/Elements/Form/CheckBox/RegisterCheckbox';
 import {
   FormCenterAlignStyle,
   ConditionParagraphStyle,
@@ -34,6 +35,7 @@ type Props = {
   user: RegisterFormDataType,
   errors: ErrorObjectType[],
   handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => any,
+  handleLegalField: (fieldName: string, value: boolean) => any,
   handleSubmit: (event: SyntheticInputEvent<HTMLInputElement>) => any,
   disableSubmit: boolean,
 };
@@ -44,6 +46,7 @@ export const RegisterForm = ({
   user,
   errors,
   handleChange,
+  handleLegalField,
   handleSubmit,
   disableSubmit,
 }: Props) => {
@@ -141,6 +144,7 @@ export const RegisterForm = ({
           }),
         }}
       />
+      <RegisterCheckBox handleLegalField={handleLegalField} required />
       <SubmitButton
         formName={REGISTER_FORMNAME}
         id="authentication-register-submit"

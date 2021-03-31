@@ -116,6 +116,7 @@
         "age_optional": "Age (optional)",
         "postalcode_optional": "Postcode (optional)",
         "profession_optional": "Job (optional)",
+        "privacy_policy": "Privacy Policy",
         "biography_optional": "Bio (optional)",
         "website_optional": "Website (optional)",
         "organisation_optional": "Name of your organization (optional)",
@@ -146,6 +147,7 @@
         "the_field_[email]_is_missing": "The {{label}} field is mandatory.",
         "the_field_[password]_is_missing": "The {{label}} field is mandatory.",
         "invalid_postal_code": "The postcode must have 5 numbers.",
+        "invalid_privacy_policy": "The privacy policy must be approved.",
         "invalid_postal_code_dynamic": "The {{label}} must have 5 numbers.",
         "submit_success": "Edits saved.",
         "malformed": "Please use the right url format \"https://example.com\""
@@ -1041,7 +1043,10 @@
     "minor_consent": "I agree Make.org to use my personal data.",
     "parental_consent": "As a representative of parental authority, I consent to the processing of my child personal data by Make.org.",
     "cancel": "Cancel",
-    "submit": "Validate"
+    "submit": "Validate",
+    "privacy_policy_text": "I accept the ",
+    "privacy_policy": "privacy policy",
+    "privacy_make": " of Make.org"
   },
   "browse": {
     "page_title": "Browse consultations",

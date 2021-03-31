@@ -42,6 +42,7 @@ describe('UserApiService', () => {
           age: 33,
           postalcode: 12345,
           profession: 'qux',
+          approvePrivacyPolicy: true,
         },
       });
       expect(ApiService.callApi).toHaveBeenNthCalledWith(1, PATH_USER, {
@@ -56,6 +57,7 @@ describe('UserApiService', () => {
           country: 'FR',
           language: 'fr',
           questionId: 'quux',
+          approvePrivacyPolicy: true,
         }),
       });
     });

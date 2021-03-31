@@ -131,6 +131,7 @@ export class UserApiService {
       profession,
       legalMinorConsent,
       legalAdvisorApproval,
+      approvePrivacyPolicy,
     } = user.profile;
     const { email, password } = user;
 
@@ -149,6 +150,7 @@ export class UserApiService {
         questionId: ApiService.questionId,
         legalMinorConsent,
         legalAdvisorApproval,
+        approvePrivacyPolicy,
       }),
     });
   }

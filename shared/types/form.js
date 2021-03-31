@@ -7,6 +7,7 @@ export type RegisterFormProfileDataType = {
   profession: string,
   legalMinorConsent: boolean,
   legalAdvisorApproval: boolean,
+  approvePrivacyPolicy: boolean,
 };
 
 export type RegisterFormDataType = {

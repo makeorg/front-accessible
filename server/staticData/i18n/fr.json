@@ -114,6 +114,7 @@
         "age_optional": "Âge (optionnel)",
         "postalcode_optional": "Code postal (optionnel)",
         "profession_optional": "Profession (optionnel)",
+        "privacy_policy": "Politique de données",
         "biography_optional": "Biographie (optionnel)",
         "website_optional": "Site Internet (optionnel)",
         "organisation_optional": "Nom de l'organisation (optionnel)",
@@ -144,6 +145,7 @@
         "the_field_[email]_is_missing": "Le champ {{label}} est obligatoire.",
         "the_field_[password]_is_missing": "Le champ {{label}} est obligatoire.",
         "invalid_postal_code": "Le code postal doit être composé de 5 chiffres.",
+        "invalid_privacy_policy": "Vous devez accepter la politique de données.",
         "invalid_postal_code_dynamic": "Le {{label}} doit être composé de 5 chiffres.",
         "submit_success": "La modification a bien été enregistrée.",
         "malformed": "Merci de respecter le format url \"https://example.com\""
@@ -465,7 +467,10 @@
     "minor_consent": "Je consens au traitement de mes données personnelles par Make.org.",
     "parental_consent": "En tant que titulaire de l'autorité parentale, je consens au traitement des données personnelles de mon enfant par Make.org.",
     "cancel": "Annuler",
-    "submit": "Valider"
+    "submit": "Valider",
+    "privacy_policy_text": "J'accepte la ",
+    "privacy_policy": "politique de données",
+    "privacy_make": " de Make.org"
   },
   "forgot_password": {
     "title": "je réinitialise mon mot de passe",
