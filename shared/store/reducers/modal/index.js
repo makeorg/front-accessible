@@ -11,6 +11,9 @@ import {
   MODAL_SHOW_COUNTRIES,
   MODAL_CLOSE_COOKIES,
   MODAL_SHOW_COOKIES,
+  MODAL_SHOW_DATAPOLICY_LOGIN,
+  MODAL_SHOW_DATAPOLICY_SOCIAL,
+  MODAL_CLOSE_DATAPOLICY,
 } from 'Shared/store/actionTypes';
 import {
   MODAL_LOGIN,
@@ -89,6 +92,38 @@ export function modal(state: StateModal = initialState.modal, action: Object) {
         ...state,
         isOpen: false,
         showExpirationSession: false,
+      };
+    case MODAL_SHOW_DATAPOLICY_LOGIN: {
+      return {
+        ...state,
+        isOpen: false,
+        showDataPolicy: true,
+        isLogin: true,
+        extraProps: {
+          email: action.payload.email,
+          password: action.payload.password,
+        },
+      };
+    }
+    case MODAL_SHOW_DATAPOLICY_SOCIAL: {
+      return {
+        ...state,
+        isOpen: false,
+        showDataPolicy: true,
+        isLogin: false,
+        extraProps: {
+          provider: action.payload.provider,
+          token: action.payload.token,
+        },
+      };
+    }
+
+    case MODAL_CLOSE_DATAPOLICY:
+      return {
+        ...state,
+        isOpen: false,
+        showDataPolicy: false,
+        extraProps: {},
       };
     default:
       return state;

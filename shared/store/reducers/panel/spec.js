@@ -1,7 +1,7 @@
 /* @flow */
 import { panel } from './index';
 
-describe('Modal reducer', () => {
+describe('Panel reducer', () => {
   it('Return the initial state', () => {
     const expectedState = {
       isExpanded: false,

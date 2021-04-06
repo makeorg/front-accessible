@@ -58,7 +58,9 @@ export const initialState: StateRoot = {
     contentType: '',
     showExpirationSession: false,
     showCookies: false,
+    showDataPolicy: false,
     focusAfterClose: true,
+    extraProps: {},
   },
   partners: {},
   panel: {

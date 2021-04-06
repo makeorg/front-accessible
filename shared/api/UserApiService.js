@@ -24,6 +24,8 @@ export const PATH_USER_UPDATE_PASSWORD = '/user/:userId/change-password';
 export const PATH_USER_DELETE_ACCOUNT = '/user/:userId/delete';
 export const PATH_USER_PROPOSALS = '/user/:userId/proposals';
 export const PATH_USER_FAVOURITES = '/user/:userId/votes';
+export const PATH_USER_PRIVACY_POLICY = '/user/privacy-policy';
+export const PATH_USER_SOCIAL_PRIVACY_POLICY = '/user/social/privacy-policy';
 
 export const FACEBOOK_PROVIDER_ENUM = 'facebook';
 export const GOOGLE_PROVIDER_ENUM = 'google_people';
@@ -67,13 +69,19 @@ export class UserApiService {
    * Login the user
    * @param  {String} email
    * @param  {String} password
+   * @param  {Boolean} approvePrivacyPolicy
    * @return {Promise}
    */
-  static login(email: string, password: string): Promise<any> {
+  static login(
+    email: string,
+    password: string,
+    approvePrivacyPolicy?: boolean
+  ): Promise<any> {
     const data = {
       username: email,
       password,
       grant_type: 'password',
+      approvePrivacyPolicy,
     };
 
     return ApiService.callApi(PATH_USER_LOGIN, {
@@ -101,12 +109,17 @@ export class UserApiService {
   }
 
   /**
-   * Login the user vi a social account
-   * @param  {String} provider login scoial type (google, facebook..)
+   * Login the user via social account
+   * @param  {String} provider login social type (google, facebook..)
    * @param  {String} token
+   * @param  {Boolean} approvePrivacyPolicy
    * @return {Promise}
    */
-  static loginSocial(provider: string, token: string): Promise<any> {
+  static loginSocial(
+    provider: string,
+    token: string,
+    approvePrivacyPolicy?: boolean
+  ): Promise<any> {
     return ApiService.callApi(PATH_USER_LOGIN_SOCIAL, {
       method: 'POST',
       body: JSON.stringify({
@@ -114,6 +127,7 @@ export class UserApiService {
         token,
         country: ApiService.country,
         language: ApiService.language,
+        approvePrivacyPolicy,
       }),
     });
   }
@@ -341,6 +355,42 @@ export class UserApiService {
     return ApiService.callApi(PATH_USER_FAVOURITES.replace(':userId', userId), {
       method: 'GET',
       params: { qualifications: 'likeIt', limit, skip },
+    });
+  }
+
+  /**
+   * get user privacy policy acceptance date for login
+   * @param  {String}  email
+   * @param  {String}  password
+   * @param  {ApiServiceHeadersType} headers
+   */
+  static loginPrivacyPolicy(
+    email: string,
+    password: string,
+    headers?: ApiServiceHeadersType = {}
+  ): Promise<any> {
+    return ApiService.callApi(PATH_USER_PRIVACY_POLICY, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify({ email, password }),
+    });
+  }
+
+  /**
+   * get user privacy policy acceptance date for social connect
+   * @param  {String}  provider
+   * @param  {String}  token
+   * @param  {ApiServiceHeadersType} headers
+   */
+  static socialPrivacyPolicy(
+    provider: string,
+    token: string,
+    headers?: ApiServiceHeadersType = {}
+  ): Promise<any> {
+    return ApiService.callApi(PATH_USER_SOCIAL_PRIVACY_POLICY, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify({ provider, token }),
     });
   }
 }

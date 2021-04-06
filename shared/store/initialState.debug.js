@@ -1,4 +1,4 @@
-import { DESKTOP_DEVICE } from 'Shared/constants/config';
+import { DESKTOP_DEVICE, PRIVACY_POLICY_DATE } from 'Shared/constants/config';
 
 export const initialStateDebug = {
   appConfig: {
@@ -37,6 +37,7 @@ export const initialStateDebug = {
       'SK',
     ],
     device: DESKTOP_DEVICE,
+    privacyPolicy: PRIVACY_POLICY_DATE,
   },
   user: {
     authentication: {

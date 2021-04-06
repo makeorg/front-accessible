@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 // for tests : see constants/__mocks__/config.js
 export const SESSION_ID_COOKIE_KEY = 'x-session-id';
 export const APP_NAME = 'main-front';
@@ -13,3 +15,5 @@ export const MOBILE_DEVICE = 'MOBILE';
 
 export const DEBOUNCE_TIMER = 250;
 export const CONTACT_EMAIL = 'contact@make.org';
+
+export const PRIVACY_POLICY_DATE = moment(' 18/01/2020', 'DD/MM/YY');

@@ -167,19 +167,21 @@ describe('User Service', () => {
         new ApiServiceError('server error', 500, defaultApiError)
       );
 
-      UserService.forgotPassword('foo2@example.com', () => {}, () => {}).then(
-        () => {
-          expect(Logger.logError).toHaveBeenNthCalledWith(
-            1,
-            new ApiServiceError(
-              'You should handle unexpected errors (default handler): server error',
-              500,
-              defaultApiError
-            )
-          );
-          done();
-        }
-      );
+      UserService.forgotPassword(
+        'foo2@example.com',
+        () => {},
+        () => {}
+      ).then(() => {
+        expect(Logger.logError).toHaveBeenNthCalledWith(
+          1,
+          new ApiServiceError(
+            'You should handle unexpected errors (default handler): server error',
+            500,
+            defaultApiError
+          )
+        );
+        done();
+      });
     });
 
     it('return a 404', async done => {
@@ -304,6 +306,42 @@ describe('User Service', () => {
         )
       );
       done();
+    });
+  });
+
+  describe('get privacy policy acceptance with login', () => {
+    it('success', async done => {
+      jest.spyOn(UserApiService, 'loginPrivacyPolicy');
+      const data = {
+        privacyPolicyApprovalDate: '2021-04-06T10:09:35.364Z',
+      };
+      UserApiService.loginPrivacyPolicy.mockResolvedValue({ data });
+
+      UserService.checkLoginPrivacyPolicy('foo', 'bar').then(response => {
+        expect(UserApiService.loginPrivacyPolicy).toHaveBeenCalledWith(
+          'foo',
+          'bar'
+        );
+        done();
+      });
+    });
+  });
+
+  describe('get privacy policy acceptance with social connect', () => {
+    it('success', async done => {
+      jest.spyOn(UserApiService, 'socialPrivacyPolicy');
+      const data = {
+        privacyPolicyApprovalDate: '2021-04-06T10:09:35.364Z',
+      };
+      UserApiService.socialPrivacyPolicy.mockResolvedValue({ data });
+
+      UserService.checkSocialPrivacyPolicy('foo', 'bar').then(response => {
+        expect(UserApiService.socialPrivacyPolicy).toHaveBeenCalledWith(
+          'foo',
+          'bar'
+        );
+        done();
+      });
     });
   });
 });

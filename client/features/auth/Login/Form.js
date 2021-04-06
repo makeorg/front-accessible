@@ -1,6 +1,7 @@
 // @flow
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { StateRoot } from 'Shared/store/types';
 import { i18n } from 'Shared/i18n';
 import { UserService } from 'Shared/services/User';
 import {
@@ -25,7 +26,15 @@ import {
 import { throttle } from 'Shared/helpers/throttle';
 import { getFieldError } from 'Shared/helpers/form';
 import { loginSuccess, getUser } from 'Shared/store/actions/authentication';
-import { modalClose } from 'Shared/store/actions/modal';
+import {
+  LOGIN_SUCCESS_MESSAGE,
+  NOTIFICATION_LEVEL_SUCCESS,
+} from 'Shared/constants/notifications';
+import {
+  modalClose,
+  modalShowDataPolicyLogin,
+} from 'Shared/store/actions/modal';
+import { displayNotificationBanner } from 'Shared/store/actions/notifications';
 
 type TypeLoginValues = {
   email: string,
@@ -34,6 +43,7 @@ type TypeLoginValues = {
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
+  const { privacyPolicy } = useSelector((state: StateRoot) => state.appConfig);
   const defaultFormValues = {
     email: '',
     password: '',
@@ -42,7 +52,8 @@ export const LoginForm = () => {
     defaultFormValues
   );
   const [errors, setErrors] = useState<ErrorObjectType[]>([]);
-  const globalError = getFieldError('global', errors);
+  const emailError = getFieldError('email', errors);
+  const passwordError = getFieldError('password', errors);
 
   /** Method called when login form succeed */
   const handleLoginSuccess = () => {
@@ -70,16 +81,26 @@ export const LoginForm = () => {
       trackLoginEmailSuccess();
       setErrors([]);
       handleGetUser();
+      dispatch(
+        displayNotificationBanner(
+          LOGIN_SUCCESS_MESSAGE,
+          NOTIFICATION_LEVEL_SUCCESS
+        )
+      );
     };
     const handleErrors = (serviceErrors: ErrorObjectType[]) => {
       setErrors(serviceErrors);
       trackSignupEmailFailure();
     };
     const unexpectedError = () => dispatch(modalClose());
-
-    await UserService.login(
+    await UserService.checkLoginPrivacyPolicy(
       formValues.email,
       formValues.password,
+      privacyPolicy,
+      () =>
+        dispatch(
+          modalShowDataPolicyLogin(formValues.email, formValues.password)
+        ),
       success,
       handleErrors,
       unexpectedError
@@ -99,7 +120,7 @@ export const LoginForm = () => {
         value={formValues.email}
         label={i18n.t('common.form.label.email')}
         required
-        error={globalError}
+        error={emailError}
         handleChange={handleChange}
       />
       <PasswordInput
@@ -108,7 +129,7 @@ export const LoginForm = () => {
         value={formValues.password}
         label={i18n.t('common.form.label.password')}
         required
-        error={globalError}
+        error={passwordError}
         handleChange={handleChange}
       />
       <SubmitButton

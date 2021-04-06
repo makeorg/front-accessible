@@ -1,12 +1,22 @@
 // @flow
 import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { type StateRoot } from 'Shared/store/types';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
-import { loginSocial } from 'Shared/store/actions/authentication';
 import { FACEBOOK_PROVIDER_ENUM } from 'Shared/api/UserApiService';
 import { SvgFacebookLogoF } from 'Client/ui/Svg/elements';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
+import { UserService } from 'Shared/services/User';
+import {
+  modalClose,
+  modalShowDataPolicySocial,
+} from 'Shared/store/actions/modal';
+import { trackAuthenticationSocialFailure } from 'Shared/services/Tracking';
+
+import {
+  loginSocialSuccess,
+  getUser,
+} from 'Shared/store/actions/authentication';
 import { FacebookButtonStyle } from './style';
 
 /**
@@ -14,12 +24,37 @@ import { FacebookButtonStyle } from './style';
  */
 
 export const FacebookAuthentication = () => {
+  const dispatch = useDispatch();
+  const { privacyPolicy } = useSelector((state: StateRoot) => state.appConfig);
   // setting facebook browser to true or false
   const [isFacebookBrowser, setFacebookBrowser] = useState(false);
   const { language } = useSelector((state: StateRoot) => state.appConfig);
-  const dispatch = useDispatch();
   const handleFacebookLoginCallback = response => {
-    dispatch(loginSocial(FACEBOOK_PROVIDER_ENUM, response.accessToken));
+    const success = () => {
+      dispatch(loginSocialSuccess());
+      dispatch(getUser());
+    };
+
+    const handleErrors = () => {
+      trackAuthenticationSocialFailure();
+    };
+    const unexpectedError = () => dispatch(modalClose());
+
+    UserService.checkSocialPrivacyPolicy(
+      FACEBOOK_PROVIDER_ENUM,
+      response.accessToken,
+      privacyPolicy,
+      () =>
+        dispatch(
+          modalShowDataPolicySocial(
+            FACEBOOK_PROVIDER_ENUM,
+            response.accessToken
+          )
+        ),
+      success,
+      handleErrors,
+      unexpectedError
+    );
   };
 
   useEffect(() => {

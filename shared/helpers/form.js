@@ -43,7 +43,6 @@ export const getFieldError = (
   errors: ErrorObjectType[]
 ): ErrorObjectType => {
   let fieldError = errors.find(error => error.field === field);
-
   if (fieldError === undefined) {
     fieldError = {
       field: '',
