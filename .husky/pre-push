@@ -1,0 +1,8 @@
+#!/bin/sh
+yarn documentation 
+yarn translation 
+yarn accessibility
+yarn lint 
+yarn flow 
+yarn test
+yarn jscpd

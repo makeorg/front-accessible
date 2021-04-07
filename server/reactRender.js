@@ -19,7 +19,6 @@ import {
   SECURE_EXPIRED_MESSAGE,
 } from 'Shared/constants/notifications';
 import { env } from 'Shared/env';
-import { env as processEnv } from 'Shared/process';
 import { TWTTR_SCRIPT } from 'Shared/services/Trackers/twttr';
 import { SecureExpiredMessage } from 'Client/app/Notifications/Banner/SecureExpired';
 import { DESKTOP_DEVICE, MOBILE_DEVICE } from 'Shared/constants/config';
@@ -68,9 +67,14 @@ const renderHtml = (reactApp, reduxStore, metaTags, pwaManifest, res) => {
     .replace('"__REDUX__"', JSON.stringify(reduxState))
     .replace(new RegExp('__LANG__', 'gi'), reduxState.appConfig.language)
     .replace(new RegExp('__API_URL__', 'gi'), env.apiUrl())
+    .replace(
+      new RegExp('__PROXY_TARGET_API_URL__', 'gi'),
+      env.proxyTargetApiUrl()
+    )
     .replace(new RegExp('__FRONT_URL__', 'gi'), env.frontUrl())
     .replace(new RegExp('___NONCE_ID___', 'gi'), nonceId)
-    .replace(new RegExp('___ENV___', 'gi'), processEnv.NODE_ENV || 'production')
+    .replace(new RegExp('___NODE_ENV___', 'gi'), env.nodeEnv() || 'production')
+    .replace(new RegExp('___PORT___', 'gi'), env.port())
     .replace('</body>', `${scriptTags}</body>`)
     .replace(
       '</body>',

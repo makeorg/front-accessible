@@ -1,7 +1,7 @@
 import * as React from 'react'; // eslint-disable-line no-unused-vars
 
 import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { JSDOM } from 'jsdom';
 import 'jest-styled-components';
 import '@testing-library/jest-dom';

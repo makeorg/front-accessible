@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 import { env } from 'Shared/env';
 import { fbq } from './fbq';
 

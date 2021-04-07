@@ -9,13 +9,16 @@ import { env } from 'Shared/env';
 import { ApiService } from 'Shared/api/ApiService';
 import { ApiServiceServer } from 'Shared/api/ApiService/ApiService.server';
 import { createProxyMiddleware } from 'http-proxy-middleware';
+import webpack from 'webpack';
+import webpackDevMiddleware from 'webpack-dev-middleware';
+import webpackHotMiddleware from 'webpack-hot-middleware';
+import devConfig from '../webpack/config.babel';
 import { initRoutes } from './routes';
 import { serverInitI18n } from './i18n';
 import { cspMiddleware } from './middleware/contentSecurityPolicy';
 import { headersResponseMiddleware } from './middleware/headers';
 import { nonceUuidMiddleware } from './middleware/nonceUuid';
 import { CLIENT_DIR, FAVICON_FILE } from './paths';
-import { proxyTargetApiUrl, frontUrl } from './configuration';
 
 serverInitI18n();
 ApiService.strategy = new ApiServiceServer();
@@ -23,9 +26,28 @@ ApiService.strategy = new ApiServiceServer();
 const getApp = () => {
   const app = express();
 
-  const { hostname } = new URL(frontUrl);
+  // eslint-disable-next-line import/no-unresolved
+  const webpackManifest = require('webpack-manifest');
+
+  if (env.isDev()) {
+    app.use(cors());
+    const compiler = webpack(devConfig);
+
+    app.use(
+      webpackDevMiddleware(compiler, {
+        publicPath: '/',
+        serverSideRender: true,
+        writeToDisk(filePath) {
+          return /loadable-stats/.test(filePath);
+        },
+      })
+    );
+    app.use(webpackHotMiddleware(compiler));
+  }
+
+  const { hostname } = new URL(env.frontUrl());
   const apiProxy = createProxyMiddleware({
-    target: proxyTargetApiUrl,
+    target: env.proxyTargetApiUrl(),
     pathRewrite: { '^/api-local': '' },
     changeOrigin: true,
     cookieDomainRewrite: {
@@ -34,9 +56,6 @@ const getApp = () => {
     logLevel: 'error',
     secure: false,
   });
-
-  // eslint-disable-next-line import/no-unresolved
-  const webpackManifest = require('webpack-manifest');
 
   app.use('/api-local', apiProxy);
   app.use(nonceUuidMiddleware);

@@ -1,49 +1,33 @@
-import { env as processEnv } from 'Shared/process';
+const onClientSide = typeof window !== 'undefined';
 
-const isClient = () => typeof window !== 'undefined' && !!window;
-const isClientWithSSR = () => isClient() && window.ENV !== '___ENV___';
+// Define client env variables
+const nodeEnvWindow = () => onClientSide && window.NODE_ENV;
+const isDevWindow = () => nodeEnvWindow === 'development';
+const isTestWindow = () => nodeEnvWindow === 'ci';
+const apiUrlWindow = () => onClientSide && window.API_URL;
+const proxyTargetApiUrlWindow = () =>
+  onClientSide && window.PROXY_TARGET_API_URL;
+const frontUrlWindow = () => onClientSide && window.FRONT_URL;
+const portWindow = () => onClientSide && window.PORT;
 
-const ENV =
-  (isClientWithSSR() && window.ENV) ||
-  (isClient() ? process.env.NODE_ENV : processEnv.NODE_ENV);
-const API_URL =
-  (isClientWithSSR() && window.API_URL) ||
-  (isClient() ? process.env.API_URL : processEnv.API_URL);
-const FRONT_URL =
-  (isClientWithSSR() && window.FRONT_URL) ||
-  (isClient() ? process.env.FRONT_URL : processEnv.FRONT_URL);
+// Define server env variables
+const nodeEnvProcess = () => process.env.NODE_ENV;
+const isDevProcess = () => nodeEnvProcess === 'development';
+const isTestProcess = () => nodeEnvProcess === 'ci';
+const apiUrlProcess = () => process.env.API_URL;
+const proxyTargetApiUrlProcess = () => process.env.PROXY_TARGET_API_URL;
+const frontUrlProcess = () => process.env.FRONT_URL;
+const portProcess = () => process.env.PORT;
 
-const HOST = isClient() ? process.env.HOST : processEnv.HOST;
-const HTTPS = isClient() ? process.env.HTTPS : processEnv.HTTPS;
-const PORT = isClient() ? process.env.PORT : processEnv.PORT;
-const PROXY_TARGET_API_URL = isClient()
-  ? process.env.PROXY_TARGET_API_URL
-  : processEnv.PROXY_TARGET_API_URL;
-
-const isDev = () => ENV === 'development';
-const isTest = () => ENV === 'test';
-const isProduction = () => ENV === 'production';
-const withDevCerts = () => HTTPS === 'true';
-const isNone = () => !ENV;
-const apiUrl = () => API_URL;
-const host = () => HOST;
-const port = () => PORT;
-const proxyTargetApiUrl = () => PROXY_TARGET_API_URL;
-const frontUrl = () => FRONT_URL;
-const nodeApiBase = () => (isDev() ? 'https://local.makeorg.tech:9009' : '');
-
+// Export in env object
 export const env = {
-  isDev,
-  isNone,
-  isTest,
-  isProduction,
-  apiUrl,
-  nodeApiBase,
-  isClient,
-  isClientWithSSR,
-  withDevCerts,
-  port,
-  proxyTargetApiUrl,
-  frontUrl,
-  host,
+  nodeEnv: onClientSide ? nodeEnvWindow : nodeEnvProcess,
+  isDev: onClientSide ? isDevWindow : isDevProcess,
+  isTest: onClientSide ? isTestWindow : isTestProcess,
+  apiUrl: onClientSide ? apiUrlWindow : apiUrlProcess,
+  proxyTargetApiUrl: onClientSide
+    ? proxyTargetApiUrlWindow
+    : proxyTargetApiUrlProcess,
+  frontUrl: onClientSide ? frontUrlWindow : frontUrlProcess,
+  port: onClientSide ? portWindow : portProcess,
 };

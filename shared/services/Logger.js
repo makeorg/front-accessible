@@ -1,12 +1,12 @@
 import axios from 'axios';
 import { env } from 'Shared/env';
-import { env as processEnv } from 'Shared/process';
 import { ApiServiceError } from 'Shared/api/ApiService/ApiServiceError';
 import { v4 as uuidv4 } from 'uuid';
 
 const LOG_INFO = 'info';
 const LOG_WARNING = 'warn';
 const LOG_ERROR = 'error';
+const onClientSide = typeof window !== 'undefined' && !!window;
 
 let instance = null;
 
@@ -95,7 +95,7 @@ class LoggerSingleton {
       // eslint-disable-next-line no-console
       console.log(level, data);
     }
-    if (!env.isClient()) {
+    if (!onClientSide) {
       const { logError, logInfo, logWarning } = await import(
         'Server/ssr/helpers/ssr.helper'
       );
@@ -118,7 +118,7 @@ class LoggerSingleton {
       method: 'POST',
       url: `/api/logger`,
       proxy: {
-        port: processEnv.PORT,
+        port: env.port(),
       },
       data: {
         level: level || 'error',

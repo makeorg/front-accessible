@@ -187,7 +187,7 @@ ${detailData.map(item => testRowContent(item, '')).join('\n')}
 
   try {
     /* Get files content */
-    const accessibilityTestData = yaml.safeLoad(
+    const accessibilityTestData = yaml.load(
       fs.readFileSync(configuration.dataFile, 'utf8')
     );
     const documentationContent = fs.readFileSync(

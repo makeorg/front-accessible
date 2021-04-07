@@ -12,4 +12,4 @@ export const ASSETS_DIR = path.join(CLIENT_DIR, 'assets');
 export const FAVICON_DIR = path.join(CLIENT_DIR, 'favicon');
 export const JS_DIR = path.join(CLIENT_DIR, 'js');
 export const VERSION_PATH = path.join(CLIENT_DIR, 'version');
-export const FAVICON_FILE = 'favicon/icon_96x96.png';
+export const FAVICON_FILE = 'favicon/favicon-48x48.png';
