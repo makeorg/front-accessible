@@ -5,7 +5,6 @@ import compression from 'compression';
 import cookiesMiddleware from 'universal-cookie-express';
 import favicon from 'serve-favicon';
 import cors from 'cors';
-import { env } from 'Shared/env';
 import { ApiService } from 'Shared/api/ApiService';
 import { ApiServiceServer } from 'Shared/api/ApiService/ApiService.server';
 import { createProxyMiddleware } from 'http-proxy-middleware';
@@ -29,7 +28,7 @@ const getApp = () => {
   // eslint-disable-next-line import/no-unresolved
   const webpackManifest = require('webpack-manifest');
 
-  if (env.isDev()) {
+  if (process.env.NODE_ENV === 'development') {
     app.use(cors());
     const compiler = webpack(devConfig);
 
@@ -45,9 +44,9 @@ const getApp = () => {
     app.use(webpackHotMiddleware(compiler));
   }
 
-  const { hostname } = new URL(env.frontUrl());
+  const { hostname } = new URL(process.env.FRONT_URL);
   const apiProxy = createProxyMiddleware({
-    target: env.proxyTargetApiUrl(),
+    target: process.env.PROXY_TARGET_API_URL,
     pathRewrite: { '^/api-local': '' },
     changeOrigin: true,
     cookieDomainRewrite: {
@@ -68,7 +67,6 @@ const getApp = () => {
   // apply csp everywhere except on styleguide /doc
   app.use(/^(?!.*doc).*$/, cspMiddleware);
 
-  if (env.isDev()) app.use(cors());
   initRoutes(app);
 
   return app;

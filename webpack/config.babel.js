@@ -4,12 +4,12 @@ import { merge } from 'webpack-merge';
 import { clientConfig, serverConfig } from './base.config.babel';
 
 // Define env file path depending from NODE_ENV
-let envConfigPath = path.resolve(__dirname, '.env');
+let envConfigPath = path.resolve(__dirname, '..', '.env');
 if (process.env.NODE_ENV === 'development') {
-  envConfigPath = path.resolve(__dirname, '.env.local');
+  envConfigPath = path.resolve(__dirname, '..', '.env.local');
 }
 if (process.env.NODE_ENV === 'ci') {
-  envConfigPath = path.resolve(__dirname, '.env.ci');
+  envConfigPath = path.resolve(__dirname, '..', '.env.ci');
 }
 // Build client and server configurations
 const client = clientConfig(envConfigPath);
