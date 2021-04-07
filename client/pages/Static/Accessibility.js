@@ -102,7 +102,7 @@ export const Accessibility = () => (
             Make.org est en conformité partielle avec le
             <> </>
             <RedLinkHTMLElementStyle
-              href="https://www.numerique.gouv.fr/uploads/RGAA-v4.0.pdf"
+              href="https://www.numerique.gouv.fr/publications/rgaa-accessibilite/"
               target="_blank"
               rel="noopener"
             >
