@@ -8,13 +8,13 @@ import {
   AppMainContentStyle,
 } from 'Client/app/Styled/MainElements';
 import { NAVIGATION_ARIA_CLASS, PANEL_ARIA_CLASS } from 'Shared/constants/a11y';
+import { CookieModal } from 'Client/app/CookieModal';
 import { MAIN_CONTENT } from 'Shared/constants/ids';
 import { NotificationBanner } from 'Client/ui/Elements/Notifications/Banner';
 import { updateDeviceInState } from 'Client/helper/updateDeviceInState';
 import { useDispatch, useSelector } from 'react-redux';
 import { debounce } from 'Shared/helpers/timers';
 import { DEBOUNCE_TIMER } from 'Shared/constants/config';
-import { CookieBanner } from './CookieBanner';
 import { Header } from './Header';
 import { Footer } from './Footer';
 import { Modal } from './Modal';
@@ -31,7 +31,10 @@ import { Hreflang } from './Hreflang';
  * Handles App Business Logic
  */
 export const AppContainer = () => {
-  const { device } = useSelector((state: StateRoot) => state.appConfig);
+  const { device, country } = useSelector(
+    (state: StateRoot) => state.appConfig
+  );
+
   const dispatch = useDispatch();
 
   const updateDeviceConfig = debounce(
@@ -39,6 +42,7 @@ export const AppContainer = () => {
     DEBOUNCE_TIMER
   );
 
+  const hasCountry = country && country !== null;
   useEffect(() => {
     // Handle device state after resize
     window.addEventListener('resize', updateDeviceConfig);
@@ -53,6 +57,7 @@ export const AppContainer = () => {
   return (
     <SecureExpiration>
       <SessionExpiration>
+        {hasCountry && <CookieModal />}
         <ServiceErrorHandler>
           <ErrorBoundary>
             {/** page_wrapper id is used to set page background color in usePageBackgroundColor hook */}
@@ -63,7 +68,6 @@ export const AppContainer = () => {
               <FontFacesStylesheet />
               <DefaultStylesheet />
               <UIThemeStylesheet />
-              <CookieBanner />
               <MainSkipLinks />
               <Header />
               <AppMainContentStyle

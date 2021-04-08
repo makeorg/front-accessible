@@ -30,6 +30,11 @@ const checkPageExist = (page) => {
   }
 };
 
+//Given I have already accepted the data policy 
+given('I have already accepted the cookie policy', () => {
+  cy.setCookie('make-cookie', 'true');
+});
+
 
 // navigation
 given('I go to 404 page', () => {

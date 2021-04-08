@@ -6,6 +6,10 @@ then('I accept the cookie policy', () => {
   cy.getCookie('make-cookie').should('have.property', 'value', 'true');
 });
 
-then('I don\'t see cookie banner', () => {
-  cy.get('[data-cy-container="cookie-banner"').should('not.exist');
+then('I don\'t see cookie modal', () => {
+  cy.get('[data-cy-container="cookie-modal"').should('not.exist');
+});
+
+then('I see the cookie modal', () => {
+  cy.get('[data-cy-container="cookie-modal"').should('exist');
 });

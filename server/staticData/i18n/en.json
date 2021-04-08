@@ -438,10 +438,40 @@
     "a11y": "Accessibilty statement"
   },
   "pannel": {},
-  "cookie_alert": {
-    "text": "By continuing to browse this site, you agree to our {{gtu_link}}, our {{policy_link}}, and to the use of cookies on our website in order to help us improve our service.",
-    "gtu": "terms of service",
-    "policy": "privacy policy"
+  "cookie_modal": {
+    "title": "Express yourself on Make.org while respecting your privacy",
+    "description": "To optimize our service and your experience, we are using cookies for us and our partners wish during your visit.",
+    "details": {
+      "title": "Which are these cookies?",
+      "technicals": "<strong>Technicals:</strong> cookies essential to make the site work",
+      "preferences": "<strong>Preferences:</strong> cookies to improve your experience when browsing the site",
+      "statistics": "<strong>Statistics:</strong> cookies to enrich the analysis of our citizen consultations in aggregate form",
+      "social_media": "<strong>Social networks:</strong> cookies to help us optimize our impact through social networks"
+    },
+    "accept": "Accept",
+    "personalize": "Personalize",
+    "refuse": "Continue without accepting",
+    "back": "Back to previous step",
+    "mandatory": "Mandatory",
+    "save": "Save my preferences",
+    "technicals": {
+      "secure": "make secure : once connected to your Make.org account, this cookie garantees that the connection to your profile will be up during your visit.",
+      "expiration": "make-secure-expiration : this cookie detects your inactivity on the service, in order to expire this connection to your profile."
+    },
+    "preferences": {
+      "authentication": "Authentication cookies from Google and Facebook : these are needed to ensure register and connection to your user profile though these social networks.",
+      "session": "make-session-id : this cookie gathers all the actions made by yousrself on the service during a session.",
+      "expiration": "make-session-id-expiration : this cookie is used to notify you about the expiration of your session (after 20 minutes on inactivity) and so will be renewed.",
+      "user": "make-user-id : this cookie is used to ifentify that you have already an user profile on Make.org and to invite you to connect, this way you can trace all your actions in your user profile."
+    },
+    "statistics": {
+      "visitor": "make-visitor-id : this cookie tracks visits and re-visits on our service in order to mesure anonymously agregated trafic. This tracking is not individual.",
+      "tracking": "Facebook tracking cookie: this cookie is used to gather behavioral data on the service,to agregate and analyse data in order to improve the service. It is also used to agregate socio-demographic data (age, gender, area) in order to enrich the analysis of the consultation."
+    },
+    "social_media": {
+      "pixel": "Social media pixel : this cookie is used to optimise advertisement campaign performances on the social medias Facebook and Twitter, in order to reach more participation of the citizens.",
+      "sharing": "Sharing : this cookie is used to let the user sharing content on his social media accounts (Facebook, Instagram, Twitter, Linkedin)."
+    }
   },
   "activate_account": {},
   "reset_password": {

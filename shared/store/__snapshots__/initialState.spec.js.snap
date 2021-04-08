@@ -15,6 +15,7 @@ Object {
     "contentType": "",
     "focusAfterClose": true,
     "isOpen": false,
+    "showCookies": true,
     "showExpirationSession": false,
   },
   "notifications": Object {

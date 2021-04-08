@@ -16,14 +16,17 @@ export const CountryListener = () => {
   const upperCountry = country && country.toUpperCase();
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (upperCountry) {
-      dispatch(setCountryCode(upperCountry));
-    } else {
-      dispatch(setCountryCode(null));
-    }
+  useEffect(
+    () => {
+      if (upperCountry) {
+        dispatch(setCountryCode(upperCountry));
+      } else {
+        dispatch(setCountryCode(null));
+      }
+    },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [upperCountry]);
+    [upperCountry]
+  );
 
   return null;
 };
