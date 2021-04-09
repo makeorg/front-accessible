@@ -39,7 +39,7 @@ To launch jscpd `yarn jscpd`
 To launch flow type checking `yarn flow`
 
 ## Documentation
-*  `yarn documentation:check` is used to check if documentation is up to date
+*  `yarn documentation` is used to check if documentation is up to date
 *   To update documentation use `yarn documentation --fix`
 
 ## Translation
@@ -58,12 +58,12 @@ Following commands are runned on prepush :
   - `yarn accesssibility`
   - `yarn lint`
   - `yarn flow`
-  - `yarn test:unit`
+  - `yarn test`
   - `yarn jscpd`
 
 ## SVG generation
 To tranform SVG into React Components, we are using [svgr](https://github.com/gregberge/svgr)
-Run it on your local env with this command : `svgr -d ./client/ui/Svg/elements ./client/ui/Svg/svgr --template ./client/ui/Svg/svgrTemplate.js && cp -r ./client/ui/Svg/svgr/* ./client/ui/Svg/source
+Run it on your local env with this command : `svgr -d ./client/ui/Svg/elements ./client/ui/Svg/svgr --template ./client/ui/Svg/svgrTemplate.js && cp -r ./client/ui/Svg/svgr/* ./client/ui/Svg/source`
 
 ## CI 
 ### Cypress
