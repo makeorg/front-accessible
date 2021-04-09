@@ -510,7 +510,7 @@
     "refuse": "Continuer sans accepter",
     "back": "Revenir à l'étape précédente",
     "mandatory": "Toujours actif",
-    "save": "Enregistrer mes préférences",
+    "save": "Enregistrer préférences",
     "technicals": {
       "secure": "make secure : une fois que vous vous êtes connecté à votre espace citoyen sur Make.org, ce cookie garantit que cette connexion va se maintenir pendant votre navigation sur le service.",
       "expiration": "make-secure-expiration : ce cookie sert à détecter votre inactivité sur le service de façon à faire expirer cette connexion."
@@ -526,8 +526,11 @@
       "tracking": "Cookie de tracking Facebook : il sert à recueillir de la donnée de comportement sur le service en vue d'analyses agrégées permettant d’améliorer le service. Il sert également à recueillir les données socio démo (âge, genre, région) de façon agrégée pour enrichir l’analyse de la consultation."
     },
     "social_media": {
-      "pixel": "Pixel réseaux sociaux : il sert à optimiser les performances des campagnes de promotion des consultations sur les réseaux sociaux Facebook et Twitter afin d’augmenter la participation des citoyens.",
-      "sharing": "Partage : permettre à l’utilisateur de partager du contenu sur ses comptes réseaux sociaux (Facebook, Instagram, Twitter, Linkedin)."
+      "facebook_pixel": "Pixel Facebook : Il sert à optimiser les performances des campagnes de promotions des consultations sur Facebook afin d’augmenter la participation des citoyens.",
+      "twitter_pixel": "Pixel Twitter : Il sert à optimiser les performances des campagnes de promotions des consultations sur Twitter afin d’augmenter la participation des citoyens.",
+      "facebook_sharing": "Partage Facebook : permettre à l’utilisateur de partager du contenu sur son compte Facebook.",
+      "twitter_sharing": "Partage Twitter : permettre à l’utilisateur de partager du contenu sur son compte Twitter.",
+      "linkedin_sharing": "Partage Linkedin : permettre à l’utilisateur de partager du contenu sur son compte Linkedin."
     }
   },
   "reset_password": {

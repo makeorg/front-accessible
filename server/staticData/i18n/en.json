@@ -469,8 +469,11 @@
       "tracking": "Facebook tracking cookie: this cookie is used to gather behavioral data on the service,to agregate and analyse data in order to improve the service. It is also used to agregate socio-demographic data (age, gender, area) in order to enrich the analysis of the consultation."
     },
     "social_media": {
-      "pixel": "Social media pixel : this cookie is used to optimise advertisement campaign performances on the social medias Facebook and Twitter, in order to reach more participation of the citizens.",
-      "sharing": "Sharing : this cookie is used to let the user sharing content on his social media accounts (Facebook, Instagram, Twitter, Linkedin)."
+      "facebook_pixel": "Facebook pixel : optimize ads campaign performances on Facebook in order to engage citizens.",
+      "twitter_pixel": "Twitter pixel : optimize ads campaign performances on Twitter in order to engage citizens.",
+      "facebook_sharing": "Facebook sharing : let the user share content on his Facebook account.",
+      "twitter_sharing": "Twitter sharing : let the user share content on his Twitter account.",
+      "linkedin_sharing": "LinkedIn sharing : let the user share content on his LinkedIn account."
     }
   },
   "activate_account": {},

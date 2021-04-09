@@ -518,8 +518,11 @@ CLICK_COOKIE_SWITCH_ACCEPT:
       - key: type
         description: type name
         values:
-          - fb_tracking
-          - share_tracking
+          - facebook_tracking
+          - twitter_tracking
+          - facebook_sharing
+          - twitter_sharing
+          - linkedin_sharing
 CLICK_COOKIE_SWITCH_REFUSE:
     key: click-cookies-refuse
     description: Click switch to refuse cookies
@@ -527,8 +530,11 @@ CLICK_COOKIE_SWITCH_REFUSE:
       - key: type
         description: type name
         values:
-          - fb_tracking
-          - share_tracking
+          - facebook_tracking
+          - twitter_tracking
+          - facebook_sharing
+          - twitter_sharing
+          - linkedin_sharing
 CLICK_COOKIE_MODAL_BACK:
     key: click-cookies-back
     description: Click on back button in cookie modal

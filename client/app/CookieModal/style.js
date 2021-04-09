@@ -28,10 +28,11 @@ export const CookieModalContentStyle = styled.div`
 
 export const CookieModalTitleWrapperStyle = styled(FlexElementStyle)`
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-end;
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     flex-direction: row-reverse;
     justify-content: space-between;
+    align-items: flex-start;
   }
 `;
 
