@@ -1100,26 +1100,26 @@ describe('Tracking Service', () => {
 
   it('track click Modal Switch Accept', () => {
     const eventName = trackingConfiguration.CLICK_COOKIE_SWITCH_ACCEPT.key;
-    trackClickCookieSwitchAccept('fb_tracking');
+    trackClickCookieSwitchAccept('facebook_tracking');
     expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {
-      type: 'fb_tracking',
+      type: 'facebook_tracking',
     });
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(1, eventName, {
       ...eventParameters,
-      type: 'fb_tracking',
+      type: 'facebook_tracking',
     });
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
   it('track click Modal Switch Refuse', () => {
     const eventName = trackingConfiguration.CLICK_COOKIE_SWITCH_REFUSE.key;
-    trackClickCookieSwitchRefuse('share_tracking');
+    trackClickCookieSwitchRefuse('facebook_sharing');
     expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {
-      type: 'share_tracking',
+      type: 'facebook_sharing',
     });
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(1, eventName, {
       ...eventParameters,
-      type: 'share_tracking',
+      type: 'facebook_sharing',
     });
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
