@@ -516,7 +516,7 @@
       "expiration": "make-secure-expiration : ce cookie sert à détecter votre inactivité sur le service de façon à faire expirer cette connexion."
     },
     "preferences": {
-      "authentication": "Les cookies d authentification Google et Facebook : ils permettent l'inscription et la connexion à votre espace citoyen via ces réseaux sociaux.",
+      "authentication": "Les cookies d'authentification Google et Facebook : ils permettent l'inscription et la connexion à votre espace citoyen via ces réseaux sociaux.",
       "session": "make-session-id : ce cookie sert à regrouper toutes les actions que vous effectuez sur le service dans une session.",
       "expiration": "make-session-id-expiration : ce cookie permet de vous afficher la notification indiquant que votre session a expiré (au bout de 20 minutes) et va donc être rechargée.",
       "user": "make-user-id : ce cookie permet d’identifier que vous avez déjà créé un espace sur Make.org et à vous inviter à vous connecter de façon à ce que vous puissiez retrouver toutes vos actions dans votre espace citoyen."
