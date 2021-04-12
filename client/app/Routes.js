@@ -46,6 +46,7 @@ import {
   ROUTE_STATIC_A11Y,
   ROUTE_EXPLORE_ROOT,
   ROUTE_EXPLORE_FIRST_PAGE,
+  ROUTE_CONSULTATION,
 } from 'Shared/routes';
 import { TwitterUniversalTag } from 'Shared/services/Trackers/TwitterTracking';
 import { QuestionWrapper } from 'Client/pages/Consultation/QuestionWrapper';
@@ -122,6 +123,7 @@ export const Routes = () => {
     <Switch>
       <Route path={ROUTE_BROWSE_CONSULTATIONS} component={BrowsePage} />
       <Route path={ROUTE_BROWSE_RESULTS} component={BrowsePage} />
+      <Redirect path={ROUTE_CONSULTATION} to={ROUTE_PARTICIPATE} />
       <Route path={ROUTE_PARTICIPATE}>
         <QuestionWrapper withRedirect>
           <ParticipatePage />
