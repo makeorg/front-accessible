@@ -492,6 +492,18 @@
       "error_message": "Your password could not be changed."
     }
   },
+  "data_policy_modal":{
+    "title": "Updating our data policy",
+    "description": "Make.org is committed to respecting your personal data each time you visit the site. To continue browsing while connected to Make.org you must accept our update of the {{data_policy_link}} ",
+    "data_policy_link": "data policy.",
+    "consent": "<strong>I accept the new data policy</strong> and I will be able to use my Make.org citizen space",
+    "validate": "Validate",
+    "stay": "Stay",
+    "leave":"Leave",
+    "refusal_title": "Are you sure you want to quit?",
+    "refusal_description_first_part": "By refusing our new ",
+    "refusal_description_second_part": ", you will no longer be able to access your Make.org citizen space."
+},
   "not_found": {
     "intro": "Oops!",
     "title": "Error 404",

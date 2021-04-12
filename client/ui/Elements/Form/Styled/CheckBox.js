@@ -29,10 +29,10 @@ export const CheckboxWrapper = styled(FlexElementStyle)`
 
 export const CheckboxLabelStyle = styled.label`
   display: inline-flex;
-  color: ${color.greyDark};
+  color: ${props => (props.isBlack ? color.black : color.greyDark)};
   font-family: ${MakeFonts.CircularStandardBook};
   font-size: ${props =>
-    props.isRegister
+    props.noFontSizeChange
       ? intToPx(typography.font.fontsize.XS.value)
       : intToPx(typography.font.fontsize.X2S.value)};
   a {

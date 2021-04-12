@@ -33,7 +33,7 @@ export const CookieModal = () => {
   const showCookies: string = useSelector(
     (state: StateRoot) => state.modal.showCookies
   );
-  const [cutomization, enableCustomization] = useState(false);
+  const [customization, enableCustomization] = useState(false);
   const customStyles = {
     content: {
       top: '50%',
@@ -63,7 +63,7 @@ export const CookieModal = () => {
   };
 
   const toggleCustomization = () => {
-    enableCustomization(!cutomization);
+    enableCustomization(!customization);
   };
 
   const handlePersonalize = () => {
@@ -88,19 +88,19 @@ export const CookieModal = () => {
       overlayClassName="modal-overlay"
       data-cy-container="cookie-modal"
     >
-      {cutomization ? (
+      {customization ? (
         <SecondStepCookie toggleCustomization={toggleCustomization} />
       ) : (
         <FirstStepCookie />
       )}
       <CookieModalBannerWrapperStyle>
         <SvgCookieStyle aria-hidden focusable="false" />
-        {!cutomization && (
+        {!customization && (
           <CookieModalRedButtonStyle type="button" onClick={handleClick}>
             {i18n.t('cookie_modal.accept')}
           </CookieModalRedButtonStyle>
         )}
-        {cutomization ? (
+        {customization ? (
           <CookieModalRedButtonStyle type="button" onClick={handlePreferences}>
             {i18n.t('cookie_modal.save')}
           </CookieModalRedButtonStyle>

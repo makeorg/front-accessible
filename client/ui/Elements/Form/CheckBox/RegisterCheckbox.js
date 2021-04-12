@@ -34,7 +34,7 @@ export const RegisterCheckBox = ({
 
   return (
     <CheckboxWrapper>
-      <CheckboxLabelStyle isRegister>
+      <CheckboxLabelStyle noFontSizeChange>
         <HiddenCheckbox
           required={required}
           checked={checked}
