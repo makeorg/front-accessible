@@ -7,6 +7,7 @@ export const ROUTE_COUNTRY_FR = '/FR';
 export const ROUTE_BROWSE_CONSULTATIONS = `${ROUTE_COUNTRY}/browse/consultations/page/:pageId`;
 export const ROUTE_BROWSE_RESULTS = `${ROUTE_COUNTRY}/browse/results/page/:pageId`;
 export const ROUTE_CONSULTATION_STEP = `${ROUTE_COUNTRY}/consultation/:questionSlug/:consultationStep`;
+export const ROUTE_CONSULTATION = `${ROUTE_COUNTRY}/consultation/:questionSlug/consultation`;
 export const ROUTE_PARTICIPATE = `${ROUTE_COUNTRY}/consultation/:questionSlug/participate`;
 export const ROUTE_EXPLORE = `${ROUTE_COUNTRY}/consultation/:questionSlug/explore/page/:pageId`;
 export const ROUTE_EXPLORE_ROOT = `${ROUTE_COUNTRY}/consultation/:questionSlug/explore`;
