@@ -141,20 +141,29 @@ export const CookieModalHeaderWrapperStyle = styled(FlexElementStyle)`
 `;
 
 export const CookieModalCookieDetailParagraphStyle = styled(FlexElementStyle)`
+  flex-direction: column;
   font-family: ${MakeFonts.CircularStandardBook};
   font-size: ${intToPx(typography.font.fontsize.X2S.value)};
   border-top: 1px solid ${color.grey};
   margin-top: 10px;
   padding-top: 10px;
-`;
-
-export const CookieModalElementSwitchWrapperStyle = styled(FlexElementStyle)`
-  flex-direction: column;
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
     align-items: center;
+  }
+`;
+
+export const CookieModalElementSwitchWrapperStyle = styled.div`
+  width: 100%;
+`;
+
+export const CookieSwitchWrapperStyle = styled(FlexElementStyle)`
+  justify-content: flex-end;
+  margin: 5px 0;
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    margin: 0 0 0 20px;
   }
 `;
 

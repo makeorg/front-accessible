@@ -1,10 +1,5 @@
 import styled from 'styled-components';
 
-export const SwitchButtonWrapperStyle = styled.div`
-  display: flex;
-  margin-left: 20px;
-`;
-
 export const SwitchButtonInternalWrapperStyle = styled.div`
   display: flex;
   justify-content: center;

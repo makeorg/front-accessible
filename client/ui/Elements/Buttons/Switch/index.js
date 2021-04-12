@@ -4,11 +4,7 @@ import {
   SvgSwitchLabelCross,
 } from 'Client/ui/Svg/elements';
 
-import {
-  SwitchButtonStyle,
-  SwitchButtonInternalLabelStyle,
-  SwitchButtonWrapperStyle,
-} from './style';
+import { SwitchButtonStyle, SwitchButtonInternalLabelStyle } from './style';
 
 type Props = {
   onEnabling?: () => void,
@@ -31,32 +27,30 @@ export const SwitchButton = ({
   };
 
   return (
-    <SwitchButtonWrapperStyle>
-      <SwitchButtonStyle
-        onClick={handleClick}
-        role="switch"
-        aria-checked={isChecked}
-        className="switch"
-        isChecked={isChecked}
-      >
-        <SwitchButtonInternalLabelStyle isChecked={isChecked}>
-          {isChecked ? (
-            <SvgSwitchLabelChecked
-              aria-hidden
-              width="8"
-              height="8"
-              focusable="false"
-            />
-          ) : (
-            <SvgSwitchLabelCross
-              aria-hidden
-              width="8"
-              height="8"
-              focusable="false"
-            />
-          )}
-        </SwitchButtonInternalLabelStyle>
-      </SwitchButtonStyle>
-    </SwitchButtonWrapperStyle>
+    <SwitchButtonStyle
+      onClick={handleClick}
+      role="switch"
+      aria-checked={isChecked}
+      className="switch"
+      isChecked={isChecked}
+    >
+      <SwitchButtonInternalLabelStyle isChecked={isChecked}>
+        {isChecked ? (
+          <SvgSwitchLabelChecked
+            aria-hidden
+            width="8"
+            height="8"
+            focusable="false"
+          />
+        ) : (
+          <SvgSwitchLabelCross
+            aria-hidden
+            width="8"
+            height="8"
+            focusable="false"
+          />
+        )}
+      </SwitchButtonInternalLabelStyle>
+    </SwitchButtonStyle>
   );
 };

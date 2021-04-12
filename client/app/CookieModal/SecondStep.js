@@ -33,6 +33,7 @@ import {
   CookieSectionWrapperStyle,
   CookieDescriptionStyle,
   CookieLabelStyle,
+  CookieSwitchWrapperStyle,
 } from './style';
 
 type Props = {
@@ -162,66 +163,76 @@ export const SecondStepCookie = ({ toggleCustomization }: Props) => {
             <CookieModalElementSwitchWrapperStyle>
               <CookieModalCookieDetailParagraphStyle>
                 {i18n.t('cookie_modal.social_media.facebook_pixel')}
-                <SwitchButton
-                  onEnabling={() =>
-                    trackClickCookieSwitchAccept('facebook_tracking')
-                  }
-                  onDisabling={() =>
-                    trackClickCookieSwitchRefuse('facebook_tracking')
-                  }
-                />
+                <CookieSwitchWrapperStyle>
+                  <SwitchButton
+                    onEnabling={() =>
+                      trackClickCookieSwitchAccept('facebook_tracking')
+                    }
+                    onDisabling={() =>
+                      trackClickCookieSwitchRefuse('facebook_tracking')
+                    }
+                  />
+                </CookieSwitchWrapperStyle>
               </CookieModalCookieDetailParagraphStyle>
             </CookieModalElementSwitchWrapperStyle>
             <CookieModalElementSwitchWrapperStyle>
               <CookieModalCookieDetailParagraphStyle>
                 {i18n.t('cookie_modal.social_media.twitter_pixel')}
-                <SwitchButton
-                  onEnabling={() =>
-                    trackClickCookieSwitchAccept('twitter_tracking')
-                  }
-                  onDisabling={() =>
-                    trackClickCookieSwitchRefuse('twitter_tracking')
-                  }
-                />
+                <CookieSwitchWrapperStyle>
+                  <SwitchButton
+                    onEnabling={() =>
+                      trackClickCookieSwitchAccept('twitter_tracking')
+                    }
+                    onDisabling={() =>
+                      trackClickCookieSwitchRefuse('twitter_tracking')
+                    }
+                  />
+                </CookieSwitchWrapperStyle>
               </CookieModalCookieDetailParagraphStyle>
             </CookieModalElementSwitchWrapperStyle>
             <CookieModalElementSwitchWrapperStyle>
               <CookieModalCookieDetailParagraphStyle>
                 {i18n.t('cookie_modal.social_media.facebook_sharing')}
-                <SwitchButton
-                  onEnabling={() =>
-                    trackClickCookieSwitchAccept('facebook_sharing')
-                  }
-                  onDisabling={() =>
-                    trackClickCookieSwitchRefuse('facebook_sharing')
-                  }
-                />
+                <CookieSwitchWrapperStyle>
+                  <SwitchButton
+                    onEnabling={() =>
+                      trackClickCookieSwitchAccept('facebook_sharing')
+                    }
+                    onDisabling={() =>
+                      trackClickCookieSwitchRefuse('facebook_sharing')
+                    }
+                  />
+                </CookieSwitchWrapperStyle>
               </CookieModalCookieDetailParagraphStyle>
             </CookieModalElementSwitchWrapperStyle>
             <CookieModalElementSwitchWrapperStyle>
               <CookieModalCookieDetailParagraphStyle>
                 {i18n.t('cookie_modal.social_media.twitter_sharing')}
-                <SwitchButton
-                  onEnabling={() =>
-                    trackClickCookieSwitchAccept('twitter_sharing')
-                  }
-                  onDisabling={() =>
-                    trackClickCookieSwitchRefuse('twitter_sharing')
-                  }
-                />
+                <CookieSwitchWrapperStyle>
+                  <SwitchButton
+                    onEnabling={() =>
+                      trackClickCookieSwitchAccept('twitter_sharing')
+                    }
+                    onDisabling={() =>
+                      trackClickCookieSwitchRefuse('twitter_sharing')
+                    }
+                  />
+                </CookieSwitchWrapperStyle>
               </CookieModalCookieDetailParagraphStyle>
             </CookieModalElementSwitchWrapperStyle>
             <CookieModalElementSwitchWrapperStyle>
               <CookieModalCookieDetailParagraphStyle>
                 {i18n.t('cookie_modal.social_media.linkedin_sharing')}
-                <SwitchButton
-                  onEnabling={() =>
-                    trackClickCookieSwitchAccept('linkedin_sharing')
-                  }
-                  onDisabling={() =>
-                    trackClickCookieSwitchRefuse('linkedin_sharing')
-                  }
-                />
+                <CookieSwitchWrapperStyle>
+                  <SwitchButton
+                    onEnabling={() =>
+                      trackClickCookieSwitchAccept('linkedin_sharing')
+                    }
+                    onDisabling={() =>
+                      trackClickCookieSwitchRefuse('linkedin_sharing')
+                    }
+                  />
+                </CookieSwitchWrapperStyle>
               </CookieModalCookieDetailParagraphStyle>
             </CookieModalElementSwitchWrapperStyle>
           </ColumnElementStyle>
