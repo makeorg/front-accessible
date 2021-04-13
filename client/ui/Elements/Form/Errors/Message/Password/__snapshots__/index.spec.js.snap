@@ -41,6 +41,7 @@ Array [
 <button
     className="c0 c1"
     onClick={[Function]}
+    type="button"
   >
     profile.password_update.actual_password.trigger
   </button>,

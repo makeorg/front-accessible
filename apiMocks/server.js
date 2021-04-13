@@ -5,6 +5,7 @@ const userRouter = require('./routes/user');
 const tagsRouter = require('./routes/tags');
 const organisationsRouter = require('./routes/organisations');
 const viewsRouter = require('./routes/views');
+const oauthRouter = require('./routes/oauth');
 
 const server = jsonServer.create();
 const middlewares = jsonServer.defaults({ logger: false });
@@ -24,6 +25,10 @@ server.use(
     '/:resource': '/:resource/data',
   })
 );
+server.use('/oauth', oauthRouter);
+server.use('/logout', (req, res) => {
+  res.clearCookie('mockIsConnected').sendStatus('204');
+});
 
 server.listen(9000, () => {
   console.log('JSON Server is running');

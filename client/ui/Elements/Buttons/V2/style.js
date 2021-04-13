@@ -46,7 +46,10 @@ const GreyStyle = `
   }
 `;
 
-export const RedButtonStyle = styled.button`
+export const RedButtonStyle = styled.button.attrs(props => ({
+  type: 'button',
+  ...props,
+}))`
   ${BasicButtonStyle};
   ${RedStyle};
   &:disabled {

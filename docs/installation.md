@@ -67,15 +67,13 @@ Run it on your local env with this command : `svgr -d ./client/ui/Svg/elements .
 
 ## CI 
 ### Cypress
-To run all cypress test suite use `yarn ci:cypress`
-To check a specific cypress test :
+To run cypress tests :
 *  :construction_worker: Build app : `yarn build`
 *   Run all test suite : `yarn ci cypress:run`
 *   Open cypress console with : `yarn ci cypress:open`
 
 ### Lighthouse
-To run all lighthouse test suite use `yarn lighthouse:run`
-To check a specific lighthouse step :
+To run lighthouse tests :
 *  :construction_worker: Build app : `yarn build`
 *   Run lighthouse on chosen page with : 
     - `yarn ci lighthouse:home` for homepage

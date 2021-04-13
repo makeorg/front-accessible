@@ -5,6 +5,7 @@ import { i18n } from 'Shared/i18n';
 import { useSelector } from 'react-redux';
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
+import { matchMobileDevice } from 'Shared/helpers/styled';
 import {
   CardStyle,
   CardAltTitleStyle,
@@ -18,9 +19,11 @@ export const About = () => {
   const question: QuestionType = useSelector((state: StateRoot) =>
     selectCurrentQuestion(state)
   );
+  const { device } = useSelector((state: StateRoot) => state.appConfig);
+  const isMobile = matchMobileDevice(device);
   return (
     <>
-      <CardAltTitleStyle>
+      <CardAltTitleStyle as={isMobile ? 'h3' : 'h4'}>
         {i18n.t('consultation.cards.about.title')}
       </CardAltTitleStyle>
       <CardAltDescriptionStyle>

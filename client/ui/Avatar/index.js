@@ -52,7 +52,7 @@ export const Avatar = ({
 
 export const AvatarWithDots = ({ avatarSize = 34 }: DotsProps) => (
   <AvatarStyle>
-    <AvatarWithDotsStyle avatarSize={avatarSize}>
+    <AvatarWithDotsStyle avatarSize={avatarSize} as="span">
       <DotsStyle />
       <DotsStyle />
       <DotsStyle />

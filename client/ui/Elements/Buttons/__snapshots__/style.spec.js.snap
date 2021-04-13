@@ -58,6 +58,7 @@ exports[`ButtonElements/Styled ActiveButtonStyle snapshot by default 1`] = `
 
 <button
   className="c0 c1"
+  type="button"
 />
 `;
 
@@ -263,6 +264,7 @@ exports[`ButtonElements/Styled CloseButtonStyle snapshot by default 1`] = `
 
 <button
   className="c0 c1"
+  type="button"
 />
 `;
 
@@ -393,6 +395,7 @@ exports[`ButtonElements/Styled GreyButtonStyle snapshot by default 1`] = `
 
 <button
   className="c0 c1"
+  type="button"
 />
 `;
 
@@ -755,6 +758,7 @@ exports[`ButtonElements/Styled RedButtonStyle snapshot by default 1`] = `
 
 <button
   className="c0 c1"
+  type="button"
 />
 `;
 
@@ -787,6 +791,7 @@ exports[`ButtonElements/Styled RedLinkButtonStyle snapshot by default 1`] = `
 
 <button
   className="c0 c1"
+  type="button"
 />
 `;
 
@@ -932,6 +937,7 @@ exports[`ButtonElements/Styled SmallGreyButtonStyle snapshot by default 1`] = `
 
 <button
   className="c0 c1 c2"
+  type="button"
 />
 `;
 
@@ -992,6 +998,7 @@ exports[`ButtonElements/Styled SmallRedButtonStyle snapshot by default 1`] = `
 
 <button
   className="c0 c1 c2"
+  type="button"
 />
 `;
 
@@ -1101,6 +1108,7 @@ exports[`ButtonElements/Styled UnstyledButtonStyle snapshot by default 1`] = `
 
 <button
   className="c0"
+  type="button"
 />
 `;
 
@@ -1278,6 +1286,7 @@ exports[`ButtonElements/Styled VoteButtonStyle snapshot by default 1`] = `
 
 <button
   className="c0"
+  type="button"
 />
 `;
 
@@ -1390,5 +1399,6 @@ exports[`ButtonElements/Styled WhiteButtonStyle snapshot by default 1`] = `
 
 <button
   className="c0 c1"
+  type="button"
 />
 `;

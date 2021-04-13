@@ -24,7 +24,7 @@ lint:
   before_script:
     - export YARN_VERSION="1.22.5"
   script:
-    - yarn install
+    - yarn install --check-files
     - yarn lint
 
 flow-static:
@@ -38,7 +38,7 @@ flow-static:
     - wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub && \
     - wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.25-r0/glibc-2.25-r0.apk && \
     - apk add glibc-2.25-r0.apk
-    - yarn install
+    - yarn install --check-files
     - yarn flow
 
 test:
@@ -48,7 +48,7 @@ test:
     - export YARN_VERSION="1.22.5"
   script:    
     - node -v
-    - yarn install
+    - yarn install --check-files
     - yarn translation
     - yarn documentation
     - yarn accessibility
@@ -67,7 +67,7 @@ jscpd:
   before_script:
     - export YARN_VERSION="1.22.5"
   script:
-    - yarn install
+    - yarn install --check-files
     - yarn jscpd
   artifacts:
     expire_in: 1 week
@@ -85,7 +85,7 @@ e2e-test:
     - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - 
     - echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list 
     - apt-get update && apt-get install -y dbus-x11 google-chrome-stable && rm -rf /var/lib/apt/lists/*
-    - yarn install
+    - yarn install --check-files
     - yarn build
     - yarn ci cypress:run
   artifacts:
@@ -104,7 +104,7 @@ lighthouse:
     - npm install -g n
     - n 12.20
     - npm i -g lighthouse@~6.1.0 lighthouse-ci@1.10.0 yarn
-    - yarn install
+    - yarn install --check-files
     - lighthouse --version && lighthouse-ci --version
     - yarn build
     - yarn ci lighthouse:all

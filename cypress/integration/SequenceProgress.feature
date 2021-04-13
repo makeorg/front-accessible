@@ -260,6 +260,7 @@ Feature: Progress and card position on sequence
     | url                 | http://localhost:9009/FR/consultation/question-0-slug/selection     |
     And card "13" is visible
     When I click on "previous card" of the current card
+    And I see "likeIt" qualified proposal on the current card
     Then event "click-sequence-previous-card" should be tracked by Make with parameters values:
     | name                | value                                                               |
     | eventType           | trackCustom                                                         |
@@ -271,5 +272,5 @@ Feature: Progress and card position on sequence
     | referrer            | http://localhost:9009/__/                                           |
     | url                 | http://localhost:9009/FR/consultation/question-0-slug/selection     |
     And card "12" is visible
-    And I see "agree" voted proposal on the current card
-    And I see "likeIt" qualified proposal on the current card
+    And I see "neutral" voted proposal on the current card
+   

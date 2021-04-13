@@ -1,3 +1,5 @@
+import { Then, Given } from "cypress-cucumber-preprocessor/steps";
+
 // register requests by endpoint
 export let xhrRequests = {list: {}};
 
@@ -7,7 +9,7 @@ export let xhrTrackingRequests = {list: {}}
 // register asserts by endpoint
 export let asserts = {list: {}};
 
-then ('some make data header should be sent to {string}:', (endpoint, expectedHeaders) => {
+Then('some make data header should be sent to {string}:', (endpoint, expectedHeaders) => {
   const assertCallback = () => {
     expect(xhrRequests.list).to.have.any.keys(endpoint);
     const xhrRequest = xhrRequests.list[endpoint].shift();
@@ -24,7 +26,7 @@ then ('some make data header should be sent to {string}:', (endpoint, expectedHe
   asserts.list[endpoint].push(assertCallback);
 });
 
-then('event {string} should not be tracked by Make', (trackerName) => {
+Then('event {string} should not be tracked by Make', (trackerName) => {
   const assertCallback = () => expect(xhrTrackingRequests.list).to.not.have.any.keys(trackerName);
   if (!asserts.list['postTracking']) {
     asserts.list['postTracking'] = [];
@@ -32,7 +34,7 @@ then('event {string} should not be tracked by Make', (trackerName) => {
   asserts.list['postTracking'].push(assertCallback);
 });
 
-then('event {string} should be tracked by Make with parameters values:', (trackerName, expectedParameters) => {
+Then('event {string} should be tracked by Make with parameters values:', (trackerName, expectedParameters) => {
   const assertCallback = () => {
     expect(xhrTrackingRequests.list).to.have.any.keys(trackerName);
     const xhrRequest = xhrTrackingRequests.list[trackerName].shift();
@@ -59,7 +61,7 @@ then('event {string} should be tracked by Make with parameters values:', (tracke
   asserts.list['postTracking'].push(assertCallback);
 });
 
-given('I monitor API {string} requests', (endpoint) => {  
+Given('I monitor API {string} requests', (endpoint) => {  
   cy.server();
   const onRequest = (xhr) => {
     if (!xhrRequests.list[endpoint]) {

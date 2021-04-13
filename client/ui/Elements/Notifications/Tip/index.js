@@ -50,7 +50,7 @@ export const Tip = ({ isFirstSequenceVote = false }: Props) => {
           aria-label={i18n.t('common.notifications.icons.close')}
           onClick={closeNotificationTip}
         >
-          <SvgClose aria-hidden />
+          <SvgClose aria-hidden focusable="false" />
         </TipCrossStyle>
         <NotificationIcon level={level} context="tip" />
         <NotificationMessage name={contentId} />

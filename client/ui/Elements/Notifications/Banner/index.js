@@ -46,9 +46,10 @@ export const NotificationBanner = () => {
   }, [!contentId]);
 
   if (!contentId || isDismissed) return null;
+  const role = level === 'alert' ? 'alert' : 'assertive';
 
   return (
-    <NotificationWrapperStyle ref={notificationRef} role="banner" tabIndex={0}>
+    <NotificationWrapperStyle ref={notificationRef} role={role} tabIndex={0}>
       <NotificationContentStyle className={level}>
         <NotificationIcon level={level} />
         <NotificationMessage

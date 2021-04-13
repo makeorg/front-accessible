@@ -17,7 +17,8 @@ const htmlvalidateConfig = {
     'require-sri': 'off',
     'script-type': 'off',
     'no-dup-class': 'off',
-    'void-style': 'warn' // fix this and pass as error
+    'void-style': 'warn', // fix this and pass as error,
+    'long-title': 'warn',
   },
 };
 
