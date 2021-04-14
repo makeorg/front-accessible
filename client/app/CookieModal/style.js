@@ -29,6 +29,7 @@ export const CookieModalContentStyle = styled.div`
 export const CookieModalTitleWrapperStyle = styled(FlexElementStyle)`
   flex-direction: column;
   align-items: flex-end;
+  width: 100%;
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     flex-direction: row-reverse;
     justify-content: space-between;
@@ -91,6 +92,9 @@ export const CookieModalBannerWrapperStyle = styled.div`
   left: 0;
   z-index: 5;
   padding: 20px;
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    padding: 20px 30px;
+  }
 `;
 
 export const CookieModalElementStyle = styled.li`

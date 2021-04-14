@@ -453,7 +453,7 @@
     "refuse": "Continue without accepting",
     "back": "Back to previous step",
     "mandatory": "Mandatory",
-    "save": "Save my preferences",
+    "save": "Confirm my selection",
     "technicals": {
       "secure": "make secure : once connected to your Make.org account, this cookie garantees that the connection to your profile will be up during your visit.",
       "expiration": "make-secure-expiration : this cookie detects your inactivity on the service, in order to expire this connection to your profile."
