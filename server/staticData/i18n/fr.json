@@ -510,7 +510,7 @@
     "refuse": "Continuer sans accepter",
     "back": "Revenir à l'étape précédente",
     "mandatory": "Toujours actif",
-    "save": "Enregistrer préférences",
+    "save": "Valider ma sélection",
     "technicals": {
       "secure": "make secure : une fois que vous vous êtes connecté à votre espace citoyen sur Make.org, ce cookie garantit que cette connexion va se maintenir pendant votre navigation sur le service.",
       "expiration": "make-secure-expiration : ce cookie sert à détecter votre inactivité sur le service de façon à faire expirer cette connexion."

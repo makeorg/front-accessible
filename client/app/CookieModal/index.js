@@ -42,6 +42,7 @@ export const CookieModal = () => {
       bottom: 'auto',
       transform: 'translate(-50%, -50%)',
       borderRadius: '8px',
+      border: null,
       padding: null,
       zIndex: 10,
       overflow: 'hidden',
@@ -94,9 +95,11 @@ export const CookieModal = () => {
       )}
       <CookieModalBannerWrapperStyle>
         <SvgCookieStyle aria-hidden focusable="false" />
-        <CookieModalRedButtonStyle type="button" onClick={handleClick}>
-          {i18n.t('cookie_modal.accept')}
-        </CookieModalRedButtonStyle>
+        {!cutomization && (
+          <CookieModalRedButtonStyle type="button" onClick={handleClick}>
+            {i18n.t('cookie_modal.accept')}
+          </CookieModalRedButtonStyle>
+        )}
         {cutomization ? (
           <CookieModalRedButtonStyle type="button" onClick={handlePreferences}>
             {i18n.t('cookie_modal.save')}
