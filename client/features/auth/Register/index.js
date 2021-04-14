@@ -43,6 +43,7 @@ export const Register = () => {
       profession: '',
       legalMinorConsent: false,
       legalAdvisorApproval: false,
+      approvePrivacyPolicy: false,
     },
   });
   const [errors, setErrors] = useState<ErrorObjectType[]>([]);
@@ -56,10 +57,12 @@ export const Register = () => {
   };
 
   const handleLegalField = (fieldName: string, value: boolean) => {
-    if (!fieldName || !value) {
+    if (!fieldName || value === undefined) {
+      Logger.logError(
+        'HandleLegalField in register form : fieldname or value is missing'
+      );
       return null;
     }
-
     return setUser({
       ...user,
       profile: {
@@ -175,6 +178,7 @@ export const Register = () => {
           user={user}
           errors={errors}
           handleChange={handleChange}
+          handleLegalField={handleLegalField}
           handleSubmit={userIsAChild ? toggleLegalConsent : handleSubmit}
           disableSubmit={waitingCallback}
         />
