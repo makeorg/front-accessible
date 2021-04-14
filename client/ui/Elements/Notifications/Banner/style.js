@@ -12,6 +12,7 @@ import {
   WhiteButtonStyle,
 } from 'Client/ui/Elements/Buttons/style';
 import { ColumnToRowElementStyle } from 'Client/ui/Elements/FlexElements';
+import { Link } from 'react-router-dom';
 
 export const NotificationWrapperStyle = styled.aside`
   position: sticky;
@@ -82,5 +83,16 @@ export const VoteOnlyButtonStyle = styled(WhiteButtonStyle)`
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     margin-top: 0;
     margin-left: 15px;
+  }
+`;
+
+export const WhiteLink = styled(Link)`
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
+  color: ${color.white};
+  text-decoration: underline;
+  margin: 0 5px;
+  &:hover,
+  &:focus {
+    color: ${color.white};
   }
 `;

@@ -7,15 +7,17 @@ import {
 import { SwitchButtonStyle, SwitchButtonInternalLabelStyle } from './style';
 
 type Props = {
+  value?: boolean,
   onEnabling?: () => void,
   onDisabling?: () => void,
 };
 
 export const SwitchButton = ({
+  value = false,
   onEnabling = () => {},
   onDisabling = () => {},
 }: Props) => {
-  const [isChecked, setIsChecked] = useState(false);
+  const [isChecked, setIsChecked] = useState(value);
 
   const handleClick = () => {
     if (!isChecked) {

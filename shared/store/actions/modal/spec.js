@@ -70,4 +70,16 @@ describe('Modal Actions', () => {
 
     expect(store.getActions()).toEqual(expectedActions);
   });
+
+  it('Creates MODAL_SHOW_COOKIES when calling action', () => {
+    const expectedActions = [
+      {
+        type: actionTypes.MODAL_SHOW_COOKIES,
+      },
+    ];
+
+    store.dispatch(actions.modalShowCookies());
+
+    expect(store.getActions()).toEqual(expectedActions);
+  });
 });

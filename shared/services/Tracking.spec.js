@@ -6,6 +6,8 @@ import trackingConfiguration from 'Shared/services/trackingConfiguration.yaml';
 import * as trackingConstants from 'Shared/constants/tracking';
 import { TrackingService } from 'Shared/services/TrackingService';
 import { TYPE_ORGANISATION } from 'Shared/constants/user';
+import Cookies from 'universal-cookie';
+import { USER_PREFERENCES_COOKIE } from 'Shared/constants/cookies';
 import {
   trackClickMakeLogo,
   trackDisplaySequence,
@@ -100,6 +102,17 @@ describe('Tracking Service', () => {
   beforeAll(() => {
     delete window.location;
     window.location = { href: eventParameters.url, pathname: '/' };
+    const cookies = new Cookies();
+    cookies.set(
+      USER_PREFERENCES_COOKIE,
+      JSON.stringify({
+        facebook_tracking: true,
+        twitter_tracking: true,
+      }),
+      {
+        path: '/',
+      }
+    );
   });
 
   afterAll(() => {

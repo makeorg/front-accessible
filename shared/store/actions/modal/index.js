@@ -15,6 +15,10 @@ export const modalCloseCookies = () => (dispatch: Function) => {
   dispatch({ type: actionTypes.MODAL_CLOSE_COOKIES });
 };
 
+export const modalShowCookies = () => (dispatch: Function) => {
+  dispatch({ type: actionTypes.MODAL_SHOW_COOKIES });
+};
+
 export const modalShowLogin = () => (dispatch: Function) => {
   dispatch({ type: actionTypes.MODAL_SHOW_LOGIN });
   trackDisplaySigninForm();
