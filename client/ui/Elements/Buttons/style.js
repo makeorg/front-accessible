@@ -39,7 +39,10 @@ export const ButtonsWrapperStyle = styled.div`
   }
 `;
 
-export const UnstyledButtonStyle = styled.button`
+export const UnstyledButtonStyle = styled.button.attrs(props => ({
+  type: 'button',
+  ...props,
+}))`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,7 +51,10 @@ export const UnstyledButtonStyle = styled.button`
   background-color: transparent;
 `;
 
-export const BasicButtonStyle = styled.button`
+export const BasicButtonStyle = styled.button.attrs(props => ({
+  type: 'button',
+  ...props,
+}))`
   display: flex;
   justify-content: center;
   align-items: baseline;
@@ -208,7 +214,10 @@ const InverseRotateButton = keyframes`
   100% { transform: rotate(0deg); }
 `;
 
-export const VoteButtonStyle = styled.button`
+export const VoteButtonStyle = styled.button.attrs(props => ({
+  type: 'button',
+  ...props,
+}))`
   position: relative;
   z-index: 0;
   display: flex;

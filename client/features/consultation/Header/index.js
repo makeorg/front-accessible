@@ -66,7 +66,7 @@ export const ParticipateHeader = () => {
       <HeaderContentStyle as="header">
         <Breadcrumbs parentPages={parentPages} currentPage={currentPage} />
         <HeaderTitleStyle>
-          <HeaderWrapperLabelStyle>
+          <HeaderWrapperLabelStyle as="span">
             <HeaderLabelStyle className="white-text">
               {isFeatured
                 ? i18n.t('consultation.header.label_great_cause')

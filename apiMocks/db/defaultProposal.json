@@ -80,7 +80,9 @@
     "source":"core",
     "location":"sequence 66a9230b-08cb-4f37-8ed8-aa95a8eac19a",
     "question":null,
-    "getParameters":[]
+    "getParameters":[],
+    "country": "FR",
+    "language": "fr"
   },
   "trending":null,
   "labels":[],

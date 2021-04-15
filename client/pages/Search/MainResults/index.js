@@ -90,7 +90,7 @@ export const SearchMainResults = ({ location }: Props) => {
           {isLoading && <Spinner />}
           {!isLoading && noResults && (
             <>
-              <HiddenItemStyle>
+              <HiddenItemStyle as="div">
                 <h2>{i18n.t('search.titles.no_results')}</h2>
               </HiddenItemStyle>
               <NoResultsStyle>

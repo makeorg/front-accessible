@@ -114,11 +114,11 @@ export const DataFR = () => (
           <StaticSquareListStyle>
             <StaticSquareListItemStyle>
               Propositions soumises à la consultation
+              <StaticParagraphStyle>
+                Le cas échéant, réactions aux propositions soumises à la
+                consultation
+              </StaticParagraphStyle>
             </StaticSquareListItemStyle>
-            <StaticParagraphStyle>
-              Le cas échéant, réactions aux propositions soumises à la
-              consultation
-            </StaticParagraphStyle>
           </StaticSquareListStyle>
           <StaticFourthLevelTitleStyle>Option n°2</StaticFourthLevelTitleStyle>
           <StaticListTitleStyle>Identité</StaticListTitleStyle>

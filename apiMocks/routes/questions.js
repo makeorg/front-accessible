@@ -113,6 +113,13 @@ questionsRouter.get('/:questionId/keywords', (req, res) => {
   const results = fixtures.keywords.filter(
     keyword => keyword.questionId === req.params.questionId
   );
+  return res.send(results);
+});
+
+questionsRouter.get('/:questionId/featured-proposals', (req, res) => {
+  const results = fixtures.proposals
+    .filter(proposal => proposal.question.questionId === req.params.questionId)
+    .slice(0, parseInt(req.query.limit, 10));
   return res.send({ results });
 });
 

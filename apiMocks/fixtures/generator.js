@@ -297,7 +297,7 @@ const generateProposals = (question, author, count) =>
       language: 'fr',
     },
     author: {
-      ...defaultQuestion.author,
+      ...defaultProposal.author,
       ...author,
     },
   }));

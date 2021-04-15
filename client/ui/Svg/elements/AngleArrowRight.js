@@ -2,7 +2,14 @@
 import React from 'react';
 
 export const SvgAngleArrowRight = props => (
-  <svg width={21} height={21} viewBox="0 0 21 21" aria-hidden {...props}>
+  <svg
+    width={21}
+    height={21}
+    viewBox="0 0 21 21"
+    aria-hidden
+    focusable="false"
+    {...props}
+  >
     <path
       className="tofill"
       transform="translate(8 5)"

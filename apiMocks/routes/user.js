@@ -1,13 +1,73 @@
 const jsonServer = require('json-server');
+const { fixtures } = require('../fixtures/generator');
 
 const userRouter = jsonServer.create();
+
+const isAuthenticated = req =>
+  req.headers.cookie && req.headers.cookie.includes('mockIsConnected=true');
 
 userRouter.use('/me', (req, res) => {
   res.sendStatus(401);
 });
 
 userRouter.use('/current', (req, res) => {
-  res.sendStatus(401);
+  if (isAuthenticated(req)) {
+    res.send({
+      userId: 'ae6682af-b063-41be-ace4-4d3617bdba9e',
+      email: 'test@example.com',
+      displayName: 'user test',
+      userType: 'USER',
+      roles: ['ROLE_CITIZEN'],
+      hasPassword: true,
+      enabled: true,
+      emailVerified: true,
+      country: 'FR',
+      avatarUrl: 'https://assets.make.org/assets/home/hero-desktop-170720.png',
+    });
+  } else {
+    res.sendStatus(401);
+  }
+});
+
+userRouter.use('/:id/profile', (req, res) => {
+  if (isAuthenticated(req)) {
+    res.send({
+      firstName: 'user test',
+      lastName: null,
+      dateOfBirth: '1980-01-01',
+      avatarUrl: 'https://assets.make.org/assets/home/hero-desktop-170720.png',
+      profession: 'developer',
+      description: null,
+      postalCode: '75000',
+      optInNewsletter: false,
+      website: null,
+    });
+  } else {
+    res.sendStatus(401);
+  }
+});
+
+userRouter.use('/:id/proposals', (req, res) => {
+  if (isAuthenticated(req)) {
+    const proposals = fixtures.proposals.slice(0, 5);
+    res.send({
+      total: proposals.length,
+      results: proposals,
+    });
+  } else {
+    res.sendStatus(401);
+  }
+});
+
+userRouter.use('/:i/votes', (req, res) => {
+  if (isAuthenticated(req)) {
+    res.send({
+      total: 0,
+      results: [],
+    });
+  } else {
+    res.sendStatus(401);
+  }
 });
 
 module.exports = userRouter;

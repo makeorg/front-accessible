@@ -57,3 +57,5 @@ Cypress.Commands.add('waitForAll', (aliasName) => {
     
     return cy.wait(`@${aliasName}`);
 });
+
+// Cypress.Cookies.debug(true);

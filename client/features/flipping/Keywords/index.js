@@ -45,7 +45,6 @@ export const Keywords = ({ question, isKeywordActive }: Props) => {
 
   useEffect(() => {
     getQuestionKeywords();
-    return () => {};
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

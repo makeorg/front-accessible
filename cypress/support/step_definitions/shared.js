@@ -1,4 +1,5 @@
 import { getIdentifierButtonByName } from '../mapping';
+import { Given, Then, When } from "cypress-cucumber-preprocessor/steps";
 
 // pages list
 export const pages = {
@@ -14,7 +15,13 @@ export const pages = {
   'browse results' : '/FR/browse/results/page/1',
   'browse results second page' : '/FR/browse/results/page/2',
   'top idea': '/FR/consultation/:questionSlug/top-ideas',
-  "search": '/FR/search'
+  'search': '/FR/search',
+  'accessibility declaration': '/FR/declaration-accessibilite',
+  'participate consultation': 'FR/consultation/:questionSlug/participate',
+  'explore consultation': 'FR/consultation/:questionSlug/explore/page/1',
+  'legal mentions': 'FR/mentions-legales',
+  'profile proposals': '/FR/profile/proposals',
+  'profile favourites': '/FR/profile/favourites'
 };
 
 export const container = {
@@ -31,32 +38,32 @@ const checkPageExist = (page) => {
 };
 
 //Given I have already accepted the data policy 
-given('I have already accepted the cookie policy', () => {
+Given('I have already accepted the cookie policy', () => {
   cy.setCookie('make-cookie', 'true');
 });
 
 
 // navigation
-given('I go to 404 page', () => {
+Given('I go to 404 page', () => {
   cy.visit('/fakeurl', {failOnStatusCode: false});
 });
 
-given('I go to 404 FR page', () => {
+Given('I go to 404 FR page', () => {
   cy.visit('/FR/fakeurl', {failOnStatusCode: false});
 });
 
 
-given('I go/am to/on {string}', (targetPage) => {
+Given('I go/am to/on {string}', (targetPage) => {
   checkPageExist(targetPage);
   cy.visit(pages[targetPage]);
 });
 
-given('I go/am to/on {string} from Great Britain', (targetPage) => {
+Given('I go/am to/on {string} from Great Britain', (targetPage) => {
   checkPageExist(targetPage);
   cy.visit(pages[targetPage], { headers: { 'x-detected-country' : 'GB' } });
 });
 
-given('I am/go on/to {string} page of the question {string}', (targetPage, questionSlug) => {
+Given('I am/go on/to {string} page of the question {string}', (targetPage, questionSlug) => {
   checkPageExist(targetPage);
   const page = pages[targetPage].replace(':questionSlug', questionSlug);
   cy.visit(page);
@@ -81,12 +88,12 @@ When('I click on {string} button', buttonName => {
 
 
 // accessibility
-then('html page should be valid', (targetPage) => {
+Then('html page should be valid', (targetPage) => {
   // cy.htmlvalidate();
 });
 
 // I see page
-then('I see the {string} page', (targetPage) => {
+Then('I see the {string} page', (targetPage) => {
   if (!pages[targetPage]) {
     throw Error(`You should define "${targetPage}"`);
   }
@@ -94,7 +101,7 @@ then('I see the {string} page', (targetPage) => {
   cy.url().should('include', pages[targetPage]);
 });
 
-then('I see the {string} page with {string} as query params', (targetPage, queryParams) => {
+Then('I see the {string} page with {string} as query params', (targetPage, queryParams) => {
   if (!pages[targetPage]) {
     throw Error(`You should define "${targetPage}"`);
   }
@@ -103,7 +110,7 @@ then('I see the {string} page with {string} as query params', (targetPage, query
 });
 
 // I see canonical url
-then('I see the canonical url {string} of the page', (CanonicalUrl) =>{
+Then('I see the canonical url {string} of the page', (CanonicalUrl) =>{
 
   cy.get(`[data-cy=canonical_url]`)
   .first()
@@ -113,24 +120,24 @@ then('I see the canonical url {string} of the page', (CanonicalUrl) =>{
 })
 
 // I see container
-then ('I see {string} container', containerName => {
+Then('I see {string} container', containerName => {
   cy.get(`[data-cy-container=${containerName}]`)
     .should('be.visible');
 });
 
-then('I don\'t see {string} container', containerName => {
+Then('I don\'t see {string} container', containerName => {
   cy.get(`[data-cy-container=${containerName}]`)
     .should('not.be.visible');
 });
 
 
-then('I see {string} in {string} container', (text, containerName) => {
+Then('I see {string} in {string} container', (text, containerName) => {
   cy.get(`[data-cy-container=${containerName}]`).first().should('contain', text);
 });
 
 
 // I see link
-then('I see a link {string} to {string} in {string} container', (linkLabel, href, containerName) => {
+Then('I see a link {string} to {string} in {string} container', (linkLabel, href, containerName) => {
   cy.get(`[data-cy-container=${containerName}]`)
     .first()
     .contains('a', new RegExp(linkLabel))
@@ -139,7 +146,7 @@ then('I see a link {string} to {string} in {string} container', (linkLabel, href
     .and('be.visible');
 });
 
-then('I see an external link {string} to {string} in {string} container', (linkLabel, href, containerName) => {
+Then('I see an external link {string} to {string} in {string} container', (linkLabel, href, containerName) => {
   cy.get(`[data-cy-container=${containerName}]`)
     .first()
     .contains('a', new RegExp(linkLabel))
@@ -150,7 +157,7 @@ then('I see an external link {string} to {string} in {string} container', (linkL
 });
 
 
-then('The link {string} to {string} in {string} container exists', (linkLabel, href, containerName) => {
+Then('The link {string} to {string} in {string} container exists', (linkLabel, href, containerName) => {
   cy.get(`[data-cy-container=${containerName}]`)
     .first()
     .contains('a', new RegExp(linkLabel))
@@ -158,26 +165,26 @@ then('The link {string} to {string} in {string} container exists', (linkLabel, h
     .and('have.attr', 'href', href);
 });
 
-then('I don\'t see the link {string}', (label) => {
+Then('I don\'t see the link {string}', (label) => {
   cy.get('body')
     .contains('a', label)
     .should('not.visible');
 });
 
 // I see button
-then('I see (a )(the ){string} button', (buttonName) => {
+Then('I see (a )(the ){string} button', (buttonName) => {
   cy.get(`button[data-cy-button=${getIdentifierButtonByName(buttonName)}]`)
     .scrollIntoView()
     .should('exist')
     .and('be.visible');
 });
 
-then('I don\'t see (a )(the ){string} button', (buttonName) => {
+Then('I don\'t see (a )(the ){string} button', (buttonName) => {
   cy.get(`button[data-cy-button=${getIdentifierButtonByName(buttonName)}]`)
     .should('not.be.visible');
 });
 
-then('I see a button {string} in {string} container', (buttonName, containerName) => {
+Then('I see a button {string} in {string} container', (buttonName, containerName) => {
   cy.get(`[data-cy-container=${containerName}]`)
     .first()
     .find(`button[data-cy-button=${getIdentifierButtonByName(buttonName)}]`)
@@ -186,7 +193,7 @@ then('I see a button {string} in {string} container', (buttonName, containerName
     .and('be.visible');
 });
 
-then('I see a button {string} with label {string}', (buttonName, containerName, label) => {
+Then('I see a button {string} with label {string}', (buttonName, containerName, label) => {
   cy.get(`button[data-cy-button=${getIdentifierButtonByName(buttonName)}]`)
     .first()
     .scrollIntoView()
@@ -195,7 +202,7 @@ then('I see a button {string} with label {string}', (buttonName, containerName, 
     .and('be.visible');
 });
 
-then('I see a button {string} in {string} container with label {string}', (buttonName, containerName, label) => {
+Then('I see a button {string} in {string} container with label {string}', (buttonName, containerName, label) => {
   cy.get(`[data-cy-container=${containerName}]`)
     .first()
     .find(`button[data-cy-button=${getIdentifierButtonByName(buttonName)}]`)
@@ -206,7 +213,7 @@ then('I see a button {string} in {string} container with label {string}', (butto
 });
 
 // I see link
-then('I see (a )(the ){string} link', (link) => {
+Then('I see (a )(the ){string} link', (link) => {
   cy.get(`a[data-cy-link=${link}]`)
     .scrollIntoView()
     .should('exist')
@@ -214,24 +221,24 @@ then('I see (a )(the ){string} link', (link) => {
 });
 
 // disabled button
-then('the {string} button is disabled', (buttonName) => {
+Then('the {string} button is disabled', (buttonName) => {
   cy.get(`[data-cy-button=${getIdentifierButtonByName(buttonName)}]`).first().should('have.attr', 'disabled');
 });
 
-then('the {string} button is enabled', (buttonName) => {
+Then('the {string} button is enabled', (buttonName) => {
   cy.get(`[data-cy-button=${getIdentifierButtonByName(buttonName)}]`).first().should('not.have.attr', 'disabled');
 });
 
 
 // I see text
-then('I don\'t see {string}', (text) => {
+Then('I don\'t see {string}', (text) => {
   cy.get('body').contains(text)
     .scrollIntoView()
     .should('exist')
     .and('not.be.visible');
 });
 
-then('I see {string}', (text) => {
+Then('I see {string}', (text) => {
   cy.get('body').contains(text)
     .scrollIntoView()
     .should('exist')
@@ -239,13 +246,13 @@ then('I see {string}', (text) => {
 });
 
 // forms
-then('I type {string} in field {string}', (text, fieldName) => {
+Then('I type {string} in field {string}', (text, fieldName) => {
   cy.get(`[data-cy-field=${fieldName}]`)
     .first()
     .type(text, {delay: 10, release: false});
 });
 
-then('I see {string} in field {string}', (text, fieldName) => {
+Then('I see {string} in field {string}', (text, fieldName) => {
   cy.get(`[data-cy-field=${fieldName}]`)
     .first()
     .contains(new RegExp(text))
@@ -253,19 +260,19 @@ then('I see {string} in field {string}', (text, fieldName) => {
     .and('be.visible');
 });
 
-then ('The field {string} should have value {string}', (fieldName, value) => {
+Then('The field {string} should have value {string}', (fieldName, value) => {
   cy.get(`[data-cy-field=${fieldName}]`)
     .first()
     .should('have.value', value)
 });
 
-then ('The field {string} should be empty', fieldName => {
+Then('The field {string} should be empty', fieldName => {
   cy.get(`[data-cy-field=${fieldName}]`)
     .first()
     .should('have.value', '')
 });
 
 // others
-then('The mouse is focused in {string} field', (field) => {
+Then('The mouse is focused in {string} field', (field) => {
   cy.focused().should('have.attr', 'id').and('eq', field);
 });

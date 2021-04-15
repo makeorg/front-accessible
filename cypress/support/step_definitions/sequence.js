@@ -1,4 +1,5 @@
 import { getIdentifierButtonByName } from '../mapping';
+import { Then, Given, When } from "cypress-cucumber-preprocessor/steps";
 
 const sequencePage = '/FR/consultation/:questionSlug/selection';
 const voteLabel = {
@@ -7,21 +8,21 @@ const voteLabel = {
   "Neutre": "neutral"
 };
 
-given('I am/go on/to the sequence page of the question {string}', questionSlug => {
+Given('I am/go on/to the sequence page of the question {string}', questionSlug => {
   const page = sequencePage.replace(':questionSlug', questionSlug);
   cy.monitorApiCall('getStartSequence');
   cy.visit(page);
   cy.wait('@getStartSequence', {timeout: 8000});
 });
 
-given('I am/go on/to the sequence page of the question {string} with a first proposal {string}', (questionSlug, firstProposalId) => {
+Given('I am/go on/to the sequence page of the question {string} with a first proposal {string}', (questionSlug, firstProposalId) => {
   const page = sequencePage.replace(':questionSlug', questionSlug);
   cy.monitorApiCall('getStartSequence');
   cy.visit(`${page}?firstProposal=${firstProposalId}`);
   cy.wait('@getStartSequence', {timeout: 8000});
 });
 
-given('I am/go on/to the sequence page of the question {string} with intro card disabled', questionSlug => {
+Given('I am/go on/to the sequence page of the question {string} with intro card disabled', questionSlug => {
   const page = sequencePage.replace(':questionSlug', questionSlug);
   cy.monitorApiCall('getStartSequence');
   cy.visit(`${page}?introCard=false`);
@@ -29,28 +30,28 @@ given('I am/go on/to the sequence page of the question {string} with intro card 
 });
 
 
-when ('I click on {string} of the sequence', (buttonName) => {
+When('I click on {string} of the sequence', (buttonName) => {
   const button = getIdentifierButtonByName(buttonName);
   cy.get(`[data-cy-button=${button}]`)
     .first()
     .then(el => el.get(0).click());
 })
 
-when ('I click on {string} of the current card', buttonName => {
+When('I click on {string} of the current card', buttonName => {
   const button = getIdentifierButtonByName(buttonName);
   cy.get(`[data-cy-button=${button}]`)
     .first()
     .then(el => el.get(0).click());
 })
 
-when('I vote {string} on proposal {string}', (voteType, proposalNumber) => {
+When('I vote {string} on proposal {string}', (voteType, proposalNumber) => {
   cy.monitorApiCall('postVote');
   cy.get(`#${voteLabel[voteType]}-${proposalNumber}`)
     .then(el => el.get(0).click());
   cy.wait('@postVote');
 });
 
-when('I vote {string} on the first proposal of sequence', (voteType) => {
+When('I vote {string} on the first proposal of sequence', (voteType) => {
   cy.monitorApiCall('postVote');
   cy.get(`[data-cy-card-type=PROPOSAL_CARD] [data-cy-button=vote][data-cy-vote-key=${voteType}]`)
     .first()
@@ -58,7 +59,7 @@ when('I vote {string} on the first proposal of sequence', (voteType) => {
   cy.wait('@postVote');
 });
 
-when('I vote {string} on the current card', (voteType) => {
+When('I vote {string} on the current card', (voteType) => {
   cy.monitorApiCall('postVote');
   cy.get(`[data-cy-button=vote][data-cy-vote-key=${voteType}]`)
     .first()
@@ -66,7 +67,7 @@ when('I vote {string} on the current card', (voteType) => {
   cy.wait('@postVote');
 });
 
-when('I qualify {string} on the current card', (qualificationType) => {
+When('I qualify {string} on the current card', (qualificationType) => {
   cy.monitorApiCall('postQualify');
   cy.get(`[data-cy-button=qualification][data-cy-qualification-key=${qualificationType}]`)
     .first()
@@ -75,7 +76,7 @@ when('I qualify {string} on the current card', (qualificationType) => {
   
 });
 
-when('I unqualify {string} on the current card', (qualificationType) => {
+When('I unqualify {string} on the current card', (qualificationType) => {
   cy.monitorApiCall('postUnqualify');
   cy.get(`[data-cy-button=qualification][data-cy-qualification-key=${qualificationType}]`)
     .first()
@@ -84,7 +85,7 @@ when('I unqualify {string} on the current card', (qualificationType) => {
 });
 
 
-when('I unvote on the current card', () => {
+When('I unvote on the current card', () => {
   cy.monitorApiCall('postUnvote');
   cy.get(`[data-cy-button=vote]`)
     .first()
@@ -92,19 +93,19 @@ when('I unvote on the current card', () => {
   cy.wait('@postUnvote');
 });
 
-then ('I see {string} button on card {string}', (buttonName, cardNumber) => {
+Then('I see {string} button on card {string}', (buttonName, cardNumber) => {
   const button = getIdentifierButtonByName(buttonName);
   cy.get(`[data-cy-card-number=${cardNumber}] [data-cy-button=${button}]`)
     .should('be.visible');
 });
 
-then ('I don\'t see {string} button on card {string}', (buttonName, cardNumber) => {
+Then('I don\'t see {string} button on card {string}', (buttonName, cardNumber) => {
   const button = getIdentifierButtonByName(buttonName);
   cy.get(`[data-cy-card-number=${cardNumber}] [data-cy-button=${button}]`)
     .should('not.visible');
 });
 
-when ('I go to card {string}', (cardNumber) => {
+When('I go to card {string}', (cardNumber) => {
   let previewCard = 0;
   const nextWhileCardTargetNotDisplayed = () => {
     const currentCard = cy.get('[data-cy-card-number]');
@@ -128,47 +129,58 @@ when ('I go to card {string}', (cardNumber) => {
       nextWhileCardTargetNotDisplayed();
     }
   };
-  nextWhileCardTargetNotDisplayed();
+  cy.get('body').then(body => {
+    const card = body.find('[data-cy-card-number]');
+    if (card.length) {
+      return parseInt(card[0].dataset.cyCardNumber);
+    }
+
+    return 0;
+  })
+  .then(number => {
+    previewCard = number;
+    nextWhileCardTargetNotDisplayed();
+  })
 });
 
-then('card {string} is visible', (cardNumber) => {
+Then('card {string} is visible', (cardNumber) => {
   cy.get(`[data-cy-card-number=${cardNumber}]`)
     .should('be.visible')
 });
 
-then('card {string} is a proposal card', (cardNumber) => {
+Then('card {string} is a proposal card', (cardNumber) => {
   cy.get(`[data-cy-card-number=${cardNumber}]`)
     .should('have.attr', 'data-cy-card-type', 'PROPOSAL_CARD');
 });
 
-then('card {string} is a final card', (cardNumber) => {
+Then('card {string} is a final card', (cardNumber) => {
   cy.get(`[data-cy-card-number=${cardNumber}]`)
     .should('have.attr', 'data-cy-card-type', 'EXTRASLIDE_FINAL_CARD');
 });
 
-then('card {string} is an intro card', (cardNumber) => {
+Then('card {string} is an intro card', (cardNumber) => {
   cy.get(`[data-cy-card-number=${cardNumber}]`)
     .should('have.attr', 'data-cy-card-type', 'EXTRASLIDE_INTRO_CARD');
 });
 
-then('card {string} is a push proposal card', (cardNumber) => {
+Then('card {string} is a push proposal card', (cardNumber) => {
   cy.get(`[data-cy-card-number=${cardNumber}]`)
     .should('have.attr', 'data-cy-card-type', 'EXTRASLIDE_PUSH_PROPOSAL_CARD');
 });
 
-then('progress bar is {string} on {string}', (current, total) => {
+Then('progress bar is {string} on {string}', (current, total) => {
   cy.get('[data-cy-container=progress]')
   .contains(`${current}/${total}`)
   cy.get('[data-cy-container=progress]')
     .contains(`Élément ${current} sur ${total}`);
 });
 
-then('I see {string} in the current card', (text) => {
+Then('I see {string} in the current card', (text) => {
   cy.get('[data-cy-card-number]')
     .should('contain', text);
 });
 
-then('I see vote buttons on card {string}', (cardNumber) => {
+Then('I see vote buttons on card {string}', (cardNumber) => {
   cy.get(`[data-cy-card-number=${cardNumber}] [data-cy-button=vote][data-cy-vote-key=agree]`)
     .should('have.length', 1)
     .and('be.visible');
@@ -180,7 +192,7 @@ then('I see vote buttons on card {string}', (cardNumber) => {
     .and('be.visible');
 });
 
-then('I see vote buttons on the current card', () => {
+Then('I see vote buttons on the current card', () => {
   cy.get(`[data-cy-button=vote][data-cy-vote-key=agree]`)
     .should('have.length', 1)
     .and('be.visible');
@@ -192,21 +204,21 @@ then('I see vote buttons on the current card', () => {
     .and('be.visible');
 });
 
-then ('I see {string} voted proposal on the current card', (voteType) => {
+Then('I see {string} voted proposal on the current card', (voteType) => {
   cy.get(`[data-cy-button=vote][data-cy-vote-key=${voteType}] svg`)
   .should('have.length', 1)
   .and('be.visible')
   .and('have.class', 'voted')
 });
 
-then('I see {string} qualified proposal on the current card', (qualificationType) => {
+Then('I see {string} qualified proposal on the current card', (qualificationType) => {
 cy.get(`[data-cy-button=qualification][data-cy-qualification-key=likeIt]`)
   .should('have.length', 1)
   .and('be.visible')
   .and('have.class', 'qualified')
 });
 
-then('I see agree qualifications buttons on card {string}', (cardNumber) => {
+Then('I see agree qualifications buttons on card {string}', (cardNumber) => {
   cy.get(`[data-cy-card-number=${cardNumber}] [data-cy-button=qualification]`)
     .should('have.length', 3);
   cy.get(`[data-cy-card-number=${cardNumber}] [data-cy-qualification-key=likeIt]`)
@@ -217,7 +229,7 @@ then('I see agree qualifications buttons on card {string}', (cardNumber) => {
     .should('be.visible');
 });
 
-then('I see disagree qualifications buttons on card {string}', (cardNumber) => {
+Then('I see disagree qualifications buttons on card {string}', (cardNumber) => {
   cy.get(`[data-cy-card-number=${cardNumber}] [data-cy-button=qualification]`)
     .should('have.length', 3);
   cy.get(`[data-cy-card-number=${cardNumber}] [data-cy-qualification-key=noWay]`)
@@ -228,7 +240,7 @@ then('I see disagree qualifications buttons on card {string}', (cardNumber) => {
     .should('be.visible');
 });
 
-then('I see neutral qualifications buttons on card {string}', (cardNumber) => {
+Then('I see neutral qualifications buttons on card {string}', (cardNumber) => {
   cy.get(`[data-cy-card-number=${cardNumber}] [data-cy-button=qualification]`)
     .should('have.length', 3);
   cy.get(`[data-cy-card-number=${cardNumber}] [data-cy-qualification-key=doNotUnderstand]`)
@@ -239,29 +251,29 @@ then('I see neutral qualifications buttons on card {string}', (cardNumber) => {
     .should('be.visible');
 });
 
-then('I don\'t see qualification buttons on the current card', () => {
+Then('I don\'t see qualification buttons on the current card', () => {
   cy.get('[data-cy-qualification-key]')
     .should('have.length', 0);
 });
 
-then('{string} qualification button is highlight on the current card', (qualificationType) => {
+Then('{string} qualification button is highlight on the current card', (qualificationType) => {
   cy.get(`[data-cy-button=qualification][data-cy-qualification-key=${qualificationType}]`)
     .first()
     .should('have.css', 'background-color', 'rgb(80, 122, 31)');
 });
 
-then('{string} qualification button is not highlight on the current card', (qualificationType) => {
+Then('{string} qualification button is not highlight on the current card', (qualificationType) => {
   cy.get(`[data-cy-button=qualification][data-cy-qualification-key=${qualificationType}]`)
     .first()
     .should('have.not.css', 'background-color', 'rgb(80, 122, 31)');
 });
 
-then('total votes are equal to {string}', (voteCount) => {
+Then('total votes are equal to {string}', (voteCount) => {
   cy.get('[data-cy-container=sequence]')
     .should('contain', `${voteCount} votes`);
 });
 
-then('total {string} qualifications are equal to {string} on the current card',(qualificationType, total) => {
+Then('total {string} qualifications are equal to {string} on the current card',(qualificationType, total) => {
   cy.get(`[data-cy-button=qualification][data-cy-qualification-key=${qualificationType}]`)
     .first()
     .contains(total);

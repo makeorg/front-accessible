@@ -12,6 +12,7 @@ Array [
     >
       <SvgClose
         aria-hidden={true}
+        focusable="false"
       />
     </TipCrossStyle>
     <NotificationIcon
