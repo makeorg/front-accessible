@@ -207,5 +207,5 @@ export const logout = (afterAccountDeletion?: boolean) => (
     );
   };
 
-  return UserService.logout(success);
+  success();
 };
