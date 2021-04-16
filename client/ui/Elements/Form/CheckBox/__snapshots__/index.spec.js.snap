@@ -15,8 +15,8 @@ Snapshot Diff:
     />
     <CheckboxLabelStyle
       htmlFor="bar"
-      onKeyPress={[Function handleEnterKey]}
-      tabIndex={0}
+      isBlack={false}
+      noFontSizeChange={false}
 `;
 
 exports[`CheckBox must return the diff between snapshot when checkbox is required or optionnal 1`] = `
@@ -36,5 +36,5 @@ Snapshot Diff:
     />
     <CheckboxLabelStyle
       htmlFor="bar"
-      onKeyPress={[Function handleEnterKey]}
+      isBlack={false}
 `;

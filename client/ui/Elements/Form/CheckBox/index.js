@@ -22,6 +22,10 @@ type Props = {
   isChecked?: boolean,
   /** Is input required or optional */
   required?: boolean,
+  /** isBlack color parameter optional */
+  isBlack?: boolean,
+  /** noFontSizeChange parameter optional */
+  noFontSizeChange?: boolean,
 };
 
 export const CheckBox = ({
@@ -32,6 +36,8 @@ export const CheckBox = ({
   handleChange = () => {},
   required = false,
   isChecked = false,
+  isBlack = false,
+  noFontSizeChange = false,
 }: Props) => {
   const handleEnterKey = (event: SyntheticKeyboardEvent<HTMLLabelElement>) => {
     if (event.key === 'Enter') {
@@ -57,6 +63,8 @@ export const CheckBox = ({
         onClick={handleCheck}
         onKeyPress={handleEnterKey}
         tabIndex={0}
+        isBlack={isBlack}
+        noFontSizeChange={noFontSizeChange}
       >
         <FakeCheckboxInputStyle aria-hidden>
           {isChecked ? <SvgCheck /> : null}
