@@ -260,9 +260,8 @@ describe('Authentication Actions', () => {
 
       UserApiService.logout.mockResolvedValue();
 
-      return newStore.dispatch(actions.logout()).then(() => {
-        expect(newStore.getActions()).toEqual(expectedActions);
-      });
+      newStore.dispatch(actions.logout());
+      expect(newStore.getActions()).toEqual(expectedActions);
     });
 
     it('creates an action to logout a user successfully', () => {
