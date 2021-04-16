@@ -85,4 +85,10 @@ describe('Url Helper', () => {
       `/${country}/consultation/${questionSlug}/proposal/${proposalId}/${proposalSlug}`
     );
   });
+
+  it('return cookies page link', () => {
+    const link = urlHelper.getCookiesPageLink(country);
+
+    expect(link).toEqual(`/${country}/cookies`);
+  });
 });

@@ -33,6 +33,7 @@ import {
   ROUTE_PASSWORD_RECOVERY,
   ROUTE_ACCOUNT_ACTIVATION,
   ROUTE_EXPLORE,
+  ROUTE_STATIC_COOKIES,
 } from 'Shared/routes';
 import { env } from 'Shared/env';
 
@@ -397,6 +398,17 @@ export const getLegalPageLink = (country: string) =>
  */
 export const getA11YPageLink = (country: string) =>
   generatePath(ROUTE_STATIC_A11Y, {
+    country,
+  });
+
+/**
+ * Get the Cookies page link
+ *
+ * @param  {string} country
+ * @return {string}
+ */
+export const getCookiesPageLink = (country: string) =>
+  generatePath(ROUTE_STATIC_COOKIES, {
     country,
   });
 

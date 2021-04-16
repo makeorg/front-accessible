@@ -140,6 +140,12 @@ describe('getLocationContext', () => {
       expectedTracking: `nocookies-page`,
     },
     {
+      name: 'ROUTE_STATIC_COOKIES',
+      path: '/FR/cookies',
+      expected: `cookies-page`,
+      expectedTracking: `cookies-page`,
+    },
+    {
       name: 'ROUTE_STATIC_NOTFOUND',
       path: '/FR/not-found',
       expected: `not-found-page`,

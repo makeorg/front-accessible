@@ -27,6 +27,7 @@ import {
   ROUTE_BROWSE_RESULTS,
   ROUTE_PARTICIPATE,
   ROUTE_EXPLORE,
+  ROUTE_STATIC_COOKIES,
 } from 'Shared/routes';
 
 export const getLocationContext = (
@@ -101,6 +102,10 @@ export const getLocationContext = (
     {
       route: ROUTE_STATIC_NOCOOKIES,
       name: `nocookies-page`,
+    },
+    {
+      route: ROUTE_STATIC_COOKIES,
+      name: `cookies-page`,
     },
     {
       route: ROUTE_STATIC_NOTFOUND,
