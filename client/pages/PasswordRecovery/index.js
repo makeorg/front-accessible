@@ -32,7 +32,7 @@ const PasswordRecoveryPage = () => {
   if (!validToken) {
     const redirectPath = !question
       ? `/${country}`
-      : `/${country}/consultation/${question.slug}/consultation`;
+      : `/${country}/consultation/${question.slug}/participate`;
 
     return <Redirect path={ROUTE_PASSWORD_RECOVERY} to={redirectPath} />;
   }

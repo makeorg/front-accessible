@@ -15,7 +15,7 @@ const AccountActivationPage = () => {
 
   const redirectPath = !question
     ? `/${country}`
-    : `/${country}/consultation/${question.slug}/consultation`;
+    : `/${country}/consultation/${question.slug}/participate`;
 
   return <Redirect path={ROUTE_ACCOUNT_ACTIVATION} to={redirectPath} />;
 };
