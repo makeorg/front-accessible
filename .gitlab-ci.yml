@@ -107,12 +107,11 @@ lighthouse:
     - yarn install --check-files
     - lighthouse --version && lighthouse-ci --version
     - yarn build
-    - yarn ci lighthouse:all
+    - mkdir -p reports/lighthouse
+    - yarn ci lighthouse
   artifacts:
     paths:
-      - ./report-home.html
-      - ./report-sequence.html
-      - ./report-consultation.html
+      - ./reports
     expire_in: 1 week
 
 build:
