@@ -170,10 +170,7 @@
 		"ci": "env NODE_ENV=ci start-server-and-test ci:server http://localhost:9009",
 		"cypress:run": "cypress run -b chrome --headless",
 		"cypress:open": "cypress open",
-		"lighthouse:all": "yarn lighthouse:home && yarn lighthouse:sequence && yarn lighthouse:proposal",
-		"lighthouse:home": "lighthouse-ci http://localhost:9009 --accessibility=100 --report='.' --filename=report-home.html --chrome-flags='--headless --no-sandbox'",
-		"lighthouse:sequence": "lighthouse-ci http://localhost:9009/FR/consultation/question-0-slug/selection --accessibility=100 --report='.' --filename=report-sequence.html --chrome-flags='--headless --no-sandbox'",
-		"lighthouse:proposal": "lighthouse-ci http://localhost:9009/FR/consultation/question-0-slug/proposal/proposal-question-0-slug-0-id/proposal-question-0-slug-0-slug --accessibility=100 --report='.' --filename=report-proposal.html --chrome-flags='--headless --no-sandbox'",
+		"lighthouse": "bin/lighthouse.js",
 		"storybook": "start-storybook -p 6006",
 		"build-storybook": "build-storybook"
 	}

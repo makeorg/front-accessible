@@ -75,9 +75,8 @@ To run cypress tests :
 ### Lighthouse
 To run lighthouse tests :
 *  :construction_worker: Build app : `yarn build`
-*   Run lighthouse on chosen page with : 
-    - `yarn ci lighthouse:home` for homepage
-    - `yarn ci lighthouse:sequence` for sequence page
-    - `yarn ci lighthouse:proposal` for proposal page
-*   Or run lighthouse on all page with : 
-    - `yarn ci lighthouse:all` 
+*   Edit `lighthouse.config.js`
+*   Run lighthouse on chosen page with :
+    - `yarn ci lighthouse /FR` or `yarn ci lighthouse home` for homepage
+*   Or run lighthouse on all page with :
+    - `yarn ci lighthouse`
