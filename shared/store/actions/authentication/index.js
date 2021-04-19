@@ -206,6 +206,9 @@ export const logout = (afterAccountDeletion?: boolean) => (
       )
     );
   };
+  if (afterAccountDeletion) {
+    return Promise.resolve(success());
+  }
 
-  success();
+  return UserService.logout(success);
 };
