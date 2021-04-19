@@ -10,6 +10,7 @@ import {
   MODAL_SHOW_PROPOSAL_SUCCESS,
   MODAL_SHOW_COUNTRIES,
   MODAL_CLOSE_COOKIES,
+  MODAL_SHOW_COOKIES,
 } from 'Shared/store/actionTypes';
 import {
   MODAL_LOGIN,
@@ -28,6 +29,11 @@ export function modal(state: StateModal = initialState.modal, action: Object) {
       return {
         ...state,
         showCookies: false,
+      };
+    case MODAL_SHOW_COOKIES:
+      return {
+        ...state,
+        showCookies: true,
       };
     case MODAL_SHOW_LOGIN:
       return {

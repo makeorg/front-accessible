@@ -7,7 +7,7 @@ import { Router, Switch, Route, Redirect } from 'react-router-dom';
 import { HeadProvider } from 'react-head';
 import { loadableReady } from '@loadable/component';
 import { AppContainer } from 'Client/app';
-import { FacebookTracking } from 'Shared/services/Trackers/FacebookTracking';
+import Cookies from 'universal-cookie';
 import { env } from 'Shared/env';
 import { configureStore, authenticationState } from 'Shared/store';
 import { Logger } from 'Shared/services/Logger';
@@ -23,14 +23,15 @@ import {
 import { track } from 'Shared/services/TrackingService';
 import * as customDataHelper from 'Client/helper/customData';
 import { updateRequestContextCustomData } from 'Shared/store/middleware/requestContext';
-import { TwitterUniversalTag } from 'Shared/services/Trackers/TwitterTracking';
 import { updateTrackingQuestionParam } from 'Shared/store/middleware/question';
 import { getRouteNoCookies } from 'Shared/routes';
 import { translationRessources } from 'Shared/constants/languages';
 import { CountryListener } from 'Client/app/CountryListener';
+import { USER_PREFERENCES_COOKIE } from 'Shared/constants/cookies';
 import { NoCookies } from './pages/Static/NoCookies';
 import { history, initHistory } from './app/History';
 import { ErrorBoundary, ServiceErrorHandler } from './app/Error';
+import { initTrackersFromPreferences } from './helper/cookies';
 
 window.onerror = (message, source, lineNumber, columnNumber, error) => {
   if (error && error.stack) {
@@ -98,8 +99,9 @@ const initApp = async state => {
     resources: translationRessources,
   });
 
-  FacebookTracking.init();
-  TwitterUniversalTag.init();
+  const cookies = new Cookies();
+  const preferencesCookie = cookies.get(USER_PREFERENCES_COOKIE);
+  initTrackersFromPreferences(preferencesCookie);
 
   // Set date helper language
   DateHelper.language = language;

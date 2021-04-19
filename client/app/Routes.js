@@ -49,11 +49,14 @@ import {
   ROUTE_CONSULTATION,
   ROUTE_STATIC_COOKIES,
 } from 'Shared/routes';
+import Cookies from 'universal-cookie';
 import { TwitterUniversalTag } from 'Shared/services/Trackers/TwitterTracking';
 import { QuestionWrapper } from 'Client/pages/Consultation/QuestionWrapper';
 import { usePageBackgoundColor } from 'Client/hooks/usePageBackgroundColor';
 import { getHomeLink } from 'Shared/helpers/url';
 import { DEFAULT_COUNTRY } from 'Shared/constants/config';
+import { USER_PREFERENCES_COOKIE } from 'Shared/constants/cookies';
+import { type StateUserCookiesPreferences } from 'Shared/store/types';
 import { ZONE_CONTROVERSY, ZONE_POPULAR } from 'Shared/constants/sequence';
 
 const BrowsePage = loadable(() => import('../pages/Browse/index.js'));
@@ -108,9 +111,13 @@ const TermsOfUse = loadable(() => import('../pages/Static/TermsOfUse'));
 const Data = loadable(() => import('../pages/Static/Data'));
 const Contact = loadable(() => import('../pages/Static/Contact'));
 const Accessibility = loadable(() => import('../pages/Static/Accessibility'));
-const Cookies = loadable(() => import('../pages/Static/Cookies'));
+const CookiesPage = loadable(() => import('../pages/Static/Cookies'));
 
 export const Routes = () => {
+  const cookies = new Cookies();
+  const preferencesCookies: StateUserCookiesPreferences = cookies.get(
+    USER_PREFERENCES_COOKIE
+  );
   const location = useLocation();
   const { country } = useSelector((state: StateRoot) => state.appConfig);
   const { pathname } = location;
@@ -118,8 +125,10 @@ export const Routes = () => {
   usePageBackgoundColor(pathname);
 
   React.useEffect(() => {
-    TwitterUniversalTag.pageView();
-  }, [location.pathname]);
+    if (preferencesCookies?.twitter_tracking) {
+      TwitterUniversalTag.pageView();
+    }
+  }, [location.pathname, preferencesCookies]);
 
   return (
     <Switch>
@@ -207,7 +216,7 @@ export const Routes = () => {
       <Route path={ROUTE_STATIC_CONTACT} component={Contact} />
       <Route path={ROUTE_STATIC_NOTFOUND} component={NotFoundPage} />
       <Route path={ROUTE_STATIC_A11Y} component={Accessibility} />
-      <Route path={ROUTE_STATIC_COOKIES} component={Cookies} />
+      <Route path={ROUTE_STATIC_COOKIES} component={CookiesPage} />
 
       {/* Routes used for en language */}
       <Route path={ROUTE_STATIC_LEGAL_EN} component={LegalPage} />

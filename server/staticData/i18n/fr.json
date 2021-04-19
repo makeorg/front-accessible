@@ -187,7 +187,11 @@
           "message": "La consultation \"{{title}}\" ne peut plus recevoir de nouvelles propositions, mais continuez à voter pour départager les propositions existantes.",
           "button": "j'ai compris"
       },
-      "vote_on_proposal" : "Votez sur cette proposition"
+      "vote_on_proposal" : "Votez sur cette proposition",
+      "cookies": {
+        "social_media": "Afin d'accéder à cette fonctionnalité, vous devez autoriser les cookies concernés sur la page ",
+        "cookie_page": "Gestion des cookies"
+      }
     },
     "from": "sur",
     "email": "Email",
@@ -370,7 +374,7 @@
       "moderation_link": "En savoir plus sur notre charte de modération"
     },
     "authentication": {
-      "button_back": "Modifier ma propositiion",
+      "button_back": "Modifier ma proposition",
       "title": "Pour valider ma proprosition",
       "subtitle": "Je m'inscris avec",
       "button_login": "J’ai déjà un compte, je me connecte"

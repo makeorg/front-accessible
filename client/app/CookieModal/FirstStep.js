@@ -1,14 +1,8 @@
 // @flow
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import Cookies from 'universal-cookie';
 import { i18n } from 'Shared/i18n';
 import { COOKIE_MODAL } from 'Shared/constants/ids';
-import { modalCloseCookies } from 'Shared/store/actions/modal';
-import {
-  trackDisplayModalCookieFirstStep,
-  trackClickModalCookieRefuse,
-} from 'Shared/services/Tracking';
+import { trackDisplayModalCookieFirstStep } from 'Shared/services/Tracking';
 import {
   SvgSettings,
   SvgSmiley,
@@ -27,39 +21,21 @@ import {
   CookieSVGStyle,
 } from './style';
 
-const acceptCookieName: string = 'make-cookie';
-// set cookie duration to a year
-const today = new Date();
-const nextYear = new Date();
-nextYear.setFullYear(today.getFullYear() + 1);
+type Props = {
+  handleRejectAll: () => void,
+};
 
-export const FirstStepCookie = () => {
-  const dispatch = useDispatch();
-  const cookies = new Cookies();
-  const hasCookies = cookies.get(acceptCookieName);
-  const showCookies: string = useSelector(
-    (state: StateRoot) => state.modal.showCookies
-  );
-
+export const FirstStepCookie = ({ handleRejectAll }: Props) => {
   useEffect(() => {
     trackDisplayModalCookieFirstStep();
   }, []);
-
-  const handleRefuse = () => {
-    trackClickModalCookieRefuse();
-    dispatch(modalCloseCookies());
-  };
-
-  if (hasCookies || !showCookies) {
-    return null;
-  }
 
   return (
     <CookieModalContentStyle>
       <CookieModalTitleWrapperStyle>
         <CookieModalButtonWithLinkStyle
           className="with-margin-bottom"
-          onClick={handleRefuse}
+          onClick={handleRejectAll}
           type="button"
         >
           {i18n.t('cookie_modal.refuse')}

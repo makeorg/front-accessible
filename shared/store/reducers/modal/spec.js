@@ -9,7 +9,7 @@ describe('Modal reducer', () => {
       isOpen: false,
       contentType: '',
       showExpirationSession: false,
-      showCookies: true,
+      showCookies: false,
       focusAfterClose: true,
     };
 
@@ -91,6 +91,32 @@ describe('Modal reducer', () => {
     const expectedState = {
       isOpen: false,
       focusAfterClose: true,
+    };
+
+    expect(modal(previousState, action)).toEqual(expectedState);
+  });
+
+  it('Show cookie action reducers', () => {
+    const action = { type: 'MODAL_SHOW_COOKIES' };
+    const previousState = {
+      showCookies: false,
+    };
+
+    const expectedState = {
+      showCookies: true,
+    };
+
+    expect(modal(previousState, action)).toEqual(expectedState);
+  });
+
+  it('Close cookie action reducers', () => {
+    const action = { type: 'MODAL_CLOSE_COOKIES' };
+    const previousState = {
+      showCookies: true,
+    };
+
+    const expectedState = {
+      showCookies: false,
     };
 
     expect(modal(previousState, action)).toEqual(expectedState);

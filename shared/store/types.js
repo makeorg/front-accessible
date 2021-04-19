@@ -76,10 +76,19 @@ export type StateUserPasswordRecovery = $ReadOnly<{
   updated: boolean,
 }>;
 
+export type StateUserCookiesPreferences = $ReadOnly<{
+  facebook_tracking: boolean,
+  twitter_tracking: boolean,
+  facebook_sharing: boolean,
+  twitter_sharing: boolean,
+  linkedin_sharing: boolean,
+}>;
+
 // User State
 export type StateUser = $ReadOnly<{
   authentication: StateAuthentication,
   passwordRecovery: StateUserPasswordRecovery,
+  cookiesPreferences: StateUserCookiesPreferences,
 }>;
 
 export type StateQuestions = $ReadOnly<{

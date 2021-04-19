@@ -19,9 +19,9 @@ import {
   SECURE_EXPIRED_MESSAGE,
 } from 'Shared/constants/notifications';
 import { env } from 'Shared/env';
-import { TWTTR_SCRIPT } from 'Shared/services/Trackers/twttr';
 import { SecureExpiredMessage } from 'Client/app/Notifications/Banner/SecureExpired';
 import { DESKTOP_DEVICE, MOBILE_DEVICE } from 'Shared/constants/config';
+import { USER_PREFERENCES_COOKIE } from 'Shared/constants/cookies';
 import { CLIENT_DIR } from './paths';
 import { logInfo } from './ssr/helpers/ssr.helper';
 import { ViewsService } from './service/ViewsService';
@@ -75,11 +75,7 @@ const renderHtml = (reactApp, reduxStore, metaTags, pwaManifest, res) => {
     .replace(new RegExp('___NONCE_ID___', 'gi'), nonceId)
     .replace(new RegExp('___NODE_ENV___', 'gi'), env.nodeEnv() || 'production')
     .replace(new RegExp('___PORT___', 'gi'), env.port())
-    .replace('</body>', `${scriptTags}</body>`)
-    .replace(
-      '</body>',
-      `${env.isTest() || env.isDev() ? '' : TWTTR_SCRIPT}</body>`
-    );
+    .replace('</body>', `${scriptTags}</body>`);
 
   return content;
 };
@@ -89,6 +85,9 @@ export const reactRender = async (req, res, routeState = {}) => {
   const { country, language } = req.params;
   const { browser, os, device, ua } = parser(req.headers['user-agent']);
   const isMobileOrTablet = device.type === 'mobile' || device.type === 'tablet';
+  const userPreferencesCookie = req.universalCookies.get(
+    USER_PREFERENCES_COOKIE
+  );
 
   const { secureExpired, ...queryParams } = req.query;
   const countriesWithConsultations = await ViewsService.getCountries(
@@ -119,6 +118,15 @@ export const reactRender = async (req, res, routeState = {}) => {
         banner: notificationBanner,
       },
       device: isMobileOrTablet ? MOBILE_DEVICE : DESKTOP_DEVICE,
+    },
+    modal: {
+      ...initialState.modal,
+      showCookies: !userPreferencesCookie,
+    },
+    user: {
+      ...initialState.user,
+      cookiesPreferences:
+        userPreferencesCookie || initialState.user.cookiesPreferences,
     },
   };
 

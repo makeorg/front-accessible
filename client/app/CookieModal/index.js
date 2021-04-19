@@ -2,13 +2,27 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ReactModal from 'react-modal';
-import Cookies from 'universal-cookie';
 import { i18n } from 'Shared/i18n';
 import { modalCloseCookies } from 'Shared/store/actions/modal';
 import {
   trackClickModalCookieSave,
   trackClickModalCookiePersonalize,
+  trackClickModalCookieRefuse,
 } from 'Shared/services/Tracking';
+import {
+  setPreferencesCookie,
+  initTrackersFromPreferences,
+  removeTrackersFromPreferences,
+} from 'Client/helper/cookies';
+import {
+  acceptAllCookiesPreferences,
+  rejectAllCookiesPreferences,
+} from 'Shared/store/actions/user/cookiesPreferences';
+import {
+  ACCEPT_ALL_PREFERENCES,
+  REJECT_ALL_PREFRENCES,
+} from 'Shared/constants/cookies';
+import { type StateUserCookiesPreferences } from 'Shared/store/types';
 import {
   CookieModalButtonWithLinkStyle,
   CookieModalBannerWrapperStyle,
@@ -18,48 +32,47 @@ import {
 import { FirstStepCookie } from './FirstStep';
 import { SecondStepCookie } from './SecondStep';
 
-const acceptCookieName: string = 'make-cookie';
-// set cookie duration to a year
-const today = new Date();
-const nextYear = new Date();
-nextYear.setFullYear(today.getFullYear() + 1);
-
+// set modal and styles
 ReactModal.setAppElement('#app');
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    transform: 'translate(-50%, -50%)',
+    borderRadius: '8px',
+    border: null,
+    padding: null,
+    zIndex: 10,
+    overflow: 'hidden',
+  },
+};
 
 export const CookieModal = () => {
   const dispatch = useDispatch();
-  const cookies = new Cookies();
-  const hasCookies = cookies.get(acceptCookieName);
-  const showCookies: string = useSelector(
-    (state: StateRoot) => state.modal.showCookies
+  const { showCookies }: boolean = useSelector(
+    (state: StateRoot) => state.modal
+  );
+  const { cookiesPreferences }: StateUserCookiesPreferences = useSelector(
+    (state: StateRoot) => state.user
   );
   const [customization, enableCustomization] = useState(false);
-  const customStyles = {
-    content: {
-      top: '50%',
-      left: '50%',
-      right: 'auto',
-      bottom: 'auto',
-      transform: 'translate(-50%, -50%)',
-      borderRadius: '8px',
-      border: null,
-      padding: null,
-      zIndex: 10,
-      overflow: 'hidden',
-    },
-  };
 
-  const setCookie = () => {
-    cookies.set(acceptCookieName, true, {
-      path: '/',
-      expires: nextYear,
-    });
-  };
-
-  const handleClick = () => {
+  const handleAcceptAll = async () => {
+    dispatch(acceptAllCookiesPreferences());
     trackClickModalCookieSave('cookies-accept-all');
     dispatch(modalCloseCookies());
-    setCookie();
+    setPreferencesCookie(ACCEPT_ALL_PREFERENCES);
+    initTrackersFromPreferences(ACCEPT_ALL_PREFERENCES);
+  };
+
+  const handleRejectAll = () => {
+    dispatch(rejectAllCookiesPreferences());
+    trackClickModalCookieRefuse();
+    dispatch(modalCloseCookies());
+    setPreferencesCookie(REJECT_ALL_PREFRENCES);
+    removeTrackersFromPreferences(REJECT_ALL_PREFRENCES);
   };
 
   const toggleCustomization = () => {
@@ -74,10 +87,12 @@ export const CookieModal = () => {
   const handlePreferences = () => {
     trackClickModalCookieSave('cookies-accept-preferences');
     dispatch(modalCloseCookies());
-    setCookie();
+    setPreferencesCookie(cookiesPreferences);
+    removeTrackersFromPreferences(cookiesPreferences);
+    initTrackersFromPreferences(cookiesPreferences);
   };
 
-  if (hasCookies || !showCookies) {
+  if (!showCookies) {
     return null;
   }
 
@@ -89,28 +104,31 @@ export const CookieModal = () => {
       data-cy-container="cookie-modal"
     >
       {customization ? (
-        <SecondStepCookie toggleCustomization={toggleCustomization} />
+        <SecondStepCookie
+          toggleCustomization={toggleCustomization}
+          handleRejectAll={handleRejectAll}
+        />
       ) : (
-        <FirstStepCookie />
+        <FirstStepCookie handleRejectAll={handleRejectAll} />
       )}
       <CookieModalBannerWrapperStyle>
         <SvgCookieStyle aria-hidden focusable="false" />
-        {!customization && (
-          <CookieModalRedButtonStyle type="button" onClick={handleClick}>
-            {i18n.t('cookie_modal.accept')}
-          </CookieModalRedButtonStyle>
-        )}
         {customization ? (
           <CookieModalRedButtonStyle type="button" onClick={handlePreferences}>
             {i18n.t('cookie_modal.save')}
           </CookieModalRedButtonStyle>
         ) : (
-          <CookieModalButtonWithLinkStyle
-            type="button"
-            onClick={handlePersonalize}
-          >
-            {i18n.t('cookie_modal.personalize')}
-          </CookieModalButtonWithLinkStyle>
+          <>
+            <CookieModalRedButtonStyle type="button" onClick={handleAcceptAll}>
+              {i18n.t('cookie_modal.accept')}
+            </CookieModalRedButtonStyle>
+            <CookieModalButtonWithLinkStyle
+              type="button"
+              onClick={handlePersonalize}
+            >
+              {i18n.t('cookie_modal.personalize')}
+            </CookieModalButtonWithLinkStyle>
+          </>
         )}
       </CookieModalBannerWrapperStyle>
     </ReactModal>

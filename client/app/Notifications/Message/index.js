@@ -14,6 +14,7 @@ import {
   VOTE_ONLY_MESSAGE,
   ACCOUNT_DELETION_SUCCESS_MESSAGE,
   FIRST_VOTE_TIP_MESSAGE,
+  SOCIAL_MEDIA_COOKIES_MESSAGE,
 } from 'Shared/constants/notifications';
 import { SecureExpiredMessage } from 'Client/app/Notifications/Banner/SecureExpired';
 import { AccountActivationSuccessMessage } from 'Client/app/Notifications/Banner/AccountActivationSuccess';
@@ -28,6 +29,7 @@ import { UnexpectedErrorMessage } from 'Client/app/Notifications/Banner/Unexpect
 import { VoteOnlyMessage } from 'Client/app/Notifications/Banner/VoteOnly';
 import { AccountDeletionSuccessMessage } from 'Client/app/Notifications/Banner/AccountDeletionSuccess';
 import { FirstVoteTip } from 'Client/app/Notifications/Tip/FirstVote';
+import { SocialMediaCookiesMessage } from '../Banner/SocialMediaCookies';
 
 export const NotificationMessage = ({ name, params, close }) => {
   switch (name) {
@@ -57,6 +59,8 @@ export const NotificationMessage = ({ name, params, close }) => {
       return <AccountDeletionSuccessMessage />;
     case FIRST_VOTE_TIP_MESSAGE:
       return <FirstVoteTip />;
+    case SOCIAL_MEDIA_COOKIES_MESSAGE:
+      return <SocialMediaCookiesMessage />;
     default:
       return <></>;
   }

@@ -44,6 +44,13 @@ export const initialStateDebug = {
       isLoggedIn: false,
       user: undefined,
     },
+    cookiesPreferences: {
+      facebook_tracking: false,
+      twitter_tracking: false,
+      facebook_sharing: false,
+      twitter_sharing: false,
+      linkedin_sharing: false,
+    },
   },
   proposal: {
     hasProposed: false,

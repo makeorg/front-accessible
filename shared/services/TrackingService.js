@@ -3,6 +3,8 @@ import { TrackingApiService } from 'Shared/api/TrackingApiService';
 import { env } from 'Shared/env';
 import { type PerformanceTimingType } from 'Shared/types/tracking';
 import trackingConfiguration from 'Shared/services/trackingConfiguration.yaml';
+import Cookies from 'universal-cookie';
+import { USER_PREFERENCES_COOKIE } from 'Shared/constants/cookies';
 import { FacebookTracking } from './Trackers/FacebookTracking';
 import { TwitterTracking } from './Trackers/TwitterTracking';
 import { trackingParamsService } from './TrackingParamsService';
@@ -133,8 +135,17 @@ export const TrackingService = {
     eventName: string,
     parameters: Object,
   }) => {
+    const cookies = new Cookies();
+    const preferencesCookie = cookies.get(USER_PREFERENCES_COOKIE);
+
     TrackingService.track(eventName, parameters);
-    TrackingService.trackFacebookPixel(eventName, parameters);
-    TrackingService.trackTwitterPixel(eventName);
+
+    if (preferencesCookie?.facebook_tracking) {
+      TrackingService.trackFacebookPixel(eventName, parameters);
+    }
+
+    if (preferencesCookie?.twitter_tracking) {
+      TrackingService.trackTwitterPixel(eventName);
+    }
   },
 };

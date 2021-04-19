@@ -15,7 +15,7 @@ Object {
     "contentType": "",
     "focusAfterClose": true,
     "isOpen": false,
-    "showCookies": true,
+    "showCookies": false,
     "showExpirationSession": false,
   },
   "notifications": Object {
@@ -50,6 +50,13 @@ Object {
       "errors": Array [],
       "isLoggedIn": false,
       "user": undefined,
+    },
+    "cookiesPreferences": Object {
+      "facebook_sharing": false,
+      "facebook_tracking": false,
+      "linkedin_sharing": false,
+      "twitter_sharing": false,
+      "twitter_tracking": false,
     },
     "passwordRecovery": Object {
       "error": false,
