@@ -76,6 +76,9 @@
     "no_cookies": {
       "title": "Ooops ! Vos cookies sont désactivés - Make.org"
     },
+    "cookies": {
+      "title": "Gestion des cookies - Make.org"
+    },
     "password-recovery": {
       "title": "Je crée un nouveau mot de passe - Make.org"
     },
