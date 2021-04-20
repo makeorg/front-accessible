@@ -28,7 +28,6 @@ import {
 } from 'Shared/constants/cookies';
 import { type StateUserCookiesPreferences } from 'Shared/store/types';
 import Cookies from 'universal-cookie';
-import { type UserCookiePreferences } from 'Shared/types/user';
 import {
   CookieModalButtonWithLinkStyle,
   CookieModalBannerWrapperStyle,
@@ -65,7 +64,7 @@ export const CookieModal = () => {
   );
   const [customization, enableCustomization] = useState(false);
   const cookies = new Cookies();
-  const preferencesCookie: UserCookiePreferences = cookies.get(
+  const preferencesCookie: StateUserCookiesPreferences = cookies.get(
     USER_PREFERENCES_COOKIE
   );
 
