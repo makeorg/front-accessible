@@ -210,7 +210,7 @@
       },
       "vote_on_proposal": "Vote on this solution",
       "cookies": {
-        "social_media": "To reach this feature, you must accept related cookies on the page",
+        "social_media": "To reach this feature, you must accept related cookies.",
         "cookie_page": "Cookies management"
       }
     },

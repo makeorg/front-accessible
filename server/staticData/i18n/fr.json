@@ -189,7 +189,7 @@
       },
       "vote_on_proposal" : "Votez sur cette proposition",
       "cookies": {
-        "social_media": "Afin d'accéder à cette fonctionnalité, vous devez autoriser les cookies concernés sur la page ",
+        "social_media": "Afin d'accéder à cette fonctionnalité, vous devez autoriser les cookies concernés.",
         "cookie_page": "Gestion des cookies"
       }
     },
