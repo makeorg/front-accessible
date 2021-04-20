@@ -15,7 +15,6 @@ RUN yarn autoclean --force
 FROM keymetrics/pm2:12-alpine
 
 ENV PORT 8000
-ENV API_URL https://api.preprod.makeorg.tech
 
 RUN apk --no-cache add curl
 

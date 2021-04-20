@@ -107,6 +107,8 @@ export const reactRender = async (req, res, routeState = {}) => {
     ...initialState,
     ...routeState,
     appConfig: {
+      ...initialState.appConfig,
+      ...routeState?.appConfig,
       source: 'core',
       language,
       country,
@@ -115,16 +117,19 @@ export const reactRender = async (req, res, routeState = {}) => {
       countriesWithConsultations,
       notifications: {
         ...initialState.notifications,
+        ...routeState?.notifications,
         banner: notificationBanner,
       },
       device: isMobileOrTablet ? MOBILE_DEVICE : DESKTOP_DEVICE,
     },
     modal: {
       ...initialState.modal,
+      ...routeState?.modal,
       showCookies: !userPreferencesCookie,
     },
     user: {
       ...initialState.user,
+      ...routeState?.user,
       cookiesPreferences:
         userPreferencesCookie || initialState.user.cookiesPreferences,
     },
