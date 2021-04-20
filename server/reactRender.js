@@ -154,7 +154,7 @@ export const reactRender = async (req, res, routeState = {}) => {
   // eslint-disable-next-line import/no-unresolved
   const webpackManifest = require('webpack-manifest');
 
-  const pwaManifest = webpackManifest['assets/manifest.json'];
+  const pwaManifest = webpackManifest['favicon/manifest.json'];
 
   const reactHtml = renderHtml(ReactApp, store, headTags, pwaManifest, res);
 
