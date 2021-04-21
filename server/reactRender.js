@@ -21,7 +21,6 @@ import {
 import { env } from 'Shared/env';
 import { SecureExpiredMessage } from 'Client/app/Notifications/Banner/SecureExpired';
 import { DESKTOP_DEVICE, MOBILE_DEVICE } from 'Shared/constants/config';
-import { USER_PREFERENCES_COOKIE } from 'Shared/constants/cookies';
 import { CLIENT_DIR } from './paths';
 import { logInfo } from './ssr/helpers/ssr.helper';
 import { ViewsService } from './service/ViewsService';
@@ -85,9 +84,6 @@ export const reactRender = async (req, res, routeState = {}) => {
   const { country, language } = req.params;
   const { browser, os, device, ua } = parser(req.headers['user-agent']);
   const isMobileOrTablet = device.type === 'mobile' || device.type === 'tablet';
-  const userPreferencesCookie = req.universalCookies.get(
-    USER_PREFERENCES_COOKIE
-  );
 
   const { secureExpired, ...queryParams } = req.query;
   const countriesWithConsultations = await ViewsService.getCountries(
@@ -121,17 +117,6 @@ export const reactRender = async (req, res, routeState = {}) => {
         banner: notificationBanner,
       },
       device: isMobileOrTablet ? MOBILE_DEVICE : DESKTOP_DEVICE,
-    },
-    modal: {
-      ...initialState.modal,
-      ...routeState?.modal,
-      showCookies: !userPreferencesCookie,
-    },
-    user: {
-      ...initialState.user,
-      ...routeState?.user,
-      cookiesPreferences:
-        userPreferencesCookie || initialState.user.cookiesPreferences,
     },
   };
 
