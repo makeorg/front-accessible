@@ -375,7 +375,7 @@
     },
     "authentication": {
       "button_back": "Modifier ma proposition",
-      "title": "Pour valider ma proprosition",
+      "title": "Pour valider ma proposition",
       "subtitle": "Je m'inscris avec",
       "button_login": "J’ai déjà un compte, je me connecte"
     },
@@ -514,7 +514,7 @@
       "title": "De quels cookies s’agit-il ?",
       "technicals": "<strong>Techniques :</strong> des cookies indispensables pour faire fonctionner le site",
       "preferences": "<strong>Préférences :</strong> des cookies pour améliorer votre expérience lors de votre navigation sur le site",
-      "statistics": "<strong>Statistiques :</strong> des cookies pour enrichir l’analyse de nos consultations citoyennes de façon agrégées",
+      "statistics": "<strong>Statistiques :</strong> des cookies pour enrichir l’analyse de nos consultations citoyennes de façon agrégée",
       "social_media": "<strong>Réseaux sociaux :</strong> des cookies pour nous aider à optimiser notre impact grâce aux réseaux sociaux"
     },
     "accept": "Accepter",
