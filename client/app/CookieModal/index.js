@@ -1,9 +1,12 @@
 // @flow
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ReactModal from 'react-modal';
 import { i18n } from 'Shared/i18n';
-import { modalCloseCookies } from 'Shared/store/actions/modal';
+import {
+  modalCloseCookies,
+  modalShowCookies,
+} from 'Shared/store/actions/modal';
 import {
   trackClickModalCookieSave,
   trackClickModalCookiePersonalize,
@@ -19,10 +22,13 @@ import {
   rejectAllCookiesPreferences,
 } from 'Shared/store/actions/user/cookiesPreferences';
 import {
+  USER_PREFERENCES_COOKIE,
   ACCEPT_ALL_PREFERENCES,
   REJECT_ALL_PREFRENCES,
 } from 'Shared/constants/cookies';
 import { type StateUserCookiesPreferences } from 'Shared/store/types';
+import Cookies from 'universal-cookie';
+import { type UserCookiePreferences } from 'Shared/types/user';
 import {
   CookieModalButtonWithLinkStyle,
   CookieModalBannerWrapperStyle,
@@ -58,6 +64,10 @@ export const CookieModal = () => {
     (state: StateRoot) => state.user
   );
   const [customization, enableCustomization] = useState(false);
+  const cookies = new Cookies();
+  const preferencesCookie: UserCookiePreferences = cookies.get(
+    USER_PREFERENCES_COOKIE
+  );
 
   const handleAcceptAll = async () => {
     dispatch(acceptAllCookiesPreferences());
@@ -91,6 +101,12 @@ export const CookieModal = () => {
     removeTrackersFromPreferences(cookiesPreferences);
     initTrackersFromPreferences(cookiesPreferences);
   };
+
+  useEffect(() => {
+    if (!preferencesCookie) {
+      dispatch(modalShowCookies());
+    }
+  }, [preferencesCookie, dispatch]);
 
   if (!showCookies) {
     return null;
