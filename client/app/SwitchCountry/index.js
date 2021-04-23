@@ -46,7 +46,7 @@ export const SwitchCountry = () => {
       data-cy-container="country_switch_nav"
     >
       <SwitchCountryTitleStyle id="switch_country_title">
-        {i18n.t('main-footer.country')}
+        {i18n.t('main_footer.country')}
       </SwitchCountryTitleStyle>
       <CountryListStyle>
         {countries.map(item => (

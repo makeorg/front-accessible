@@ -87,7 +87,7 @@ export const Footer = () => {
                       href={NEWS_LINK}
                       onClick={() => trackClickBlog('blog list')}
                     >
-                      {i18n.t('main-footer.news')}
+                      {i18n.t('main_footer.news')}
                       <> </>
                       {externalLinkIcon}
                     </FooterItemLinkStyle>
@@ -99,7 +99,7 @@ export const Footer = () => {
                       rel="noopener"
                       href={JOBS_LINK}
                     >
-                      {i18n.t('main-footer.jobs')}
+                      {i18n.t('main_footer.jobs')}
                       <> </>
                       {externalLinkIcon}
                     </FooterItemLinkStyle>
@@ -113,7 +113,7 @@ export const Footer = () => {
                   rel="noopener"
                   href={PRESS_DETAILS_LINK}
                 >
-                  {i18n.t('main-footer.press_details')}
+                  {i18n.t('main_footer.press_details')}
                   <> </>
                   {externalLinkIcon}
                 </FooterItemLinkStyle>
@@ -125,7 +125,7 @@ export const Footer = () => {
                   rel="noopener"
                   href={DOTATION_FUNDS_LINK}
                 >
-                  {i18n.t('main-footer.dotation_funds')}
+                  {i18n.t('main_footer.dotation_funds')}
                   <> </>
                   {externalLinkIcon}
                 </FooterItemLinkStyle>
@@ -141,7 +141,7 @@ export const Footer = () => {
                 onClick={scrollToTop}
                 to={getLegalPageLink(country)}
               >
-                {i18n.t('main-footer.legal')}
+                {i18n.t('main_footer.legal')}
               </FooterItemLinkStyle>
             </FooterItemStyle>
             <FooterItemStyle>
@@ -149,7 +149,7 @@ export const Footer = () => {
                 onClick={scrollToTop}
                 to={getGTUPageLink(country)}
               >
-                {i18n.t('main-footer.terms')}
+                {i18n.t('main_footer.terms')}
               </FooterItemLinkStyle>
             </FooterItemStyle>
             <FooterItemStyle>
@@ -157,7 +157,7 @@ export const Footer = () => {
                 onClick={scrollToTop}
                 to={getDataPageLink(country)}
               >
-                {i18n.t('main-footer.data')}
+                {i18n.t('main_footer.data')}
               </FooterItemLinkStyle>
             </FooterItemStyle>
             {isFR && (
@@ -166,7 +166,7 @@ export const Footer = () => {
                   onClick={scrollToTop}
                   to={getA11YPageLink(country)}
                 >
-                  {i18n.t('main-footer.a11y')}
+                  {i18n.t('main_footer.a11y')}
                 </FooterItemLinkStyle>
               </FooterItemStyle>
             )}
@@ -182,7 +182,7 @@ export const Footer = () => {
               >
                 <FooterCountryIconStyle aria-hidden focusable="false" />
                 <> </>
-                {i18n.t('main-footer.country')}
+                {i18n.t('main_footer.country')}
               </FooterItemAltLinkStyle>
             </FooterItemStyle>
             <FooterItemStyle>
@@ -192,7 +192,7 @@ export const Footer = () => {
               >
                 <FooterContactIconStyle aria-hidden focusable="false" />
                 <> </>
-                {i18n.t('main-footer.contact')}
+                {i18n.t('main_footer.contact')}
               </FooterItemAltLinkStyle>
             </FooterItemStyle>
           </FooterWrapperThirdListStyle>

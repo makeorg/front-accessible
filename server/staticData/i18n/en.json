@@ -94,7 +94,6 @@
     }
   },
   "common": {
-    "connexion_extended": "Display the signup popin to the user",
     "connexion_label": "Log in",
     "register_label": "Sign up",
     "form": {
@@ -216,11 +215,7 @@
     },
     "footer_nav": "Footer navigation",
     "sidebar_area": "Content sidebar",
-    "consultation_header_area": "Notification banner on the use of cookies: {{name}}",
     "consultation_nav": "Navigation bar of the consultation",
-    "user_profile_nav": "Navigation bar of my user profile",
-    "organisation_profile_nav": "Navigation bar of the organization profile: {{name}}",
-    "new_tab": "{{title}} - Open in a new window",
     "slider": {
       "introduction": "Use the control buttons, the \"left\" et \"right\" arrows or the tab key on your keyboard to interact with the carousel below.",
       "previous": "Go to the previous item",
@@ -231,8 +226,6 @@
     "back": "Back",
     "proposal_count": "{{count}} solution",
     "proposal_count_plural": "{{count}} solutions",
-    "vote_count": "{{count}} vote",
-    "vote_count_plural": "{{count}} votes",
     "breadcrumbs": "Breadcrumbs",
     "pagination": {
       "title": "paging",
@@ -293,12 +286,6 @@
       "button_text": "citizen account."
     }
   },
-  "sign_up_card": {
-    "title": "Send me the results and let me know about upcoming actions on this consultation by email.",
-    "authentication-text": "Sign in with",
-    "next-cta": "No thanks, I'm not interested.",
-    "authentication-link": "I already have an account, log me in."
-  },
   "push_proposal_card": {
     "title": "Do you have a solution you want to submit on this topic?",
     "next-cta": "Not yet, I prefer to keep voting for the moment"
@@ -308,15 +295,6 @@
       "title": "Thank you {{name}}!",
       "description": "Your solution will be moderated by our team.",
       "button": "Keep voting"
-    },
-    "deprecated": {
-      "bait": "We should ",
-      "title": "Write a solution using 140 characters max, then click on the \"Submit\" button",
-      "counter": "Your solution contains {{current}} characters over {{total}}",
-      "description": "No worries, we will verify the correct spelling of your solution.",
-      "moderation_charter": "Learn more about ",
-      "moderation_charter_label": "our moderation charter",
-      "success": "We received your solution, we will inform you by e-mail when it will be validated by our moderation team."
     },
     "form": {
       "bait": "We should ",
@@ -426,12 +404,7 @@
     "send_link": "receive the e-mail",
     "email_doesnot_exist": "Account not found."
   },
-  "footer_sequence": {
-    "with": "with",
-    "see_more": "Learn more about this consultation",
-    "link": "Learn more about this consultation"
-  },
-  "main-footer": {
+  "main_footer": {
     "jobs": "Jobs",
     "whoarewe": "About Make.org",
     "legal": "Legal notice",
@@ -474,8 +447,8 @@
       "cookie": "make-cookie-preferences : this cookie will keep your preferences about the use of cookies on our service."
     },
     "statistics": {
-      "visitor": "make-visitor-id : this cookie tracks visits and re-visits on our service in order to mesure anonymously agregated trafic. This tracking is not individual.",
-      "tracking": "Facebook tracking cookie: this cookie is used to gather behavioral data on the service,to agregate and analyse data in order to improve the service. It is also used to agregate socio-demographic data (age, gender, area) in order to enrich the analysis of the consultation."
+      "visitor": "make-visitor-id : this cookie is used to track visits and revisits to our service in order to measure traffic in an anonymous and aggregated fashion. This tracking is not done at the individual level.",
+      "tracking": "Facebook tracking cookie: it is used to collect behavioral data on the service for aggregate analysis to improve the service. It is also used to collect socio-demographic data (age, gender, region) in an aggregated way to enrich the analysis of the consultation."
     },
     "social_media": {
       "facebook_pixel": "Facebook pixel : it is used to optimize the performance of campaigns promoting consultations on Facebook in order to increase citizen participation.",

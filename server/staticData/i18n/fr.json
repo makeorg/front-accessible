@@ -92,7 +92,6 @@
     }
   },
   "common": {
-    "connexion_extended": "Afficher la fenêtre de connexion au profil utilisateur",
     "connexion_label": "Se connecter",
     "register_label": "S'inscrire",
     "form": {
@@ -214,11 +213,7 @@
     "header_authentication_nav": "Accès à mon profil utilisateur",
     "footer_nav": "Navigation de bas de page",
     "sidebar_area": "Barre latérale de contenu",
-    "consultation_header_area": "Bannière d'introduction de la consultation : {{name}}",
     "consultation_nav": "Barre de navigation de la consultation",
-    "user_profile_nav": "Barre de navigation de mon profil utilisateur",
-    "organisation_profile_nav": "Barre de navigation du profil de l'organisation : {{name}}",
-    "new_tab": "{{title}} - Ouvrir dans une nouvelle fenêtre",
     "slider": {
       "introduction": "Utiliser les boutons de contrôle, les flêches \"gauches\" et \"droite\" ou la touche de tabulation de votre clavier pour interragir avec le carrousel ci dessous.",
       "previous": "Aller à l'élement précédent",
@@ -235,8 +230,6 @@
     "back": "Retour",
     "proposal_count": "{{count}} proposition",
     "proposal_count_plural": "{{count}} propositions",
-    "vote_count": "{{count}} vote",
-    "vote_count_plural": "{{count}} votes",
     "breadcrumbs": "fil d'ariane",
     "million": "million",
     "million_plural": "millions",
@@ -329,12 +322,6 @@
     "link_text": "J'accède à la consultation",
     "sharing": "Ou donnez plus de portée à cette consultation en la diffusant."
   },
-  "sign_up_card": {
-    "title": "Recevez les résultats de la consultation",
-    "authentication-text": "Je m'identifie avec",
-    "authentication-link": "J’ai déjà un compte, je me connecte.",
-    "next-cta": "Non merci"
-  },
   "push_proposal_card": {
     "title": "Et vous, avez vous une solution à proposer sur ce sujet ?",
     "next-cta": "Pas encore, je continue à voter"
@@ -353,15 +340,6 @@
     "cta_text": "J'accède à la consultation"
   },
   "proposal_submit": {
-    "deprecated": {
-      "bait": "Il faut ",
-      "title": "Soumettez votre proposition en moins de 140 caractères. Saisissez la dans le champ de proposition puis validez en cliquant sur le bouton \"Proposer\"",
-      "counter": "Votre proposition comprend {{current}} caractères sur un total de {{total}} caractères disponibles",
-      "description": "Ne vous inquiétez pas, nous corrigerons vos éventuelles fautes d'orthographe.",
-      "moderation_charter": "Pour en savoir plus sur ",
-      "moderation_charter_label": "notre charte de modération",
-      "success": "Votre proposition a bien été prise en compte, elle va maintenant être relue par notre service modération. Vous recevrez un email lorsqu'elle aura été validée."
-    },
     "form": {
       "bait": "Il faut ",
       "title": "Soumettez votre proposition en moins de 140 caractères. Saisissez la dans le champ de proposition puis validez en cliquant sur le bouton \"Valider\"",
@@ -487,12 +465,7 @@
     "send_link": "recevoir l'e-mail",
     "email_doesnot_exist": "Nous ne trouvons pas de compte associé à cet email."
   },
-  "footer_sequence": {
-    "with": "avec",
-    "see_more": "En savoir plus sur le sujet :",
-    "link": "En savoir + sur cette consultation"
-  },
-  "main-footer": {
+  "main_footer": {
     "jobs": "Jobs",
     "whoarewe": "Notre approche",
     "legal": "Mentions légales",
