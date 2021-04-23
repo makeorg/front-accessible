@@ -216,7 +216,6 @@
     },
     "footer_nav": "Footer navigation",
     "sidebar_area": "Content sidebar",
-    "cookie_area": "Bannière de notification sur l'utilisation des cookies",
     "consultation_header_area": "Notification banner on the use of cookies: {{name}}",
     "consultation_nav": "Navigation bar of the consultation",
     "user_profile_nav": "Navigation bar of my user profile",
@@ -449,40 +448,41 @@
   "pannel": {},
   "cookie_modal": {
     "title": "Express yourself on Make.org while respecting your privacy",
-    "description": "To optimize our service and your experience, we are using cookies for us and our partners wish during your visit.",
+    "description": "In an effort to further optimize our service and your experience, we seek your consent to the cookies we and our partners wish to use during your visit. You can change your preferences at any time on the cookie management page.",
     "details": {
-      "title": "Which are these cookies?",
-      "technicals": "<strong>Technicals:</strong> cookies essential to make the site work",
-      "preferences": "<strong>Preferences:</strong> cookies to improve your experience when browsing the site",
-      "statistics": "<strong>Statistics:</strong> cookies to enrich the analysis of our citizen consultations in aggregate form",
-      "social_media": "<strong>Social networks:</strong> cookies to help us optimize our impact through social networks"
+      "title": "What cookies are we talking about?",
+      "technicals": "<strong>Technical:</strong> cookies essential for the website to function.",
+      "preferences": "<strong>Preference:</strong> cookies to enhance your experience while browsing the website.",
+      "statistics": "<strong>Statistics:</strong> cookies to enrich the analysis of our citizen consultations in an aggregated way.",
+      "social_media": "<strong>Social networks:</strong> cookies to help us maximize our impact through social networks."
     },
     "accept": "Accept",
     "personalize": "Personalize",
     "refuse": "Continue without accepting",
     "back": "Back to previous step",
-    "mandatory": "Mandatory",
+    "mandatory": "Always active",
     "save": "Confirm my selection",
     "technicals": {
-      "secure": "make secure : once connected to your Make.org account, this cookie garantees that the connection to your profile will be up during your visit.",
-      "expiration": "make-secure-expiration : this cookie detects your inactivity on the service, in order to expire this connection to your profile."
+      "secure": "make secure : once you have logged into your citizen account on Make.org, this cookie ensures that this connection will be maintained while you are browsing the service.",
+      "expiration": "make-secure-expiration : this cookie is used to detect your inactivity on the service in order to make this connection expire."
     },
     "preferences": {
-      "authentication": "Authentication cookies from Google and Facebook : these are needed to ensure register and connection to your user profile though these social networks.",
-      "session": "make-session-id : this cookie gathers all the actions made by yousrself on the service during a session.",
-      "expiration": "make-session-id-expiration : this cookie is used to notify you about the expiration of your session (after 20 minutes on inactivity) and so will be renewed.",
-      "user": "make-user-id : this cookie is used to ifentify that you have already an user profile on Make.org and to invite you to connect, this way you can trace all your actions in your user profile."
+      "authentication": "Google and Facebook authentication cookies: they enable registration and connection to your citizen account via these social networks.",
+      "session": "make-session-id : this cookie is used to group all the actions you perform on the service into one session.",
+      "expiration": "make-session-id-expiration : this cookie allows to display the notification that your session has expired (after 20 minutes) and will be reloaded.",
+      "user": "make-user-id : this cookie identifies that you have already created a citizen account on Make.org and invites you to log in so that you can find all your actions in your citizen account.",
+      "cookie": "make-cookie-preferences : this cookie will keep your preferences about the use of cookies on our service."
     },
     "statistics": {
       "visitor": "make-visitor-id : this cookie tracks visits and re-visits on our service in order to mesure anonymously agregated trafic. This tracking is not individual.",
       "tracking": "Facebook tracking cookie: this cookie is used to gather behavioral data on the service,to agregate and analyse data in order to improve the service. It is also used to agregate socio-demographic data (age, gender, area) in order to enrich the analysis of the consultation."
     },
     "social_media": {
-      "facebook_pixel": "Facebook pixel : optimize ads campaign performances on Facebook in order to engage citizens.",
-      "twitter_pixel": "Twitter pixel : optimize ads campaign performances on Twitter in order to engage citizens.",
-      "facebook_sharing": "Facebook sharing : let the user share content on his Facebook account.",
-      "twitter_sharing": "Twitter sharing : let the user share content on his Twitter account.",
-      "linkedin_sharing": "LinkedIn sharing : let the user share content on his LinkedIn account."
+      "facebook_pixel": "Facebook pixel : it is used to optimize the performance of campaigns promoting consultations on Facebook in order to increase citizen participation.",
+      "twitter_pixel": "Twitter pixel : it is used to optimize the performance of campaigns promoting consultations on Twitter in order to increase citizen participation.",
+      "facebook_sharing": "Facebook sharing : allow the user to share content on his Facebook and Instagram accounts.",
+      "twitter_sharing": "Twitter sharing : allow the user to share content on his Twitter account.",
+      "linkedin_sharing": "LinkedIn sharing : allow the user to share content on his LinkedIn account."
     }
   },
   "activate_account": {},

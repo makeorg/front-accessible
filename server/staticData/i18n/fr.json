@@ -214,7 +214,6 @@
     "header_authentication_nav": "Accès à mon profil utilisateur",
     "footer_nav": "Navigation de bas de page",
     "sidebar_area": "Barre latérale de contenu",
-    "cookie_area": "Bannière de notification sur l'utilisation des cookies",
     "consultation_header_area": "Bannière d'introduction de la consultation : {{name}}",
     "consultation_nav": "Barre de navigation de la consultation",
     "user_profile_nav": "Barre de navigation de mon profil utilisateur",
@@ -531,7 +530,8 @@
       "authentication": "Les cookies d'authentification Google et Facebook : ils permettent l'inscription et la connexion à votre espace citoyen via ces réseaux sociaux.",
       "session": "make-session-id : ce cookie sert à regrouper toutes les actions que vous effectuez sur le service dans une session.",
       "expiration": "make-session-id-expiration : ce cookie permet de vous afficher la notification indiquant que votre session a expiré (au bout de 20 minutes) et va donc être rechargée.",
-      "user": "make-user-id : ce cookie permet d’identifier que vous avez déjà créé un espace sur Make.org et à vous inviter à vous connecter de façon à ce que vous puissiez retrouver toutes vos actions dans votre espace citoyen."
+      "user": "make-user-id : ce cookie permet d’identifier que vous avez déjà créé un espace sur Make.org et à vous inviter à vous connecter de façon à ce que vous puissiez retrouver toutes vos actions dans votre espace citoyen.",
+      "cookie": "make-cookie-preferences : ce cookie permettra de garder en mémoire vos préférences concernant l‘utilisation des cookies sur notre service."
     },
     "statistics": {
       "visitor": "make-visitor-id : ce cookie sert à suivre les visites et revisites sur notre service de façon à mesurer le trafic de façon anonyme et agrégée. Ce suivi ne se fait pas au niveau individuel.",

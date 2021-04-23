@@ -124,6 +124,9 @@ export const SecondStepCookie = ({
             <CookieModalCookieDetailParagraphStyle>
               {i18n.t('cookie_modal.preferences.user')}
             </CookieModalCookieDetailParagraphStyle>
+            <CookieModalCookieDetailParagraphStyle>
+              {i18n.t('cookie_modal.preferences.cookie')}
+            </CookieModalCookieDetailParagraphStyle>
           </ColumnElementStyle>
         </CookieModalElementStyle>
         <CookieModalElementStyle className="with-separator">
@@ -154,7 +157,7 @@ export const SecondStepCookie = ({
             focusable="false"
           />
           <ColumnElementStyle>
-            <span
+            <CookieDescriptionStyle
               dangerouslySetInnerHTML={{
                 __html: i18n.t('cookie_modal.details.social_media'),
               }}
