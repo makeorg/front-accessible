@@ -27,7 +27,7 @@ import {
   CookieDescriptionStyle,
   CookieLabelStyle,
 } from './style';
-import { CookieSwitch } from './CookieSwtich';
+import { CookieSwitch } from './CookieSwitch';
 
 type Props = {
   toggleCustomization: () => void,
