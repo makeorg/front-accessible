@@ -38,7 +38,7 @@ import {
 } from 'Shared/constants/notifications';
 import { DateHelper } from 'Shared/helpers/date';
 import { useParams } from 'react-router';
-import { CookieSwitch } from 'Client/app/CookieModal/CookieSwtich';
+import { CookieSwitch } from 'Client/app/CookieModal/CookieSwitch';
 import {
   StaticExternalLinkIconStyle,
   StaticPageWrapperStyle,

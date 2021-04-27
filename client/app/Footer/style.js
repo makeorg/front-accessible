@@ -94,9 +94,12 @@ export const FooterLinkIconStyle = styled(SvgExternalLink)`
 `;
 
 export const FooterSeparatorStyle = styled.hr`
-  margin: 0px;
+  margin-top: 20px;
   border-top: 1px solid ${color.greyLighter};
   background-color: ${color.greyLighter};
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    margin-top: 0;
+  }
 `;
 
 export const FooterWrapperThirdListStyle = styled(UnstyledListStyle)`
