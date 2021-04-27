@@ -209,8 +209,9 @@
       },
       "vote_on_proposal": "Vote on this solution",
       "cookies": {
-        "social_media": "To reach this feature, you must accept related cookies.",
-        "cookie_page": "Cookies management"
+        "social_media": "To reach this feature, you must accept related cookies on the page",
+        "cookie_page": "Use of cookies",
+        "update": "Thank you, we successfully updated your cookies preferences."
       }
     },
     "footer_nav": "Footer navigation",
@@ -1012,7 +1013,7 @@
   },
   "legal": {
     "title": "Legal mentions",
-    "make_infos": "Website's publisher: MAKE.ORG, Société par Actions Simplifiées au capital de 1000 euros, having its headquarters at 4 rue René Villermé, 75011, PARIS, registered with the RCS of PARIS under the number 820 016 095 (hereafter 'MAKE.ORG').",
+    "make_infos": "Website's publisher: MAKE.ORG, Société par Actions Simplifiées au capital de 1000 euros, having its headquarters at 4 rue René Villermé, 75011, PARIS, registered with the RCS of PARIS under the number 820 016 095 (here after 'MAKE.ORG').",
     "mail": "Email: ",
     "make_phone": "Phone number: ",
     "make_phone_number": "(+33) 1 44 74 77 46",
@@ -1023,6 +1024,66 @@
     "host_phone_number": "08 99 70 17 61",
     "cnil": "CNIL declaration number: ",
     "cnil_number": "2005312"
+  },
+  "cookies_management": {
+    "title": "Use of cookies",
+    "dated": "- dated {{date}} -",
+    "button": "Valide my selection",
+    "intro": {
+      "title": "What is a cookie?",
+      "first_paragraph": "A cookie is a small computer file that can be deposited and read when an Internet user visits a website or a mobile application, regardless of the type of terminal used (computer, smartphone, etc.).",
+      "second_paragraph": "Some cookies are essential to the proper functioning of the websites or applications; others contribute to optimizing the performance of the website or to improving the experience of Internet users.jh'"
+    },
+    "use": {
+      "title": "How do we use cookies?",
+      "first_paragraph": "When you connect to our website, cookies are deposited on your terminal to improve your experience, increase the performance of our website and optimize our consultations.",
+      "second_paragraph": "The information contained in the cookies is not intended to identify you personally and is never used for any purpose other than those stated below."
+    },
+    "partners": {
+      "title": "Who are our partners ?",
+      "intro": "In addition to the cookies created and managed by Make, cookies are also placed on our website by the following partners:"
+    },
+    "details": {
+      "title": "Which cookies do we use?",
+      "intro": "The cookies deposited on our website are the following:",
+      "mandatory": "Always active",
+      "duration": "Duration : {{duration}}",
+      "session": "Session",
+      "year": "{{count}} year",
+      "year_plural": "{{count}} years",
+      "technicals": {
+        "name": "Technical cookies:",
+        "description": "these cookies are necessary for the functioning of the website and cannot be disabled. You can set your browser to block or be informed of the existence of these cookies, but some parts of our website may be affected. These cookies are not intended to identify you personally.",
+        "secure": "make-secure : once you have logged in to your citizen account on Make.org, this cookie ensures that this connection will be maintained while you browse the service.",
+        "secure-expiration": "make-secure-expiration: this cookie is used to detect your inactivity on the service in order to expire this connection."
+      },
+      "preferences": {
+        "name": "Preference cookies:",
+        "description": "these cookies are used to remember your preferences on our website and thus enhance your browsing experience. You can set your browser to block or be notified of the existence of these cookies, but some parts of our website may be affected. These cookies are not intended to identify you personally.",
+        "google-connect": "Google connect : this cookie allows you to register and connect to your citizen account.",
+        "facebook-connect": "Facebook connect : this cookie allows you to register and connect to your citizen account.",
+        "session-id": "make-session-id : this cookie is used to group all the actions you perform on the website into one session.",
+        "session-id-expiration": "make-session-id-expiration : this cookie is used to notify you that your session has expired (after 20 minutes) and will be reloaded.",
+        "user-id": "make-user-id : this cookie will identify you after you have logged in to a personal space on Make.org. It will be used to invite you to reconnect by pre-filling in your identifier.",
+        "cookie-preferences": "make-cookie-preferences : this cookie will keep your preferences about the use of cookies on our service."
+      },
+      "statistics": {
+        "name": "Statistics cookies:",
+        "description": "these cookies are intended to analyze visits to our website and improve its performance. All information collected by these cookies is aggregated and therefore anonymized. If you do not accept these cookies, we will not be informed of your revisit.",
+        "visitor-id": "make-visitor-id: this cookie is used to identify a unique visitor.",
+        "visitor-created-at": "make-visitor-created-at : this cookie is used to obtain the date of the first visit on the platform.",
+        "facebook-tracking": "Facebook tracking cookie : this cookie allows us to generate statistics on the number of visitors to our website in order to improve our website and to enrich the analysis of our consultations."
+      },
+      "social": {
+        "name": "\"Social network\" cookies:",
+        "description": "these cookies, activated by third parties, allow you to share the content of our website on social networks and thus help us optimize our impact. If you do not consent to the placement of these cookies, you may not be able to benefit from these sharing tools.",
+        "facebook_tracking": "Facebook pixel : his cookie is used to optimize the performance of campaigns promoting Facebook consultations in order to increase citizen participation.",
+        "twitter_tracking": "Twitter pixel : his cookie is used to optimize the performance of campaigns promoting Twitter consultations in order to increase citizen participation.",
+        "facebook_sharing": "Facebook sharing : this cookie allows the user to share content on their Facebook and Instagram accounts and improve the usability of our consultations.",
+        "twitter_sharing": "Twitter sharing : this cookie allows the user to share content on their Twitter account and improve the usability of our consultations.",
+        "linkedin_sharing": "LinkedIn sharing : this cookie allows the user to share content on their LinkedIn account and improve the usability of our consultations."
+      }
+    }
   },
   "sequence_progress": {
     "previous": "Next card",

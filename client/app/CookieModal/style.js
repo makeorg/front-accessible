@@ -151,6 +151,11 @@ export const CookieModalCookieDetailParagraphStyle = styled(FlexElementStyle)`
   border-top: 1px solid ${color.grey};
   margin-top: 10px;
   padding-top: 10px;
+  &.cookie-page {
+    font-size: ${intToPx(typography.font.fontsize.XS.value)};
+    margin-top: 20px;
+    padding-top: 20px;
+  }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     flex-direction: row;
     justify-content: space-between;
@@ -197,9 +202,18 @@ export const CookieLabelStyle = styled.span`
   font-size: ${intToPx(typography.font.fontsize.XS.value)};
   margin-top: 10px;
   align-self: flex-end;
+  &.cookie-page {
+    margin-top: 20px;
+    white-space: nowrap;
+  }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     margin-top: 0;
     margin-left: 20px;
     align-self: flex-start;
+    &.cookie-page {
+      margin-top: 0;
+      min-width: 150px;
+      text-align: right;
+    }
   }
 `;
