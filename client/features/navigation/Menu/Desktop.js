@@ -66,7 +66,7 @@ export const DesktopMenu = () => {
             rel="noopener"
             href={getWebflowDynamicLink(language, ROUTE_WHOAREWE)}
           >
-            {i18n.t('main-footer.whoarewe')}
+            {i18n.t('main_footer.whoarewe')}
             <> </>
             {externalLinkIcon}
           </DesktopMenuExternalLinkStyle>

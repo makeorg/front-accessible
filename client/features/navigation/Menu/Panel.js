@@ -110,7 +110,7 @@ export const MenuPanel = ({ isExpanded, toggleExpansion }: Props) => {
                 rel="noopener"
                 href={getWebflowDynamicLink(language, ROUTE_WHOAREWE)}
               >
-                {i18n.t('main-footer.whoarewe')}
+                {i18n.t('main_footer.whoarewe')}
                 <> </>
                 <MenuNewWindowIconStyle aria-hidden focusable="false" />
                 <ScreenReaderItemStyle>
@@ -140,7 +140,7 @@ export const MenuPanel = ({ isExpanded, toggleExpansion }: Props) => {
                     rel="noopener"
                     href={NEWS_LINK}
                   >
-                    {i18n.t('main-footer.news')}
+                    {i18n.t('main_footer.news')}
                     <> </>
                     <MenuNewWindowIconStyle aria-hidden focusable="false" />
                     <ScreenReaderItemStyle>
@@ -154,7 +154,7 @@ export const MenuPanel = ({ isExpanded, toggleExpansion }: Props) => {
                     rel="noopener"
                     href={JOBS_LINK}
                   >
-                    {i18n.t('main-footer.jobs')}
+                    {i18n.t('main_footer.jobs')}
                     <> </>
                     <MenuNewWindowIconStyle aria-hidden focusable="false" />
                     <ScreenReaderItemStyle>
