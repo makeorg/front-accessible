@@ -15,6 +15,7 @@ import { selectPasswordRecovery } from 'Shared/store/selectors/user.selector';
 import { ROUTE_PASSWORD_RECOVERY } from 'Shared/routes';
 import { i18n } from 'Shared/i18n';
 import { MetaTags } from 'Client/app/MetaTags';
+import { getHomeLink, getParticipateLink } from 'Shared/helpers/url';
 
 const PasswordRecoveryPage = () => {
   const { country } = useParams();
@@ -31,8 +32,8 @@ const PasswordRecoveryPage = () => {
 
   if (!validToken) {
     const redirectPath = !question
-      ? `/${country}`
-      : `/${country}/consultation/${question.slug}/participate`;
+      ? getHomeLink(country)
+      : getParticipateLink(country, question.slug);
 
     return <Redirect path={ROUTE_PASSWORD_RECOVERY} to={redirectPath} />;
   }
