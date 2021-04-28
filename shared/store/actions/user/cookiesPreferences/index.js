@@ -5,7 +5,7 @@ import {
 } from 'Shared/store/actionTypes';
 import { type StateUserCookiesPreferences } from 'Shared/store/types';
 
-export const setCookiesPreferences = (
+export const setCookiesPreferencesInApp = (
   cookiesPreferences: StateUserCookiesPreferences
 ) => ({
   type: SET_COOKIES_PREFERENCES,

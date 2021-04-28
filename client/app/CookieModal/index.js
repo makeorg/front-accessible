@@ -20,6 +20,7 @@ import {
 import {
   acceptAllCookiesPreferences,
   rejectAllCookiesPreferences,
+  setCookiesPreferencesInApp,
 } from 'Shared/store/actions/user/cookiesPreferences';
 import {
   USER_PREFERENCES_COOKIE,
@@ -100,6 +101,16 @@ export const CookieModal = () => {
     removeTrackersFromPreferences(cookiesPreferences);
     initTrackersFromPreferences(cookiesPreferences);
   };
+
+  useEffect(() => {
+    dispatch(
+      setCookiesPreferencesInApp({
+        ...cookiesPreferences,
+        ...preferencesCookie,
+      })
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     if (!preferencesCookie) {

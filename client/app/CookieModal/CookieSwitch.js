@@ -5,11 +5,9 @@ import {
   trackClickCookieSwitchAccept,
   trackClickCookieSwitchRefuse,
 } from 'Shared/services/Tracking';
-import { setCookiesPreferences } from 'Shared/store/actions/user/cookiesPreferences';
+import { setCookiesPreferencesInApp } from 'Shared/store/actions/user/cookiesPreferences';
 import { type StateUserCookiesPreferences } from 'Shared/store/types';
 import { useDispatch, useSelector } from 'react-redux';
-import { USER_PREFERENCES_COOKIE } from 'Shared/constants/cookies';
-import Cookies from 'universal-cookie';
 import {
   CookieModalCookieDetailParagraphStyle,
   CookieModalElementSwitchWrapperStyle,
@@ -27,11 +25,6 @@ export const CookieSwitch = ({ value, description, onCookiePage }: Props) => {
   const { cookiesPreferences }: StateUserCookiesPreferences = useSelector(
     (state: StateRoot) => state.user
   );
-  const cookies = new Cookies();
-  const preferencesCookie: StateUserCookiesPreferences = cookies.get(
-    USER_PREFERENCES_COOKIE
-  );
-  const cookieValue = preferencesCookie && preferencesCookie[value];
 
   return (
     <CookieModalElementSwitchWrapperStyle>
@@ -41,10 +34,10 @@ export const CookieSwitch = ({ value, description, onCookiePage }: Props) => {
         {description}
         <CookieSwitchWrapperStyle>
           <SwitchButton
-            value={cookieValue}
+            value={cookiesPreferences[value]}
             onEnabling={() => {
               dispatch(
-                setCookiesPreferences({
+                setCookiesPreferencesInApp({
                   ...cookiesPreferences,
                   [value]: true,
                 })
@@ -53,7 +46,7 @@ export const CookieSwitch = ({ value, description, onCookiePage }: Props) => {
             }}
             onDisabling={() => {
               dispatch(
-                setCookiesPreferences({
+                setCookiesPreferencesInApp({
                   ...cookiesPreferences,
                   [value]: false,
                 })
