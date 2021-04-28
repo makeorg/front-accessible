@@ -15,4 +15,6 @@ export const i18n = {
   },
   getResourceBundle: (lng: string, ns: string) =>
     instance.getResourceBundle(lng, ns),
+  getResource: (lng: string, ns: string, key: string, options?: InitOptions) =>
+    instance.getResource(lng, ns, key, options),
 };

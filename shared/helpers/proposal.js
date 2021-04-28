@@ -18,6 +18,9 @@ import { CONSULTATION_POPULAR_PROPOSALS } from 'Shared/constants/featureFlipping
 import { ProposalService } from 'Shared/services/Proposal';
 import { type ProposalsType, type ProposalType } from 'Shared/types/proposal';
 import { i18n } from 'Shared/i18n';
+import { TRANSLATION_NAMESPACE } from 'Shared/i18n/constants';
+import { Logger } from 'Shared/services/Logger';
+import { DEFAULT_LANGUAGE } from 'Shared/constants/config';
 
 export const getProposalLength = (content: string = '') => {
   if (content === '') {
@@ -140,4 +143,31 @@ export const getProposalsListTitle = (sortKey: string) => {
     default:
       return i18n.t('consultation.sort.RECENT');
   }
+};
+
+/**
+ * Rendering proposal bait text depending on language
+ * @type {string}
+ * @param {QuestionType} question
+ * @return {string}
+ */
+export const getLocalizedBaitText = (language: string, questionId: string) => {
+  const localizedBaitText = i18n.getResource(
+    language,
+    TRANSLATION_NAMESPACE,
+    'proposal_submit.form.bait'
+  );
+
+  if (!localizedBaitText) {
+    Logger.logError({
+      message: `No proposal bait for questionId:${questionId} with language:${language}`,
+    });
+    return i18n.getResource(
+      DEFAULT_LANGUAGE,
+      TRANSLATION_NAMESPACE,
+      'proposal_submit.form.bait'
+    );
+  }
+
+  return localizedBaitText;
 };
