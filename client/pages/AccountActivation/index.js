@@ -6,6 +6,7 @@ import { Redirect, useParams } from 'react-router-dom';
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
 import { type StateRoot } from 'Shared/store/types';
 import { ROUTE_ACCOUNT_ACTIVATION } from 'Shared/routes';
+import { getHomeLink, getParticipateLink } from 'Shared/helpers/url';
 
 const AccountActivationPage = () => {
   const { country } = useParams();
@@ -14,8 +15,8 @@ const AccountActivationPage = () => {
   );
 
   const redirectPath = !question
-    ? `/${country}`
-    : `/${country}/consultation/${question.slug}/participate`;
+    ? getHomeLink(country)
+    : getParticipateLink(country, question.slug);
 
   return <Redirect path={ROUTE_ACCOUNT_ACTIVATION} to={redirectPath} />;
 };

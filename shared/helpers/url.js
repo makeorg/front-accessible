@@ -48,19 +48,6 @@ export const getRelativeCurrentUrl = (pathName: string) =>
 
 export const getPartnerAnchor = (aboutUrl: string) => `${aboutUrl}#partenaires`;
 
-export const buildInternalConsultationLink = (
-  target: ?string,
-  questionSlug: ?string,
-  country: string,
-  language: string
-) => {
-  if (!questionSlug || !target) {
-    return null;
-  }
-
-  return `/${country}-${language}/consultation/${questionSlug}/${target}`;
-};
-
 /** @todo move all this stuff to Shared/routes file or create a route helper */
 /**
  * Get the sequence link
