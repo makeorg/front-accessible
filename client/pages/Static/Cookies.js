@@ -56,7 +56,7 @@ export const Cookies = () => {
   const dispatch = useDispatch();
   const { country } = useParams();
   const { cookiesPreferences } = useSelector((state: StateRoot) => state.user);
-  const DATE = new Date(2021, 4, 14);
+  const DATE = new Date(2021, 3, 28);
   const formattedDate = DateHelper.localizedDayMonthYear(DATE);
   const isFR = country === 'FR';
   const googleLink = isFR

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   SvgSwitchLabelChecked,
   SvgSwitchLabelCross,
@@ -27,6 +27,10 @@ export const SwitchButton = ({
     }
     setIsChecked(!isChecked);
   };
+
+  useEffect(() => {
+    setIsChecked(value);
+  }, [value]);
 
   return (
     <SwitchButtonStyle

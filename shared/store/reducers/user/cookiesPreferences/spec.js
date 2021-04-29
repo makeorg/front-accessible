@@ -3,7 +3,7 @@
 import {
   acceptAllCookiesPreferences,
   rejectAllCookiesPreferences,
-  setCookiesPreferences,
+  setCookiesPreferencesInApp,
 } from 'Shared/store/actions/user/cookiesPreferences';
 import { cookiesPreferences } from './index';
 
@@ -38,7 +38,7 @@ describe('Cookies preferences reducer', () => {
     };
 
     expect(
-      cookiesPreferences(previousState, setCookiesPreferences(expectedState))
+      cookiesPreferences(previousState, setCookiesPreferencesInApp(expectedState))
     ).toEqual(expectedState);
   });
 
