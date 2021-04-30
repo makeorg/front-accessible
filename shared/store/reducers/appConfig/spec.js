@@ -33,6 +33,7 @@ describe('appConfig reducer', () => {
       type: SET_COUNTRY_CONFIGURATION,
       payload: {
         country: 'GB',
+        language: 'en',
       },
     };
 
@@ -49,6 +50,7 @@ describe('appConfig reducer', () => {
       type: SET_COUNTRY_CONFIGURATION,
       payload: {
         country: 'FR',
+        language: 'fr',
       },
     };
 

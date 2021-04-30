@@ -5,7 +5,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { i18n } from 'Shared/i18n';
 import { getHomeLink } from 'Shared/helpers/url';
 import { setCountryCode } from 'Shared/store/actions/appConfig';
-import { compareCountriesByName } from 'Shared/helpers/countries';
+import {
+  compareCountriesByName,
+  getLanguageFromCountryCode,
+} from 'Shared/helpers/countries';
 import { modalClose } from 'Shared/store/actions/modal';
 import {
   CountryLinkStyle,
@@ -35,7 +38,9 @@ export const SwitchCountry = () => {
       return () => {};
     }
 
-    dispatch(setCountryCode(countryCode));
+    dispatch(
+      setCountryCode(countryCode, getLanguageFromCountryCode(countryCode))
+    );
 
     return dispatch(modalClose());
   };

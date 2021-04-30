@@ -2,12 +2,18 @@
 import {
   SET_COUNTRY_CONFIGURATION,
   SET_DESKTOP_DEVICE,
+  SET_LANGUAGE_CONFIGURATION,
   SET_MOBILE_DEVICE,
 } from 'Shared/store/actionTypes';
 
-export const setCountryCode = (country: string) => ({
+export const setCountryCode = (country: string, language: string) => ({
   type: SET_COUNTRY_CONFIGURATION,
-  payload: { country },
+  payload: { country, language },
+});
+
+export const setLanguageCode = (language: string) => ({
+  type: SET_LANGUAGE_CONFIGURATION,
+  payload: { language },
 });
 
 export const setDesktopDevice = () => ({

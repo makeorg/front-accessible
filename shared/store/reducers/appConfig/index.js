@@ -1,10 +1,10 @@
 // @flow
 import { DESKTOP_DEVICE, MOBILE_DEVICE } from 'Shared/constants/config';
-import { getLanguageFromCountryCode } from 'Shared/helpers/countries';
 import { i18n } from 'Shared/i18n';
 import { TRANSLATION_NAMESPACE } from 'Shared/i18n/constants';
 import {
   SET_COUNTRY_CONFIGURATION,
+  SET_LANGUAGE_CONFIGURATION,
   SET_DESKTOP_DEVICE,
   SET_MOBILE_DEVICE,
 } from 'Shared/store/actionTypes';
@@ -16,13 +16,22 @@ export function appConfig(
   action: Object
 ) {
   switch (action.type) {
+    case SET_LANGUAGE_CONFIGURATION:
+      return {
+        ...state,
+        language: action.payload.language,
+        translations: i18n.getResourceBundle(
+          action.payload.language,
+          TRANSLATION_NAMESPACE
+        ),
+      };
     case SET_COUNTRY_CONFIGURATION:
       return {
         ...state,
         country: action.payload.country,
-        language: getLanguageFromCountryCode(action.payload.country),
+        language: action.payload.language,
         translations: i18n.getResourceBundle(
-          getLanguageFromCountryCode(action.payload.country),
+          action.payload.language,
           TRANSLATION_NAMESPACE
         ),
       };
