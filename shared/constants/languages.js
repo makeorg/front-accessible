@@ -12,15 +12,7 @@ export const countriesConfiguration = [
     language: 'fr',
   },
   {
-    countryCode: 'BE',
-    language: 'fr',
-  },
-  {
     countryCode: 'LU',
-    language: 'fr',
-  },
-  {
-    countryCode: 'CH',
     language: 'fr',
   },
 ];

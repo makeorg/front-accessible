@@ -5,7 +5,7 @@ import { type StateRoot } from 'Shared/store/types';
 import { type QuestionType } from 'Shared/types/question';
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
 import { PROPOSAL_SUBMIT_FORMNAME } from 'Shared/constants/form';
-import { MAX_PROPOSAL_LENGTH, getBaitText } from 'Shared/constants/proposal';
+import { MAX_PROPOSAL_LENGTH } from 'Shared/constants/proposal';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { SpaceBetweenRowStyle } from 'Client/ui/Elements/FlexElements';
 import { i18n } from 'Shared/i18n';
@@ -13,7 +13,10 @@ import {
   GreyNoBackgroundButtonStyle,
   RedButtonStyle,
 } from 'Client/ui/Elements/Buttons/V2/style';
-import { proposalHasValidLength } from 'Shared/helpers/proposal';
+import {
+  getLocalizedBaitText,
+  proposalHasValidLength,
+} from 'Shared/helpers/proposal';
 import { throttle } from 'Shared/helpers/throttle';
 import {
   MODERATION_CHARTER_FR_LINK,
@@ -60,10 +63,13 @@ export const ProposalForm = ({
   );
   const { country } = useSelector((state: StateRoot) => state.appConfig);
   const proposalIsEmpty = proposalContent.length === 0;
-  const baitText = getBaitText();
+  const baitText = getLocalizedBaitText(
+    question?.language,
+    question?.questionId
+  );
   const isFR = country === 'FR';
   const charCounting = proposalIsEmpty
-    ? baitText.length
+    ? baitText?.length
     : proposalContent.length;
   const disableSubmitButton =
     !proposalHasValidLength(proposalContent.length) || waitingApiCallback;
@@ -114,6 +120,7 @@ export const ProposalForm = ({
             rows={6}
             spellCheck
             maxLength={MAX_PROPOSAL_LENGTH}
+            lang={question.language}
           />
           <ProposalCharCountStyle aria-hidden data-cy-container="char-count">
             {`${charCounting} / ${MAX_PROPOSAL_LENGTH}`}

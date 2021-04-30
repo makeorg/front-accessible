@@ -25,8 +25,10 @@ export const Hero = () => {
   const { country, device } = useSelector(
     (state: StateRoot) => state.appConfig
   );
+  const { homepage } = useSelector((state: StateRoot) => state.views);
   const isDesktop = matchDesktopDevice(device);
   const isFr = country === 'FR';
+  const hasActiveConsultations = homepage?.currentQuestions.length > 0;
 
   return (
     <HeroWrapperStyle as="section" aria-labelledby="hero-title">
@@ -40,15 +42,17 @@ export const Hero = () => {
             {i18n.t('homepage.hero.description')}
           </HeroDescriptionStyle>
           <ColumnToRowToColumnStyle>
-            <HeroRedButtonStyle
-              as="a"
-              href="#current_questions"
-              onClick={() => trackClickHomepageParticipate()}
-              data-cy-link="participate-consultations"
-            >
-              {i18n.t('homepage.hero.participate')}
-              <WhiteArrowDownIcon aria-hidden focusable="false" />
-            </HeroRedButtonStyle>
+            {hasActiveConsultations && (
+              <HeroRedButtonStyle
+                as="a"
+                href="#current_questions"
+                onClick={() => trackClickHomepageParticipate()}
+                data-cy-link="participate-consultations"
+              >
+                {i18n.t('homepage.hero.participate')}
+                <WhiteArrowDownIcon aria-hidden focusable="false" />
+              </HeroRedButtonStyle>
+            )}
             {isFr && (
               <HeroTransparentButtonStyle
                 as="a"
