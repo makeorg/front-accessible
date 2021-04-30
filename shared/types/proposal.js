@@ -4,12 +4,13 @@ import { type OrganisationSoftType } from './organisation';
 import { type VoteType } from './vote';
 
 export type AuthorType = {
-  firstName: string,
-  organisationName: string,
-  organisationSlug: string,
-  postalCode: string,
-  age: number,
-  avatarUrl: string,
+  firstName: string | null,
+  displayName: string | null,
+  organisationName: string | null,
+  organisationSlug: string | null,
+  postalCode: string | null,
+  age: number | null,
+  avatarUrl: string | null,
   userType: string,
 };
 
