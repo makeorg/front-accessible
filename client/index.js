@@ -28,10 +28,12 @@ import { getRouteNoCookies } from 'Shared/routes';
 import { translationRessources } from 'Shared/constants/languages';
 import { CountryListener } from 'Client/app/CountryListener';
 import { USER_PREFERENCES_COOKIE } from 'Shared/constants/cookies';
+import { DEFAULT_LANGUAGE } from 'Shared/constants/config';
 import { NoCookies } from './pages/Static/NoCookies';
 import { history, initHistory } from './app/History';
 import { ErrorBoundary, ServiceErrorHandler } from './app/Error';
 import { initTrackersFromPreferences } from './helper/cookies';
+import { LanguageListener } from './app/LanguageListener';
 
 window.onerror = (message, source, lineNumber, columnNumber, error) => {
   if (error && error.stack) {
@@ -95,7 +97,7 @@ const initApp = async state => {
       escapeValue: false,
     },
     debug: env.isDev(),
-    lng: language,
+    lng: language || DEFAULT_LANGUAGE,
     resources: translationRessources,
   });
 
@@ -122,6 +124,7 @@ const initApp = async state => {
   // Set tracking params
   trackingParamsService.source = source;
   trackingParamsService.country = country;
+  trackingParamsService.language = language;
 
   const { currentQuestion, questions, customData } = store.getState();
   if (currentQuestion && questions[currentQuestion]) {
@@ -183,6 +186,7 @@ const initApp = async state => {
             <Router history={history}>
               <React.StrictMode>
                 <CountryListener />
+                <LanguageListener />
                 <AppContainer />
               </React.StrictMode>
             </Router>

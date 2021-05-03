@@ -3,7 +3,6 @@
 
 import axios from 'axios';
 import axiosRetry from 'axios-retry';
-import * as UrlHelper from 'Shared/helpers/url';
 import { Logger } from 'Shared/services/Logger';
 import { APP_NAME } from 'Shared/constants/config';
 import { v4 as uuidv4 } from 'uuid';
@@ -126,7 +125,7 @@ export const handleErrors = (
 class ApiServiceSharedClass {
   // eslint-disable-next-line class-methods-use-this
   callApi(url: string, options: Object = {}): Promise<any> {
-    const paramsQuery = UrlHelper.getParamsQuery(LOCATION_PARAMS);
+    const paramsQuery = new URLSearchParams(LOCATION_PARAMS).toString();
     const requestId = uuidv4();
     const defaultHeaders = {
       'Content-Type': 'application/json; charset=UTF-8',

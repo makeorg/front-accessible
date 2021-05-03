@@ -1,5 +1,4 @@
 import { getTrackingLocation } from 'Shared/api/ApiService/getLocationContext';
-import { getLanguageFromCountryCode } from 'Shared/helpers/countries';
 
 /* @flow */
 class TrackingParamsServiceClass {
@@ -48,7 +47,13 @@ class TrackingParamsServiceClass {
   set country(country: string) {
     if (this._country !== country) {
       this._country = country;
-      this._language = getLanguageFromCountryCode(country);
+      this._dispatchUpdate();
+    }
+  }
+
+  set language(language: string) {
+    if (this._language !== language) {
+      this._language = language;
       this._dispatchUpdate();
     }
   }

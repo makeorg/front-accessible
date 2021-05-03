@@ -37,12 +37,6 @@ import {
 } from 'Shared/routes';
 import { env } from 'Shared/env';
 
-export const getParamsQuery = (searchParams: string) => {
-  const params = new URLSearchParams(searchParams);
-
-  return params.toString();
-};
-
 export const getRelativeCurrentUrl = (pathName: string) =>
   `${env.frontUrl()}${pathName}`;
 

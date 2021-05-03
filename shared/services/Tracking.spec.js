@@ -91,6 +91,7 @@ const eventParameters = {
 trackingParamsService.location = eventParameters.location;
 trackingParamsService.source = eventParameters.source;
 trackingParamsService.country = eventParameters.country;
+trackingParamsService.language = eventParameters.language;
 trackingParamsService.questionId = eventParameters.questionId;
 trackingParamsService.questionSlug = eventParameters.questionSlug;
 trackingParamsService.referrer = eventParameters.referrer;
