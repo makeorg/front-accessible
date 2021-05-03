@@ -28,6 +28,7 @@ import { getRouteNoCookies } from 'Shared/routes';
 import { translationRessources } from 'Shared/constants/languages';
 import { CountryListener } from 'Client/app/CountryListener';
 import { USER_PREFERENCES_COOKIE } from 'Shared/constants/cookies';
+import { DEFAULT_LANGUAGE } from 'Shared/constants/config';
 import { NoCookies } from './pages/Static/NoCookies';
 import { history, initHistory } from './app/History';
 import { ErrorBoundary, ServiceErrorHandler } from './app/Error';
@@ -96,7 +97,7 @@ const initApp = async state => {
       escapeValue: false,
     },
     debug: env.isDev(),
-    lng: language,
+    lng: language || DEFAULT_LANGUAGE,
     resources: translationRessources,
   });
 

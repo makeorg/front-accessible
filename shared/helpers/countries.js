@@ -28,11 +28,14 @@ export const getLanguageFromCountryCode = (countryCode: string) => {
 };
 
 const languageStorageKey = 'language';
-export const languageStorage = {
-  set: value => sessionStorage.setItem(languageStorageKey, value),
-  get: () => sessionStorage.getItem(languageStorageKey),
-  hasValue: () => !!sessionStorage.getItem(languageStorageKey),
-  delete: () => sessionStorage.removeItem(languageStorageKey),
+const languageStorage = {
+  set: (language, country) =>
+    sessionStorage.setItem(`${languageStorageKey}_${country}`, language),
+  get: country => sessionStorage.getItem(`${languageStorageKey}_${country}`),
+  hasValue: country =>
+    !!sessionStorage.getItem(`${languageStorageKey}_${country}`),
+  delete: country =>
+    sessionStorage.removeItem(`${languageStorageKey}_${country}`),
   isAvailable: () =>
     typeof window !== 'undefined' && window && !!sessionStorage,
 };
@@ -45,8 +48,8 @@ export const getLanguageFromParams = (
     return queryLanguageParam.toLowerCase();
   }
 
-  if (languageStorage.isAvailable() && languageStorage.hasValue()) {
-    return languageStorage.get();
+  if (languageStorage.isAvailable() && languageStorage.hasValue(countryCode)) {
+    return languageStorage.get(countryCode);
   }
 
   return getLanguageFromCountryCode(countryCode);
@@ -56,13 +59,13 @@ export const setCountry = country => {
   trackingParamsService.country = country;
 };
 
-export const setLanguage = (language, cloneI18nInstance = false) => {
+export const setLanguage = (language, country, cloneI18nInstance = false) => {
   if (cloneI18nInstance) {
     i18n.cloneInstance();
   }
-  i18n.changeLanguage(language);
-  DateHelper.language = language;
+  i18n.changeLanguage(language || DEFAULT_LANGUAGE);
+  DateHelper.language = language || DEFAULT_LANGUAGE;
   if (languageStorage.isAvailable()) {
-    languageStorage.set(language);
+    languageStorage.set(language || DEFAULT_LANGUAGE, country);
   }
 };

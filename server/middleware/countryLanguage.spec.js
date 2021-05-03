@@ -26,37 +26,6 @@ describe('Country Language middelware', () => {
 
       expect(country).toBe('GB');
     });
-
-    it('country is set by x-forced-country header', () => {
-      const request = httpMocks.createRequest({
-        headers: { 'x-forced-country': 'ES' },
-      });
-      const response = httpMocks.createResponse();
-
-      const country = getCountryFromRequest(request, response, () => {});
-
-      expect(country).toBe('ES');
-    });
-
-    it('country is set by x-dectected-country header', () => {
-      const request = httpMocks.createRequest({
-        headers: { 'x-detected-country': 'IT' },
-      });
-      const response = httpMocks.createResponse();
-
-      const country = getCountryFromRequest(request, response, () => {});
-
-      expect(country).toBe('IT');
-    });
-
-    it('country is set by default', () => {
-      const request = httpMocks.createRequest();
-      const response = httpMocks.createResponse();
-
-      const country = getCountryFromRequest(request, response, () => {});
-
-      expect(country).toBe('FR');
-    });
   });
 
   describe('countryLanguageMiddleware function', () => {

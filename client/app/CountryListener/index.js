@@ -3,6 +3,7 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useRouteMatch, useLocation } from 'react-router';
+import { DEFAULT_COUNTRY, DEFAULT_LANGUAGE } from 'Shared/constants/config';
 import { getLanguageFromParams } from 'Shared/helpers/countries';
 import { ROUTE_COUNTRY, BASE_PREVIEW_PATH } from 'Shared/routes';
 import { setCountryCode } from 'Shared/store/actions/appConfig';
@@ -29,7 +30,7 @@ export const CountryListener = () => {
           )
         );
       } else {
-        dispatch(setCountryCode(null));
+        dispatch(setCountryCode(DEFAULT_COUNTRY, DEFAULT_LANGUAGE));
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -7,7 +7,7 @@ import { getHomeLink } from 'Shared/helpers/url';
 import { setCountryCode } from 'Shared/store/actions/appConfig';
 import {
   compareCountriesByName,
-  getLanguageFromCountryCode,
+  getLanguageFromParams,
 } from 'Shared/helpers/countries';
 import { modalClose } from 'Shared/store/actions/modal';
 import {
@@ -38,9 +38,7 @@ export const SwitchCountry = () => {
       return () => {};
     }
 
-    dispatch(
-      setCountryCode(countryCode, getLanguageFromCountryCode(countryCode))
-    );
+    dispatch(setCountryCode(countryCode, getLanguageFromParams(countryCode)));
 
     return dispatch(modalClose());
   };
