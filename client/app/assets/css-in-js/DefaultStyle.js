@@ -87,6 +87,13 @@ export const DefaultStylesheet = createGlobalStyle`
     margin: 0;
   }
 
+  button,
+  [type='button'],
+  [type='reset'],
+  [type='submit'] {
+    -webkit-appearance: none;
+  }
+
   @keyframes fadeOut {
     0% {
       opacity: 1;
