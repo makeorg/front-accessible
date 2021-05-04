@@ -18,6 +18,7 @@ export type StateConfig = $ReadOnly<{
   translations: Object,
   countriesWithConsultations: [],
   device: string,
+  privacyPolicy: Date,
 }>;
 
 // Config Homepage
@@ -104,8 +105,11 @@ export type StateQuestions = $ReadOnly<{
 export type StateModal = $ReadOnly<{
   isOpen: boolean,
   showExpirationSession: boolean,
+  showDataPolicy: boolean,
+  showCookies: boolean,
   contentType: string,
   focusAfterClose: boolean,
+  extraProps: any,
 }>;
 
 export type StateActor = $ReadOnly<{

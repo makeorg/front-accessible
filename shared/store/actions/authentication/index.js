@@ -110,9 +110,11 @@ export const getUser = (afterRegistration?: boolean) => async (
   return null;
 };
 
-export const login = (email: string, password: string) => (
-  dispatch: Dispatch
-) => {
+export const login = (
+  email: string,
+  password: string,
+  approvePrivacyPolicy: boolean
+) => (dispatch: Dispatch) => {
   dispatch(loginRequest());
   const success = (): void => {
     dispatch(loginSuccess());
@@ -143,12 +145,14 @@ export const login = (email: string, password: string) => (
     trackLoginEmailFailure();
   };
 
-  UserService.login(email, password, success, errors);
+  UserService.login(email, password, approvePrivacyPolicy, success, errors);
 };
 
-export const loginSocial = (provider: string, socialToken: string) => (
-  dispatch: Dispatch
-) => {
+export const loginSocial = (
+  provider: string,
+  socialToken: string,
+  approvePrivacyPolicy: boolean
+) => (dispatch: Dispatch) => {
   dispatch(loginSocialRequest(provider));
   if (!socialToken) {
     dispatch(loginSocialFailure());
@@ -173,16 +177,20 @@ export const loginSocial = (provider: string, socialToken: string) => (
     trackAuthenticationSocialFailure(provider);
   };
 
-  return UserService.loginSocial(provider, socialToken, success, failure).then(
-    auth => {
-      if (auth) {
-        trackAuthenticationSocialSuccess(
-          provider,
-          auth.account_creation.toString()
-        );
-      }
+  return UserService.loginSocial(
+    provider,
+    socialToken,
+    approvePrivacyPolicy,
+    success,
+    failure
+  ).then(auth => {
+    if (auth) {
+      trackAuthenticationSocialSuccess(
+        provider,
+        auth.account_creation.toString()
+      );
     }
-  );
+  });
 };
 
 export const logout = (afterAccountDeletion?: boolean) => (

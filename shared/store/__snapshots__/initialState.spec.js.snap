@@ -13,9 +13,11 @@ Object {
   "currentQuestion": "",
   "modal": Object {
     "contentType": "",
+    "extraProps": Object {},
     "focusAfterClose": true,
     "isOpen": false,
     "showCookies": false,
+    "showDataPolicy": false,
     "showExpirationSession": false,
   },
   "notifications": Object {

@@ -11,6 +11,8 @@ describe('Modal reducer', () => {
       showExpirationSession: false,
       showCookies: false,
       focusAfterClose: true,
+      extraProps: {},
+      showDataPolicy: false,
     };
 
     expect(modal(undefined, {})).toEqual(expectedState);
@@ -109,6 +111,48 @@ describe('Modal reducer', () => {
     expect(modal(previousState, action)).toEqual(expectedState);
   });
 
+  it('Show login data policy action reducers', () => {
+    const action = {
+      type: 'MODAL_SHOW_DATAPOLICY_LOGIN',
+      payload: { email: 'foo', password: 'bar' },
+    };
+    const previousState = {
+      isOpen: true,
+      contentType: '',
+    };
+
+    const expectedState = {
+      isOpen: false,
+      contentType: '',
+      showDataPolicy: true,
+      isLogin: true,
+      extraProps: { email: 'foo', password: 'bar' },
+    };
+
+    expect(modal(previousState, action)).toEqual(expectedState);
+  });
+
+  it('Show social data policy action reducers', () => {
+    const action = {
+      type: 'MODAL_SHOW_DATAPOLICY_SOCIAL',
+      payload: { provider: 'foo', token: 'bar' },
+    };
+    const previousState = {
+      isOpen: true,
+      contentType: '',
+    };
+
+    const expectedState = {
+      isOpen: false,
+      contentType: '',
+      showDataPolicy: true,
+      isLogin: false,
+      extraProps: { provider: 'foo', token: 'bar' },
+    };
+
+    expect(modal(previousState, action)).toEqual(expectedState);
+  });
+
   it('Close cookie action reducers', () => {
     const action = { type: 'MODAL_CLOSE_COOKIES' };
     const previousState = {
@@ -117,6 +161,26 @@ describe('Modal reducer', () => {
 
     const expectedState = {
       showCookies: false,
+    };
+
+    expect(modal(previousState, action)).toEqual(expectedState);
+  });
+
+  it('Close data policy action reducers', () => {
+    const action = {
+      type: 'MODAL_CLOSE_DATAPOLICY',
+      payload: { extraProps: { email: 'foo', password: 'bar' } },
+    };
+    const previousState = {
+      isOpen: false,
+      showDataPolicy: true,
+      extraProps: { email: 'foo', password: 'bar' },
+    };
+
+    const expectedState = {
+      isOpen: false,
+      showDataPolicy: false,
+      extraProps: {},
     };
 
     expect(modal(previousState, action)).toEqual(expectedState);

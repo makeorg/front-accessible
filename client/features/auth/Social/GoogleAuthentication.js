@@ -1,23 +1,53 @@
 // @flow
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import GoogleLogin from 'react-google-login';
 import { GOOGLE_PROVIDER_ENUM } from 'Shared/api/UserApiService';
 import { GOOGLE_LOGIN_ID } from 'Shared/constants/config';
-import { loginSocial } from 'Shared/store/actions/authentication';
 import { SvgGoogleLogoG } from 'Client/ui/Svg/elements';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
-import { GoogleButtonStyle } from './style';
+import { UserService } from 'Shared/services/User';
+import {
+  modalClose,
+  modalShowDataPolicySocial,
+} from 'Shared/store/actions/modal';
+import { trackAuthenticationSocialFailure } from 'Shared/services/Tracking';
 
+import {
+  loginSocialSuccess,
+  getUser,
+} from 'Shared/store/actions/authentication';
+import { GoogleButtonStyle } from './style';
 /**
  * Handles Google authentication
  */
 export const GoogleAuthentication = () => {
   const dispatch = useDispatch();
-
+  const { privacyPolicy } = useSelector((state: StateRoot) => state.appConfig);
   /** Google login method callback */
   const handleGoogleLoginCallback = response => {
-    dispatch(loginSocial(GOOGLE_PROVIDER_ENUM, response.accessToken));
+    const success = () => {
+      dispatch(loginSocialSuccess());
+      dispatch(getUser());
+    };
+
+    const handleErrors = () => {
+      trackAuthenticationSocialFailure();
+    };
+    const unexpectedError = () => dispatch(modalClose());
+
+    UserService.checkSocialPrivacyPolicy(
+      GOOGLE_PROVIDER_ENUM,
+      response.accessToken,
+      privacyPolicy,
+      () =>
+        dispatch(
+          modalShowDataPolicySocial(GOOGLE_PROVIDER_ENUM, response.accessToken)
+        ),
+      success,
+      handleErrors,
+      unexpectedError
+    );
   };
 
   return (

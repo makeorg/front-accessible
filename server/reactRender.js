@@ -20,7 +20,11 @@ import {
 } from 'Shared/constants/notifications';
 import { env } from 'Shared/env';
 import { SecureExpiredMessage } from 'Client/app/Notifications/Banner/SecureExpired';
-import { DESKTOP_DEVICE, MOBILE_DEVICE } from 'Shared/constants/config';
+import {
+  DESKTOP_DEVICE,
+  MOBILE_DEVICE,
+  PRIVACY_POLICY_DATE,
+} from 'Shared/constants/config';
 import { CLIENT_DIR } from './paths';
 import { logInfo } from './ssr/helpers/ssr.helper';
 import { ViewsService } from './service/ViewsService';
@@ -117,6 +121,7 @@ export const reactRender = async (req, res, routeState = {}) => {
         banner: notificationBanner,
       },
       device: isMobileOrTablet ? MOBILE_DEVICE : DESKTOP_DEVICE,
+      privacyPolicy: PRIVACY_POLICY_DATE,
     },
   };
 

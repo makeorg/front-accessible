@@ -53,3 +53,17 @@ export const modalShowCountries = (focusAfterClose: boolean) => ({
   type: actionTypes.MODAL_SHOW_COUNTRIES,
   payload: { focusAfterClose },
 });
+
+export const modalShowDataPolicyLogin = (email: string, password: string) => ({
+  type: actionTypes.MODAL_SHOW_DATAPOLICY_LOGIN,
+  payload: { email, password },
+});
+
+export const modalShowDataPolicySocial = (provider: string, token: string) => ({
+  type: actionTypes.MODAL_SHOW_DATAPOLICY_SOCIAL,
+  payload: { provider, token },
+});
+
+export const modalCloseDataPolicy = () => ({
+  type: actionTypes.MODAL_CLOSE_DATAPOLICY,
+});

@@ -6,7 +6,7 @@ import { FlexElementStyle } from 'Client/ui/Elements/FlexElements';
 import { WhiteButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { MakeFonts } from '../assets/vars/Fonts';
 
-export const DataPolicyContentStyle = styled.div`
+export const DataPolicyContentStyle = styled.form`
   display: flex;
   flex-flow: column;
   align-items: start;

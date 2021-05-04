@@ -38,6 +38,9 @@ export const CheckboxLabelStyle = styled.label`
   a {
     color: ${color.brandSecondary};
   }
+  strong {
+    font-family: ${MakeFonts.CircularStandardBold};
+  }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: ${intToPx(typography.font.fontsize.XS.value)};
   }

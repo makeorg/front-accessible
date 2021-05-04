@@ -9,7 +9,7 @@ import {
 } from 'Client/app/Styled/MainElements';
 import { NAVIGATION_ARIA_CLASS, PANEL_ARIA_CLASS } from 'Shared/constants/a11y';
 import { CookieModal } from 'Client/app/CookieModal';
-// import { PrivacyPolicyModal } from 'Client/app/PrivacyPolicyModal';
+import { PrivacyPolicyModal } from 'Client/app/PrivacyPolicyModal';
 import { MAIN_CONTENT } from 'Shared/constants/ids';
 import { NotificationBanner } from 'Client/ui/Elements/Notifications/Banner';
 import { updateDeviceInState } from 'Client/helper/updateDeviceInState';
@@ -35,6 +35,7 @@ export const AppContainer = () => {
   const { device, country } = useSelector(
     (state: StateRoot) => state.appConfig
   );
+  const { showDataPolicy } = useSelector((state: StateRoot) => state.modal);
 
   const dispatch = useDispatch();
 
@@ -59,8 +60,7 @@ export const AppContainer = () => {
     <SecureExpiration>
       <SessionExpiration>
         {hasCountry && <CookieModal />}
-        {/** PrivacyPolicyModal has only styles, waiting for logic to be implemented https://makeorg.atlassian.net/browse/MP-1896 */}
-        {/* <PrivacyPolicyModal /> */}
+        {showDataPolicy && <PrivacyPolicyModal />}
         <ServiceErrorHandler>
           <ErrorBoundary>
             {/** page_wrapper id is used to set page background color in usePageBackgroundColor hook */}

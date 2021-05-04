@@ -6,6 +6,8 @@ import {
   PATH_USER,
   PATH_USER_PROPOSALS,
   PATH_USER_FAVOURITES,
+  PATH_USER_PRIVACY_POLICY,
+  PATH_USER_SOCIAL_PRIVACY_POLICY,
 } from './UserApiService';
 
 jest.mock('./ApiService');
@@ -124,6 +126,42 @@ describe('UserApiService', () => {
             limit: PROPOSALS_LISTING_LIMIT,
             skip: 0,
           },
+        }
+      );
+    });
+  });
+
+  describe('login privacy policy', () => {
+    it('must call ApiService.callApi', async () => {
+      await UserApiService.loginPrivacyPolicy('foo', 'bar');
+      expect(ApiService.callApi).toHaveBeenNthCalledWith(
+        1,
+        PATH_USER_PRIVACY_POLICY,
+        {
+          method: 'POST',
+          headers: {},
+          body: JSON.stringify({
+            email: 'foo',
+            password: 'bar',
+          }),
+        }
+      );
+    });
+  });
+
+  describe('social login privacy policy', () => {
+    it('must call ApiService.callApi', async () => {
+      await UserApiService.socialPrivacyPolicy('foo', 'bar');
+      expect(ApiService.callApi).toHaveBeenNthCalledWith(
+        1,
+        PATH_USER_SOCIAL_PRIVACY_POLICY,
+        {
+          method: 'POST',
+          headers: {},
+          body: JSON.stringify({
+            provider: 'foo',
+            token: 'bar',
+          }),
         }
       );
     });

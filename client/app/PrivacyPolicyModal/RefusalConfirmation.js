@@ -1,10 +1,11 @@
 // @flow
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { i18n } from 'Shared/i18n';
 import { RedButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { getDataPageLink } from 'Shared/helpers/url';
-import { useSelector } from 'react-redux';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
+import { modalCloseDataPolicy } from 'Shared/store/actions/modal';
 import {
   DataPolicyNewWindowLinkStyle,
   NewWindowIconStyle,
@@ -23,12 +24,13 @@ type Props = {
 };
 
 export const RefusalConfirmation = ({ toggleConfirmation }: Props) => {
+  const dispatch = useDispatch();
   const { country } = useSelector((state: StateRoot) => state.appConfig);
   const handleClick = () => {
     toggleConfirmation();
   };
   const handleClose = () => {
-    // dispatch(modalClosePrivacyModal);
+    dispatch(modalCloseDataPolicy());
   };
 
   return (

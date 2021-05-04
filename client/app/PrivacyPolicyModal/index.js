@@ -11,7 +11,6 @@ ReactModal.setAppElement('#app');
 
 export const PrivacyPolicyModal = () => {
   const [confirmation, setConfirmation] = useState(false);
-
   const toggleConfirmation = () => {
     setConfirmation(!confirmation);
   };
