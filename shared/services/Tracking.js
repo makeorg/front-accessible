@@ -504,6 +504,10 @@ export const trackDisplayLegalConsent = () => {
   TrackingService.sendAllTrackers(trackingEvent.DISPLAY_LEGAL_CONSENT());
 };
 
+export const trackClickCitizenRegister = () => {
+  TrackingService.sendAllTrackers(trackingEvent.CLICK_CITIZEN_REGISTER());
+};
+
 // session
 export const trackDisplaySessionExpired = () => {
   TrackingService.sendAllTrackers(trackingEvent.DISPLAY_SESSION_EXPIRED());

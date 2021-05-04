@@ -72,6 +72,7 @@ import {
   trackClickModalCookieBack,
   trackClickCookieSwitchAccept,
   trackClickCookieSwitchRefuse,
+  trackClickCitizenRegister,
 } from './Tracking';
 import { FacebookTracking } from './Trackers/FacebookTracking';
 import { TwitterTracking } from './Trackers/TwitterTracking';
@@ -1141,6 +1142,18 @@ describe('Tracking Service', () => {
   it('track click Modal Cookie Back', () => {
     const eventName = trackingConfiguration.CLICK_COOKIE_MODAL_BACK.key;
     trackClickModalCookieBack();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {});
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
+      1,
+      eventName,
+      eventParameters
+    );
+    expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
+  });
+
+  it('track click citizen register', () => {
+    const eventName = trackingConfiguration.CLICK_CITIZEN_REGISTER.key;
+    trackClickCitizenRegister();
     expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {});
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
       1,

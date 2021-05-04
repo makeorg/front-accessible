@@ -5,6 +5,7 @@ import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { QuestionService } from 'Shared/services/Question';
 import { DeprecatedProposalAuthor } from 'Client/ui/Proposal/DeprecatedAuthor';
 import { getProposalLink, getExploreLink } from 'Shared/helpers/url';
+import { trackClickExploreTab } from 'Shared/services/Tracking';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { CONSULTATION_NAVIGATION } from 'Shared/constants/ids';
 import { scrollToElementId } from 'Shared/helpers/styled';
@@ -47,6 +48,10 @@ export const FeaturedProposals = ({ question }: Props) => {
   }, []);
 
   const hasFeaturedProposals = featuredProposals.length > 0;
+  const handleClick = () => {
+    scrollToElementId(CONSULTATION_NAVIGATION);
+    trackClickExploreTab();
+  };
 
   if (!hasFeaturedProposals) {
     return null;
@@ -85,7 +90,7 @@ export const FeaturedProposals = ({ question }: Props) => {
       </>
       <ExploreLinkStyle
         to={getExploreLink(country, question.slug, pageId)}
-        onClick={() => scrollToElementId(CONSULTATION_NAVIGATION)}
+        onClick={handleClick}
       >
         {i18n.t('consultation.navigation.explore_desktop')}
       </ExploreLinkStyle>
