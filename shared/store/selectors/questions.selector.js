@@ -1,4 +1,5 @@
 /* @flow */
+import { Logger } from 'Shared/services/Logger';
 import { type StateRoot } from '../types';
 
 /**
@@ -19,6 +20,15 @@ export const selectQuestionData = (state: StateRoot, questionSlug: ?string) => {
  */
 export const selectQuestion = (state: StateRoot, questionSlug: ?string) => {
   const data = selectQuestionData(state, questionSlug);
+
+  // Log to debug https://makeorg.atlassian.net/browse/MP-1974
+  // Remove after fix
+  if (!data?.question) {
+    Logger.logError(
+      `selectQuestion in state failed for questionSlug : ${questionSlug}`
+    );
+  }
+
   return data && data.question;
 };
 
