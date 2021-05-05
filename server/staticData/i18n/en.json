@@ -483,7 +483,7 @@
     "stay": "I stay",
     "leave": "I leave",
     "refusal_title": "Are you sure you want to leave?",
-    "refusal_description_first_part": "By declining our new data policy",
+    "refusal_description_first_part": "By declining our new ",
     "refusal_description_second_part": ", you will no longer be able to access your Make.org citizen space."
   },
   "not_found": {

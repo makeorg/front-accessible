@@ -108,6 +108,7 @@ export const Register = () => {
     await UserService.login(
       email,
       password,
+      undefined,
       success,
       handleErrors,
       unexpectedError
