@@ -290,6 +290,10 @@ DISPLAY_LEGAL_CONSENT:
     key: display-legal-consent
     description: Display legal consent
 
+CLICK_CITIZEN_REGISTER:
+    key: click-register
+    description: click to register on citizen block
+    
 DISPLAY_PROPOSAL_FIELD:
     key: display-proposal-field
     description: Display proposal form

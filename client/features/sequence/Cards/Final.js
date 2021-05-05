@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   trackDisplayFinalCard,
   trackClickOperationPage,
+  trackClickCitizenRegister,
 } from 'Shared/services/Tracking';
 import { i18n } from 'Shared/i18n';
 import { resetSequenceVotedProposals } from 'Shared/store/actions/sequence';
@@ -24,6 +25,10 @@ export const FinalCard = () => {
   const dispatch = useDispatch();
   const { country } = useParams();
   const currentQuestion: string = useSelector(state => state.currentQuestion);
+  const handleClick = () => {
+    dispatch(modalShowRegister());
+    trackClickCitizenRegister();
+  };
 
   useEffect(() => {
     trackDisplayFinalCard();
@@ -52,7 +57,7 @@ export const FinalCard = () => {
       <FinalCardRegisterStyle data-cy-container="final-card-register-intro">
         {i18n.t('final_card.register.button_intro')}
         <RedLinkButtonStyle
-          onClick={() => dispatch(modalShowRegister())}
+          onClick={handleClick}
           data-cy-button="final-card-register-button"
         >
           {i18n.t('final_card.register.button_text')}

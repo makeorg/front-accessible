@@ -312,6 +312,11 @@ Following parameters are added to all events.
     
   
 
+  - `click-register` click to register on citizen block
+
+    
+  
+
   - `display-proposal-field` Display proposal form
 
     
