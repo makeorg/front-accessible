@@ -19,32 +19,30 @@ type Props = {
 };
 
 export const QuestionWrapper = ({ children, withRedirect }: Props) => {
-  const params = useParams();
   const dispatch = useDispatch();
-  const { country } = useParams();
+  const { country, questionSlug } = useParams();
   const currentQuestion: QuestionType = useSelector((state: StateRoot) =>
     selectCurrentQuestion(state)
   );
   const currentQuestionSlug = useSelector(
     (state: StateRoot) => state.currentQuestion
   );
-  const { questionSlug } = params;
   const [alternativeContent, setAlternativeContent] = useState(
     <MiddlePageWrapperStyle>
       <Spinner />
     </MiddlePageWrapperStyle>
   );
 
-  const updateQuestion = () => {
-    QuestionService.getDetail(
+  const updateQuestion = async () => {
+    const question = await QuestionService.getDetail(
       questionSlug,
       () => setAlternativeContent(<NotFoundPage />),
       country
-    ).then(questionDetail => {
-      if (questionDetail) {
-        dispatch(loadQuestion(questionDetail));
-      }
-    });
+    );
+
+    if (question) {
+      dispatch(loadQuestion(question));
+    }
   };
 
   useEffect(() => {

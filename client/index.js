@@ -129,7 +129,14 @@ const initApp = async state => {
   const { currentQuestion, questions, customData } = store.getState();
   if (currentQuestion && questions[currentQuestion]) {
     updateTrackingQuestionParam(questions[currentQuestion].question);
+  } else {
+    // Log to debug https://makeorg.atlassian.net/browse/MP-1974
+    // Remove after fix
+    Logger.logError(
+      `Cannot find ,question for currentQuestion : ${currentQuestion}`
+    );
   }
+
   if (customData) {
     updateRequestContextCustomData(customData);
   }

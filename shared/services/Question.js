@@ -9,6 +9,7 @@ import {
 import { type TagType } from 'Shared/types/tag';
 import { type PersonalityType } from 'Shared/types/user';
 import { defaultUnexpectedError } from './DefaultErrorHandler';
+import { Logger } from './Logger';
 
 const getQuestions = async (
   country: string,
@@ -43,6 +44,9 @@ const getDetail = async (
     const { data } = await QuestionApiService.getDetail(questionSlugOrId);
     if (country !== undefined && !data?.countries?.includes(country)) {
       notFound();
+      Logger.logError(
+        `Country : ${country} is not defined or available for question : ${questionSlugOrId}. Available countries in question are : ${data.countries}`
+      );
 
       return null;
     }
