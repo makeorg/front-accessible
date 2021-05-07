@@ -313,3 +313,60 @@ export const isSequencePage = (
   includingPreview: ?boolean = true
 ) =>
   matchRoute(pathname, ROUTE_SEQUENCE, false, false, false, includingPreview);
+
+export const isPopularSequencePage = (
+  pathname: string,
+  includingPreview: ?boolean = true
+) =>
+  matchRoute(
+    pathname,
+    ROUTE_SEQUENCE_POPULAR,
+    false,
+    false,
+    false,
+    includingPreview
+  );
+
+export const isControversialSequencePage = (
+  pathname: string,
+  includingPreview: ?boolean = true
+) =>
+  matchRoute(
+    pathname,
+    ROUTE_SEQUENCE_CONTROVERSIAL,
+    false,
+    false,
+    false,
+    includingPreview
+  );
+
+export const isKeywordSequencePage = (
+  pathname: string,
+  includingPreview: ?boolean = true
+) =>
+  matchRoute(
+    pathname,
+    ROUTE_SEQUENCE_KEYWORD,
+    false,
+    false,
+    false,
+    includingPreview
+  );
+
+export const getConsultationPages = (
+  pathname: string,
+  includingPreview: ?boolean = true
+) => {
+  const operationPages =
+    isSequencePage(pathname, includingPreview) ||
+    isPopularSequencePage(pathname, includingPreview) ||
+    isControversialSequencePage(pathname, includingPreview) ||
+    isKeywordSequencePage(pathname, includingPreview) ||
+    isExplorePage(pathname, includingPreview) ||
+    isParticipatePage(pathname, includingPreview) ||
+    isResultsPage(pathname, includingPreview) ||
+    isTopIdeasPage(pathname, includingPreview) ||
+    isTopIdeaDetailsPage(pathname, includingPreview);
+
+  return operationPages;
+};
