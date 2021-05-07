@@ -172,9 +172,13 @@ export const Vote = ({
   useEffect(() => {
     if (isFirstSequenceVote) {
       dispatch(displayNotificationTip(FIRST_VOTE_TIP_MESSAGE, undefined, true));
+
+      return () => {
+        dispatch(clearNotificationTip());
+      };
     }
 
-    return () => dispatch(clearNotificationTip());
+    return null;
   }, [dispatch, isFirstSequenceVote]);
 
   if (userVote && votedKey) {
