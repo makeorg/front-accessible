@@ -5,7 +5,6 @@ import {
   ACTIVATION_SUCCESS_MESSAGE,
   ACTIVATION_FAILURE_MESSAGE,
 } from 'Shared/constants/notifications';
-import { updateTrackingQuestionParam } from 'Shared/store/middleware/question';
 import { UserService } from '../service/UserService';
 import { reactRender } from '../reactRender';
 import { QuestionService } from '../service/QuestionService';
@@ -61,7 +60,6 @@ export const accountActivationRoute = async (req, res) => {
     }
 
     routeState.currentQuestion = question.slug;
-    updateTrackingQuestionParam(question);
     routeState.questions = {
       [question.slug]: {
         question,

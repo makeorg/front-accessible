@@ -53,6 +53,7 @@ export const QuestionWrapper = ({ children, withRedirect }: Props) => {
 
     if (questionDetails) {
       dispatch(loadQuestion(questionDetails));
+      dispatch(updateCurrentQuestion(questionSlug));
     }
   };
 
@@ -61,7 +62,7 @@ export const QuestionWrapper = ({ children, withRedirect }: Props) => {
       updateQuestion();
     }
 
-    if (currentQuestionSlug !== questionSlug) {
+    if (currentQuestionSlug !== questionSlug && questionIsInState) {
       dispatch(updateCurrentQuestion(questionSlug));
     }
 
