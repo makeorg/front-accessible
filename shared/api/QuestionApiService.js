@@ -6,7 +6,9 @@ import { ApiService } from './ApiService';
 const PATH_QUESTIONS_LIST = '/questions';
 const PATH_QUESTIONS_SEARCH = '/questions/search';
 const PATH_QUESTION_DETAIL = '/questions/:questionSlugOrId/details';
-const PATH_QUESTION_START_SEQUENCE = '/questions/:questionId/start-sequence';
+const PATH_QUESTION_START_SEQUENCE_ZONE = '/sequences/:zone/:questionId';
+const PATH_QUESTION_START_SEQUENCE_KEYWORD =
+  '/sequences/keyword/:questionId/:keywordKey';
 const PATH_QUESTION_PARTNERS = '/questions/:questionId/partners';
 const PATH_QUESTION_PERSONALITIES = '/questions/:questionId/personalities';
 const PATH_QUESTION_POPULAR_TAGS = '/questions/:questionId/popular-tags';
@@ -95,17 +97,16 @@ export class QuestionApiService {
     );
   }
 
-  static startSequence(
+  static startSequenceByZone(
     questionId: string,
     includedProposalIds: string[] = [],
-    zone?: string,
-    keyword?: string,
+    zone: string,
     headers?: ApiServiceHeadersType = {}
   ): Promise<any> {
-    let startSequenceUrl = PATH_QUESTION_START_SEQUENCE.replace(
-      ':questionId',
-      questionId
-    );
+    let startSequenceUrl = PATH_QUESTION_START_SEQUENCE_ZONE.replace(
+      ':zone',
+      zone
+    ).replace(':questionId', questionId);
     // remove null value
     const includeParams = includedProposalIds
       .map(proposalId => (proposalId ? `include=${proposalId}` : ''))
@@ -116,7 +117,31 @@ export class QuestionApiService {
     return ApiService.callApi(startSequenceUrl, {
       method: 'GET',
       headers,
-      params: { zone, keyword },
+      params: { zone },
+    });
+  }
+
+  static startSequenceByKeyword(
+    questionId: string,
+    includedProposalIds: string[] = [],
+    keyword: string,
+    headers?: ApiServiceHeadersType = {}
+  ): Promise<any> {
+    let startSequenceUrl = PATH_QUESTION_START_SEQUENCE_KEYWORD.replace(
+      ':questionId',
+      questionId
+    ).replace(':keywordKey', keyword);
+    // remove null value
+    const includeParams = includedProposalIds
+      .map(proposalId => (proposalId ? `include=${proposalId}` : ''))
+      .join('&');
+
+    startSequenceUrl += includeParams ? `?${includeParams}` : '';
+
+    return ApiService.callApi(startSequenceUrl, {
+      method: 'GET',
+      headers,
+      params: { keyword },
     });
   }
 

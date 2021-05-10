@@ -28,7 +28,6 @@ import {
 } from 'Shared/constants/card';
 import { getParticipateLink } from 'Shared/helpers/url';
 import { i18n } from 'Shared/i18n';
-
 import { SequenceCard } from './Cards';
 import {
   SequenceContainerStyle,
@@ -67,6 +66,7 @@ export const Sequence = ({ question, zone, keyword }: Props) => {
   const [sequenceProposals, setSequenceProposals] = useState([]);
   const [currentCard, setCurrentCard] = useState(null);
   const [isLoading, setLoading] = useState(true);
+  const [keywordLabel, setKeywordLabel] = useState('');
   const [withProposalButton, setWithProposalButton] = useState(
     question && question.canPropose
   );
@@ -85,21 +85,51 @@ export const Sequence = ({ question, zone, keyword }: Props) => {
       )
   );
 
-  useEffect(() => {
-    const votedProposalIdsOfQuestion = votedProposalIds[question.slug] || [];
-    SequenceService.startSequence(
+  const startSequenceFromZone = async (votedIds: string[]) => {
+    const response = await SequenceService.startSequenceByZone(
       question.questionId,
-      firstProposal
-        ? [firstProposal, ...votedProposalIdsOfQuestion]
-        : votedProposalIdsOfQuestion,
-      zone,
-      keyword
-    ).then(proposals => {
-      setSequenceProposals(proposals);
-      dispatch(resetSequenceIndex());
+      votedIds,
+      zone
+    );
 
-      return setLoading(false);
-    });
+    if (!response) {
+      return null;
+    }
+
+    return setSequenceProposals(response.proposals);
+  };
+
+  const startSequenceFromKeyword = async (votedIds: string[]) => {
+    const response = await SequenceService.startSequenceByKeyword(
+      question.questionId,
+      votedIds,
+      keyword
+    );
+
+    if (!response) {
+      return null;
+    }
+
+    setSequenceProposals(response.proposals);
+    return setKeywordLabel(response.label);
+  };
+
+  useEffect(async () => {
+    const votedProposalIdsOfQuestion = votedProposalIds[question.slug] || [];
+    const votedIds = firstProposal
+      ? [firstProposal, ...votedProposalIdsOfQuestion]
+      : votedProposalIdsOfQuestion;
+
+    if (zone) {
+      await startSequenceFromZone(votedIds);
+    }
+
+    if (keyword) {
+      await startSequenceFromKeyword(votedIds);
+    }
+
+    dispatch(resetSequenceIndex());
+    return setLoading(false);
   }, [question, firstProposal, isLoggedIn, hasProposed]);
 
   useEffect(
@@ -161,7 +191,7 @@ export const Sequence = ({ question, zone, keyword }: Props) => {
   return (
     <SequenceContainerStyle data-cy-container="sequence">
       <SequenceContentStyle>
-        <SequenceTitle question={question} zone={zone} keyword={keyword} />
+        <SequenceTitle question={question} zone={zone} keyword={keywordLabel} />
         <SequenceCard
           card={isSequenceEmpty ? displayNoProposalCard : currentCard}
           question={question}

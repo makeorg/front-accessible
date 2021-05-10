@@ -28,7 +28,7 @@ const SequencePage = ({ zone }: Props) => {
   );
   const { encodedKeyword } = useParams();
   const keyword = encodedKeyword && decodeURI(encodedKeyword);
-
+  console.log(keyword);
   useEffect(() => {
     trackDisplaySequence();
     // eslint-disable-next-line react-hooks/exhaustive-deps

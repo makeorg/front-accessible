@@ -7,7 +7,7 @@ jest.mock('Shared/api/QuestionApiService');
 
 describe('Question Service', () => {
   afterEach(() => {
-    QuestionApiService.startSequence.mockRestore();
+    QuestionApiService.startSequenceByZone.mockRestore();
   });
 
   const proposals = [
@@ -18,46 +18,45 @@ describe('Question Service', () => {
     { id: 'voted', votes: [{ hasVoted: true }] },
   ];
 
-  describe('startSequence function', () => {
-    it('Call sequence service with right params', async () => {
+  describe('startSequence function with zone parameter', () => {
+    it('Call sequence service with right zone params', async () => {
       const includedProposalIds = [];
-      QuestionApiService.startSequence.mockResolvedValue({
+      QuestionApiService.startSequenceByZone.mockResolvedValue({
         id: 'foo',
         proposals,
-        zone: 'bar',
-        keyword: 'keyword',
+        param: 'controversy',
       });
 
-      jest.spyOn(QuestionApiService, 'startSequence');
+      jest.spyOn(QuestionApiService, 'startSequenceByZone');
 
       await SequenceService.startSequence(
         'foo',
         includedProposalIds,
-        'bar',
-        'keyword'
+        'controversy'
       );
 
-      expect(QuestionApiService.startSequence).toHaveBeenNthCalledWith(
+      expect(QuestionApiService.startSequenceByZone).toHaveBeenNthCalledWith(
         1,
         'foo',
         includedProposalIds,
-        'bar',
-        'keyword'
+        'controversy'
       );
     });
 
     it('order only included proposal', async () => {
       const includedProposalIds = ['baz', 'foo'];
-      QuestionApiService.startSequence.mockResolvedValue({
+      QuestionApiService.startSequenceByZone.mockResolvedValue({
         data: {
           id: 'foo',
           proposals,
+          param: 'standard',
         },
       });
 
       const result = await SequenceService.startSequence(
         'foo',
-        includedProposalIds
+        includedProposalIds,
+        'standard'
       );
       expect(result).toEqual([
         { id: 'baz', votes: [{ hasVoted: false }] },
@@ -68,16 +67,18 @@ describe('Question Service', () => {
 
     it('order when included proposal contain all proposal', async () => {
       const includedProposalIds = ['baz', 'bar', 'foo'];
-      QuestionApiService.startSequence.mockResolvedValue({
+      QuestionApiService.startSequenceByZone.mockResolvedValue({
         data: {
           id: 'foo',
           proposals,
+          param: 'consensus',
         },
       });
 
       const result = await SequenceService.startSequence(
         'foo',
-        includedProposalIds
+        includedProposalIds,
+        'consensus'
       );
       expect(result).toEqual([
         { id: 'baz', votes: [{ hasVoted: false }] },
@@ -88,16 +89,18 @@ describe('Question Service', () => {
 
     it('includes proposals when required even if they are already voted', async () => {
       const includedProposalIds = ['voted'];
-      QuestionApiService.startSequence.mockResolvedValue({
+      QuestionApiService.startSequenceByZone.mockResolvedValue({
         data: {
           id: 'foo',
           proposals,
+          param: 'consensus',
         },
       });
 
       const result = await SequenceService.startSequence(
         'foo',
-        includedProposalIds
+        includedProposalIds,
+        'consensus'
       );
       expect(result).toEqual([
         { id: 'voted', votes: [{ hasVoted: true }] },
@@ -105,6 +108,28 @@ describe('Question Service', () => {
         { id: 'bar', votes: [{ hasVoted: false }] },
         { id: 'foo', votes: [{ hasVoted: false }] },
       ]);
+    });
+  });
+
+  describe('startSequence function with keyword param', () => {
+    it('Call sequence service with right keyword param', async () => {
+      const includedProposalIds = [];
+      QuestionApiService.startSequenceByKeyword.mockResolvedValue({
+        id: 'foo',
+        proposals,
+        param: 'bar',
+      });
+
+      jest.spyOn(QuestionApiService, 'startSequenceByKeyword');
+
+      await SequenceService.startSequence('foo', includedProposalIds, 'bar');
+
+      expect(QuestionApiService.startSequenceByKeyword).toHaveBeenNthCalledWith(
+        1,
+        'foo',
+        includedProposalIds,
+        'bar'
+      );
     });
   });
 });

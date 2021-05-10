@@ -61,7 +61,11 @@ import { getHomeLink } from 'Shared/helpers/url';
 import { DEFAULT_COUNTRY } from 'Shared/constants/config';
 import { USER_PREFERENCES_COOKIE } from 'Shared/constants/cookies';
 import { type StateUserCookiesPreferences } from 'Shared/store/types';
-import { ZONE_CONTROVERSY, ZONE_POPULAR } from 'Shared/constants/sequence';
+import {
+  ZONE_CONTROVERSY,
+  ZONE_POPULAR,
+  ZONE_STANDARD,
+} from 'Shared/constants/sequence';
 
 const BrowsePage = loadable(() => import('../pages/Browse/index.js'));
 const ParticipatePage = loadable(() =>
@@ -77,7 +81,7 @@ const TopIdeasPage = loadable(() =>
 const TopIdeaDetailsPage = loadable(() =>
   import('../pages/Consultation/TopIdeaDetails.js')
 );
-const SequencePage = loadable(() =>
+const SequencePageStandard = loadable(() =>
   import('../pages/Consultation/Sequence.js')
 );
 const SequencePopularPage = loadable(() =>
@@ -156,7 +160,7 @@ export const Routes = () => {
       </Route>
       <Route path={ROUTE_SEQUENCE}>
         <QuestionWrapper withRedirect>
-          <SequencePage />
+          <SequencePageStandard zone={ZONE_STANDARD} />
         </QuestionWrapper>
       </Route>
       <Route path={ROUTE_SEQUENCE_POPULAR}>

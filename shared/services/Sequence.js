@@ -1,90 +1,73 @@
 /* @flow */
 import { QuestionApiService } from 'Shared/api/QuestionApiService';
-import { type SequenceType } from 'Shared/types/sequence';
 import { type ProposalType } from 'Shared/types/proposal';
 import { Logger } from './Logger';
 import { defaultUnexpectedError } from './DefaultErrorHandler';
 
-const startSequence = async (
-  questionId: string,
-  includedProposalIds: string[],
-  zone?: string,
-  keyword?: string
-): Promise<?(ProposalType[])> => {
-  const getProposals = await (async (): Promise<ProposalType[] | null> => {
-    try {
-      const response = await QuestionApiService.startSequence(
-        questionId,
-        includedProposalIds,
-        zone,
-        keyword
-      );
-      const sequence: SequenceType = response.data;
-      const { proposals } = sequence;
+type Accumulator = {
+  unique: ProposalType[],
+  duplicates: ProposalType[],
+  voted: ProposalType[],
+};
 
-      return proposals;
-    } catch (apiServiceError) {
-      defaultUnexpectedError(apiServiceError);
+type SequenceByZoneResponse = {
+  proposals: ProposalType[],
+  key: string,
+  label: string,
+};
 
-      return null;
+const getOrderedProposals = (
+  proposals: ProposalType[],
+  includedProposalIds: string[]
+) => {
+  const sortedProposals = proposals.sort((firstProposal, secondProposal) => {
+    const indexOfFirst = includedProposalIds.indexOf(firstProposal.id);
+    const indexOfSecond = includedProposalIds.indexOf(secondProposal.id);
+
+    if (indexOfFirst !== -1 && indexOfSecond !== -1) {
+      return indexOfFirst > indexOfSecond ? 1 : -1;
     }
+
+    if (indexOfFirst !== -1) {
+      return -1;
+    }
+
+    if (indexOfSecond !== -1) {
+      return 1;
+    }
+
+    return 0;
   });
-  const proposals = await getProposals();
-  if (!proposals) {
-    return null;
+
+  return sortedProposals;
+};
+
+// remove duplicates and voted
+const removeDuplicatedAndVotedProposals = (
+  accumulator: Accumulator,
+  proposal: ProposalType,
+  includedProposalIds: string[]
+) => {
+  if (accumulator.unique.find(item => item.id === proposal.id) !== undefined) {
+    accumulator.duplicates.push(proposal);
+  } else if (
+    proposal.votes.some(vote => vote.hasVoted === true) &&
+    !includedProposalIds.includes(proposal.id)
+  ) {
+    accumulator.voted.push(proposal);
+  } else {
+    accumulator.unique.push(proposal);
   }
 
-  // Order proposal by included first
-  const orderedProposals: ProposalType[] = proposals.sort(
-    (firstProposal, secondProposal) => {
-      const indexOfFirst = includedProposalIds.indexOf(firstProposal.id);
-      const indexOfSecond = includedProposalIds.indexOf(secondProposal.id);
+  return accumulator;
+};
 
-      if (indexOfFirst !== -1 && indexOfSecond !== -1) {
-        return indexOfFirst > indexOfSecond ? 1 : -1;
-      }
-
-      if (indexOfFirst !== -1) {
-        return -1;
-      }
-
-      if (indexOfSecond !== -1) {
-        return 1;
-      }
-
-      return 0;
-    }
-  );
-
-  // remove duplicates and voted
-  type Accumulator = {
-    unique: ProposalType[],
-    duplicates: ProposalType[],
-    voted: ProposalType[],
-  };
-  const reducer = (accumulator: Accumulator, proposal: ProposalType) => {
-    if (
-      accumulator.unique.find(item => item.id === proposal.id) !== undefined
-    ) {
-      accumulator.duplicates.push(proposal);
-    } else if (
-      proposal.votes.some(vote => vote.hasVoted === true) &&
-      !includedProposalIds.includes(proposal.id)
-    ) {
-      accumulator.voted.push(proposal);
-    } else {
-      accumulator.unique.push(proposal);
-    }
-
-    return accumulator;
-  };
-
-  // toDo: remove reducer when API deduplicate proposals and return only unvoted proposals
-  const { unique, duplicates, voted } = orderedProposals.reduce(reducer, {
-    unique: [],
-    duplicates: [],
-    voted: [],
-  });
+const logCornerCases = (
+  questionId,
+  duplicates: ProposalType[],
+  voted: ProposalType[],
+  unique: ProposalType[]
+) => {
   if (duplicates.length > 0) {
     Logger.logWarning(
       `start sequence return duplicate proposals for questionId=${questionId} : ${JSON.stringify(
@@ -102,10 +85,85 @@ const startSequence = async (
   if (unique.length === 0) {
     Logger.logError(`Empty sequence - questionId: ${questionId}`);
   }
+};
 
-  return unique;
+const startSequenceByZone = async (
+  questionId: string,
+  includedProposalIds: string[],
+  zone: string
+): Promise<?SequenceByZoneResponse> => {
+  try {
+    const { data } = await QuestionApiService.startSequenceByZone(
+      questionId,
+      includedProposalIds,
+      zone
+    );
+    const orderedProposals = getOrderedProposals(
+      data.proposals,
+      includedProposalIds
+    );
+    const { unique, duplicates, voted } = orderedProposals.reduce(
+      removeDuplicatedAndVotedProposals,
+      {
+        unique: [],
+        duplicates: [],
+        voted: [],
+      }
+    );
+
+    logCornerCases(questionId, duplicates, voted, unique);
+
+    const response = {
+      proposals: unique,
+    };
+
+    return response;
+  } catch (apiServiceError) {
+    defaultUnexpectedError(apiServiceError);
+    return null;
+  }
+};
+
+const startSequenceByKeyword = async (
+  questionId: string,
+  includedProposalIds: string[],
+  keyword: string
+): Promise<?(ProposalType[])> => {
+  try {
+    const { data } = await QuestionApiService.startSequenceByKeyword(
+      questionId,
+      includedProposalIds,
+      keyword
+    );
+    const orderedProposals = getOrderedProposals(
+      data.proposals,
+      includedProposalIds
+    );
+    const { unique, duplicates, voted } = orderedProposals.reduce(
+      removeDuplicatedAndVotedProposals,
+      {
+        unique: [],
+        duplicates: [],
+        voted: [],
+      }
+    );
+
+    logCornerCases(questionId, duplicates, voted, unique);
+
+    const response = {
+      proposals: unique,
+      label: data.label,
+      key: data.key,
+    };
+
+    return response;
+  } catch (apiServiceError) {
+    defaultUnexpectedError(apiServiceError);
+    return null;
+  }
 };
 
 export const SequenceService = {
-  startSequence,
+  startSequenceByZone,
+  startSequenceByKeyword,
 };
