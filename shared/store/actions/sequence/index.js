@@ -1,16 +1,27 @@
 /* @flow */
-import * as actionTypes from 'Shared/store/actionTypes';
 import { type Dispatch } from 'redux';
 import { type StateRoot } from 'Shared/store/types';
 import { type ProposalType } from 'Shared/types/proposal';
-import { type QuestionType } from 'Shared/types/question';
 import { type SequenceCardType } from 'Shared/types/card';
 import { type QualificationType } from 'Shared/types/qualification';
 import { TopComponentContextValue } from 'Client/context/TopComponentContext';
 import { type VoteType } from 'Shared/types/vote';
+import {
+  SEQUENCE_DECREMENT_INDEX,
+  SEQUENCE_INCREMENT_INDEX,
+  SEQUENCE_LOAD_CARDS,
+  SEQUENCE_LOAD_PROPOSALS,
+  SEQUENCE_PROPOSAL_UNVOTE,
+  SEQUENCE_PROPOSAL_VOTE,
+  SEQUENCE_RESET_INDEX,
+  SEQUENCE_RESET_VOTED_PROPOSALS,
+  SEQUENCE_SET_INDEX,
+  SEQUENCE_UNLOAD_PROPOSALS,
+  SEQUENCE_UPDATE_CARD_STATE,
+} from 'Shared/store/actionTypes';
 
 export const loadSequenceCards = (cards: SequenceCardType[]) => ({
-  type: actionTypes.SEQUENCE_LOAD_CARDS,
+  type: SEQUENCE_LOAD_CARDS,
   payload: { cards },
 });
 
@@ -18,44 +29,35 @@ export const updateSequenceCardState = (
   index: number,
   newCardState: Object
 ) => ({
-  type: actionTypes.SEQUENCE_UPDATE_CARD_STATE,
+  type: SEQUENCE_UPDATE_CARD_STATE,
   payload: { index, newCardState },
 });
 
 export const resetSequenceVotedProposals = (questionSlug: string) => ({
-  type: actionTypes.SEQUENCE_RESET_VOTED_PROPOSALS,
+  type: SEQUENCE_RESET_VOTED_PROPOSALS,
   payload: { questionSlug },
 });
 
 export const loadSequenceProposals = (proposals: ProposalType[]) => ({
-  type: actionTypes.SEQUENCE_LOAD_PROPOSALS,
+  type: SEQUENCE_LOAD_PROPOSALS,
   payload: { proposals },
 });
 
 export const unloadSequenceProposals = () => (dispatch: Dispatch) =>
-  dispatch({ type: actionTypes.SEQUENCE_UNLOAD_PROPOSALS });
+  dispatch({ type: SEQUENCE_UNLOAD_PROPOSALS });
 
 export const resetSequenceIndex = () => (dispatch: Dispatch) =>
-  dispatch({ type: actionTypes.SEQUENCE_RESET_INDEX });
+  dispatch({ type: SEQUENCE_RESET_INDEX });
 
 export const incrementSequenceIndex = () => (dispatch: Dispatch) =>
-  dispatch({ type: actionTypes.SEQUENCE_INCREMENT_INDEX });
+  dispatch({ type: SEQUENCE_INCREMENT_INDEX });
 
 export const decrementSequenceIndex = () => (dispatch: Dispatch) =>
-  dispatch({ type: actionTypes.SEQUENCE_DECREMENT_INDEX });
+  dispatch({ type: SEQUENCE_DECREMENT_INDEX });
 
 export const setSequenceIndex = (index: number) => ({
-  type: actionTypes.SEQUENCE_SET_INDEX,
+  type: SEQUENCE_SET_INDEX,
   payload: { index },
-});
-
-export const loadQuestion = (question: QuestionType) => ({
-  type: actionTypes.QUESTION_LOAD,
-  payload: { question },
-});
-
-export const unloadCurrentQuestion = () => ({
-  type: actionTypes.QUESTION_UNLOAD,
 });
 
 export const unvote = (
@@ -69,7 +71,7 @@ export const unvote = (
   const { cards, currentIndex } = getState().sequence;
 
   dispatch({
-    type: actionTypes.SEQUENCE_PROPOSAL_UNVOTE,
+    type: SEQUENCE_PROPOSAL_UNVOTE,
     payload: { proposalId: proposal.id, questionSlug: proposal.question.slug },
   });
 
@@ -94,7 +96,7 @@ export const vote = (
   const { cards, currentIndex } = getState().sequence;
 
   dispatch({
-    type: actionTypes.SEQUENCE_PROPOSAL_VOTE,
+    type: SEQUENCE_PROPOSAL_VOTE,
     payload: { proposalId: proposal.id, questionSlug: proposal.question.slug },
   });
 

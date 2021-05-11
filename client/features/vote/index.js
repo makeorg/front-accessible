@@ -178,7 +178,7 @@ export const Vote = ({
       };
     }
 
-    return null;
+    return () => {};
   }, [dispatch, isFirstSequenceVote]);
 
   if (userVote && votedKey) {

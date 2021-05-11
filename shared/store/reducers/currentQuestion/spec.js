@@ -1,6 +1,9 @@
 /* @flow */
-import * as actionTypes from 'Shared/store/actionTypes';
 import { questionTypeFixture } from 'Shared/types/__fixtures__/question.fixture';
+import {
+  REMOVE_CURRENT_QUESTION_SLUG,
+  SET_CURRENT_QUESTION_SLUG,
+} from './actions';
 import { currentQuestion } from './index';
 
 describe('Questions reducer', () => {
@@ -8,9 +11,9 @@ describe('Questions reducer', () => {
     expect(currentQuestion('', {})).toEqual('');
   });
 
-  it('action QUESTION_UNLOAD', () => {
+  it('action REMOVE_CURRENT_QUESTION_SLUG', () => {
     const action = {
-      type: actionTypes.QUESTION_UNLOAD,
+      type: REMOVE_CURRENT_QUESTION_SLUG,
     };
 
     expect(currentQuestion({ currentQuestion: 'old_slug' }, action)).toEqual(
@@ -18,9 +21,9 @@ describe('Questions reducer', () => {
     );
   });
 
-  it('action CURRENT_QUESTION_UPDATE', () => {
+  it('action SET_CURRENT_QUESTION_SLUG', () => {
     const action = {
-      type: actionTypes.CURRENT_QUESTION_UPDATE,
+      type: SET_CURRENT_QUESTION_SLUG,
       payload: {
         questionSlug: questionTypeFixture.slug,
       },

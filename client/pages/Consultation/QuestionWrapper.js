@@ -5,17 +5,17 @@ import { type QuestionType } from 'Shared/types/question';
 import { useParams } from 'react-router';
 import { QuestionService } from 'Shared/services/Question';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  loadQuestion,
-  unloadCurrentQuestion,
-} from 'Shared/store/actions/sequence';
 import { MiddlePageWrapperStyle } from 'Client/app/Styled/MainElements';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
-import { updateCurrentQuestion } from 'Shared/store/reducers/questions/actions';
 import { isInProgress } from 'Shared/helpers/date';
 import { updateTrackingQuestionParam } from 'Shared/store/middleware/question';
 import { getQuestionFromState } from 'Shared/helpers/question';
+import {
+  removeCurrentQuestionSlug,
+  setCurrentQuestionSlug,
+} from 'Shared/store/reducers/currentQuestion/actions';
+import { loadQuestion } from 'Shared/store/reducers/questions/actions';
 import { NotFoundPage } from '../NotFound';
 
 type Props = {
@@ -53,7 +53,7 @@ export const QuestionWrapper = ({ children, withRedirect }: Props) => {
 
     if (questionDetails) {
       dispatch(loadQuestion(questionDetails));
-      dispatch(updateCurrentQuestion(questionSlug));
+      dispatch(setCurrentQuestionSlug(questionSlug));
     }
   };
 
@@ -63,10 +63,10 @@ export const QuestionWrapper = ({ children, withRedirect }: Props) => {
     }
 
     if (currentQuestionSlug !== questionSlug && questionIsInState) {
-      dispatch(updateCurrentQuestion(questionSlug));
+      dispatch(setCurrentQuestionSlug(questionSlug));
     }
 
-    return () => dispatch(unloadCurrentQuestion());
+    return () => dispatch(removeCurrentQuestionSlug());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [questionSlug]);
 

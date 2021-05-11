@@ -1,10 +1,9 @@
 // @flow
 
-import * as actionTypes from 'Shared/store/actionTypes';
 import { initialState } from 'Shared/store/initialState';
 import { type StateQuestions } from 'Shared/store/types';
-
 import {
+  LOAD_QUESTION,
   QUESTION_POPULAR_TAGS_LOAD,
   QUESTION_PERSONALITIES_LOAD,
 } from './actions';
@@ -14,7 +13,7 @@ export function questions(
   action: Object
 ) {
   switch (action.type) {
-    case actionTypes.QUESTION_LOAD:
+    case LOAD_QUESTION:
       return {
         ...state,
         [action.payload.question.slug]: {

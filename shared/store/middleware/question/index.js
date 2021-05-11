@@ -2,8 +2,8 @@
 
 import { Dispatch, Action } from 'redux';
 import { type QuestionType } from 'Shared/types/question';
-import { QUESTION_UNLOAD } from 'Shared/store/actionTypes';
 import { trackingParamsService } from 'Shared/services/TrackingParamsService';
+import { REMOVE_CURRENT_QUESTION_SLUG } from 'Shared/store/reducers/currentQuestion/actions';
 
 export const updateTrackingQuestionParam = (question: ?QuestionType) => {
   if (question) {
@@ -19,10 +19,9 @@ const clearQuestionParam = () => {
 
 export const question = () => (next: Dispatch) => (action: Action) => {
   switch (action.type) {
-    case QUESTION_UNLOAD:
+    case REMOVE_CURRENT_QUESTION_SLUG:
       clearQuestionParam();
       return next(action);
-
     default:
       return next(action);
   }
