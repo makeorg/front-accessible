@@ -1,13 +1,9 @@
 // @flow
 
-import { selectQuestion } from 'Shared/store/selectors/questions.selector';
-import { Store, Dispatch, Action } from 'redux';
+import { Dispatch, Action } from 'redux';
 import { type QuestionType } from 'Shared/types/question';
-import {
-  CURRENT_QUESTION_UPDATE,
-  QUESTION_UNLOAD,
-} from 'Shared/store/actionTypes';
 import { trackingParamsService } from 'Shared/services/TrackingParamsService';
+import { REMOVE_CURRENT_QUESTION_SLUG } from 'Shared/store/reducers/currentQuestion/actions';
 
 export const updateTrackingQuestionParam = (question: ?QuestionType) => {
   if (question) {
@@ -21,22 +17,11 @@ const clearQuestionParam = () => {
   trackingParamsService.questionSlug = '';
 };
 
-export const question = (store: Store) => (next: Dispatch) => (
-  action: Action
-) => {
-  const state = store.getState();
-
+export const question = () => (next: Dispatch) => (action: Action) => {
   switch (action.type) {
-    case CURRENT_QUESTION_UPDATE:
-      updateTrackingQuestionParam(
-        selectQuestion(state, action.payload.questionSlug)
-      );
-      return next(action);
-
-    case QUESTION_UNLOAD:
+    case REMOVE_CURRENT_QUESTION_SLUG:
       clearQuestionParam();
       return next(action);
-
     default:
       return next(action);
   }

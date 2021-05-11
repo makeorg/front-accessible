@@ -5,12 +5,17 @@ import { type QuestionType } from 'Shared/types/question';
 import { useParams } from 'react-router';
 import { QuestionService } from 'Shared/services/Question';
 import { useDispatch, useSelector } from 'react-redux';
-import { loadQuestion } from 'Shared/store/actions/sequence';
 import { MiddlePageWrapperStyle } from 'Client/app/Styled/MainElements';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
-import { updateCurrentQuestion } from 'Shared/store/reducers/questions/actions';
 import { isInProgress } from 'Shared/helpers/date';
+import { updateTrackingQuestionParam } from 'Shared/store/middleware/question';
+import { getQuestionFromState } from 'Shared/helpers/question';
+import {
+  removeCurrentQuestionSlug,
+  setCurrentQuestionSlug,
+} from 'Shared/store/reducers/currentQuestion/actions';
+import { loadQuestion } from 'Shared/store/reducers/questions/actions';
 import { NotFoundPage } from '../NotFound';
 
 type Props = {
@@ -21,6 +26,7 @@ type Props = {
 export const QuestionWrapper = ({ children, withRedirect }: Props) => {
   const dispatch = useDispatch();
   const { country, questionSlug } = useParams();
+  const questionsInState = useSelector((state: StateRoot) => state.questions);
   const currentQuestion: QuestionType = useSelector((state: StateRoot) =>
     selectCurrentQuestion(state)
   );
@@ -32,34 +38,48 @@ export const QuestionWrapper = ({ children, withRedirect }: Props) => {
       <Spinner />
     </MiddlePageWrapperStyle>
   );
+  const [isLoading, setIsLoading] = useState(true);
+  const questionIsInState = getQuestionFromState(
+    questionsInState,
+    questionSlug
+  );
 
   const updateQuestion = async () => {
-    const question = await QuestionService.getDetail(
+    const questionDetails = await QuestionService.getDetail(
       questionSlug,
       () => setAlternativeContent(<NotFoundPage />),
       country
     );
 
-    if (question) {
-      dispatch(loadQuestion(question));
+    if (questionDetails) {
+      dispatch(loadQuestion(questionDetails));
+      dispatch(setCurrentQuestionSlug(questionSlug));
     }
   };
 
   useEffect(() => {
-    if (currentQuestionSlug !== questionSlug) {
-      dispatch(updateCurrentQuestion(questionSlug));
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentQuestionSlug, questionSlug]);
-
-  useEffect(() => {
-    if (!currentQuestion) {
+    if (!questionIsInState) {
       updateQuestion();
     }
+
+    if (currentQuestionSlug !== questionSlug && questionIsInState) {
+      dispatch(setCurrentQuestionSlug(questionSlug));
+    }
+
+    return () => dispatch(removeCurrentQuestionSlug());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [questionSlug]);
 
-  if (!currentQuestion || questionSlug !== currentQuestionSlug) {
+  useEffect(() => {
+    if (currentQuestion) {
+      updateTrackingQuestionParam(currentQuestion);
+      setIsLoading(false);
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentQuestion]);
+
+  if (isLoading) {
     return alternativeContent;
   }
 

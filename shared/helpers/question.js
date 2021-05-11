@@ -1,4 +1,6 @@
 // @flow
+import { type StateQuestions } from 'Shared/store/types';
+
 const GREAT_CAUSE = 'GREAT_CAUSE';
 
 export const isGreatCause = (operationKind: string) =>
@@ -19,4 +21,21 @@ export const orderPartnersByWeight = (
   }
 
   return 0;
+};
+
+export const getQuestionFromState = (
+  questionsInState: StateQuestions,
+  questionSlug: string
+) => {
+  const questions = Object.keys(questionsInState);
+
+  const slugFoundInState = questions.find(
+    question => question === questionSlug
+  );
+
+  if (!slugFoundInState) {
+    return null;
+  }
+
+  return questionsInState[slugFoundInState].question;
 };

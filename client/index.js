@@ -3,7 +3,7 @@ import React from 'react';
 import { CookiesProvider } from 'react-cookie';
 import { Provider } from 'react-redux';
 import { i18n } from 'Shared/i18n';
-import { Router, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { HeadProvider } from 'react-head';
 import { loadableReady } from '@loadable/component';
 import { AppContainer } from 'Client/app';
@@ -30,7 +30,6 @@ import { CountryListener } from 'Client/app/CountryListener';
 import { USER_PREFERENCES_COOKIE } from 'Shared/constants/cookies';
 import { DEFAULT_LANGUAGE } from 'Shared/constants/config';
 import { NoCookies } from './pages/Static/NoCookies';
-import { history, initHistory } from './app/History';
 import { ErrorBoundary, ServiceErrorHandler } from './app/Error';
 import { initTrackersFromPreferences } from './helper/cookies';
 import { LanguageListener } from './app/LanguageListener';
@@ -129,12 +128,6 @@ const initApp = async state => {
   const { currentQuestion, questions, customData } = store.getState();
   if (currentQuestion && questions[currentQuestion]) {
     updateTrackingQuestionParam(questions[currentQuestion].question);
-  } else {
-    // Log to debug https://makeorg.atlassian.net/browse/MP-1974
-    // Remove after fix
-    Logger.logError(
-      `Cannot find ,question for currentQuestion : ${currentQuestion}`
-    );
   }
 
   if (customData) {
@@ -153,9 +146,6 @@ const initApp = async state => {
     logAndTrackEvent('third-cookie-is-disabled');
   }
 
-  // Init history
-  initHistory(store);
-
   loadableReady(() => {
     const appDom = document.getElementById('app');
     const renderMethod = module.hot ? ReactDOM.render : ReactDOM.hydrate;
@@ -164,7 +154,7 @@ const initApp = async state => {
       return ReactDOM.hydrate(
         <HeadProvider>
           <Provider store={store}>
-            <Router history={history}>
+            <BrowserRouter>
               <React.StrictMode>
                 <ServiceErrorHandler>
                   <ErrorBoundary>
@@ -179,7 +169,7 @@ const initApp = async state => {
                   </ErrorBoundary>
                 </ServiceErrorHandler>
               </React.StrictMode>
-            </Router>
+            </BrowserRouter>
           </Provider>
         </HeadProvider>,
         appDom
@@ -190,13 +180,13 @@ const initApp = async state => {
       <CookiesProvider>
         <HeadProvider>
           <Provider store={store}>
-            <Router history={history}>
+            <BrowserRouter>
               <React.StrictMode>
                 <CountryListener />
                 <LanguageListener />
                 <AppContainer />
               </React.StrictMode>
-            </Router>
+            </BrowserRouter>
           </Provider>
         </HeadProvider>
       </CookiesProvider>,

@@ -1,4 +1,8 @@
-import { isGreatCause, orderPartnersByWeight } from './question';
+import {
+  getQuestionFromState,
+  isGreatCause,
+  orderPartnersByWeight,
+} from './question';
 
 describe('isGreatCause', () => {
   it('operationKind as great cause', () => {
@@ -30,5 +34,27 @@ describe('orderPartnersByWeight', () => {
 
   it('receive weights for partner1 & partner2', () => {
     expect(orderPartnersByWeight(partner1, partner2)).toBe(0);
+  });
+});
+
+describe('getQuestionFromState', () => {
+  const mockedSlug = 'foo';
+  const mockedQuestion = {
+    questionId: '1234',
+    slug: mockedSlug,
+  };
+
+  const state = {
+    foo: {
+      question: mockedQuestion,
+    },
+  };
+
+  it("doesn't find question from state", () => {
+    expect(getQuestionFromState(state, 'bar')).toEqual(null);
+  });
+
+  it('return the question from state', () => {
+    expect(getQuestionFromState(state, mockedSlug)).toEqual(mockedQuestion);
   });
 });
