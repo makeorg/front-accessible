@@ -1,6 +1,6 @@
 image: makeorg/docker-arch-docker:latest
 
-variables:
+variables: &global_variables
   IMAGE: "make-front"
 
 cache:
@@ -76,6 +76,9 @@ jscpd:
       - reports
   
 e2e-test:
+  variables:
+    <<: *global_variables
+    CYPRESS_CACHE_FOLDER: '$CI_PROJECT_DIR/cache_cypress'
   stage: e2e
   needs: []
   except: 
@@ -88,6 +91,7 @@ e2e-test:
     - yarn install --check-files
     - yarn build
     - yarn ci cypress:run
+  cache: {}
   artifacts:
     expire_in: 1 week
     when: always
@@ -109,6 +113,7 @@ lighthouse:
     - yarn build
     - mkdir -p reports/lighthouse
     - yarn ci lighthouse
+  cache: {}    
   artifacts:
     paths:
       - ./reports
