@@ -29,7 +29,6 @@ server.use('/oauth', oauthRouter);
 server.use('/logout', (req, res) => {
   res.clearCookie('mockIsConnected').sendStatus('204');
 });
-
 server.listen(9000, () => {
   console.log('JSON Server is running');
 });

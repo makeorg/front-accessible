@@ -4,7 +4,7 @@ Then('I see Make logo', () => {
   cy.get('h1 a svg').should('be.visible') 
 });
 
-Then('I don\'t see Make logo', () => {
+Then('I don\'t see even if it exists Make logo', () => {
   cy.get('h1 a svg').should('not.be.visible') 
 });
 
@@ -38,3 +38,10 @@ Then('the search input in header has a {string} label', (label) => {
   .find('form label')
   .contains(label)
 })
+
+Then ('I don\'t see even if it exists the mobile header menu container',() => {
+  cy.get(`[data-cy-container=header`)
+  .find('input')
+  .should('not.be.visible')
+});
+

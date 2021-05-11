@@ -30,3 +30,9 @@ export const guid = () => {
 
   return [s8(), s4(), s4(), s4(), s12()].join("-");
 }
+
+Cypress.on('uncaught:exception', (err, runnable) => {
+  // returning false here prevents Cypress from
+  // failing the test
+  return false
+})

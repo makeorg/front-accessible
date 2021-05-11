@@ -99,10 +99,10 @@ Then('I see {string} button on card {string}', (buttonName, cardNumber) => {
     .should('be.visible');
 });
 
-Then('I don\'t see {string} button on card {string}', (buttonName, cardNumber) => {
+Then('The {string} button on card {string} doesn\'t exist', (buttonName, cardNumber) => {
   const button = getIdentifierButtonByName(buttonName);
   cy.get(`[data-cy-card-number=${cardNumber}] [data-cy-button=${button}]`)
-    .should('not.visible');
+    .should('not.exist');
 });
 
 When('I go to card {string}', (cardNumber) => {
