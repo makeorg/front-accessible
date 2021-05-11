@@ -1,6 +1,7 @@
 /* @flow */
 import {
   compareCountriesByName,
+  getCountryWithConsultations,
   getLanguageFromCountryCode,
 } from './countries';
 
@@ -49,6 +50,21 @@ describe('Countries helper', () => {
 
     it('language is unknown', () => {
       expect(getLanguageFromCountryCode('GB')).toBe('en');
+    });
+  });
+
+  describe('getCountryWithConsultations function', () => {
+    const countriesWithConsultations = ['FR', 'GB', 'ES'];
+    it('country has consultations', () => {
+      expect(
+        getCountryWithConsultations('FR', countriesWithConsultations)
+      ).toBe('FR');
+    });
+
+    it("country doesn't have consultations", () => {
+      expect(
+        getCountryWithConsultations('US', countriesWithConsultations)
+      ).toBe(null);
     });
   });
 });

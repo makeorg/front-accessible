@@ -35,7 +35,10 @@ export const BrowseConsultationsList = ({
   if (!hasQuestions) {
     return (
       <HomepagePageInnerStyle>
-        <RegistrationIncentive length={total} />
+        <RegistrationIncentive
+          questionsCount={total}
+          resultsContext={resultsContext}
+        />
       </HomepagePageInnerStyle>
     );
   }
@@ -57,7 +60,10 @@ export const BrowseConsultationsList = ({
       ))}
       {hasOneQuestion && !noRegister && (
         <ConsultationsListItemStyle itemsPerRow={ITEMS_PER_ROW}>
-          <RegistrationIncentive length={total} />
+          <RegistrationIncentive
+            questionsCount={total}
+            resultsContext={resultsContext}
+          />
         </ConsultationsListItemStyle>
       )}
     </ConsultationsListStyle>

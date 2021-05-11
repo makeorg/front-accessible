@@ -69,3 +69,18 @@ export const setLanguage = (language, country, cloneI18nInstance = false) => {
     languageStorage.set(language || DEFAULT_LANGUAGE, country);
   }
 };
+
+export const getCountryWithConsultations = (
+  country: string,
+  countriesWithConsultations: string[]
+) => {
+  const countryHasConsultations = countriesWithConsultations.find(
+    countryWithConsultations => countryWithConsultations === country
+  );
+
+  if (!countryHasConsultations) {
+    return null;
+  }
+
+  return countryHasConsultations;
+};
