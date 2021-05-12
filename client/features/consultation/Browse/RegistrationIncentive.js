@@ -13,10 +13,35 @@ import {
 } from './style';
 
 type Props = {
-  length: number,
+  questionsCount: number,
+  resultsContext: boolean,
 };
 
-export const RegistrationIncentive = ({ length }: Props) => {
+const getTitleFromContext = (
+  questionsCount: number,
+  resultsContext: boolean
+) => {
+  const noQuestions = questionsCount === 0;
+
+  if (resultsContext && noQuestions) {
+    return i18n.t('browse.no_results');
+  }
+
+  if (resultsContext) {
+    return i18n.t('browse.one_result');
+  }
+
+  if (noQuestions) {
+    return i18n.t('browse.no_consultations');
+  }
+
+  return i18n.t('browse.one_consultation');
+};
+
+export const RegistrationIncentive = ({
+  questionsCount,
+  resultsContext,
+}: Props) => {
   const dispatch = useDispatch();
 
   const handleClick = () => {
@@ -30,9 +55,7 @@ export const RegistrationIncentive = ({ length }: Props) => {
         <SvgMail aria-hidden focusable="false" />
       </NoConsultationImageStyle>
       <ConsultationElementTitleStyle>
-        {length === 0
-          ? i18n.t('browse.text_content_zero')
-          : i18n.t('browse.text_content_one')}
+        {getTitleFromContext(questionsCount, resultsContext)}
       </ConsultationElementTitleStyle>
       <NoConsultationButtonStyle
         onClick={handleClick}

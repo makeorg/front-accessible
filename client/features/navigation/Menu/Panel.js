@@ -20,6 +20,7 @@ import {
 import { scrollToTop } from 'Shared/helpers/styled';
 import { JOBS_LINK, NEWS_LINK } from 'Shared/constants/url';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
+import { getCountryWithConsultations } from 'Shared/helpers/countries';
 import {
   MenuPanelStyle,
   MenuCloseTriggerStyle,
@@ -38,7 +39,7 @@ type Props = {
 };
 export const MenuPanel = ({ isExpanded, toggleExpansion }: Props) => {
   const location = useLocation();
-  const { country, language } = useSelector(
+  const { country, language, countriesWithConsultations } = useSelector(
     (state: StateRoot) => state.appConfig
   );
   const browseConsultationsLink =
@@ -49,6 +50,10 @@ export const MenuPanel = ({ isExpanded, toggleExpansion }: Props) => {
   );
   const onBrowseResultsPage = isBrowseResultsPage(location.pathname);
   const isFR = country === 'FR';
+  const countryHasConsultations = getCountryWithConsultations(
+    country,
+    countriesWithConsultations
+  );
 
   const handleInternalNavigation = () => {
     scrollToTop();
@@ -80,7 +85,7 @@ export const MenuPanel = ({ isExpanded, toggleExpansion }: Props) => {
                 {i18n.t('browse.page_title')}
               </MenuItemTitleStyle>
               <UnstyledListStyle>
-                {!!browseConsultationsLink && (
+                {!!browseConsultationsLink && countryHasConsultations && (
                   <MenuItemStyle className="white">
                     <MenuInternalLinkStyle
                       className={onBrowseConsultationsPage && 'current'}

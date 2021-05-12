@@ -957,8 +957,10 @@
     "date": "Consultation du {{startDate}} au {{endDate}}",
     "browse": "Parcourir les consultations",
     "see_closed_consultations": "Voir les consultations terminées",
-    "text_content_zero": "Aucune consultation en cours, mais restons en contact",
-    "text_content_one": "Inscrivez-vous pour être informé de la prochaine consultation",
+    "no_consultations": "Aucune consultation en cours, mais restons en contact !",
+    "one_consultation": "Inscrivez-vous pour être informé de la prochaine consultation.",
+    "no_results": "Les résultats arrivent bientôt, en attendant, restons en contact !",
+    "one_result": "Inscrivez-vous pour être informé des prochains résultats",
     "subscribe": "S'inscrire",
     "past_questions": "Vous pouvez aussi consulter les résultats des consultations précédentes"
   },

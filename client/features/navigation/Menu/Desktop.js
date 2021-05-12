@@ -17,6 +17,7 @@ import {
 } from 'Shared/constants/a11y';
 import { ROUTE_PARTNERSHIP, ROUTE_WHOAREWE } from 'Shared/routes';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
+import { getCountryWithConsultations } from 'Shared/helpers/countries';
 import {
   DesktopMenuNavStyle,
   DesktopMenuItemStyle,
@@ -26,11 +27,15 @@ import {
 } from './style';
 
 export const DesktopMenu = () => {
-  const { country, language } = useSelector(
+  const { country, language, countriesWithConsultations } = useSelector(
     (state: StateRoot) => state.appConfig
   );
   const browseConsultationsLink = getBrowseConsultationsLink(country);
   const isFR = country === 'FR';
+  const countryHasConsultations = getCountryWithConsultations(
+    country,
+    countriesWithConsultations
+  );
 
   useEffect(() => {
     removeAriaHiddenByClass(NAVIGATION_ARIA_CLASS);
@@ -50,14 +55,16 @@ export const DesktopMenu = () => {
   return (
     <DesktopMenuNavStyle aria-label={i18n.t('header.main_navigation')}>
       <UnstyledListStyle>
-        <DesktopMenuItemStyle className="with-border">
-          <DesktopMenuInternalLinkStyle
-            to={browseConsultationsLink}
-            onClick={scrollToTop}
-          >
-            {i18n.t('browse.page_title')}
-          </DesktopMenuInternalLinkStyle>
-        </DesktopMenuItemStyle>
+        {countryHasConsultations && (
+          <DesktopMenuItemStyle className="with-border">
+            <DesktopMenuInternalLinkStyle
+              to={browseConsultationsLink}
+              onClick={scrollToTop}
+            >
+              {i18n.t('browse.page_title')}
+            </DesktopMenuInternalLinkStyle>
+          </DesktopMenuItemStyle>
+        )}
         <DesktopMenuItemStyle
           className={`${SEARCH_DESKTOP_EXPANDED} with-border`}
         >
