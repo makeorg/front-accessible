@@ -7,7 +7,7 @@ jest.mock('Shared/api/QuestionApiService');
 
 describe('Question Service', () => {
   afterEach(() => {
-    QuestionApiService.startSequenceByZone.mockRestore();
+    QuestionApiService.startSequenceByKind.mockRestore();
   });
 
   const proposals = [
@@ -18,24 +18,24 @@ describe('Question Service', () => {
     { id: 'voted', votes: [{ hasVoted: true }] },
   ];
 
-  describe('startSequence function with zone parameter', () => {
-    it('Call sequence service with right zone params', async () => {
+  describe('startSequenceByKind function with kind parameter', () => {
+    it('Call sequence service with right kind params', async () => {
       const includedProposalIds = [];
-      QuestionApiService.startSequenceByZone.mockResolvedValue({
-        id: 'foo',
-        proposals,
-        param: 'controversy',
+      QuestionApiService.startSequenceByKind.mockResolvedValue({
+        data: {
+          proposals,
+        },
       });
 
-      jest.spyOn(QuestionApiService, 'startSequenceByZone');
+      jest.spyOn(QuestionApiService, 'startSequenceByKind');
 
-      await SequenceService.startSequence(
+      await SequenceService.startSequenceByKind(
         'foo',
         includedProposalIds,
         'controversy'
       );
 
-      expect(QuestionApiService.startSequenceByZone).toHaveBeenNthCalledWith(
+      expect(QuestionApiService.startSequenceByKind).toHaveBeenNthCalledWith(
         1,
         'foo',
         includedProposalIds,
@@ -45,20 +45,18 @@ describe('Question Service', () => {
 
     it('order only included proposal', async () => {
       const includedProposalIds = ['baz', 'foo'];
-      QuestionApiService.startSequenceByZone.mockResolvedValue({
+      QuestionApiService.startSequenceByKind.mockResolvedValue({
         data: {
-          id: 'foo',
           proposals,
-          param: 'standard',
         },
       });
 
-      const result = await SequenceService.startSequence(
+      const result = await SequenceService.startSequenceByKind(
         'foo',
         includedProposalIds,
         'standard'
       );
-      expect(result).toEqual([
+      expect(result.proposals).toEqual([
         { id: 'baz', votes: [{ hasVoted: false }] },
         { id: 'foo', votes: [{ hasVoted: false }] },
         { id: 'bar', votes: [{ hasVoted: false }] },
@@ -67,20 +65,18 @@ describe('Question Service', () => {
 
     it('order when included proposal contain all proposal', async () => {
       const includedProposalIds = ['baz', 'bar', 'foo'];
-      QuestionApiService.startSequenceByZone.mockResolvedValue({
+      QuestionApiService.startSequenceByKind.mockResolvedValue({
         data: {
-          id: 'foo',
           proposals,
-          param: 'consensus',
         },
       });
 
-      const result = await SequenceService.startSequence(
+      const result = await SequenceService.startSequenceByKind(
         'foo',
         includedProposalIds,
         'consensus'
       );
-      expect(result).toEqual([
+      expect(result.proposals).toEqual([
         { id: 'baz', votes: [{ hasVoted: false }] },
         { id: 'bar', votes: [{ hasVoted: false }] },
         { id: 'foo', votes: [{ hasVoted: false }] },
@@ -89,20 +85,18 @@ describe('Question Service', () => {
 
     it('includes proposals when required even if they are already voted', async () => {
       const includedProposalIds = ['voted'];
-      QuestionApiService.startSequenceByZone.mockResolvedValue({
+      QuestionApiService.startSequenceByKind.mockResolvedValue({
         data: {
-          id: 'foo',
           proposals,
-          param: 'consensus',
         },
       });
 
-      const result = await SequenceService.startSequence(
+      const result = await SequenceService.startSequenceByKind(
         'foo',
         includedProposalIds,
         'consensus'
       );
-      expect(result).toEqual([
+      expect(result.proposals).toEqual([
         { id: 'voted', votes: [{ hasVoted: true }] },
         { id: 'baz', votes: [{ hasVoted: false }] },
         { id: 'bar', votes: [{ hasVoted: false }] },
@@ -111,18 +105,22 @@ describe('Question Service', () => {
     });
   });
 
-  describe('startSequence function with keyword param', () => {
+  describe('startSequenceByKeyword function with keyword param', () => {
     it('Call sequence service with right keyword param', async () => {
       const includedProposalIds = [];
       QuestionApiService.startSequenceByKeyword.mockResolvedValue({
-        id: 'foo',
+        key: 'bar',
         proposals,
-        param: 'bar',
+        label: 'bar_label',
       });
 
       jest.spyOn(QuestionApiService, 'startSequenceByKeyword');
 
-      await SequenceService.startSequence('foo', includedProposalIds, 'bar');
+      await SequenceService.startSequenceByKeyword(
+        'foo',
+        includedProposalIds,
+        'bar'
+      );
 
       expect(QuestionApiService.startSequenceByKeyword).toHaveBeenNthCalledWith(
         1,

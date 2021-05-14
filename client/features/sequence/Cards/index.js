@@ -26,16 +26,12 @@ import { NoProposal } from './NoProposal';
 
 type CardProps = {
   /** Attribute of the card */
-  card: any,
+  card: SequenceCardType,
   /** Object with Dynamic properties used to configure the Sequence (questionId, country, ...) */
   question: QuestionType,
-  /** optional zone parameter for popular and controversy sequences */
-  zone?: string,
-  /** optional keyword parameter for thematic sequences */
-  keyword?: string,
 };
 
-export const Card = ({ card, question, zone, keyword }: CardProps) => {
+export const Card = ({ card, question }: CardProps) => {
   switch (card.type) {
     case CARD_TYPE_PROPOSAL:
       return <ProposalCard proposalCard={card} />;
@@ -47,8 +43,16 @@ export const Card = ({ card, question, zone, keyword }: CardProps) => {
       return <FinalCard configuration={card.configuration} />;
     case CARD_TYPE_EXTRASLIDE_SPECIAL_FINAL_CARD:
       return <SpecialFinalCard />;
-    case CARD_TYPE_NO_PROPOSAL_CARD:
-      return <NoProposal question={question} zone={zone} keyword={keyword} />;
+    case CARD_TYPE_NO_PROPOSAL_CARD: {
+      const { title, description } = card.configuration;
+      return (
+        <NoProposal
+          question={question}
+          title={title}
+          description={description}
+        />
+      );
+    }
     default:
       return null;
   }
@@ -59,13 +63,9 @@ type Props = {
   card: SequenceCardType,
   /** Object with Dynamic properties used to configure the Sequence (questionId, country, ...) */
   question: QuestionType,
-  /** optional zone parameter for popular and controversy sequences */
-  zone?: string,
-  /** optional keyword parameter for thematic sequences */
-  keyword?: string,
 };
 
-export const SequenceCard = ({ card, question, zone, keyword }: Props) => {
+export const SequenceCard = ({ card, question }: Props) => {
   const isProposalCard = card.type === CARD_TYPE_PROPOSAL;
   const isNoProposalCard = card.type === CARD_TYPE_NO_PROPOSAL_CARD;
   const topComponentContext: TopComponentContextValueType = TopComponentContextValue.getSequenceProposal();
@@ -88,7 +88,7 @@ export const SequenceCard = ({ card, question, zone, keyword }: Props) => {
           aria-live="polite"
           isNoProposalCard={isNoProposalCard}
         >
-          <Card card={card} question={question} zone={zone} keyword={keyword} />
+          <Card card={card} question={question} />
         </SequenceCardStyle>
       </TopComponentContext.Provider>
     </>

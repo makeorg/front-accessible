@@ -32,7 +32,7 @@ const endpoints = {
   postUnvote: {method: 'POST', url: '**/proposals/*/unvote'},
   postQualify: {method: 'POST', url: '**/proposals/*/qualification'},
   postUnqualify: {method: 'POST', url: '**/proposals/*/unqualification'},
-  getStartSequence: {method: 'GET', url: '**/questions/*/start-sequence**'},
+  getStartSequence: {method: 'GET', url: '**/sequences/standard/**'},
 }
 
 Cypress.Commands.add('getEndpointParams', (name) => {

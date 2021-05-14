@@ -10,10 +10,8 @@ type Accumulator = {
   voted: ProposalType[],
 };
 
-type SequenceByZoneResponse = {
+type SequenceByKindResponse = {
   proposals: ProposalType[],
-  key: string,
-  label: string,
 };
 
 const getOrderedProposals = (
@@ -43,10 +41,9 @@ const getOrderedProposals = (
 };
 
 // remove duplicates and voted
-const removeDuplicatedAndVotedProposals = (
+const removeDuplicatedAndVotedProposals = (includedProposalIds: string[]) => (
   accumulator: Accumulator,
-  proposal: ProposalType,
-  includedProposalIds: string[]
+  proposal: ProposalType
 ) => {
   if (accumulator.unique.find(item => item.id === proposal.id) !== undefined) {
     accumulator.duplicates.push(proposal);
@@ -66,7 +63,7 @@ const logCornerCases = (
   questionId,
   duplicates: ProposalType[],
   voted: ProposalType[],
-  unique: ProposalType[]
+  uniqueProposals: ProposalType[]
 ) => {
   if (duplicates.length > 0) {
     Logger.logWarning(
@@ -82,28 +79,33 @@ const logCornerCases = (
       )}`
     );
   }
-  if (unique.length === 0) {
+  if (uniqueProposals.length === 0) {
     Logger.logError(`Empty sequence - questionId: ${questionId}`);
   }
 };
 
-const startSequenceByZone = async (
+const startSequenceByKind = async (
   questionId: string,
   includedProposalIds: string[],
-  zone: string
-): Promise<?SequenceByZoneResponse> => {
+  sequenceKind: string
+): Promise<?SequenceByKindResponse> => {
   try {
-    const { data } = await QuestionApiService.startSequenceByZone(
+    const { data } = await QuestionApiService.startSequenceByKind(
       questionId,
       includedProposalIds,
-      zone
+      sequenceKind
     );
+
     const orderedProposals = getOrderedProposals(
       data.proposals,
       includedProposalIds
     );
-    const { unique, duplicates, voted } = orderedProposals.reduce(
-      removeDuplicatedAndVotedProposals,
+    const {
+      unique: uniqueOrderedProposals,
+      duplicates,
+      voted,
+    } = orderedProposals.reduce(
+      removeDuplicatedAndVotedProposals(includedProposalIds),
       {
         unique: [],
         duplicates: [],
@@ -111,10 +113,10 @@ const startSequenceByZone = async (
       }
     );
 
-    logCornerCases(questionId, duplicates, voted, unique);
+    logCornerCases(questionId, duplicates, voted, uniqueOrderedProposals);
 
     const response = {
-      proposals: unique,
+      proposals: uniqueOrderedProposals,
     };
 
     return response;
@@ -140,7 +142,7 @@ const startSequenceByKeyword = async (
       includedProposalIds
     );
     const { unique, duplicates, voted } = orderedProposals.reduce(
-      removeDuplicatedAndVotedProposals,
+      removeDuplicatedAndVotedProposals(includedProposalIds),
       {
         unique: [],
         duplicates: [],
@@ -164,6 +166,6 @@ const startSequenceByKeyword = async (
 };
 
 export const SequenceService = {
-  startSequenceByZone,
+  startSequenceByKind,
   startSequenceByKeyword,
 };

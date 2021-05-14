@@ -8,7 +8,8 @@ Feature: Browse page
   Scenario: Track display browse consultations page
       Given I monitor API "postTracking" requests
       When I go to "browse consultations"
-      Then event "display-browse-consultations" should be tracked by Make with parameters values:
+      Then I see "Participez aux consultations en cours" in "main" container
+      And event "display-browse-consultations" should be tracked by Make with parameters values:
         | name                | value                                                               |
         | eventType           | trackCustom                                                         |
         | country             | FR                                                                  |
@@ -43,7 +44,8 @@ Feature: Browse page
   Scenario: Track display browse results page
       Given I monitor API "postTracking" requests
       When I go to "browse results"
-      Then event "display-browse-results" should be tracked by Make with parameters values:
+      Then I see "Découvrez les résultats" in "main" container
+      And event "display-browse-results" should be tracked by Make with parameters values:
         | name                | value                                                               |
         | eventType           | trackCustom                                                         |
         | country             | FR                                                                  |

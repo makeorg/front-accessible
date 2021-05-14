@@ -6,7 +6,7 @@ import { ApiService } from './ApiService';
 const PATH_QUESTIONS_LIST = '/questions';
 const PATH_QUESTIONS_SEARCH = '/questions/search';
 const PATH_QUESTION_DETAIL = '/questions/:questionSlugOrId/details';
-const PATH_QUESTION_START_SEQUENCE_ZONE = '/sequences/:zone/:questionId';
+const PATH_QUESTION_START_SEQUENCE = '/sequences/:sequenceKind/:questionId';
 const PATH_QUESTION_START_SEQUENCE_KEYWORD =
   '/sequences/keyword/:questionId/:keywordKey';
 const PATH_QUESTION_PARTNERS = '/questions/:questionId/partners';
@@ -97,15 +97,15 @@ export class QuestionApiService {
     );
   }
 
-  static startSequenceByZone(
+  static startSequenceByKind(
     questionId: string,
     includedProposalIds: string[] = [],
-    zone: string,
+    sequenceKind: string,
     headers?: ApiServiceHeadersType = {}
   ): Promise<any> {
-    let startSequenceUrl = PATH_QUESTION_START_SEQUENCE_ZONE.replace(
-      ':zone',
-      zone
+    let startSequenceUrl = PATH_QUESTION_START_SEQUENCE.replace(
+      ':sequenceKind',
+      sequenceKind
     ).replace(':questionId', questionId);
     // remove null value
     const includeParams = includedProposalIds
@@ -117,7 +117,6 @@ export class QuestionApiService {
     return ApiService.callApi(startSequenceUrl, {
       method: 'GET',
       headers,
-      params: { zone },
     });
   }
 
@@ -141,7 +140,6 @@ export class QuestionApiService {
     return ApiService.callApi(startSequenceUrl, {
       method: 'GET',
       headers,
-      params: { keyword },
     });
   }
 

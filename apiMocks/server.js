@@ -6,6 +6,7 @@ const tagsRouter = require('./routes/tags');
 const organisationsRouter = require('./routes/organisations');
 const viewsRouter = require('./routes/views');
 const oauthRouter = require('./routes/oauth');
+const sequenceRouter = require('./routes/sequence');
 
 const server = jsonServer.create();
 const middlewares = jsonServer.defaults({ logger: false });
@@ -18,6 +19,7 @@ server.use('/proposals', proposalsRouter);
 server.use('/tags', tagsRouter);
 server.use('/organisations', organisationsRouter);
 server.use('/views', viewsRouter);
+server.use('/sequences', sequenceRouter);
 server.use('/tracking/front', (req, res) => res.sendStatus(204));
 server.use(
   jsonServer.rewriter({

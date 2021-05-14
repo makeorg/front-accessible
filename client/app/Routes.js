@@ -61,11 +61,6 @@ import { getHomeLink } from 'Shared/helpers/url';
 import { DEFAULT_COUNTRY } from 'Shared/constants/config';
 import { USER_PREFERENCES_COOKIE } from 'Shared/constants/cookies';
 import { type StateUserCookiesPreferences } from 'Shared/store/types';
-import {
-  ZONE_CONTROVERSY,
-  ZONE_POPULAR,
-  ZONE_STANDARD,
-} from 'Shared/constants/sequence';
 
 const BrowsePage = loadable(() => import('../pages/Browse/index.js'));
 const ParticipatePage = loadable(() =>
@@ -82,16 +77,16 @@ const TopIdeaDetailsPage = loadable(() =>
   import('../pages/Consultation/TopIdeaDetails.js')
 );
 const SequencePageStandard = loadable(() =>
-  import('../pages/Consultation/Sequence.js')
+  import('../pages/Consultation/SequenceStandard.js')
 );
 const SequencePopularPage = loadable(() =>
-  import('../pages/Consultation/Sequence.js')
+  import('../pages/Consultation/SequencePopular.js')
 );
 const SequenceControversialPage = loadable(() =>
-  import('../pages/Consultation/Sequence.js')
+  import('../pages/Consultation/SequenceControversy.js')
 );
 const SequenceKeywordPage = loadable(() =>
-  import('../pages/Consultation/Sequence.js')
+  import('../pages/Consultation/SequenceKeyword.js')
 );
 const PasswordRecoveryPage = loadable(() =>
   import('../pages/PasswordRecovery')
@@ -160,17 +155,17 @@ export const Routes = () => {
       </Route>
       <Route path={ROUTE_SEQUENCE}>
         <QuestionWrapper withRedirect>
-          <SequencePageStandard zone={ZONE_STANDARD} />
+          <SequencePageStandard />
         </QuestionWrapper>
       </Route>
       <Route path={ROUTE_SEQUENCE_POPULAR}>
         <QuestionWrapper withRedirect>
-          <SequencePopularPage zone={ZONE_POPULAR} />
+          <SequencePopularPage />
         </QuestionWrapper>
       </Route>
       <Route path={ROUTE_SEQUENCE_CONTROVERSIAL}>
         <QuestionWrapper withRedirect>
-          <SequenceControversialPage zone={ZONE_CONTROVERSY} />
+          <SequenceControversialPage />
         </QuestionWrapper>
       </Route>
       <Route path={ROUTE_RESULTS}>

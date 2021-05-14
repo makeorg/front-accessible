@@ -5,7 +5,7 @@ import {
   CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL,
   CARD_TYPE_EXTRASLIDE_SPECIAL_FINAL_CARD,
 } from 'Shared/constants/card';
-import { ZONE_CONTROVERSY, ZONE_POPULAR } from 'Shared/constants/sequence';
+import { KIND_CONTROVERSY, KIND_POPULAR } from 'Shared/constants/sequence';
 import * as helpers from './sequence';
 
 describe('Sequence Helper', () => {
@@ -22,8 +22,7 @@ describe('Sequence Helper', () => {
         extraSlidesConfig,
         false,
         false,
-        null,
-        null,
+        'standard',
         introCardParam
       );
       expect(cards.length).toBe(1);
@@ -47,8 +46,7 @@ describe('Sequence Helper', () => {
         extraSlidesConfig,
         false,
         false,
-        null,
-        null,
+        'standard',
         introCardParam
       );
       expect(cards.length).toBe(1);
@@ -72,8 +70,7 @@ describe('Sequence Helper', () => {
         extraSlidesConfig,
         false,
         false,
-        null,
-        null,
+        'standard',
         introCardParam
       );
       expect(cards.length).toBe(1);
@@ -97,8 +94,7 @@ describe('Sequence Helper', () => {
         extraSlidesConfig,
         false,
         false,
-        null,
-        null,
+        'standard',
         introCardParam
       );
 
@@ -131,8 +127,7 @@ describe('Sequence Helper', () => {
         extraSlidesConfig,
         hasProposed,
         canPropose,
-        null,
-        null,
+        'standard',
         false,
         pushProposalParam
       );
@@ -159,8 +154,7 @@ describe('Sequence Helper', () => {
         extraSlidesConfig,
         hasProposed,
         canPropose,
-        null,
-        null,
+        'standard',
         false,
         pushProposalParam
       );
@@ -187,8 +181,7 @@ describe('Sequence Helper', () => {
         extraSlidesConfig,
         hasProposed,
         canPropose,
-        null,
-        null,
+        'standard',
         false,
         pushProposalParam
       );
@@ -215,8 +208,7 @@ describe('Sequence Helper', () => {
         extraSlidesConfig,
         hasProposed,
         canPropose,
-        null,
-        null,
+        'standard',
         false,
         pushProposalParam
       );
@@ -250,8 +242,7 @@ describe('Sequence Helper', () => {
         extraSlidesConfig,
         hasProposed,
         canPropose,
-        null,
-        null,
+        'standard',
         false,
         pushProposalParam
       );
@@ -279,8 +270,7 @@ describe('Sequence Helper', () => {
         extraSlidesConfig,
         hasProposed,
         canPropose,
-        null,
-        null,
+        'standard',
         false,
         pushProposalParam
       );
@@ -297,59 +287,22 @@ describe('Sequence Helper', () => {
     });
   });
 
-  describe('get special title', () => {
-    it('controversy zone', () => {
-      const specialZone = helpers.getSpecialTitle(ZONE_CONTROVERSY);
-      expect(specialZone).toEqual(true);
-    });
-
-    it('consensus zone', () => {
-      const specialZone = helpers.getSpecialTitle(ZONE_POPULAR);
-      expect(specialZone).toEqual(true);
-    });
-
-    it('unknown zone', () => {
-      const specialZone = helpers.getSpecialTitle('foo');
-      expect(specialZone).toEqual(false);
-    });
-  });
-
-  describe('get sequence title by zone', () => {
-    it('title from controversy zone', () => {
-      const specialTitle = helpers.getSequenceTitleByZone(ZONE_CONTROVERSY);
+  describe('get sequence title by kind', () => {
+    it('title from controversy kind', () => {
+      const specialTitle = helpers.getSequenceTitleBySequenceKind(
+        KIND_CONTROVERSY
+      );
       expect(specialTitle).toEqual('sequence_zone.controversial_title');
     });
 
-    it('title from consensus zone', () => {
-      const specialTitle = helpers.getSequenceTitleByZone(ZONE_POPULAR);
+    it('title from consensus kind', () => {
+      const specialTitle = helpers.getSequenceTitleBySequenceKind(KIND_POPULAR);
       expect(specialTitle).toEqual('sequence_zone.popular_title');
     });
 
-    it('title from unknown zone', () => {
-      const specialTitle = helpers.getSequenceTitleByZone('foo');
+    it('title from unknown kind', () => {
+      const specialTitle = helpers.getSequenceTitleBySequenceKind('foo');
       expect(specialTitle).toEqual(null);
-    });
-  });
-
-  describe('get finard card by zone', () => {
-    it('card from controversy zone', () => {
-      const finalCard = helpers.getFinalCard(ZONE_CONTROVERSY);
-      expect(finalCard).toEqual(CARD_TYPE_EXTRASLIDE_SPECIAL_FINAL_CARD);
-    });
-
-    it('card from consensus zone', () => {
-      const finalCard = helpers.getFinalCard(ZONE_POPULAR);
-      expect(finalCard).toEqual(CARD_TYPE_EXTRASLIDE_SPECIAL_FINAL_CARD);
-    });
-
-    it('card from unknown zone', () => {
-      const finalCard = helpers.getFinalCard('foo');
-      expect(finalCard).toEqual(CARD_TYPE_EXTRASLIDE_FINAL_CARD);
-    });
-
-    it('card from keyword', () => {
-      const finalCard = helpers.getFinalCard('foo', 'bar');
-      expect(finalCard).toEqual(CARD_TYPE_EXTRASLIDE_SPECIAL_FINAL_CARD);
     });
   });
 });
