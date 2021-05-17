@@ -86,10 +86,13 @@ const ExplorePage = () => {
   }, [question, dispatch]);
 
   useEffect(() => {
-    getProposals();
     trackDisplayOperationPage();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    getProposals();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pageId]);
 
   return (
     <ThemeProvider theme={question.theme}>
