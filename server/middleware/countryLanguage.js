@@ -25,8 +25,8 @@ export const countryLanguageMiddleware = (
   // Get language associated to the country
   const language =
     getLanguageFromParams(country, req.query.lang) || DEFAULT_LANGUAGE;
-  const formattedLanguage = language.toLowerCase();
 
+  const formattedLanguage = language.toLowerCase();
   req.params.country = formattedCountry;
   req.params.language = formattedLanguage;
   setLanguage(formattedLanguage, country, true);

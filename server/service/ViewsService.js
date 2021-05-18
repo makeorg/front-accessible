@@ -60,10 +60,15 @@ const getCountries = async (
 
   try {
     const countries: any = [];
-    const { data } = await ViewsApiService.getCountries({
-      'x-make-country': country,
-      'x-make-language': language,
-    });
+    const headers = {};
+    if (country) {
+      headers['x-make-country'] = country;
+    }
+    if (language) {
+      headers['x-make-language'] = language;
+    }
+
+    const { data } = await ViewsApiService.getCountries(headers);
 
     // push country codes in array
     data.map(countryWithConsultations =>
@@ -84,7 +89,7 @@ const getCountries = async (
       )
     );
 
-    unexpectedError();
+    unexpectedError(apiServiceError);
 
     return [];
   }

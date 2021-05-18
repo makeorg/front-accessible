@@ -26,7 +26,7 @@ import {
   PRIVACY_POLICY_DATE,
 } from 'Shared/constants/config';
 import { CLIENT_DIR } from './paths';
-import { logInfo } from './ssr/helpers/ssr.helper';
+import { logError, logInfo } from './ssr/helpers/ssr.helper';
 import { ViewsService } from './service/ViewsService';
 
 const parser = require('ua-parser-js');
@@ -89,10 +89,43 @@ export const reactRender = async (req, res, routeState = {}) => {
   const { browser, os, device, ua } = parser(req.headers['user-agent']);
   const isMobileOrTablet = device.type === 'mobile' || device.type === 'tablet';
 
+  if (!country || !language) {
+    logInfo({
+      message: 'Country or language not found from request params',
+      url: req.originalUrl,
+      browser,
+      os,
+      device,
+      raw: ua,
+      country: country || 'none',
+      language: language || 'none',
+    });
+  }
+
   const { secureExpired, ...queryParams } = req.query;
   const countriesWithConsultations = await ViewsService.getCountries(
     country,
-    language
+    language,
+    () => {
+      logInfo({
+        message: 'ViewsService.getCountries return 404',
+        url: req.originalUrl,
+        browser,
+        os,
+        device,
+        raw: ua,
+      });
+    },
+    error =>
+      logError({
+        message: `ViewsService.getCountries error : ${error.message}`,
+        url: req.originalUrl,
+        browser,
+        os,
+        device,
+        raw: ua,
+        logId: error.logId,
+      })
   );
 
   const notificationBanner = secureExpired
