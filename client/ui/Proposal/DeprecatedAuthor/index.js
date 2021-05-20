@@ -8,6 +8,7 @@ import { type StateRoot } from 'Shared/store/types';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { matchMobileDevice } from 'Shared/helpers/styled';
 import { useSelector } from 'react-redux';
+import { DATE_CAPITALIZE_LL_FORMAT } from 'Shared/constants/date';
 import {
   AuthorDescriptionStyle,
   AuthorInfosStyle,
@@ -64,7 +65,10 @@ export const DeprecatedProposalAuthor = ({
               {i18n.t('proposal_card.author.date')}
             </ScreenReaderItemStyle>
             <time dateTime={proposal.createdAt}>
-              {DateHelper.creationDateFormat(proposal.createdAt)}
+              {DateHelper.localizedAndFormattedDate(
+                proposal.createdAt,
+                DATE_CAPITALIZE_LL_FORMAT
+              )}
             </time>
           </>
         )}

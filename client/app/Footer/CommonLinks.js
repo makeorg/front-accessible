@@ -12,26 +12,32 @@ import { i18n } from 'Shared/i18n';
 import { FooterItemLinkStyle, FooterItemStyle } from './style';
 
 export const FooterCommonLinks = () => {
-  const { country } = useSelector((state: StateRoot) => state.appConfig);
+  const { country, language } = useSelector(
+    (state: StateRoot) => state.appConfig
+  );
+
   return (
     <>
       <FooterItemStyle>
         <FooterItemLinkStyle
           onClick={scrollToTop}
-          to={getLegalPageLink(country)}
+          to={getLegalPageLink(country, language)}
         >
           {i18n.t('main_footer.legal')}
         </FooterItemLinkStyle>
       </FooterItemStyle>
       <FooterItemStyle>
-        <FooterItemLinkStyle onClick={scrollToTop} to={getGTUPageLink(country)}>
+        <FooterItemLinkStyle
+          onClick={scrollToTop}
+          to={getGTUPageLink(country, language)}
+        >
           {i18n.t('main_footer.terms')}
         </FooterItemLinkStyle>
       </FooterItemStyle>
       <FooterItemStyle>
         <FooterItemLinkStyle
           onClick={scrollToTop}
-          to={getDataPageLink(country)}
+          to={getDataPageLink(country, language)}
         >
           {i18n.t('main_footer.data')}
         </FooterItemLinkStyle>

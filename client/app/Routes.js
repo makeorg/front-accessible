@@ -26,10 +26,10 @@ import {
   ROUTE_ORGANISATION_PROPOSALS,
   ROUTE_ORGANISATION_VOTES,
   ROUTE_COUNTRY,
-  ROUTE_STATIC_LEGAL,
-  ROUTE_STATIC_GTU,
-  ROUTE_STATIC_DATA,
-  ROUTE_STATIC_CONTACT,
+  ROUTE_STATIC_LEGAL_FR,
+  ROUTE_STATIC_GTU_FR,
+  ROUTE_STATIC_DATA_FR,
+  ROUTE_STATIC_CONTACT_FR,
   ROUTE_RESULTS,
   ROUTE_TOP_IDEAS,
   ROUTE_PERSONALITY_PROFILE,
@@ -39,15 +39,19 @@ import {
   ROUTE_STATIC_LEGAL_EN,
   ROUTE_STATIC_GTU_EN,
   ROUTE_STATIC_DATA_EN,
-  ROUTE_STATIC_CONTACT_EN,
   ROUTE_BROWSE_CONSULTATIONS,
   ROUTE_BROWSE_RESULTS,
   BASE_PREVIEW_PATH,
-  ROUTE_STATIC_A11Y,
+  ROUTE_STATIC_A11Y_FR,
   ROUTE_EXPLORE_ROOT,
   ROUTE_EXPLORE_FIRST_PAGE,
   ROUTE_CONSULTATION,
   ROUTE_STATIC_COOKIES,
+  ROUTE_STATIC_LEGAL_DE,
+  ROUTE_STATIC_GTU_DE,
+  ROUTE_STATIC_DATA_DE,
+  ROUTE_STATIC_CONTACT_DE,
+  ROUTE_STATIC_A11Y_DE,
 } from 'Shared/routes';
 import Cookies from 'universal-cookie';
 import { TwitterUniversalTag } from 'Shared/services/Trackers/TwitterTracking';
@@ -110,7 +114,7 @@ const LegalPage = loadable(() => import('../pages/Static/Legal'));
 const TermsOfUse = loadable(() => import('../pages/Static/TermsOfUse'));
 const Data = loadable(() => import('../pages/Static/Data'));
 const Contact = loadable(() => import('../pages/Static/Contact'));
-const Accessibility = loadable(() => import('../pages/Static/Accessibility'));
+const Accessibility = loadable(() => import('../pages/Static/A11y'));
 const CookiesPage = loadable(() => import('../pages/Static/Cookies'));
 
 export const Routes = () => {
@@ -209,20 +213,27 @@ export const Routes = () => {
       />
       <Redirect path={ROUTE_PROFILE} to={ROUTE_PROFILE_PROPOSALS} />
       <Route exact path={ROUTE_COUNTRY} component={HomePage} />
-
-      <Route path={ROUTE_STATIC_LEGAL} component={LegalPage} />
-      <Route path={ROUTE_STATIC_GTU} component={TermsOfUse} />
-      <Route path={ROUTE_STATIC_DATA} component={Data} />
-      <Route path={ROUTE_STATIC_CONTACT} component={Contact} />
       <Route path={ROUTE_STATIC_NOTFOUND} component={NotFoundPage} />
-      <Route path={ROUTE_STATIC_A11Y} component={Accessibility} />
       <Route path={ROUTE_STATIC_COOKIES} component={CookiesPage} />
+
+      {/* Routes used for fr language */}
+      <Route path={ROUTE_STATIC_LEGAL_FR} component={LegalPage} />
+      <Route path={ROUTE_STATIC_GTU_FR} component={TermsOfUse} />
+      <Route path={ROUTE_STATIC_DATA_FR} component={Data} />
+      <Route path={ROUTE_STATIC_CONTACT_FR} component={Contact} />
+      <Route path={ROUTE_STATIC_A11Y_FR} component={Accessibility} />
 
       {/* Routes used for en language */}
       <Route path={ROUTE_STATIC_LEGAL_EN} component={LegalPage} />
       <Route path={ROUTE_STATIC_GTU_EN} component={TermsOfUse} />
       <Route path={ROUTE_STATIC_DATA_EN} component={Data} />
-      <Route path={ROUTE_STATIC_CONTACT_EN} component={Contact} />
+
+      {/* Routes used for de language */}
+      <Route path={ROUTE_STATIC_LEGAL_DE} component={LegalPage} />
+      <Route path={ROUTE_STATIC_GTU_DE} component={TermsOfUse} />
+      <Route path={ROUTE_STATIC_DATA_DE} component={Data} />
+      <Route path={ROUTE_STATIC_CONTACT_DE} component={Contact} />
+      <Route path={ROUTE_STATIC_A11Y_DE} component={Accessibility} />
 
       <Route path={ROUTE_STATIC_NOTFOUND} component={NotFoundPage} />
       <Redirect exact path="/" to={getHomeLink(country || DEFAULT_COUNTRY)} />

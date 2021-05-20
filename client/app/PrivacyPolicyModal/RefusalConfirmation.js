@@ -25,7 +25,9 @@ type Props = {
 
 export const RefusalConfirmation = ({ toggleConfirmation }: Props) => {
   const dispatch = useDispatch();
-  const { country } = useSelector((state: StateRoot) => state.appConfig);
+  const { country, language } = useSelector(
+    (state: StateRoot) => state.appConfig
+  );
   const handleClick = () => {
     toggleConfirmation();
   };
@@ -42,7 +44,7 @@ export const RefusalConfirmation = ({ toggleConfirmation }: Props) => {
         <DataPolicyParagraphStyle isRefusal>
           {i18n.t('data_policy_modal.refusal_description_first_part')}
           <DataPolicyNewWindowLinkStyle
-            href={getDataPageLink(country)}
+            href={getDataPageLink(country, language)}
             target="_blank"
             rel="noopener"
           >

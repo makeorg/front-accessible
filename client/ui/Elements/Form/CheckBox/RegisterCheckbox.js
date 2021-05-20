@@ -25,7 +25,9 @@ export const RegisterCheckBox = ({
   required = false,
 }: Props) => {
   const [checked, setIsChecked] = useState<boolean>(false);
-  const { country } = useSelector((state: StateRoot) => state.appConfig);
+  const { country, language } = useSelector(
+    (state: StateRoot) => state.appConfig
+  );
 
   const handleChange = () => {
     handleLegalField('approvePrivacyPolicy', !checked);
@@ -46,7 +48,7 @@ export const RegisterCheckBox = ({
         <span>
           {i18n.t('legal_consent.privacy_policy_text')}
           <DataPolicyNewWindowLinkStyle
-            href={getDataPageLink(country)}
+            href={getDataPageLink(country, language)}
             target="_blank"
             rel="noopener"
           >

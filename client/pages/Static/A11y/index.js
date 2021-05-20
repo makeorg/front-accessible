@@ -2,22 +2,20 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { type StateRoot } from 'Shared/store/types';
-import { FooterDE } from './localized/DE';
-import { FooterFR } from './localized/FR';
-import { FooterINT } from './localized/INT';
+import { A11yFR } from './FR';
+import { A11yDE } from './DE';
 
-/**
- * Renders Main Footer
- */
-export const Footer = () => {
+export const A11y = () => {
   const { language } = useSelector((state: StateRoot) => state.appConfig);
 
   switch (language) {
     case 'fr':
-      return <FooterFR />;
+      return <A11yFR />;
     case 'de':
-      return <FooterDE />;
+      return <A11yDE />;
     default:
-      return <FooterINT />;
+      return null;
   }
 };
+// default export needed for loadable component
+export default A11y; // eslint-disable-line import/no-default-export

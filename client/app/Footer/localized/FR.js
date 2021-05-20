@@ -26,7 +26,7 @@ import { UnstyledButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { modalShowCountries } from 'Shared/store/actions/modal';
 import { isSequencePage as getIsSequencePage } from 'Shared/routes';
 import { useLocation } from 'react-router';
-import { FooterExternalLink } from './ExternalLink';
+import { FooterExternalLink } from '../ExternalLink';
 import {
   FooterStyle,
   FooterNavStyle,
@@ -39,8 +39,8 @@ import {
   FooterItemAltLinkStyle,
   FooterCountryIconStyle,
   FooterContactIconStyle,
-} from './style';
-import { FooterCommonLinks } from './CommonLinks';
+} from '../style';
+import { FooterCommonLinks } from '../CommonLinks';
 
 /**
  * Renders Main Footer
@@ -48,7 +48,7 @@ import { FooterCommonLinks } from './CommonLinks';
 export const FooterFR = () => {
   const dispatch = useDispatch();
   const location = useLocation();
-  const { country, device } = useSelector(
+  const { country, device, language } = useSelector(
     (state: StateRoot) => state.appConfig
   );
   const isDesktop = matchDesktopDevice(device);
@@ -66,33 +66,45 @@ export const FooterFR = () => {
         <ColumnToRowElementStyle>
           <FooterWrapperFirstListStyle>
             {isDesktop && (
-              <>
-                <FooterItemStyle>
-                  <FooterItemLinkStyle
-                    as="a"
-                    target="_blank"
-                    rel="noopener"
-                    href={NEWS_LINK}
-                    onClick={() => trackClickBlog('blog list')}
-                  >
-                    {i18n.t('main_footer.news')}
-                    <> </>
-                    <FooterExternalLink />
-                  </FooterItemLinkStyle>
-                </FooterItemStyle>
-                <FooterItemStyle>
-                  <FooterItemLinkStyle
-                    as="a"
-                    target="_blank"
-                    rel="noopener"
-                    href={JOBS_LINK}
-                  >
-                    {i18n.t('main_footer.jobs')}
-                    <> </>
-                    <FooterExternalLink />
-                  </FooterItemLinkStyle>
-                </FooterItemStyle>
-              </>
+              <FooterItemStyle>
+                <FooterItemLinkStyle
+                  as="a"
+                  target="_blank"
+                  rel="noopener"
+                  href={NEWS_LINK}
+                  onClick={() => trackClickBlog('blog list')}
+                >
+                  {i18n.t('main_footer.news')}
+                  <> </>
+                  <FooterExternalLink />
+                </FooterItemLinkStyle>
+              </FooterItemStyle>
+            )}
+            <FooterItemStyle>
+              <FooterItemLinkStyle
+                as="a"
+                target="_blank"
+                rel="noopener"
+                href={PRESS_DETAILS_LINK}
+              >
+                {i18n.t('main_footer.press_details')}
+                <> </>
+                <FooterExternalLink />
+              </FooterItemLinkStyle>
+            </FooterItemStyle>
+            {isDesktop && (
+              <FooterItemStyle>
+                <FooterItemLinkStyle
+                  as="a"
+                  target="_blank"
+                  rel="noopener"
+                  href={JOBS_LINK}
+                >
+                  {i18n.t('main_footer.jobs')}
+                  <> </>
+                  <FooterExternalLink />
+                </FooterItemLinkStyle>
+              </FooterItemStyle>
             )}
             <FooterItemStyle>
               <FooterItemLinkStyle
@@ -123,7 +135,7 @@ export const FooterFR = () => {
             <FooterItemStyle as="div">
               <FooterItemAltLinkStyle
                 onClick={scrollToTop}
-                to={getContactPageLink(country)}
+                to={getContactPageLink(country, language)}
               >
                 <FooterContactIconStyle aria-hidden focusable="false" />
                 <> </>
@@ -139,7 +151,7 @@ export const FooterFR = () => {
             <FooterItemStyle>
               <FooterItemLinkStyle
                 onClick={scrollToTop}
-                to={getA11YPageLink(country)}
+                to={getA11YPageLink(country, language)}
               >
                 {i18n.t('main_footer.a11y')}
               </FooterItemLinkStyle>

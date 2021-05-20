@@ -94,7 +94,7 @@ export const clientConfig = envConfigPath => ({
     }),
     new LoadablePlugin(),
     new MomentLocalesPlugin({
-      localesToKeep: ['fr', 'en'],
+      localesToKeep: ['fr', 'en', 'de'],
     }),
     new FaviconsWebpackPlugin({
       logo: path.join(__dirname, '../client/app/assets/images/favicon.png'),

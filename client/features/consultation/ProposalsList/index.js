@@ -10,6 +10,10 @@ import { Vote } from 'Client/features/vote';
 import { DateHelper } from 'Shared/helpers/date';
 import { useParams } from 'react-router';
 import {
+  DATE_CAPITALIZE_L_FORMAT,
+  DATE_LOWERCASE_LL_FORMAT,
+} from 'Shared/constants/date';
+import {
   ProposalsListStyle,
   ProposalListItemStyle,
   ProposalCardStyle,
@@ -84,9 +88,15 @@ export const ProposalsList = ({ isLoading, proposals }: Props) => {
                 {i18n.t('proposal_card.author.date')}
               </ScreenReaderItemStyle>
               <ProposalDateStyle
-                dateTime={DateHelper.localizedLDate(proposal.createdAt)}
+                dateTime={DateHelper.localizedAndFormattedDate(
+                  proposal.createdAt,
+                  DATE_CAPITALIZE_L_FORMAT
+                )}
               >
-                {DateHelper.localizedllDate(proposal.createdAt)}
+                {DateHelper.localizedAndFormattedDate(
+                  proposal.createdAt,
+                  DATE_LOWERCASE_LL_FORMAT
+                )}
               </ProposalDateStyle>
             </ProposalCardStyle>
           </ProposalListItemStyle>

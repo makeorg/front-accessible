@@ -52,7 +52,9 @@ export const RegisterForm = ({
   handleSubmit,
   disableSubmit,
 }: Props) => {
-  const { country } = useSelector((state: StateRoot) => state.appConfig);
+  const { country, language } = useSelector(
+    (state: StateRoot) => state.appConfig
+  );
   const currentQuestion = useSelector(
     (state: StateRoot) => state.currentQuestion
   );
@@ -140,7 +142,7 @@ export const RegisterForm = ({
         <span>
           {i18n.t('register.gtu_text_first')}
           <TermsOfUseLinkStyle
-            href={getGTUPageLink(country)}
+            href={getGTUPageLink(country, language)}
             target="_blank"
             rel="noopener"
           >

@@ -10,6 +10,10 @@ import { isResultsPage } from 'Shared/routes';
 import { formatMillionToText } from 'Shared/helpers/numberFormatter';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import {
+  DATE_CAPITALIZE_L_FORMAT,
+  DATE_LOWERCASE_LL_FORMAT,
+} from 'Shared/constants/date';
+import {
   FiguresValueStyle,
   FiguresListStyle,
   FiguresListItemStyle,
@@ -39,13 +43,25 @@ export const Figures = () => {
           as="time"
           dateTime={
             resultsPage
-              ? DateHelper.localizedLDate(question.endDate)
-              : DateHelper.localizedLDate(question.startDate)
+              ? DateHelper.localizedAndFormattedDate(
+                  question.endDate,
+                  DATE_CAPITALIZE_L_FORMAT
+                )
+              : DateHelper.localizedAndFormattedDate(
+                  question.startDate,
+                  DATE_CAPITALIZE_L_FORMAT
+                )
           }
         >
           {resultsPage
-            ? DateHelper.localizedllDate(question.endDate)
-            : DateHelper.localizedllDate(question.startDate)}
+            ? DateHelper.localizedAndFormattedDate(
+                question.endDate,
+                DATE_LOWERCASE_LL_FORMAT
+              )
+            : DateHelper.localizedAndFormattedDate(
+                question.startDate,
+                DATE_LOWERCASE_LL_FORMAT
+              )}
         </FiguresValueStyle>
       </FiguresListItemStyle>
       <FiguresListItemStyle>

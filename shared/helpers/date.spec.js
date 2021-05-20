@@ -1,6 +1,7 @@
 /* @flow */
 
 import MockDate from 'mockdate';
+import { DATE_CAPITALIZE_LL_FORMAT } from 'Shared/constants/date';
 import {
   DateHelper,
   getDateOfBirthFromAge,
@@ -67,87 +68,40 @@ describe('Date Helper', () => {
     });
   });
 
-  describe('creationDateFormat', () => {
-    it('creationDateFormat with valid date', () => {
+  describe('localizedAndFormattedDate', () => {
+    it('localizedAndFormattedDate with valid date', () => {
       DateHelper.language = 'fr';
-      expect(DateHelper.creationDateFormat('2018-10-25T12:45:25.752Z')).toBe(
-        '25 octobre 2018'
-      );
+      expect(
+        DateHelper.localizedAndFormattedDate(
+          '2018-10-25T12:45:25.752Z',
+          DATE_CAPITALIZE_LL_FORMAT
+        )
+      ).toBe('25 octobre 2018');
     });
 
-    it('creationDateFormat with valid date and en locale', () => {
+    it('localizedAndFormattedDate with valid date and en locale', () => {
       DateHelper.language = 'en';
-      expect(DateHelper.creationDateFormat('2018-10-24T12:45:25.752Z')).toBe(
-        'October 24, 2018'
-      );
+      expect(
+        DateHelper.localizedAndFormattedDate(
+          '2018-10-24T12:45:25.752Z',
+          DATE_CAPITALIZE_LL_FORMAT
+        )
+      ).toBe('October 24, 2018');
     });
 
-    it('creationDateFormat with invalid date', () => {
-      expect(DateHelper.creationDateFormat('foo')).toBeNull();
+    it('localizedAndFormattedDate with invalid date', () => {
+      expect(
+        DateHelper.localizedAndFormattedDate('foo', DATE_CAPITALIZE_LL_FORMAT)
+      ).toBeNull();
     });
 
-    it('getLanguage', () => {
-      DateHelper.language = 'de';
-      const { language } = DateHelper;
-      expect(language).toBe('de');
-    });
-  });
-
-  describe('localizedllDate', () => {
-    it('localizedllDate with valid date', () => {
-      DateHelper.language = 'fr';
-      expect(DateHelper.localizedllDate('2018-10-25T12:45:25.752Z')).toBe(
-        '25 oct. 2018'
-      );
-    });
-
-    it('localizedllDate with valid date and en locale', () => {
-      DateHelper.language = 'en';
-      expect(DateHelper.localizedllDate('2018-10-24T12:45:25.752Z')).toBe(
-        'Oct 24, 2018'
-      );
-    });
-
-    it('localizedllDate with invalid date', () => {
-      expect(DateHelper.localizedllDate('foo')).toBeNull();
-    });
-  });
-  describe('localizedMonthYear', () => {
-    it('localizedMonthYear with valid date', () => {
-      DateHelper.language = 'fr';
-      expect(DateHelper.localizedMonthYear('2018-10-25T12:45:25.752Z')).toBe(
-        'octobre 2018'
-      );
-    });
-
-    it('localizedMonthYear with valid date and en locale', () => {
-      DateHelper.language = 'en';
-      expect(DateHelper.localizedMonthYear('2018-10-24T12:45:25.752Z')).toBe(
-        'October 2018'
-      );
-    });
-
-    it('localizedMonthYear with invalid date', () => {
-      expect(DateHelper.localizedMonthYear('foo')).toBeNull();
-    });
-  });
-  describe('localizedLDate', () => {
-    it('localizedLDate with valid date', () => {
-      DateHelper.language = 'fr';
-      expect(DateHelper.localizedLDate('2018-10-25T12:45:25.752Z')).toBe(
-        '25/10/2018'
-      );
-    });
-
-    it('localizedLDate with valid date and en locale', () => {
-      DateHelper.language = 'en';
-      expect(DateHelper.localizedLDate('2018-10-24T12:45:25.752Z')).toBe(
-        '10/24/2018'
-      );
-    });
-
-    it('localizedLDate with invalid date', () => {
-      expect(DateHelper.localizedLDate('foo')).toBeNull();
+    it('localizedAndFormattedDate with invalid format', () => {
+      expect(
+        DateHelper.localizedAndFormattedDate(
+          '2018-10-24T12:45:25.752Z',
+          undefined
+        )
+      ).toBeNull();
     });
   });
 

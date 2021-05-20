@@ -57,7 +57,10 @@ export const Cookies = () => {
   const { country } = useParams();
   const { cookiesPreferences } = useSelector((state: StateRoot) => state.user);
   const DATE = new Date(2021, 3, 28);
-  const formattedDate = DateHelper.localizedDayMonthYear(DATE);
+  const formattedDate = DateHelper.localizedAndFormattedDate(
+    DATE,
+    'DD MMMM YYYY'
+  );
   const isFR = country === 'FR';
   const googleLink = isFR
     ? 'https://policies.google.com/privacy?hl=fr&gl=fr'

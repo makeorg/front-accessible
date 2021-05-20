@@ -108,21 +108,8 @@ export class DateHelperSingleton {
     return this._language;
   }
 
-  creationDateFormat(date: ?string | null) {
-    if (!date) {
-      return null;
-    }
-    const objectDate = new Date(date);
-    if (Number.isNaN(objectDate.getMonth())) {
-      return null;
-    }
-    moment.locale(this._language);
-
-    return moment(objectDate).format('LL');
-  }
-
-  localizedllDate(date: ?string | null) {
-    if (!date) {
+  localizedAndFormattedDate(date?: string, format?: string) {
+    if (!date || !format) {
       return null;
     }
 
@@ -133,67 +120,7 @@ export class DateHelperSingleton {
 
     moment.locale(this._language);
 
-    return moment(objectDate).format('ll');
-  }
-
-  localizedMonthYear(date: ?string | null) {
-    if (!date) {
-      return null;
-    }
-
-    const objectDate = new Date(date);
-    if (Number.isNaN(objectDate.getMonth())) {
-      return null;
-    }
-
-    moment.locale(this._language);
-
-    return moment(objectDate).format('MMMM YYYY');
-  }
-
-  localizedDayMonth(date: ?string | null) {
-    if (!date) {
-      return null;
-    }
-
-    const objectDate = new Date(date);
-    if (Number.isNaN(objectDate.getMonth())) {
-      return null;
-    }
-
-    moment.locale(this._language);
-
-    return moment(objectDate).format('DD MMMM');
-  }
-
-  localizedDayMonthYear(date: ?string | null) {
-    if (!date) {
-      return null;
-    }
-
-    const objectDate = new Date(date);
-    if (Number.isNaN(objectDate.getMonth())) {
-      return null;
-    }
-
-    moment.locale(this._language);
-
-    return moment(objectDate).format('DD MMMM YYYY');
-  }
-
-  localizedLDate(date: ?string | null) {
-    if (!date) {
-      return null;
-    }
-
-    const objectDate = new Date(date);
-    if (Number.isNaN(objectDate.getMonth())) {
-      return null;
-    }
-
-    moment.locale(this._language);
-
-    return moment(objectDate).format('L');
+    return moment(objectDate).format(format);
   }
 
   getRemainingDays(endDate: ?string | null) {

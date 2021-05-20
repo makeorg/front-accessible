@@ -1,5 +1,6 @@
 // @flow
 import React, { useState, useEffect } from 'react';
+import { type StateRoot } from 'Shared/store/types';
 import { i18n } from 'Shared/i18n';
 import { useDispatch, useSelector } from 'react-redux';
 import { CheckBox } from 'Client/ui/Elements/Form/CheckBox';
@@ -30,7 +31,9 @@ export const DataPolicy = () => {
   // eslint-disable-next-line no-unused-vars
   const [errors, setErrors] = useState<ErrorObjectType[]>([]);
   const [dataPolicyConsent, setDataPolicyConsent] = useState<boolean>(false);
-  const { country } = useSelector((state: StateRoot) => state.appConfig);
+  const { country, language } = useSelector(
+    (state: StateRoot) => state.appConfig
+  );
   const [canSubmit, setCanSubmit] = useState<boolean>(false);
   const handleCheck = (event: SyntheticEvent<HTMLLabelElement>) => {
     event.preventDefault();
@@ -67,7 +70,7 @@ export const DataPolicy = () => {
       <DataPolicyParagraphStyle>
         {i18n.t('data_policy_modal.description')}
         <DataPolicyNewWindowLinkStyle
-          href={getDataPageLink(country)}
+          href={getDataPageLink(country, language)}
           target="_blank"
           rel="noopener"
         >

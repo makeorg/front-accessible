@@ -20,10 +20,10 @@ import {
   ROUTE_SEARCH_CONSULTATIONS,
   ROUTE_SEARCH_PROPOSALS,
   ROUTE_SEARCH_ORGANISATIONS,
-  ROUTE_STATIC_LEGAL,
-  ROUTE_STATIC_CONTACT,
-  ROUTE_STATIC_DATA,
-  ROUTE_STATIC_GTU,
+  ROUTE_STATIC_LEGAL_FR,
+  ROUTE_STATIC_CONTACT_FR,
+  ROUTE_STATIC_DATA_FR,
+  ROUTE_STATIC_GTU_FR,
   ROUTE_RESULTS,
   ROUTE_TOP_IDEAS,
   ROUTE_TOP_IDEA_DETAILS,
@@ -31,15 +31,19 @@ import {
   ROUTE_PROFILE_OPINIONS,
   ROUTE_STATIC_GTU_EN,
   ROUTE_STATIC_DATA_EN,
-  ROUTE_STATIC_CONTACT_EN,
   ROUTE_STATIC_LEGAL_EN,
   ROUTE_BROWSE_CONSULTATIONS,
   ROUTE_BROWSE_RESULTS,
   BASE_PREVIEW_PATH,
   ROUTE_COUNTRY_LANG,
-  ROUTE_STATIC_A11Y,
+  ROUTE_STATIC_A11Y_FR,
   ROUTE_CONSULTATION,
   ROUTE_STATIC_COOKIES,
+  ROUTE_STATIC_LEGAL_DE,
+  ROUTE_STATIC_DATA_DE,
+  ROUTE_STATIC_GTU_DE,
+  ROUTE_STATIC_A11Y_DE,
+  ROUTE_STATIC_CONTACT_DE,
 } from 'Shared/routes';
 import { countryLanguageMiddleware } from './middleware/countryLanguage';
 import { metricsMiddleware } from './middleware/metrics';
@@ -174,19 +178,26 @@ export const initRoutes = app => {
   app.get(ROUTE_SEARCH_PROPOSALS, frontMiddlewares, defaultRoute);
   app.get(ROUTE_SEARCH_ORGANISATIONS, frontMiddlewares, defaultRoute);
   app.get(ROUTE_SEARCH_CONSULTATIONS, frontMiddlewares, defaultRoute);
-
-  app.get(ROUTE_STATIC_LEGAL, frontMiddlewares, defaultRoute);
-  app.get(ROUTE_STATIC_CONTACT, frontMiddlewares, defaultRoute);
-  app.get(ROUTE_STATIC_DATA, frontMiddlewares, defaultRoute);
-  app.get(ROUTE_STATIC_GTU, frontMiddlewares, defaultRoute);
-  app.get(ROUTE_STATIC_A11Y, frontMiddlewares, defaultRoute);
   app.get(ROUTE_STATIC_COOKIES, frontMiddlewares, defaultRoute);
+
+  // routes for fr language
+  app.get(ROUTE_STATIC_LEGAL_FR, frontMiddlewares, defaultRoute);
+  app.get(ROUTE_STATIC_DATA_FR, frontMiddlewares, defaultRoute);
+  app.get(ROUTE_STATIC_GTU_FR, frontMiddlewares, defaultRoute);
+  app.get(ROUTE_STATIC_A11Y_FR, frontMiddlewares, defaultRoute);
+  app.get(ROUTE_STATIC_CONTACT_FR, frontMiddlewares, defaultRoute);
 
   // routes for en language
   app.get(ROUTE_STATIC_LEGAL_EN, frontMiddlewares, defaultRoute);
-  app.get(ROUTE_STATIC_CONTACT_EN, frontMiddlewares, defaultRoute);
   app.get(ROUTE_STATIC_DATA_EN, frontMiddlewares, defaultRoute);
   app.get(ROUTE_STATIC_GTU_EN, frontMiddlewares, defaultRoute);
+
+  // routes for de language
+  app.get(ROUTE_STATIC_LEGAL_DE, frontMiddlewares, defaultRoute);
+  app.get(ROUTE_STATIC_DATA_DE, frontMiddlewares, defaultRoute);
+  app.get(ROUTE_STATIC_GTU_DE, frontMiddlewares, defaultRoute);
+  app.get(ROUTE_STATIC_A11Y_DE, frontMiddlewares, defaultRoute);
+  app.get(ROUTE_STATIC_CONTACT_DE, frontMiddlewares, defaultRoute);
 
   // not found
   app.get(`${ROUTE_COUNTRY}/*`, frontMiddlewares, (req, res) => {
