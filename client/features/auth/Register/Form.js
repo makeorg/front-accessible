@@ -30,6 +30,8 @@ import { throttle } from 'Shared/helpers/throttle';
 import { FormErrors } from 'Client/ui/Elements/Form/Errors';
 import { CustomPatternInput } from 'Client/ui/Elements/Form/CustomPatternInput';
 import { getGTUPageLink } from 'Shared/helpers/url';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
+import { TermsOfUseLinkStyle, NewWindowIconStyle } from '../style';
 
 type Props = {
   user: RegisterFormDataType,
@@ -134,16 +136,23 @@ export const RegisterForm = ({
         label={i18n.t('common.form.label.profession', { context: 'optional' })}
         handleChange={handleChange}
       />
-      <ConditionParagraphStyle
-        dangerouslySetInnerHTML={{
-          __html: i18n.t('register.gtu_text', {
-            gtu_link: `<a href="${getGTUPageLink(
-              country
-            )}">$t(register.gtu)</a>`,
-            interpolation: { escapeValue: false },
-          }),
-        }}
-      />
+      <ConditionParagraphStyle>
+        <span>
+          {i18n.t('register.gtu_text_first')}
+          <TermsOfUseLinkStyle
+            href={getGTUPageLink(country)}
+            target="_blank"
+            rel="noopener"
+          >
+            {i18n.t('register.gtu_link')}
+            <NewWindowIconStyle />
+            <ScreenReaderItemStyle>
+              {i18n.t('common.open_new_window')}
+            </ScreenReaderItemStyle>
+          </TermsOfUseLinkStyle>
+          {i18n.t('register.gtu_text_second')}
+        </span>
+      </ConditionParagraphStyle>
       <RegisterCheckBox handleLegalField={handleLegalField} required />
       <SubmitButton
         formName={REGISTER_FORMNAME}

@@ -141,7 +141,6 @@ export const Register = () => {
     event.preventDefault();
     displayLegalConsent(!needLegalConsent);
   };
-
   return (
     <>
       <LegalConsent

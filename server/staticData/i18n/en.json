@@ -393,7 +393,9 @@
     "subtitle": "Sign up using this form",
     "login_title": "I already have an account.",
     "login_link": "Log in",
-    "gtu_text": "By signing up, you agree to our {{gtu_link}} and consent to receive emails from Make.org (we only send when necessary).",
+    "gtu_text_first": "By signing up, you agree to our ",
+    "gtu_text_second": " and consent to receive emails from Make.org (we only send when necessary).",
+    "gtu_link": "terms of service",
     "gtu": "terms of service"
   },
   "forgot_password": {

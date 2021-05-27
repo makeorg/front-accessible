@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
-import { SvgLegalConsent } from 'Client/ui/Svg/elements';
+import { SvgLegalConsent, SvgExternalLinkPlain } from 'Client/ui/Svg/elements';
 import { SmallSeparatorStyle } from 'Client/ui/Elements/Separators';
 import { FormCenterAlignStyle } from 'Client/ui/Elements/Form/Styled/Content';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
@@ -10,6 +10,7 @@ import { RedButtonStyle } from 'Client/ui/Elements/Buttons/V2/style';
 import { SpaceBetweenRowStyle } from 'Client/ui/Elements/FlexElements';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
+import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 
 export const AuthenticationWrapperStyle = styled.section`
   display: flex;
@@ -73,5 +74,29 @@ export const LegalSubmitStyle = styled(RedButtonStyle)`
   &:disabled {
     color: ${color.greyDark};
     background-color: ${color.greyLighter};
+  }
+`;
+
+export const TermsOfUseLinkStyle = styled.a`
+  display: inline-flex;
+  font-family: ${MakeFonts.CircularStandardBook};
+  color: ${color.brandSecondary};
+  text-transform: none;
+  text-decoration: underline;
+  align-items: center;
+  font-size: ${intToPx(typography.font.fontsize.XS.value)};
+  line-height: 1.31;
+  &:hover,
+  &:focus {
+    color: ${color.brandSecondary};
+  }
+`;
+
+export const NewWindowIconStyle = styled(SvgExternalLinkPlain)`
+  width: 9px;
+  height: 9px;
+  padding-left: 2px;
+  .tofill {
+    fill: ${color.brandSecondary};
   }
 `;
