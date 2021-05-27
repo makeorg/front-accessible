@@ -78,7 +78,7 @@ export const LegalSubmitStyle = styled(RedButtonStyle)`
 `;
 
 export const TermsOfUseLinkStyle = styled.a`
-  display: inline-flex;
+  display: inline;
   font-family: ${MakeFonts.CircularStandardBook};
   color: ${color.brandSecondary};
   text-transform: none;
