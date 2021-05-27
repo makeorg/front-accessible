@@ -72,7 +72,7 @@ export const Keywords = ({ question, isKeywordActive }: Props) => {
       <KeywordsListWrapperStyle>
         {keywords.map(keyword => (
           <>
-            <KeywordListItemStyle key={keyword.label}>
+            <KeywordListItemStyle key={keyword.key}>
               <KeywordItemLinkStyle
                 to={getSequenceKeywordLink(
                   country,

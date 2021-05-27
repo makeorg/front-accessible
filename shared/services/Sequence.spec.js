@@ -7,7 +7,7 @@ jest.mock('Shared/api/QuestionApiService');
 
 describe('Question Service', () => {
   afterEach(() => {
-    QuestionApiService.startSequence.mockRestore();
+    QuestionApiService.startSequenceByKind.mockRestore();
   });
 
   const proposals = [
@@ -18,48 +18,45 @@ describe('Question Service', () => {
     { id: 'voted', votes: [{ hasVoted: true }] },
   ];
 
-  describe('startSequence function', () => {
-    it('Call sequence service with right params', async () => {
+  describe('startSequenceByKind function with kind parameter', () => {
+    it('Call sequence service with right kind params', async () => {
       const includedProposalIds = [];
-      QuestionApiService.startSequence.mockResolvedValue({
-        id: 'foo',
-        proposals,
-        zone: 'bar',
-        keyword: 'keyword',
+      QuestionApiService.startSequenceByKind.mockResolvedValue({
+        data: {
+          proposals,
+        },
       });
 
-      jest.spyOn(QuestionApiService, 'startSequence');
+      jest.spyOn(QuestionApiService, 'startSequenceByKind');
 
-      await SequenceService.startSequence(
+      await SequenceService.startSequenceByKind(
         'foo',
         includedProposalIds,
-        'bar',
-        'keyword'
+        'controversy'
       );
 
-      expect(QuestionApiService.startSequence).toHaveBeenNthCalledWith(
+      expect(QuestionApiService.startSequenceByKind).toHaveBeenNthCalledWith(
         1,
         'foo',
         includedProposalIds,
-        'bar',
-        'keyword'
+        'controversy'
       );
     });
 
     it('order only included proposal', async () => {
       const includedProposalIds = ['baz', 'foo'];
-      QuestionApiService.startSequence.mockResolvedValue({
+      QuestionApiService.startSequenceByKind.mockResolvedValue({
         data: {
-          id: 'foo',
           proposals,
         },
       });
 
-      const result = await SequenceService.startSequence(
+      const result = await SequenceService.startSequenceByKind(
         'foo',
-        includedProposalIds
+        includedProposalIds,
+        'standard'
       );
-      expect(result).toEqual([
+      expect(result.proposals).toEqual([
         { id: 'baz', votes: [{ hasVoted: false }] },
         { id: 'foo', votes: [{ hasVoted: false }] },
         { id: 'bar', votes: [{ hasVoted: false }] },
@@ -68,18 +65,18 @@ describe('Question Service', () => {
 
     it('order when included proposal contain all proposal', async () => {
       const includedProposalIds = ['baz', 'bar', 'foo'];
-      QuestionApiService.startSequence.mockResolvedValue({
+      QuestionApiService.startSequenceByKind.mockResolvedValue({
         data: {
-          id: 'foo',
           proposals,
         },
       });
 
-      const result = await SequenceService.startSequence(
+      const result = await SequenceService.startSequenceByKind(
         'foo',
-        includedProposalIds
+        includedProposalIds,
+        'consensus'
       );
-      expect(result).toEqual([
+      expect(result.proposals).toEqual([
         { id: 'baz', votes: [{ hasVoted: false }] },
         { id: 'bar', votes: [{ hasVoted: false }] },
         { id: 'foo', votes: [{ hasVoted: false }] },
@@ -88,23 +85,49 @@ describe('Question Service', () => {
 
     it('includes proposals when required even if they are already voted', async () => {
       const includedProposalIds = ['voted'];
-      QuestionApiService.startSequence.mockResolvedValue({
+      QuestionApiService.startSequenceByKind.mockResolvedValue({
         data: {
-          id: 'foo',
           proposals,
         },
       });
 
-      const result = await SequenceService.startSequence(
+      const result = await SequenceService.startSequenceByKind(
         'foo',
-        includedProposalIds
+        includedProposalIds,
+        'consensus'
       );
-      expect(result).toEqual([
+      expect(result.proposals).toEqual([
         { id: 'voted', votes: [{ hasVoted: true }] },
         { id: 'baz', votes: [{ hasVoted: false }] },
         { id: 'bar', votes: [{ hasVoted: false }] },
         { id: 'foo', votes: [{ hasVoted: false }] },
       ]);
+    });
+  });
+
+  describe('startSequenceByKeyword function with keyword param', () => {
+    it('Call sequence service with right keyword param', async () => {
+      const includedProposalIds = [];
+      QuestionApiService.startSequenceByKeyword.mockResolvedValue({
+        key: 'bar',
+        proposals,
+        label: 'bar_label',
+      });
+
+      jest.spyOn(QuestionApiService, 'startSequenceByKeyword');
+
+      await SequenceService.startSequenceByKeyword(
+        'foo',
+        includedProposalIds,
+        'bar'
+      );
+
+      expect(QuestionApiService.startSequenceByKeyword).toHaveBeenNthCalledWith(
+        1,
+        'foo',
+        includedProposalIds,
+        'bar'
+      );
     });
   });
 });

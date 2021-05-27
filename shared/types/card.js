@@ -23,8 +23,24 @@ export type PushProposalCardConfigType = {|
   id?: string,
 |};
 
+export type FinalCardConfigType = {|
+  enabled: boolean,
+  withSharing: boolean,
+  title?: string,
+  share?: boolean,
+  learnMoreTitle?: string,
+  learnMoreTextButton?: string,
+  linkUrl?: string,
+  description?: string,
+|};
+
 export type ProposalCardConfigType = {
   proposal: ProposalType,
+};
+
+export type NoProposalCardConfigType = {
+  title: string,
+  description: string,
 };
 
 export type ProposalCardStateType = {
@@ -44,7 +60,8 @@ export type SequenceCardType = {|
   configuration:
     | IntroCardConfigType
     | PushProposalCardConfigType
-    | ProposalCardConfigType,
+    | ProposalCardConfigType
+    | NoProposalCardConfigType,
   offset: number,
   state?: ProposalCardStateType,
   index: number,

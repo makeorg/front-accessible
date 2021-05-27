@@ -15,4 +15,12 @@ viewsRouter.get('/countries', (req, res) => {
   res.send(fixtures.countriesWithConsultations);
 });
 
+viewsRouter.get('/search', (req, res) => {
+  res.send({
+    proposals: { total: 0, results: [] },
+    questions: { total: 0, results: [] },
+    organisations: { total: 0, results: [] },
+  });
+});
+
 module.exports = viewsRouter;

@@ -1,2 +1,3 @@
-export const ZONE_CONTROVERSY = 'controversy';
-export const ZONE_POPULAR = 'consensus';
+export const KIND_STANDARD = 'standard';
+export const KIND_CONTROVERSY = 'controversy';
+export const KIND_POPULAR = 'consensus';

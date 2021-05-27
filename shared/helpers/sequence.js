@@ -9,7 +9,11 @@ import {
   CARD_TYPE_EXTRASLIDE_SPECIAL_FINAL_CARD,
   CARD_TYPE_PROPOSAL,
 } from 'Shared/constants/card';
-import { ZONE_CONTROVERSY, ZONE_POPULAR } from 'Shared/constants/sequence';
+import {
+  KIND_CONTROVERSY,
+  KIND_POPULAR,
+  KIND_STANDARD,
+} from 'Shared/constants/sequence';
 import { i18n } from 'Shared/i18n';
 
 /**
@@ -45,26 +49,12 @@ export const findIndexOfFirstUnvotedCard = (
 };
 
 /**
- * Return final card depending on zone and keyword
- * @param  {string} zone
- * @param  {string} keyword
- * @return {SequenceCardType}
- */
-export const getFinalCard = (zone: string, keyword: string) => {
-  if (zone === ZONE_CONTROVERSY || zone === ZONE_POPULAR || keyword) {
-    return CARD_TYPE_EXTRASLIDE_SPECIAL_FINAL_CARD;
-  }
-  return CARD_TYPE_EXTRASLIDE_FINAL_CARD;
-};
-
-/**
  * Build cards array
  * @param  {ProposalType[]} proposals
  * @param  {QuestionExtraSlidesConfigType} extraSlidesConfig
  * @param  {boolean} hasProposed
  * @param  {boolean} canPropose
- * @param  {string} zone
- * @param  {string} keyword
+ * @param  {boolean} isStandardSequence
  * @param  {string} introCardParam
  * @param  {string} pushProposalParam
  * @return {SequenceCardType[]}
@@ -74,8 +64,7 @@ export const buildCards = (
   extraSlidesConfig: QuestionExtraSlidesConfigType,
   hasProposed: boolean,
   canPropose: boolean,
-  zone?: string,
-  keyword?: string,
+  isStandardSequence: boolean,
   introCardParam?: string,
   pushProposalParam?: string
 ): SequenceCardType[] => {
@@ -117,9 +106,10 @@ export const buildCards = (
       index: 0,
     });
   }
-
   cards.splice(cards.length, 0, {
-    type: getFinalCard(zone, keyword),
+    type: isStandardSequence
+      ? CARD_TYPE_EXTRASLIDE_FINAL_CARD
+      : CARD_TYPE_EXTRASLIDE_SPECIAL_FINAL_CARD,
     configuration: extraSlidesConfig.finalCard,
     offset: cardOffset,
     index: 0,
@@ -134,33 +124,24 @@ export const buildCards = (
 };
 
 /**
- * Check if card zone or keyword needs a special title
- * @param  {string} zone
- * @param  {string} keyword
+ * Check if is a standard sequence
+ * @param  {string} sequenceKind
  * @return {boolean}
  */
-export const getSpecialTitle = (zone: string, keyword: string) => {
-  if (
-    zone === ZONE_POPULAR ||
-    zone === ZONE_CONTROVERSY ||
-    (keyword && keyword !== undefined)
-  ) {
-    return true;
-  }
-  return false;
-};
+export const isStandardSequence = (sequenceKind: string) =>
+  sequenceKind === KIND_STANDARD;
 
 /**
- * Render title depending on zone
- * @param  {string} zone
+ * Render title depending on kind
+ * @param  {string} sequenceKind
  * @return {string || null}
  */
-export const getSequenceTitleByZone = (zone: string) => {
-  switch (zone) {
-    case ZONE_CONTROVERSY: {
+export const getSequenceTitleBySequenceKind = (sequenceKind: string) => {
+  switch (sequenceKind) {
+    case KIND_CONTROVERSY: {
       return i18n.t('sequence_zone.controversial_title');
     }
-    case ZONE_POPULAR: {
+    case KIND_POPULAR: {
       return i18n.t('sequence_zone.popular_title');
     }
     default:
@@ -168,19 +149,28 @@ export const getSequenceTitleByZone = (zone: string) => {
   }
 };
 
-/** Render NoProposal card title depending on type of sequence, regular, zone or keyword
- * @param  {string} zone
+/** Render NoProposal card title depending on type of sequence
+ * @param  {string} sequenceKind
  * @return {string || null}
  */
-export const getNoProposalCardTitle = (zone: string) => {
-  switch (zone) {
-    case ZONE_CONTROVERSY: {
+export const getNoProposalCardTitleBySequenceKind = (sequenceKind: string) => {
+  switch (sequenceKind) {
+    case KIND_CONTROVERSY: {
       return i18n.t('no_proposal_card.title.controversial');
     }
-    case ZONE_POPULAR: {
+    case KIND_POPULAR: {
       return i18n.t('no_proposal_card.title.popular');
     }
     default:
       return i18n.t('no_proposal_card.title.regular');
   }
 };
+
+/** Render boolean according to sequence kind parameter
+ * @param  {string} sequenceKind
+ * @return {boolean}
+ *
+ */
+
+export const isKeywordSequence = (sequenceKind: string) =>
+  ![KIND_CONTROVERSY, KIND_POPULAR, KIND_STANDARD].includes(sequenceKind);
