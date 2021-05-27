@@ -45,7 +45,9 @@ export const ProposalAuthentication = ({
   const { isLoggedIn, user } = useSelector((state: StateRoot) =>
     selectAuthentication(state)
   );
-  const { country } = useSelector((state: StateRoot) => state.appConfig);
+  const { country, language } = useSelector(
+    (state: StateRoot) => state.appConfig
+  );
   const handleModerationLink = () => {
     dispatch(closePanel());
     dispatch(removePanelContent());
@@ -82,7 +84,10 @@ export const ProposalAuthentication = ({
           <AuthenticationRegisterButtons />
           <ProposalAuthDisclaimerStyle>
             {i18n.t('authentication.commitment')}
-            <Link to={getDataPageLink(country)} onClick={handleModerationLink}>
+            <Link
+              to={getDataPageLink(country, language)}
+              onClick={handleModerationLink}
+            >
               {i18n.t('authentication.personal_data')}
             </Link>
           </ProposalAuthDisclaimerStyle>

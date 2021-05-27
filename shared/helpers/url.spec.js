@@ -1,5 +1,10 @@
 /* @flow */
 import { env } from 'Shared/env';
+import {
+  ROUTE_STATIC_GTU_DE,
+  ROUTE_STATIC_GTU_EN,
+  ROUTE_STATIC_GTU_FR,
+} from 'Shared/routes';
 import * as urlHelper from './url';
 
 const pathName = '/fooPath';
@@ -90,5 +95,33 @@ describe('Url Helper', () => {
     const link = urlHelper.getCookiesPageLink(country);
 
     expect(link).toEqual(`/${country}/cookies`);
+  });
+
+  it('return MultiLang Link', () => {
+    const linkFR = urlHelper.getMultiLangStaticLink(
+      'FR',
+      'fr',
+      ROUTE_STATIC_GTU_FR,
+      ROUTE_STATIC_GTU_EN,
+      ROUTE_STATIC_GTU_DE
+    );
+    const linkEN = urlHelper.getMultiLangStaticLink(
+      'GB',
+      'en',
+      ROUTE_STATIC_GTU_FR,
+      ROUTE_STATIC_GTU_EN,
+      ROUTE_STATIC_GTU_DE
+    );
+    const linkDE = urlHelper.getMultiLangStaticLink(
+      'DE',
+      'de',
+      ROUTE_STATIC_GTU_FR,
+      ROUTE_STATIC_GTU_EN,
+      ROUTE_STATIC_GTU_DE
+    );
+
+    expect(linkFR).toEqual(`/FR/conditions-dutilisation`);
+    expect(linkEN).toEqual(`/GB/terms-of-use`);
+    expect(linkDE).toEqual(`/DE/nutzungsbedingungen`);
   });
 });

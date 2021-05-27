@@ -26,6 +26,7 @@ import {
 } from 'Shared/helpers/styled';
 import { type StateRoot } from 'Shared/store/types';
 import { useSelector } from 'react-redux';
+import { DATE_CAPITALIZE_LL_FORMAT } from 'Shared/constants/date';
 import { ConsultationLink } from './Link';
 
 type Props = {
@@ -155,8 +156,14 @@ export const ConsultationItem = ({
           <ClockIconStyle aria-hidden focusable="false" />
           <> </>
           {i18n.t('browse.date', {
-            startDate: DateHelper.creationDateFormat(startDate),
-            endDate: DateHelper.creationDateFormat(endDate),
+            startDate: DateHelper.localizedAndFormattedDate(
+              startDate,
+              DATE_CAPITALIZE_LL_FORMAT
+            ),
+            endDate: DateHelper.localizedAndFormattedDate(
+              endDate,
+              DATE_CAPITALIZE_LL_FORMAT
+            ),
           })}
         </ConsultationItemStyle>
       </ConsultationElementParagraphStyle>

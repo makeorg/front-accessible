@@ -14,6 +14,7 @@ import {
   DefaultBannerTimeStyle,
 } from 'Client/features/consultation/Styled/IntroBanner';
 import { Image } from 'Client/ui/Image';
+import { DATE_CAPITALIZE_LL_FORMAT } from 'Shared/constants/date';
 
 type Props = {
   question: QuestionType,
@@ -54,11 +55,17 @@ export const IntroBanner = ({ question }: Props) =>
           {i18n.t('consultation.tabs.consultation')}
           {i18n.t('consultation.tabs.from')}
           <time dateTime={question.startDate}>
-            {DateHelper.creationDateFormat(question.startDate)}
+            {DateHelper.localizedAndFormattedDate(
+              question.startDate,
+              DATE_CAPITALIZE_LL_FORMAT
+            )}
           </time>
           {i18n.t('consultation.tabs.to')}
           <time dateTime={question.endDate}>
-            {DateHelper.creationDateFormat(question.endDate)}
+            {DateHelper.localizedAndFormattedDate(
+              question.endDate,
+              DATE_CAPITALIZE_LL_FORMAT
+            )}
           </time>
         </DefaultBannerTimeStyle>
       </DefaultBannerMainContainer>

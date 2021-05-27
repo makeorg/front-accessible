@@ -25,8 +25,8 @@ import {
   FooterItemAltLinkStyle,
   FooterCountryIconStyle,
   FooterContactIconStyle,
-} from './style';
-import { FooterCommonLinks } from './CommonLinks';
+} from '../style';
+import { FooterCommonLinks } from '../CommonLinks';
 
 /**
  * Renders Main Footer
@@ -34,7 +34,9 @@ import { FooterCommonLinks } from './CommonLinks';
 export const FooterINT = () => {
   const dispatch = useDispatch();
   const location = useLocation();
-  const { country } = useSelector((state: StateRoot) => state.appConfig);
+  const { country, language } = useSelector(
+    (state: StateRoot) => state.appConfig
+  );
   const isSequencePage = getIsSequencePage(location.pathname);
 
   return country ? (
@@ -75,7 +77,7 @@ export const FooterINT = () => {
             <FooterItemStyle>
               <FooterItemAltLinkStyle
                 onClick={scrollToTop}
-                to={getContactPageLink(country)}
+                to={getContactPageLink(country, language)}
               >
                 <FooterContactIconStyle aria-hidden focusable="false" />
                 <> </>

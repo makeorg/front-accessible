@@ -1,6 +1,7 @@
 /* @flow */
 import {
   compareCountriesByName,
+  getCountryDPA,
   getCountryWithConsultations,
   getLanguageFromCountryCode,
 } from './countries';
@@ -65,6 +66,30 @@ describe('Countries helper', () => {
       expect(
         getCountryWithConsultations('US', countriesWithConsultations)
       ).toBe(null);
+    });
+  });
+
+  describe('getCountryDPA function', () => {
+    const FR = {
+      name: 'CNIL',
+      link: 'https://www.cnil.fr/fr/adresser-une-plainte',
+    };
+    const US = {
+      name: 'Federal Trade Commission',
+      link:
+        'https://www.ftc.gov/tips-advice/business-center/privacy-and-security/privacy-shield',
+    };
+
+    it('FR DPA', () => {
+      expect(getCountryDPA('FR')).toEqual(FR);
+    });
+
+    it('US DPA', () => {
+      expect(getCountryDPA('US')).toEqual(US);
+    });
+
+    it('Unknown DPA', () => {
+      expect(getCountryDPA('CN')).toEqual(null);
     });
   });
 });

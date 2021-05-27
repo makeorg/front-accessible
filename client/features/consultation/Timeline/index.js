@@ -12,6 +12,11 @@ import { type QuestionType } from 'Shared/types/question';
 import { isResultsPage } from 'Shared/routes';
 import { buildTimeline, getStepTitle } from 'Client/helper/timeline';
 import {
+  DATE_DD_MMMM_FORMAT,
+  DATE_DD_MMMM_YYYY_FORMAT,
+  DATE_MMMM_YYYY_FORMAT,
+} from 'Shared/constants/date';
+import {
   TimelineWrapperStyle,
   TimelineListWrapperStyle,
   TimelineItemTitleStyle,
@@ -66,10 +71,19 @@ export const Timeline = () => {
 
   const firstStepDateText = resultsPage
     ? i18n.t('consultation.timeline.consultation_from_to', {
-        startDate: DateHelper.localizedDayMonth(question.startDate),
-        endDate: DateHelper.localizedDayMonthYear(question.endDate),
+        startDate: DateHelper.localizedAndFormattedDate(
+          question.startDate,
+          DATE_DD_MMMM_FORMAT
+        ),
+        endDate: DateHelper.localizedAndFormattedDate(
+          question.endDate,
+          DATE_DD_MMMM_YYYY_FORMAT
+        ),
       })
-    : DateHelper.localizedMonthYear(question.startDate);
+    : DateHelper.localizedAndFormattedDate(
+        question.startDate,
+        DATE_MMMM_YYYY_FORMAT
+      );
   const timelineSteps = buildTimeline(timeline);
 
   return (

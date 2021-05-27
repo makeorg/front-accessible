@@ -2,7 +2,9 @@
 import React from 'react';
 import { RedLinkHTMLElementStyle } from 'Client/ui/Elements/LinkElements';
 import { MetaTags } from 'Client/app/MetaTags';
-import { CONTACT_EMAIL } from 'Shared/constants/config';
+import { CONTACT_EMAIL, PRIVACY_POLICY_DATE } from 'Shared/constants/config';
+import { DateHelper } from 'Shared/helpers/date';
+import { DATE_CAPITALIZE_LL_FORMAT } from 'Shared/constants/date';
 import {
   StaticPageWrapperStyle,
   StaticSecondLevelTitleStyle,
@@ -13,7 +15,7 @@ import {
   StaticThirdLevelTitleStyle,
   StaticSquareListStyle,
   StaticSquareListItemStyle,
-} from './style';
+} from '../style';
 
 export const DataEN = () => (
   <>
@@ -21,7 +23,13 @@ export const DataEN = () => (
     <StaticPageWrapperStyle>
       <StaticSecondLevelTitleStyle>
         Privacy policy
-        <StaticTitleExtra>Dated 03/01/2019</StaticTitleExtra>
+        <StaticTitleExtra>
+          Dated{' '}
+          {DateHelper.localizedAndFormattedDate(
+            PRIVACY_POLICY_DATE,
+            DATE_CAPITALIZE_LL_FORMAT
+          )}
+        </StaticTitleExtra>
       </StaticSecondLevelTitleStyle>
       <StaticParagraphStyle>
         <>

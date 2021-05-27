@@ -5,7 +5,12 @@ import { type StateRoot } from 'Shared/store/types';
 import { RedLinkHTMLElementStyle } from 'Client/ui/Elements/LinkElements';
 import { getDataPageLink } from 'Shared/helpers/url';
 import { MetaTags } from 'Client/app/MetaTags';
-import { CONTACT_EMAIL } from 'Shared/constants/config';
+import { CONTACT_EMAIL, GTU_DATE } from 'Shared/constants/config';
+import { DateHelper } from 'Shared/helpers/date';
+import {
+  DATE_CAPITALIZE_LL_FORMAT,
+  DATE_CAPITALIZE_L_FORMAT,
+} from 'Shared/constants/date';
 import {
   StaticPageWrapperStyle,
   StaticSecondLevelTitleStyle,
@@ -20,17 +25,26 @@ import {
   StaticSecondaryOrderedListStyle,
   StaticSecondaryOrderedListItemStyle,
   StaticStrongStyle,
-} from './style';
+} from '../style';
 
 export const TermsOfUseEN = () => {
-  const { country } = useSelector((state: StateRoot) => state.appConfig);
+  const { country, language } = useSelector(
+    (state: StateRoot) => state.appConfig
+  );
   return (
     <>
       <MetaTags title="Terms of service - Make.org" />
       <StaticPageWrapperStyle>
         <StaticSecondLevelTitleStyle>
           <>MAKE.ORG terms of service</>
-          <StaticTitleExtra>- dated 30 October 2017 -</StaticTitleExtra>
+          <StaticTitleExtra>
+            - dated{' '}
+            {DateHelper.localizedAndFormattedDate(
+              GTU_DATE,
+              DATE_CAPITALIZE_LL_FORMAT
+            )}{' '}
+            -
+          </StaticTitleExtra>
         </StaticSecondLevelTitleStyle>
         <StaticParagraphStyle>
           Make.org is an organisation that is independent from any party. It
@@ -130,7 +144,9 @@ export const TermsOfUseEN = () => {
               {
                 'The use of the Service also implies the full and unreserved acceptance of Make.org’s Data usage policy, which is an integral part of these GTS and which is available '
               }
-              <RedLinkHTMLElementStyle href={getDataPageLink(country)}>
+              <RedLinkHTMLElementStyle
+                href={getDataPageLink(country, language)}
+              >
                 here.
               </RedLinkHTMLElementStyle>
             </StaticParagraphStyle>
@@ -1138,7 +1154,12 @@ export const TermsOfUseEN = () => {
               ENTRY INTO FORCE
             </StaticThirdLevelTitleStyle>
             <StaticParagraphStyle>
-              The present terms of service came into force on 31/10/2017.
+              The present terms of service came into force on{' '}
+              {DateHelper.localizedAndFormattedDate(
+                GTU_DATE,
+                DATE_CAPITALIZE_L_FORMAT
+              )}
+              .
             </StaticParagraphStyle>
           </StaticPrimaryOrderedListItemStyle>
         </StaticPrimaryOrderedListStyle>

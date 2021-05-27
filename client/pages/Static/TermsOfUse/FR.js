@@ -5,7 +5,12 @@ import { type StateRoot } from 'Shared/store/types';
 import { RedLinkHTMLElementStyle } from 'Client/ui/Elements/LinkElements';
 import { getDataPageLink } from 'Shared/helpers/url';
 import { MetaTags } from 'Client/app/MetaTags';
-import { CONTACT_EMAIL } from 'Shared/constants/config';
+import { CONTACT_EMAIL, GTU_DATE } from 'Shared/constants/config';
+import { DateHelper } from 'Shared/helpers/date';
+import {
+  DATE_CAPITALIZE_LL_FORMAT,
+  DATE_CAPITALIZE_L_FORMAT,
+} from 'Shared/constants/date';
 import {
   StaticPageWrapperStyle,
   StaticSecondLevelTitleStyle,
@@ -20,17 +25,27 @@ import {
   StaticSecondaryOrderedListStyle,
   StaticSecondaryOrderedListItemStyle,
   StaticStrongStyle,
-} from './style';
+} from '../style';
 
 export const TermsOfUseFR = () => {
-  const { country } = useSelector((state: StateRoot) => state.appConfig);
+  const { country, language } = useSelector(
+    (state: StateRoot) => state.appConfig
+  );
+
   return (
     <>
       <MetaTags title="Conditions d’utilisation - Make.org" />
       <StaticPageWrapperStyle>
         <StaticSecondLevelTitleStyle>
           Conditions d’utilisation de Make.org
-          <StaticTitleExtra>- en date du 30 octobre 2017 -</StaticTitleExtra>
+          <StaticTitleExtra>
+            - en date du{' '}
+            {DateHelper.localizedAndFormattedDate(
+              GTU_DATE,
+              DATE_CAPITALIZE_LL_FORMAT
+            )}{' '}
+            -
+          </StaticTitleExtra>
         </StaticSecondLevelTitleStyle>
         <StaticParagraphStyle>
           Make.org est une organisation indépendante de tout parti qui édite un
@@ -135,7 +150,9 @@ export const TermsOfUseFR = () => {
               et sans réserve de la Politique d’utilisation des données de
               Make.org qui fait partie intégrante des présentes CGUS et est
               disponible
-              <RedLinkHTMLElementStyle href={getDataPageLink(country)}>
+              <RedLinkHTMLElementStyle
+                href={getDataPageLink(country, language)}
+              >
                 ici.
               </RedLinkHTMLElementStyle>
             </StaticParagraphStyle>
@@ -1144,8 +1161,12 @@ export const TermsOfUseFR = () => {
               ENTRÉE EN VIGUEUR
             </StaticThirdLevelTitleStyle>
             <StaticParagraphStyle>
-              Les présentes conditions générales sont entrées en vigueur le
-              31/10/2017.
+              Les présentes conditions générales sont entrées en vigueur le{' '}
+              {DateHelper.localizedAndFormattedDate(
+                GTU_DATE,
+                DATE_CAPITALIZE_L_FORMAT
+              )}
+              .
             </StaticParagraphStyle>
           </StaticPrimaryOrderedListItemStyle>
         </StaticPrimaryOrderedListStyle>

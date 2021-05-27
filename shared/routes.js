@@ -38,19 +38,26 @@ export const ROUTE_ORGANISATION_PROPOSALS = `${ROUTE_ORGANISATION_PROFILE}/propo
 export const ROUTE_ORGANISATION_VOTES = `${ROUTE_ORGANISATION_PROFILE}/votes`;
 export const ROUTE_STATIC_NOTFOUND = `${ROUTE_COUNTRY}/not-found`;
 export const ROUTE_STATIC_NOCOOKIES = `${ROUTE_COUNTRY_FR}/no-cookies`;
-
-export const ROUTE_STATIC_LEGAL = `${ROUTE_COUNTRY}/mentions-legales`;
-export const ROUTE_STATIC_GTU = `${ROUTE_COUNTRY}/conditions-dutilisation`;
-export const ROUTE_STATIC_DATA = `${ROUTE_COUNTRY}/politique-donnees`;
-export const ROUTE_STATIC_CONTACT = `${ROUTE_COUNTRY}/contact`;
-export const ROUTE_STATIC_A11Y = `${ROUTE_COUNTRY}/declaration-accessibilite`;
 export const ROUTE_STATIC_COOKIES = `${ROUTE_COUNTRY}/cookies`;
+
+// routes for fr language
+export const ROUTE_STATIC_LEGAL_FR = `${ROUTE_COUNTRY}/mentions-legales`;
+export const ROUTE_STATIC_GTU_FR = `${ROUTE_COUNTRY}/conditions-dutilisation`;
+export const ROUTE_STATIC_DATA_FR = `${ROUTE_COUNTRY}/politique-donnees`;
+export const ROUTE_STATIC_A11Y_FR = `${ROUTE_COUNTRY}/declaration-accessibilite`;
+export const ROUTE_STATIC_CONTACT_FR = `${ROUTE_COUNTRY}/contact`;
 
 // routes for en language
 export const ROUTE_STATIC_LEGAL_EN = `${ROUTE_COUNTRY}/legal-mentions`;
 export const ROUTE_STATIC_GTU_EN = `${ROUTE_COUNTRY}/terms-of-use`;
 export const ROUTE_STATIC_DATA_EN = `${ROUTE_COUNTRY}/data-terms`;
-export const ROUTE_STATIC_CONTACT_EN = `${ROUTE_COUNTRY}/contact`;
+
+// routes for de language
+export const ROUTE_STATIC_LEGAL_DE = `${ROUTE_COUNTRY}/impressum`;
+export const ROUTE_STATIC_GTU_DE = `${ROUTE_COUNTRY}/nutzungsbedingungen`;
+export const ROUTE_STATIC_DATA_DE = `${ROUTE_COUNTRY}/datenrichtlinie`;
+export const ROUTE_STATIC_A11Y_DE = `${ROUTE_COUNTRY}/zuganglichkeitserklarung`;
+export const ROUTE_STATIC_CONTACT_DE = `${ROUTE_COUNTRY}/kontakt`;
 
 // webflow routes
 export const ROUTE_WHOAREWE = `/about-us`;

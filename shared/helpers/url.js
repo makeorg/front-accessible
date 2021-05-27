@@ -12,19 +12,18 @@ import {
   ROUTE_PROPOSAL,
   ROUTE_ORGANISATION_PROFILE,
   ROUTE_PERSONALITY_PROFILE,
-  ROUTE_STATIC_CONTACT,
-  ROUTE_STATIC_DATA,
-  ROUTE_STATIC_GTU,
-  ROUTE_STATIC_LEGAL,
+  ROUTE_STATIC_DATA_FR,
+  ROUTE_STATIC_GTU_FR,
+  ROUTE_STATIC_LEGAL_FR,
+  ROUTE_STATIC_CONTACT_FR,
   ROUTE_RESULTS,
   ROUTE_TOP_IDEAS,
   ROUTE_TOP_IDEA_DETAILS,
   ROUTE_STATIC_NOTFOUND,
-  ROUTE_STATIC_A11Y,
+  ROUTE_STATIC_A11Y_FR,
   ROUTE_STATIC_GTU_EN,
   ROUTE_STATIC_LEGAL_EN,
   ROUTE_STATIC_DATA_EN,
-  ROUTE_STATIC_CONTACT_EN,
   ROUTE_BROWSE_CONSULTATIONS,
   ROUTE_BROWSE_RESULTS,
   BASE_PREVIEW_PATH,
@@ -34,6 +33,11 @@ import {
   ROUTE_ACCOUNT_ACTIVATION,
   ROUTE_EXPLORE,
   ROUTE_STATIC_COOKIES,
+  ROUTE_STATIC_DATA_DE,
+  ROUTE_STATIC_GTU_DE,
+  ROUTE_STATIC_LEGAL_DE,
+  ROUTE_STATIC_CONTACT_DE,
+  ROUTE_STATIC_A11Y_DE,
 } from 'Shared/routes';
 import { env } from 'Shared/env';
 
@@ -41,6 +45,23 @@ export const getRelativeCurrentUrl = (pathName: string) =>
   `${env.frontUrl()}${pathName}`;
 
 export const getPartnerAnchor = (aboutUrl: string) => `${aboutUrl}#partenaires`;
+
+export const getMultiLangStaticLink = (
+  country: string,
+  language: string,
+  FRLink: string,
+  ENLink: string,
+  DELink: string
+) => {
+  switch (language) {
+    case 'fr':
+      return generatePath(FRLink, { country });
+    case 'de':
+      return generatePath(DELink, { country });
+    default:
+      return generatePath(ENLink, { country });
+  }
+};
 
 /** @todo move all this stuff to Shared/routes file or create a route helper */
 /**
@@ -319,56 +340,62 @@ export const getPersonalityProfileLink = (country: string, userId: string) =>
  * @param  {string} country
  * @return {string}
  */
-export const getContactPageLink = (country: string) =>
-  generatePath(
-    country === 'FR' || !country
-      ? ROUTE_STATIC_CONTACT
-      : ROUTE_STATIC_CONTACT_EN,
-    {
-      country,
-    }
+export const getContactPageLink = (country: string, language: string) =>
+  getMultiLangStaticLink(
+    country,
+    language,
+    ROUTE_STATIC_CONTACT_FR,
+    // same uri as french version
+    ROUTE_STATIC_CONTACT_FR,
+    ROUTE_STATIC_CONTACT_DE
   );
 
 /**
  * Get the data page link
  *
  * @param  {string} country
+ * @param  {string} lamguage
  * @return {string}
  */
-export const getDataPageLink = (country: string) =>
-  generatePath(
-    country === 'FR' || !country ? ROUTE_STATIC_DATA : ROUTE_STATIC_DATA_EN,
-    {
-      country,
-    }
+export const getDataPageLink = (country: string, language: string) =>
+  getMultiLangStaticLink(
+    country,
+    language,
+    ROUTE_STATIC_DATA_FR,
+    ROUTE_STATIC_DATA_EN,
+    ROUTE_STATIC_DATA_DE
   );
 
 /**
  * Get the GTU page link
  *
  * @param  {string} country
+ * @param  {string} lamguage
  * @return {string}
  */
-export const getGTUPageLink = (country: string) =>
-  generatePath(
-    country === 'FR' || !country ? ROUTE_STATIC_GTU : ROUTE_STATIC_GTU_EN,
-    {
-      country,
-    }
+export const getGTUPageLink = (country: string, language: string) =>
+  getMultiLangStaticLink(
+    country,
+    language,
+    ROUTE_STATIC_GTU_FR,
+    ROUTE_STATIC_GTU_EN,
+    ROUTE_STATIC_GTU_DE
   );
 
 /**
- * Get the GTU page link
+ * Get the Legal page link
  *
  * @param  {string} country
+ * @param  {string} lamguage
  * @return {string}
  */
-export const getLegalPageLink = (country: string) =>
-  generatePath(
-    country === 'FR' || !country ? ROUTE_STATIC_LEGAL : ROUTE_STATIC_LEGAL_EN,
-    {
-      country,
-    }
+export const getLegalPageLink = (country: string, language: string) =>
+  getMultiLangStaticLink(
+    country,
+    language,
+    ROUTE_STATIC_LEGAL_FR,
+    ROUTE_STATIC_LEGAL_EN,
+    ROUTE_STATIC_LEGAL_DE
   );
 
 /**
@@ -377,10 +404,15 @@ export const getLegalPageLink = (country: string) =>
  * @param  {string} country
  * @return {string}
  */
-export const getA11YPageLink = (country: string) =>
-  generatePath(ROUTE_STATIC_A11Y, {
+export const getA11YPageLink = (country: string, language: string) =>
+  getMultiLangStaticLink(
     country,
-  });
+    language,
+    ROUTE_STATIC_A11Y_FR,
+    // todo EN Translation for a11y page
+    ROUTE_STATIC_A11Y_FR,
+    ROUTE_STATIC_A11Y_DE
+  );
 
 /**
  * Get the Cookies page link
