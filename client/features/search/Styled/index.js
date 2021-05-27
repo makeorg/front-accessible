@@ -108,11 +108,7 @@ export const BusinessConsultationsItemLinkStyle = styled(Link)`
 
 export const BusinessConsultationsItemBorderStyle = styled.div`
   width: 10px;
-  background: linear-gradient(
-    352deg,
-    ${props => props.colorStart},
-    ${props => props.colorEnd}
-  );
+  background-color: ${props => props.color};
 `;
 
 export const BusinessConsultationsItemArrowStyle = styled(SvgAngleArrowRight)`

@@ -18,12 +18,8 @@
       "startDate": "2019-10-12T22:00:00Z",
       "endDate": "2020-07-10T22:00:00Z",
       "theme": {
-        "gradientStart": "#b3b5c5",
-        "gradientEnd": "#b3b5c5",
         "color": "#b3b5c5",
-        "fontColor": "#ff0000",
-        "secondaryColor": "#469a7f",
-        "secondaryFontColor": "#ffffff"
+        "fontColor": "#ff0000"
       },
       "displayResults": false,
       "resultsLink": null,
@@ -45,12 +41,8 @@
       "startDate": "2019-10-12T22:00:00Z",
       "endDate": "2020-07-31T22:00:00Z",
       "theme": {
-        "gradientStart": "#21816e",
-        "gradientEnd": "#21816e",
         "color": "#21816e",
-        "fontColor": "#FFFFFF",
-        "secondaryColor": null,
-        "secondaryFontColor": null
+        "fontColor": "#FFFFFF"
       },
       "displayResults": false,
       "resultsLink": null,
@@ -72,12 +64,8 @@
       "startDate": "2019-10-12T22:00:00Z",
       "endDate": "2020-07-31T22:00:00Z",
       "theme": {
-        "gradientStart": "#a7104f",
-        "gradientEnd": "#a7104f",
         "color": "#a7104f",
-        "fontColor": "#FFFFFF",
-        "secondaryColor": null,
-        "secondaryFontColor": null
+        "fontColor": "#FFFFFF"
       },
       "displayResults": false,
       "resultsLink": null,
@@ -99,12 +87,8 @@
       "startDate": "2019-10-12T22:00:00Z",
       "endDate": "2020-07-31T22:00:00Z",
       "theme": {
-        "gradientStart": "#0055aa",
-        "gradientEnd": "#0055aa",
         "color": "#0055aa",
-        "fontColor": "#FFFFFF",
-        "secondaryColor": null,
-        "secondaryFontColor": null
+        "fontColor": "#FFFFFF"
       },
       "displayResults": false,
       "resultsLink": null,
@@ -126,8 +110,8 @@
       "startDate": "2019-10-16T22:00:00Z",
       "endDate": "2020-08-31T08:00:00Z",
       "theme": {
-        "gradientStart": "#a4d693",
-        "gradientEnd": "#007d83",
+        
+        
         "color": "#007d83",
         "fontColor": "#e5ef5a",
         "secondaryColor": "#000000",
@@ -154,8 +138,8 @@
       "startDate": "2019-10-16T22:00:00Z",
       "endDate": "2020-08-31T08:00:00Z",
       "theme": {
-        "gradientStart": "#a4d693",
-        "gradientEnd": "#007d83",
+        
+        
         "color": "#007d83",
         "fontColor": "#e5ef5a",
         "secondaryColor": "#000000",
@@ -181,12 +165,8 @@
       "startDate": "2018-08-29T18:00:00Z",
       "endDate": "2020-05-01T14:00:00Z",
       "theme": {
-        "gradientStart": "#000000",
-        "gradientEnd": "#000000",
         "color": "#000000",
-        "fontColor": "#FFFFFF",
-        "secondaryColor": null,
-        "secondaryFontColor": null
+        "fontColor": "#FFFFFF"
       },
       "displayResults": false,
       "resultsLink": null,
@@ -208,12 +188,8 @@
       "startDate": "2020-03-07T23:00:00Z",
       "endDate": "2020-03-30T22:00:00Z",
       "theme": {
-        "gradientStart": "#000000",
-        "gradientEnd": "#000000",
         "color": "#000000",
-        "fontColor": "#000000",
-        "secondaryColor": null,
-        "secondaryFontColor": null
+        "fontColor": "#000000"
       },
       "displayResults": false,
       "resultsLink": null,
@@ -235,12 +211,8 @@
       "startDate": "2019-05-28T00:00:00Z",
       "endDate": "2019-09-17T00:00:00Z",
       "theme": {
-        "gradientStart": "#2639ad",
-        "gradientEnd": "#2639ad",
         "color": "#2639ad",
-        "fontColor": "#FFFFFF",
-        "secondaryColor": null,
-        "secondaryFontColor": null
+        "fontColor": "#FFFFFF"
       },
       "displayResults": true,
       "resultsLink": null,
@@ -262,12 +234,8 @@
       "startDate": "2019-05-15T00:00:00Z",
       "endDate": "2019-05-31T00:00:00Z",
       "theme": {
-        "gradientStart": "#000000",
-        "gradientEnd": "#000000",
         "color": "#000000",
-        "fontColor": "#FFFFFF",
-        "secondaryColor": null,
-        "secondaryFontColor": null
+        "fontColor": "#FFFFFF"
       },
       "displayResults": false,
       "resultsLink": null,
@@ -289,12 +257,8 @@
       "startDate": "2019-01-23T00:00:00Z",
       "endDate": "2019-05-23T00:00:00Z",
       "theme": {
-        "gradientStart": "#9C6BDA",
-        "gradientEnd": "#8DDCF6",
         "color": "#9C6BDA",
-        "fontColor": "#000000",
-        "secondaryColor": null,
-        "secondaryFontColor": null
+        "fontColor": "#000000"
       },
       "displayResults": false,
       "resultsLink": null,
@@ -316,12 +280,8 @@
       "startDate": "2019-04-06T00:00:00Z",
       "endDate": "2019-04-30T00:00:00Z",
       "theme": {
-        "gradientStart": "#000000",
-        "gradientEnd": "#000000",
         "color": "#000000",
-        "fontColor": "#07e0d0",
-        "secondaryColor": null,
-        "secondaryFontColor": null
+        "fontColor": "#07e0d0"
       },
       "displayResults": true,
       "resultsLink": null,
@@ -343,12 +303,8 @@
       "startDate": "2018-06-27T00:00:00Z",
       "endDate": "2018-10-05T00:00:00Z",
       "theme": {
-        "gradientStart": "#000000",
-        "gradientEnd": "#000000",
         "color": "#000000",
-        "fontColor": "#FFFFFF",
-        "secondaryColor": null,
-        "secondaryFontColor": null
+        "fontColor": "#FFFFFF"
       },
       "displayResults": false,
       "resultsLink": null,
@@ -370,12 +326,8 @@
       "startDate": "2018-03-08T00:00:00Z",
       "endDate": "2018-03-08T00:00:00Z",
       "theme": {
-        "gradientStart": "#000000",
-        "gradientEnd": "#000000",
         "color": "#000000",
-        "fontColor": "#FFFFFF",
-        "secondaryColor": null,
-        "secondaryFontColor": null
+        "fontColor": "#FFFFFF"
       },
       "displayResults": false,
       "resultsLink": null,

@@ -61,8 +61,6 @@
     }
   ],
   "theme": {
-    "gradientStart":"#48267f",
-    "gradientEnd":"#48267f",
     "color":"#48267f",
     "fontColor":"#ffffff"
   },

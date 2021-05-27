@@ -65,9 +65,7 @@ export const questionConfigurationTypeFixture = {
   },
   theme: {
     color: '#3839ca',
-    'gradient-start': '#3839ca',
-    'gradient-end': '#3839ca',
-    footerFontColor: 'white',
+    fontColor: 'white',
   },
 };
 
