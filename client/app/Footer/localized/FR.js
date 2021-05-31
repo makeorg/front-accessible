@@ -111,18 +111,6 @@ export const FooterFR = () => {
                 as="a"
                 target="_blank"
                 rel="noopener"
-                href={PRESS_DETAILS_LINK}
-              >
-                {i18n.t('main_footer.press_details')}
-                <> </>
-                <FooterExternalLink />
-              </FooterItemLinkStyle>
-            </FooterItemStyle>
-            <FooterItemStyle>
-              <FooterItemLinkStyle
-                as="a"
-                target="_blank"
-                rel="noopener"
                 href={DOTATION_FUNDS_LINK}
               >
                 {i18n.t('main_footer.dotation_funds')}
