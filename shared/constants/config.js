@@ -17,6 +17,6 @@ export const DEBOUNCE_TIMER = 250;
 export const CONTACT_EMAIL = 'contact@make.org';
 export const CONTACT_EMAIL_DE = 'contact-de@make.org';
 
-export const PRIVACY_POLICY_DATE = moment(' 18/01/2020', 'DD/MM/YY');
+export const PRIVACY_POLICY_DATE = moment(' 19/05/2021', 'DD/MM/YY');
 export const GTU_DATE = new Date(2017, 9, 30);
 export const A11Y_DATE = new Date(2020, 10, 4);

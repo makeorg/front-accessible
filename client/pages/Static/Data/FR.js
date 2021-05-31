@@ -1,6 +1,9 @@
 // @flow
 import React from 'react';
-import { RedLinkHTMLElementStyle } from 'Client/ui/Elements/LinkElements';
+import {
+  RedLinkHTMLElementStyle,
+  RedLinkRouterStyle,
+} from 'Client/ui/Elements/LinkElements';
 import { MetaTags } from 'Client/app/MetaTags';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { CONTACT_EMAIL, PRIVACY_POLICY_DATE } from 'Shared/constants/config';
@@ -9,6 +12,7 @@ import { getCountryDPA } from 'Shared/helpers/countries';
 import { type StateRoot } from 'Shared/store/types';
 import { useSelector } from 'react-redux';
 import { DATE_CAPITALIZE_LL_FORMAT } from 'Shared/constants/date';
+import { getCookiesPageLink } from 'Shared/helpers/url';
 import {
   StaticPageWrapperStyle,
   StaticSecondLevelTitleStyle,
@@ -242,29 +246,20 @@ export const DataFR = () => {
             <StaticThirdLevelTitleStyle>COOKIES </StaticThirdLevelTitleStyle>
             <StaticParagraphStyle>
               <>
-                Afin de permettre à l’Utilisateur de ne pas avoir à s’identifier
-                à chaque accès au Service, hormis lors du premier accès,
-                Make.org utilise des cookies de session. Ces fichiers déposés
-                sur l’ordinateur permettent d’identifier l’Utilisateur lors de
-                chacune de ses connexions au Site. Par ailleurs, afin
-                d’améliorer le Service, Make.org utilise des cookies de mesures
-                d’audience telles que le nombre de pages vues, le nombre de
-                visites, l’activité des visiteurs sur le Site et leur fréquence
-                de retour.
+                Lorsque vous vous connectez sur notre site, des cookies sont
+                déposés sur votre terminal afin d’améliorer votre expérience,
+                accroître la performance de notre site et optimiser nos
+                consultations citoyennes.
               </>
-            </StaticParagraphStyle>
-            <StaticParagraphStyle>
-              Ces cookies permettent seulement d’améliorer le fonctionnement du
-              site et des services ainsi que l’établissement d’études
-              statistiques sur le trafic des visiteurs du Site dont les
-              résultats sont totalement anonymes.
-            </StaticParagraphStyle>
-            <StaticParagraphStyle>
-              De façon générale, tout Utilisateur peut, s’il le souhaite,
-              s’opposer à l’utilisation de cookies en sélectionnant les
-              paramètres appropriés de son navigateur pour désactiver les
-              cookies (la rubrique d’aide du navigateur utilisé précise la
-              marche à suivre).
+              <>
+                Les informations contenues dans les cookies ne visent pas à vous
+                identifier personnellement et ne sont jamais utilisées à
+                d‘autres fins que celles indiquées sur notre page de&nbsp;
+                <RedLinkRouterStyle to={`${getCookiesPageLink(country)}`}>
+                  gestion des cookies
+                </RedLinkRouterStyle>
+                .
+              </>
             </StaticParagraphStyle>
           </StaticPrimaryUnorderedListItemStyle>
           <StaticPrimaryUnorderedListItemStyle>
