@@ -5,8 +5,6 @@ export const questionConfigurationFixture = {
   theme: {
     color: 'red',
     footerFontColor: 'red',
-    gradientStart: 'red',
-    gradientEnd: 'red',
   },
 };
 

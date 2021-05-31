@@ -30,10 +30,7 @@ const businessConsultation = (question, country) => (
     backgroundColor={color.white}
   >
     <BusinessConsultationsItemWrapperStyle>
-      <BusinessConsultationsItemBorderStyle
-        colorStart={question.theme.gradientStart}
-        colorEnd={question.theme.gradientEnd}
-      />
+      <BusinessConsultationsItemBorderStyle color={question.theme.color} />
       <BusinessConsultationStyle>
         <BusinessConsultationsItemStatusStyle>
           <ScreenReaderItemStyle>

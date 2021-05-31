@@ -76,11 +76,7 @@ const TopIdeasPage = () => {
       />
       <TopIdeasSkipLinks />
       <MobileDescriptionImage question={question} />
-      <ConsultationHeaderWrapperStyle
-        gradientStart={question.theme.gradientStart}
-        gradientEnd={question.theme.gradientEnd}
-        backgroundcolor={question.theme.gradientStart}
-      >
+      <ConsultationHeaderWrapperStyle backgroundcolor={question.theme.color}>
         <IntroBanner question={question} />
       </ConsultationHeaderWrapperStyle>
       {/** @todo remove or refactor when Municipales is over */}
