@@ -9,6 +9,7 @@ export const CONSULTATION_POPULAR_PROPOSALS = 'consultation-popular-proposals';
 export const CONSULTATION_SIDEBAR_ACTIVE_ACTORS =
   'consultation-sidebar-active-actors';
 export const CONSULTATION_KEYWORD_ACTIVE = 'keyword-sequence';
+export const CONSULTATION_TIMELINE_ACTIVE = 'timeline';
 
 // @todo remove or refactor when Municipales is over
 export const MUNICIPAL_TEASING_HEADER = 'consultation-election-teasing-header';
