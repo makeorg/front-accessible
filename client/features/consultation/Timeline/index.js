@@ -16,6 +16,8 @@ import {
   DATE_DD_MMMM_YYYY_FORMAT,
   DATE_MMMM_YYYY_FORMAT,
 } from 'Shared/constants/date';
+import { CONSULTATION_TIMELINE_ACTIVE } from 'Shared/constants/featureFlipping';
+import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
 import {
   TimelineWrapperStyle,
   TimelineListWrapperStyle,
@@ -85,6 +87,15 @@ export const Timeline = () => {
         DATE_MMMM_YYYY_FORMAT
       );
   const timelineSteps = buildTimeline(timeline);
+
+  const isTimelineActive: boolean = checkIsFeatureActivated(
+    CONSULTATION_TIMELINE_ACTIVE,
+    question.activeFeatures
+  );
+
+  if (!isTimelineActive) {
+    return null;
+  }
 
   return (
     <TimelineWrapperStyle>
