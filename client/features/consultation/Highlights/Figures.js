@@ -7,7 +7,10 @@ import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector
 import { DateHelper } from 'Shared/helpers/date';
 import { i18n } from 'Shared/i18n';
 import { isResultsPage } from 'Shared/routes';
-import { formatMillionToText } from 'Shared/helpers/numberFormatter';
+import {
+  formatCountWithLanguage,
+  formatMillionToText,
+} from 'Shared/helpers/numberFormatter';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import {
   DATE_CAPITALIZE_L_FORMAT,
@@ -69,18 +72,26 @@ export const Figures = () => {
           {resultsPage
             ? i18n.t('consultation.highlights.proposals')
             : i18n.t('consultation.highlights.remaining', {
-                count: remainingDays,
+                count: formatCountWithLanguage(remainingDays, language),
               })}
         </HigthlightsTitleStyle>
         <ScreenReaderItemStyle> : </ScreenReaderItemStyle>
         <FiguresValueStyle>
-          {resultsPage ? question.highlights.proposalsCount : remainingDays}
+          {resultsPage
+            ? formatCountWithLanguage(
+                question.highlights.proposalsCount,
+                language
+              )
+            : formatCountWithLanguage(remainingDays, language)}
         </FiguresValueStyle>
       </FiguresListItemStyle>
       <FiguresListItemStyle>
         <HigthlightsTitleStyle>
           {i18n.t('consultation.highlights.participant', {
-            count: question.highlights.participantsCount,
+            count: formatCountWithLanguage(
+              question.highlights.participantsCount,
+              language
+            ),
           })}
         </HigthlightsTitleStyle>
         <ScreenReaderItemStyle> : </ScreenReaderItemStyle>

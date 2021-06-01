@@ -170,11 +170,6 @@ const generateOpenedQuestions = count => {
           'Début des premières actions concrètes sur le terrain pour répondre à vos priorités.',
       },
     },
-    highlights: {
-      votesTarget: 150000,
-      votesCount: 100000,
-      participantsCount: 50000,
-    },
     controversyCount: 15,
     topProposalCount: 15,
   }));
@@ -219,11 +214,6 @@ const generateClosedQuestions = count => {
           'Début des premières actions concrètes sur le terrain pour répondre à vos priorités.',
       },
     },
-    highlights: {
-      votesTarget: 150000,
-      votesCount: 100000,
-      participantsCount: 50000,
-    },
     controversyCount: 15,
     topProposalCount: 15,
   }));
@@ -267,11 +257,6 @@ const generateQuestionsWithResults = count => {
         description:
           'Début des premières actions concrètes sur le terrain pour répondre à vos priorités.',
       },
-    },
-    highlights: {
-      votesTarget: 150000,
-      votesCount: 100000,
-      participantsCount: 50000,
     },
     controversyCount: 15,
     topProposalCount: 15,
