@@ -54,9 +54,9 @@ export const DataFR = () => {
           agissant en tant que responsable de traitement, en ce qui concerne le
           respect de la réglementation en vigueur applicable au traitement de
           données personnelles et, en particulier, le règlement (
-          <abbr title="Union Européenne">UE</abbr>
-          )&nbsp;2016/679 du Parlement européen et du Conseil du 27 avril 2016
-          applicable à compter du 25 mai 2018 (ci-après, « le RGPD »).
+          <abbr title="Union Européenne">UE</abbr>) 2016/679 du Parlement
+          européen et du Conseil du 27 avril 2016 applicable à compter du 25 mai
+          2018 (ci-après, « le RGPD »).
         </StaticParagraphStyle>
         <StaticPrimaryUnorderedListStyle>
           <StaticPrimaryUnorderedListItemStyle>
@@ -245,21 +245,17 @@ export const DataFR = () => {
           <StaticPrimaryUnorderedListItemStyle>
             <StaticThirdLevelTitleStyle>COOKIES </StaticThirdLevelTitleStyle>
             <StaticParagraphStyle>
-              <>
-                Lorsque vous vous connectez sur notre site, des cookies sont
-                déposés sur votre terminal afin d’améliorer votre expérience,
-                accroître la performance de notre site et optimiser nos
-                consultations citoyennes.
-              </>
-              <>
-                Les informations contenues dans les cookies ne visent pas à vous
-                identifier personnellement et ne sont jamais utilisées à
-                d‘autres fins que celles indiquées sur notre page de&nbsp;
-                <RedLinkRouterStyle to={`${getCookiesPageLink(country)}`}>
-                  gestion des cookies
-                </RedLinkRouterStyle>
-                .
-              </>
+              Lorsque vous vous connectez sur notre site, des cookies sont
+              déposés sur votre terminal afin d’améliorer votre expérience,
+              accroître la performance de notre site et optimiser nos
+              consultations citoyennes. Les informations contenues dans les
+              cookies ne visent pas à vous identifier personnellement et ne sont
+              jamais utilisées à d‘autres fins que celles indiquées sur notre
+              page de{' '}
+              <RedLinkRouterStyle to={`${getCookiesPageLink(country)}`}>
+                gestion des cookies
+              </RedLinkRouterStyle>
+              .
             </StaticParagraphStyle>
           </StaticPrimaryUnorderedListItemStyle>
           <StaticPrimaryUnorderedListItemStyle>
@@ -288,13 +284,13 @@ export const DataFR = () => {
             <StaticParagraphStyle>
               L’exercice par les utilisateurs des droits ci-dessus rappelés peut
               être fait par tout moyen, et notamment par l’envoi d’un courriel à
-              l’adresse :&nbsp;
+              l’adresse :{' '}
               <RedLinkHTMLElementStyle as="a" href={`mailto:${CONTACT_EMAIL}`}>
                 {`${CONTACT_EMAIL}`}
               </RedLinkHTMLElementStyle>
               . Si les utilisateurs estiment que leurs droits sur les données ne
               sont pas respectés par Make.org, ils peuvent en tout état de cause
-              adresser une réclamation à la&nbsp;
+              adresser une réclamation à la{' '}
               <RedLinkHTMLElementStyle
                 as="a"
                 href={`${getCountryDPA(country).link}`}
@@ -346,7 +342,7 @@ export const DataFR = () => {
               Le délégué à la protection des données désigné en application de
               l’article 37 du RGPD est la SELARL FWPA Avocats, 18 rue des
               Pyramides, 75001, Paris, représentée par Maître Jean-Baptiste
-              Soufron. Il peut être contacté à l’adresse :&nbsp;
+              Soufron. Il peut être contacté à l’adresse :{' '}
               <RedLinkHTMLElementStyle href={`mailto:${CONTACT_EMAIL}`}>
                 {`${CONTACT_EMAIL}`}
               </RedLinkHTMLElementStyle>
