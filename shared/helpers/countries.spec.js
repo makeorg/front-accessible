@@ -4,6 +4,7 @@ import {
   getCountryDPA,
   getCountryWithConsultations,
   getLanguageFromCountryCode,
+  getLanguageFromParams,
 } from './countries';
 
 jest.mock('Shared/constants/config', () => ({
@@ -53,6 +54,19 @@ describe('Countries helper', () => {
       expect(getLanguageFromCountryCode('GB')).toBe('en');
     });
   });
+
+  describe('getLanguageFromParams function', () => {
+    const countryCode = 'FR';
+    it('with query language param', () => {
+      expect(getLanguageFromParams(countryCode, 'FR')).toBe('fr');
+    });
+
+    it('without params and localStorage', () => {
+      expect(getLanguageFromParams(countryCode)).toBe('fr');
+    });
+  });
+
+  describe('setLanguage function', () => {});
 
   describe('getCountryWithConsultations function', () => {
     const countriesWithConsultations = ['FR', 'GB', 'ES'];
