@@ -72,5 +72,13 @@
       
     ]
   },
-  "activeFeatures":["consultation-follow-us-active", "keyword-sequence"]
+  "activeFeatures":["consultation-follow-us-active", "keyword-sequence"],
+  "highlights": {
+    "votesTarget": 150000,
+    "votesCount": 100000,
+    "participantsCount": 50000,
+    "proposalsCount": 1500
+  },
+  "controversyCount": 15,
+  "topProposalCount": 15
 }

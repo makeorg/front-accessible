@@ -54,17 +54,17 @@
     "search": {
       "main_results": "Suche - Ergebnisse für \" {{term}} \" - Make.org",
       "proposals": "Recherche - Suche - Ergebnisse für \" {{term}} \" « {{term}} » - Make.org",
-      "consultations": "Suche - Ergebnisse von Bürgerbefragungen für « {{term}} » - Make.org",
+      "consultations": "Suche - Ergebnisse von Konsultationen für « {{term}} » - Make.org",
       "organisations": "Suche - Organisatorische Ergebnisse für « {{term}} » - Make.org"
     },
     "browse": {
       "consultations": {
-        "title": "Nehmen Sie an den Bürgerbefragungen mit Make.org teil - Make.org",
+        "title": "Nehmen Sie an den Konsultationen mit Make.org teil - Make.org",
         "description": "Vorschlagen, abstimmen, handeln: Lassen Sie uns gemeinsam Lösungen für die großen Fragen unserer Zeit finden. Die meisten Unterstützer werden von Make.org und seinen Partnern in die Tat umgesetzt."
       },
       "results": {
-        "title": "Ergebnisse der Bürgerbefragungen mit Make.org - Make.org",
-        "description": "Entdecken Sie die Ergebnisse unserer Bürgerbefragungen und die von Make.org und seinen Partnern durchgeführten Aktionen."
+        "title": "Ergebnisse der Konsultationen mit Make.org - Make.org",
+        "description": "Entdecken Sie die Ergebnisse unserer Konsultationen und die von Make.org und seinen Partnern durchgeführten Aktionen."
       }
     },
     "legal": {
@@ -92,7 +92,7 @@
     }
   },
   "common": {
-    "connexion_label": "Einloggen",
+    "connexion_label": "Registrieren",
     "register_label": "Registrieren",
     "form": {
       "hide_password": "Passwort verstecken",
@@ -346,7 +346,7 @@
       "title": "Sie Ihren Vorschlag in weniger als 140 Zeichen ein. Geben Sie ihn in das Vorschlagsfeld ein und bestätigen Sie ihn durch Klicken auf die Schaltfläche  \"Validieren\"",
       "field": "Vorschlagsfelder",
       "counter": "Ihr Vorschlag enthält {{current}} Zeichen von insgesamt {{total}} verfügbaren Zeichen",
-      "panel_trigger": "Ich schlage eine Lösung vor",
+      "panel_trigger": "Ich mache einen Vorschlag",
       "button_cancel": "Abbrechen und weiter abstimmen",
       "button_submit": "Validieren",
       "moderation_link": "Erfahren Sie mehr über unsere Moderationspolitik"
@@ -403,11 +403,11 @@
     "static_repartition": "Dieser Vorschlag wurde in qualifiziert: ",
     "times": "mal",
     "likeIt": "Favorit",
-    "doable": "Realistisch",
-    "platitudeAgree": "Banalität",
+    "doable": "umsetzbar",
+    "platitudeAgree": "unspektakulär",
     "noWay": "Ganz und gar nicht!",
     "impossible": "Nicht durchführbar",
-    "platitudeDisagree": "Banalität",
+    "platitudeDisagree": "unspektakulär",
     "doNotUnderstand": "Nicht enthalten",
     "noOpinion": "Keine Meinung",
     "doNotCare": "Gleichgültig"
@@ -415,7 +415,7 @@
   "sequence": {
     "return": "Zurück zu den Vorschlägen",
     "title": "Stimmen Sie über die Vorschläge der Bürgerbefragung ab:",
-    "more": "Zugriff auf die gesamte Bürgerbefragung"
+    "more": "Zugang zur gesamten Konsultation"
   },
   "authentication": {
     "title": "Registrieren Sie sich, um Ihren Vorschlag zu validieren",
@@ -469,17 +469,17 @@
   },
   "main_footer": {
     "jobs": "Jobs",
-    "whoarewe": "Unser Ansatz",
+    "whoarewe": "Wer sind wir?",
     "legal": "Impressum",
-    "terms": "Nutzungsbestimmungen",
-    "data": "Datenrichtlinie",
-    "country": "Wechsel des Landes",
+    "terms": "Nutzungsbedingungen",
+    "data": "Datenschutzerklärung",
+    "country": "Anderes Land wählen",
     "contact": "Kontakt",
     "news": "Unsere Nachrichten",
     "dotation_funds": "Make.org-Stiftungsfonds",
     "moderation_charter": "Moderationscharta",
     "press_details": "Pressespiegel",
-    "a11y": "Zugänglichkeitserklärung",
+    "a11y": "Barrierefreiheit-Erklärung",
     "cookies": "Cookie Verwaltung"
   },
   "cookie_modal": {
@@ -489,7 +489,7 @@
       "title": "Um welche Art von Keksen handelt es sich?",
       "technicals": "<strong>Techniken:</strong> Cookies, die für den Betrieb der Website erforderlich sind",
       "preferences": "<strong>Voreinstellungen:</strong> Cookies zur Verbesserung Ihrer Erfahrung beim Browsen auf der Website",
-      "statistics": "<strong>Statistik:</strong> Cookies, um die Analyse unserer Bürgerbefragungen in aggregierter Form zu bereichern",
+      "statistics": "<strong>Statistik:</strong> Cookies, um die Analyse unserer Konsultationen in aggregierter Form zu bereichern",
       "social_media": "<strong>Soziale Netzwerke:</strong> Cookies, die uns helfen, unsere Wirkung über soziale Netzwerke zu optimieren"
     },
     "accept": "Akzeptieren",
@@ -713,7 +713,7 @@
       "proposals": "Vorschläge",
       "remaining_plural": "Verbleibende Tage",
       "participant": "Teilnehmer",
-      "participant_plural": "Teilnehmer",
+      "participant_plural": "Teilnehmer:innen",
       "progress_title": "Unser Abstimmungsziel",
       "progress_total": "Gesamtzahl der Stimmen",
       "progress_target": " von {{votesTarget}} Stimmen ({{percent}}%)",
@@ -722,50 +722,50 @@
     },
     "participate": {
       "title": "Wie kann man an der Bürgerbefragung teilnehmen?",
-      "description": "Wir sind überzeugt, dass jeder auf seine Weise zum Gemeinwohl beitragen kann. Deshalb rufen wir in unseren Bürgersprechstunden die Ideen und Meinungen von Tausenden von Bürgern auf."
+      "description": "Wir sind überzeugt, dass jeder/jede auf seiner/ihrer Ebene zum Gemeinwohl beitragen kann. Deshalb rufen wir in unseren Konsultationen die Ideen und Meinungen von Tausenden von Bürger:innen auf."
     },
     "citizen_account": {
       "title": "Ihr Bürgerbereich auf Make.org",
-      "description": "Über Ihr persönliches Konto haben Sie Zugriff auf die Ergebnisse Ihrer Vorschläge, die Historie Ihrer Abstimmungen und Sie erhalten die Ergebnisse der Konsultationen. Wenn Sie sich bei uns registrieren, werden Sie per E-Mail über anstehende Bürgersprechstunden informiert und zu unseren Beteiligungsveranstaltungen eingeladen.",
+      "description": "Über Ihr persönliches Konto haben Sie Zugriff auf die Ergebnisse Ihrer Vorschläge, die Historie Ihrer Abstimmungen und Sie erhalten die Ergebnisse der Konsultationen. Wenn Sie sich bei uns registrieren, werden Sie per E-Mail über anstehende Konsultationen informiert und zu unseren Bürgerdialog-Veranstaltungen eingeladen.",
       "button_text": "Ich melde mich an"
     },
     "cards": {
       "soon": "Demnächst",
       "submit": {
         "title": "Vorschlag einreichen",
-        "description": "Sie Ihre Ideen mit so vielen Menschen wie möglich. Jeder Vorschlag wird geprüft, bevor er den Bürgern zur Abstimmung vorgelegt wird.",
-        "button": "Ich habe eine Idee"
+        "description": "Teilt eure Ideen mit so vielen Menschen wie möglich. Jeder Vorschlag wird geprüft, bevor er den Bürger:innen zur Abstimmung vorgelegt wird.",
+        "button": "Ich mache einen Vorschlag"
       },
       "interact": {
-        "title": "auf Vorschläge",
-        "description": "die Vorschläge die Themen der Bürgerbefragung definieren, äußern Sie Ihre Meinung, um uns zu helfen, die Ideen zu identifizieren, die zuerst behandelt werden sollten.",
+        "title": "Auf Vorschläge reagieren",
+        "description": "Die Vorschläge definieren die Themen der Konsultation. Äußert eure Meinung, um uns zu helfen, herauszufinden, welche Ideen vorrangig behandelt werden sollten.",
         "button": "Ich stimme ab"
       },
       "controversy": {
-        "title": "der umstrittensten Vorschläge",
-        "description": "Bürgervorschläge erhielten ebenso viele Ja- wie Nein-Stimmen.",
+        "title": "Umstrittenste Vorschläge aussortieren",
+        "description": "Diese Bürgervorschläge erhielten ebenso viele Ja- wie Nein-Stimmen.",
         "button": "Ich löse das Unentschieden auf"
       },
       "popular": {
-        "title": "Sie über die beliebtesten Vorschläge ab",
-        "description": "Vorschläge der Bürger erhielten die meisten Ja-Stimmen.",
+        "title": "Über die beliebtesten Vorschläge abstimmen",
+        "description": "Diese Bürgervorschläge haben die meisten Ja-Stimmen bekommen.",
         "button": "Ich stimme ab"
       },
       "keywords": {
-        "title": "Themen, die Sie betreffen",
-        "description": "Sie zuerst die Themen, über die Sie sprechen möchten."
+        "title": "Diese Themen beschäftigen euch",
+        "description": "Hier könnt ihr die Themen auswählen, über die ihr zuallererst eure Meinung äußern wollt."
       },
       "sharing": {
-        "title": "Sie die Konsultation",
-        "description": "Freunde haben Ideen und Meinungen, die es ebenfalls verdienen, gehört zu werden. Geben Sie dieser Bürgerbefragung mehr Raum, indem Sie sie in Ihrem Maßstab und auf Ihre Weise verbreiten."
+        "title": "Die Konsultation teilen",
+        "description": "Eure Freunde und Freundinnen haben auch wertvolle und hörenswerte Ideen und Meinungen. Helft uns dieser Konsultation mehr Reichweite zu geben, indem ihr sie auf euren persönlichen Kanälen verbreitet."
       },
       "about": {
-        "title": "diese Bürgerbefragung?",
-        "description": "wurde diese Bürgerbefragung gestartet? Was steht auf dem Spiel? Wer steckt dahinter?",
+        "title": "Warum diese Konsultation?",
+        "description": "Warum wurde diese Konsultation gestartet? Was sind die Herausforderungen? Wer steckt dahinter?",
         "link": "Mehr lesen"
       },
       "featured_proposals": {
-        "title": "unterbreiteten einen Vorschlag"
+        "title": "Sie haben einen Vorschlag eingereicht"
       }
     },
     "timeline": {
@@ -784,8 +784,8 @@
       "participate_desktop": "An der Konsultation teilnehmen",
       "participate_mobile": "Teilnehmen",
       "participate_breadcrumb": "Teilnehmen an \"{{title}}\"",
-      "explore_desktop": "Erkunden Sie die Vorschläge",
-      "explore_mobile": "Erkunden Sie",
+      "explore_desktop": "Vorschläge entdecken",
+      "explore_mobile": "Entdecken",
       "explore_breadcrumb": "Erkunden Sie \"{{title}}\""
     },
     "tabs": {
@@ -799,14 +799,14 @@
     "sort": {
       "TAGGED_FIRST": "Alle Vorschläge",
       "ACTORS": "Vorschläge von Interessengruppen",
-      "RECENT": "Der letzte",
+      "RECENT": "Die neuesten Vorschläge",
       "REALISTIC": "Die realistischste",
       "CONTROVERSY": "Die umstrittenste",
       "POPULAR": "Die beliebtesten"
     },
     "presentation": {
       "title": "Warum diese Beratung?",
-      "link_text": "Mehr lesen"
+      "link_text": "Mehr erfahren"
     },
     "followus": {
       "title": "Um weiter zu gehen",
@@ -925,18 +925,18 @@
   },
   "browse": {
     "short_page_title": "Durchsuchen",
-    "page_title": "Durchsuchen Sie die Bürgerbefragungen",
-    "title": "Teilnahme an laufenden Bürgerbefragungen",
+    "page_title": "Alle Konsultationen entdecken",
+    "title": "Teilnahme an laufenden Konsultationen",
     "initiative": "Gute Sache Make.org",
-    "nav_consultations_desktop": "Laufende Bürgerbefragungen",
-    "nav_consultations_mobile": "Bürgerbefragungen",
-    "nav_results_desktop": "Die Ergebnisse der Bürgerbefragungen",
+    "nav_consultations_desktop": "Laufende Konsultationen",
+    "nav_consultations_mobile": "Konsultationen",
+    "nav_results_desktop": "Ergebnisse der Konsultationen",
     "nav_results_mobile": "Ergebnisse",
     "consultations": {
-      "all": "Alle Bürgerbefragungen",
+      "all": "Alle Konsultationen",
       "label": "Zur Zeit",
-      "title": "Teilnahme an laufenden Bürgerbefragungen",
-      "subtitle": "Ihre Meinung zählt! Wählen Sie und schlagen Sie Lösungen vor, um Einfluss auf verschiedene soziale Fragen und aktuelle Probleme zu nehmen.",
+      "title": "Teilnahme an laufenden Konsultationen",
+      "subtitle": "Ihre Meinung zählt! Stimmen Sie ab und schlagen Sie Lösungen vor, um Einfluss auf verschiedene gesellschaftliche Themen und aktuelle Herausforderungen zu nehmen.",
       "participate": "Teilnehmen",
       "contributors": "Teilnehmer",
       "contributors_plural": "Teilnehmer",
@@ -946,19 +946,19 @@
     },
     "results": {
       "all": "Alle Ergebnisse",
-      "label": "Abgeschlossene Beratungen",
+      "label": "Abgeschlossene Konsultationen",
       "title": "Entdecken Sie die Ergebnisse",
-      "subtitle": "Am Ende unserer Bürgerbefragungen erfahren Sie, was die Prioritäten der Bürger sind und welche Aktionen Make.org im Rahmen seiner Hauptanliegen durchführt.",
+      "subtitle": "Am Ende unserer Konsultationen erfahren Sie, was die Prioritäten der Bürger sind und welche Maßnahmen umgesetzt werden.",
       "see_results": "Sehen Sie die Ergebnisse",
       "see_topideas": "Siehe die Top-Ideen",
       "coming_results": "Ergebnisse folgen noch",
       "empty": "Wir haben bisher noch nie eine Beratung in Ihrem Land durchgeführt."
     },
-    "date": "Bürgerbefragungen von {{startDate}} bis {{endDate}}",
-    "browse": "Durchsuchen Sie die Bürgerbefragungen",
-    "see_closed_consultations": "Siehe abgeschlossene Bürgerbefragungen",
+    "date": "Konsultationen vom {{startDate}} bis {{endDate}}",
+    "browse": "Durchsuchen Sie die Konsultationen",
+    "see_closed_consultations": "Siehe abgeschlossene Konsultationen",
     "subscribe": "Registrieren",
-    "past_questions": "Sie können auch die Ergebnisse früherer Bürgerbefragungen einsehen",
+    "past_questions": "Sie können auch die Ergebnisse früherer Konsultationen einsehen",
     "no_consultations": "Keine Bürgerbefragung im Gange, aber bleiben Sie in Kontakt",
     "one_consultation": "Registrieren Sie sich, um über die nächste Bürgersprechstunde informiert zu werden",
     "no_results": "Keine Bürgerbefragung im Gange, aber bleiben Sie in Kontakt",
@@ -995,20 +995,20 @@
     "title": "Startseite",
     "hero": {
       "title": "Gemeinsam haben wir die Macht, die Gesellschaft zu verbessern",
-      "description": "Sagen Sie Ihre Meinung zu gesellschaftlichen Themen, die für Sie wichtig sind, indem Sie an unseren Bürgersprechstunden teilnehmen. Lassen Sie uns gemeinsam, Bürger, Verbände und Unternehmen, unsere Prioritäten definieren und konkrete Veränderungen vornehmen.",
-      "participate": "Nehmen Sie an den Bürgerbefragungen teil",
+      "description": "Sagen Sie Ihre Meinung zu gesellschaftlichen Themen, die für Sie wichtig sind, indem Sie an unseren Konsultationen teilnehmen. Lassen Sie uns gemeinsam, Bürger:innen, Vereine, Stiftungen und Unternehmen, unsere Prioritäten definieren und konkrete Veränderungen vornehmen.",
+      "participate": "An den Konsultationen teilnehmen",
       "discover": "Entdecken Sie unsere guten Sachen"
     },
     "highlights": {
       "title": "Make.org in Zahlen",
       "participants": {
-        "subtitle": "Teilnehmer(innen)"
+        "subtitle": "Teilnehmer:innen"
       },
       "proposals": {
         "subtitle": "eingereichte Vorschläge"
       },
       "partners": {
-        "subtitle": "Organisationen & engagierte Unternehmen"
+        "subtitle": "Engagierte Organisationen"
       }
     },
     "featured_questions": {
@@ -1026,7 +1026,7 @@
       "button": "Siehe unsere Angebote"
     },
     "international": {
-      "subtitle": "Nationale Bürgerbefragungen",
+      "subtitle": "Nationale Konsultationen",
       "title": "Make.org ist auch in Trends zu nationalen Themen verfügbar",
       "button": "Entdecken Sie"
     }
