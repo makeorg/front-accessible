@@ -1,6 +1,5 @@
 // & flow
 import React, { useState } from 'react';
-import { getBaitText } from 'Shared/constants/proposal';
 import {
   trackClickBackProposals,
   trackDisplayProposalSubmitValidation,
@@ -14,6 +13,7 @@ import { selectAuthentication } from 'Shared/store/selectors/user.selector';
 import { ProposalService } from 'Shared/services/Proposal';
 import { modalShowProposalSuccess } from 'Shared/store/actions/modal';
 import { proposeSuccess } from 'Shared/store/actions/proposal';
+import { getLocalizedBaitText } from 'Shared/helpers/proposal';
 import { ProposalForm } from './Form';
 import { ProposalAuthentication } from './Authentication';
 
@@ -34,7 +34,10 @@ export const ProposalJourney = () => {
   const [proposalContent, setProposalContent] = useState('');
   const [proposalStep, setProposalStep] = useState('form');
   const [waiting, setWaiting] = useState(false);
-  const baitText = getBaitText();
+  const baitText = getLocalizedBaitText(
+    question?.language,
+    question?.questionId
+  );
 
   const handleFieldFocus = () => {
     if (proposalContent.length === 0) {
