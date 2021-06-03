@@ -68,7 +68,8 @@ type Props = {
 export const SequenceCard = ({ card, question }: Props) => {
   const isProposalCard = card.type === CARD_TYPE_PROPOSAL;
   const isNoProposalCard = card.type === CARD_TYPE_NO_PROPOSAL_CARD;
-  const topComponentContext: TopComponentContextValueType = TopComponentContextValue.getSequenceProposal();
+  const topComponentContext: TopComponentContextValueType =
+    TopComponentContextValue.getSequenceProposal();
 
   useEffect(() => {
     if (isNoProposalCard) {

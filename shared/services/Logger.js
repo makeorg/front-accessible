@@ -96,6 +96,7 @@ class LoggerSingleton {
       console.log(level, data);
     }
     if (!onClientSide) {
+      // eslint-disable-next-line import/no-cycle
       const { logError, logInfo, logWarning } = await import(
         'Server/ssr/helpers/ssr.helper'
       );

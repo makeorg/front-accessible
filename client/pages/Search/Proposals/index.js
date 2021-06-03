@@ -83,7 +83,8 @@ export const SearchResultsProposals = ({ location, history }: Props) => {
     trackDisplaySearchProposalsResult();
   }, []);
 
-  const topComponentContext: TopComponentContextValueType = TopComponentContextValue.getSearchResultProposalList();
+  const topComponentContext: TopComponentContextValueType =
+    TopComponentContextValue.getSearchResultProposalList();
 
   return (
     <SearchPageWrapperStyle>

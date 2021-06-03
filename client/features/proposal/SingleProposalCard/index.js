@@ -37,7 +37,8 @@ type Props = {
 
 export const SingleProposalCard = ({ proposal }: Props) => {
   const isConsultationOpened = isInProgress(proposal.question);
-  const topComponentContext: TopComponentContextValueType = TopComponentContextValue.getSingleProposal();
+  const topComponentContext: TopComponentContextValueType =
+    TopComponentContextValue.getSingleProposal();
   const { country } = useSelector((state: StateRoot) => state.appConfig);
   const isAnonymous = proposal.author.userType === TYPE_ANONYMOUS;
 

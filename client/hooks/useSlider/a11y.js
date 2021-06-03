@@ -1,9 +1,8 @@
 import { type InteractiveChildrenType } from 'Shared/types/views';
 // Define by default all slides with aria hidden
 export const setAriaHidden = (glider: TypeElementRef<any>) => {
-  const slides: NodeList<HTMLElement> | null = glider.querySelectorAll(
-    '.glider-slide'
-  );
+  const slides: NodeList<HTMLElement> | null =
+    glider.querySelectorAll('.glider-slide');
   if (slides) {
     const slidesArray: Array<HTMLElement> = Array.from(slides);
 
@@ -62,9 +61,8 @@ const setTabIdex = (
   glider: TypeElementRef<any>,
   interactiveChildren: InteractiveChildrenType
 ) => {
-  const slides: NodeList<HTMLElement> | null = glider.querySelectorAll(
-    '.glider-slide'
-  );
+  const slides: NodeList<HTMLElement> | null =
+    glider.querySelectorAll('.glider-slide');
 
   if (slides) {
     const slidesArray: Array<HTMLElement> = Array.from(slides);
@@ -134,9 +132,8 @@ export const focusActiveSlide = (glider: TypeElementRef<any>) => {
 
 // Disabling aria current role
 export const resetActiveSlide = (glider: TypeElementRef<any>) => {
-  const slides: NodeList<HTMLElement> | null = glider.querySelectorAll(
-    '.glider-slide'
-  );
+  const slides: NodeList<HTMLElement> | null =
+    glider.querySelectorAll('.glider-slide');
 
   if (slides) {
     const slidesArray: Array<HTMLElement> = Array.from(slides);

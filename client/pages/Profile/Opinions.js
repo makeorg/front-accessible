@@ -37,9 +37,8 @@ const ProfilePage = ({ match }: Props) => {
   const [loadPersonality, setLoadPersonality] = useState(true);
 
   const fetchPersonality = async () => {
-    const personalityResponse: ?UserType = await PersonalityService.getPersonalityById(
-      user.userId
-    );
+    const personalityResponse: ?UserType =
+      await PersonalityService.getPersonalityById(user.userId);
 
     setPersonality(personalityResponse);
     setLoadPersonality(false);

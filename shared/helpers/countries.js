@@ -95,8 +95,7 @@ export const getCountryDPA = (country: string) => {
     case 'BE':
       return {
         name: 'Data Protection Authority',
-        link:
-          'https://www.dataprotectionauthority.be/citizen/actions/lodge-a-complaint',
+        link: 'https://www.dataprotectionauthority.be/citizen/actions/lodge-a-complaint',
       };
     case 'BG':
       return {
@@ -106,14 +105,12 @@ export const getCountryDPA = (country: string) => {
     case 'BR':
       return {
         name: 'Brazilian Data Protection Law (LGPD)',
-        link:
-          'https://iapp.org/media/pdf/resource_center/Brazilian_General_Data_Protection_Law.pdf',
+        link: 'https://iapp.org/media/pdf/resource_center/Brazilian_General_Data_Protection_Law.pdf',
       };
     case 'CA':
       return {
         name: 'Office of the Privacy Commissioner of Canada',
-        link:
-          'https://www.priv.gc.ca/en/privacy-topics/information-and-advice-for-individuals/reporting-concerns-and-filing-complaints/',
+        link: 'https://www.priv.gc.ca/en/privacy-topics/information-and-advice-for-individuals/reporting-concerns-and-filing-complaints/',
       };
     case 'CH':
       return {
@@ -125,8 +122,7 @@ export const getCountryDPA = (country: string) => {
     case 'CY':
       return {
         name: 'Office of the Commissioner for Personal Data Protection',
-        link:
-          'http://www.dataprotection.gov.cy/dataprotection/dataprotection.nsf/page1i_en/page1i_en?opendocument',
+        link: 'http://www.dataprotection.gov.cy/dataprotection/dataprotection.nsf/page1i_en/page1i_en?opendocument',
       };
     case 'CZ':
       return {
@@ -135,8 +131,7 @@ export const getCountryDPA = (country: string) => {
       };
     case 'DE':
       return {
-        name:
-          'Bundesbeauftragte für den Datenschutz und die Informationsfreiheit',
+        name: 'Bundesbeauftragte für den Datenschutz und die Informationsfreiheit',
         link: 'https://www.bfdi.bund.de/DE/Service/Kontakt/kontakt_node.html',
       };
     case 'DK':
@@ -181,8 +176,7 @@ export const getCountryDPA = (country: string) => {
       };
     case 'HU':
       return {
-        name:
-          'Hungarian National Authority for Data Protection and Freedom of Information',
+        name: 'Hungarian National Authority for Data Protection and Freedom of Information',
         link: 'https://naih.hu/about-the-authority',
       };
     case 'IE':
@@ -249,16 +243,13 @@ export const getCountryDPA = (country: string) => {
       };
     case 'RU':
       return {
-        name:
-          'Federal Service for Supervision of Communications, Information Technology, and Mass Media',
-        link:
-          'http://eng.rkn.gov.ru/personal_data/protecting_the_rigthts_of_personal_data_subjects/',
+        name: 'Federal Service for Supervision of Communications, Information Technology, and Mass Media',
+        link: 'http://eng.rkn.gov.ru/personal_data/protecting_the_rigthts_of_personal_data_subjects/',
       };
     case 'SE':
       return {
         name: 'Swedish Authority for Privacy Protection',
-        link:
-          'https://www.imy.se/en/privatperson/forms-and-e-services/file-a-gdpr-complaint/',
+        link: 'https://www.imy.se/en/privatperson/forms-and-e-services/file-a-gdpr-complaint/',
       };
     case 'SI':
       return {
@@ -273,8 +264,7 @@ export const getCountryDPA = (country: string) => {
     case 'US':
       return {
         name: 'Federal Trade Commission',
-        link:
-          'https://www.ftc.gov/tips-advice/business-center/privacy-and-security/privacy-shield',
+        link: 'https://www.ftc.gov/tips-advice/business-center/privacy-and-security/privacy-shield',
       };
     default:
       return null;

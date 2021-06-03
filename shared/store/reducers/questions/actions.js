@@ -29,20 +29,22 @@ export const loadQuestionPersonalities = (
   payload: { questionSlug, personalities },
 });
 
-export const fechQuestionPersonalities = (
-  questionId: string,
-  questionSlug: string,
-  personalityRole: ?string = undefined,
-  limit: ?number = undefined,
-  skip: ?number = undefined
-) => async (dispatch: Dispatch) => {
-  const response = await QuestionService.getQuestionPersonalities(
-    questionId,
-    personalityRole,
-    limit,
-    skip
-  );
+export const fechQuestionPersonalities =
+  (
+    questionId: string,
+    questionSlug: string,
+    personalityRole: ?string = undefined,
+    limit: ?number = undefined,
+    skip: ?number = undefined
+  ) =>
+  async (dispatch: Dispatch) => {
+    const response = await QuestionService.getQuestionPersonalities(
+      questionId,
+      personalityRole,
+      limit,
+      skip
+    );
 
-  const results = response ? response.results : [];
-  return dispatch(loadQuestionPersonalities(questionSlug, results));
-};
+    const results = response ? response.results : [];
+    return dispatch(loadQuestionPersonalities(questionSlug, results));
+  };

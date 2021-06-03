@@ -276,8 +276,7 @@ export const homepageTypeFixture = {
       picture:
         'https://uploads-ssl.webflow.com/5eddf33b5e82230118826e4b/5eddf33b5e8223a2a7827f1b_mosaique%20small.png',
       alt: null,
-      link:
-        'https://make-org-site-corpo-46934932a95d560c065.webflow.io/post/evenement-revelation-des-resultats-de-la-consultation-citoyenne-actionenvironnement',
+      link: 'https://make-org-site-corpo-46934932a95d560c065.webflow.io/post/evenement-revelation-des-resultats-de-la-consultation-citoyenne-actionenvironnement',
     },
     {
       title:
@@ -287,8 +286,7 @@ export const homepageTypeFixture = {
       picture:
         'https://uploads-ssl.webflow.com/5eddf33b5e82230118826e4b/5eddf33b5e822338b2827f0a_r%C3%A9sultats%20monde%20d%27apr%C3%A8s%20small.png',
       alt: null,
-      link:
-        'https://make-org-site-corpo-46934932a95d560c065.webflow.io/post/evenement-revelation-des-resultats-de-la-consultation-citoyenne-inventons-le-monde-dapres',
+      link: 'https://make-org-site-corpo-46934932a95d560c065.webflow.io/post/evenement-revelation-des-resultats-de-la-consultation-citoyenne-inventons-le-monde-dapres',
     },
     {
       title:
@@ -298,8 +296,7 @@ export const homepageTypeFixture = {
       picture:
         'https://uploads-ssl.webflow.com/5eddf33b5e82230118826e4b/5eddf33b5e82230840827ee9_solidarity%20small.png',
       alt: null,
-      link:
-        'https://make-org-site-corpo-46934932a95d560c065.webflow.io/post/mondeapres-la-solidarite-et-lentraide-au-coeur-de-la-crise-et-au-dela',
+      link: 'https://make-org-site-corpo-46934932a95d560c065.webflow.io/post/mondeapres-la-solidarite-et-lentraide-au-coeur-de-la-crise-et-au-dela',
     },
   ],
 };

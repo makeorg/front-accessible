@@ -34,9 +34,8 @@ export const UpdatePassword = ({ userId, hasPassword }: Props) => {
     newPassword: '',
     actualPassword: '',
   };
-  const [formValues, setFormValues] = useState<TypePasswordValues>(
-    defaultFormValues
-  );
+  const [formValues, setFormValues] =
+    useState<TypePasswordValues>(defaultFormValues);
   const [isSubmitSuccessful, setIsSubmitSuccessful] = useState<boolean>(false);
   const [canSubmit, setCanSubmit] = useState<boolean>(false);
   const [errors, setErrors] = useState<ErrorObjectType[]>([]);

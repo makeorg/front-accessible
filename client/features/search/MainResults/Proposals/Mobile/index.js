@@ -26,7 +26,8 @@ export const MainResultsProposalsMobile = ({ proposals }: Props) => {
   const sliderRef = useRef();
   const hasProposals = proposals.length > 0;
   useSlider(sliderRef, SearchSliderParams, hasProposals);
-  const topComponentContext: TopComponentContextValueType = TopComponentContextValue.getSearchResultProposalList();
+  const topComponentContext: TopComponentContextValueType =
+    TopComponentContextValue.getSearchResultProposalList();
 
   return (
     <>

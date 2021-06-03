@@ -48,9 +48,8 @@ export const LoginForm = () => {
     email: '',
     password: '',
   };
-  const [formValues, setFormValues] = useState<TypeLoginValues>(
-    defaultFormValues
-  );
+  const [formValues, setFormValues] =
+    useState<TypeLoginValues>(defaultFormValues);
   const [errors, setErrors] = useState<ErrorObjectType[]>([]);
   const emailError = getFieldError('email', errors);
   const passwordError = getFieldError('password', errors);

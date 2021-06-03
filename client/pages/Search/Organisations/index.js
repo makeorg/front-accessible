@@ -57,10 +57,8 @@ export const SearchOrganisations = ({ history, location }: Props) => {
 
   const initOrganisations = async () => {
     setIsLoading(true);
-    const organisationsResponse: ?OrganisationsType = await OrganisationService.searchOrganisations(
-      country,
-      term
-    );
+    const organisationsResponse: ?OrganisationsType =
+      await OrganisationService.searchOrganisations(country, term);
 
     if (organisationsResponse) {
       const { results, total } = organisationsResponse;

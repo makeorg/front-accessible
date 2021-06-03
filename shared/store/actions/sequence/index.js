@@ -60,54 +60,56 @@ export const setSequenceIndex = (index: number) => ({
   payload: { index },
 });
 
-export const unvote = (
-  proposal: ProposalType,
-  newVotes: VoteType[],
-  context: string
-) => (dispatch: Dispatch, getState: () => StateRoot) => {
-  if (context !== TopComponentContextValue.getSequenceProposal()) {
-    return;
-  }
-  const { cards, currentIndex } = getState().sequence;
+export const unvote =
+  (proposal: ProposalType, newVotes: VoteType[], context: string) =>
+  (dispatch: Dispatch, getState: () => StateRoot) => {
+    if (context !== TopComponentContextValue.getSequenceProposal()) {
+      return;
+    }
+    const { cards, currentIndex } = getState().sequence;
 
-  dispatch({
-    type: SEQUENCE_PROPOSAL_UNVOTE,
-    payload: { proposalId: proposal.id, questionSlug: proposal.question.slug },
-  });
+    dispatch({
+      type: SEQUENCE_PROPOSAL_UNVOTE,
+      payload: {
+        proposalId: proposal.id,
+        questionSlug: proposal.question.slug,
+      },
+    });
 
-  const proposalSequenceCard = cards[currentIndex];
+    const proposalSequenceCard = cards[currentIndex];
 
-  dispatch(
-    updateSequenceCardState(currentIndex, {
-      ...proposalSequenceCard.state,
-      votes: newVotes,
-    })
-  );
-};
+    dispatch(
+      updateSequenceCardState(currentIndex, {
+        ...proposalSequenceCard.state,
+        votes: newVotes,
+      })
+    );
+  };
 
-export const vote = (
-  proposal: ProposalType,
-  newVotes: VoteType[],
-  context: string
-) => (dispatch: Dispatch, getState: () => StateRoot) => {
-  if (context !== TopComponentContextValue.getSequenceProposal()) {
-    return;
-  }
-  const { cards, currentIndex } = getState().sequence;
+export const vote =
+  (proposal: ProposalType, newVotes: VoteType[], context: string) =>
+  (dispatch: Dispatch, getState: () => StateRoot) => {
+    if (context !== TopComponentContextValue.getSequenceProposal()) {
+      return;
+    }
+    const { cards, currentIndex } = getState().sequence;
 
-  dispatch({
-    type: SEQUENCE_PROPOSAL_VOTE,
-    payload: { proposalId: proposal.id, questionSlug: proposal.question.slug },
-  });
+    dispatch({
+      type: SEQUENCE_PROPOSAL_VOTE,
+      payload: {
+        proposalId: proposal.id,
+        questionSlug: proposal.question.slug,
+      },
+    });
 
-  const proposalSequenceCard = cards[currentIndex];
-  dispatch(
-    updateSequenceCardState(proposalSequenceCard.index, {
-      ...proposalSequenceCard.state,
-      votes: newVotes,
-    })
-  );
-};
+    const proposalSequenceCard = cards[currentIndex];
+    dispatch(
+      updateSequenceCardState(proposalSequenceCard.index, {
+        ...proposalSequenceCard.state,
+        votes: newVotes,
+      })
+    );
+  };
 
 const getVotesUpdatedWithQualifification = (
   votes: VoteType[],
@@ -133,28 +135,30 @@ const getVotesUpdatedWithQualifification = (
   return newVotes;
 };
 
-export const qualify = (
-  proposalId: string,
-  votedKey: string,
-  qualification: QualificationType,
-  context: string
-) => (dispatch: Dispatch, getState: () => StateRoot) => {
-  if (context !== TopComponentContextValue.getSequenceProposal()) {
-    return;
-  }
-  const { cards, currentIndex } = getState().sequence;
-  const proposalSequenceCard = cards[currentIndex];
-  const { votes } = proposalSequenceCard.state || { votes: [] };
-  const newVotes = getVotesUpdatedWithQualifification(
-    votes,
-    votedKey,
-    qualification
-  );
+export const qualify =
+  (
+    proposalId: string,
+    votedKey: string,
+    qualification: QualificationType,
+    context: string
+  ) =>
+  (dispatch: Dispatch, getState: () => StateRoot) => {
+    if (context !== TopComponentContextValue.getSequenceProposal()) {
+      return;
+    }
+    const { cards, currentIndex } = getState().sequence;
+    const proposalSequenceCard = cards[currentIndex];
+    const { votes } = proposalSequenceCard.state || { votes: [] };
+    const newVotes = getVotesUpdatedWithQualifification(
+      votes,
+      votedKey,
+      qualification
+    );
 
-  dispatch(
-    updateSequenceCardState(proposalSequenceCard.index, {
-      ...proposalSequenceCard.state,
-      votes: newVotes,
-    })
-  );
-};
+    dispatch(
+      updateSequenceCardState(proposalSequenceCard.index, {
+        ...proposalSequenceCard.state,
+        votes: newVotes,
+      })
+    );
+  };
