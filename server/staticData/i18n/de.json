@@ -25,30 +25,30 @@
       }
     },
     "proposal": {
-      "title": "Vorschlag '{{proposal}}' der Bürgerbefragung'{{question}}' - Make.org",
+      "title": "Vorschlag '{{proposal}}' der Konsultation'{{question}}' - Make.org",
       "description": "Unterstützen Sie meinen Vorschlag durch Ihre Stimmabgabe und lassen Sie uns gemeinsam Lösungen für die großen Probleme unserer Zeit finden. Die meisten Unterstützer werden von Make.org und seinen Partnern in die Tat umgesetzt."
     },
     "participate": {
-      "title": "Beteiligen Sie sich an der Bürgerbefragung '{{question}}' - Make.org"
+      "title": "Beteiligen Sie sich an der Konsultation '{{question}}' - Make.org"
     },
     "explore": {
-      "title": "Erkunden Sie die Vorschläge der Bürgerbefragung '{{question}}' - Make.org"
+      "title": "Erkunden Sie die Vorschläge der Konsultation '{{question}}' - Make.org"
     },
     "results": {
-      "title": "Ergebnisse der Bürgerbefragung '{{question}}' - Make.org",
-      "description": "Entdecken Sie die Ergebnisse der Bürgerbefragung geordnet nach den beliebtesten Themen, den umstrittensten Vorschlägen und den am meisten abgelehnten Vorschlägen."
+      "title": "Ergebnisse der Konsultation '{{question}}' - Make.org",
+      "description": "Entdecken Sie die Ergebnisse der Konsultation geordnet nach den beliebtesten Themen, den umstrittensten Vorschlägen und den am meisten abgelehnten Vorschlägen."
     },
     "sequence": {
-      "title": "Nehmen Sie an der Bürgerbefragung teil '{{question}}' - Make.org"
+      "title": "Nehmen Sie an der Konsultation teil '{{question}}' - Make.org"
     },
     "top-ideas": {
-      "title": "Top-Ideen aus der Bürgerbefragung'{{question}}' - Make.org",
-      "description": "Entdecken Sie die besten Ideen aus der Bürgerbefragung '{{question}}'",
+      "title": "Top-Ideen aus der Konsultation'{{question}}' - Make.org",
+      "description": "Entdecken Sie die besten Ideen aus der Konsultation '{{question}}'",
       "picture": "https://assets.make.org/assets/metas/meta-top-ideas.jpg"
     },
     "top-idea-details": {
-      "title": "Detail der Idee '{{idea}}' der Bürgerbefragung '{{question}}' - Make.org",
-      "description": "Entdecken Sie alle Vorschläge der Idee {{idea}}, die aus der Bürgerbefragung resultieren '{{question}}'",
+      "title": "Detail der Idee '{{idea}}' der Konsultation '{{question}}' - Make.org",
+      "description": "Entdecken Sie alle Vorschläge der Idee {{idea}}, die aus der Konsultation resultieren '{{question}}'",
       "picture": "https://assets.make.org/assets/metas/meta-top-ideas.jpg"
     },
     "search": {
@@ -321,7 +321,7 @@
       "special": "Stimmen Sie weiter ab und helfen Sie uns, Prioritäten zu setzen."
     },
     "link_text": "I Zugriff auf die Bürgerberatung",
-    "sharing": "Oder geben Sie dieser Bürgerbefragung mehr Raum, indem Sie sie verbreiten."
+    "sharing": "Oder geben Sie dieser Konsultation mehr Raum, indem Sie sie verbreiten."
   },
   "push_proposal_card": {
     "title": "Und Sie, haben Sie eine Lösung zu diesem Thema vorzuschlagen?",
@@ -414,7 +414,7 @@
   },
   "sequence": {
     "return": "Zurück zu den Vorschlägen",
-    "title": "Stimmen Sie über die Vorschläge der Bürgerbefragung ab:",
+    "title": "Stimmen Sie über die Vorschläge der Konsultation ab:",
     "more": "Zugang zur gesamten Konsultation"
   },
   "authentication": {
@@ -733,12 +733,12 @@
       "soon": "Demnächst",
       "submit": {
         "title": "Vorschlag einreichen",
-        "description": "Teilen Sie Ihre mit so vielen Menschen wie möglich. Jeder Vorschlag wird geprüft, bevor er den Bürger:innen zur Abstimmung vorgelegt wird.",
+        "description": "Teilen Sie Ihre Ideen mit so vielen Menschen wie möglich. Jeder Vorschlag wird geprüft, bevor er den Bürger:innen zur Abstimmung vorgelegt wird.",
         "button": "Ich mache einen Vorschlag"
       },
       "interact": {
         "title": "Auf Vorschläge reagieren",
-        "description": "Die Vorschläge definieren die Themen der Konsultation. Äußern Sie Ihre Meinung, damit wir herausfinden welche Ideen vorrangig behandelt werden sollten.",
+        "description": "Die Vorschläge definieren die Themen der Konsultation. Äußern Sie Ihre Meinung, damit wir herausfinden, welche Ideen vorrangig behandelt werden sollten.",
         "button": "Ich stimme ab"
       },
       "controversy": {
@@ -770,8 +770,8 @@
     },
     "timeline": {
       "timeline_title_great_cause": "Was sind die Highlights dieser gute Sache?",
-      "timeline_title_consultation": "Was sind die Highlights dieser Bürgerbefragung?",
-      "consultation_title": "Bürgerbefragung",
+      "timeline_title_consultation": "Was sind die Highlights dieser Konsultation?",
+      "consultation_title": "Konsultation",
       "consultation_description": "Alle unsere Konsultationen beginnen mit einem Aufruf zur Einreichung von Ideen und Voten von Bürgern.",
       "result_title": "Ergebnisse",
       "workshop_title": "Bürgerwerkstätten",
@@ -789,7 +789,7 @@
       "explore_breadcrumb": "Erkunden Sie \"{{title}}\""
     },
     "tabs": {
-      "consultation": "Bürgerbefragung ",
+      "consultation": "Konsultation ",
       "action": "Aktionen ",
       "results": "Ergebnisse ",
       "from": "von ",
@@ -824,8 +824,8 @@
       "commitment_text": "Sie unterstützen die Konsultation und den anschließenden Bürgeraktionsplan.",
       "commitment_link": "Alle Partner anzeigen",
       "founder": "Gründungspartner",
-      "init": "Bürgerbefragung initiiert von:",
-      "initWith": "Diese Bürgerbefragung wurde initiiert mit:",
+      "init": "Konsultation initiiert von:",
+      "initWith": "Diese Konsultation wurde initiiert mit:",
       "with": "In Partnerschaft mit :",
       "by": "Initiiert von : ",
       "profile_link": "Gehen Sie zum Profil von: {{name}}",
@@ -861,9 +861,9 @@
         "title": "Holen Sie sich den vollständigen Bericht",
         "type": "Format: {{extension}} - Gewicht: {{weight}}",
         "button": "Herunterladen",
-        "deprecated_contact": "Wenn Sie den vollständigen Bericht der Bürgerbefragung erhalten möchten, kontaktieren Sie uns bitte unter: ",
+        "deprecated_contact": "Wenn Sie den vollständigen Bericht der Konsultation erhalten möchten, kontaktieren Sie uns bitte unter: ",
         "contact": "Um den vollständigen Analysebericht dieser Konsultation zu erhalten, kontaktieren Sie uns bitte unter: ",
-        "deprecated_email_object": "Anfrage nach einem Bericht für die Bürgerbefragung",
+        "deprecated_email_object": "Anfrage nach einem Bericht für die Konsultation",
         "email_object": "Analysebericht"
       },
       "top_ideas": {
@@ -892,7 +892,7 @@
         "percentage": "Prozent"
       },
       "breadcrumb": "Ergebnisse von \"{{title}}\"",
-      "title": "Was können wir aus dieser Bürgerbefragung lernen?"
+      "title": "Was können wir aus dieser Konsultation lernen?"
     },
     "close": "Schließen",
     "reset": "Zurücksetzen",
@@ -959,9 +959,9 @@
     "see_closed_consultations": "Siehe abgeschlossene Konsultationen",
     "subscribe": "Registrieren",
     "past_questions": "Sie können auch die Ergebnisse früherer Konsultationen einsehen",
-    "no_consultations": "Keine Bürgerbefragung im Gange, aber bleiben Sie in Kontakt",
+    "no_consultations": "Keine Konsultation im Gange, aber bleiben Sie in Kontakt",
     "one_consultation": "Registrieren Sie sich, um über die nächste Bürgersprechstunde informiert zu werden",
-    "no_results": "Keine Bürgerbefragung im Gange, aber bleiben Sie in Kontakt",
+    "no_results": "Keine Konsultation im Gange, aber bleiben Sie in Kontakt",
     "one_result": "Registrieren Sie sich, um über die nächste Bürgersprechstunde informiert zu werden"
   },
   "sharing": {
@@ -1055,8 +1055,8 @@
       "no_results": "Wir haben keine Ergebnisse für Ihre Suche gefunden « {{term}} »",
       "no_query": "Sie suchen einen Vorschlag, eine Idee, eine Bürgerberatung? Geben Sie Ihre Suche ein!",
       "status": "Status: ",
-      "finished_consultation": "Bürgerbefragung abgeschlossen",
-      "open_consultation": "Bürgerbefragung im Gange"
+      "finished_consultation": "Konsultation abgeschlossen",
+      "open_consultation": "Konsultation im Gange"
     },
     "sidebar": {
       "register": {
