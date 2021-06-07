@@ -5,6 +5,7 @@
 - clone repo from [gitlab](https://gitlab.com/makeorg/platform/front)
 - add `127.0.0.1       local.makeorg.tech` to hosts file in `/etc/hosts`
 - Run `yarn install` to install dependencies
+- Run `yarn husky install` to install husky commint & prepush rules
 
 
 ## Development Mode
@@ -23,7 +24,7 @@ Vars are differents between each env. These are handled with [dotenv-webpack](ht
 *  :construction_worker: Build : `yarn build`
 *  :rocket: Start server : `yarn server`
 
-## Tests
+## Unit testing
 *  To launch test `yarn test`
 *  To enable watch mode: `yarn test --watch`
 > then touch the o key to re-launch test only on files changed
