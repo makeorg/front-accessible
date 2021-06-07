@@ -17,14 +17,8 @@ type Props = {
 };
 
 export const TooltipComponent = (props: Props) => {
-  const {
-    content,
-    children,
-    type,
-    displayTooltip,
-    showTooltip,
-    hideTooltip,
-  } = props;
+  const { content, children, type, displayTooltip, showTooltip, hideTooltip } =
+    props;
 
   return (
     <>

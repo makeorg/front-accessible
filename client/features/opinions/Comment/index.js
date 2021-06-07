@@ -45,12 +45,8 @@ export const OpinionComment = ({ comment }: Props) => {
     (state: StateRoot) => state.appConfig
   );
   const isMobile = matchMobileDevice(device);
-  const {
-    politicalParty,
-    displayName,
-    personalityId,
-    avatarUrl,
-  } = comment.personality;
+  const { politicalParty, displayName, personalityId, avatarUrl } =
+    comment.personality;
 
   return (
     <ProposalCardStyle>

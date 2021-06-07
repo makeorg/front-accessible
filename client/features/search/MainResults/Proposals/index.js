@@ -35,9 +35,8 @@ export const MainResultsProposals = ({
   const isMobile = matchMobileDevice(device);
   const [page, setPage] = useState<number>(1);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [proposalsResult, setProposalsResult] = useState<ProposalType[]>(
-    proposals
-  );
+  const [proposalsResult, setProposalsResult] =
+    useState<ProposalType[]>(proposals);
   const getMoreButton =
     count > 4 && count !== proposalsResult.length && !isLoading;
 
@@ -60,7 +59,8 @@ export const MainResultsProposals = ({
   if (isMobile) {
     return <MainResultsProposalsMobile proposals={proposals} />;
   }
-  const topComponentContext: TopComponentContextValueType = TopComponentContextValue.getSearchResultProposalList();
+  const topComponentContext: TopComponentContextValueType =
+    TopComponentContextValue.getSearchResultProposalList();
 
   return (
     <div id="proposal_list" role="feed" aria-live="polite">

@@ -18,50 +18,54 @@ export const setLocalActors = (slug: string, actors: StateActors) => ({
   payload: { slug, actors },
 });
 
-export const getLocalActors = (
-  questionId: string,
-  slug: string,
-  partnerKind?: string = ACTOR_PARTNER,
-  sortAlgorithm?: string = 'participation',
-  limit?: number,
-  skip?: number
-) => async (dispatch: Dispatch) => {
-  dispatch(loadLocalActors());
-  const actors = await QuestionService.getQuestionPartners(
-    questionId,
-    partnerKind,
-    sortAlgorithm,
-    limit,
-    skip
-  );
-  if (actors) {
-    dispatch(setLocalActors(slug, actors));
-  }
-};
-
-export const loadMoreLocalActors = (
-  questionId: string,
-  slug: string,
-  partnerKind?: string = ACTOR_PARTNER,
-  sortAlgorithm?: string = 'participation',
-  limit?: number,
-  skip?: number
-) => async (dispatch: Dispatch, getState: () => StateRoot) => {
-  dispatch(loadLocalActors());
-  const { results } = getState().partners[slug].actors;
-  const actors = await QuestionService.getQuestionPartners(
-    questionId,
-    partnerKind,
-    sortAlgorithm,
-    limit,
-    skip
-  );
-  if (actors) {
-    dispatch(
-      setLocalActors(slug, {
-        total: actors.total,
-        results: [...results, ...actors.results],
-      })
+export const getLocalActors =
+  (
+    questionId: string,
+    slug: string,
+    partnerKind?: string = ACTOR_PARTNER,
+    sortAlgorithm?: string = 'participation',
+    limit?: number,
+    skip?: number
+  ) =>
+  async (dispatch: Dispatch) => {
+    dispatch(loadLocalActors());
+    const actors = await QuestionService.getQuestionPartners(
+      questionId,
+      partnerKind,
+      sortAlgorithm,
+      limit,
+      skip
     );
-  }
-};
+    if (actors) {
+      dispatch(setLocalActors(slug, actors));
+    }
+  };
+
+export const loadMoreLocalActors =
+  (
+    questionId: string,
+    slug: string,
+    partnerKind?: string = ACTOR_PARTNER,
+    sortAlgorithm?: string = 'participation',
+    limit?: number,
+    skip?: number
+  ) =>
+  async (dispatch: Dispatch, getState: () => StateRoot) => {
+    dispatch(loadLocalActors());
+    const { results } = getState().partners[slug].actors;
+    const actors = await QuestionService.getQuestionPartners(
+      questionId,
+      partnerKind,
+      sortAlgorithm,
+      limit,
+      skip
+    );
+    if (actors) {
+      dispatch(
+        setLocalActors(slug, {
+          total: actors.total,
+          results: [...results, ...actors.results],
+        })
+      );
+    }
+  };

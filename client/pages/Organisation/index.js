@@ -86,9 +86,8 @@ const OrganisationPage = (props: Props) => {
 
   useEffect(() => {
     const fetchOrganisation = async () => {
-      const loadedOrganisation: ?OrganisationType = await OrganisationService.getOrganisationBySlug(
-        organisationSlug
-      );
+      const loadedOrganisation: ?OrganisationType =
+        await OrganisationService.getOrganisationBySlug(organisationSlug);
 
       setOrganisation(loadedOrganisation);
       setIsLoading(false);

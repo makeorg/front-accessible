@@ -43,21 +43,21 @@ export const QualificationButton = ({
   const { hasQualified, qualificationKey, count } = userQualification;
   const buttonLabel = i18n.t(`qualification.${qualificationKey}`);
   const [isQualified, setIsQualified] = useState<boolean>(hasQualified);
-  const [pendingQualification, setPendingQualification] = useState<boolean>(
-    false
-  );
+  const [pendingQualification, setPendingQualification] =
+    useState<boolean>(false);
   useEffect(() => {
     setUserQualification(qualification);
     setIsQualified(qualification.hasQualified);
   }, [qualification]);
 
   const handleQualify = async (context: string) => {
-    const qualificationResult: ?QualificationType = await QualificationService.qualify(
-      proposalId,
-      proposalKey,
-      votedKey,
-      qualificationKey
-    );
+    const qualificationResult: ?QualificationType =
+      await QualificationService.qualify(
+        proposalId,
+        proposalKey,
+        votedKey,
+        qualificationKey
+      );
 
     if (qualificationResult) {
       setIsQualified(true);
@@ -69,12 +69,13 @@ export const QualificationButton = ({
   };
 
   const handleUnqualify = async (context: string) => {
-    const qualificationResult: ?QualificationType = await QualificationService.unqualify(
-      proposalId,
-      proposalKey,
-      votedKey,
-      qualificationKey
-    );
+    const qualificationResult: ?QualificationType =
+      await QualificationService.unqualify(
+        proposalId,
+        proposalKey,
+        votedKey,
+        qualificationKey
+      );
 
     if (qualificationResult) {
       setIsQualified(false);

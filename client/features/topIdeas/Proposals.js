@@ -28,7 +28,8 @@ type Props = {
 };
 
 export const TopIdeaDetailsProposals = ({ topIdea, question }: Props) => {
-  const topComponentContext: TopComponentContextValueType = TopComponentContextValue.getTopideaProposalList();
+  const topComponentContext: TopComponentContextValueType =
+    TopComponentContextValue.getTopideaProposalList();
   const { country } = useSelector((state: StateRoot) => state.appConfig);
   const [proposals, setProposals] = useState<ProposalType[]>([]);
   const [hasMore, setHasMore] = useState<boolean>(false);

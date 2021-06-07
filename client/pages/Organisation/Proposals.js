@@ -37,9 +37,8 @@ const OrganisationProposalsPage = ({ organisation }: Props) => {
 
   const initProposal = async () => {
     setIsLoading(true);
-    const proposalsResponse: ?ProposalsType = await OrganisationService.getProposals(
-      organisation.organisationId
-    );
+    const proposalsResponse: ?ProposalsType =
+      await OrganisationService.getProposals(organisation.organisationId);
     if (proposalsResponse) {
       const { results, total, seed: apiSeed } = proposalsResponse;
       setProposals(results);
@@ -52,11 +51,12 @@ const OrganisationProposalsPage = ({ organisation }: Props) => {
 
   const loadProposals = async () => {
     setIsLoading(true);
-    const proposalsResponse: ?ProposalsType = await OrganisationService.getProposals(
-      organisation.organisationId,
-      seed,
-      page
-    );
+    const proposalsResponse: ?ProposalsType =
+      await OrganisationService.getProposals(
+        organisation.organisationId,
+        seed,
+        page
+      );
     if (proposalsResponse) {
       const { results, total, seed: apiSeed } = proposalsResponse;
       const newProposalList = [...proposals, ...results];
@@ -84,7 +84,8 @@ const OrganisationProposalsPage = ({ organisation }: Props) => {
   const renderPlaceholder = !proposalsLength && !isLoading;
   const displayLoadMoreButton = hasMore && !isLoading;
 
-  const topComponentContext: TopComponentContextValueType = TopComponentContextValue.getOrganisationProposalList();
+  const topComponentContext: TopComponentContextValueType =
+    TopComponentContextValue.getOrganisationProposalList();
 
   return (
     <>

@@ -62,31 +62,29 @@ import { DEFAULT_COUNTRY } from 'Shared/constants/config';
 import { USER_PREFERENCES_COOKIE } from 'Shared/constants/cookies';
 import { type StateUserCookiesPreferences } from 'Shared/store/types';
 
-const BrowsePage = loadable(() => import('../pages/Browse/index.js'));
+const BrowsePage = loadable(() => import('../pages/Browse'));
 const ParticipatePage = loadable(() =>
-  import('../pages/Consultation/Participate.js')
+  import('../pages/Consultation/Participate')
 );
-const ExplorePage = loadable(() => import('../pages/Consultation/Explore.js'));
+const ExplorePage = loadable(() => import('../pages/Consultation/Explore'));
 export const ResultsPage = loadable(() =>
-  import('../pages/Consultation/Results.js')
+  import('../pages/Consultation/Results')
 );
-const TopIdeasPage = loadable(() =>
-  import('../pages/Consultation/TopIdeas.js')
-);
+const TopIdeasPage = loadable(() => import('../pages/Consultation/TopIdeas'));
 const TopIdeaDetailsPage = loadable(() =>
-  import('../pages/Consultation/TopIdeaDetails.js')
+  import('../pages/Consultation/TopIdeaDetails')
 );
 const SequencePageStandard = loadable(() =>
-  import('../pages/Consultation/SequenceStandard.js')
+  import('../pages/Consultation/SequenceStandard')
 );
 const SequencePopularPage = loadable(() =>
-  import('../pages/Consultation/SequencePopular.js')
+  import('../pages/Consultation/SequencePopular')
 );
 const SequenceControversialPage = loadable(() =>
-  import('../pages/Consultation/SequenceControversy.js')
+  import('../pages/Consultation/SequenceControversy')
 );
 const SequenceKeywordPage = loadable(() =>
-  import('../pages/Consultation/SequenceKeyword.js')
+  import('../pages/Consultation/SequenceKeyword')
 );
 const PasswordRecoveryPage = loadable(() =>
   import('../pages/PasswordRecovery')
