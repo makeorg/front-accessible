@@ -1,5 +1,6 @@
 // @flow
 
+import { useSelector } from 'react-redux';
 import {
   getAgeFromDateOfBirth,
   getDateOfBirthFromAge,
@@ -24,6 +25,7 @@ import { CustomPatternInput } from 'Client/ui/Elements/Form/CustomPatternInput';
 import { NumberInput } from 'Client/ui/Elements/Form/NumberInput';
 import { type UserProfileType } from 'Shared/types/user';
 import { type ErrorObjectType } from 'Shared/types/api';
+import * as postCodeValidator from 'Client/validator/postCode';
 
 type ProfileFormProps = {
   profile: UserProfileType,
@@ -39,6 +41,7 @@ export const UserForm = ({
   const ageError = getFieldError('dateofbirth', errors);
   const postalCodeError = getFieldError('postalCode', errors);
   const firstNameError = getFieldError('firstName', errors);
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
 
   const [values, setValues] = useState<UserProfileType>({
     ...transformProfileToFormData(profile),
@@ -95,19 +98,21 @@ export const UserForm = ({
         })}
         handleChange={onChange}
       />
-      <CustomPatternInput
-        type="text"
-        name="postalCode"
-        icon={PostalCodeFieldIcon}
-        value={postalCode}
-        label={i18n.t('common.form.label.postalcode', {
-          context: 'optional',
-        })}
-        error={postalCodeError}
-        handleChange={onChange}
-        maxLength={5}
-        pattern="^[0-9]{5}"
-      />
+      {postCodeValidator.isSupportedCountry(country) && (
+        <CustomPatternInput
+          type="text"
+          name="postalCode"
+          icon={PostalCodeFieldIcon}
+          value={postalCode}
+          label={i18n.t('common.form.label.postalcode', {
+            context: 'optional',
+          })}
+          error={postalCodeError}
+          handleChange={onChange}
+          maxLength={5}
+          pattern={postCodeValidator.html5regexByCountry(country)}
+        />
+      )}
       <TextArea
         name="description"
         icon={DescriptionFieldIcon}

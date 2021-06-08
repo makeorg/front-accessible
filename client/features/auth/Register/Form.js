@@ -31,6 +31,7 @@ import { FormErrors } from 'Client/ui/Elements/Form/Errors';
 import { CustomPatternInput } from 'Client/ui/Elements/Form/CustomPatternInput';
 import { getGTUPageLink } from 'Shared/helpers/url';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
+import * as postCodeValidator from 'Client/validator/postCode';
 import { TermsOfUseLinkStyle, NewWindowIconStyle } from '../style';
 
 type Props = {
@@ -118,18 +119,19 @@ export const RegisterForm = ({
         max={120}
         required
       />
-      <CustomPatternInput
-        type="text"
-        name="profile.postalcode"
-        icon={PostalCodeFieldIcon}
-        value={user.profile.postalcode}
-        error={postalcodeError}
-        label={postalCodeLabel}
-        handleChange={handleChange}
-        maxLength={5}
-        pattern="^[0-9]{5}"
-        required={isPostalCodeRequired}
-      />
+      {postCodeValidator.isSupportedCountry(country) && (
+        <CustomPatternInput
+          type="text"
+          name="profile.postalcode"
+          icon={PostalCodeFieldIcon}
+          value={user.profile.postalcode}
+          error={postalcodeError}
+          label={postalCodeLabel}
+          handleChange={handleChange}
+          pattern={postCodeValidator.html5regexByCountry(country)}
+          required={isPostalCodeRequired}
+        />
+      )}
       <UntypedInput
         type="text"
         name="profile.profession"
