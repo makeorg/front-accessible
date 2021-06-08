@@ -18,7 +18,7 @@
 	"main": "index.js",
 	"license": "GPL-3.0-or-later",
 	"engines": {
-		"node": ">=12.18 <=12.20",
+		"node": ">=12.18 <=12.22",
 		"yarn": "~1.22"
 	},
 	"dependencies": {
