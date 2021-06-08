@@ -72,7 +72,7 @@ export const Figures = () => {
           {resultsPage
             ? i18n.t('consultation.highlights.proposals')
             : i18n.t('consultation.highlights.remaining', {
-                count: formatCountWithLanguage(remainingDays, language),
+                count: remainingDays,
               })}
         </HigthlightsTitleStyle>
         <ScreenReaderItemStyle> : </ScreenReaderItemStyle>
@@ -88,10 +88,7 @@ export const Figures = () => {
       <FiguresListItemStyle>
         <HigthlightsTitleStyle>
           {i18n.t('consultation.highlights.participant', {
-            count: formatCountWithLanguage(
-              question.highlights.participantsCount,
-              language
-            ),
+            count: question.highlights.participantsCount,
           })}
         </HigthlightsTitleStyle>
         <ScreenReaderItemStyle> : </ScreenReaderItemStyle>
