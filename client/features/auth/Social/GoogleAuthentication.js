@@ -17,6 +17,12 @@ import {
   loginSocialSuccess,
   getUser,
 } from 'Shared/store/actions/authentication';
+import { Logger } from 'Shared/services/Logger';
+import { displayNotificationBanner } from 'Shared/store/actions/notifications';
+import {
+  NOTIFICATION_LEVEL_ALERT,
+  UNEXPECTED_ERROR_MESSAGE,
+} from 'Shared/constants/notifications';
 import { GoogleButtonStyle } from './style';
 /**
  * Handles Google authentication
@@ -25,7 +31,7 @@ export const GoogleAuthentication = () => {
   const dispatch = useDispatch();
   const { privacyPolicy } = useSelector((state: StateRoot) => state.appConfig);
   /** Google login method callback */
-  const handleGoogleLoginCallback = response => {
+  const handleGoogleLoginSuccess = response => {
     const success = () => {
       dispatch(loginSocialSuccess());
       dispatch(getUser());
@@ -50,13 +56,30 @@ export const GoogleAuthentication = () => {
     );
   };
 
+  const handleGoogleLoginFailure = response => {
+    if (response?.error === 'popup_closed_by_user') {
+      Logger.logInfo('Google auth popup closed by user');
+
+      return;
+    }
+
+    Logger.logError(`Google login failure: ${response?.error}`);
+    dispatch(
+      displayNotificationBanner(
+        UNEXPECTED_ERROR_MESSAGE,
+        NOTIFICATION_LEVEL_ALERT
+      )
+    );
+    dispatch(modalClose());
+  };
+
   return (
     <GoogleLogin
       clientId={GOOGLE_LOGIN_ID}
       scope="https://www.googleapis.com/auth/user.birthday.read"
       buttonText="Google"
-      onSuccess={handleGoogleLoginCallback}
-      onFailure={handleGoogleLoginCallback}
+      onSuccess={handleGoogleLoginSuccess}
+      onFailure={handleGoogleLoginFailure}
       render={renderProps => (
         <GoogleButtonStyle onClick={renderProps.onClick} type="button">
           <SvgGoogleLogoG aria-hidden focusable="false" />

@@ -17,6 +17,12 @@ import {
   loginSocialSuccess,
   getUser,
 } from 'Shared/store/actions/authentication';
+import { Logger } from 'Shared/services/Logger';
+import { displayNotificationBanner } from 'Shared/store/actions/notifications';
+import {
+  NOTIFICATION_LEVEL_ALERT,
+  UNEXPECTED_ERROR_MESSAGE,
+} from 'Shared/constants/notifications';
 import { FacebookButtonStyle } from './style';
 
 /**
@@ -30,6 +36,24 @@ export const FacebookAuthentication = () => {
   const [isFacebookBrowser, setFacebookBrowser] = useState(false);
   const { language } = useSelector((state: StateRoot) => state.appConfig);
   const handleFacebookLoginCallback = response => {
+    if (!response?.accessToken && response?.status === 'unknown') {
+      Logger.logInfo(
+        'Facebook auth failed with status unknown. Probably user close popup.'
+      );
+
+      return;
+    }
+    if (!response?.accessToken) {
+      Logger.logError(`Facebook login failure: ${response?.status}`);
+      dispatch(
+        displayNotificationBanner(
+          UNEXPECTED_ERROR_MESSAGE,
+          NOTIFICATION_LEVEL_ALERT
+        )
+      );
+      dispatch(modalClose());
+    }
+
     const success = () => {
       dispatch(loginSocialSuccess());
       dispatch(getUser());
