@@ -39,7 +39,10 @@
       "description": "Entdecken Sie die Ergebnisse der Konsultation geordnet nach den beliebtesten Themen, den umstrittensten Vorschlägen und den am meisten abgelehnten Vorschlägen."
     },
     "sequence": {
-      "title": "Nehmen Sie an der Konsultation teil '{{question}}' - Make.org"
+      "title_standard": "Nimm an der Konsultation '{{question}}' teil  - Make.org ",
+      "title_controversy": "Sortiere die Vorschläge der Konsultation '{{question}}' bei Stimmengleichheit aus - Make.org ",
+      "title_popular": "Nimm Stellung zu den beliebtesten Vorschlägen der Konsultation '{{question}}' - Make.org",
+      "title_keyword": "Nimm Stellung zum Thema '{{keywordLabel}}' der Konsultation '{{question}}' - Make.org "
     },
     "top-ideas": {
       "title": "Top-Ideen aus der Konsultation'{{question}}' - Make.org",

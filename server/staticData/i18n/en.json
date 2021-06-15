@@ -31,7 +31,10 @@
       "description": "Discover the results of citizen consultation, classified by most popular, controversial and rejected solutions."
     },
     "sequence": {
-      "title": "Participate in the consultation '{{question}}' - Make.org"
+      "title_standard": "Participate in the consultation '{{question}}' - Make.org",
+      "title_controversy": "Decide between the controversial solutions on the consultation '{{question}}' - Make.org ",
+      "title_popular": "Take a position on the most popular solutions of the consultation '{{question}}' - Make.org",
+      "title_keyword": "Take a position on the topic '{{keywordLabel}}' on the consultation '{{question}}' - Make.org "
     },
     "top-ideas": {
       "title": "Top ideas on the consultation '{{question}}' - Make.org",
