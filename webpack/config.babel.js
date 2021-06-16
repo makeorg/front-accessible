@@ -11,6 +11,7 @@ if (process.env.NODE_ENV === 'development') {
 if (process.env.NODE_ENV === 'ci') {
   envConfigPath = path.resolve(__dirname, '..', '.env.ci');
 }
+
 // Build client and server configurations
 const client = clientConfig(envConfigPath);
 const server = serverConfig(envConfigPath);

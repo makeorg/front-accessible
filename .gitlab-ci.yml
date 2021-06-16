@@ -88,7 +88,7 @@ e2e-test:
   image: cypress/browsers:node12.18.3-chrome89-ff86
   script:
     - yarn install --check-files
-    - yarn build
+    - NODE_ENV=ci yarn build
     - yarn ci cypress:run
   cache: {}
   artifacts:
@@ -97,6 +97,7 @@ e2e-test:
     paths:
       - cypress/screenshots
       - cypress/videos
+      - cypress/coverage
 
 lighthouse:
   stage: check
