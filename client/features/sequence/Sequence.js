@@ -17,6 +17,11 @@ import { getParticipateLink } from 'Shared/helpers/url';
 import { i18n } from 'Shared/i18n';
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
 import { MetaTags } from 'Client/app/MetaTags';
+import {
+  KIND_CONTROVERSY,
+  KIND_POPULAR,
+  KIND_STANDARD,
+} from 'Shared/constants/sequence';
 import { SequenceCard } from './Cards';
 import {
   SequenceContainerStyle,
@@ -83,11 +88,23 @@ export const Sequence = ({ sequenceKind }: Props) => {
     },
   };
   const isSequenceEmpty = sequenceProposals.length === 0;
+  const getMetaTitle = () => {
+    if (sequenceKind === KIND_STANDARD) {
+      return 'meta.sequence.title_standard';
+    }
+    if (sequenceKind === KIND_CONTROVERSY) {
+      return 'meta.sequence.title_controversy';
+    }
+    if (sequenceKind === KIND_POPULAR) {
+      return 'meta.sequence.title_popular';
+    }
 
+    return null;
+  };
   return (
     <>
       <MetaTags
-        title={i18n.t('meta.sequence.title', {
+        title={i18n.t(getMetaTitle(), {
           question: question.wording.question,
         })}
         description={question.wording.metas.description}

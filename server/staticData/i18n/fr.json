@@ -39,7 +39,10 @@
       "description": "Découvrez les résultats de la consultation citoyenne classés en différents thèmes plébiscités, propositions les plus controversées et propositions les plus repoussées."
     },
     "sequence": {
-      "title": "Participez à la consultation '{{question}}' - Make.org"
+      "title_standard": "Participez à la consultation '{{question}}' - Make.org",
+      "title_controversy": "Départagez les propositions de la consultation '{{question}}' - Make.org",
+      "title_popular": "Prenez position sur les propositions les plus populaires de la consultation '{{question}}' - Make.org",
+      "title_keyword": "Prenez position sur le thème '{{keywordLabel}}' de la consultation '{{question}}' - Make.org "
     },
     "top-ideas": {
       "title": "Le top des idées de la consultation '{{question}}' - Make.org",

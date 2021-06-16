@@ -82,7 +82,8 @@ export const SequenceKeyword = () => {
   return (
     <>
       <MetaTags
-        title={i18n.t('meta.sequence.title', {
+        title={i18n.t('meta.sequence.title_keyword', {
+          keywordLabel,
           question: question.wording.question,
         })}
         description={question.wording.metas.description}
