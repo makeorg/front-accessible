@@ -76,3 +76,8 @@ export type TopProposalListCardType = {|
   type: string,
   question: QuestionType,
 |};
+
+export type DemographicsType = {
+  value: string,
+  label: string,
+};

@@ -82,3 +82,5 @@ export { SvgSmiley } from './Smiley';
 export { SvgSettings } from './Settings';
 export { SvgSwitchLabelChecked } from './SwitchLabelChecked';
 export { SvgSwitchLabelCross } from './SwitchLabelCross';
+export { SvgSelectArrow } from './SelectArrow';
+export { SvgFastForward } from './FastForward';

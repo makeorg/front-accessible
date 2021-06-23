@@ -10,13 +10,13 @@ import { UnstyledButtonStyle } from '../style';
 export const BasicButtonStyle = `
   display: flex;
   justify-content: center;
-  align-items: baseline;
+  align-items: center;
   font-family: ${MakeFonts.TradeGothicBoldCondensed};
   text-transform: uppercase;
   border-radius: 20px;
   border: none;
   font-size: ${intToPx(typography.font.fontsize.XS.value)};
-  padding: 10px 25px 7px 25px;
+  padding: 10px 20px 7px 20px;
   text-decoration: none;
 `;
 
@@ -57,7 +57,10 @@ export const RedButtonStyle = styled.button.attrs(props => ({
   }
 `;
 
-export const GreyButtonStyle = styled.button`
+export const GreyButtonStyle = styled.button.attrs(props => ({
+  type: 'button',
+  ...props,
+}))`
   ${BasicButtonStyle};
   ${GreyStyle};
 `;
@@ -98,6 +101,15 @@ const RedNoBackgroundStyle = `
   }
 `;
 
+const BlackBordersStyle = `
+  background-color: transparent;
+  color: ${color.black};
+  border: 1px solid ${color.black};
+  .tofill {
+    fill: ${color.black};
+  }
+`;
+
 export const GreyNoBackgroundButtonStyle = styled(UnstyledButtonStyle)`
   ${ButtonNoBackgroundStyle};
   ${GreyNoBackgroundStyle};
@@ -111,4 +123,12 @@ export const RedNoBackgroundButtonStyle = styled(UnstyledButtonStyle)`
 export const GreyLinkStyle = styled(Link)`
   ${ButtonNoBackgroundStyle};
   ${GreyNoBackgroundStyle};
+`;
+
+export const BlackBorderButtonStyle = styled.button.attrs(props => ({
+  type: 'button',
+  ...props,
+}))`
+  ${BasicButtonStyle};
+  ${BlackBordersStyle};
 `;

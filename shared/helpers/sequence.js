@@ -3,6 +3,7 @@ import { type QuestionExtraSlidesConfigType } from 'Shared/types/question';
 import { type SequenceCardType } from 'Shared/types/card';
 import { type ProposalType } from 'Shared/types/proposal';
 import {
+  // CARD_TYPE_EXTRASLIDE_DEMOGRAPHICS_CARD,
   CARD_TYPE_EXTRASLIDE_FINAL_CARD,
   CARD_TYPE_EXTRASLIDE_INTRO,
   CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL,
@@ -106,6 +107,14 @@ export const buildCards = (
       index: 0,
     });
   }
+
+  // cards.splice(withIntroCard ? 3 : 2, 0, {
+  //   type: CARD_TYPE_EXTRASLIDE_DEMOGRAPHICS_CARD,
+  //   configuration: {},
+  //   offset: cardOffset,
+  //   index: 0,
+  // });
+
   cards.splice(cards.length, 0, {
     type: isStandardSequence
       ? CARD_TYPE_EXTRASLIDE_FINAL_CARD
