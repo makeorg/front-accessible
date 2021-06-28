@@ -128,26 +128,38 @@ class ApiServiceSharedClass {
     const paramsQuery = new URLSearchParams(LOCATION_PARAMS).toString();
     const requestId = uuidv4();
     const defaultHeaders = {
-      'Content-Type': 'application/json; charset=UTF-8',
       'x-hostname': HOSTNAME,
       'x-make-app-name': APP_NAME,
       'x-make-location': 'core',
       'x-make-external-id': requestId,
     };
+
     let headers = { ...defaultHeaders, ...(options.headers || {}) };
 
     if (paramsQuery) {
       headers = { ...headers, 'x-get-parameters': paramsQuery };
     }
 
+    if (options.allowedHeaders) {
+      Object.keys(headers).forEach(key => {
+        if (!options.allowedHeaders.includes(key)) {
+          delete headers[key];
+        }
+      });
+    }
+
     const apiUrl = `${API_URL}${url}`;
 
     return axios(apiUrl, {
       method: options.method,
-      headers,
+      headers: {
+        ...headers,
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
       data: options.body,
       params: options.params,
-      withCredentials: true,
+      withCredentials:
+        options.withCredentials !== undefined ? options.withCredentials : true,
       httpsAgent: options.httpsAgent || undefined,
     }).catch(error => handleErrors(error, apiUrl, options.method, requestId));
   }

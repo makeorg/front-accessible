@@ -604,4 +604,49 @@ Following parameters are added to all events.
     
   
 
+  - `display-demographics` Display demographics card in sequence
+
+    
+    | param_name | required | description | values |
+    |-|-|-|-|
+    | `type` | true | type name | `gender`, `age`, `area` |
+  
+  
+
+  - `display-demographics-confirmation` Display demographics confirmation in sequence
+
+    
+    | param_name | required | description | values |
+    |-|-|-|-|
+    | `type` | true | type name | `gender`, `age`, `area` |
+  
+  
+
+  - `click-skip-demographics` Click on skip button on demographics card in sequence
+
+    
+    | param_name | required | description | values |
+    |-|-|-|-|
+    | `type` | true | type name | `gender`, `age`, `area` |
+  
+  
+
+  - `click-save-demographics` Click on save button on demographics card in sequence
+
+    
+    | param_name | required | description | values |
+    |-|-|-|-|
+    | `type` | true | type name | `gender`, `age`, `area` |
+  
+  
+
+  - `click-vote-demographics` Click on vote button on demographics confirmation card in sequence
+
+    
+    | param_name | required | description | values |
+    |-|-|-|-|
+    | `type` | true | type name | `gender`, `age`, `area` |
+  
+  
+
 </auto-generated-tracking-doc>

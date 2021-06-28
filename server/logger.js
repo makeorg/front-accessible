@@ -5,6 +5,9 @@ import path from 'path';
 import sourceMap from 'source-map';
 import { MAP_DIR, JS_DIR, BUILD_DIR } from './paths';
 
+export const originalFilename = filename =>
+  filename.replace(/^([^/]+)\.[^/]+?\.js$/, '$1.js');
+
 const createSourceMapConsumers = async sourcesPath => {
   const sourceMapConsumers = new Map();
   const items = fs.readdirSync(sourcesPath);
@@ -12,12 +15,13 @@ const createSourceMapConsumers = async sourcesPath => {
   const jsFiles = items.filter(item => item.endsWith('.js'));
   await Promise.all(
     jsFiles.map(async item => {
-      const mapFile = `${item}.map`;
+      const mapFile = `${originalFilename(item)}.map`;
       if (mapFiles.indexOf(mapFile) >= 0) {
         const contents = fs.readFileSync(path.join(MAP_DIR, mapFile), 'utf8');
         const consumer = await new sourceMap.SourceMapConsumer(contents);
         sourceMapConsumers.set(item, consumer);
       }
+
       return item;
     })
   );
@@ -25,7 +29,7 @@ const createSourceMapConsumers = async sourcesPath => {
   return sourceMapConsumers;
 };
 
-const formatStack = (stack, sourceMapConsumers) => {
+export const formatStack = (stack, sourceMapConsumers) => {
   const replacement = (coresp, sourcename, sourceline, sourcecolumn) => {
     if (!sourceMapConsumers.has(sourcename)) {
       return coresp;

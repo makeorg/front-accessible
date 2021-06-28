@@ -119,6 +119,7 @@ export class ApiServiceClient implements IApiServiceStrategy {
       'x-make-referrer': this._referrer,
       'x-make-custom-data': this._customData,
     };
+
     const headers = { ...defaultHeaders, ...(options.headers || {}) };
 
     axiosRetry(axios, {

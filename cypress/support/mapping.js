@@ -3,6 +3,7 @@
 const sequenceButtons = {
   "intro card start": 'start-sequence',
   "next proposal": 'next-proposal',
+  "skip demographics": 'skip-demographics',
   "back to proposals": 'back-to-proposals',
   "back to proposals arrow": "back-to-proposals-arrow",
   "push proposal next": 'push-proposal-next',

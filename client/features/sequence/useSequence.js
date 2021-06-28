@@ -70,6 +70,7 @@ export const useSequence = (
   const introCardParam = params.get('introCard')?.toLowerCase() !== 'false';
   const pushProposalParam =
     params.get('pushProposal')?.toLowerCase() !== 'false';
+  const isFR = country === 'FR';
 
   const startSequence = async (votedIds: string[]) => {
     if (question) {
@@ -139,7 +140,8 @@ export const useSequence = (
       question.canPropose,
       isStandardSequence,
       introCardParam,
-      pushProposalParam
+      pushProposalParam,
+      isFR
     );
 
     dispatch(loadSequenceCards(buildedCards));

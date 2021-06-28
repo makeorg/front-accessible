@@ -38,6 +38,11 @@ export type StateSequence = $ReadOnly<{
   votedProposalIds: { [string]: string[] },
   proposals: ProposalType[],
   cards: SequenceCardType[],
+  demographics?: {
+    type: string,
+    value: string,
+    question: string[],
+  },
 }>;
 
 // Notification State

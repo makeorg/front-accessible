@@ -8,6 +8,7 @@ import {
   CARD_TYPE_EXTRASLIDE_FINAL_CARD,
   CARD_TYPE_EXTRASLIDE_SPECIAL_FINAL_CARD,
   CARD_TYPE_NO_PROPOSAL_CARD,
+  CARD_TYPE_EXTRASLIDE_DEMOGRAPHICS_CARD,
 } from 'Shared/constants/card';
 import { trackDisplayNoProposalSequence } from 'Shared/services/Tracking';
 
@@ -23,6 +24,7 @@ import { FinalCard } from './Final';
 import { SpecialFinalCard } from './SpecialFinal';
 import { ProposalCard } from './Proposal';
 import { NoProposal } from './NoProposal';
+import { ExtraDataCard } from './ExtraData';
 
 type CardProps = {
   /** Attribute of the card */
@@ -43,6 +45,8 @@ export const Card = ({ card, question }: CardProps) => {
       return <FinalCard configuration={card.configuration} />;
     case CARD_TYPE_EXTRASLIDE_SPECIAL_FINAL_CARD:
       return <SpecialFinalCard />;
+    case CARD_TYPE_EXTRASLIDE_DEMOGRAPHICS_CARD:
+      return <ExtraDataCard />;
     case CARD_TYPE_NO_PROPOSAL_CARD: {
       const { title, description } = card.configuration;
       return (
