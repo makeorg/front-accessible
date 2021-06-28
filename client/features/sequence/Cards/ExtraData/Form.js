@@ -8,8 +8,16 @@ import { i18n } from 'Shared/i18n';
 import { useDispatch, useSelector } from 'react-redux';
 import { matchMobileDevice } from 'Shared/helpers/styled';
 import { DemographicsTrackingService } from 'Shared/services/DemographicsTracking';
-import { incrementSequenceIndex } from 'Shared/store/actions/sequence';
+import {
+  incrementSequenceIndex,
+  persistDemographics,
+} from 'Shared/store/actions/sequence';
 import { useLocation } from 'react-router';
+import {
+  trackClickSaveDemographics,
+  trackClickSkipDemographics,
+  trackDisplayDemographics,
+} from 'Shared/services/Tracking';
 import { RadioDemographics } from './Radio';
 import { ExtraDataFormStyle, SkipIconStyle, SubmitWrapperStyle } from './style';
 import { SelectDemographics } from './Select';
@@ -22,6 +30,7 @@ type Props = {
     ui: string,
     data: DemographicsType[],
   },
+  currentQuestion: string,
 };
 
 export const renderFormUI = (
@@ -54,7 +63,11 @@ export const renderFormUI = (
   }
 };
 
-export const ExtraDataForm = ({ type, demographics }: Props) => {
+export const ExtraDataForm = ({
+  type,
+  demographics,
+  currentQuestion,
+}: Props) => {
   const dispatch = useDispatch();
   const location = useLocation();
 
@@ -100,15 +113,24 @@ export const ExtraDataForm = ({ type, demographics }: Props) => {
         success,
         error
       );
+
+      dispatch(persistDemographics(type, value, currentQuestion));
+      trackClickSaveDemographics(type);
     };
 
   const onClickSkip = event => {
     handleSubmit(SKIP_TRACKING_VALUE)(event);
+    trackClickSkipDemographics(type);
   };
 
   useEffect(() => {
     setIsSubmitDisabled(!currentValue);
   }, [currentValue]);
+
+  useEffect(() => {
+    trackDisplayDemographics(type);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <ExtraDataFormStyle

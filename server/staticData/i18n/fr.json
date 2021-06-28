@@ -348,6 +348,8 @@
     "skip": "Passer",
     "submit_mobile": "Enregistrer",
     "submit_desktop": "Enregistrer et continuer",
+    "submitted_thanks": "Merci pour votre réponse.",
+    "submitted_disclaimer": " Elle sera utilisée de façon anonyme pour analyser les résultats de la consultation.",
     "age": {
       "title": "Quelle est votre tranche d’âge ?"
     },

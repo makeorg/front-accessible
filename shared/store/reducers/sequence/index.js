@@ -1,6 +1,20 @@
 // @flow
 
-import * as actionTypes from 'Shared/store/actionTypes';
+import {
+  SEQUENCE_DECREMENT_INDEX,
+  SEQUENCE_DEMOGRAPHICS_ADD_QUESTION,
+  SEQUENCE_DEMOGRAPHICS_PERSIST,
+  SEQUENCE_INCREMENT_INDEX,
+  SEQUENCE_LOAD_CARDS,
+  SEQUENCE_LOAD_PROPOSALS,
+  SEQUENCE_PROPOSAL_UNVOTE,
+  SEQUENCE_PROPOSAL_VOTE,
+  SEQUENCE_RESET_INDEX,
+  SEQUENCE_RESET_VOTED_PROPOSALS,
+  SEQUENCE_SET_INDEX,
+  SEQUENCE_UNLOAD_PROPOSALS,
+  SEQUENCE_UPDATE_CARD_STATE,
+} from 'Shared/store/actionTypes';
 import { initialState } from 'Shared/store/initialState';
 import { type StateSequence } from 'Shared/store/types';
 
@@ -9,7 +23,7 @@ export function sequence(
   action: Object
 ) {
   switch (action.type) {
-    case actionTypes.SEQUENCE_UPDATE_CARD_STATE: {
+    case SEQUENCE_UPDATE_CARD_STATE: {
       const { cards } = state;
       cards[action.payload.index] = {
         ...cards[action.payload.index],
@@ -20,12 +34,12 @@ export function sequence(
         cards,
       };
     }
-    case actionTypes.SEQUENCE_LOAD_CARDS:
+    case SEQUENCE_LOAD_CARDS:
       return {
         ...state,
         cards: action.payload.cards,
       };
-    case actionTypes.SEQUENCE_RESET_VOTED_PROPOSALS:
+    case SEQUENCE_RESET_VOTED_PROPOSALS:
       return {
         ...state,
         votedProposalIds: {
@@ -33,17 +47,17 @@ export function sequence(
           [action.payload.questionSlug]: [],
         },
       };
-    case actionTypes.SEQUENCE_LOAD_PROPOSALS:
+    case SEQUENCE_LOAD_PROPOSALS:
       return {
         ...state,
         proposals: action.payload.proposals,
       };
-    case actionTypes.SEQUENCE_UNLOAD_PROPOSALS:
+    case SEQUENCE_UNLOAD_PROPOSALS:
       return {
         ...state,
         proposals: [],
       };
-    case actionTypes.SEQUENCE_PROPOSAL_VOTE: {
+    case SEQUENCE_PROPOSAL_VOTE: {
       const oldProposalList =
         state.votedProposalIds[action.payload.questionSlug] || [];
       const newProposalList = [...oldProposalList, action.payload.proposalId];
@@ -56,7 +70,7 @@ export function sequence(
         },
       };
     }
-    case actionTypes.SEQUENCE_PROPOSAL_UNVOTE: {
+    case SEQUENCE_PROPOSAL_UNVOTE: {
       if (!state.votedProposalIds[action.payload.questionSlug]) {
         return state;
       }
@@ -72,25 +86,45 @@ export function sequence(
         },
       };
     }
-    case actionTypes.SEQUENCE_RESET_INDEX:
+    case SEQUENCE_RESET_INDEX:
       return {
         ...state,
         currentIndex: 0,
       };
-    case actionTypes.SEQUENCE_SET_INDEX:
+    case SEQUENCE_SET_INDEX:
       return {
         ...state,
         currentIndex: action.payload.index || 0,
       };
-    case actionTypes.SEQUENCE_INCREMENT_INDEX:
+    case SEQUENCE_INCREMENT_INDEX:
       return {
         ...state,
         currentIndex: state.currentIndex + 1,
       };
-    case actionTypes.SEQUENCE_DECREMENT_INDEX:
+    case SEQUENCE_DECREMENT_INDEX:
       return {
         ...state,
         currentIndex: state.currentIndex - 1,
+      };
+    case SEQUENCE_DEMOGRAPHICS_PERSIST:
+      return {
+        ...state,
+        demographics: {
+          type: action.payload.type,
+          value: action.payload.value,
+          questions: [action.payload.questionSlug],
+        },
+      };
+    case SEQUENCE_DEMOGRAPHICS_ADD_QUESTION:
+      return {
+        ...state,
+        demographics: {
+          ...state.demographics,
+          questions: [
+            ...state.demographics.questions,
+            action.payload.questionSlug,
+          ],
+        },
       };
     default:
       return state;

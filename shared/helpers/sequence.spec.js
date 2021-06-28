@@ -23,7 +23,9 @@ describe('Sequence Helper', () => {
         false,
         false,
         'standard',
-        introCardParam
+        introCardParam,
+        false,
+        true
       );
       expect(cards.length).toBe(2);
       expect(cards).toEqual([
@@ -51,7 +53,9 @@ describe('Sequence Helper', () => {
         false,
         false,
         'standard',
-        introCardParam
+        introCardParam,
+        false,
+        true
       );
       expect(cards.length).toBe(2);
       expect(cards).toEqual([
@@ -79,7 +83,9 @@ describe('Sequence Helper', () => {
         false,
         false,
         'standard',
-        introCardParam
+        introCardParam,
+        false,
+        true
       );
       expect(cards.length).toBe(2);
       expect(cards).toEqual([
@@ -107,7 +113,9 @@ describe('Sequence Helper', () => {
         false,
         false,
         'standard',
-        introCardParam
+        introCardParam,
+        false,
+        true
       );
 
       expect(cards.length).toBe(3);
@@ -144,7 +152,8 @@ describe('Sequence Helper', () => {
         canPropose,
         'standard',
         false,
-        pushProposalParam
+        pushProposalParam,
+        true
       );
       expect(cards.length).toBe(2);
       expect(cards).toEqual([
@@ -175,7 +184,8 @@ describe('Sequence Helper', () => {
         canPropose,
         'standard',
         false,
-        pushProposalParam
+        pushProposalParam,
+        true
       );
       expect(cards.length).toBe(2);
       expect(cards).toEqual([
@@ -206,7 +216,8 @@ describe('Sequence Helper', () => {
         canPropose,
         'standard',
         false,
-        pushProposalParam
+        pushProposalParam,
+        true
       );
       expect(cards.length).toBe(2);
       expect(cards).toEqual([
@@ -237,7 +248,8 @@ describe('Sequence Helper', () => {
         canPropose,
         'standard',
         false,
-        pushProposalParam
+        pushProposalParam,
+        true
       );
 
       expect(cards.length).toBe(3);
@@ -274,7 +286,8 @@ describe('Sequence Helper', () => {
         canPropose,
         'standard',
         false,
-        pushProposalParam
+        pushProposalParam,
+        true
       );
 
       expect(cards.length).toBe(2);
@@ -306,7 +319,8 @@ describe('Sequence Helper', () => {
         canPropose,
         'standard',
         false,
-        pushProposalParam
+        pushProposalParam,
+        true
       );
 
       expect(cards.length).toBe(2);

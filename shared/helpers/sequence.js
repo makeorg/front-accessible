@@ -68,7 +68,8 @@ export const buildCards = (
   canPropose: boolean,
   isStandardSequence: boolean,
   introCardParam?: string,
-  pushProposalParam?: string
+  pushProposalParam?: string,
+  withDemographics?: boolean
 ): SequenceCardType[] => {
   const withPushProposalCard: boolean =
     extraSlidesConfig.pushProposalCard &&
@@ -104,11 +105,13 @@ export const buildCards = (
     });
   }
 
-  cards.splice(withIntroCard ? 3 : 2, 0, {
-    type: CARD_TYPE_EXTRASLIDE_DEMOGRAPHICS_CARD,
-    configuration: {},
-    index: 0,
-  });
+  if (withDemographics) {
+    cards.splice(withIntroCard ? 3 : 2, 0, {
+      type: CARD_TYPE_EXTRASLIDE_DEMOGRAPHICS_CARD,
+      configuration: {},
+      index: 0,
+    });
+  }
 
   cards.splice(cards.length, 0, {
     type: isStandardSequence

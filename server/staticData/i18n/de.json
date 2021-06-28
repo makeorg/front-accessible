@@ -1240,6 +1240,8 @@
       "FR-MTQ": "@@demographics_card.region.FR-MTQ|fr:Martinique",
       "FR-LRE": "@@demographics_card.region.FR-LRE|fr:La Réunion",
       "FR-MAY": "@@demographics_card.region.FR-MAY|fr:Mayotte"
-    }
+    },
+    "submitted_thanks": "@@demographics_card.submitted_thanks|fr:Merci pour votre réponse.",
+    "submitted_disclaimer": "@@demographics_card.submitted_disclaimer|fr: Elle sera utilisée de façon anonyme pour analyser les résultats de la consultation."
   }
 }

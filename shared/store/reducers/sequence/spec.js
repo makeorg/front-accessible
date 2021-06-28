@@ -61,4 +61,44 @@ describe('Sequence reducer', () => {
 
     expect(sequence(previousState, action)).toEqual(expectedState);
   });
+
+  it('Persist Demographics Data reducer', () => {
+    const action = {
+      type: actionTypes.SEQUENCE_DEMOGRAPHICS_PERSIST,
+      payload: { type: 'foo', value: 'bar', questionSlug: 'baz' },
+    };
+    const previousState = null;
+    const expectedState = {
+      demographics: {
+        type: 'foo',
+        value: 'bar',
+        questions: ['baz'],
+      },
+    };
+
+    expect(sequence(previousState, action)).toEqual(expectedState);
+  });
+
+  it('Add new Question for Demographics Data reducer', () => {
+    const action = {
+      type: actionTypes.SEQUENCE_DEMOGRAPHICS_ADD_QUESTION,
+      payload: { questionSlug: 'qux' },
+    };
+    const previousState = {
+      demographics: {
+        type: 'foo',
+        value: 'bar',
+        questions: ['baz'],
+      },
+    };
+    const expectedState = {
+      demographics: {
+        type: 'foo',
+        value: 'bar',
+        questions: ['baz', 'qux'],
+      },
+    };
+
+    expect(sequence(previousState, action)).toEqual(expectedState);
+  });
 });

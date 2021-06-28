@@ -575,5 +575,45 @@ export const trackClickCookieSwitchRefuse = (type: string) => {
 export const trackClickModalCookieBack = () => {
   TrackingService.sendAllTrackers(trackingEvent.CLICK_COOKIE_MODAL_BACK());
 };
+
+export const trackDisplayDemographics = (type: string) => {
+  TrackingService.sendAllTrackers(
+    trackingEvent.DISPLAY_DEMOGRAPHICS({
+      type,
+    })
+  );
+};
+
+export const trackDisplayDemographicsConfirmation = (type: string) => {
+  TrackingService.sendAllTrackers(
+    trackingEvent.DISPLAY_DEMOGRAPHICS_CONFIRMATION({
+      type,
+    })
+  );
+};
+
+export const trackClickSaveDemographics = (type: string) => {
+  TrackingService.sendAllTrackers(
+    trackingEvent.CLICK_SAVE_DEMOGRAPHICS({
+      type,
+    })
+  );
+};
+
+export const trackClickSkipDemographics = (type: string) => {
+  TrackingService.sendAllTrackers(
+    trackingEvent.CLICK_SKIP_DEMOGRAPHICS({
+      type,
+    })
+  );
+};
+
+export const trackClickVoteDemographics = (type: string) => {
+  TrackingService.sendAllTrackers(
+    trackingEvent.CLICK_VOTE_DEMOGRAPHICS({
+      type,
+    })
+  );
+};
 /* eslint-disable import/no-default-export */
 export default TrackingService;
