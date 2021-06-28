@@ -21,7 +21,7 @@ export const clientConfig = envConfigPath => ({
     chunkFilename: 'js/[name].[contenthash].js',
     path: path.resolve(__dirname, '..', 'dist', 'client'),
     publicPath: '/',
-    sourceMapFilename: '../map/[name].[contenthash].js.map',
+    sourceMapFilename: '../map/[name].js.map',
   },
   resolve: {
     extensions: ['*', '.js', '.jsx'],

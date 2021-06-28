@@ -118,7 +118,7 @@ When('I go to card {string}', (cardNumber) => {
       });
 
     currentCard
-      .find('[data-cy-button=next-proposal], [data-cy-button=push-proposal-next], [data-cy-button=skip-sign-up], [data-cy-button=start-sequence]')
+      .find('[data-cy-button=next-proposal], [data-cy-button=push-proposal-next], [data-cy-button=skip-sign-up], [data-cy-button=start-sequence], [data-cy-button=skip-demographics]')
       .first()
       .then(el => el.get(0).click());
     

@@ -2,6 +2,8 @@
 import { AGE_RANGES, GENDER, REGION } from 'Shared/constants/demographics';
 import { i18n } from 'Shared/i18n';
 
+export const DEMOGRAPHIC_TYPES = ['region', 'gender', 'age'];
+
 export const setTitleByType = (type: string) => {
   switch (type) {
     case 'gender':

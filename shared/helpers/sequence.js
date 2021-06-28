@@ -3,6 +3,7 @@ import { type QuestionExtraSlidesConfigType } from 'Shared/types/question';
 import { type SequenceCardType } from 'Shared/types/card';
 import { type ProposalType } from 'Shared/types/proposal';
 import {
+  CARD_TYPE_EXTRASLIDE_DEMOGRAPHICS_CARD,
   // CARD_TYPE_EXTRASLIDE_DEMOGRAPHICS_CARD,
   CARD_TYPE_EXTRASLIDE_FINAL_CARD,
   CARD_TYPE_EXTRASLIDE_INTRO,
@@ -80,12 +81,9 @@ export const buildCards = (
     extraSlidesConfig.introCard.enabled &&
     introCardParam;
 
-  const cardOffset = withIntroCard ? 0 : 1;
-
   const cards: SequenceCardType[] = proposals.map(proposal => ({
     type: CARD_TYPE_PROPOSAL,
     configuration: { proposal },
-    offset: cardOffset,
     state: { votes: proposal.votes },
     index: 0,
   }));
@@ -94,7 +92,6 @@ export const buildCards = (
     cards.splice(cards.length / 2, 0, {
       type: CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL,
       configuration: extraSlidesConfig.pushProposalCard,
-      offset: cardOffset,
       index: 0,
     });
   }
@@ -103,24 +100,21 @@ export const buildCards = (
     cards.splice(0, 0, {
       type: CARD_TYPE_EXTRASLIDE_INTRO,
       configuration: extraSlidesConfig.introCard,
-      offset: cardOffset,
       index: 0,
     });
   }
 
-  // cards.splice(withIntroCard ? 3 : 2, 0, {
-  //   type: CARD_TYPE_EXTRASLIDE_DEMOGRAPHICS_CARD,
-  //   configuration: {},
-  //   offset: cardOffset,
-  //   index: 0,
-  // });
+  cards.splice(withIntroCard ? 3 : 2, 0, {
+    type: CARD_TYPE_EXTRASLIDE_DEMOGRAPHICS_CARD,
+    configuration: {},
+    index: 0,
+  });
 
   cards.splice(cards.length, 0, {
     type: isStandardSequence
       ? CARD_TYPE_EXTRASLIDE_FINAL_CARD
       : CARD_TYPE_EXTRASLIDE_SPECIAL_FINAL_CARD,
     configuration: extraSlidesConfig.finalCard,
-    offset: cardOffset,
     index: 0,
   });
 

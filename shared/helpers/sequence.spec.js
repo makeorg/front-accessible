@@ -1,9 +1,9 @@
 /* @flow */
 import {
+  CARD_TYPE_EXTRASLIDE_DEMOGRAPHICS_CARD,
   CARD_TYPE_EXTRASLIDE_FINAL_CARD,
   CARD_TYPE_EXTRASLIDE_INTRO,
   CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL,
-  CARD_TYPE_EXTRASLIDE_SPECIAL_FINAL_CARD,
 } from 'Shared/constants/card';
 import { KIND_CONTROVERSY, KIND_POPULAR } from 'Shared/constants/sequence';
 import * as helpers from './sequence';
@@ -25,11 +25,15 @@ describe('Sequence Helper', () => {
         'standard',
         introCardParam
       );
-      expect(cards.length).toBe(1);
+      expect(cards.length).toBe(2);
       expect(cards).toEqual([
         {
           index: 0,
-          offset: 1,
+          type: CARD_TYPE_EXTRASLIDE_DEMOGRAPHICS_CARD,
+          configuration: {},
+        },
+        {
+          index: 1,
           type: CARD_TYPE_EXTRASLIDE_FINAL_CARD,
           configuration: undefined,
         },
@@ -49,11 +53,15 @@ describe('Sequence Helper', () => {
         'standard',
         introCardParam
       );
-      expect(cards.length).toBe(1);
+      expect(cards.length).toBe(2);
       expect(cards).toEqual([
         {
           index: 0,
-          offset: 1,
+          type: CARD_TYPE_EXTRASLIDE_DEMOGRAPHICS_CARD,
+          configuration: {},
+        },
+        {
+          index: 1,
           type: CARD_TYPE_EXTRASLIDE_FINAL_CARD,
           configuration: undefined,
         },
@@ -73,11 +81,15 @@ describe('Sequence Helper', () => {
         'standard',
         introCardParam
       );
-      expect(cards.length).toBe(1);
+      expect(cards.length).toBe(2);
       expect(cards).toEqual([
         {
           index: 0,
-          offset: 1,
+          type: CARD_TYPE_EXTRASLIDE_DEMOGRAPHICS_CARD,
+          configuration: {},
+        },
+        {
+          index: 1,
           type: CARD_TYPE_EXTRASLIDE_FINAL_CARD,
           configuration: undefined,
         },
@@ -98,17 +110,20 @@ describe('Sequence Helper', () => {
         introCardParam
       );
 
-      expect(cards.length).toBe(2);
+      expect(cards.length).toBe(3);
       expect(cards).toEqual([
         {
           index: 0,
-          offset: 0,
           type: CARD_TYPE_EXTRASLIDE_INTRO,
           configuration: extraSlidesConfig.introCard,
         },
         {
           index: 1,
-          offset: 0,
+          type: CARD_TYPE_EXTRASLIDE_DEMOGRAPHICS_CARD,
+          configuration: {},
+        },
+        {
+          index: 2,
           type: CARD_TYPE_EXTRASLIDE_FINAL_CARD,
           configuration: undefined,
         },
@@ -131,11 +146,15 @@ describe('Sequence Helper', () => {
         false,
         pushProposalParam
       );
-      expect(cards.length).toBe(1);
+      expect(cards.length).toBe(2);
       expect(cards).toEqual([
         {
           index: 0,
-          offset: 1,
+          type: CARD_TYPE_EXTRASLIDE_DEMOGRAPHICS_CARD,
+          configuration: {},
+        },
+        {
+          index: 1,
           type: CARD_TYPE_EXTRASLIDE_FINAL_CARD,
           configuration: undefined,
         },
@@ -158,11 +177,15 @@ describe('Sequence Helper', () => {
         false,
         pushProposalParam
       );
-      expect(cards.length).toBe(1);
+      expect(cards.length).toBe(2);
       expect(cards).toEqual([
         {
           index: 0,
-          offset: 1,
+          type: CARD_TYPE_EXTRASLIDE_DEMOGRAPHICS_CARD,
+          configuration: {},
+        },
+        {
+          index: 1,
           type: CARD_TYPE_EXTRASLIDE_FINAL_CARD,
           configuration: undefined,
         },
@@ -185,11 +208,15 @@ describe('Sequence Helper', () => {
         false,
         pushProposalParam
       );
-      expect(cards.length).toBe(1);
+      expect(cards.length).toBe(2);
       expect(cards).toEqual([
         {
           index: 0,
-          offset: 1,
+          type: CARD_TYPE_EXTRASLIDE_DEMOGRAPHICS_CARD,
+          configuration: {},
+        },
+        {
+          index: 1,
           type: CARD_TYPE_EXTRASLIDE_FINAL_CARD,
           configuration: undefined,
         },
@@ -213,17 +240,20 @@ describe('Sequence Helper', () => {
         pushProposalParam
       );
 
-      expect(cards.length).toBe(2);
+      expect(cards.length).toBe(3);
       expect(cards).toEqual([
         {
           index: 0,
-          offset: 1,
           type: CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL,
           configuration: extraSlidesConfig.pushProposalCard,
         },
         {
           index: 1,
-          offset: 1,
+          type: CARD_TYPE_EXTRASLIDE_DEMOGRAPHICS_CARD,
+          configuration: {},
+        },
+        {
+          index: 2,
           type: CARD_TYPE_EXTRASLIDE_FINAL_CARD,
           configuration: undefined,
         },
@@ -247,11 +277,15 @@ describe('Sequence Helper', () => {
         pushProposalParam
       );
 
-      expect(cards.length).toBe(1);
+      expect(cards.length).toBe(2);
       expect(cards).toEqual([
         {
           index: 0,
-          offset: 1,
+          type: CARD_TYPE_EXTRASLIDE_DEMOGRAPHICS_CARD,
+          configuration: {},
+        },
+        {
+          index: 1,
           type: CARD_TYPE_EXTRASLIDE_FINAL_CARD,
           configuration: undefined,
         },
@@ -275,11 +309,15 @@ describe('Sequence Helper', () => {
         pushProposalParam
       );
 
-      expect(cards.length).toBe(1);
+      expect(cards.length).toBe(2);
       expect(cards).toEqual([
         {
           index: 0,
-          offset: 1,
+          type: CARD_TYPE_EXTRASLIDE_DEMOGRAPHICS_CARD,
+          configuration: {},
+        },
+        {
+          index: 1,
           type: CARD_TYPE_EXTRASLIDE_FINAL_CARD,
           configuration: undefined,
         },
@@ -289,9 +327,8 @@ describe('Sequence Helper', () => {
 
   describe('get sequence title by kind', () => {
     it('title from controversy kind', () => {
-      const specialTitle = helpers.getSequenceTitleBySequenceKind(
-        KIND_CONTROVERSY
-      );
+      const specialTitle =
+        helpers.getSequenceTitleBySequenceKind(KIND_CONTROVERSY);
       expect(specialTitle).toEqual('sequence_zone.controversial_title');
     });
 

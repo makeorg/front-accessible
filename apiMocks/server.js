@@ -21,6 +21,7 @@ server.use('/organisations', organisationsRouter);
 server.use('/views', viewsRouter);
 server.use('/sequences', sequenceRouter);
 server.use('/tracking/front', (req, res) => res.sendStatus(204));
+server.use('/tracking/demographics', (req, res) => res.sendStatus(204));
 server.use(
   jsonServer.rewriter({
     '/:resource\\?:params': '/:resource/data?:params',

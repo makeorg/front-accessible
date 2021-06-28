@@ -6,31 +6,31 @@ import { type DemographicType } from 'Shared/types/card';
 export const AGE_RANGES: DemographicType[] = [
   {
     label: '8 - 15',
-    value: '8 - 15',
+    value: '8-15',
   },
   {
     label: '16 - 24',
-    value: '16 - 24',
+    value: '16-24',
   },
   {
     label: '25 - 34',
-    value: '25 - 34',
+    value: '25-34',
   },
   {
     label: '35 - 44',
-    value: '35 - 44',
+    value: '35-44',
   },
   {
     label: '45 - 54',
-    value: '45 - 54',
+    value: '45-54',
   },
   {
-    label: '54 - 65',
-    value: '54 - 65',
+    label: '55 - 64',
+    value: '55-64',
   },
   {
     label: '65 +',
-    value: '65 +',
+    value: '65+',
   },
 ];
 

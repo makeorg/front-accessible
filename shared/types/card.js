@@ -50,7 +50,6 @@ export type ProposalCardStateType = {
 export type ProposalCardType = {|
   type: string,
   configuration: ProposalCardConfigType,
-  offset: number,
   state?: ProposalCardStateType,
   index: number,
 |};
@@ -62,7 +61,6 @@ export type SequenceCardType = {|
     | PushProposalCardConfigType
     | ProposalCardConfigType
     | NoProposalCardConfigType,
-  offset: number,
   state?: ProposalCardStateType,
   index: number,
 |};
