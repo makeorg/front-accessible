@@ -51,6 +51,25 @@ describe('ApiServiceShared', () => {
       });
     });
 
+    it('with override headers', () => {
+      const url = '/tracking/front';
+      const options = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      };
+
+      ApiServiceShared.callApi(url, options);
+      expect(axios).toHaveBeenNthCalledWith(1, env.apiUrl() + url, {
+        data: undefined,
+        headers: {
+          ...headers,
+          ...options.headers,
+        },
+        method: 'GET',
+        withCredentials: true,
+      });
+    });
+
     it('must return data', async () => {
       const result = { data: 'success' };
       axios.mockResolvedValue(result);

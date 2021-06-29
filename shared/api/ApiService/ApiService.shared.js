@@ -153,8 +153,8 @@ class ApiServiceSharedClass {
     return axios(apiUrl, {
       method: options.method,
       headers: {
-        ...headers,
         'Content-Type': 'application/json; charset=UTF-8',
+        ...headers,
       },
       data: options.body,
       params: options.params,
