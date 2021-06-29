@@ -66,6 +66,8 @@ export const RadioAsButtonLabelStyle = styled.label`
   font-family: ${MakeFonts.CircularStandardBook};
   color: ${color.greyDark};
   font-size: ${intToPx(typography.font.fontsize.XS.value)};
+  width: 100%;
+  text-align: center;
 `;
 
 export const SelectStyle = styled.select`
