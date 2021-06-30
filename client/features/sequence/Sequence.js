@@ -7,8 +7,7 @@ import {
   isStandardSequence,
 } from 'Shared/helpers/sequence';
 import { type QuestionType } from 'Shared/types/question';
-import { useDispatch, useSelector } from 'react-redux';
-import { resetSequenceIndex } from 'Shared/store/actions/sequence';
+import { useSelector } from 'react-redux';
 import { trackClickOperationPage } from 'Shared/services/Tracking';
 import { SequenceService } from 'Shared/services/Sequence';
 import { ProposalSubmit } from 'Client/features/proposal/Submit';
@@ -34,7 +33,7 @@ import {
 } from './style';
 import { SequenceProgress } from './Progress';
 import { SequencePlaceholder } from './Placeholder';
-import { useSequence } from './useSequence';
+import { useSequence } from './Hooks/useSequence';
 
 export type Props = {
   /** kind parameter for popular and controversy sequences */
@@ -45,8 +44,7 @@ export type Props = {
  * Renders Sequence component with Intro / Push Proposal / Sign Up & Proposal Cards
  */
 export const Sequence = ({ sequenceKind }: Props) => {
-  const dispatch = useDispatch();
-  const [sequenceProposals, setSequenceProposals] = useState([]);
+  const [isSequenceEmpty, setIsSequenceEmpty] = useState(false);
 
   const question: QuestionType = useSelector((state: StateRoot) =>
     selectCurrentQuestion(state)
@@ -61,16 +59,13 @@ export const Sequence = ({ sequenceKind }: Props) => {
       votedIds,
       sequenceKind
     );
+    setIsSequenceEmpty(proposals.length === 0);
 
-    if (proposals) {
-      setSequenceProposals(proposals);
-      dispatch(resetSequenceIndex());
-    }
+    return proposals || [];
   };
   const { withProposalButton, country, isLoading, currentCard } = useSequence(
     question,
     isStandardSequence(sequenceKind),
-    sequenceProposals,
     executeStartSequence
   );
 
@@ -87,7 +82,7 @@ export const Sequence = ({ sequenceKind }: Props) => {
         : i18n.t('no_proposal_card.description.special'),
     },
   };
-  const isSequenceEmpty = sequenceProposals.length === 0;
+
   const getMetaTitle = () => {
     if (sequenceKind === KIND_STANDARD) {
       return 'meta.sequence.title_standard';

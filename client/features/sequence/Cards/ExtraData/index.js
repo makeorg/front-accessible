@@ -40,12 +40,7 @@ export const ExtraDataCard = () => {
   }, [type]);
 
   if (persistedDemographicsWithValue) {
-    return (
-      <SubmittedDemographics
-        type={persistedDemographics.type}
-        value={persistedDemographics.value}
-      />
-    );
+    return <SubmittedDemographics type={persistedDemographics.type} />;
   }
 
   if (type) {

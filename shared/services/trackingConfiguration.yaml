@@ -584,7 +584,7 @@ CLICK_SAVE_DEMOGRAPHICS:
           - region
 CLICK_VOTE_DEMOGRAPHICS:
     key: click-vote-demographics
-    description: Click on vote button on demographics confirmation card in sequence
+    description: Click on continue button on demographics confirmation card in sequence
     parameters:
       - key: type
         description: type name

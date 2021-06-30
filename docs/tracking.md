@@ -640,7 +640,7 @@ Following parameters are added to all events.
   
   
 
-  - `click-vote-demographics` Click on vote button on demographics confirmation card in sequence
+  - `click-vote-demographics` Click on continue button on demographics confirmation card in sequence
 
     
     | param_name | required | description | values |

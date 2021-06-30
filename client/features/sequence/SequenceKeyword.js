@@ -2,8 +2,7 @@
 // @flow
 import React, { useState } from 'react';
 import { type QuestionType } from 'Shared/types/question';
-import { useDispatch, useSelector } from 'react-redux';
-import { resetSequenceIndex } from 'Shared/store/actions/sequence';
+import { useSelector } from 'react-redux';
 import { trackClickOperationPage } from 'Shared/services/Tracking';
 import { SequenceService } from 'Shared/services/Sequence';
 import { ProposalSubmit } from 'Client/features/proposal/Submit';
@@ -25,17 +24,16 @@ import {
 } from './style';
 import { SequenceProgress } from './Progress';
 import { SequencePlaceholder } from './Placeholder';
-import { useSequence } from './useSequence';
+import { useSequence } from './Hooks/useSequence';
 
 /**
  * Renders Sequence component with Intro / Push Proposal / Sign Up & Proposal Cards
  */
 export const SequenceKeyword = () => {
-  const dispatch = useDispatch();
   const { encodedKeyword } = useParams();
   const keyword = encodedKeyword && decodeURI(encodedKeyword);
-  const [sequenceProposals, setSequenceProposals] = useState([]);
   const [keywordLabel, setKeywordLabel] = useState('');
+  const [isSequenceEmpty, setIsSequenceEmpty] = useState(false);
   const question: QuestionType = useSelector((state: StateRoot) =>
     selectCurrentQuestion(state)
   );
@@ -50,17 +48,15 @@ export const SequenceKeyword = () => {
       keyword
     );
 
-    if (response) {
-      setSequenceProposals(response.proposals);
-      dispatch(resetSequenceIndex());
-      setKeywordLabel(response.label);
-    }
+    setKeywordLabel(response?.label || '');
+    setIsSequenceEmpty(response?.proposals?.length === 0);
+
+    return response?.proposals || [];
   };
 
   const { withProposalButton, country, isLoading, currentCard } = useSequence(
     question,
     false,
-    sequenceProposals,
     executeStartSequence
   );
 
@@ -77,7 +73,6 @@ export const SequenceKeyword = () => {
       description: i18n.t('no_proposal_card.description.special'),
     },
   };
-  const isSequenceEmpty = sequenceProposals.length === 0;
 
   return (
     <>

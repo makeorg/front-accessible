@@ -4,7 +4,6 @@ import { type SequenceCardType } from 'Shared/types/card';
 import { type ProposalType } from 'Shared/types/proposal';
 import {
   CARD_TYPE_EXTRASLIDE_DEMOGRAPHICS_CARD,
-  // CARD_TYPE_EXTRASLIDE_DEMOGRAPHICS_CARD,
   CARD_TYPE_EXTRASLIDE_FINAL_CARD,
   CARD_TYPE_EXTRASLIDE_INTRO,
   CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL,
