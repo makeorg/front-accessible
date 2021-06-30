@@ -51,10 +51,6 @@ export const GENDER: DemographicType[] = [
 
 export const REGION: DemographicType[] = [
   {
-    label: i18n.t('demographics_card.region.select'),
-    value: 'skip',
-  },
-  {
     label: i18n.t('demographics_card.region.FR-ARA'),
     value: 'FR-ARA',
   },

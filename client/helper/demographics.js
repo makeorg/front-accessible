@@ -25,7 +25,13 @@ export const buildDemographicsByType = (type: string) => {
     case 'region':
       return {
         ui: 'select',
-        data: REGION,
+        data: [
+          {
+            label: i18n.t('demographics_card.region.select'),
+            value: '',
+          },
+          ...REGION.sort((a, b) => a.label.localeCompare(b.label)),
+        ],
       };
     default:
       return {
