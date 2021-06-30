@@ -1214,7 +1214,7 @@
       "title": "@@demographics_card.age.title|fr:Quelle est votre tranche d’âge ?"
     },
     "gender": {
-      "title": "@@demographics_card.gender.title|fr:Quelle est votre genre ?",
+      "title": "@@demographics_card.gender.title|fr:Quel est votre genre ?",
       "male": "@@demographics_card.gender.male|fr:Homme",
       "female": "@@demographics_card.gender.female|fr:Femme",
       "other": "@@demographics_card.gender.other|fr:Non-binaire"

@@ -354,7 +354,7 @@
       "title": "Quelle est votre tranche d’âge ?"
     },
     "gender": {
-      "title": "Quelle est votre genre ?",
+      "title": "Quel est votre genre ?",
       "male": "Homme",
       "female": "Femme",
       "other": "Non-binaire"
