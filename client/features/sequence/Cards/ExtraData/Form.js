@@ -100,6 +100,12 @@ export const ExtraDataForm = ({
         setIsSubmitDisabled(false);
         setIsSkipDisabled(false);
         dispatch(incrementSequenceIndex());
+
+        if (value === SKIP_TRACKING_VALUE) {
+          trackClickSkipDemographics(type);
+        } else {
+          trackClickSaveDemographics(type);
+        }
       };
       const error = () => {
         setIsSubmitDisabled(false);
@@ -115,12 +121,10 @@ export const ExtraDataForm = ({
       );
 
       dispatch(persistDemographics(type, value, currentQuestion));
-      trackClickSaveDemographics(type);
     };
 
   const onClickSkip = event => {
     handleSubmit(SKIP_TRACKING_VALUE)(event);
-    trackClickSkipDemographics(type);
   };
 
   useEffect(() => {
