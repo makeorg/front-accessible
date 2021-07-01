@@ -32,6 +32,11 @@ export const useSequenceExtraDataAutoSubmit = (
       return null;
     }
 
+    // no demographics
+    if (!persistedDemographics) {
+      return null;
+    }
+
     // has extra data card
     if (
       cards.find(fCard => fCard.type === CARD_TYPE_EXTRASLIDE_DEMOGRAPHICS_CARD)
