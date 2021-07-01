@@ -39,10 +39,10 @@
       "description": "Entdecke die Ergebnisse der Bürgerkonsultation, geordnet nach den beliebtesten Themen, den umstrittensten Vorschlägen und den am meisten abgelehnten Vorschlägen."
     },
     "sequence": {
-      "title_standard": "@@meta.sequence.title_standard|fr:Participez à la consultation '{{question}}' - Make.org",
-      "title_controversy": "@@meta.sequence.title_controversy|fr:Départagez les propositions de la consultation '{{question}}' - Make.org",
-      "title_popular": "@@meta.sequence.title_popular|fr:Prenez position sur les propositions les plus populaires de la consultation '{{question}}' - Make.org",
-      "title_keyword": "@@meta.sequence.title_keyword|fr:Prenez position sur le thème '{{keywordLabel}}' de la consultation '{{question}}' - Make.org "
+      "title_standard": "Beteilige dich an der Konsultation „{{question}}“ - Make.org",
+      "title_controversy": "Für umstrittene Vorschläge der Konsultation „{{question}}“ eine Entscheidung herbeiführen - Make.org",
+      "title_popular": "Über die beliebtesten Vorschläge der Konsultation „{{question}}“ abstimmen - Make.org",
+      "title_keyword": "Über das Thema '{{keywordLabel}}' der Konsultation „{{question}}“ abstimmen - Make.org"
     },
     "top-ideas": {
       "title": "Die besten Ideen aus der Konsultation „{{question}}“ – Make.org",
@@ -249,7 +249,7 @@
     "button_1": "teilnehmen",
     "button_2": "Mehr erfahren",
     "share_text": "Unterstütze diesen Vorschlag, indem du ihn teilst:",
-    "footer_text": "Dieser Vorschlag wurde im Rahmen der Maßnahme {{operation_name}} eingereicht"
+    "footer_text": "Dieser Vorschlag wurde im Rahmen der Konsultation {{operation_name}} eingereicht"
   },
   "idea_card": {
     "title": "Die besten Ideen",
