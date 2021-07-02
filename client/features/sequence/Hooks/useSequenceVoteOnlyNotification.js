@@ -9,16 +9,14 @@ import { displayNotificationBanner } from 'Shared/store/actions/notifications';
 
 export const useSequenceVoteOnlyNotification = question => {
   const dispatch = useDispatch;
-  useEffect(() => {
-    if (question && !question.canPropose) {
-      dispatch(
-        displayNotificationBanner(
-          VOTE_ONLY_MESSAGE,
-          NOTIFICATION_LEVEL_INFORMATION,
-          { questionId: question.questionId },
-          true
-        )
-      );
-    }
-  }, [question, dispatch]);
+  if (question && !question.canPropose) {
+    dispatch(
+      displayNotificationBanner(
+        VOTE_ONLY_MESSAGE,
+        NOTIFICATION_LEVEL_INFORMATION,
+        { questionId: question.questionId },
+        true
+      )
+    );
+  }
 };
