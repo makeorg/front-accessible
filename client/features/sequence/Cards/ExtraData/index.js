@@ -8,19 +8,13 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { type StateRoot } from 'Shared/store/types';
 import { i18n } from 'Shared/i18n';
+import { getRandomFromArray } from 'Client/helper/randomFromArray';
 import { SequenceIntroParagraphStyle } from '../style';
 import { ExtraDataForm } from './Form';
 import { ExtraDataDescriptionStyle } from './style';
 import { SubmittedDemographics } from './SubmittedStep';
 
 export const ExtraDataCard = () => {
-  const getRandomType = () => {
-    const randomValue = Math.round(
-      Math.random() * (DEMOGRAPHIC_TYPES.length - 1)
-    );
-
-    return DEMOGRAPHIC_TYPES[randomValue];
-  };
   const currentQuestion = useSelector(
     (state: StateRoot) => state.currentQuestion
   );
@@ -34,7 +28,7 @@ export const ExtraDataCard = () => {
 
   // set a random type
   useState(() => {
-    const newType = getRandomType();
+    const newType = getRandomFromArray(DEMOGRAPHIC_TYPES);
     setType(newType);
     setDemographics(buildDemographicsByType(newType));
   }, [type]);
