@@ -166,7 +166,6 @@ const ParticipatePage = () => {
                     {
                       introCard: false,
                       pushProposal: false,
-                      signUpCard: false,
                     }
                   )}
                   classes="margin-bottom desktop-padding-right"
@@ -185,7 +184,6 @@ const ParticipatePage = () => {
                   linkHref={getSequencePopularLink(country, question.slug, {
                     introCard: false,
                     pushProposal: false,
-                    signUpCard: false,
                   })}
                   classes="margin-bottom desktop-padding-left"
                   isKeywordActive={isKeywordActive}

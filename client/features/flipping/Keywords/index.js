@@ -71,27 +71,25 @@ export const Keywords = ({ question, isKeywordActive }: Props) => {
       </CardDescriptionStyle>
       <KeywordsListWrapperStyle>
         {keywords.map(keyword => (
-          <>
-            <KeywordListItemStyle key={keyword.key}>
-              <KeywordItemLinkStyle
-                to={getSequenceKeywordLink(
-                  country,
-                  question.slug,
-                  encodeURI(keyword.key),
-                  {
-                    introCard: false,
-                    pushProposal: false,
-                  }
-                )}
-                onClick={() =>
-                  trackOpenSequence(COMPONENT_PARAM_SEQUENCE_KEYWORD)
+          <KeywordListItemStyle key={keyword.key}>
+            <KeywordItemLinkStyle
+              to={getSequenceKeywordLink(
+                country,
+                question.slug,
+                encodeURI(keyword.key),
+                {
+                  introCard: false,
+                  pushProposal: false,
                 }
-              >
-                {capitalizeFirstLetter(keyword.label)}
-                <SvgAngleArrowRight width={17} height={17} />
-              </KeywordItemLinkStyle>
-            </KeywordListItemStyle>
-          </>
+              )}
+              onClick={() =>
+                trackOpenSequence(COMPONENT_PARAM_SEQUENCE_KEYWORD)
+              }
+            >
+              {capitalizeFirstLetter(keyword.label)}
+              <SvgAngleArrowRight width={17} height={17} />
+            </KeywordItemLinkStyle>
+          </KeywordListItemStyle>
         ))}
       </KeywordsListWrapperStyle>
     </CardStyle>

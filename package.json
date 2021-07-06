@@ -93,6 +93,8 @@
 		"@cypress/code-coverage": "cypress-io/code-coverage",
 		"@loadable/babel-plugin": "~5.13.2",
 		"@loadable/component": "^5.15.0",
+		"@simbathesailor/babel-plugin-use-what-changed": "^2.1.0",
+		"@simbathesailor/use-what-changed": "^2.0.0",
 		"@storybook/addon-a11y": "^6.2.9",
 		"@storybook/addon-docs": "^6.2.9",
 		"@storybook/addon-essentials": "^6.2.9",

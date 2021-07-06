@@ -17,11 +17,14 @@ Feature: Accessibility
   Then html page should be valid
 
   Scenario: Check HTML validity of sequence page
-  Given I go to "sequence" page of the question "question-3-slug"
-  Then html page should be valid
+  Given I go to "sequence" page of the question "question-4-slug"
+  Then current card is a intro card
+  And html page should be valid
   When I click on 'start-sequence' button
   Then html page should be valid
   When I go to card "3"
+  Then html page should be valid
+  When I go to card "4"
   Then html page should be valid
   When I go to card "5"
   Then html page should be valid
@@ -44,11 +47,12 @@ Feature: Accessibility
 
   Scenario: Check HTML validity of browse results
   Given I go to "browse results"
-  Then html page should be valid
+  Then I see "Découvrez les résultats" in "main" container
+  And html page should be valid
 
-  Scenario: Check HTML validity of top idea
-  Given I go to "top idea" page of the question "question-1-slug"
-  Then html page should be valid
+  #Scenario: Check HTML validity of top idea
+  #Given I go to "top idea" page of the question "question-1-slug"
+  #Then html page should be valid
 
   Scenario: Check HTML validity of search
   Given I go to "search"
@@ -56,10 +60,12 @@ Feature: Accessibility
 
   Scenario: Check HTML validity of participate consultation
   Given I go to "participate consultation" page of the question "question-0-slug"
-  Then html page should be valid
+  Then I see "question-0 Quis autem vel eum iure reprehenderit qui in ea voluptate velit ?" in "main" container
+  And html page should be valid
 
   Scenario: Check HTML validity of explore consultation
   Given I go to "explore consultation" page of the question "question-0-slug"
+  Then I see "question-0 Quis autem vel eum iure reprehenderit qui in ea voluptate velit ?" in "main" container
   Then html page should be valid
 
   Scenario: Check HTML validity of legal mentions
@@ -70,6 +76,8 @@ Feature: Accessibility
   Given I go to "france homepage"
   And I login with email "test@example.com" and password "abcdefgh"
   When I go to "profile proposals"
-  Then html page should be valid  
+  Then I see "Mes dernières propositions" in "main" container
+  And html page should be valid  
   When I go to "profile favourites"
+  Then I see "Mes coups de cœur" in "main" container
   Then html page should be valid  

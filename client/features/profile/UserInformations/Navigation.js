@@ -10,7 +10,7 @@ import {
 
 export const EditProfileLink = ({ link }: { link: string }) => (
   <LinkAsGreyButton to={link} as={Link}>
-    <PencilIconStyle aria-hidden />
+    <PencilIconStyle aria-hidden focusable="false" />
     {i18n.t('profile.informations_update.title')}
   </LinkAsGreyButton>
 );

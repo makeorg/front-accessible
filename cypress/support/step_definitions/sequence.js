@@ -2,6 +2,7 @@ import { getIdentifierButtonByName } from '../mapping';
 import { Then, Given, When } from "cypress-cucumber-preprocessor/steps";
 
 const sequencePage = '/FR/consultation/:questionSlug/selection';
+const sequencePopularPage = '/FR/consultation/:questionSlug/selection-popular';
 const voteLabel = {
   "D'accord": "agree",
   "Pas d'accord": "disagree",
@@ -29,6 +30,12 @@ Given('I am/go on/to the sequence page of the question {string} with intro card 
   cy.wait('@getStartSequence', {timeout: 8000});
 });
 
+Given('I am/go on/to the sequence popular page of the question {string}', questionSlug => {
+  const page = sequencePopularPage.replace(':questionSlug', questionSlug);
+  cy.monitorApiCall('getPopularStartSequence');
+  cy.visit(page);
+  cy.wait('@getPopularStartSequence', {timeout: 8000});
+});
 
 When('I click on {string} of the sequence', (buttonName) => {
   const button = getIdentifierButtonByName(buttonName);
@@ -84,7 +91,6 @@ When('I unqualify {string} on the current card', (qualificationType) => {
   cy.wait('@postUnqualify');
 });
 
-
 When('I unvote on the current card', () => {
   cy.monitorApiCall('postUnvote');
   cy.get(`[data-cy-button=vote]`)
@@ -108,19 +114,18 @@ Then('The {string} button on card {string} doesn\'t exist', (buttonName, cardNum
 When('I go to card {string}', (cardNumber) => {
   let previewCard = 0;
   const nextWhileCardTargetNotDisplayed = () => {
-    const currentCard = cy.get('[data-cy-card-number]');
+    const currentCard = cy.get(`[data-cy-card-number=${previewCard}]`);
     currentCard
       .then(card => {
         card
         .find('[data-cy-button=vote]')
         .first()
         .click()
-      });
 
-    currentCard
+  
+      })
       .find('[data-cy-button=next-proposal], [data-cy-button=push-proposal-next], [data-cy-button=skip-sign-up], [data-cy-button=start-sequence], [data-cy-button=skip-demographics]')
-      .first()
-      .then(el => el.get(0).click());
+      .click();
     
     const expectedCardNumber = (Number(previewCard)+1).toString();
     cy.waitUntil(() => cy.get(`[data-cy-card-number=${expectedCardNumber}]`).should('be.visible'));
@@ -129,13 +134,14 @@ When('I go to card {string}', (cardNumber) => {
       nextWhileCardTargetNotDisplayed();
     }
   };
+  cy.waitUntil(() => cy.get(`[data-cy-card-number]`).should('be.visible'));
   cy.get('body').then(body => {
     const card = body.find('[data-cy-card-number]');
     if (card.length) {
       return parseInt(card[0].dataset.cyCardNumber);
     }
 
-    return 0;
+    throw new Error('Card not found');
   })
   .then(number => {
     previewCard = number;
@@ -153,8 +159,31 @@ Then('card {string} is a proposal card', (cardNumber) => {
     .should('have.attr', 'data-cy-card-type', 'PROPOSAL_CARD');
 });
 
+Then('current card is a proposal card', () => {
+  cy.get(`[data-cy-card-type]`)
+    .first()
+    .should('have.attr', 'data-cy-card-type', 'PROPOSAL_CARD');
+});
+
+Then('card {string} is a demographic card', (cardNumber) => {
+  cy.get(`[data-cy-card-number=${cardNumber}]`)
+    .should('have.attr', 'data-cy-card-type', 'EXTRASLIDE_DEMOGRAPHICS_CARD');
+});
+
+Then('current card is a demographic card', () => {
+  cy.get(`[data-cy-card-type]`)
+    .first()
+    .should('have.attr', 'data-cy-card-type', 'EXTRASLIDE_DEMOGRAPHICS_CARD');
+});
+
 Then('card {string} is a final card', (cardNumber) => {
   cy.get(`[data-cy-card-number=${cardNumber}]`)
+    .should('have.attr', 'data-cy-card-type', 'EXTRASLIDE_FINAL_CARD');
+});
+
+Then('current card is a final card', () => {
+  cy.get(`[data-cy-card-type]`)
+    .first()
     .should('have.attr', 'data-cy-card-type', 'EXTRASLIDE_FINAL_CARD');
 });
 
@@ -163,8 +192,20 @@ Then('card {string} is an intro card', (cardNumber) => {
     .should('have.attr', 'data-cy-card-type', 'EXTRASLIDE_INTRO_CARD');
 });
 
+Then('current card is a intro card', () => {
+  cy.get(`[data-cy-card-type]`)
+    .first()
+    .should('have.attr', 'data-cy-card-type', 'EXTRASLIDE_INTRO_CARD');
+});
+
 Then('card {string} is a push proposal card', (cardNumber) => {
   cy.get(`[data-cy-card-number=${cardNumber}]`)
+    .should('have.attr', 'data-cy-card-type', 'EXTRASLIDE_PUSH_PROPOSAL_CARD');
+});
+
+Then('current card is a push proposal card', () => {
+  cy.get(`[data-cy-card-type]`)
+    .first()
     .should('have.attr', 'data-cy-card-type', 'EXTRASLIDE_PUSH_PROPOSAL_CARD');
 });
 
@@ -277,4 +318,19 @@ Then('total {string} qualifications are equal to {string} on the current card',(
   cy.get(`[data-cy-button=qualification][data-cy-qualification-key=${qualificationType}]`)
     .first()
     .contains(total);
+});
+
+When ('I select a demographic value', () => {
+  cy.get('[data-cy-demographic-type]').then(el => {
+    const type = el[0].dataset.cyDemographicType;
+    if (type=='gender') {
+      cy.get('[data-cy-demographic-type] label').first().click();
+    };
+    if (type=='region') {
+      cy.get('[data-cy-demographic-type] select').select('FR-ARA');
+    };
+    if (type=='age') {
+      cy.get('[data-cy-demographic-type] label').first().click();
+    };
+  });
 });

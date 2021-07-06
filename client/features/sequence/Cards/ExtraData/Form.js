@@ -154,6 +154,7 @@ export const ExtraDataForm = ({
           {i18n.t('demographics_card.skip')}
         </BlackBorderButtonStyle>
         <SubmitButton
+          data-cy-button="submit-demographics"
           formName={FORM_NAME}
           label={
             isMobile

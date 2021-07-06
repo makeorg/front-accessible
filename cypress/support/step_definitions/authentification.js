@@ -17,6 +17,7 @@ Given('I\'am on proposal sign up form', () => {
 });
 
 When('I login with email {string} and password {string}', (email, password) => {
+  cy.get(`button[data-cy-button=login]`).scrollIntoView();
   cy.get(`button[data-cy-button=login]`).click();
   cy.get('#login_title').should('be.visible');
   cy.get('#email').type(email);

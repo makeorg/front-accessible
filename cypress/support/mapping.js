@@ -4,6 +4,7 @@ const sequenceButtons = {
   "intro card start": 'start-sequence',
   "next proposal": 'next-proposal',
   "skip demographics": 'skip-demographics',
+  "submit demographics": 'submit-demographics',
   "back to proposals": 'back-to-proposals',
   "back to proposals arrow": "back-to-proposals-arrow",
   "push proposal next": 'push-proposal-next',
@@ -12,7 +13,8 @@ const sequenceButtons = {
   "proposal submit": "proposal-submit",
   "open propose panel": "proposal-panel",
   "close panel": "close-panel",
-  "cancel proposal form": "proposal-form-cancel"
+  "cancel proposal form": "proposal-form-cancel",
+  "demographic continue": "demographic-continue-vote",
 }
 
 const headerButtons = {
