@@ -24,6 +24,8 @@ export const HomePage = () => {
   const { country } = useSelector((state: StateRoot) => state.appConfig);
   const { homepage } = useSelector((state: StateRoot) => state.views);
   const isFR = country === 'FR';
+  const isDE = country === 'DE';
+  const displayPartnership = isFR || isDE;
   const hasConsultations =
     homepage?.currentQuestions.length > 0 || homepage?.pastQuestions.length > 0;
 
@@ -81,7 +83,7 @@ export const HomePage = () => {
               />
             )}
           </HomepageWrapperStyle>
-          {isFR && <PartnershipBanner />}
+          {displayPartnership && <PartnershipBanner />}
         </>
       )}
     </>
