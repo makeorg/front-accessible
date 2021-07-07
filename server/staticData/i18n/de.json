@@ -992,7 +992,7 @@
   "homepage": {
     "featured": {
       "title": "Derzeit auf Make.org",
-      "status": "Bezeichnung der Maßnahme: ",
+      "status": "Name der Aktion: ",
       "link": "Auf die Konsultationsseite „{{name}}“ gehen"
     },
     "title": "Startseite",
@@ -1051,7 +1051,7 @@
     "main_results": {
       "proposal": "Vorschlag",
       "organisation": "Organisation",
-      "operation": "Maßnahme",
+      "operation": "Aktion",
       "results": "{{count}} Ergebnis",
       "results_plural": "{{count}} Ergebnisse",
       "view_all": "Alles ansehen",
