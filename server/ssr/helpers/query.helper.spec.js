@@ -38,7 +38,6 @@ describe('query helper', () => {
     beforeEach(() => {
       extraSlidesConfig = {
         introCard: { param: 'unactive' },
-        signUpCard: { param: 'active' },
       };
     });
     it('introCard query must be enabled by default', () => {
@@ -63,18 +62,6 @@ describe('query helper', () => {
       );
       // then
       expect(extraSlides).toEqual(extraSlidesConfig);
-    });
-
-    it('introCard query must be disabled', () => {
-      // given
-      const query = { introCard: 'false' };
-      // when
-      const extraSlides = transformExtraSlidesConfigFromQuery(
-        extraSlidesConfig,
-        query
-      );
-      // then
-      expect(extraSlides).toEqual({ signUpCard: { param: 'active' } });
     });
   });
 });

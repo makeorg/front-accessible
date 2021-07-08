@@ -18,38 +18,6 @@ import {
 import { i18n } from 'Shared/i18n';
 
 /**
- * Find the index of first no voted card
- * @param  {Object} firstNoVotedProposal
- * @param  {SequenceCardType[]} cards
- * @param  {number} currentIndex
- * @return {number}
- */
-export const findIndexOfFirstUnvotedCard = (
-  firstUnvotedProposal?: ProposalType,
-  cards: SequenceCardType[],
-  currentIndex: number
-): number => {
-  if (!firstUnvotedProposal) {
-    return cards.length ? cards.length - 1 : 0;
-  }
-
-  const indexOfFirstUnvotedCard = cards.findIndex(
-    card =>
-      card.type === CARD_TYPE_PROPOSAL &&
-      card.configuration.proposal &&
-      card.configuration.proposal.id ===
-        (firstUnvotedProposal && firstUnvotedProposal.id)
-  );
-
-  if (indexOfFirstUnvotedCard <= currentIndex) {
-    return currentIndex;
-  }
-
-  // if no proposal is voted we return the index of intro cards
-  return indexOfFirstUnvotedCard === 1 ? 0 : indexOfFirstUnvotedCard;
-};
-
-/**
  * Build cards array
  * @param  {ProposalType[]} proposals
  * @param  {QuestionExtraSlidesConfigType} extraSlidesConfig
@@ -135,6 +103,14 @@ export const buildCards = (
  */
 export const isStandardSequence = (sequenceKind: string) =>
   sequenceKind === KIND_STANDARD;
+
+/**
+ * Check if is a proposal card
+ * @param  {SequenceCardType} card
+ * @return {boolean}
+ */
+export const isPushProposalCard = card =>
+  card?.type === CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL;
 
 /**
  * Render title depending on kind

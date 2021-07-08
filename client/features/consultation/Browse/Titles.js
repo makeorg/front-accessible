@@ -13,7 +13,7 @@ import {
 type Props = {
   total: number,
 };
-export const BrowseConsultationsTitles = ({ total }: Props) => {
+export const BrowseConsultationsTitles = ({ total, sectionTitleId }: Props) => {
   const location = useLocation();
   const consultationsPage = isBrowseConsultationsPage(location.pathname);
   const hasConsultations = total > 0;
@@ -42,7 +42,7 @@ export const BrowseConsultationsTitles = ({ total }: Props) => {
           ? i18n.t('browse.consultations.label')
           : i18n.t('browse.results.label')}
       </ConsultationElementSubtitleStyle>
-      <HomepageSectionTitleStyle id="browse_title">
+      <HomepageSectionTitleStyle id={sectionTitleId}>
         {consultationsPage
           ? i18n.t('browse.consultations.title')
           : i18n.t('browse.results.title')}

@@ -92,11 +92,10 @@ When('I click on {string} button', buttonName => {
      .click({force:true}) 
 });
 
-
 // accessibility
 Then('html page should be valid', (targetPage) => {
-  // cy.htmlvalidate();
-});
+  cy.htmlvalidate();
+});  
 
 // I see page
 Then('I see the {string} page', (targetPage) => {
@@ -105,6 +104,14 @@ Then('I see the {string} page', (targetPage) => {
   }
 
   cy.url().should('include', pages[targetPage]);
+});
+
+Then('I see the {string} page of the question {string}', (targetPage, questionSlug) => {
+  if (!pages[targetPage]) {
+    throw Error(`You should define "${targetPage}"`);
+  }
+
+  cy.url().should('include', pages[targetPage].replace(':questionSlug', questionSlug));
 });
 
 Then('I see the {string} page with {string} as query params', (targetPage, queryParams) => {

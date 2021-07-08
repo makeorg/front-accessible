@@ -14,8 +14,6 @@ export function transformExtraSlidesConfigFromQuery(
     delete extraSlidesConfig.introCard;
   if (queryParamIsDisable(query, 'pushProposal'))
     delete extraSlidesConfig.pushProposalCard;
-  if (queryParamIsDisable(query, 'signUpCard'))
-    delete extraSlidesConfig.signUpCard;
 
   return extraSlidesConfig;
 }

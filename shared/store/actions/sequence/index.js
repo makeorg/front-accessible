@@ -15,10 +15,8 @@ import {
   SEQUENCE_LOAD_PROPOSALS,
   SEQUENCE_PROPOSAL_UNVOTE,
   SEQUENCE_PROPOSAL_VOTE,
-  SEQUENCE_RESET_INDEX,
   SEQUENCE_RESET_VOTED_PROPOSALS,
   SEQUENCE_SET_INDEX,
-  SEQUENCE_UNLOAD_PROPOSALS,
   SEQUENCE_UPDATE_CARD_STATE,
 } from 'Shared/store/actionTypes';
 
@@ -44,12 +42,6 @@ export const loadSequenceProposals = (proposals: ProposalType[]) => ({
   type: SEQUENCE_LOAD_PROPOSALS,
   payload: { proposals },
 });
-
-export const unloadSequenceProposals = () => (dispatch: Dispatch) =>
-  dispatch({ type: SEQUENCE_UNLOAD_PROPOSALS });
-
-export const resetSequenceIndex = () => (dispatch: Dispatch) =>
-  dispatch({ type: SEQUENCE_RESET_INDEX });
 
 export const incrementSequenceIndex = () => (dispatch: Dispatch) =>
   dispatch({ type: SEQUENCE_INCREMENT_INDEX });

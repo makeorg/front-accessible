@@ -30,7 +30,7 @@ import {
 
 export const ProfileFavouritesPlaceholder = () => (
   <CenterColumnStyle>
-    <SvgLike style={SvgLikeStyle} />
+    <SvgLike style={SvgLikeStyle} focusable="false" />
     <PlaceholderParagraphStyle>
       {i18n.t('profile.favourites.description.introduction')}
     </PlaceholderParagraphStyle>
@@ -52,7 +52,11 @@ export const ProfileFavouritesPlaceholder = () => (
                 content={<ResultTooltip votePercent={100} voteKey="agree" />}
                 direction="bottom"
               >
-                <VoteResultBarStyle color={color.agree} percent={100} />
+                <VoteResultBarStyle
+                  color={color.agree}
+                  percent={100}
+                  type="button"
+                />
               </Tooltip>
             </VoteResultItemStyle>
             <VoteResultItemStyle>
@@ -60,7 +64,11 @@ export const ProfileFavouritesPlaceholder = () => (
                 content={<ResultTooltip votePercent={0} voteKey="disagree" />}
                 direction="bottom"
               >
-                <VoteResultBarStyle color={color.disagree} percent={0} />
+                <VoteResultBarStyle
+                  color={color.disagree}
+                  percent={0}
+                  type="button"
+                />
               </Tooltip>
             </VoteResultItemStyle>
             <VoteResultItemStyle>
@@ -68,7 +76,11 @@ export const ProfileFavouritesPlaceholder = () => (
                 content={<ResultTooltip votePercent={0} voteKey="neutral" />}
                 direction="bottom"
               >
-                <VoteResultBarStyle color={color.neutral} percent={0} />
+                <VoteResultBarStyle
+                  color={color.neutral}
+                  percent={0}
+                  type="button"
+                />
               </Tooltip>
             </VoteResultItemStyle>
           </VoteResultGraphStyle>

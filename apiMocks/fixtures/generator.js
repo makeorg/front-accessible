@@ -263,8 +263,19 @@ const generateQuestionsWithResults = count => {
   }));
 };
 
-const generateProposals = (question, author, count) =>
-  range(0, count).map(number => ({
+const generateProposals = (question, author, count) => {
+  let countByQuestion = count;
+  switch (question.slug) {
+    case 'question-3-slug':
+      countByQuestion = 2;
+      break;
+    case 'question-5-slug':
+      return [];
+    default:
+      break;
+  }
+
+  return range(0, countByQuestion).map(number => ({
     ...defaultProposal,
     id: `proposal-${question.slug}-${number}-id`,
     slug: `proposal-${question.slug}-${number}-slug`,
@@ -286,6 +297,7 @@ const generateProposals = (question, author, count) =>
       ...author,
     },
   }));
+};
 
 const generatePartners = count =>
   range(0, count).map(number => ({
@@ -329,7 +341,7 @@ const authorProposal = {
   organisationSlug: organisations[0].slug,
 };
 const proposals = questions
-  .map(question => generateProposals(question, authorProposal, 22))
+  .map(question => generateProposals(question, authorProposal, 24))
   .flat();
 const partners = generatePartners(5);
 const popularTags = generatePopularTags(4);

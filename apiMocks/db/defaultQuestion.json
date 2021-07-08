@@ -32,11 +32,6 @@
     "pushProposalCard": {
       "enabled":true
     },
-    "signUpCard": {
-      "enabled":true,
-      "title":null,
-      "nextCtaText":null
-    },
     "finalCard": {
       "enabled":true,
       "withSharing":true,

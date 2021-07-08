@@ -13,6 +13,7 @@ import { capitalizeFirstLetter } from 'Shared/helpers/stringFormatter';
 import { useParams } from 'react-router';
 import { MetaTags } from 'Client/app/MetaTags';
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
+import { isPushProposalCard } from 'Shared/helpers/sequence';
 import { SequenceCard } from './Cards';
 import {
   SequenceContainerStyle,
@@ -30,10 +31,10 @@ import { useSequence } from './Hooks/useSequence';
  * Renders Sequence component with Intro / Push Proposal / Sign Up & Proposal Cards
  */
 export const SequenceKeyword = () => {
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
   const { encodedKeyword } = useParams();
   const keyword = encodedKeyword && decodeURI(encodedKeyword);
   const [keywordLabel, setKeywordLabel] = useState('');
-  const [isSequenceEmpty, setIsSequenceEmpty] = useState(false);
   const question: QuestionType = useSelector((state: StateRoot) =>
     selectCurrentQuestion(state)
   );
@@ -49,14 +50,14 @@ export const SequenceKeyword = () => {
     );
 
     setKeywordLabel(response?.label || '');
-    setIsSequenceEmpty(response?.proposals?.length === 0);
 
     return response?.proposals || [];
   };
 
-  const { withProposalButton, country, isLoading, currentCard } = useSequence(
+  const { isLoading, currentCard, isEmptySequence } = useSequence(
     question,
     false,
+    country,
     executeStartSequence
   );
 
@@ -72,7 +73,11 @@ export const SequenceKeyword = () => {
       }),
       description: i18n.t('no_proposal_card.description.special'),
     },
+    index: 0,
   };
+
+  const withProposalButton =
+    question?.canPropose && !isPushProposalCard(currentCard);
 
   return (
     <>
@@ -93,11 +98,11 @@ export const SequenceKeyword = () => {
           </SequenceSpecialTitleStyle>
 
           <SequenceCard
-            card={isSequenceEmpty ? noProposalCard : currentCard}
+            card={isEmptySequence ? noProposalCard : currentCard}
             question={question}
             sequenceKind={keyword}
           />
-          {!isSequenceEmpty && <SequenceProgress />}
+          {!isEmptySequence && <SequenceProgress />}
         </SequenceContentStyle>
         <ConsultationPageLinkStyle
           className={!withProposalButton && 'static'}

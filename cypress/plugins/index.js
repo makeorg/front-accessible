@@ -19,6 +19,7 @@ const htmlvalidateConfig = {
     'no-dup-class': 'off',
     'void-style': 'warn', // fix this and pass as error,
     'long-title': 'warn',
+    'aria-label-misuse': 'warn', // fix this and pass as error,
   },
 };
 

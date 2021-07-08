@@ -21,8 +21,15 @@ export const SubmitButton = ({
   id,
   label,
   disabled,
+  'data-cy-button': dataCyButton,
 }: Props) => (
-  <ActiveButtonStyle type="submit" form={formName} id={id} disabled={disabled}>
+  <ActiveButtonStyle
+    type="submit"
+    form={formName}
+    id={id}
+    disabled={disabled}
+    data-cy-button={dataCyButton}
+  >
     {icon}
     {label}
   </ActiveButtonStyle>

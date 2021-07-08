@@ -1,9 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 // @flow
-import React, { useState } from 'react';
+import React from 'react';
 import {
   getNoProposalCardTitleBySequenceKind,
   getSequenceTitleBySequenceKind,
+  isPushProposalCard,
   isStandardSequence,
 } from 'Shared/helpers/sequence';
 import { type QuestionType } from 'Shared/types/question';
@@ -44,11 +45,10 @@ export type Props = {
  * Renders Sequence component with Intro / Push Proposal / Sign Up & Proposal Cards
  */
 export const Sequence = ({ sequenceKind }: Props) => {
-  const [isSequenceEmpty, setIsSequenceEmpty] = useState(false);
-
   const question: QuestionType = useSelector((state: StateRoot) =>
     selectCurrentQuestion(state)
   );
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
 
   const executeStartSequence = async (
     questionId: string,
@@ -59,13 +59,14 @@ export const Sequence = ({ sequenceKind }: Props) => {
       votedIds,
       sequenceKind
     );
-    setIsSequenceEmpty(proposals.length === 0);
 
     return proposals || [];
   };
-  const { withProposalButton, country, isLoading, currentCard } = useSequence(
+
+  const { isLoading, currentCard, isEmptySequence } = useSequence(
     question,
     isStandardSequence(sequenceKind),
+    country,
     executeStartSequence
   );
 
@@ -81,6 +82,7 @@ export const Sequence = ({ sequenceKind }: Props) => {
         ? i18n.t('no_proposal_card.description.regular')
         : i18n.t('no_proposal_card.description.special'),
     },
+    index: 0,
   };
 
   const getMetaTitle = () => {
@@ -96,6 +98,10 @@ export const Sequence = ({ sequenceKind }: Props) => {
 
     return null;
   };
+
+  const withProposalButton =
+    question?.canPropose && !isPushProposalCard(currentCard);
+
   return (
     <>
       <MetaTags
@@ -119,10 +125,10 @@ export const Sequence = ({ sequenceKind }: Props) => {
             </>
           )}
           <SequenceCard
-            card={isSequenceEmpty ? noProposalCard : currentCard}
+            card={isEmptySequence ? noProposalCard : currentCard}
             question={question}
           />
-          {!isSequenceEmpty && <SequenceProgress />}
+          {!isEmptySequence && <SequenceProgress />}
         </SequenceContentStyle>
         <ConsultationPageLinkStyle
           className={!withProposalButton && 'static'}

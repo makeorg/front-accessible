@@ -35,13 +35,6 @@ export const questionTypeFixture = {
     pushProposalCard: {
       enabled: false,
     },
-    signUpCard: {
-      enabled: true,
-      title:
-        'Recevez les résultats de la consultation et soyez informé(e) des actions à venir',
-      nextCtaText:
-        'Non merci, je ne souhaite pas être informé(e) des résultats.',
-    },
     finalCard: {
       enabled: true,
       withSharing: true,

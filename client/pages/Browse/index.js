@@ -74,16 +74,23 @@ const BrowseConsultationsPage = () => {
         />
       )}
       <BrowseConsultationsHeader />
-      <SpaceBetweenColumnStyle
-        as="section"
-        aria-labelledby="browse_title"
-        id={BROWSE_SECTION}
-      >
-        {isLoading ? (
-          <Spinner />
-        ) : (
-          <>
-            <BrowseConsultationsTitles total={questionsTotal} />
+      {isLoading ? (
+        <>
+          <SpaceBetweenColumnStyle as="section" id={BROWSE_SECTION}>
+            <Spinner />
+          </SpaceBetweenColumnStyle>
+        </>
+      ) : (
+        <>
+          <SpaceBetweenColumnStyle
+            as="section"
+            aria-labelledby="browse_title"
+            id={BROWSE_SECTION}
+          >
+            <BrowseConsultationsTitles
+              total={questionsTotal}
+              sectionTitleId="browse_title"
+            />
             {questions && (
               <BrowseConsultationsList
                 questions={questions}
@@ -98,9 +105,9 @@ const BrowseConsultationsPage = () => {
                 scrollToId={BROWSE_SECTION}
               />
             )}
-          </>
-        )}
-      </SpaceBetweenColumnStyle>
+          </SpaceBetweenColumnStyle>
+        </>
+      )}
     </>
   );
 };

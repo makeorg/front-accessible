@@ -39,7 +39,7 @@ export const ExtraDataCard = () => {
 
   if (type) {
     return (
-      <>
+      <div data-cy-demographic-type={type}>
         <SequenceIntroParagraphStyle>
           {setTitleByType(type)}
         </SequenceIntroParagraphStyle>
@@ -51,7 +51,7 @@ export const ExtraDataCard = () => {
           demographics={demographics}
           currentQuestion={currentQuestion}
         />
-      </>
+      </div>
     );
   }
 

@@ -6,6 +6,11 @@ const userRouter = jsonServer.create();
 const isAuthenticated = req =>
   req.headers.cookie && req.headers.cookie.includes('mockIsConnected=true');
 
+const validUser = {
+  username: 'test@example.com',
+  password: 'abcdefgh',
+};
+
 userRouter.use('/me', (req, res) => {
   res.sendStatus(401);
 });
@@ -26,6 +31,22 @@ userRouter.use('/current', (req, res) => {
     });
   } else {
     res.sendStatus(401);
+  }
+});
+
+userRouter.use('/privacy-policy', (req, res) => {
+  const { email, password } = req.body;
+  const now = new Date();
+  if (email === validUser.username && password === validUser.password) {
+    res.send({ privacyPolicyApprovalDate: now.toISOString() });
+  } else {
+    res.status(400).send([
+      {
+        field: 'email',
+        key: 'invalid',
+        message: 'email or password is invalid.',
+      },
+    ]);
   }
 });
 
