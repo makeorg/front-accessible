@@ -1,14 +1,14 @@
 // @flow
 import React, { type Node, useState, useEffect } from 'react';
 import { type StateRoot } from 'Shared/store/types';
-import { type QuestionType } from 'Shared/types/question';
 import { useParams } from 'react-router';
 import { QuestionService } from 'Shared/services/Question';
 import { useDispatch, useSelector } from 'react-redux';
 import { MiddlePageWrapperStyle } from 'Client/app/Styled/MainElements';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
-import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
 import { isInProgress } from 'Shared/helpers/date';
+import { type QuestionType } from 'Shared/types/question';
+import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
 import { updateTrackingQuestionParam } from 'Shared/store/middleware/question';
 import { getQuestionFromState } from 'Shared/helpers/question';
 import {
@@ -33,12 +33,13 @@ export const QuestionWrapper = ({ children, withRedirect }: Props) => {
   const currentQuestionSlug = useSelector(
     (state: StateRoot) => state.currentQuestion
   );
+
   const [alternativeContent, setAlternativeContent] = useState(
     <MiddlePageWrapperStyle>
       <Spinner />
     </MiddlePageWrapperStyle>
   );
-  const [isLoading, setIsLoading] = useState(true);
+
   const questionIsInState = getQuestionFromState(
     questionsInState,
     questionSlug
@@ -67,19 +68,19 @@ export const QuestionWrapper = ({ children, withRedirect }: Props) => {
     }
 
     return () => dispatch(removeCurrentQuestionSlug());
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [questionSlug]);
 
   useEffect(() => {
     if (currentQuestion) {
       updateTrackingQuestionParam(currentQuestion);
-      setIsLoading(false);
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentQuestion]);
 
-  if (isLoading) {
+  if (!currentQuestion) {
     return alternativeContent;
   }
 
