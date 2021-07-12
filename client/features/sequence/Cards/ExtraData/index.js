@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux';
 import { type StateRoot } from 'Shared/store/types';
 import { i18n } from 'Shared/i18n';
 import { getRandomFromArray } from 'Client/helper/randomFromArray';
-import { SequenceIntroParagraphStyle } from '../style';
+import { SequenceWrapperStyle, SequenceIntroParagraphStyle } from '../style';
 import { ExtraDataForm } from './Form';
 import { ExtraDataDescriptionStyle } from './style';
 import { SubmittedDemographics } from './SubmittedStep';
@@ -39,7 +39,7 @@ export const ExtraDataCard = () => {
 
   if (type) {
     return (
-      <div data-cy-demographic-type={type}>
+      <SequenceWrapperStyle data-cy-demographic-type={type}>
         <SequenceIntroParagraphStyle>
           {setTitleByType(type)}
         </SequenceIntroParagraphStyle>
@@ -51,7 +51,7 @@ export const ExtraDataCard = () => {
           demographics={demographics}
           currentQuestion={currentQuestion}
         />
-      </div>
+      </SequenceWrapperStyle>
     );
   }
 
