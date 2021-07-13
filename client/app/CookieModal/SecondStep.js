@@ -88,6 +88,9 @@ export const SecondStepCookie = ({
             <CookieModalCookieDetailParagraphStyle>
               {i18n.t('cookie_modal.technicals.expiration')}
             </CookieModalCookieDetailParagraphStyle>
+            <CookieModalCookieDetailParagraphStyle>
+              {i18n.t('cookie_modal.technicals.demographics')}
+            </CookieModalCookieDetailParagraphStyle>
           </ColumnElementStyle>
         </CookieModalElementStyle>
         <CookieModalElementStyle className="with-separator">

@@ -443,7 +443,8 @@
     "save": "Confirm my selection",
     "technicals": {
       "secure": "make secure : once you have logged into your citizen account on Make.org, this cookie ensures that this connection will be maintained while you are browsing the service.",
-      "expiration": "make-secure-expiration : this cookie is used to detect your inactivity on the service in order to make this connection expire."
+      "expiration": "make-secure-expiration : this cookie is used to detect your inactivity on the service in order to make this connection expire.",
+      "demographics": "make-demographics: this cookie allows us to remember if you've already been asked demographics information (age range, region, gender, etc) on this device so that we don't ask you again."
     },
     "preferences": {
       "authentication": "Google and Facebook authentication cookies: they enable registration and connection to your citizen account via these social networks.",
@@ -1054,13 +1055,15 @@
       "mandatory": "Always active",
       "duration": "Duration : {{duration}}",
       "session": "Session",
+      "month": "{{count}} month",
       "year": "{{count}} year",
       "year_plural": "{{count}} years",
       "technicals": {
         "name": "Technical cookies:",
         "description": "these cookies are necessary for the functioning of the website and cannot be disabled. You can set your browser to block or be informed of the existence of these cookies, but some parts of our website may be affected. These cookies are not intended to identify you personally.",
         "secure": "make-secure : once you have logged in to your citizen account on Make.org, this cookie ensures that this connection will be maintained while you browse the service.",
-        "secure-expiration": "make-secure-expiration: this cookie is used to detect your inactivity on the service in order to expire this connection."
+        "secure-expiration": "make-secure-expiration: this cookie is used to detect your inactivity on the service in order to expire this connection.",
+        "demographics": "make-demographics: this cookie allows us to remember if you've already been asked demographics information (age range, region, gender, etc) on this device so that we don't ask you again."
       },
       "preferences": {
         "name": "Preference cookies:",

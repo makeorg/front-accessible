@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 // @flow
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState } from 'react';
 import { buildCards } from 'Shared/helpers/sequence';
 import { type StateRoot } from 'Shared/store/types';
 import { type SequenceCardType } from 'Shared/types/card';
@@ -14,6 +14,8 @@ import {
   loadSequenceCards,
   resetSequenceVotedProposals,
 } from 'Shared/store/actions/sequence';
+import { Cookies } from 'react-cookie';
+import { DEMOGRAPHICS_COOKIE } from 'Shared/constants/cookies';
 import { useSequenceTracking } from './useSequenceTracking';
 import { useSequenceVoteOnlyNotification } from './useSequenceVoteOnlyNotification';
 import { useSequenceExtraDataAutoSubmit } from './useSequenceExtraDataAutoSubmit';
@@ -35,9 +37,6 @@ export const useSequence = (
   const { hasProposed } = useSelector((state: StateRoot) => state.proposal);
   const { isLoggedIn } = useSelector((state: StateRoot) =>
     selectAuthentication(state)
-  );
-  const persistedDemographics = useSelector(
-    (state: StateRoot) => state.sequence.demographics
   );
   const { votedProposalIds, currentIndex } = useSelector((state: StateRoot) => {
     const { currentIndex: sCurrentIndex, votedProposalIds: sVotedProposalIds } =
@@ -65,10 +64,10 @@ export const useSequence = (
 
   // Other
   const isFR = country === 'FR';
-  const withDemographicsCard = useMemo(
-    () => isFR && !persistedDemographics?.type,
-    []
-  );
+
+  const cookies = new Cookies();
+  const demographicsCookie = cookies.get(DEMOGRAPHICS_COOKIE);
+  const withDemographicsCard = isFR && !demographicsCookie;
 
   // scroll to top
   useEffect(() => {
