@@ -67,15 +67,6 @@ const getLogFormat = sourceMapReplace => {
     const infoTime = data.timestamp;
     delete data.timestamp;
 
-    const infoBrowser = JSON.stringify(data.browser);
-    delete data.browser;
-
-    const infoOS = JSON.stringify(data.os);
-    delete data.os;
-
-    const infoDevice = JSON.stringify(data.device);
-    delete data.device;
-
     const infoLevel = data.level;
     delete data.level;
 
@@ -99,7 +90,7 @@ const getLogFormat = sourceMapReplace => {
     );
 
     // eslint-disable-next-line max-len
-    return `${infoTime} ${infoLabel} browser ${infoBrowser} - os ${infoOS} - device ${infoDevice} - ${infoLevel}: ${message} - stackTrace: ${infoStack}`;
+    return `infoTime:${infoTime}  infoLevel:${infoLevel} infoLabel:${infoLabel} message:${message} stackTrace:${infoStack}`;
   });
 };
 

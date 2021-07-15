@@ -21,27 +21,27 @@ class LoggerSingleton {
 
   formatApiServiceError = (error: ApiServiceError) => ({
     message: error.message,
-    name: error.name,
-    fileName: error.fileName,
-    lineNumber: error.lineNumber,
-    columnNumber: error.columnNumber,
+    app_logName: error.name,
+    app_fileName: error.fileName,
+    app_lineNumber: error.lineNumber,
+    app_columnNumber: error.columnNumber,
     stack: error.stack,
-    status: error.status,
-    responseData: error.data,
-    url: error.url,
-    method: error.method,
-    logId: error.logId,
-    requestId: error.requestId,
+    app_status: error.status,
+    app_responseData: error.data,
+    app_url: error.url,
+    app_method: error.method,
+    app_logId: error.logId,
+    app_requestId: error.requestId,
   });
 
   formatError = (error: Error) => ({
     message: error.message,
-    name: error.name,
-    fileName: error.fileName,
-    lineNumber: error.lineNumber,
-    columnNumber: error.columnNumber,
+    app_logName: error.name,
+    app_fileName: error.fileName,
+    app_lineNumber: error.lineNumber,
+    app_columnNumber: error.columnNumber,
+    app_logId: uuidv4(),
     stack: error.stack,
-    logId: uuidv4(),
   });
 
   normalizeData = data => {
@@ -55,25 +55,34 @@ class LoggerSingleton {
       return {
         message: data,
         stack: 'no-stack',
-        logId: uuidv4(),
+        app_logId: uuidv4(),
+        app_logName: '-',
       };
     }
     if (typeof data === 'object') {
-      return {
+      const formatedData = {
         ...data,
-        logId: data.logId || uuidv4(),
+        app_logId: data.app_logId || data.logId || uuidv4(),
+        app_logName: data.app_logName || data.name || data.errorName || '-',
+        stack: data.stack || '-',
+        message: data.message || '-',
       };
+      delete formatedData.name;
+      delete formatedData.errorName;
+      delete formatedData.logId;
+
+      return formatedData;
     }
 
     try {
       return {
         message: JSON.stringify(data),
-        logId: uuidv4(),
+        app_logId: uuidv4(),
       };
     } catch (e) {
       return {
         message: e.message,
-        logId: uuidv4(),
+        app_logId: uuidv4(),
       };
     }
   };

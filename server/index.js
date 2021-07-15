@@ -11,6 +11,7 @@ import { createProxyMiddleware } from 'http-proxy-middleware';
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
+import { logInfo, logError, logWarning } from 'Server/ssr/helpers/ssr.helper';
 import devConfig from '../webpack/config.babel';
 import { initRoutes } from './routes';
 import { serverInitI18n } from './i18n';
@@ -54,6 +55,13 @@ const getApp = () => {
     },
     logLevel: 'error',
     secure: false,
+    logProvider: () => ({
+      log: logInfo,
+      debug: logInfo,
+      info: logInfo,
+      warn: logWarning,
+      error: logError,
+    }),
   });
 
   app.use('/api-local', apiProxy);

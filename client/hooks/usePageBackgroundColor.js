@@ -18,9 +18,11 @@ export const usePageBackgoundColor = (locationPath: string) => {
       isBrowseResultsPage(locationPath);
 
     if (!pageWrapper) {
-      return Logger.logError(
-        'Error in usePageBackgroundColor hook, page_wrapper is was not found'
-      );
+      return Logger.logError({
+        message:
+          'Error in usePageBackgroundColor hook, page_wrapper is was not found',
+        name: 'hooks',
+      });
     }
 
     if (whiteBackgroundPage) {

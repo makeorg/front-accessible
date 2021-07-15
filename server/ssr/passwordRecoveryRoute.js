@@ -26,14 +26,12 @@ export const passwordRecoveryRoute = async (req, res) => {
   const questionId = req.query.question || '';
   if (questionId !== '') {
     const notFound = () => {
-      logError(
-        `Question not found on activate account questionId='${questionId}' request='${JSON.stringify(
-          {
-            url: req.url,
-            query: req.query,
-          }
-        )}'`
-      );
+      logError({
+        message: `Question not found on activate account questionId='${questionId}'`,
+        name: 'password-recovery',
+        url: req.url,
+        query: req.query,
+      });
     };
     const question = await QuestionService.getQuestion(
       questionId,

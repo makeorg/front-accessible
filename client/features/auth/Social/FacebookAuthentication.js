@@ -37,14 +37,19 @@ export const FacebookAuthentication = () => {
   const { language } = useSelector((state: StateRoot) => state.appConfig);
   const handleFacebookLoginCallback = response => {
     if (!response?.accessToken && response?.status === 'unknown') {
-      Logger.logInfo(
-        'Facebook auth failed with status unknown. Probably user close popup.'
-      );
+      Logger.logInfo({
+        message:
+          'Facebook auth failed with status unknown. Probably user close popup.',
+        name: 'social-auth',
+      });
 
       return;
     }
     if (!response?.accessToken) {
-      Logger.logError(`Facebook login failure: ${response?.status}`);
+      Logger.logError({
+        message: `Facebook login failure: ${response?.status}`,
+        name: 'social-auth',
+      });
       dispatch(
         displayNotificationBanner(
           UNEXPECTED_ERROR_MESSAGE,

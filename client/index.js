@@ -59,6 +59,8 @@ ApiService.strategy = apiClient;
 
 const logAndTrackEvent = (eventName: string) => {
   Logger.logInfo({
+    message: `Track event : ${eventName}`,
+    name: 'log-and-track',
     trackingEvent: eventName,
     referrer: window.document.referrer,
     url: window.location.href,

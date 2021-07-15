@@ -72,9 +72,10 @@ export const useSequenceExtraDataAutoSubmit = (
   useEffect(() => {
     if (currentIndex === triggeringIndexValue) {
       if (!persistedDemographics?.type || !persistedDemographics?.value) {
-        Logger.logError(
-          `Unexpected error: no demographic values to send (questionId: ${questionSlug})`
-        );
+        Logger.logError({
+          message: `Unexpected error: no demographic values to send (questionId: ${questionSlug})`,
+          name: 'hooks',
+        });
       }
 
       DemographicsTrackingService.track(
