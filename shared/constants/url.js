@@ -2,6 +2,8 @@ export const JOBS_LINK = 'https://about.make.org/jobs';
 export const MODERATION_CHARTER_FR_LINK = 'https://about.make.org/moderation';
 export const MODERATION_CHARTER_EN_LINK =
   'https://about.make.org/en/moderation';
+export const MODERATION_CHARTER_DE_LINK =
+  'https://about.make.org/de/moderation-charter';
 export const ABOUT_MAKE_LINK = 'https://about.make.org/';
 export const DOTATION_FUNDS_LINK = 'https://foundation.make.org';
 export const NEWS_LINK = 'https://about.make.org';

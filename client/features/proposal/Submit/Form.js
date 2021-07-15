@@ -21,6 +21,7 @@ import { throttle } from 'Shared/helpers/throttle';
 import {
   MODERATION_CHARTER_FR_LINK,
   MODERATION_CHARTER_EN_LINK,
+  MODERATION_CHARTER_DE_LINK,
 } from 'Shared/constants/url';
 import {
   trackDisplayProposalField,
@@ -48,6 +49,18 @@ type Props = {
   waitingApiCallback: boolean,
 };
 
+const getModerationLinkByLanguage = language => {
+  switch (language) {
+    case 'fr':
+      return MODERATION_CHARTER_FR_LINK;
+    case 'de':
+      return MODERATION_CHARTER_DE_LINK;
+
+    default:
+      return MODERATION_CHARTER_EN_LINK;
+  }
+};
+
 export const ProposalForm = ({
   proposalContent,
   setProposalContent,
@@ -61,13 +74,12 @@ export const ProposalForm = ({
   const question: QuestionType = useSelector((state: StateRoot) =>
     selectCurrentQuestion(state)
   );
-  const { country } = useSelector((state: StateRoot) => state.appConfig);
+  const { language } = useSelector((state: StateRoot) => state.appConfig);
   const proposalIsEmpty = proposalContent.length === 0;
   const baitText = getLocalizedBaitText(
     question?.language,
     question?.questionId
   );
-  const isFR = country === 'FR';
   const charCounting = proposalIsEmpty
     ? baitText?.length
     : proposalContent.length;
@@ -156,7 +168,7 @@ export const ProposalForm = ({
         </SpaceBetweenRowStyle>
       </form>
       <ProposalExternalLinkStyle
-        href={isFR ? MODERATION_CHARTER_FR_LINK : MODERATION_CHARTER_EN_LINK}
+        href={getModerationLinkByLanguage(language)}
         target="_blank"
         rel="noopener"
         onClick={trackClickModerationLink}
