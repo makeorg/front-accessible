@@ -7,7 +7,7 @@ let unexpectedError = error => {
       Logger.logError(error.clone(`${message}: ${error.message}`));
     }
   } catch (e) {
-    Logger.logError(message);
+    Logger.logError({ message, name: 'services' });
   }
 };
 

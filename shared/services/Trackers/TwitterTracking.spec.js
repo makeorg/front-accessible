@@ -41,9 +41,10 @@ describe('Twitter Tracking Service', () => {
 
     TwitterTracking.track(trackingConfiguration.DISPLAY_SEQUENCE.key);
     expect(twttr.track).not.toHaveBeenCalled();
-    expect(Logger.logInfo).toHaveBeenCalledWith(
-      'Tracking Twitter: event o2q9e'
-    );
+    expect(Logger.logInfo).toHaveBeenCalledWith({
+      message: 'Tracking Twitter: event o2q9e',
+      name: 'tracking-init',
+    });
   });
 
   it('not track Twitter event if not initialized', () => {
@@ -52,9 +53,10 @@ describe('Twitter Tracking Service', () => {
 
     TwitterTracking.track(trackingConfiguration.DISPLAY_SEQUENCE.key);
     expect(twttr.track).not.toHaveBeenCalled();
-    expect(Logger.logWarning).toHaveBeenCalledWith(
-      'Twitter Tracking not initialized'
-    );
+    expect(Logger.logWarning).toHaveBeenCalledWith({
+      message: 'Twitter Tracking not initialized',
+      name: 'tracking-init',
+    });
   });
 
   it('not track Twitter event if action not exist', () => {

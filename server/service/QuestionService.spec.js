@@ -103,16 +103,17 @@ describe('Question Service', () => {
 
       expect(cache.put).not.toHaveBeenCalled();
       expect(mockLoggerLog).toHaveBeenCalledWith('error', {
-        name: 'api-service-error',
         message: 'error in server/service/QuestionService/getQuestion: error',
-        logId: 'error-id',
-        status: 500,
-        columnNumber: undefined,
-        fileName: undefined,
-        lineNumber: undefined,
-        method: undefined,
-        responseData: undefined,
-        url: undefined,
+        app_logId: 'error-id',
+        app_logName: 'api-service-error',
+        app_status: 500,
+        app_columnNumber: undefined,
+        app_fileName: undefined,
+        app_lineNumber: undefined,
+        app_method: undefined,
+        app_requestId: undefined,
+        app_responseData: undefined,
+        app_url: undefined,
         stack: expect.any(String),
       });
 

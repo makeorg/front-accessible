@@ -13,7 +13,10 @@ import {
 
 export const updateDeviceInState = (deviceInState: string) => {
   if (!window.matchMedia) {
-    Logger.logWarning('window.matchMedia is not supported');
+    Logger.logWarning({
+      message: 'window.matchMedia is not supported',
+      name: 'client-helper',
+    });
     return null;
   }
 

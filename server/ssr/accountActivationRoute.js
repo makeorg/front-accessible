@@ -26,24 +26,20 @@ export const accountActivationRoute = async (req, res) => {
 
   if (questionId !== '') {
     const notFound = () => {
-      logError(
-        `Question not found on activate account questionId='${questionId}' request='${JSON.stringify(
-          {
-            url: req.url,
-            query: req.query,
-          }
-        )}'`
-      );
+      logError({
+        message: `Question not found on activate account questionId='${questionId}'`,
+        name: 'account-activation',
+        url: req.url,
+        query: req.query,
+      });
     };
     const unexpectedError = () => {
-      logError(
-        `Unexpected error on activate account questionId='${questionId}' request='${JSON.stringify(
-          {
-            url: req.url,
-            query: req.query,
-          }
-        )}'`
-      );
+      logError({
+        message: `Unexpected error on activate account questionId='${questionId}'`,
+        name: 'account-activation',
+        url: req.url,
+        query: req.query,
+      });
     };
     const question = await QuestionService.getQuestion(
       questionId,

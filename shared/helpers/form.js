@@ -62,6 +62,7 @@ export const getErrorMessages = (
     case !Array.isArray(serviceErrors):
       Logger.logError({
         message: `Unexpected error (array expected): ${serviceErrors}`,
+        name: 'shared-helpers',
         logId,
       });
       return Array(defaultApiError);

@@ -10,7 +10,10 @@ export const useMedia = (query: string) => {
   useEffect(() => {
     let isMounted = true;
     if (!window.matchMedia) {
-      Logger.logWarning('window.matchMedia is not supported');
+      Logger.logWarning({
+        message: 'window.matchMedia is not supported',
+        name: 'hooks',
+      });
       return () => {
         isMounted = false;
       };

@@ -20,7 +20,8 @@ describe('ssr helper', () => {
 
     it('default case', () => {
       expect(mockLoggerLog).toHaveBeenNthCalledWith(1, 'error', {
-        logId: 'uuid-121212',
+        app_logId: 'uuid-121212',
+        app_logName: '-',
         message: 'value',
         stack: 'no-stack',
       });
@@ -28,7 +29,9 @@ describe('ssr helper', () => {
 
     it('must return stack', () => {
       expect(mockLoggerLog).toHaveBeenNthCalledWith(2, 'error', {
-        logId: 'uuid-121212',
+        message: '-',
+        app_logId: 'uuid-121212',
+        app_logName: '-',
         stack: 'value stack',
       });
     });

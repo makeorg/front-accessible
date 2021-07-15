@@ -161,6 +161,7 @@ export const getLocalizedBaitText = (language: string, questionId: string) => {
   if (!localizedBaitText) {
     Logger.logError({
       message: `No proposal bait for questionId:${questionId} with language:${language}`,
+      name: 'shared-helpers',
     });
     return i18n.getResource(
       DEFAULT_LANGUAGE,

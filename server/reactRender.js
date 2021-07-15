@@ -25,6 +25,7 @@ import {
   MOBILE_DEVICE,
   PRIVACY_POLICY_DATE,
 } from 'Shared/constants/config';
+import { simpleHash } from 'Shared/helpers/simpleHash';
 import { CLIENT_DIR } from './paths';
 import { logError, logInfo } from './ssr/helpers/ssr.helper';
 import { ViewsService } from './service/ViewsService';
@@ -89,16 +90,26 @@ export const reactRender = async (req, res, routeState = {}) => {
   const { browser, os, device, ua } = parser(req.headers['user-agent']);
   const isMobileOrTablet = device.type === 'mobile' || device.type === 'tablet';
 
+  const commonLogs = {
+    name: 'react-render',
+    app_browser_name: browser.name,
+    app_browser_version: browser.version,
+    app_os_name: os.name,
+    app_os_version: os.version,
+    app_device_model: device.model,
+    app_device_type: device.type,
+    app_device_vendor: device.vendor,
+    app_browser_raw: ua,
+    app_browser_hash: simpleHash(ua),
+  };
+
   if (!country || !language) {
     logInfo({
       message: 'Country or language not found from request params',
       url: req.originalUrl,
-      browser,
-      os,
-      device,
-      raw: ua,
       country: country || 'none',
       language: language || 'none',
+      ...commonLogs,
     });
   }
 
@@ -110,21 +121,15 @@ export const reactRender = async (req, res, routeState = {}) => {
       logInfo({
         message: 'ViewsService.getCountries return 404',
         url: req.originalUrl,
-        browser,
-        os,
-        device,
-        raw: ua,
+        ...commonLogs,
       });
     },
     error =>
       logError({
         message: `ViewsService.getCountries error : ${error.message}`,
         url: req.originalUrl,
-        browser,
-        os,
-        device,
-        raw: ua,
         logId: error.logId,
+        ...commonLogs,
       })
   );
 
@@ -188,10 +193,7 @@ export const reactRender = async (req, res, routeState = {}) => {
   logInfo({
     message: 'app-served-from-server',
     url: req.originalUrl,
-    browser,
-    os,
-    device,
-    raw: ua,
+    ...commonLogs,
   });
 
   return res.send(reactHtml);
