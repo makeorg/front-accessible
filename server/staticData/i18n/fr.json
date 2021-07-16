@@ -542,7 +542,8 @@
     "save": "Valider ma sélection",
     "technicals": {
       "secure": "make secure : une fois que vous vous êtes connecté à votre espace citoyen sur Make.org, ce cookie garantit que cette connexion va se maintenir pendant votre navigation sur le service.",
-      "expiration": "make-secure-expiration : ce cookie sert à détecter votre inactivité sur le service de façon à faire expirer cette connexion."
+      "expiration": "make-secure-expiration : ce cookie sert à détecter votre inactivité sur le service de façon à faire expirer cette connexion.",
+      "demographics": "make-demographics: ce cookie nous permet de savoir si des informations démographiques (tranche d'âge, région, genre, etc) vous ont déjà été demandées sur cet appareil, afin de ne pas vous les demander à nouveau lors d'une prochaine visite."
     },
     "preferences": {
       "authentication": "Les cookies d'authentification Google et Facebook : ils permettent l'inscription et la connexion à votre espace citoyen via ces réseaux sociaux.",
@@ -1170,13 +1171,15 @@
       "mandatory": "Toujours actif",
       "duration": "Durée : {{duration}}",
       "session": "Session",
+      "month": "{{count}} mois",
       "year": "{{count}} an",
       "year_plural": "{{count}} ans",
       "technicals": {
         "name": "Les cookies techniques :",
         "description": "ces cookies sont nécessaires au fonctionnement du site et ne peuvent pas être désactivés. Vous pouvez configurer votre navigateur afin de bloquer ou être informé de l‘existence de ces cookies, mais certaines parties de notre site peuvent être affectées. Ces cookies ne visent pas à vous identifier personnellement.",
         "secure": "make-secure : une fois que vous vous êtes connecté à votre espace citoyen sur Make.org, ce cookie garantit que cette connexion va se maintenir pendant votre navigation sur le service.",
-        "secure-expiration": "make-secure-expiration: ce cookie sert à détecter votre inactivité sur le service de façon à faire expirer cette connexion."
+        "secure-expiration": "make-secure-expiration: ce cookie sert à détecter votre inactivité sur le service de façon à faire expirer cette connexion.",
+        "demographics": "make-demographics: ce cookie nous permet de savoir si des informations démographiques (tranche d'âge, région, genre, etc) vous ont déjà été demandées sur cet appareil, afin de ne pas vous les demander à nouveau lors d'une prochaine visite."
       },
       "preferences": {
         "name": "Les cookies de préférences :",

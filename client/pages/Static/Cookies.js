@@ -237,6 +237,18 @@ export const Cookies = () => {
                       })}
                     </CookieLabelStyle>
                   </CookieModalCookieDetailParagraphStyle>
+                  <CookieModalCookieDetailParagraphStyle className="cookie-page">
+                    {i18n.t(
+                      'cookies_management.details.technicals.demographics'
+                    )}
+                    <CookieLabelStyle className="cookie-page">
+                      {i18n.t('cookies_management.details.duration', {
+                        duration: i18n.t('cookies_management.details.month', {
+                          count: 1,
+                        }),
+                      })}
+                    </CookieLabelStyle>
+                  </CookieModalCookieDetailParagraphStyle>
                 </ColumnElementStyle>
               </CookieModalElementStyle>
               <CookieModalElementStyle className="with-separator">

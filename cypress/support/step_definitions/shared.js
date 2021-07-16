@@ -42,6 +42,10 @@ Given('I have already accepted the cookie policy', () => {
   cy.setCookie('make-cookie', 'true');
 });
 
+//Given I have already answered to the demographics card
+Given('I have already answered to the demographics card and the cookie is set', () => {
+  cy.setCookie('make-demographics', 'true');
+})
 
 // navigation
 Given('I go to 404 page', () => {

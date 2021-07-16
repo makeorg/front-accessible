@@ -5,6 +5,7 @@ import { BlackBorderButtonStyle } from 'Client/ui/Elements/Buttons/V2/style';
 import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
 import React, { useEffect, useMemo, useState } from 'react';
 import { i18n } from 'Shared/i18n';
+import { useCookies } from 'react-cookie';
 import { useDispatch, useSelector } from 'react-redux';
 import { matchMobileDevice } from 'Shared/helpers/styled';
 import { DemographicsTrackingService } from 'Shared/services/DemographicsTracking';
@@ -18,6 +19,7 @@ import {
   trackClickSkipDemographics,
   trackDisplayDemographics,
 } from 'Shared/services/Tracking';
+import { DEMOGRAPHICS_COOKIE } from 'Shared/constants/cookies';
 import { RadioDemographics } from './Radio';
 import { ExtraDataFormStyle, SkipIconStyle, SubmitWrapperStyle } from './style';
 import { SelectDemographics } from './Select';
@@ -79,6 +81,14 @@ export const ExtraDataForm = ({
   const FORM_NAME = `demographics_${type}`;
   const isMobile = matchMobileDevice(device);
 
+  // set cookie duration to a month with december corner case
+  const expiryDate = new Date();
+  const month = (expiryDate.getMonth() + 1) % 12;
+  expiryDate.setMonth(month);
+
+  // eslint-disable-next-line no-unused-vars
+  const [cookies, setCookie] = useCookies([DEMOGRAPHICS_COOKIE]);
+
   const utmParams = useMemo(() => {
     const params = new URLSearchParams(location.search);
     const accumulator = {};
@@ -96,11 +106,14 @@ export const ExtraDataForm = ({
       event.preventDefault();
       setIsSubmitDisabled(true);
       setIsSkipDisabled(true);
+      setCookie(DEMOGRAPHICS_COOKIE, true, {
+        path: '/',
+        expires: expiryDate,
+      });
       const success = () => {
         setIsSubmitDisabled(false);
         setIsSkipDisabled(false);
         dispatch(incrementSequenceIndex());
-
         if (value === SKIP_TRACKING_VALUE) {
           trackClickSkipDemographics(type);
         } else {

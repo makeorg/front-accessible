@@ -503,7 +503,8 @@
     "save": "Meine Auswahl bestätigen",
     "technicals": {
       "secure": "Make-secure: Sobald du dich in deinem Bürgerbereich auf Make.org eingeloggt hast, stellt dieses Cookie sicher, dass die Verbindung aufrechterhalten wird, während du auf unserer Website navigierst.",
-      "expiration": "Make-secure-expiration: Dieses Cookie wird verwendet, um deine Inaktivität auf der Website zu erkennen und die Verbindung entsprechend zu beenden."
+      "expiration": "Make-secure-expiration: Dieses Cookie wird verwendet, um deine Inaktivität auf der Website zu erkennen und die Verbindung entsprechend zu beenden.",
+      "demographics": "Make-demographics: Dieses Cookie ermöglicht es uns zu wissen, ob auf diesem Gerät bereits demografische Informationen (Altersgruppe, Region, Geschlecht, usw.) abgefragt wurden, um dich bei einem nächsten Besuch nicht erneut zu fragen."
     },
     "preferences": {
       "authentication": "Google- und Facebook-Authentifizierungs-Cookies: Die Cookies ermöglichen, dass du dich über diese sozialen Netzwerke registrieren oder in deinem Bürgerbereich anmelden kannst.",
@@ -1130,13 +1131,15 @@
       "mandatory": "Weiterhin aktiv",
       "duration": "Dauer: {{duration}}",
       "session": "Sitzung",
+      "month": "{{count}} Monat",
       "year": "{{count}} Jahr",
       "year_plural": "{{count}} Jahre",
       "technicals": {
         "name": "Technische Cookies:",
         "description": "Diese Cookies sind für die ordnungsgemäße Funktionsweise der Website unbedingt erforderlich und können nicht deaktiviert werden. Du kannst deinen Browser so einstellen, dass er das Vorhandensein dieser Cookies blockiert oder dich darüber benachrichtigt, aber einige Teile unserer Website können davon betroffen sein. Diese Cookies dienen nicht dazu, dich persönlich zu identifizieren.",
         "secure": "Make-secure: Sobald du dich in deinem Bürgerbereich auf Make.org eingeloggt hast, stellt dieses Cookie sicher, dass die Verbindung aufrechterhalten wird, während du auf unserer Website navigierst.",
-        "secure-expiration": "Make-secure-expiration: Dieses Cookie wird verwendet, um deine Inaktivität auf der Website zu erkennen und die Verbindung entsprechend zu beenden."
+        "secure-expiration": "Make-secure-expiration: Dieses Cookie wird verwendet, um deine Inaktivität auf der Website zu erkennen und die Verbindung entsprechend zu beenden.",
+        "demographics": "Make-demographics: Dieses Cookie ermöglicht es uns zu wissen, ob auf diesem Gerät bereits demografische Informationen (Altersgruppe, Region, Geschlecht, usw.) abgefragt wurden, um dich bei einem nächsten Besuch nicht erneut zu fragen."
       },
       "preferences": {
         "name": "Präferenz-Cookies:",

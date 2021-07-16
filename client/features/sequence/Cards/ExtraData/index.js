@@ -22,6 +22,7 @@ export const ExtraDataCard = () => {
     (state: StateRoot) => state.sequence.demographics
   );
   const [type, setType] = useState(null);
+
   const [demographics, setDemographics] = useState(null);
   const persistedDemographicsWithValue =
     persistedDemographics?.type && persistedDemographics?.value;
