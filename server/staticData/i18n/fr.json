@@ -361,7 +361,7 @@
     },
     "region": {
       "title": "Quelle est votre région ?",
-      "select": "Selectionner",
+      "select": "Sélectionner",
       "FR-ARA": "Auvergne-Rhône-Alpes",
       "FR-BFC": "Bourgogne-Franche-Comté",
       "FR-BRE": "Bretagne",
