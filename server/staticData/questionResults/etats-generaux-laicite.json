@@ -16,12 +16,6 @@
           "realistic": 15
         },
         {
-          "idea": "Garantir et protéger la liberté d’expression",
-          "agreement": 82,
-          "adhesion": 14,
-          "realistic": 16
-        },
-        {
           "idea": "Transmettre les valeurs de cohésion et de respect dès le plus jeune âge",
           "agreement": 89,
           "adhesion": 16,
@@ -38,12 +32,6 @@
           "agreement": 84,
           "adhesion": 14,
           "realistic": 15
-        },
-        {
-          "idea": "Stimuler la cohésion sociale grâce à la laïcité",
-          "agreement": 76,
-          "adhesion": 14,
-          "realistic": 12
         },
         {
           "idea": "Enseigner l'histoire des relgions afin de mieux les connaitre",
@@ -73,6 +61,12 @@
           "agreement": 76,
           "adhesion": 13,
           "realistic": 15
+        },
+        {
+          "idea": "Stimuler la cohésion sociale grâce à la laïcité",
+          "agreement": 76,
+          "adhesion": 14,
+          "realistic": 12
         }
       ]
     },
